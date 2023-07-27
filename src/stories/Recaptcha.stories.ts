@@ -16,3 +16,9 @@ export const Primary: Story = {
         primary: true
     }
 };
+
+export const Error: Story = {
+    args: {
+        primary: true
+    }
+};

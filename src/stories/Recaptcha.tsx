@@ -11,7 +11,7 @@ interface FormProps {
 export const Recaptcha = ({
                               primary = true,
                           }: FormProps) => {
-    const mode = primary ? 'storybook-recaptcha--primary' : 'storybook-recaptcha--secondary';
+    const mode = primary ? 'storybook-recaptcha--primary' : 'storybook-recaptcha--error';
 
     const [isLoading, setIsLoading] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
@@ -25,6 +25,9 @@ export const Recaptcha = ({
     };
 
     return (
+        <div
+            className={mode}
+        >
         <div
             className="recaptcha"
         >
@@ -50,6 +53,8 @@ export const Recaptcha = ({
             >
                 <Image src={Privacy} width="44" height="55"/>
             </div>
+        </div>
+            <p className={`error-text`}>Please verify that you are not a robot</p>
         </div>
     )
 }
