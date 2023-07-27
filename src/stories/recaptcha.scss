@@ -1,0 +1,86 @@
+.recaptcha {
+  width: 260px;
+  height: 79px;
+  background-color: #333333;
+  border: 1px #333333;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  .agreement {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .hidden {
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
+    label {
+      font-family: "Roboto", sans-serif;
+      font-size: 12px;
+      color: #FFFFFF;
+      margin-left: 10px;
+      width: 78px;
+    }
+  }
+
+  .customCheckbox {
+    width: 20px;
+    height: 20px;
+    background-color: #FFFFFF;
+    border: 1px #B7B7B7;
+    border-radius: 2px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .privacy {
+    display: flex;
+    align-items: center;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.lds-ring {
+  display: inline-block;
+  align-items: center;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border: 3px solid #4d8df4;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #4d8df4 transparent transparent transparent;
+    &:nth-child(1) {
+      animation-delay: -1.45s;
+    }
+    &:nth-child(2) {
+      animation-delay: -1.3s;
+    }
+    &:nth-child(3) {
+      animation-delay: -1.15s;
+    }
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
