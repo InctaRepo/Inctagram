@@ -37,6 +37,9 @@
     margin-right: 10px;
     &:hover {
       cursor: pointer;
+      background-color: #eeeeee;
+      transition-delay: 0.2s;
+      -webkit-transition-delay: 0.2s;
     }
   }
   .privacy {
@@ -48,8 +51,12 @@
   }
 }
 
+.error-text {
+  display: none;
+}
+
 .storybook-recaptcha--primary {
-  padding: 5px;
+  padding: 9px 8px 13px;
 }
 .storybook-recaptcha--error {
   border: 1px solid red;
