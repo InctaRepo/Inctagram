@@ -19,6 +19,12 @@ export const Primary: Story = {
 
 export const Error: Story = {
     args: {
-        primary: true
+        primary: false
+    }
+};
+
+export const Expired: Story = {
+    args: {
+        expired: true
     }
 };
