@@ -21,7 +21,7 @@ export const Recaptcha = ({
         setTimeout(() => {
             setIsLoading(!isLoading);
             setIsChecked(true);
-        }, 1000);
+        }, 1500);
     };
 
     return (
@@ -36,13 +36,13 @@ export const Recaptcha = ({
                     onClick={onClick}
                 >
                 </div>
-                <div className={`lds-ring ${!isLoading ? 'hidden' : 'visible'}`}>
+                <div className={`lds-ring ${!isLoading || isChecked ? 'hidden' : ''}`}>
                     <div></div>
                     <div></div>
                     <div></div>
                     <div></div>
                 </div>
-                <Image src={Checked} className={`${!isChecked ? 'hidden' : ''}`}/>
+                <Image src={Checked} className={`checked ${!isChecked ? 'hidden' : ''}`}/>
                 <label>I&apos;m not a robot</label>
             </div>
             <div
