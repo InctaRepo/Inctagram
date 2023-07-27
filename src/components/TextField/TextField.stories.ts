@@ -14,6 +14,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-	args: {},
+export const Default: Story = {
+	args: {
+		label: "User name",
+	},
+};
+
+export const Error: Story = {
+	args: {
+		label: "User name",
+		errorMessage: "Error message",
+	},
+};
+
+export const Disabled: Story = {
+	args: {
+		label: "User name",
+		disabled: true,
+	},
 };
