@@ -13,6 +13,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
+    .expiredMessage {
+      display: none;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 10px;
+      width: 175px;
+      top: 4px;
+      color: red;
+    }
     .hidden {
       display: none;
     }
@@ -56,12 +66,14 @@
 }
 
 .storybook-recaptcha--primary {
-  padding: 9px 8px 13px;
+  padding: 9px 8px;
 }
+
 .storybook-recaptcha--error {
   border: 1px solid red;
   padding: 8px 7px 13px;
   width: 300px;
+
   .error-text {
     display: block;
     color: red;
@@ -70,10 +82,14 @@
     font-weight: 400;
     font-size: 10px;
   }
+
 }
 .storybook-recaptcha--expired {
-  padding: 9px 8px 13px;
-
+  padding: 9px 8px;
+  .expiredMessage {
+    display: block;
+    position: absolute;
+  }
 }
 
 .lds-ring {
