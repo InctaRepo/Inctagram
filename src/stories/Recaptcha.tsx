@@ -41,7 +41,7 @@ export const Recaptcha = ({
                     className='agreement'
                 >
                     <div
-                        className='expiredMessage'
+                        className={`expiredMessage ${!expired ? 'hidden' : ''}`}
                     >
                         Verification expired. Check the checkbox again.
                     </div>
