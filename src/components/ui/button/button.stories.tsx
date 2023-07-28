@@ -1,8 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type {Meta, StoryObj} from '@storybook/react'
 
-import { Button } from './'
+import {Button} from './'
 
-import LogoutIcon from '@/assets/icons/logout-icon.tsx'
 
 const meta = {
   title: 'Components/Button',
@@ -27,18 +26,6 @@ export const Primary: Story = {
   },
 }
 
-export const WithIcon: Story = {
-  render: args => {
-    return (
-      <>
-        <Button {...args}>
-          <LogoutIcon />
-          {'WithIcon'}
-        </Button>
-      </>
-    )
-  },
-}
 
 export const Secondary: Story = {
   args: {
