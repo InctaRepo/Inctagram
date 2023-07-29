@@ -1,5 +1,5 @@
 .recaptcha {
-  width: 260px;
+  width: 300px;
   height: 79px;
   background-color: #333333;
   border: 1px #333333;
@@ -21,7 +21,8 @@
       font-family: "Roboto", sans-serif;
       font-weight: 400;
       font-size: 10px;
-      width: 175px;
+      line-height: 12px;
+      width: 190px;
       color: red;
     }
     .hidden {
@@ -44,7 +45,7 @@
     height: 20px;
     background-color: #FFFFFF;
     border: 1px #B7B7B7;
-    border-radius: 2px;
+    border-radius: 1px;
     margin-right: 10px;
     &:hover {
       cursor: pointer;
@@ -73,7 +74,7 @@
 .storybook-recaptcha--error {
   border: 1px solid red;
   padding: 8px 7px 13px;
-  width: 300px;
+  width: 316px;
 
   .error-text {
     display: block;
