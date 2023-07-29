@@ -1,13 +1,9 @@
-import { FC } from 'react'
-
+import {FC} from 'react'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import clsx from 'clsx'
-
 import s from './checkbox.module.scss'
-import {CheckIcon} from "./assets/check-icon";
-
-
+import CheckIcon from '../../../assets/icons/check-icon';
 
 
 export type CheckboxPropsType = {

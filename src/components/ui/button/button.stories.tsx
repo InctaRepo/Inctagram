@@ -1,8 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react'
 
 import {Button} from './'
-import FlagRussiaIcon from '@/assets/icons/flag-russia-icon';
-import LogoutIcon from '../../../assets/icons/LogoutIcon';
+import FlagRussiaIcon from '../../../assets/icons/flag-russia-icon';
 
 
 const meta = {
@@ -63,7 +62,7 @@ export const WithIcon: Story = {
     return (
       <>
         <Button {...args}>
-          <LogoutIcon/>
+          <FlagRussiaIcon/>
           {'WithIcon'}
         </Button>
       </>

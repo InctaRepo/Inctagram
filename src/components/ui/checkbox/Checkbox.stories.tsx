@@ -1,16 +1,16 @@
-import { useState } from 'react'
+import {useState} from 'react'
 
-import type { StoryObj } from '@storybook/react'
+import type {StoryObj} from '@storybook/react'
+import {Checkbox} from './Checkbox';
 
-import { Checkbox } from './Checkbox'
 
 const meta = {
-  title: 'Example/Checkbox',
+  title: 'Components/Checkbox',
   component: Checkbox,
   argTypes: {
     checked: {
       options: [true, false],
-      control: { type: 'boolean' },
+      control: {type: 'boolean'},
     },
   },
 }

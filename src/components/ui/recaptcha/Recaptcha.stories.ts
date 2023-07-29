@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
+import {Recaptcha} from './Recaptcha';
 
-import { Recaptcha } from './Recaptcha';
 
 const meta: Meta<typeof Recaptcha> = {
-    title: 'Project/Recaptcha',
+    title: 'Components/Recaptcha',
     component: Recaptcha,
 };
 
