@@ -1,0 +1,111 @@
+@mixin button(
+  $color: var(--color-light-100),
+  $bgColor: var(--color-primary-500),
+  $boxShadow: 0 4px 18px 0 rgb(140 97 255 / 35%)
+) {
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 10px;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 0.375rem 1.75rem;
+
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
+  line-height: 24px;
+  color: $color;
+  text-decoration: none;
+
+  background-color: $bgColor;
+  border-radius: 4px;
+  box-shadow: $boxShadow;
+
+  transition-duration: 0.3s;
+
+  &:focus {
+    outline: 2px solid var(--color-outline-focus);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &.fullWidth {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.primary {
+  @include button;
+
+  &:active {
+    background-color: var(--color-primary-700);
+  }
+
+  &:hover {
+    background-color: var(--color-primary-300);
+  }
+}
+
+.secondary {
+  @include button(
+    $bgColor: var(--color-dark-300),
+    $boxShadow: 0 2px 10px 0 rgba(109, 109, 109, 0.25)
+  );
+
+  &:active {
+    background-color: var(--color-dark-500);
+  }
+
+  &:hover {
+    background-color: var(--color-dark-100);
+  }
+}
+
+.outlined {
+  @include button(
+          $color: var(--color-primary-500),
+          $bgColor: var(--color-dark-900),
+          $boxShadow: none
+  );
+
+  border: 1px solid var(--color-primary-500);
+
+  &:active {
+    background-color: var(--color-primary-900);
+    border: 1px solid var(--color-primary-700);
+  }
+
+  &:hover {
+    background-color: var(--color-dark-500);
+    border: 1px solid var(--color-primary-700);
+  }
+}
+
+.link {
+  @include button($color: var(--color-primary-500), $bgColor: none, $boxShadow: none);
+
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 130px;
+
+  &:active {
+    color: var(--color-primary-700);
+  }
+
+  &:hover {
+    color: var(--color-primary-300);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-outline-focus);
+  }
+}
