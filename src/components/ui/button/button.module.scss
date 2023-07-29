@@ -1,8 +1,6 @@
-//@import "src/styles/colors";
-
 @mixin button(
   $color: var(--color-light-100),
-  $bgColor: var(--color-accent-500),
+  $bgColor: var(--color-primary-500),
   $boxShadow: 0 4px 18px 0 rgb(140 97 255 / 35%)
 ) {
   all: unset;
@@ -49,11 +47,11 @@
   @include button;
 
   &:active {
-    background-color: var(--color-accent-700);
+    background-color: var(--color-primary-700);
   }
 
   &:hover {
-    background-color: var(--color-accent-300);
+    background-color: var(--color-primary-300);
   }
 }
 
@@ -74,37 +72,37 @@
 
 .outlined {
   @include button(
-    $color: var(--color-accent-500),
-    $bgColor: var(--color-dark-900),
-    $boxShadow: none
+          $color: var(--color-primary-500),
+          $bgColor: var(--color-dark-900),
+          $boxShadow: none
   );
 
-  border: 1px solid var(--color-accent-500);
+  border: 1px solid var(--color-primary-500);
 
   &:active {
-    background-color: var(--color-accent-900);
-    border: 1px solid var(--color-accent-700);
+    background-color: var(--color-primary-900);
+    border: 1px solid var(--color-primary-700);
   }
 
   &:hover {
     background-color: var(--color-dark-500);
-    border: 1px solid var(--color-accent-700);
+    border: 1px solid var(--color-primary-700);
   }
 }
 
 .link {
-  @include button($color: var(--color-accent-500), $bgColor: none, $boxShadow: none);
+  @include button($color: var(--color-primary-500), $bgColor: none, $boxShadow: none);
 
   padding: 6px 12px;
   border: 1px solid transparent;
   border-radius: 130px;
 
   &:active {
-    color: var(--color-accent-700);
+    color: var(--color-primary-700);
   }
 
   &:hover {
-    color: var(--color-accent-300);
+    color: var(--color-primary-300);
   }
 
   &:focus {

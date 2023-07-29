@@ -1,6 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react'
 
 import {Button} from './'
+import FlagRussiaIcon from '@/assets/icons/flag-russia-icon';
+import LogoutIcon from '../../../assets/icons/LogoutIcon';
 
 
 const meta = {
@@ -10,7 +12,7 @@ const meta = {
   argTypes: {
     variant: {
       options: ['primary', 'secondary', 'outlined', 'link'],
-      control: { type: 'radio' },
+      control: {type: 'radio'},
     },
   },
 } satisfies Meta<typeof Button>
@@ -53,5 +55,18 @@ export const FullWidth: Story = {
     variant: 'primary',
     children: 'full width button',
     fullWidth: true,
+  },
+}
+
+export const WithIcon: Story = {
+  render: args => {
+    return (
+      <>
+        <Button {...args}>
+          <LogoutIcon/>
+          {'WithIcon'}
+        </Button>
+      </>
+    )
   },
 }
