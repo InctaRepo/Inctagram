@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   reactStrictMode: true,
-// }
+
 module.exports = {
   sassOptions: {
     includePaths: ['./src'],
@@ -25,4 +23,3 @@ module.exports = {
     }
   }
 }
-// module.exports = nextConfig

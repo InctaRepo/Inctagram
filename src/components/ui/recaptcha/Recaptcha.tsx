@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './recaptcha.scss';
 import Image from 'next/image';
-import Privacy from '../../../assets/icons/recaptcha.svg';
-import Checked from '../../../assets/icons/recaptchaChecked.svg';
+import Privacy from '@/src/assets/icons/recaptcha.svg';
+import Checked from '@/src/assets/icons/recaptchaChecked.svg';
 
 interface FormProps {
     primary?: boolean

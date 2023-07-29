@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react'
 
 import {Button} from './'
-import FlagRussiaIcon from '../../../assets/icons/flag-russia-icon';
+import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon';
 
 
 const meta = {
@@ -10,7 +10,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'outlined', 'link'],
+      options: ['primary', 'secondary', 'outlined', 'link', 'internation'],
       control: {type: 'radio'},
     },
   },
@@ -27,6 +27,14 @@ export const Primary: Story = {
   },
 }
 
+export const DisabledPrimary: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Disabled Button',
+    disabled: true,
+  },
+}
+
 
 export const Secondary: Story = {
   args: {
@@ -35,35 +43,35 @@ export const Secondary: Story = {
     disabled: false,
   },
 }
+export const DisabledSecondary: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'Secondary Button',
+    disabled: true,
+  },
+}
 export const Outlined: Story = {
   args: {
     variant: 'outlined',
-    children: 'Tertiary Button',
+    children: 'Outlined Button',
     disabled: false,
   },
 }
-export const ButtonAsLink: Story = {
+export const ButtonAsText: Story = {
   args: {
-    variant: 'link',
-    children: 'button as link',
-    as: 'a',
-  },
-}
-export const FullWidth: Story = {
-  args: {
-    variant: 'primary',
-    children: 'full width button',
-    fullWidth: true,
+    variant: 'text',
+    children: 'button as text',
   },
 }
 
-export const WithIcon: Story = {
+
+export const Internation: Story = {
   render: args => {
     return (
       <>
-        <Button {...args}>
+        <Button {...args} variant={'internation'}>
           <FlagRussiaIcon/>
-          {'WithIcon'}
+          {'English'}
         </Button>
       </>
     )

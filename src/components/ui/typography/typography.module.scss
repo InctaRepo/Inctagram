@@ -1,0 +1,100 @@
+@import 'src/styles/mixins';
+
+//base style======================================================================
+.body1 {
+  @include typography;
+}
+
+//variants ========================================================================
+.large {
+  @include typography(
+          $fs: var(--font-size-xxl),
+          $lh: var(--line-height-l),
+          $fw: var(--font-weight-bold)
+  );
+}
+
+.h1 {
+  @include typography(
+          $fs: var(--font-size-xl),
+          $lh: var(--line-height-l),
+          $fw: var(--font-weight-bold)
+  );
+}
+
+.h2 {
+  @include typography($fs: var(--font-size-l), $fw: var(--font-weight-bold));
+}
+
+.h3 {
+  @include typography($fs: var(--font-size-m), $fw: var(--font-weight-bold));
+}
+
+.body2 {
+  @include typography($fs: var(--font-size-s));
+}
+
+.subtitle1 {
+  @include typography($fw: var(--font-weight-bold));
+}
+
+.subtitle2 {
+  @include typography($fs: var(--font-size-s), $fw: var(--font-weight-bold));
+}
+
+.caption {
+  @include typography($fs: var(--font-size-xs), $lh: var(--line-height-s));
+}
+
+.overline {
+  @include typography(
+          $fs: var(--font-size-xs),
+          $lh: var(--line-height-s),
+          $fw: var(--font-weight-bold)
+  );
+}
+
+.link1 {
+  @include typography($fs: var(--font-size-s));
+
+  text-decoration-line: underline;
+}
+
+.link2 {
+  @include typography($fs: var(--font-size-xs), $lh: var(--line-height-s));
+
+  text-decoration-line: underline;
+}
+
+.error {
+  @include typography($fs: var(--font-size-xs), $lh: var(--line-height-m));
+}
+
+//colors ================================================================================
+.primary {
+  color: var(--color-light-100);
+}
+
+.secondary {
+  color: var(--color-dark-900);
+}
+
+.inherit {
+  color: var(--color-dark-100);
+}
+
+.link {
+  color: var(--color-info-500);
+}
+
+.tertiary {
+  color: var(--color-accent-500);
+}
+
+.error {
+  color: var(--color-danger-300);
+}
+
+.form {
+  color: var(--color-light-900);
+}
