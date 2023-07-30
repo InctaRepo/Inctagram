@@ -2,7 +2,7 @@ import {FC} from 'react'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import clsx from 'clsx'
-import s from './checkbox.module.scss'
+import s from '@/src/components/ui/checkbox/checkbox.module.scss'
 import CheckIcon from '@/src/assets/icons/check-icon';
 
 
