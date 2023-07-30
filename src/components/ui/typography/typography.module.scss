@@ -1,0 +1,94 @@
+@import 'src/styles/mixins';
+
+//base style ======================================================================
+.regular14 {
+  @include typography; //lh m (24px) ; fs s (0.875rem) ; fw regular (400)
+}
+
+//variant props ===================================================================
+.large {
+  @include typography(
+          $fs: var(--font-size-xxl),
+          $lh: var(--line-height-l),
+          $fw: var(--font-weight-medium)
+  );
+}
+
+.h1 {
+  @include typography(
+          $fs: var(--font-size-xl),
+          $lh: var(--line-height-l),
+          $fw: var(--font-weight-bold)
+  );
+}
+
+.h2 {
+  @include typography($fs: var(--font-size-l), $fw: var(--font-weight-bold));
+}
+
+.h3 {
+  @include typography($fs: var(--font-size-m), $fw: var(--font-weight-medium));
+}
+
+.regular16 {
+  @include typography($fs: var(--font-size-m));
+}
+
+.bold16 {
+  @include typography($fs: var(--font-size-m), $fw: var(--font-weight-bold));
+}
+
+.bold14 {
+  @include typography($fs: var(--font-size-s), $fw: var(--font-weight-bold));
+}
+
+.medium14 {
+  @include typography($fs: var(--font-size-s), $lh: var(--line-height-s), $fw: var(--font-weight-h3-large));
+}
+
+.small {
+  @include typography(
+          $fs: var(--font-size-xs),
+          $lh: var(--line-height-s),
+  );
+}
+
+.sb_small { // semi-bold small text
+  @include typography(
+          $fs: var(--font-size-xs),
+          $lh: var(--line-height-s),
+          $fw: var(--font-weight-medium)
+  );
+}
+
+.link {
+  @include typography;
+  text-decoration-line: underline;
+}
+
+.sm_link {
+  @include typography($fs: var(--font-size-xs), $lh: var(--line-height-s));
+  text-decoration-line: underline;
+}
+
+//color props =====================================================================
+
+.primary {
+  color: var(--color-light-100);
+}
+
+.secondary {
+  color: var(--color-light-900);
+}
+
+.link {
+  color: var(--color-accent-500);
+}
+
+.error {
+  color: var(--color-danger-500);
+}
+
+
+
+

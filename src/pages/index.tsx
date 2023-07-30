@@ -1,13 +1,9 @@
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.scss";
-import { Test } from "@/components/Test";
-
-const inter = Inter({ subsets: ["latin"] });
+import {Test} from '@/src/components/Test';
 
 export default function Home() {
 	return (
-		<div className={styles.test}>
-			<Test />
+		<div>
+			<Test/>
 			Hello next App!
 		</div>
 	);
