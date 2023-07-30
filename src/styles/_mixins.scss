@@ -15,7 +15,7 @@
 }
 
 @mixin typography(
-  $fs: var(--font-size-m),
+  $fs: var(--font-size-s),
   $lh: var(--line-height-m),
   $fw: var(--font-weight-regular)
 ) {

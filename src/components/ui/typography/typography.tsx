@@ -3,27 +3,24 @@ import {ComponentPropsWithoutRef, ElementType} from 'react'
 import s from './typography.module.scss'
 
 export type TypographyProps<T extends ElementType = 'p'> = {
-	as?: T // h1 h2 h3
+	as?: T // h1 h2 h3 for semantic
 	className?: string
-	color?: 'primary' | 'secondary' | 'inherit' | 'link' | 'error' | 'tertiary' | 'form'
+	color?: 'primary' | 'secondary' | 'link' | 'error'
 	variant?:
 		| 'large'
 		| 'h1'
 		| 'h2'
 		| 'h3'
-		| 'body1'
-		| 'body2'
-		| 'subtitle1'
-		| 'subtitle2'
-		| 'caption'
-		| 'overline'
-		| 'link1'
-		| 'link2'
-		| 'error'
+		| 'regular16'
+		| 'bold16'
+		| 'regular14'
+		| 'bold14'
+		| 'medium14'
+		| 'small'
+		| 'sb_small' // semi-bold small text
+		| 'link'
+		| 'sm_link' //small link
 } & ComponentPropsWithoutRef<T>
-
-// С помощью Omit мы убираем из пропсов переданного компонента все пропсы,
-// которые уже есть в наших кастомных пропсах, тем самым избегая коллизий.
 
 export const Typography = <T extends ElementType = 'p'>(
 	props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>
