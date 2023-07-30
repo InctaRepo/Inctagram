@@ -10,15 +10,15 @@
   gap: 2px;
   align-items: center;
 
-  color: #FFFFFF;
-  font-family: Inter ;
+  color: var(--color-light-100);
+  font-family: var(--font-family-primary) ;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
 
   &.disabled{
-    color: #8D9094;
+    color: var(--color-dark-100);
   }
 }
 .buttonWrapper{
@@ -37,14 +37,14 @@
     cursor: default;
   }
   &:active:not(.disabled){
-    background-color: #4C4C4C;
+    background-color: var(--color-dark-100);
   }
   &:focus{
-    background-color: #171717;
+    background-color: var(--color-dark-500);
   }
   &:hover:not(.disabled),
   &:hover.root:not([data-state='checked'], .disabled) {
-    background-color: #4C4C4C;
+    background-color: var(--color-dark-100);
   }
 }
 
@@ -59,22 +59,22 @@
   width: 24px;
   height: 24px;
 
-  border: 2px solid #EDF3FA;
+  border: 2px solid var(--color-light-500);
   border-radius: 3px;
   background-color: transparent;
   transition: 0.2s ease-in-out;
   &.disabled{
     cursor: initial;
-    border: 2px solid #8D9094;
+    border: 2px solid var(--color-dark-100);
   }
 }
 
 .checked {
-  background-color:#FFFFFF;
-  border: 2px solid #FFFFFF;
+  background-color:var(--color-light-100);
+  border: 2px solid var(--color-light-100);
   &.disabled{
-    background-color: #4C4C4C;
-    border: 2px solid #4C4C4C;
+    background-color: var(--color-dark-100);
+    border: 2px solid var(--color-dark-100);
   }
 }
 
