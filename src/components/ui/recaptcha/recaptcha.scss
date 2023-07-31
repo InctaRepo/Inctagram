@@ -53,20 +53,6 @@ $preloader: #4d8df4; // preloader color
     }
   }
 
-  .customCheckbox {
-    width: 20px;
-    height: 20px;
-    background-color: $white;
-    border: 1px $lightGrey;
-    border-radius: 1px;
-    margin-right: 10px;
-    &:hover {
-      cursor: pointer;
-      background-color: $darkGrey;
-      transition-delay: 0.1s;
-      -webkit-transition-delay: 0.1s;
-    }
-  }
   .privacy {
     @include flex-block (
       $align-items: center

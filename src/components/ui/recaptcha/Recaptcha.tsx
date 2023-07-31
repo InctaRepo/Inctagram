@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Privacy from '@/src/assets/icons/recaptcha.svg';
 import Checked from '@/src/assets/icons/recaptchaChecked.svg';
 import {Checkbox} from "@/src/components/ui/checkbox";
-import {Typography} from "@/src/components/ui/typography/typography";
 
 interface FormProps {
     primary?: boolean
@@ -46,11 +45,12 @@ export const Recaptcha = ({
                     >
                         Verification expired. Check the checkbox again.
                     </div>
-                    <div
-                        className={`customCheckbox ${isLoading ? 'hidden' : ''}`}
-                        onClick={onClick}
-                    >
-                    </div>
+                    {/*<div*/}
+                    {/*    className={`customCheckbox ${isLoading ? 'hidden' : ''}`}*/}
+                    {/*    onClick={onClick}*/}
+                    {/*>*/}
+                    <Checkbox variant='recaptcha'/>
+                    {/*</div>*/}
                     <div
                         className={`lds-ring ${!isLoading || isChecked ? 'hidden' : ''}`}
                     >
