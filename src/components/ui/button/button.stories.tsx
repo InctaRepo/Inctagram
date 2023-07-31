@@ -14,7 +14,7 @@ const meta = {
       control: {type: 'radio'},
     },
   },
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 type Story = StoryObj<typeof Button>
