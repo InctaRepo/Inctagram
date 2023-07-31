@@ -1,3 +1,4 @@
+import React from "react";
 import { UIInput } from "./UIInput/UIInput";
 
 type TextFieldPropsType = {
@@ -7,19 +8,17 @@ type TextFieldPropsType = {
 	disabled?: boolean;
 	width?: number;
 	placeHolder?: string;
+	value?: string;
+	onChange?: (value: string) => void;
 };
 
-export const TextField: React.FC<TextFieldPropsType> = (props) => {
-	const { type, disabled, errorMessage, label, width, placeHolder } = props;
+export const TextField: React.FC<TextFieldPropsType> = ({
+	width,
+	...restProps
+}) => {
 	return (
 		<div style={{ width: width ? width : "279px" }}>
-			<UIInput
-				type={type}
-				disabled={disabled}
-				errorMessage={errorMessage}
-				label={label}
-				placeHolder={placeHolder}
-			/>
+			<UIInput {...restProps} />
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import s from "./UIInput.module.scss";
 import EyeIcon from "../../../../assets/icons/eye-icon";
 import EyeOffIcon from "../../../../assets/icons/eye-off-icon";
@@ -10,16 +10,21 @@ type UIInputPropsType = {
 	errorMessage?: string;
 	disabled?: boolean;
 	placeHolder?: string;
+	value?: string;
+	onChange?: (value: string) => void;
 };
 
 export const UIInput: React.FC<UIInputPropsType> = (props) => {
-	const { type, disabled, errorMessage, label, placeHolder } = props;
-	const [showPass, setShowPass] = React.useState<"text" | "password">(
-		"password"
-	);
+	const { type, disabled, errorMessage, label, placeHolder, onChange, value } =
+		props;
+	const [showPass, setShowPass] = useState<"text" | "password">("password");
 
 	const openClosePssHandler = () =>
 		showPass === "password" ? setShowPass("text") : setShowPass("password");
+
+	const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+		onChange && onChange(e.currentTarget.value);
+	};
 
 	const _type =
 		type === "text"
@@ -35,6 +40,8 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 			<div className={`${s.label} ${disabled && s.disabledLabel}`}>{label}</div>
 			<input
 				type={_type}
+				value={value}
+				onChange={onchangeHandler}
 				placeholder={placeHolder && placeHolder}
 				disabled={disabled}
 				className={`${s.textField} ${errorMessage && s.errorInput} ${
