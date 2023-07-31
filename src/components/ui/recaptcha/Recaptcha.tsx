@@ -3,6 +3,8 @@ import './recaptcha.scss';
 import Image from 'next/image';
 import Privacy from '@/src/assets/icons/recaptcha.svg';
 import Checked from '@/src/assets/icons/recaptchaChecked.svg';
+import {Checkbox} from "@/src/components/ui/checkbox";
+import {Typography} from "@/src/components/ui/typography/typography";
 
 interface FormProps {
     primary?: boolean
@@ -28,8 +30,6 @@ export const Recaptcha = ({
         }, 2000);
     };
 
-    console.log(mode)
-
     return (
         <div
             className={mode}
@@ -40,6 +40,7 @@ export const Recaptcha = ({
                 <div
                     className='agreement'
                 >
+                    {/*<Typography>Verification expired. Check the checkbox again.</Typography>*/}
                     <div
                         className={`expiredMessage ${!expired ? 'hidden' : ''}`}
                     >
@@ -83,4 +84,4 @@ export const Recaptcha = ({
             </p>
         </div>
     )
-}
+};

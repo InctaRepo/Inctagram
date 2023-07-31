@@ -1,29 +1,37 @@
+@import 'src/styles/mixins';
+
+$bcgCMain: #333333;
+$error: #FF0000;
+
 .recaptcha {
+  @include flex-block (
+    $flex-direction: row,
+    $justify-content: space-between,
+  );
   width: 300px;
   height: 79px;
-  background-color: #333333;
+  background-color: $bcgCMain;
   border: 1px #333333;
   border-radius: 2px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding: 0 20px;
 
   .agreement {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flex-block (
+      $flex-direction: row,
+      $align-items: center
+    );
     position: relative;
 
     .expiredMessage {
       position: absolute;
-      top: 4px;
       font-family: "Roboto", sans-serif;
       font-weight: 400;
+      left: 0;
+      top: -22px;
       font-size: 10px;
       line-height: 12px;
       width: 190px;
-      color: red;
+      color: $error;
     }
     .hidden {
       display: none;
@@ -72,20 +80,20 @@
 }
 
 .storybook-recaptcha--error {
-  border: 1px solid red;
+  border: 1px solid $error;
   padding: 8px 7px 13px;
   width: 316px;
 
   .error-text {
     display: block;
-    color: red;
+    color: $error;
     margin: 13px 0 0;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 10px;
   }
-
 }
+
 .storybook-recaptcha--expired {
   padding: 9px 8px;
 }
