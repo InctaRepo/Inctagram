@@ -1,29 +1,42 @@
+@import 'src/styles/mixins';
+
+$bcgCMain: #333333; // background-color component
+$error: #FF0000; // color for error designation
+$greyBorder: #333333; // border color
+$white: #FFFFFF; // text and checkbox bcg color
+$darkGrey: #9D9D9D; // checkbox :hover bcg color
+$lightGrey: #B7B7B7; // checkbox border color
+$preloader: #4d8df4; // preloader color
+
 .recaptcha {
+  @include flex-block (
+    $flex-direction: row,
+    $justify-content: space-between,
+  );
   width: 300px;
   height: 79px;
-  background-color: #333333;
-  border: 1px #333333;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding: 0 20px;
+  background-color: $bcgCMain;
+  border: 1px $greyBorder;
+  border-radius: 2px;
 
   .agreement {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flex-block (
+      $flex-direction: row,
+      $align-items: center
+    );
     position: relative;
 
     .expiredMessage {
       position: absolute;
-      top: 4px;
       font-family: "Roboto", sans-serif;
       font-weight: 400;
+      left: -4px;
+      top: -24px;
       font-size: 10px;
       line-height: 12px;
       width: 190px;
-      color: red;
+      color: $error;
     }
     .hidden {
       display: none;
@@ -31,7 +44,7 @@
     label {
       font-family: "Roboto", sans-serif;
       font-size: 12px;
-      color: #FFFFFF;
+      color: $white;
       width: 78px;
     }
     .checked {
@@ -43,28 +56,25 @@
   .customCheckbox {
     width: 20px;
     height: 20px;
-    background-color: #FFFFFF;
-    border: 1px #B7B7B7;
+    background-color: $white;
+    border: 1px $lightGrey;
     border-radius: 1px;
     margin-right: 10px;
     &:hover {
       cursor: pointer;
-      background-color: #9D9D9D;
+      background-color: $darkGrey;
       transition-delay: 0.1s;
       -webkit-transition-delay: 0.1s;
     }
   }
   .privacy {
-    display: flex;
-    align-items: center;
+    @include flex-block (
+      $align-items: center
+    );
     &:hover{
       cursor: pointer;
     }
   }
-}
-
-.error-text {
-  display: none;
 }
 
 .storybook-recaptcha--primary {
@@ -72,24 +82,29 @@
 }
 
 .storybook-recaptcha--error {
-  border: 1px solid red;
+  border: 1px solid $error;
   padding: 8px 7px 13px;
   width: 316px;
 
   .error-text {
     display: block;
-    color: red;
-    margin: 13px 0 0;
+    color: $error;
+    margin: 9px 0 0;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 10px;
   }
-
 }
+
 .storybook-recaptcha--expired {
   padding: 9px 8px;
 }
 
+.error-text {
+  display: none;
+}
+
+// preloader
 .lds-ring {
   display: inline-block;
   align-items: center;
@@ -104,10 +119,10 @@
     width: 20px;
     height: 20px;
     margin: 0;
-    border: 3px solid #4d8df4;
+    border: 3px solid $preloader;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #4d8df4 transparent transparent transparent;
+    border-color: $preloader transparent transparent transparent;
     &:nth-child(1) {
       animation-delay: -1.45s;
     }
