@@ -1,0 +1,98 @@
+.selectbox {
+    width: 210px;
+    height: 60px;
+    top: 24px;
+    left: 20px;
+    background-color: black;
+  }
+  
+  .label {
+    width: 75px;
+    height: 24px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #8d9094;
+  }
+  
+  h1 {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #ffffff;
+    margin-left: 12px;
+  }
+  
+  .storybook-select--default {
+    display: flex;
+    flex-direction: row;
+    width: 210px;
+    height: 36px;
+    top: 60px;
+    border: 1px solid #4c4c4c;
+    background-color: #171717;
+    color: #fff;
+    
+  }
+  
+  .storybook-select--active {
+    display: flex;
+    flex-direction: row;
+    width: 210px;
+    height: 36px;
+    background: linear-gradient(0deg, #171717, #171717),
+      linear-gradient(0deg, #ffffff, #ffffff);
+    border: 1px solid #ffffff;
+    color: #fff;
+    background-color: #171717;
+  }
+  
+  .optionline {
+    width: 210px;
+    height: 34px;
+    top: 42px;
+    left: 12px;
+    background-color: linear-gradient(0deg, #171717, #171717),
+      linear-gradient(0deg, #ffffff, #ffffff);
+    color: #fff;
+    &:hover {
+        color: #397df6;
+        background-color: #333333;
+        cursor: pointer;
+      }
+      
+  }
+  
+  
+  .storybook-select--hover {
+    width: 210px;
+    height: 36px;
+    top: 60px;
+    border: 1px solid #4c4c4c;
+    color: #4c4c4c;
+    background-color: #171717;
+  }
+  
+  .storybook-select--focus {
+    width: 210px;
+    height: 36px;
+    top: 60px;
+    border: 2px solid #397df6;
+    color: #8d9094;
+    background-color: #171717;
+  }
+  
+  .storybook-select--disabled {
+    width: 210px;
+    height: 36px;
+    top: 60px;
+    border: 2px solid #8d9094;
+    color: #8d9094;
+    background-color: #171717;
+  }
