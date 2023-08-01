@@ -3,7 +3,6 @@ import './recaptcha.scss';
 import Image from 'next/image';
 import Privacy from '@/src/assets/icons/recaptcha.svg';
 import Checked from '@/src/assets/icons/recaptchaChecked.svg';
-import {Checkbox} from "@/src/components/ui/checkbox";
 
 interface FormProps {
     primary?: boolean
@@ -39,18 +38,16 @@ export const Recaptcha = ({
                 <div
                     className='agreement'
                 >
-                    {/*<Typography>Verification expired. Check the checkbox again.</Typography>*/}
                     <div
                         className={`expiredMessage ${!expired ? 'hidden' : ''}`}
                     >
                         Verification expired. Check the checkbox again.
                     </div>
-                    {/*<div*/}
-                    {/*    className={`customCheckbox ${isLoading ? 'hidden' : ''}`}*/}
-                    {/*    onClick={onClick}*/}
-                    {/*>*/}
-                    <Checkbox variant='recaptcha'/>
-                    {/*</div>*/}
+                    <div
+                        className={`customCheckbox ${isLoading ? 'hidden' : ''}`}
+                        onClick={onClick}
+                    >
+                    </div>
                     <div
                         className={`lds-ring ${!isLoading || isChecked ? 'hidden' : ''}`}
                     >
@@ -71,8 +68,8 @@ export const Recaptcha = ({
                 >
                     <Image
                         src={Privacy}
-                        width='44'
-                        height='55'
+                        width='46'
+                        height='57'
                         alt='privacy'
                     />
                 </div>

@@ -1,12 +1,13 @@
 @import 'src/styles/mixins';
 
-$bcgCMain: #333333; // background-color component
+$bcgCMain: #171717; // background-color component
 $error: #FF0000; // color for error designation
 $greyBorder: #333333; // border color
 $white: #FFFFFF; // text and checkbox bcg color
 $darkGrey: #9D9D9D; // checkbox :hover bcg color
 $lightGrey: #B7B7B7; // checkbox border color
 $preloader: #4d8df4; // preloader color
+$marginRight: 13px; // distance between changeable block and label "im not a robot" * very import crutch
 
 .recaptcha {
   @include flex-block (
@@ -14,48 +15,62 @@ $preloader: #4d8df4; // preloader color
     $justify-content: space-between,
   );
   width: 300px;
-  height: 79px;
-  padding: 0 20px;
+  height: 77px;
+  padding: 0 19px;
   background-color: $bcgCMain;
-  border: 1px $greyBorder;
-  border-radius: 2px;
+  outline: 1px solid $greyBorder;
+  border-radius: 1px;
 
   .agreement {
     @include flex-block (
       $flex-direction: row,
-      $align-items: center
+      $align-items: center,
     );
     position: relative;
 
     .expiredMessage {
-      position: absolute;
       font-family: "Roboto", sans-serif;
-      font-weight: 400;
+      @include typography (
+        $fs: 10px,
+        $lh: 12px,
+        $fw: 400,
+      );
+      color: $error;
+      position: absolute;
       left: -4px;
       top: -24px;
-      font-size: 10px;
-      line-height: 12px;
       width: 190px;
-      color: $error;
+    }
+    .customCheckbox {
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      border: 1px solid $lightGrey;
+      border-radius: 1px;
+      margin-right: $marginRight;
+      &:hover {
+        cursor: pointer;
+        background-color: $darkGrey;
+        transition-delay: 0.1s;
+        -webkit-transition-delay: 0.1s;
+      }
     }
     .hidden {
       display: none;
     }
     label {
-      font-family: "Roboto", sans-serif;
       font-size: 12px;
       color: $white;
       width: 78px;
     }
     .checked {
-      margin-right: 10px;
-      width: 20px;
+      margin: 0 9px 0 -1px;
     }
   }
 
   .privacy {
     @include flex-block (
-      $align-items: center
+      $align-items: center,
     );
     &:hover{
       cursor: pointer;
@@ -69,7 +84,7 @@ $preloader: #4d8df4; // preloader color
 
 .storybook-recaptcha--error {
   border: 1px solid $error;
-  padding: 8px 7px 13px;
+  padding: 6px;
   width: 316px;
 
   .error-text {
@@ -97,7 +112,7 @@ $preloader: #4d8df4; // preloader color
   position: relative;
   width: 20px;
   height: 20px;
-  margin-right: 10px;
+  margin-right: $marginRight;
   div {
     box-sizing: border-box;
     display: block;
