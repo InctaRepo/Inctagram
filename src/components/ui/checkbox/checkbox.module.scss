@@ -50,7 +50,6 @@ $lightGrey: #B7B7B7;
     background-color: var(--color-dark-100);
   }
 }
-.recaptcha,
 .checkbox {
   cursor: pointer;
 
@@ -72,21 +71,6 @@ $lightGrey: #B7B7B7;
   }
 }
 
-.recaptcha{
-  width: 20px;
-  height: 20px;
-  background-color: var(--color-light-100);
-  border: 1px $lightGrey;
-  border-radius: 1px;
-  margin-right: 10px;
-  display: inline;
-  &:hover {
-    cursor: pointer;
-    background-color: $darkGrey;
-    transition-delay: 0.1s;
-    -webkit-transition-delay: 0.1s;
-  }
-}
 .checked {
   background-color:var(--color-light-100);
   border: 2px solid var(--color-light-100);
