@@ -11,7 +11,6 @@ export type CheckboxPropsType = {
   onChange?: (checked: boolean) => void
   disabled?: boolean
   label?: string
-    variant?: 'recaptcha'
 }
 
 export const Checkbox: FC<CheckboxPropsType> = ({
@@ -19,12 +18,11 @@ export const Checkbox: FC<CheckboxPropsType> = ({
                                                   onChange,
                                                   disabled,
                                                   label,
-                                                    variant,
                                                 }) => {
   const classNames = {
       container: s.container,
-      buttonWrapper: clsx(variant !== 'recaptcha' && s.buttonWrapper, disabled && s.disabled, variant === 'recaptcha' && s.recaptcha),
-      checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled, variant === 'recaptcha' && s.recaptcha),
+      buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
+      checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
       indicator: clsx(s.indicator, disabled && s.disabled),
       label: clsx(s.label, disabled && s.disabled),
   }
