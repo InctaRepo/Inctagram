@@ -15,10 +15,10 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
     $justify-content: space-between,
   );
   width: 300px;
-  height: 77px;
-  padding: 0 19px;
+  height: 79px;
+  padding: 0 18px 0 19px;
   background-color: $bcgCMain;
-  outline: 1px solid $greyBorder;
+  border: 1px solid $greyBorder;
   border-radius: 1px;
 
   .agreement {
@@ -37,7 +37,7 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
       );
       color: $error;
       position: absolute;
-      left: -4px;
+      left: -3px;
       top: -24px;
       width: 190px;
     }
@@ -64,7 +64,7 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
       width: 78px;
     }
     .checked {
-      margin: 0 9px 0 -1px;
+      margin: 0 10px 0 -2px;
     }
   }
 
@@ -79,18 +79,18 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
 }
 
 .storybook-recaptcha--primary {
-  padding: 9px 8px;
+  padding: 8px 7px;
 }
 
 .storybook-recaptcha--error {
   border: 1px solid $error;
-  padding: 6px;
-  width: 316px;
+  padding: 7px 6px 5px;
+  width: 314px;
 
   .error-text {
     display: block;
     color: $error;
-    margin: 9px 0 0;
+    margin: 7px 0 0;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 10px;
@@ -98,7 +98,7 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
 }
 
 .storybook-recaptcha--expired {
-  padding: 9px 8px;
+  padding: 8px 7px;
 }
 
 .error-text {
