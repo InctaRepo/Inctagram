@@ -1,98 +1,102 @@
+@import 'src/styles/mixins';
+
+@mixin wh($w, $h) {
+	width: $w;
+	height: $h;
+}
+
 .selectbox {
-    width: 210px;
-    height: 60px;
+  @include wh(210px, 60px);
     top: 24px;
     left: 20px;
-    background-color: black;
+    background-color: var(--color-dark-900);
   }
   
   .label {
-    width: 75px;
-    height: 24px;
-    font-family: Inter;
+    @include wh(75px, 24px);
+    /*font-family: Inter;
     font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
+    font-weight: 400;*/
+    font: 400 14px Inter;
+    line-height: var(--line-height-m);
     letter-spacing: 0em;
     text-align: left;
-    color: #8d9094;
+    color: var(--color-light-900);
   }
   
   h1 {
-    font-family: Inter;
+    /*font-family: Inter;
     font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+    font-weight: 400;*/
+    font: 400 16px Inter;
+    line-height: var(--line-height-m);
     letter-spacing: 0em;
     text-align: left;
-    color: #ffffff;
+    color: var(--color-light-100);
     margin-left: 12px;
   }
   
   .storybook-select--default {
-    display: flex;
-    flex-direction: row;
-    width: 210px;
-    height: 36px;
+    @include wh(210px, 36px);
+    @include flex-block (
+      $flex-direction: row,
+     // $justify-content: space-between,
+    );
     top: 60px;
-    border: 1px solid #4c4c4c;
-    background-color: #171717;
-    color: #fff;
+    border: 1px solid var(--color-dark-100);
+    background-color:  var(--color-dark-900);
+    color: var(--color-light-100);
     
   }
   
   .storybook-select--active {
-    display: flex;
-    flex-direction: row;
-    width: 210px;
-    height: 36px;
-    background: linear-gradient(0deg, #171717, #171717),
-      linear-gradient(0deg, #ffffff, #ffffff);
-    border: 1px solid #ffffff;
-    color: #fff;
-    background-color: #171717;
+    @include wh(210px, 36px);
+    @include flex-block (
+      $flex-direction: row,
+     // $justify-content: space-between,
+    );
+    background: linear-gradient(0deg,  var(--color-dark-900),  var(--color-dark-900)),
+      linear-gradient(0deg, var(--color-light-100), var(--color-light-100));
+    border: 1px solid var(--color-light-100);
+    color: var(--color-light-100);
+    background-color:  var(--color-dark-900);
   }
   
   .optionline {
-    width: 210px;
-    height: 34px;
+    @include wh(210px, 34px);
     top: 42px;
     left: 12px;
-    background-color: linear-gradient(0deg, #171717, #171717),
-      linear-gradient(0deg, #ffffff, #ffffff);
-    color: #fff;
+    background-color: linear-gradient(0deg,  var(--color-dark-900), var(--color-dark-900)),
+      linear-gradient(0deg, var(--color-light-100), var(--color-light-100));
+    color: var(--color-light-100);
     &:hover {
-        color: #397df6;
-        background-color: #333333;
+        color: var(--color-accent-500);
+        background-color: var(--color-dark-300);
         cursor: pointer;
       }
       
   }
   
-  
   .storybook-select--hover {
-    width: 210px;
-    height: 36px;
+    @include wh(210px, 36px);
     top: 60px;
-    border: 1px solid #4c4c4c;
-    color: #4c4c4c;
-    background-color: #171717;
+    border: 1px solid var(--color-dark-100);
+    color: var(--color-dark-100);
+    background-color: var(--color-dark-900);
   }
   
   .storybook-select--focus {
-    width: 210px;
-    height: 36px;
+    @include wh(210px, 36px);
     top: 60px;
-    border: 2px solid #397df6;
+    border: 2px solid var(--color-accent-500);
     color: #8d9094;
-    background-color: #171717;
+    background-color: var(--color-dark-900);
   }
   
   .storybook-select--disabled {
-    width: 210px;
-    height: 36px;
+    @include wh(210px, 36px);
     top: 60px;
     border: 2px solid #8d9094;
     color: #8d9094;
-    background-color: #171717;
+    background-color:  var(--color-dark-900);
   }
