@@ -1,8 +1,8 @@
-import React from "react";
-import { UIInput } from "./UIInput/UIInput";
+import React, {ComponentProps} from 'react';
+import {UIInput} from './UIInput/UIInput';
 
-type TextFieldPropsType = {
-	type: "text" | "password" | "search";
+export type TextFieldPropsType = {
+	type?: 'text' | 'password' | 'search';
 	label?: string;
 	errorMessage?: string;
 	disabled?: boolean;
@@ -10,7 +10,8 @@ type TextFieldPropsType = {
 	placeHolder?: string;
 	value?: string;
 	onChange?: (value: string) => void;
-};
+	className?: string
+} & ComponentProps<'input'>
 
 export const TextField: React.FC<TextFieldPropsType> = ({
 	width,
