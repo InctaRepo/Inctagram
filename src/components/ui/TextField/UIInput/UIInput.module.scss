@@ -1,0 +1,87 @@
+@import "styles/index.scss";
+
+@mixin wh($w, $h) {
+	width: $w;
+	height: $h;
+}
+
+.textFieldWrap {
+	@include wh(100%, 84px);
+	position: relative;
+
+	.textField {
+		@include wh(100%, 36px);
+		padding-left: 15px;
+		background-color: transparent;
+		border: 1px solid var(--color-dark-100);
+		border-radius: 2px;
+
+		&:focus {
+			&::placeholder {
+				color: var(--color-light-900);
+			}
+
+			border: none;
+			outline: 1px solid var(--color-accent-500);
+		}
+
+		&[type="search"] {
+			padding-left: 30px;
+
+			&::-webkit-search-cancel-button {
+				appearance: none;
+			}
+		}
+	}
+
+	.label {
+		font-size: 14px;
+		color: var(--color-light-900);
+	}
+	.disabledLabel {
+		color: var(--color-dark-100);
+	}
+
+	.error {
+		color: var(--color-danger-500);
+	}
+
+	.errorInput {
+		outline-color: var(--color-danger-500);
+		border-color: var(--color-danger-500);
+	}
+
+	.disabledInput {
+		border-color: var(--color-dark-100);
+		color: var(--color-dark-100);
+	}
+
+	.iconOpenEye {
+		position: absolute;
+		right: 12px;
+		top: 32px;
+		cursor: pointer;
+	}
+
+	.iconCloseEye {
+		position: absolute;
+		right: 12px;
+		top: 32px;
+		cursor: pointer;
+	}
+
+	.disabledIconEye {
+		fill: var(--color-dark-100);
+	}
+
+	.searchIcon {
+		fill: var(--color-dark-100);
+		position: absolute;
+		left: 6px;
+		top: 7px;
+	}
+
+	[type="search"]:focus + .searchIcon {
+		fill: var(--color-light-900);
+	}
+}
