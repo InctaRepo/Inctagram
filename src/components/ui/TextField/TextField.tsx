@@ -1,15 +1,16 @@
-import React from "react";
+import React, { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { UIInput } from "./UIInput/UIInput";
 
-type TextFieldPropsType = {
-	type: "text" | "password" | "search";
+type DefaultInputPropsType = DetailedHTMLProps<
+	InputHTMLAttributes<HTMLInputElement>,
+	HTMLInputElement
+>;
+
+type TextFieldPropsType = Omit<DefaultInputPropsType, ""> & {
 	label?: string;
 	errorMessage?: string;
-	disabled?: boolean;
-	width?: number;
-	placeHolder?: string;
-	value?: string;
-	onChange?: (value: string) => void;
+	width?: string;
+	onChangeText?: (value: string) => void;
 };
 
 export const TextField: React.FC<TextFieldPropsType> = ({
@@ -17,7 +18,7 @@ export const TextField: React.FC<TextFieldPropsType> = ({
 	...restProps
 }) => {
 	return (
-		<div style={{ width: width ? width : "279px" }}>
+		<div style={{ width: width ? width : "100%" }}>
 			<UIInput {...restProps} />
 		</div>
 	);
