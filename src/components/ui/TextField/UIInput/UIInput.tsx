@@ -1,11 +1,11 @@
-import React, { ChangeEvent, useState } from "react";
-import s from "./UIInput.module.scss";
-import EyeIcon from "../../../../assets/icons/eye-icon";
-import EyeOffIcon from "../../../../assets/icons/eye-off-icon";
-import SearchIcon from "../../../../assets/icons/search-icon";
+import React, {ChangeEvent, useState} from 'react';
+import s from './UIInput.module.scss';
+import EyeIcon from '@/src/assets/icons/eye-icon';
+import EyeOffIcon from '@/src/assets/icons/eye-off-icon';
+import SearchIcon from '@/src/assets/icons/search-icon';
 
 type UIInputPropsType = {
-	type: "text" | "password" | "search";
+	type: 'text' | 'password' | 'search';
 	label?: string;
 	errorMessage?: string;
 	disabled?: boolean;
