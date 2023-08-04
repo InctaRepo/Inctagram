@@ -5,7 +5,7 @@ import EyeOffIcon from '@/src/assets/icons/eye-off-icon';
 import SearchIcon from '@/src/assets/icons/search-icon';
 
 type UIInputPropsType = {
-	type: 'text' | 'password' | 'search';
+	type?: 'text' | 'password' | 'search';
 	label?: string;
 	errorMessage?: string;
 	disabled?: boolean;
