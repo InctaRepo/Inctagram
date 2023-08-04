@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './selectbox.css';
+import './selectbox.scss';
 import * as Select from '@radix-ui/react-select';
 
 interface SelectProps {
