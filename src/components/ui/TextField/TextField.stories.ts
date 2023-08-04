@@ -63,14 +63,14 @@ export const PasswordDisabled: Story = {
 export const Search: Story = {
 	args: {
 		type: "search",
-		placeHolder: "Search...",
+		placeholder: "Search...",
 	},
 };
 
 export const SearchError: Story = {
 	args: {
 		type: "search",
-		placeHolder: "Search...",
+		placeholder: "Search...",
 		errorMessage: "Text error",
 	},
 };
@@ -78,7 +78,7 @@ export const SearchError: Story = {
 export const SearchDisabled: Story = {
 	args: {
 		type: "search",
-		placeHolder: "Search...",
+		placeholder: "Search...",
 		disabled: true,
 	},
 };
