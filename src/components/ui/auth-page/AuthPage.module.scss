@@ -18,6 +18,7 @@
       margin-bottom: 19px;
     }
     .text{
+      max-width: 294px;
       color: var(--color-light-100);
       font-family: var(--font-family-primary);
       font-size: var(--font-size-s);
@@ -26,7 +27,7 @@
       margin-bottom: 54px;
     }
     .button{
-      width: 182px;
+      min-width: 182px;
       display: flex;
       justify-content: center;
       font-size: var(--font-size-s);
