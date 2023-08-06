@@ -5,7 +5,7 @@ import bell from "/public/assets/bell.png"
 
 import Image from 'next/image'
 
-import s from './style.module.scss';
+import s from './style.module.css';
 
 interface Option {
   value: string | number;
