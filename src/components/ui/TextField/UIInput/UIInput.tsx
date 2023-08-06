@@ -1,10 +1,4 @@
-import React, {
-	ChangeEvent,
-	useState,
-	DetailedHTMLProps,
-	InputHTMLAttributes,
-	ComponentProps,
-} from "react";
+import React, { ChangeEvent, useState, ComponentProps } from "react";
 import s from "./UIInput.module.scss";
 import EyeIcon from "@/src/assets/icons/eye-icon";
 import EyeOffIcon from "@/src/assets/icons/eye-off-icon";
