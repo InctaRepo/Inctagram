@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 72px;
+    max-width: 294px;
     .title{
       color: var(--color-light-100);
       font-family: var(--font-family-primary);
@@ -18,19 +19,16 @@
       margin-bottom: 19px;
     }
     .text{
-      max-width: 294px;
       color: var(--color-light-100);
       font-family: var(--font-family-primary);
       font-size: var(--font-size-s);
       font-weight: var(--font-weight-regular);
       line-height: var(--line-height-m);
-      margin-bottom: 54px;
+      margin-bottom: 30px;
     }
     .button{
-      min-width: 182px;
       display: flex;
       justify-content: center;
-      font-size: var(--font-size-s);
     }
   }
 }
