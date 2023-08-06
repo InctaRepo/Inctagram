@@ -1,0 +1,9 @@
+@import "styles/index.scss";
+
+.divWrap {
+	width: 378px;
+	height: 504px;
+	background-color: var(--color-dark-500);
+	border: 1px solid var(--color-dark-300);
+	@include flex-block();
+}

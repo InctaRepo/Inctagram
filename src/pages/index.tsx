@@ -1,9 +1,9 @@
-import {Test} from '@/src/components/Test';
+import { Test } from "@/src/components/Test";
 
 export default function Home() {
 	return (
 		<div>
-			<Test/>
+			<Test />
 			Hello next App!
 		</div>
 	);
