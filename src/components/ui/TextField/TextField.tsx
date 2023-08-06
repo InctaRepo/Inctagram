@@ -1,12 +1,12 @@
-import React, { DetailedHTMLProps, InputHTMLAttributes } from "react";
-import { UIInput } from "./UIInput/UIInput";
+import React, {DetailedHTMLProps, InputHTMLAttributes} from 'react';
+import {UIInput} from './UIInput/UIInput';
 
 type DefaultInputPropsType = DetailedHTMLProps<
 	InputHTMLAttributes<HTMLInputElement>,
 	HTMLInputElement
 >;
 
-type TextFieldPropsType = Omit<DefaultInputPropsType, ""> & {
+export type TextFieldPropsType = Omit<DefaultInputPropsType, ''> & {
 	label?: string;
 	errorMessage?: string;
 	width?: string;
