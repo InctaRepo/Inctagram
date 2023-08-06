@@ -1,0 +1,30 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1002px;
+
+}
+
+.card {
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    top: 55px;
+    left: 157px;
+    background-color: #171717;
+    position: relative;
+    top: 100px;
+    /* margin-right: auto;
+    margin-left: auto; */
+
+}
+
+@media screen and (max-width: 1031px) {
+    .main {
+      width: 800px;
+    }
+  } 
+
+
+  
