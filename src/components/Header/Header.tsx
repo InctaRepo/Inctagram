@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import bell from "/public/assets/bell.png"
+import bell from "@/src/assets/icons/bell.png"
 
 import Image from 'next/image'
 
