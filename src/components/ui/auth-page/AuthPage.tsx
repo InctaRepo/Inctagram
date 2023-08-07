@@ -1,15 +1,15 @@
 import React, {FC} from 'react';
 import s from '@/src/components/ui/auth-page/AuthPage.module.scss';
 import {Button} from '@/src/components/ui/button';
-import {Typography} from "@/src/components/ui/typography/typography";
-import clsx from "clsx";
+import {Typography} from '@/src/components/ui/typography/typography';
+import clsx from 'clsx';
 
 type AuthPageType={
   title: string
   text: string
   nameButton: string
   children?: React.ReactNode
-  nameButtonTwo:string
+  nameButtonTwo?: string
   variant?: 'merger'
 }
 export const AuthPage: FC<AuthPageType> = ({title,variant,nameButtonTwo, children, text, nameButton}) => {
