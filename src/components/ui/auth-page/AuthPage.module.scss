@@ -14,10 +14,16 @@
     }
     .text{
       margin-bottom: 30px;
+      text-align: center;
     }
+    .buttonMerger,
     .button{
       display: flex;
       justify-content: center;
+    }
+    .buttonMerger{
+        width: 182px;
+        margin-top: 24px;
     }
   }
 }
