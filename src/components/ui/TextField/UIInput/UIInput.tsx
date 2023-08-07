@@ -1,14 +1,9 @@
-import React, {
-	ChangeEvent,
-	useState,
-	DetailedHTMLProps,
-	InputHTMLAttributes,
-	ComponentProps,
-} from "react";
-import s from "./UIInput.module.scss";
-import EyeIcon from "@/src/assets/icons/eye-icon";
-import EyeOffIcon from "@/src/assets/icons/eye-off-icon";
-import SearchIcon from "@/src/assets/icons/search-icon";
+import React, {ChangeEvent, ComponentProps, useState,} from 'react';
+import s from './UIInput.module.scss';
+import EyeIcon from '@/src/assets/icons/eye-icon';
+import EyeOffIcon from '@/src/assets/icons/eye-off-icon';
+import SearchIcon from '@/src/assets/icons/search-icon';
+import {Typography} from '@/src/components/ui/typography';
 
 type UIInputPropsType = {
 	label?: string;
@@ -26,23 +21,25 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 		onChangeText,
 		value,
 	} = props;
-	const [showPass, setShowPass] = useState<"text" | "password">("password");
+	const [showPass, setShowPass] = useState<'text' | 'password'>('password');
 
 	const openClosePssHandler = () =>
-		showPass === "password" ? setShowPass("text") : setShowPass("password");
+		showPass === 'password' ? setShowPass('text') : setShowPass('password');
 
 	const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		onChangeText && onChangeText(e.currentTarget.value);
 	};
 
+	const showErrorMess = errorMessage && errorMessage.length > 0
+
 	const _type =
-		type === "text"
-			? "text"
-			: type === "password"
-			? showPass
-			: type === "search"
-			? "search"
-			: "text";
+		type === 'text'
+			? 'text'
+			: type === 'password'
+				? showPass
+				: type === 'search'
+					? 'search'
+					: 'text';
 
 	return (
 		<div className={s.textFieldWrap}>
@@ -70,8 +67,12 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 					/>
 				))}
 
-			{type === "search" && <SearchIcon className={s.searchIcon} />}
-			{errorMessage && <div className={s.error}>{errorMessage}</div>}
+			{type === 'search' && <SearchIcon className={s.searchIcon}/>}
+			{showErrorMess &&
+          <Typography variant={'regular14'} color={'error'}>
+						{errorMessage}
+          </Typography>
+			}
 		</div>
 	);
 };

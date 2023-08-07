@@ -15,9 +15,9 @@
 }
 
 @mixin typography(
-  $fs: var(--font-size-s),
-  $lh: var(--line-height-m),
-  $fw: var(--font-weight-regular)
+  $fs: $font-size-s,
+  $lh: $line-height-m,
+  $fw: $font-weight-regular
 ) {
   margin: 0;
   padding: 0;
