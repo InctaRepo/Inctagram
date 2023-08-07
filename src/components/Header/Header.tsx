@@ -1,11 +1,9 @@
-'use client'
-
-import { useState } from 'react';
-import bell from "@/src/assets/icons/bell.png"
+import {useState} from 'react';
+import bell from '@/src/assets/icons/bell.png'
 
 import Image from 'next/image'
 
-import s from './style.module.css';
+import s from './header.module.scss';
 
 interface Option {
   value: string | number;
@@ -31,36 +29,24 @@ const Dropdown = ({ options, onChange }: { options: Option[]; onChange: (event: 
   );
 };
 
-const Header = () => {
-  const [selectedValue, setSelectedValue] = useState("");
+export const Header = () => {
+  const [selectedValue, setSelectedValue] = useState('');
 
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value);
   };
 
   return (
-    <header className={s.main}>
-
-
+    <div className={s.main}>
       <h2 className={s.insta}>Instagram</h2>
-
       <div className={s.img}>
-
-        <Image src={bell} alt="icon" />
-
+        <Image src={bell} alt="icon"/>
       </div>
-
-
       <div className={s.dropDown}>
-
-        <Dropdown options={options} onChange={handleDropdownChange} />
+        <Dropdown options={options} onChange={handleDropdownChange}/>
         {/* <p>Selected Value: {selectedValue}</p> */}
-
       </div>
-
-
-    </header>
+    </div>
   );
 };
 
-export default Header;

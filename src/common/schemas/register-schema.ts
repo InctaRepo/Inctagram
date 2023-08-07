@@ -2,7 +2,6 @@ import {z} from 'zod'
 
 export const registerSchema = z
 	.object({
-		//TODO username unique check
 		username: z.string().trim().nonempty('Enter username')
 			.min(6, 'Min number of characters 6')
 			.max(30, 'Max number of characters 30'),
@@ -11,15 +10,13 @@ export const registerSchema = z
 		password: z
 			.string()
 			.trim()
-			//TODO check regexp
-			.regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+			.regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/,
 				'Password must contain a-z, A-Z,  ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _` { | } ~')
 			.nonempty('Enter password')
 			.min(6, 'Min number of characters 6')
 			.max(20, 'Max number of characters 20'),
-		passwordConfirmation: z.string().trim(),
-	})
-	.refine(data => data.password === data.passwordConfirmation, {
+		passwordConfirm: z.string().trim(),
+	}).refine(data => data.password === data.passwordConfirm, {
 		message: 'The passwords must match',
-		path: ['passwordConfirmation'],
+		path: ['passwordConfirm'],
 	})

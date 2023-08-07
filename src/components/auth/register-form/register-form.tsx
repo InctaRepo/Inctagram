@@ -11,6 +11,7 @@ import {Button} from '@/src/components/ui/button';
 import GoogleIcon from '@/src/assets/icons/google-icon';
 import GithubIcon from '@/src/assets/icons/github-icon';
 import Link from 'next/link';
+import {DevTool} from '@hookform/devtools';
 
 
 export type RegisterFormType = z.infer<typeof registerSchema>
@@ -44,6 +45,7 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 				</Link>
 			</div>
 			<form onSubmit={onSubmit}>
+				<DevTool control={control}/>
 				<ControlledTextField control={control} name={'username'} label={'Username'} className={s.field}/>
 				<ControlledTextField
 					control={control}
@@ -60,7 +62,7 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 				/>
 				<ControlledTextField
 					control={control}
-					name={'passwordConfirmation'}
+					name={'passwordConfirm'}
 					type={'password'}
 					label={'Password confirmation'}
 					className={s.lastField}
