@@ -1,40 +1,23 @@
-@import 'src/styles/colors';
+@import "src/styles/mixins";
 @import 'src/styles/typography';
 
-.container {
-  display: flex;
-  flex-direction: column;
+.container{
+  @include flex-block();
   height: 90vh;
-  align-items: center;
-  justify-content: center;
-
-  .text_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .text_container{
+    @include flex-block();
     margin-bottom: 72px;
-    .title {
-      color: $color-light-100;
-      font-family: $font-family-primary;
-      font-size: $font-size-m;
-      font-weight: $font-weight-bold;
+    max-width: 294px;
+    .title{
       line-height: $line-height-l;
       margin-bottom: 19px;
     }
-    .text {
-      max-width: 294px;
-      color: $color-light-100;
-      font-family: $font-family-primary;
-      font-size: $font-size-s;
-      font-weight: $font-weight-regular;
-      line-height: $line-height-m;
-      margin-bottom: 54px;
+    .text{
+      margin-bottom: 30px;
     }
-    .button {
-      min-width: 182px;
+    .button{
       display: flex;
       justify-content: center;
-      font-size: $font-size-s;
     }
   }
 }
