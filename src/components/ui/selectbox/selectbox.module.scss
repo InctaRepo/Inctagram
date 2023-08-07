@@ -57,7 +57,7 @@
     margin-top: 21px;
   }
 
-  .storybook-select--default {
+  .def {
     @include wh(208px, 36px);
     position: absolute;
     top: 60px;
@@ -68,7 +68,7 @@
     
   }
   
-  .storybook-select--active {
+  .active {
     @include wh(208px, 36px);
    left: 16px;
    left: 16px;
@@ -78,7 +78,7 @@
     background-color:  var(--color-dark-500);
   }
   
-  .storybook-select--hover {
+  .hover {
     @include wh(208px, 36px);
     top: 60px;
     left: 16px;
@@ -88,7 +88,7 @@
     background-color: var(---color-dark-500);
   }
   
-  .storybook-select--focus {
+  .focus {
     @include wh(206px, 36px);
     top: 60px;
     left: 16px;
@@ -98,7 +98,7 @@
     background-color: var(--color-dark-500);
   }
   
-  .storybook-select--disabled {
+  .disabled {
     @include wh(208px, 36px);
     top: 60px;
     left: 16px;
