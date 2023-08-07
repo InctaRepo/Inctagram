@@ -1,4 +1,6 @@
 @import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
 
 @mixin wh($w, $h) {
 	width: $w;
