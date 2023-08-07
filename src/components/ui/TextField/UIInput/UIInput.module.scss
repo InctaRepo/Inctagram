@@ -1,4 +1,6 @@
-@import "styles/index.scss";
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
 
 @mixin wh($w, $h) {
 	width: $w;
@@ -10,20 +12,20 @@
 	position: relative;
 
 	.textField {
-		@include wh(100%, 36px);
-		padding-left: 15px;
-		background-color: transparent;
-		border: 1px solid var(--color-dark-100);
-		border-radius: 2px;
+      @include wh(100%, 36px);
+      padding-left: 15px;
+      background-color: transparent;
+      border: 1px solid $color-dark-100;
+      border-radius: 2px;
 
-		&:focus {
-			&::placeholder {
-				color: var(--color-light-900);
-			}
+      &:focus {
+        &::placeholder {
+          color: $color-light-900
+        }
 
-			border: none;
-			outline: 1px solid var(--color-accent-500);
-		}
+        border: none;
+        outline: 1px solid $color-accent-500
+      }
 
 		&[type="search"] {
 			padding-left: 30px;
@@ -36,25 +38,25 @@
 
 	.label {
 		font-size: 14px;
-		color: var(--color-light-900);
+      color: $color-light-900
 	}
 	.disabledLabel {
-		color: var(--color-dark-100);
+      color: $color-dark-100
 	}
 
 	.error {
-		color: var(--color-danger-500);
+      color: $color-danger-500
 	}
 
 	.errorInput {
-		outline-color: var(--color-danger-500);
-		border-color: var(--color-danger-500);
-	}
+      outline-color: $color-danger-500;
+      border-color: $color-danger-500;
+    }
 
 	.disabledInput {
-		border-color: var(--color-dark-100);
-		color: var(--color-dark-100);
-	}
+      border-color: $color-dark-100;
+      color: $color-dark-100;
+    }
 
 	.iconOpenEye {
 		position: absolute;
@@ -71,17 +73,17 @@
 	}
 
 	.disabledIconEye {
-		fill: var(--color-dark-100);
-	}
+      fill: $color-dark-100;
+    }
 
 	.searchIcon {
-		fill: var(--color-dark-100);
-		position: absolute;
-		left: 6px;
-		top: 7px;
-	}
+      fill: $color-dark-100;
+      position: absolute;
+      left: 6px;
+      top: 7px;
+    }
 
 	[type="search"]:focus + .searchIcon {
-		fill: var(--color-light-900);
+      fill: $color-light-900
 	}
 }

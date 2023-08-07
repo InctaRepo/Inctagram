@@ -1,4 +1,5 @@
 @import '@/src/styles/mixins';
+@import '@/src/styles/colors';
 
 .card {
   @include flex-block();
@@ -44,6 +45,7 @@
   }
 
   .termsLink {
+    color: $color-accent-300;
     padding-left: 3px;
     padding-right: 3px;
   }

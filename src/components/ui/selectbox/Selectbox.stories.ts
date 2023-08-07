@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Selectbox } from './Selectbox';
+import type {Meta, StoryObj} from '@storybook/react';
+import {Selectbox} from './Selectbox';
 
 const meta: Meta<typeof Selectbox> = {
   title: 'Select',
@@ -33,7 +33,7 @@ export const Hover: Story = {
     active: false,
     hover: true,
     focus: false,
-    disabled: false, 
+    disabled: false,
   },
 };
 
@@ -42,7 +42,7 @@ export const Focus: Story = {
     active: false,
     hover: false,
     focus: true,
-    disabled: false, 
+    disabled: false,
   },
 };
 

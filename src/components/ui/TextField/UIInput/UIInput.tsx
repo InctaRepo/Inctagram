@@ -1,8 +1,9 @@
-import React, { ChangeEvent, useState, ComponentProps } from "react";
+import React, { ChangeEvent, ComponentProps, useState } from "react";
 import s from "./UIInput.module.scss";
 import EyeIcon from "@/src/assets/icons/eye-icon";
 import EyeOffIcon from "@/src/assets/icons/eye-off-icon";
 import SearchIcon from "@/src/assets/icons/search-icon";
+import { Typography } from "@/src/components/ui/typography";
 
 type UIInputPropsType = {
 	label?: string;
@@ -28,6 +29,8 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 	const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		onChangeText && onChangeText(e.currentTarget.value);
 	};
+
+	const showErrorMess = errorMessage && errorMessage.length > 0;
 
 	const _type =
 		type === "text"
@@ -65,7 +68,11 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 				))}
 
 			{type === "search" && <SearchIcon className={s.searchIcon} />}
-			{errorMessage && <div className={s.error}>{errorMessage}</div>}
+			{showErrorMess && (
+				<Typography variant={"regular14"} color={"error"}>
+					{errorMessage}
+				</Typography>
+			)}
 		</div>
 	);
 };

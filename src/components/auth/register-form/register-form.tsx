@@ -43,7 +43,7 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 					<GithubIcon/>
 				</Link>
 			</div>
-			<form onSubmit={onSubmit} className={s.form}>
+			<form onSubmit={onSubmit}>
 				<ControlledTextField control={control} name={'username'} label={'Username'} className={s.field}/>
 				<ControlledTextField
 					control={control}
@@ -70,13 +70,9 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 					<ControlledCheckbox control={control} name={'terms'}/>
 					<Typography variant={'small'} className={s.termsRow}>
 						I agree to the
-						<Link href={'/terms'}>
-							<Typography variant={'sm_link'} color={'link'} className={s.termsLink}>Terms of Service</Typography>
-						</Link>
+						<Link href={'/terms'} className={s.termsLink}>Terms of Service</Link>
 						and
-						<Link href={'/policy'}>
-							<Typography variant={'sm_link'} color={'link'} className={s.termsLink}>Privacy Policy</Typography>
-						</Link>
+						<Link href={'/policy'} className={s.termsLink}>Privacy Policy</Link>
 					</Typography>
 				</div>
 				<Button type={'submit'} fullWidth className={s.registerBtn}>
