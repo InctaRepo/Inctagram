@@ -1,0 +1,21 @@
+@import "src/styles/mixins";
+.container{
+  @include flex-block();
+  height: 90vh;
+  .text_container{
+    @include flex-block();
+    margin-bottom: 72px;
+    max-width: 294px;
+    .title{
+      line-height: var(--line-height-l);
+      margin-bottom: 19px;
+    }
+    .text{
+      margin-bottom: 30px;
+    }
+    .button{
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
