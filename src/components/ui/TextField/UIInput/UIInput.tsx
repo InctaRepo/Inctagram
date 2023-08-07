@@ -6,21 +6,16 @@ import SearchIcon from '@/src/assets/icons/search-icon';
 import {Typography} from '@/src/components/ui/typography';
 
 type UIInputPropsType = {
+	value?: string
 	label?: string;
 	errorMessage?: string;
 	onChangeText?: (value: string) => void;
-} & ComponentProps<"input">;
+} & ComponentProps<'input'>;
 
-export const UIInput: React.FC<UIInputPropsType> = (props) => {
-	const {
-		type,
-		disabled,
-		errorMessage,
-		label,
-		placeholder,
-		onChangeText,
-		value,
-	} = props;
+export const UIInput = (
+	{type, disabled, onChangeText, errorMessage, label, placeholder, value, ...rest}: UIInputPropsType
+) => {
+
 	const [showPass, setShowPass] = useState<'text' | 'password'>('password');
 
 	const openClosePssHandler = () =>
@@ -50,6 +45,7 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 				onChange={onchangeHandler}
 				placeholder={placeholder && placeholder}
 				disabled={disabled}
+				{...rest}
 				className={`${s.textField} ${errorMessage && s.errorInput} ${
 					disabled && s.disabledInput
 				}`}
@@ -75,4 +71,5 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 			}
 		</div>
 	);
-};
+}
+
