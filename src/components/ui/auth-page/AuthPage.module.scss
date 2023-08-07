@@ -1,4 +1,6 @@
 @import "src/styles/mixins";
+@import 'src/styles/typography';
+
 .container{
   @include flex-block();
   height: 90vh;
@@ -7,7 +9,7 @@
     margin-bottom: 72px;
     max-width: 294px;
     .title{
-      line-height: var(--line-height-l);
+      line-height: $line-height-l;
       margin-bottom: 19px;
     }
     .text{

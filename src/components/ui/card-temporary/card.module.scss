@@ -1,5 +1,7 @@
+@import "@/src/styles/colors";
+
 .card {
   flex-shrink: 0;
-  background-color: var(--color-dark-500);
-  box-shadow: 0 0 0 1px var(--color-dark-300);
+  background-color: $color-dark-300;
+  box-shadow: 0 0 0 1px $color-dark-100;
 }
