@@ -12,7 +12,7 @@ export const registerSchema = z
 			.string()
 			.trim()
 			//TODO check regexp
-			.regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~])[a-zA-Z\d!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~]{8,}$/,
+			.regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
 				'Password must contain a-z, A-Z,  ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _` { | } ~')
 			.nonempty('Enter password')
 			.min(6, 'Min number of characters 6')

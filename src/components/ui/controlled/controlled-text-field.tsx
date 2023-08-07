@@ -9,14 +9,15 @@ export const ControlledTextField = <T extends FieldValues>({
 																														 control,
 																														 name,
 																														 ...rest
-																													 }: Props<T>) => {
+																													 }: Props<T>
+) => {
+
 	const {
-		field,
 		fieldState: {error},
+		field: {ref, ...fieldProps},
 	} = useController({
 		name,
-		control,
+		control
 	})
-
-	return <TextField {...field} errorMessage={error?.message} {...rest} />
+	return <TextField {...fieldProps} errorMessage={error?.message} {...rest}/>
 }
