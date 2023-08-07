@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react';
-import bell from "/public/assets/bell.png"
+import bell from "@/src/assets/icons/bell.png"
 
 import Image from 'next/image'
 
-import s from './style.module.scss';
+import s from './style.module.css';
 
 interface Option {
   value: string | number;

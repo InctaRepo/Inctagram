@@ -1,52 +1,59 @@
-import React, { useState } from 'react';
-import './selectbox.scss';
+import React, { useState, FC } from 'react';
+import styles from './selectbox.module.scss';
+import clsx from 'clsx'
 import * as Select from '@radix-ui/react-select';
 
-interface SelectProps {
-  status?: 'default' | 'active' | 'hover' | 'focus' | 'disabled';
+export type SelectPropsType = {
+  def: boolean
+  active: boolean
+  hover: boolean
+  focus: boolean
+  disabled: boolean
+  onChange?: (active: boolean) => void
+  data?: string[] | number[]
 }
 
-export const Selectbox = ({
-  status,
-}: SelectProps) => {
-  const mode = `storybook-select--${status}`;
-
-  const [selectedOption, setSelectedOption] = useState<String>();
-  const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    setSelectedOption(value);
+export const Selectbox: FC<SelectPropsType> = ({
+  def,
+  active,
+  hover,
+  focus,
+  disabled,
+  onChange,
+  data,
+}) => {
+  const classNames = {
+    selectbox: styles.selectbox,
+    label: styles.label,
+    options: styles.options,
+    line: styles.line,
+    optionline: styles.optionline,
+    selectlabel: clsx(styles.selectlabel, def && styles.def, active && styles.active,
+    hover && styles.hover, focus && styles.focus, disabled && styles.disabled),
   };
 
   return (
     <Select.Root>
-      <Select.Trigger className="selectbox">
+      <Select.Trigger className={classNames.selectbox}>
         <Select.Group>
-          <Select.Label className='label'>Select-box</Select.Label>
+          <Select.Label className={classNames.label}>Select-box</Select.Label>
         </Select.Group>
         <Select.Group>
-          <Select.Label className={mode}><h1>Select-box</h1></Select.Label>
+          <Select.Label className={classNames.selectlabel} 
+          ><h1>Select-box</h1></Select.Label>
         </Select.Group>
       </Select.Trigger>
 
       <Select.Portal >
         <Select.Content>
           <Select.Viewport>
-            <Select.Group className="options">
-              <Select.Item value="select-box" className="optionline">
-                <h1 className="line">Select-box</h1>
-              </Select.Item>
-              <Select.Item value="select-box" className="optionline">
-                <h1 className="line">Select-box</h1>
-              </Select.Item>
-              <Select.Item value="select-box" className="optionline">
-                <h1 className="line">Select-box</h1>
-              </Select.Item>
+            <Select.Group className={classNames.options}>
+              {data?.map(i => <Select.Item value="select-box" /*key={i.id}*/ className={classNames.optionline}>
+                <h1 className={classNames.line}>Select-box</h1> </Select.Item>)}
             </Select.Group>
           </Select.Viewport>
         </Select.Content>
       </Select.Portal>
-
-      {selectedOption && <h2 >{selectedOption}</h2>}
 
     </Select.Root>
   );
