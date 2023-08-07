@@ -1,5 +1,6 @@
 import React, { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { UIInput } from "./UIInput/UIInput";
+import s from "./textField.module.scss";
 
 type DefaultInputPropsType = DetailedHTMLProps<
 	InputHTMLAttributes<HTMLInputElement>,
@@ -21,7 +22,7 @@ export const TextField: React.FC<TextFieldPropsType> = ({
 	...restProps
 }) => {
 	return (
-		<div className={`${className} ${fullWidth ? { width: "100%" } : ""}`}>
+		<div className={`${className} ${fullWidth ? s.fullWidth : ""}`}>
 			<UIInput {...restProps} />
 		</div>
 	);
