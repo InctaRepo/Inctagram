@@ -3,7 +3,6 @@
 
 .container{
   @include flex-block();
-  height: 90vh;
   .text_container{
     @include flex-block();
     margin-bottom: 72px;
