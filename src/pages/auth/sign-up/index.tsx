@@ -20,7 +20,6 @@ const SignUpPage: NextPageWithLayout = () => {
 			<>
 				{/*@ts-ignore*/}
 				{isError && <Typography color={'error'}>{error?.data.message[0].message}</Typography>}
-				{/*{isSuccess && <Typography color={'secondary'}>{data}</Typography>}*/}
 				<RegisterForm linkPath={'#'} onSubmitHandler={submit}/>
 			</>
 			//TODO linkpath to sign in
