@@ -7,44 +7,43 @@ import {Button} from "src/components/ui/button/button";
 
 export const ForgotPassword = () => {
     return (
-
-            <Card
-                className={s.main}
+        <Card
+            className={s.main}
+        >
+            <Typography
+                variant='h1'
+                className={s.title}
             >
-                <Typography
-                    variant='h1'
-                    className={s.title}
-                >
-                    Forgot Password
-                </Typography>
-                <TextField
-                    width='330px'
-                    label='Email'
-                    placeholder='Epam@epam.com'
-                    className={s.input}
-                />
-                <Typography
-                    variant='regular14'
-                    className={s.hint}
-                >
-                    Enter your email address and we will send you further instructions
-                </Typography>
-                <Button
-                    variant='primary'
-                    className={s.submit}
-                >
-                    Send Link
-                </Button>
-                <Button
-                    variant='link'
-                    className={s.cancel}
-                >
-                    Back to Sign In
-                </Button>
-                <Recaptcha
-                    className={s.recaptcha}
-                    primary
-                />
-            </Card>
+                Forgot Password
+            </Typography>
+            <TextField
+                width='330px'
+                label='Email'
+                placeholder='Epam@epam.com'
+                className={s.input}
+            />
+            <Typography
+                variant='regular14'
+                className={s.hint}
+            >
+                Enter your email address and we will send you further instructions
+            </Typography>
+            <Button
+                variant='primary'
+                className={s.submit}
+            >
+                Send Link
+            </Button>
+            <Button
+                variant='link'
+                className={s.cancel}
+            >
+                Back to Sign In
+            </Button>
+            <Recaptcha
+                primary
+                className={s.recaptcha}
+            />
+        </Card>
     )
 };
