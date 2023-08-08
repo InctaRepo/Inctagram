@@ -1,11 +1,13 @@
 import Link from 'next/link';
+import Header from '../components/ui/Header/Header';
+import { Cards } from '../components/ui/Cards/Cards';
 
 export default function Home() {
 	return (
 		<div>
-			Hello next App!
 			<div>
-				<Link href={'/sign-up'}>Sign Up</Link>
+				<Header/>
+				<Cards/>
 			</div>
 		</div>
 	);
