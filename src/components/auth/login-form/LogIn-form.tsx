@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import GoogleIcon from "@/src/assets/icons/google-icon";
 import GithubIcon from "@/src/assets/icons/github-icon";
+import { ControlledTextField } from "../../ui/controlled";
 
 type FormDataType = {
 	email: string;
@@ -16,12 +17,15 @@ type FormDataType = {
 };
 
 const schema: ZodType<FormDataType> = z.object({
-	email: z.string().email(),
-	password: z.string().min(3).max(20),
+	email: z.string().email({ message: "Invalid email format" }),
+	password: z
+		.string()
+		.min(6, { message: "Minimum number of characters 6" })
+		.max(20, { message: "Maximum number of characters 20" }),
 });
 
 export const LogInform: React.FC = (props: any) => {
-	const { register, handleSubmit } = useForm<FormDataType>({
+	const { control, handleSubmit, formState } = useForm<FormDataType>({
 		resolver: zodResolver(schema),
 	});
 	const submitData = (data: FormDataType) => {
@@ -39,8 +43,21 @@ export const LogInform: React.FC = (props: any) => {
 					<GithubIcon />
 				</Link>
 			</div>
-			<TextField label="Email" type="text" fullWidth />
-			<TextField label="Password" type="password" fullWidth />
+			<ControlledTextField
+				control={control}
+				name="email"
+				label="Email"
+				className={s.controlTextField}
+				fullWidth
+			/>
+
+			<ControlledTextField
+				control={control}
+				name="password"
+				label="Password"
+				className={s.controlTextField}
+				fullWidth
+			/>
 			<div className={s.wrapLinkForgotPass}>
 				<Button variant="text">
 					<Typography variant="medium14" className={s.linkForgotPass}>
