@@ -1,0 +1,48 @@
+@import "@/src/styles/colors";
+@import "@/src/styles/typography";
+
+// Mixins
+@mixin common-styles {
+  display: flex;
+  justify-content: space-around;
+  color: $color-light-700;
+  font-weight: $font-weight-bold;
+  background-color: $color-dark-900;
+  height: 60px;
+  position: relative;
+  top:30px;
+}
+
+@mixin relative-pos($top, $left) {
+  position: relative;
+  top: $top;
+  left: $left;
+}
+
+// Styles
+.main {
+  @include common-styles;
+}
+
+.insta {
+  position: relative;
+  bottom: 6px;
+}
+
+.img {
+  @include relative-pos(10px, 300px);
+}
+
+//git push --set-upstream origin HeaderCards
+.drop{
+    background-color: $color-dark-900;
+    border: 1px solid white;
+
+}
+
+
+.dropDown {
+  position: relative;
+  top: 10px;
+  color: $color-light-100;
+}
