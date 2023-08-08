@@ -11,6 +11,7 @@ import {Button} from '@/src/components/ui/button';
 import GoogleIcon from '@/src/assets/icons/google-icon';
 import GithubIcon from '@/src/assets/icons/github-icon';
 import Link from 'next/link';
+import {DevTool} from '@hookform/devtools';
 
 
 export type RegisterFormType = z.infer<typeof registerSchema>
@@ -23,8 +24,9 @@ type RegisterFormPropsType = {
 export const RegisterForm = (props: RegisterFormPropsType) => {
 	const {linkPath, onSubmitHandler} = props
 
-	const {control, handleSubmit} = useForm<RegisterFormType>({
+	const {control, handleSubmit, formState} = useForm<RegisterFormType>({
 		resolver: zodResolver(registerSchema),
+		mode: 'onChange'
 	})
 
 	const onSubmit = handleSubmit(data => {
@@ -35,7 +37,6 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 		<Card className={s.card}>
 			<Typography variant={'h1'} className={s.title}>Sign Up</Typography>
 			<div className={s.oauth}>
-				{/*TODO links*/}
 				<Link href={'/google'}>
 					<GoogleIcon/>
 				</Link>
@@ -44,6 +45,7 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 				</Link>
 			</div>
 			<form onSubmit={onSubmit}>
+				<DevTool control={control}/>
 				<ControlledTextField control={control} name={'username'} label={'Username'} className={s.field}/>
 				<ControlledTextField
 					control={control}
@@ -60,13 +62,12 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 				/>
 				<ControlledTextField
 					control={control}
-					name={'passwordConfirmation'}
+					name={'passwordConfirm'}
 					type={'password'}
 					label={'Password confirmation'}
 					className={s.lastField}
 				/>
 				<div className={s.terms}>
-					{/*TODO links and checkbox*/}
 					<ControlledCheckbox control={control} name={'terms'}/>
 					<Typography variant={'small'} className={s.termsRow}>
 						I agree to the
@@ -75,7 +76,7 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 						<Link href={'/policy'} className={s.termsLink}>Privacy Policy</Link>
 					</Typography>
 				</div>
-				<Button type={'submit'} fullWidth className={s.registerBtn}>
+				<Button type={'submit'} fullWidth className={s.registerBtn} disabled={!formState.isValid}>
 					<Typography variant={'h3'}>Sign Up</Typography>
 				</Button>
 			</form>

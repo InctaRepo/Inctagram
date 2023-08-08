@@ -6,6 +6,7 @@ import SearchIcon from "@/src/assets/icons/search-icon";
 import { Typography } from "@/src/components/ui/typography";
 
 type UIInputPropsType = {
+	value?: string;
 	label?: string;
 	errorMessage?: string;
 	onChangeText?: (value: string) => void;
@@ -15,12 +16,14 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 	const {
 		type,
 		disabled,
+		onChangeText,
 		errorMessage,
 		label,
 		placeholder,
-		onChangeText,
 		value,
+		...rest
 	} = props;
+
 	const [showPass, setShowPass] = useState<"text" | "password">("password");
 
 	const openClosePssHandler = () =>
@@ -50,6 +53,7 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 				onChange={onchangeHandler}
 				placeholder={placeholder && placeholder}
 				disabled={disabled}
+				{...rest}
 				className={`${s.textField} ${errorMessage && s.errorInput} ${
 					disabled && s.disabledInput
 				}`}
@@ -57,19 +61,19 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 			{type === "password" &&
 				(showPass === "password" ? (
 					<EyeIcon
-						className={`${s.iconOpenEye} ${disabled && s.disabledIconEye}`}
+						className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
 						onClick={openClosePssHandler}
 					/>
 				) : (
 					<EyeOffIcon
-						className={`${s.iconCloseEye} ${disabled && s.disabledIconEye}`}
+						className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
 						onClick={openClosePssHandler}
 					/>
 				))}
 
 			{type === "search" && <SearchIcon className={s.searchIcon} />}
 			{showErrorMess && (
-				<Typography variant={"regular14"} color={"error"}>
+				<Typography variant={"regular14"} className={s.errorWrap}>
 					{errorMessage}
 				</Typography>
 			)}

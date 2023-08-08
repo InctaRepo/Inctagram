@@ -7,11 +7,13 @@ import Checked from '@/src/assets/icons/recaptchaChecked.svg';
 interface FormProps {
     primary?: boolean
     expired?: boolean
+    className?: string
 }
 
 export const Recaptcha = ({
                               primary,
-                              expired
+                              expired,
+                              className
                           }: FormProps) => {
 
     const mode = `storybook-recaptcha--${primary ? 'primary' : !expired ? 'error' : 'expired'}`;
@@ -30,7 +32,7 @@ export const Recaptcha = ({
 
     return (
         <div
-            className={mode}
+            className={`${mode} ${className}`}
         >
             <div
                 className='recaptcha'
