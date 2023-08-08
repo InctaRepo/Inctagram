@@ -32,10 +32,10 @@ export const Recaptcha = ({
 
     return (
         <div
-            className={`${mode} ${className}`}
+            className={mode}
         >
             <div
-                className='recaptcha'
+                className={`recaptcha ${className}`}
             >
                 <div
                     className='agreement'

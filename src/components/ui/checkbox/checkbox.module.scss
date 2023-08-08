@@ -32,15 +32,16 @@
   align-items: center;
   justify-content: center;
 
-  padding: 8px;
+  padding: 6px;
 
   background-color: inherit;
   border-radius: 50%;
 
-  &.disabled{
+  &.disabled {
     cursor: default;
   }
-  &:active:not(.disabled){
+
+  &:active:not(.disabled) {
     background-color: $color-dark-100
   }
   &:focus{
