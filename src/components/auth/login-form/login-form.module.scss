@@ -1,10 +1,11 @@
-@import "styles/index.scss";
+@import "src/styles/_mixins.scss";
+@import "src/styles/_colors.scss";
 
 .divWrap {
 	width: 378px;
 	height: 504px;
-	background-color: var(--color-dark-500);
-	border: 1px solid var(--color-dark-300);
+	background-color: $color-dark-500;
+	border: 1px solid $color-dark-300;
 	@include flex-block(flex, column, space-evenly);
 	padding: 30px;
 
@@ -18,11 +19,11 @@
 		@include flex-block(flex, row, flex-end);
 
 		.linkForgotPass {
-			color: var(--color-light-900);
+			color: $color-light-900;
 		}
 	}
 
 	.linkSingUP {
-		color: var(--color-accent-500);
+		color: $color-accent-500;
 	}
 }

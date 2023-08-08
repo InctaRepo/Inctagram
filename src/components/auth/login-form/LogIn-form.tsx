@@ -7,6 +7,8 @@ import { Button } from "../../ui/button";
 import { ZodType, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import GoogleIcon from "@/src/assets/icons/google-icon";
+import GithubIcon from "@/src/assets/icons/github-icon";
 
 type FormDataType = {
 	email: string;
@@ -30,8 +32,12 @@ export const LogInform: React.FC = (props: any) => {
 		<form onSubmit={handleSubmit(submitData)} className={s.divWrap}>
 			<Typography variant="h1">Sing In</Typography>
 			<div className={s.oauthWrap}>
-				<Link href={"/google"}>Google</Link>
-				<Link href={"/github"}>Github</Link>
+				<Link href={"/google"}>
+					<GoogleIcon />
+				</Link>
+				<Link href={"/github"}>
+					<GithubIcon />
+				</Link>
 			</div>
 			<TextField label="Email" type="text" fullWidth />
 			<TextField label="Password" type="password" fullWidth />
