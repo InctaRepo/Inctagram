@@ -19,6 +19,8 @@
   $lh: $line-height-m,
   $fw: $font-weight-regular
 ) {
+  text-align: justify;
+  //TODO : added property 9.08 for modals
   margin: 0;
   padding: 0;
   font-size: $fs;

@@ -20,8 +20,7 @@
   @include typography(
           $fs: $font-size-xl,
           $lh: $line-height-l,
-          $fw: $font-weight-bold)
-
+          $fw: $font-weight-bold,);
 }
 
 .h2 {
