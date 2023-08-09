@@ -1,4 +1,6 @@
-@import 'src/styles/mixins';
+@import '@/src/styles/mixins';
+@import "@/src/styles/colors";
+@import "@/src/styles/typography";
 
 $bcgCMain: #171717; // background-color component
 $error: #FF0000; // color for error designation

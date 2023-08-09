@@ -1,50 +1,57 @@
 @import '@/src/styles/mixins';
+@import '@/src/styles/colors';
 
 .card {
-  @include flex-block();
   width: 100%;
   max-width: 378px;
   padding: 1.44rem 1.5rem 1.5rem;
 
-  .title {
-    margin-bottom: 13px;
-  }
+  .content {
+    width: 100%;
+    @include flex-block();
 
-  .oauth {
-    @include flex-block($flex-direction: row, $gap: 60px);
-    margin-bottom: 24px;
-  }
-
-  .field {
-    margin-bottom: 24px;
-    text-align: left;
-  }
-
-  .lastField {
-    margin-bottom: 12px;
-
-  }
-
-  .terms {
-    @include flex-block($flex-direction: row, $gap: 8px);
-
-    .termsRow {
-      display: inline-flex;
+    .title {
+      margin-bottom: 13px;
     }
 
-    margin-bottom: 12px;
-  }
+    .authIcons {
+      @include flex-block($flex-direction: row, $gap: 60px);
+      margin-bottom: 24px;
 
-  .registerBtn {
-    margin-bottom: 18px;
-  }
+      a {
+        line-height: 0;
+      }
+    }
 
-  .subtitle {
-    margin-bottom: 6px;
-  }
+    .form {
+      width: 100%;
+    }
 
-  .termsLink {
-    padding-left: 3px;
-    padding-right: 3px;
+    .field {
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .terms {
+      @include flex-block($flex-direction: row);
+      margin-bottom: 12px;
+      padding-right: 10px;
+
+      .termsRow {
+        display: inline-flex;
+      }
+
+      .termsLink {
+        color: $color-accent-300;
+      }
+    }
+
+    .registerBtn {
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      margin-bottom: 6px;
+    }
   }
 }

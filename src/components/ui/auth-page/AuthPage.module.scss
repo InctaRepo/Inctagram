@@ -1,36 +1,28 @@
+@import "src/styles/mixins";
+@import 'src/styles/typography';
+
 .container{
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
+  @include flex-block();
   .text_container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-block();
     margin-bottom: 72px;
+    max-width: 294px;
     .title{
-      color: var(--color-light-100);
-      font-family: var(--font-family-primary);
-      font-size: var(--font-size-m);
-      font-weight: var(--font-weight-bold);
-      line-height: var(--line-height-l);
+      line-height: $line-height-l;
       margin-bottom: 19px;
     }
     .text{
-      max-width: 294px;
-      color: var(--color-light-100);
-      font-family: var(--font-family-primary);
-      font-size: var(--font-size-s);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--line-height-m);
-      margin-bottom: 54px;
+      margin-bottom: 30px;
+      text-align: center;
     }
+    .buttonMerger,
     .button{
-      min-width: 182px;
       display: flex;
       justify-content: center;
-      font-size: var(--font-size-s);
+    }
+    .buttonMerger{
+        width: 182px;
+        margin-top: 24px;
     }
   }
 }

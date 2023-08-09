@@ -1,25 +1,26 @@
-import React, {DetailedHTMLProps, InputHTMLAttributes} from 'react';
+import React, {ComponentProps} from 'react';
 import {UIInput} from './UIInput/UIInput';
+import s from './textField.module.scss';
 
-type DefaultInputPropsType = DetailedHTMLProps<
-	InputHTMLAttributes<HTMLInputElement>,
-	HTMLInputElement
->;
-
-export type TextFieldPropsType = Omit<DefaultInputPropsType, ''> & {
+export type TextFieldPropsType = {
+	errorMessage?: string
 	label?: string;
-	errorMessage?: string;
-	width?: string;
+	fullWidth?: boolean;
+	className?: string;
+	value?: string
 	onChangeText?: (value: string) => void;
-};
+} & ComponentProps<'input'>
 
 export const TextField: React.FC<TextFieldPropsType> = ({
-	width,
-	...restProps
-}) => {
+																													value,
+																													errorMessage,
+																													className,
+																													fullWidth,
+																													...restProps
+																												}) => {
 	return (
-		<div style={{ width: width ? width : "100%" }}>
-			<UIInput {...restProps} />
+		<div className={`${className} ${fullWidth ? s.fullWidth : ""}`}>
+			<UIInput errorMessage={errorMessage} {...restProps} value={value ?? ''}/>
 		</div>
 	);
 };

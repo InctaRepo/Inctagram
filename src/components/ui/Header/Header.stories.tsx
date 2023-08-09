@@ -1,7 +1,8 @@
 
-import Header from "./Header";
+import Header from './Header';
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type {Meta, StoryObj} from '@storybook/react'
+
 
 // import { Story, Meta } from '@storybook/addon-docs/blocks';
 

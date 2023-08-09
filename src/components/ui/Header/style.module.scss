@@ -26,17 +26,26 @@
 
 .insta {
   position: relative;
-  bottom: 6px;
+
+    top: 3px;
 }
 
 .img {
   @include relative-pos(10px, 300px);
+
+  position: relative;
+  top: 28px;
 }
 
 //git push --set-upstream origin HeaderCards
 .drop{
     background-color: $color-dark-900;
     border: 1px solid white;
+    width: 163px;
+    height: 36px;
+    position: relative;
+    top: 13px;
+    
 
 }
 

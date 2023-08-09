@@ -1,23 +1,38 @@
 import React, {FC} from 'react';
 import s from '@/src/components/ui/auth-page/AuthPage.module.scss';
 import {Button} from '@/src/components/ui/button';
+import {Typography} from '@/src/components/ui/typography/typography';
+import clsx from 'clsx';
 
 type AuthPageType={
   title: string
   text: string
   nameButton: string
-  image?: string
   children?: React.ReactNode
+  nameButtonTwo?: string
+  variant?: 'merger'
 }
-export const AuthPage: FC<AuthPageType> = ({title, children, text, nameButton, image}) => {
+export const AuthPage: FC<AuthPageType> = ({title,variant,nameButtonTwo, children, text, nameButton}) => {
+
+  const styles = {
+    button: clsx(s.button, variant && s.buttonMerger)
+  }
   return (
     <div className={s.container}>
       <div className={s.text_container}>
-        <span className={s.title}>{title}</span>
-        <span className={s.text}>{text}</span>
-        <Button variant="primary" className={s.button}>{nameButton}</Button>
+        <div className={s.title}>
+          <Typography color='primary' variant='bold16'>{title}</Typography>
+        </div>
+        <div className={s.text}>
+          <Typography color='primary' variant='regular14'>{text}</Typography>
+        </div>
+        <Button variant={variant ? 'outlined' : 'primary'} fullWidth={true} className={styles.button}>
+          <Typography variant='bold14' >{nameButton}</Typography>
+        </Button>
+        {variant && <Button variant='outlined' className={styles.button}>
+          <Typography variant='bold14'>{nameButtonTwo}</Typography>
+        </Button>}
       </div>
-      {/*<Image src={image} alt='image'/>*/}
       {children}
     </div>
     );

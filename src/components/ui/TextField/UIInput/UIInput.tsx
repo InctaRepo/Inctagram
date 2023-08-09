@@ -1,16 +1,12 @@
-import React, {
-	ChangeEvent,
-	useState,
-	DetailedHTMLProps,
-	InputHTMLAttributes,
-	ComponentProps,
-} from "react";
+import React, { ChangeEvent, ComponentProps, useState } from "react";
 import s from "./UIInput.module.scss";
 import EyeIcon from "@/src/assets/icons/eye-icon";
 import EyeOffIcon from "@/src/assets/icons/eye-off-icon";
 import SearchIcon from "@/src/assets/icons/search-icon";
+import { Typography } from "@/src/components/ui/typography";
 
 type UIInputPropsType = {
+	value?: string;
 	label?: string;
 	errorMessage?: string;
 	onChangeText?: (value: string) => void;
@@ -20,12 +16,14 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 	const {
 		type,
 		disabled,
+		onChangeText,
 		errorMessage,
 		label,
 		placeholder,
-		onChangeText,
 		value,
+		...rest
 	} = props;
+
 	const [showPass, setShowPass] = useState<"text" | "password">("password");
 
 	const openClosePssHandler = () =>
@@ -34,6 +32,8 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 	const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		onChangeText && onChangeText(e.currentTarget.value);
 	};
+
+	const showErrorMess = errorMessage && errorMessage.length > 0;
 
 	const _type =
 		type === "text"
@@ -53,6 +53,7 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 				onChange={onchangeHandler}
 				placeholder={placeholder && placeholder}
 				disabled={disabled}
+				{...rest}
 				className={`${s.textField} ${errorMessage && s.errorInput} ${
 					disabled && s.disabledInput
 				}`}
@@ -60,18 +61,22 @@ export const UIInput: React.FC<UIInputPropsType> = (props) => {
 			{type === "password" &&
 				(showPass === "password" ? (
 					<EyeIcon
-						className={`${s.iconOpenEye} ${disabled && s.disabledIconEye}`}
+						className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
 						onClick={openClosePssHandler}
 					/>
 				) : (
 					<EyeOffIcon
-						className={`${s.iconCloseEye} ${disabled && s.disabledIconEye}`}
+						className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
 						onClick={openClosePssHandler}
 					/>
 				))}
 
 			{type === "search" && <SearchIcon className={s.searchIcon} />}
-			{errorMessage && <div className={s.error}>{errorMessage}</div>}
+			{showErrorMess && (
+				<Typography variant={"regular14"} className={s.errorWrap}>
+					{errorMessage}
+				</Typography>
+			)}
 		</div>
 	);
 };
