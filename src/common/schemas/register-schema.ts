@@ -21,6 +21,7 @@ export const registerSchema = z
 		passwordConfirm: z
 			.string()
 			.trim()
+			.nonempty('Confirm password')
 	}).refine(data => data.password === data.passwordConfirm, {
 		message: 'The passwords must match',
 		path: ['passwordConfirm'],
