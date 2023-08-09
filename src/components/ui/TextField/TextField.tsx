@@ -1,24 +1,26 @@
-import React from "react";
-import { UIInput } from "./UIInput/UIInput";
+import React, {ComponentProps} from 'react';
+import {UIInput} from './UIInput/UIInput';
+import s from './textField.module.scss';
 
-type TextFieldPropsType = {
-	type: "text" | "password" | "search";
+export type TextFieldPropsType = {
+	errorMessage?: string
 	label?: string;
-	errorMessage?: string;
-	disabled?: boolean;
-	width?: number;
-	placeHolder?: string;
-	value?: string;
-	onChange?: (value: string) => void;
-};
+	fullWidth?: boolean;
+	className?: string;
+	value?: string
+	onChangeText?: (value: string) => void;
+} & ComponentProps<'input'>
 
 export const TextField: React.FC<TextFieldPropsType> = ({
-	width,
-	...restProps
-}) => {
+																													value,
+																													errorMessage,
+																													className,
+																													fullWidth,
+																													...restProps
+																												}) => {
 	return (
-		<div style={{ width: width ? width : "279px" }}>
-			<UIInput {...restProps} />
+		<div className={`${className} ${fullWidth ? s.fullWidth : ""}`}>
+			<UIInput errorMessage={errorMessage} {...restProps} value={value ?? ''}/>
 		</div>
 	);
 };

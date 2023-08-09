@@ -1,0 +1,29 @@
+@import "src/styles/mixins";
+@import 'src/styles/typography';
+
+.container{
+  @include flex-block();
+  height: 90vh;
+  .text_container{
+    @include flex-block();
+    margin-bottom: 72px;
+    max-width: 294px;
+    .title{
+      line-height: $line-height-l;
+      margin-bottom: 19px;
+    }
+    .text{
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .buttonMerger,
+    .button{
+      display: flex;
+      justify-content: center;
+    }
+    .buttonMerger{
+        width: 182px;
+        margin-top: 24px;
+    }
+  }
+}
