@@ -5,9 +5,22 @@ import {Card} from "@/src/components/ui/card-temporary";
 import {TextField} from "@/src/components/ui/TextField/TextField";
 import {Button} from "src/components/ui/button/button";
 
-export const ForgotPassword = () => {
-    return (
+interface Props {
+    primary?: boolean
+}
 
+export const ForgotPassword: React.FC<Props> = ({
+                                                    primary
+                                                }) => {
+
+    const mode = `storybook-forgotPassword--${primary ? 'primary' : 'secondary'}`;
+
+    console.log(mode)
+
+    return (
+        <div
+            className={s[mode]}
+        >
             <Card
                 className={s.main}
             >
@@ -36,15 +49,35 @@ export const ForgotPassword = () => {
                     Send Link
                 </Button>
                 <Button
-                    variant='link'
+                    variant='text'
                     className={s.cancel}
                 >
                     Back to Sign In
                 </Button>
                 <Recaptcha
-                    className={s.recaptcha}
                     primary
+                    className={s.recaptcha}
                 />
+                <Typography
+                    variant='regular14'
+                    className={s.answer}
+                >
+                    The link has been sent by email.<br/>
+                    If you don’t receive an email send link again
+                </Typography>
+                <Button
+                    variant='primary'
+                    className={s.repeat}
+                >
+                    Send Link Again
+                </Button>
+                <Button
+                    variant='text'
+                    className={s.back}
+                >
+                    Back to Sign In
+                </Button>
             </Card>
+        </div>
     )
 };

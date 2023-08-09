@@ -15,7 +15,7 @@ type StaticImageData = /*unresolved*/ any
 interface Option {
   value: string | number;
   label: string;
-  img: StaticImageData; // Use StaticImageData type
+  img: StaticImageData; 
 }
 
 const options: Option[] = [

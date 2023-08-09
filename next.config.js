@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {}
+const nextConfig = {};
 
-module.exports = nextConfig
-
+module.exports = nextConfig;
 
 // const path = require('path')
 //

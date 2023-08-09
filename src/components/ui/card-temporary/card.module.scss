@@ -2,6 +2,7 @@
 
 .card {
   flex-shrink: 0;
-  background-color: $color-dark-300;
-  box-shadow: 0 0 0 1px $color-dark-100;
+  background-color: $color-dark-500;
+  box-shadow: 0 0 0 1px $color-dark-300;
+  border-radius: 3px;
 }
