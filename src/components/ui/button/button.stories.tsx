@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
-import {Button} from './'
-import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon';
+import { Button } from './'
 
+import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 
 const meta = {
   title: 'Components/Button',
@@ -11,7 +11,7 @@ const meta = {
   argTypes: {
     variant: {
       options: ['primary', 'secondary', 'outlined', 'link', 'internation'],
-      control: {type: 'radio'},
+      control: { type: 'radio' },
     },
   },
 }
@@ -34,7 +34,6 @@ export const DisabledPrimary: Story = {
     disabled: true,
   },
 }
-
 
 export const Secondary: Story = {
   args: {
@@ -64,13 +63,12 @@ export const ButtonAsText: Story = {
   },
 }
 
-
 export const Internation: Story = {
   render: args => {
     return (
       <>
         <Button {...args} variant={'internation'}>
-          <FlagRussiaIcon/>
+          <FlagRussiaIcon />
           {'English'}
         </Button>
       </>

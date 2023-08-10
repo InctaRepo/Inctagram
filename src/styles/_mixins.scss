@@ -1,29 +1,26 @@
-@import "typography";
+@import 'typography';
 
 @mixin flex-block(
   $display: flex,
   $flex-direction: column,
   $justify-content: center,
   $align-items: center,
-  $gap: 0px
+  $gap: 0
 ) {
   display: $display;
   flex-direction: $flex-direction;
-  justify-content: $justify-content;
-  align-items: $align-items;
   gap: $gap;
+  align-items: $align-items;
+  justify-content: $justify-content;
 }
 
-@mixin typography(
-  $fs: $font-size-s,
-  $lh: $line-height-m,
-  $fw: $font-weight-regular
-) {
-  text-align: justify;
-  //TODO : added property 9.08 for modals
+@mixin typography($fs: $font-size-s, $lh: $line-height-m, $fw: $font-weight-regular) {
+  // TODO : added property 9.08 for modals
   margin: 0;
   padding: 0;
+
   font-size: $fs;
-  line-height: $lh;
   font-weight: $fw;
+  line-height: $lh;
+  text-align: justify;
 }

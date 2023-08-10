@@ -1,7 +1,9 @@
-import React, { useState, FC } from 'react';
-import styles from './selectbox.module.scss';
+import React, { useState, FC } from 'react'
+
+import * as Select from '@radix-ui/react-select'
 import clsx from 'clsx'
-import * as Select from '@radix-ui/react-select';
+
+import styles from './selectbox.module.scss'
 
 export type SelectPropsType = {
   def: boolean
@@ -28,9 +30,15 @@ export const Selectbox: FC<SelectPropsType> = ({
     options: styles.options,
     line: styles.line,
     optionline: styles.optionline,
-    selectlabel: clsx(styles.selectlabel, def && styles.def, active && styles.active,
-    hover && styles.hover, focus && styles.focus, disabled && styles.disabled),
-  };
+    selectlabel: clsx(
+      styles.selectlabel,
+      def && styles.def,
+      active && styles.active,
+      hover && styles.hover,
+      focus && styles.focus,
+      disabled && styles.disabled
+    ),
+  }
 
   return (
     <Select.Root>
@@ -39,22 +47,25 @@ export const Selectbox: FC<SelectPropsType> = ({
           <Select.Label className={classNames.label}>Select-box</Select.Label>
         </Select.Group>
         <Select.Group>
-          <Select.Label className={classNames.selectlabel} 
-          ><h1>Select-box</h1></Select.Label>
+          <Select.Label className={classNames.selectlabel}>
+            <h1>Select-box</h1>
+          </Select.Label>
         </Select.Group>
       </Select.Trigger>
 
-      <Select.Portal >
+      <Select.Portal>
         <Select.Content>
           <Select.Viewport>
             <Select.Group className={classNames.options}>
-              {data?.map(i => <Select.Item value="select-box" /*key={i.id}*/ className={classNames.optionline}>
-                <h1 className={classNames.line}>Select-box</h1> </Select.Item>)}
+              {data?.map(i => (
+                <Select.Item value="select-box" /*key={i.id}*/ className={classNames.optionline}>
+                  <h1 className={classNames.line}>Select-box</h1>{' '}
+                </Select.Item>
+              ))}
             </Select.Group>
           </Select.Viewport>
         </Select.Content>
       </Select.Portal>
-
     </Select.Root>
-  );
-};
+  )
+}

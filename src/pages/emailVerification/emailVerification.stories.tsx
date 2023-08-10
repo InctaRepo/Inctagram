@@ -1,7 +1,6 @@
-import type {StoryObj} from '@storybook/react'
-import {EmailVerification} from "@/src/pages/emailVerification/EmailVerification";
+import type { StoryObj } from '@storybook/react'
 
-
+import { EmailVerification } from '@/src/pages/emailVerification/EmailVerification'
 
 const meta = {
   title: 'pages/EmailVerification',
@@ -16,4 +15,3 @@ export const Primary: Story = {
     variant: 'primary',
   },
 }
-

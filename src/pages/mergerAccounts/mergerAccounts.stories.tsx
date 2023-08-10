@@ -1,7 +1,6 @@
-import type {StoryObj} from '@storybook/react'
-import {MergerAccounts} from "@/src/pages/mergerAccounts/MergerAccounts";
+import type { StoryObj } from '@storybook/react'
 
-
+import { MergerAccounts } from '@/src/pages/mergerAccounts/MergerAccounts'
 
 const meta = {
   title: 'pages/MergerAccounts',
@@ -16,4 +15,3 @@ export const Primary: Story = {
     variant: 'primary',
   },
 }
-
