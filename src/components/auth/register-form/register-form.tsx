@@ -55,7 +55,6 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
           </Link>
         </div>
         <form onSubmit={onSubmit} className={s.form}>
-          {/*<DevTool control={control}/>*/}
           <ControlledTextField
             control={control}
             name={'username'}

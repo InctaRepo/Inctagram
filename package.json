@@ -33,8 +33,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.2",
-    "react-redux": "^8.1.2",
-    "redux": "^4.2.1",
+    "react-query": "^3.39.3",
     "sass": "^1.64.1",
     "typescript": "5.1.6",
     "zod": "^3.21.4"
@@ -52,6 +51,7 @@
     "@storybook/nextjs": "7.1.1",
     "@storybook/react": "7.1.1",
     "@storybook/testing-library": "0.2.0",
+    "@tanstack/eslint-plugin-query": "^4.32.5",
     "@types/react": "18.2.17",
     "eslint-plugin-storybook": "^0.6.13",
     "storybook": "7.1.1",
