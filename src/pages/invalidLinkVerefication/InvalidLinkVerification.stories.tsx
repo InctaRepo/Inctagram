@@ -1,7 +1,6 @@
-import type {StoryObj} from '@storybook/react'
-import {InvalidLinkVerification} from "@/src/pages/invalidLinkVerefication/invalidLinkVerification";
+import type { StoryObj } from '@storybook/react'
 
-
+import { InvalidLinkVerification } from '@/src/pages/invalidLinkVerefication/invalidLinkVerification'
 
 const meta = {
   title: 'pages/InvalidLinkVerification',
@@ -16,4 +15,3 @@ export const Primary: Story = {
     variant: 'primary',
   },
 }
-

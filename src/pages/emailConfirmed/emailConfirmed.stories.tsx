@@ -1,7 +1,6 @@
-import type {StoryObj} from '@storybook/react'
-import {EmailConfirmed} from "@/src/pages/emailConfirmed/EmailConfirmed";
+import type { StoryObj } from '@storybook/react'
 
-
+import { EmailConfirmed } from '@/src/pages/emailConfirmed/EmailConfirmed'
 
 const meta = {
   title: 'pages/emailConfirmed',
@@ -16,4 +15,3 @@ export const Primary: Story = {
     variant: 'primary',
   },
 }
-

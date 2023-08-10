@@ -1,11 +1,13 @@
-import React, {FC, ReactNode} from 'react'
+import React, { FC, ReactNode } from 'react'
+
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import clsx from 'clsx'
-import s from './checkbox.module.scss'
-import CheckIcon from '@/src/assets/icons/check-icon';
-import {Typography} from '@/src/components/ui/typography';
 
+import s from './checkbox.module.scss'
+
+import CheckIcon from '@/src/assets/icons/check-icon'
+import { Typography } from '@/src/components/ui/typography'
 
 export type CheckboxPropsType = {
   error?: string
@@ -15,19 +17,13 @@ export type CheckboxPropsType = {
   label?: string | ReactNode
 }
 
-export const Checkbox: FC<CheckboxPropsType> = ({
-                                                  error,
-                                                  checked,
-                                                  onChange,
-                                                  disabled,
-                                                  label,
-                                                }) => {
+export const Checkbox: FC<CheckboxPropsType> = ({ error, checked, onChange, disabled, label }) => {
   const classNames = {
-      container: s.container,
-      buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
-      checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
-      indicator: clsx(s.indicator, disabled && s.disabled),
-      label: clsx(s.label, disabled && s.disabled),
+    container: s.container,
+    buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
+    checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
+    indicator: clsx(s.indicator, disabled && s.disabled),
+    label: clsx(s.label, disabled && s.disabled),
   }
 
   return (
@@ -42,7 +38,7 @@ export const Checkbox: FC<CheckboxPropsType> = ({
           >
             {checked && (
               <CheckboxRadix.Indicator className={classNames.indicator}>
-                <CheckIcon color={disabled ? '#D5DAE0' : 'black'}/>
+                <CheckIcon color={disabled ? '#D5DAE0' : 'black'} />
               </CheckboxRadix.Indicator>
             )}
           </CheckboxRadix.Root>

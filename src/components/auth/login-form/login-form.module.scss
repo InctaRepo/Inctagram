@@ -1,33 +1,33 @@
-@import "src/styles/_mixins.scss";
-@import "src/styles/_colors.scss";
+@import 'src/styles/_mixins.scss';
+@import 'src/styles/_colors.scss';
 
 .divWrap {
-	width: 378px;
-	height: 504px;
-	background-color: $color-dark-500;
-	border: 1px solid $color-dark-300;
-	@include flex-block(flex, column, space-evenly);
-	padding: 30px;
+  width: 378px;
+  height: 504px;
+  background-color: $color-dark-500;
+  border: 1px solid $color-dark-300;
+  @include flex-block(flex, column, space-evenly);
+  padding: 30px;
 
-	.oauthWrap {
-		width: 100%;
-		@include flex-block(flex, row, space-evenly);
-	}
+  .oauthWrap {
+    width: 100%;
+    @include flex-block(flex, row, space-evenly);
+  }
 
-	.wrapLinkForgotPass {
-		width: 100%;
-		@include flex-block(flex, row, flex-end);
+  .wrapLinkForgotPass {
+    width: 100%;
+    @include flex-block(flex, row, flex-end);
 
-		.linkForgotPass {
-			color: $color-light-900;
-		}
-	}
+    .linkForgotPass {
+      color: $color-light-900;
+    }
+  }
 
-	.linkSingUP {
-		color: $color-accent-500;
-	}
+  .linkSingUP {
+    color: $color-accent-500;
+  }
 
-	.controlTextField {
-		margin-bottom: 10px;
-	}
+  .controlTextField {
+    margin-bottom: 10px;
+  }
 }

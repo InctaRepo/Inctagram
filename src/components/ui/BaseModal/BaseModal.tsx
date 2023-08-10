@@ -1,13 +1,19 @@
-import {ComponentProps, FC, ReactNode} from 'react'
+import { ComponentProps, FC, ReactNode } from 'react'
 
-import {Dialog, DialogClose, DialogContent, DialogOverlay, DialogPortal, DialogTitle,} from '@radix-ui/react-dialog'
-import {Separator} from '@radix-ui/react-separator'
-import {clsx} from 'clsx'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+} from '@radix-ui/react-dialog'
+import { Separator } from '@radix-ui/react-separator'
+import { clsx } from 'clsx'
 
+import CloseIcon from '@/src/assets/icons/close-icon'
+import { Typography } from '@/src/components/ui/typography'
 import s from 'src/components/ui/BaseModal/base-modal.module.scss'
-import CloseIcon from '@/src/assets/icons/close-icon';
-import {Typography} from '@/src/components/ui/typography';
-
 
 export type ModalSize = 'sm' | 'md' | 'lg'
 
@@ -25,17 +31,17 @@ export type ModalProps = {
 } & ComponentProps<'div'>
 
 export const BaseModal: FC<ModalProps> = ({
-                                            onClose,
-                                            open,
-                                            renderActionButton,
-                                            renderCancelButton,
-                                            modalWidth = 'sm',
-                                            title,
-                                            className,
-                                            children,
-                                            showCloseButton = true,
-                                            showSeparator = true,
-                                          }) => {
+  onClose,
+  open,
+  renderActionButton,
+  renderCancelButton,
+  modalWidth = 'sm',
+  title,
+  className,
+  children,
+  showCloseButton = true,
+  showSeparator = true,
+}) => {
   const classNames = {
     content: getContentClassName(modalWidth, className),
   }
@@ -48,20 +54,19 @@ export const BaseModal: FC<ModalProps> = ({
     <Dialog open={open} onOpenChange={onCloseHandler}>
       {open && (
         <DialogPortal>
-          <DialogOverlay className={s.DialogOverlay}/>
+          <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
-
             <div className={s.titleWrapper}>
               {showCloseButton && (
                 <DialogClose>
                   <button className={s.IconButton}>
-                    <CloseIcon/>
+                    <CloseIcon />
                   </button>
                 </DialogClose>
               )}
               <DialogTitle className={s.DialogTitle}>
                 <Typography variant={'h1'}>{title}</Typography>
-                {showSeparator && <Separator className={s.separator}/>}
+                {showSeparator && <Separator className={s.separator} />}
               </DialogTitle>
             </div>
 

@@ -1,19 +1,20 @@
-import {useState} from 'react'
-import type {Meta, StoryObj} from '@storybook/react'
-import {BaseModal} from './'
-import {Typography} from '@/src/components/ui/typography';
-import {Button} from '@/src/components/ui/button';
+import { useState } from 'react'
 
+import type { Meta, StoryObj } from '@storybook/react'
+
+import { BaseModal } from './'
+
+import { Button } from '@/src/components/ui/button'
+import { Typography } from '@/src/components/ui/typography'
 
 const meta = {
   title: 'Components/Modal',
   component: BaseModal,
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof BaseModal>
 
 export default meta
 type Story = StoryObj<typeof BaseModal>
-
 
 export const DefaultModal: Story = {
   render: args => {
@@ -57,11 +58,8 @@ export const ModalWithSaveButton: Story = {
           <Typography variant={'regular16'}>
             We have sent a link to confirm your email to epam@epam.com
           </Typography>
-
         </BaseModal>
       </>
     )
   },
 }
-
-

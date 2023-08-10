@@ -4,6 +4,7 @@
 html {
   box-sizing: border-box;
   font-size: 100%;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,9 +12,9 @@ html {
 *,
 *::before,
 *::after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 input,
@@ -22,22 +23,24 @@ select,
 textarea,
 optgroup,
 option {
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: inherit;
-	font-style: inherit;
-	color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
 }
 
 a:visited {
-	color: inherit;
+  color: inherit;
 }
 
 body {
   margin: 0;
   padding: 0;
+
   font-family: $font-family-primary;
   line-height: 24px;
   color: $color-light-100;
+
   background-color: $color-dark-700;
 }

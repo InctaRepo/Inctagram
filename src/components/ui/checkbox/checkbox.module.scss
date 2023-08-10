@@ -1,7 +1,6 @@
-@import "@/src/styles/colors";
-@import "@/src/styles/typography";
-@import "@/src/styles/mixins";
-
+@import '@/src/styles/colors';
+@import '@/src/styles/typography';
+@import '@/src/styles/mixins';
 
 .wrapper {
   width: 100%;
@@ -33,11 +32,11 @@
   line-height: 24px;
 
   &.disabled {
-    color: $color-dark-100
+    color: $color-dark-100;
   }
 }
 
-.buttonWrapper{
+.buttonWrapper {
   all: unset;
 
   display: flex;
@@ -54,16 +53,19 @@
   }
 
   &:active:not(.disabled) {
-    background-color: $color-dark-100
+    background-color: $color-dark-100;
   }
-  &:focus{
-    background-color: $color-dark-500
+
+  &:focus {
+    background-color: $color-dark-500;
   }
+
   &:hover:not(.disabled),
   &:hover.root:not([data-state='checked'], .disabled) {
-    background-color: $color-dark-100
+    background-color: $color-dark-100;
   }
 }
+
 .checkbox {
   cursor: pointer;
 
@@ -82,7 +84,7 @@
 
   &.disabled {
     cursor: initial;
-    border: 2px solid $color-dark-100
+    border: 2px solid $color-dark-100;
   }
 }
 
@@ -92,10 +94,9 @@
 
   &.disabled {
     background-color: $color-dark-100;
-    border: 2px solid $color-dark-100
+    border: 2px solid $color-dark-100;
   }
 }
-
 
 .indicator {
   display: flex;
