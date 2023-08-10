@@ -7,13 +7,8 @@ const SignUpPage: NextPageWithLayout = () => {
     // register(data)
   }
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>
-  // } else
   return (
     <>
-      {/*@ts-ignore*/}
-      {/*{isError && <Typography color={'error'}>{error?.data.message[0].message}</Typography>}*/}
       <RegisterForm onSubmitHandler={submit} />
     </>
     //TODO linkpath to sign in
