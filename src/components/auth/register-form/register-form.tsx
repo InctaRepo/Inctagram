@@ -26,10 +26,16 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 
 	const {control, handleSubmit, formState} = useForm<RegisterFormType>({
 		resolver: zodResolver(registerSchema),
-		mode: 'onChange'
+		mode: 'onTouched',
+		defaultValues: {
+			email: '',
+			password: '',
+			passwordConfirm: '',
+			terms: false
+		},
 	})
 
-	const onSubmit = handleSubmit(data => {
+	const onSubmit = handleSubmit((data: RegisterFormType) => {
 		onSubmitHandler(data)
 	})
 
@@ -71,13 +77,21 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
 						className={s.field}
 					/>
 					<div className={s.terms}>
-						<ControlledCheckbox control={control} name={'terms'}/>
-						<Typography variant={'small'} className={s.termsRow}>
-							I agree to the&nbsp;<Link href={'/terms'} className={s.termsLink}>Terms of Service</Link>
-							&nbsp;and&nbsp;<Link href={'/policy'} className={s.termsLink}>Privacy Policy</Link>
-						</Typography>
+						<ControlledCheckbox control={control} name={'terms'}
+																label={
+																	<Typography variant={'small'} className={s.termsRow}>
+																		I agree to the&nbsp;<Link href={'/terms'} className={s.termsLink}>Terms of
+																		Service</Link>
+																		&nbsp;and&nbsp;<Link href={'/policy'} className={s.termsLink}>Privacy Policy</Link>
+																	</Typography>
+																}
+						/>
+
 					</div>
-					<Button type={'submit'} fullWidth className={s.registerBtn} disabled={!formState.isValid}>
+					<Button type={'submit'} fullWidth className={s.registerBtn}
+						// disabled={!formState.isValid}
+						//TODO disable
+					>
 						<Typography variant={'h3'}>Sign Up</Typography>
 					</Button>
 				</form>

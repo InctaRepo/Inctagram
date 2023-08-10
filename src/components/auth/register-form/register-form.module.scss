@@ -25,6 +25,7 @@
 
     .form {
       width: 100%;
+      position: relative;
     }
 
     .field {
@@ -34,7 +35,7 @@
 
     .terms {
       @include flex-block($flex-direction: row);
-      margin-bottom: 12px;
+      margin-bottom: 58px;
       padding-right: 10px;
 
       .termsRow {

@@ -8,7 +8,6 @@ export const authApi = createApi({
 		baseUrl: 'https://inctagram-social.vercel.app/',
 	}),
 	endpoints: builder => ({
-
 		registration: builder.mutation<any, RegisterArgsType>({
 			query: (formData) => ({
 				url: 'auth/signup',

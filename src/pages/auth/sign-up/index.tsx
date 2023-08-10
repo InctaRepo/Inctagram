@@ -9,8 +9,7 @@ const SignUpPage: NextPageWithLayout = () => {
 	const [register, {isError, isLoading, error, data, isSuccess}] = useRegistrationMutation()
 
 	const submit = (data: RegisterFormType) => {
-		const {terms, ...formData} = data; // exclude terms for query
-		register(formData)
+		register(data)
 	}
 
 	if (isLoading) {
