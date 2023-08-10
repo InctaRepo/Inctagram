@@ -1,5 +1,5 @@
-import { NextPageWithLayout } from "@/src/pages/_app";
-import { LogInform } from "@/src/components/auth/login-form/LogIn-form";
+import { LogInform } from '@/src/components/auth/login-form/LogIn-form'
+import { NextPageWithLayout } from '@/src/pages/_app'
 
 const SingInPage: NextPageWithLayout = () => {
   return (
@@ -8,7 +8,7 @@ const SingInPage: NextPageWithLayout = () => {
       <LogInform />
     </>
     //TODO linkpath to sign in
-  );
-};
+  )
+}
 
-export default SingInPage;
+export default SingInPage
