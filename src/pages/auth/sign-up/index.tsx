@@ -8,8 +8,7 @@ import { useRegistrationMutation } from "@/src/api/authApi/authApi";
 import { Typography } from "@/src/components/ui/typography";
 
 const SignUpPage: NextPageWithLayout = () => {
-  const [register, { isError, isLoading, error, data, isSuccess }] =
-    useRegistrationMutation();
+  const [register, { isError, isLoading, error }] = useRegistrationMutation();
 
   const submit = (data: RegisterFormType) => {
     register(data);

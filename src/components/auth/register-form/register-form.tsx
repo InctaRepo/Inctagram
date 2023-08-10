@@ -27,7 +27,7 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
   const { onSubmitHandler } = props;
   const router = useRouter();
 
-  const { control, handleSubmit, formState } = useForm<RegisterFormType>({
+  const { control, handleSubmit } = useForm<RegisterFormType>({
     resolver: zodResolver(registerSchema),
     mode: "onTouched",
     defaultValues: {

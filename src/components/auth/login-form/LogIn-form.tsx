@@ -3,7 +3,7 @@ import s from "./login-form.module.scss";
 import { Typography } from "../../ui/typography";
 import Link from "next/link";
 import { Button } from "../../ui/button";
-import { ZodType, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import GoogleIcon from "@/src/assets/icons/google-icon";
@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 
 type FormDataType = z.infer<typeof logInSchema>;
 
-export const LogInform: React.FC = (props: any) => {
+export const LogInform: React.FC = () => {
   const { control, handleSubmit } = useForm<FormDataType>({
     resolver: zodResolver(logInSchema),
   });
