@@ -5,12 +5,15 @@
 @mixin common-styles {
   display: flex;
   justify-content: space-around;
+  align-items:center ;
   color: $color-light-700;
   font-weight: $font-weight-bold;
   background-color: $color-dark-900;
   height: 60px;
   position: relative;
-  top:30px;
+  top: 30px;
+  left:20px;
+  width: 1280px;
 }
 
 @mixin relative-pos($top, $left) {
@@ -20,38 +23,61 @@
 }
 
 // Styles
+
+// .MainContainer{
+//   display: flex;
+//   justify-content: center;
+//   width:100%;
+// }
 .main {
   @include common-styles;
+
 }
 
 .insta {
   position: relative;
-
-    top: 3px;
 }
 
 .img {
   @include relative-pos(10px, 300px);
-
   position: relative;
-  top: 28px;
 }
 
 //git push --set-upstream origin HeaderCards
-.drop{
-    background-color: $color-dark-900;
-    border: 1px solid white;
-    width: 163px;
-    height: 36px;
-    position: relative;
-    top: 13px;
-    
+.drop {
+  background-color: $color-dark-900;
+  border: 1px solid white;
+  width: 163px;
+  height: 36px;
+  position: relative;
+  top: 13px;
+
 
 }
 
 
 .dropDown {
   position: relative;
-  top: 10px;
+  bottom: 7px;
   color: $color-light-100;
+}
+
+
+
+
+
+ .container {
+  display: flex;
+  justify-content: center;
+
+}
+
+ .line {
+  position: relative;
+  bottom: 60px;
+  height: 102px;
+  width: 1320px;
+
+  border-bottom: 1px solid $color-light-100;
+  opacity: 0.5;
 }

@@ -9,9 +9,7 @@ export const Cards = () => {
             <div className={s.card}>
 
 
-
             </div>
         </div>
     )
-
 }

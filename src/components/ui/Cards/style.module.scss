@@ -7,10 +7,10 @@ $main-width: 1002px;
 $card-width: 100px;
 $card-height: 100px;
 $card-top: 55px;
-$card-left: 157px;
 
 
 @mixin center-flex() {
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,12 +25,10 @@ $card-left: 157px;
     width: $card-width;
     height: $card-height;
     top: $card-top;
-    left: $card-left;
     background-color:   $color-dark-300;
     position: relative;
     top: 100px;
   }
 
  
->>>>>>> storybook
 }

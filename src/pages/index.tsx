@@ -4,11 +4,19 @@ import Link from "next/link";
 import { NextPageWithLayout } from "@/src/pages/_app";
 import { getAuthLayout } from "@/src/components/Layout/AuthLayout/AuthLayout";
 import { Typography } from "@/src/components/ui/typography";
+import { Cards } from "../components/ui/Cards/Cards";
+import Header from "../components/ui/Header/Header";
 
 const Home: NextPageWithLayout = () => {
 	return (
 
 		<>
+
+			
+			<Header/>
+			<Cards/>
+
+{/* 			
 			<div>
 				<Typography as={"h1"}>Development links</Typography>
 			</div>
@@ -49,7 +57,7 @@ const Home: NextPageWithLayout = () => {
 						<Link href={"/auth/create-password"}>create-password</Link>
 					</h2>
 				</li>
-			</ul>
+			</ul> */}
 		</>
 	);
 };

@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 import Image from 'next/image';
 import s from './style.module.scss';
@@ -17,56 +15,56 @@ type StaticImageData = /*unresolved*/ any
 interface Option {
   value: string | number;
   label: string;
-
-
-  img: StaticImageData; 
+  img: StaticImageData; // Use StaticImageData type
 }
 
 const options: Option[] = [
   { label: 'Russian', value: 'option1', img: RussiaImage }, // Use RussiaImage here
   { label: 'English', value: 'option2', img: RussiaImage },
-
   // Add more options as needed
 ];
 
 const Dropdown = ({ options, onChange }: { options: Option[]; onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void }) => {
   return (
+    <div >
+      <select className={s.drop} onChange={onChange}>
+        {options.map((option: Option, index: number) => (
+          <option key={index} value={option.value}>
+            {option.label}
 
-    <select className={s.drop} onChange={onChange}>
-      {options.map((option: Option, index: number) => (
-        <option key={index} value={option.value}>
-          {option.label}
-          
-
-        </option>
-      ))}
-    </select>
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 
 const Header = () => {
   const [selectedValue, setSelectedValue] = useState("");
 
-
- 
-
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value);
   };
 
   return (
-    <header className={s.main}>
+    <div className={s.MainContainer}>
+      <header className={s.main}>
+        <h2 className={s.insta}>Instagram</h2>
+        <div className={s.img}>
+          <Image src={bell} alt="icon" />
+        </div>
+        <div className={s.dropDown}>
+          <Dropdown options={options} onChange={handleDropdownChange} />
+          {/* <p>Selected Value: {selectedValue}</p> */}
+        </div>
 
-      <h2 className={s.insta}>Instagram</h2>
-      <div className={s.img}>
-        <Image src={bell} alt="icon" />
-      </div>
-      <div className={s.dropDown}>
-        <Dropdown options={options} onChange={handleDropdownChange} />
-        {/* <p>Selected Value: {selectedValue}</p> */}
+      </header>
+
+      <div className={s.container}>
+        <div className={s.line}></div>
       </div>
 
-    </header>
+    </div>
   );
 };
 
