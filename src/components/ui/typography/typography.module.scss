@@ -1,6 +1,6 @@
-@import 'src/styles/mixins';
-@import 'src/styles/colors';
-@import 'src/styles/typography';
+@import "src/styles/mixins";
+@import "src/styles/colors";
+@import "src/styles/typography";
 
 //base style ======================================================================
 .regular14 {
@@ -10,56 +10,59 @@
 //variant props ===================================================================
 .large {
   @include typography(
-          $fs: $font-size-xxl,
-          $lh: $line-height-l,
-          $fw: $font-weight-medium)
-
+    $fs: $font-size-xxl,
+    $lh: $line-height-l,
+    $fw: $font-weight-medium
+  );
 }
 
 .h1 {
   @include typography(
-          $fs: $font-size-xl,
-          $lh: $line-height-l,
-          $fw: $font-weight-bold,);
+    $fs: $font-size-xl,
+    $lh: $line-height-l,
+    $fw: $font-weight-bold
+  );
 }
 
 .h2 {
-  @include typography($fs: $font-size-l, $fw: $font-weight-bold)
+  @include typography($fs: $font-size-l, $fw: $font-weight-bold);
 }
 
 .h3 {
-  @include typography($fs: $font-size-m, $fw: $font-weight-medium)
+  @include typography($fs: $font-size-m, $fw: $font-weight-medium);
 }
 
 .regular16 {
-  @include typography($fs: $font-size-m)
+  @include typography($fs: $font-size-m);
 }
 
 .bold16 {
-  @include typography($fs: $font-size-m, $fw: $font-weight-bold)
+  @include typography($fs: $font-size-m, $fw: $font-weight-bold);
 }
 
 .bold14 {
-  @include typography($fs: $font-size-s, $fw: $font-weight-bold)
+  @include typography($fs: $font-size-s, $fw: $font-weight-bold);
 }
 
 .medium14 {
-  @include typography($fs: $font-size-s, $lh: $line-height-s, $fw: $font-weight-h3-large)
+  @include typography(
+    $fs: $font-size-s,
+    $lh: $line-height-s,
+    $fw: $font-weight-h3-large
+  );
 }
 
 .small {
-  @include typography(
-          $fs: $font-size-xs,
-          $lh: $line-height-s);
-
+  @include typography($fs: $font-size-xs, $lh: $line-height-s);
 }
 
-.sb_small { // semi-bold small text
+.sb_small {
+  // semi-bold small text
   @include typography(
-          $fs: $font-size-xs,
-          $lh: $line-height-s,
-          $fw: $font-weight-medium)
-
+    $fs: $font-size-xs,
+    $lh: $line-height-s,
+    $fw: $font-weight-medium
+  );
 }
 
 .link {
@@ -75,21 +78,17 @@
 //color props =====================================================================
 
 .primary {
-  color: $color-light-100
+  color: $color-light-100;
 }
 
 .secondary {
-  color: $color-light-900
+  color: $color-light-900;
 }
 
 .link {
-  color: $color-accent-500
+  color: $color-accent-500;
 }
 
 .error {
-  color: $color-danger-500
+  color: $color-danger-500;
 }
-
-
-
-
