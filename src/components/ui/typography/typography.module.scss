@@ -1,6 +1,6 @@
-@import 'src/styles/mixins';
-@import 'src/styles/colors';
-@import 'src/styles/typography';
+@import "src/styles/mixins";
+@import "src/styles/colors";
+@import "src/styles/typography";
 
 //base style ======================================================================
 .regular14 {
@@ -9,11 +9,19 @@
 
 //variant props ===================================================================
 .large {
-  @include typography($fs: $font-size-xxl, $lh: $line-height-l, $fw: $font-weight-medium);
+  @include typography(
+    $fs: $font-size-xxl,
+    $lh: $line-height-l,
+    $fw: $font-weight-medium
+  );
 }
 
 .h1 {
-  @include typography($fs: $font-size-xl, $lh: $line-height-l, $fw: $font-weight-bold);
+  @include typography(
+    $fs: $font-size-xl,
+    $lh: $line-height-l,
+    $fw: $font-weight-bold
+  );
 }
 
 .h2 {
@@ -37,7 +45,11 @@
 }
 
 .medium14 {
-  @include typography($fs: $font-size-s, $lh: $line-height-s, $fw: $font-weight-h3-large);
+  @include typography(
+    $fs: $font-size-s,
+    $lh: $line-height-s,
+    $fw: $font-weight-h3-large
+  );
 }
 
 .small {
@@ -46,7 +58,11 @@
 
 .sb_small {
   // semi-bold small text
-  @include typography($fs: $font-size-xs, $lh: $line-height-s, $fw: $font-weight-medium);
+  @include typography(
+    $fs: $font-size-xs,
+    $lh: $line-height-s,
+    $fw: $font-weight-medium
+  );
 }
 
 .link {

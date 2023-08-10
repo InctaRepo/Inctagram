@@ -1,28 +1,35 @@
-import { useQueryClient } from 'react-query'
-
-import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
-import { getAuthLayout } from '@/src/components/Layout/AuthLayout/AuthLayout'
-import { NextPageWithLayout } from '@/src/pages/_app'
+import {
+  RegisterForm,
+  RegisterFormType,
+} from "@/src/components/auth/register-form";
+import { NextPageWithLayout } from "@/src/pages/_app";
+import { getAuthLayout } from "@/src/components/Layout/AuthLayout/AuthLayout";
+import { useRegistrationMutation } from "@/src/api/authApi/authApi";
+import { Typography } from "@/src/components/ui/typography";
 
 const SignUpPage: NextPageWithLayout = () => {
-  const queryClient = useQueryClient()
-  const baseURL = 'https://inctagram-social.vercel.app/auth/signup'
-  // Мутация
-  // const mutation = useMutation(formData => axios.post(baseURL, formData))
-  const submit = (formData: RegisterFormType) => {
-    // mutation.mutate(formData)
-  }
+  const [register, { isError, isLoading, error }] = useRegistrationMutation();
 
-  // if (isLoading) return 'Loading...'
+  const submit = (data: RegisterFormType) => {
+    register(data);
+  };
 
-  return (
-    <>
-      {/*{isError && <Typography color={'error'}>{error?.data.message[0].message}</Typography>}*/}
-      <RegisterForm linkPath={'#'} onSubmitHandler={submit} />
-    </>
-    //TODO linkpath to sign in
-  )
-}
+  if (isLoading) {
+    return <div>Loading...</div>;
+  } else
+    return (
+      <>
+        {/*@ts-ignore*/}
+        {isError && (
+          <Typography color={"error"}>
+            {error?.data.message[0].message}
+          </Typography>
+        )}
+        <RegisterForm onSubmitHandler={submit} />
+      </>
+      //TODO linkpath to sign in
+    );
+};
 
-SignUpPage.getLayout = getAuthLayout
-export default SignUpPage
+SignUpPage.getLayout = getAuthLayout;
+export default SignUpPage;

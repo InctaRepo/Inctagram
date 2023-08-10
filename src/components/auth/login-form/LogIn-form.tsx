@@ -1,39 +1,37 @@
-import React from 'react'
+import React from "react";
+import s from "./login-form.module.scss";
+import { Typography } from "../../ui/typography";
+import Link from "next/link";
+import { Button } from "../../ui/button";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import GoogleIcon from "@/src/assets/icons/google-icon";
+import GithubIcon from "@/src/assets/icons/github-icon";
+import { ControlledTextField } from "../../ui/controlled";
+import { logInSchema } from "@/src/common/schemas/logIn-schema";
+import { useRouter } from "next/router";
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import Link from 'next/link'
-import { useForm } from 'react-hook-form'
-import { ZodType, z } from 'zod'
+type FormDataType = z.infer<typeof logInSchema>;
 
-import { Button } from '../../ui/button'
-import { ControlledTextField } from '../../ui/controlled'
-import { TextField } from '../../ui/TextField/TextField'
-import { Typography } from '../../ui/typography'
-
-import s from './login-form.module.scss'
-
-import GithubIcon from '@/src/assets/icons/github-icon'
-import GoogleIcon from '@/src/assets/icons/google-icon'
-import { logInSchema } from '@/src/common/schemas/logIn-schema'
-
-type FormDataType = z.infer<typeof logInSchema>
-
-export const LogInform: React.FC = (props: any) => {
+export const LogInform: React.FC = () => {
   const { control, handleSubmit } = useForm<FormDataType>({
     resolver: zodResolver(logInSchema),
-  })
+  });
+  const router = useRouter();
+
   const submitData = (data: FormDataType) => {
-    alert(JSON.stringify(data))
-  }
+    alert(JSON.stringify(data));
+  };
 
   return (
     <form onSubmit={handleSubmit(submitData)} className={s.divWrap}>
       <Typography variant="h1">Sing In</Typography>
       <div className={s.oauthWrap}>
-        <Link href={'/google'}>
+        <Link href={"/google"}>
           <GoogleIcon />
         </Link>
-        <Link href={'/github'}>
+        <Link href={"/github"}>
           <GithubIcon />
         </Link>
       </div>
@@ -63,11 +61,11 @@ export const LogInform: React.FC = (props: any) => {
         <Typography variant="bold16">Sing In</Typography>
       </Button>
       <Typography variant="regular16">Don’t have an account?</Typography>
-      <Button variant="link">
+      <Button variant="link" onClick={() => router.push("/auth/sign-up")}>
         <Typography variant="regular16" className={s.linkSingUP}>
           Sing Up
         </Typography>
       </Button>
     </form>
-  )
-}
+  );
+};
