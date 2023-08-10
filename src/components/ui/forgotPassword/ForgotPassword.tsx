@@ -15,8 +15,6 @@ export const ForgotPassword: React.FC<Props> = ({
 
     const mode = `storybook-forgotPassword--${primary ? 'primary' : 'secondary'}`;
 
-    console.log(mode)
-
     return (
         <div
             className={s[mode]}
