@@ -1,87 +1,89 @@
-@import "styles/index.scss";
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
 
 @mixin wh($w, $h) {
-	width: $w;
-	height: $h;
+  width: $w;
+  height: $h;
 }
 
 .textFieldWrap {
-	@include wh(100%, 84px);
-	position: relative;
+  width: 100%;
+  position: relative;
 
-	.textField {
-		@include wh(100%, 36px);
-		padding-left: 15px;
-		background-color: transparent;
-		border: 1px solid var(--color-dark-100);
-		border-radius: 2px;
+  .textField {
+    @include wh(100%, 36px);
+    width: 100%;
+    padding: 0 42px 0 15px;
+    background-color: transparent;
+    border: 1px solid $color-dark-100;
+    border-radius: 2px;
 
-		&:focus {
-			&::placeholder {
-				color: var(--color-light-900);
-			}
+    &[type='password'] {
+      padding-right: 42px;
+    }
 
-			border: none;
-			outline: 1px solid var(--color-accent-500);
-		}
+    &:focus {
+      &::placeholder {
+        color: $color-light-900;
+      }
 
-		&[type="search"] {
-			padding-left: 30px;
+      border: none;
+      outline: 1px solid $color-accent-500;
+    }
 
-			&::-webkit-search-cancel-button {
-				appearance: none;
-			}
-		}
-	}
+    &[type='search'] {
+      padding-left: 30px;
 
-	.label {
-		font-size: 14px;
-		color: var(--color-light-900);
-	}
-	.disabledLabel {
-		color: var(--color-dark-100);
-	}
+      &::-webkit-search-cancel-button {
+        appearance: none;
+      }
+    }
+  }
 
-	.error {
-		color: var(--color-danger-500);
-	}
+  .label {
+    font-size: 14px;
+    color: $color-light-900;
+  }
 
-	.errorInput {
-		outline-color: var(--color-danger-500);
-		border-color: var(--color-danger-500);
-	}
+  .disabledLabel {
+    color: $color-dark-100;
+  }
 
-	.disabledInput {
-		border-color: var(--color-dark-100);
-		color: var(--color-dark-100);
-	}
+  .errorWrap {
+    color: $color-danger-500;
+    position: absolute;
+  }
 
-	.iconOpenEye {
-		position: absolute;
-		right: 12px;
-		top: 32px;
-		cursor: pointer;
-	}
+  .errorInput {
+    outline-color: $color-danger-500;
+    border-color: $color-danger-500;
+  }
 
-	.iconCloseEye {
-		position: absolute;
-		right: 12px;
-		top: 32px;
-		cursor: pointer;
-	}
+  .disabledInput {
+    border-color: $color-dark-100;
+    color: $color-dark-100;
+  }
 
-	.disabledIconEye {
-		fill: var(--color-dark-100);
-	}
+  .iconEye {
+    position: absolute;
+    right: 12px;
+    top: 32px;
+    cursor: pointer;
+  }
 
-	.searchIcon {
-		fill: var(--color-dark-100);
-		position: absolute;
-		left: 6px;
-		top: 7px;
-	}
+  .disabledIconEye {
+    fill: $color-dark-100;
+  }
 
-	[type="search"]:focus + .searchIcon {
-		fill: var(--color-light-900);
-	}
+  .searchIcon {
+    fill: $color-dark-100;
+    position: absolute;
+    left: 6px;
+    top: 7px;
+  }
+
+  [type='search']:focus + .searchIcon {
+    fill: $color-light-900;
+  }
 }

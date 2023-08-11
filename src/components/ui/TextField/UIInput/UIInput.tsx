@@ -1,68 +1,73 @@
-import React, { ChangeEvent, useState } from "react";
-import s from "./UIInput.module.scss";
-import EyeIcon from "../../../../assets/icons/eye-icon";
-import EyeOffIcon from "../../../../assets/icons/eye-off-icon";
-import SearchIcon from "../../../../assets/icons/search-icon";
+import React, { ChangeEvent, ComponentProps, useState } from 'react'
+
+import s from './UIInput.module.scss'
+
+import EyeIcon from '@/src/assets/icons/eye-icon'
+import EyeOffIcon from '@/src/assets/icons/eye-off-icon'
+import SearchIcon from '@/src/assets/icons/search-icon'
+import { Typography } from '@/src/components/ui/typography'
 
 type UIInputPropsType = {
-	type: "text" | "password" | "search";
-	label?: string;
-	errorMessage?: string;
-	disabled?: boolean;
-	placeHolder?: string;
-	value?: string;
-	onChange?: (value: string) => void;
-};
+  value?: string
+  label?: string
+  errorMessage?: string
+  onChangeText?: (value: string) => void
+} & ComponentProps<'input'>
 
-export const UIInput: React.FC<UIInputPropsType> = (props) => {
-	const { type, disabled, errorMessage, label, placeHolder, onChange, value } =
-		props;
-	const [showPass, setShowPass] = useState<"text" | "password">("password");
+export const UIInput: React.FC<UIInputPropsType> = props => {
+  const { type, disabled, onChangeText, errorMessage, label, placeholder, value, ...rest } = props
 
-	const openClosePssHandler = () =>
-		showPass === "password" ? setShowPass("text") : setShowPass("password");
+  const [showPass, setShowPass] = useState<'text' | 'password'>('password')
 
-	const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		onChange && onChange(e.currentTarget.value);
-	};
+  const openClosePssHandler = () =>
+    showPass === 'password' ? setShowPass('text') : setShowPass('password')
 
-	const _type =
-		type === "text"
-			? "text"
-			: type === "password"
-			? showPass
-			: type === "search"
-			? "search"
-			: "text";
+  const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    onChangeText && onChangeText(e.currentTarget.value)
+  }
 
-	return (
-		<div className={s.textFieldWrap}>
-			<div className={`${s.label} ${disabled && s.disabledLabel}`}>{label}</div>
-			<input
-				type={_type}
-				value={value}
-				onChange={onchangeHandler}
-				placeholder={placeHolder && placeHolder}
-				disabled={disabled}
-				className={`${s.textField} ${errorMessage && s.errorInput} ${
-					disabled && s.disabledInput
-				}`}
-			/>
-			{type === "password" &&
-				(showPass === "password" ? (
-					<EyeIcon
-						className={`${s.iconOpenEye} ${disabled && s.disabledIconEye}`}
-						onClick={openClosePssHandler}
-					/>
-				) : (
-					<EyeOffIcon
-						className={`${s.iconCloseEye} ${disabled && s.disabledIconEye}`}
-						onClick={openClosePssHandler}
-					/>
-				))}
+  const showErrorMess = errorMessage && errorMessage.length > 0
 
-			{type === "search" && <SearchIcon className={s.searchIcon} />}
-			{errorMessage && <div className={s.error}>{errorMessage}</div>}
-		</div>
-	);
-};
+  const _type =
+    type === 'text'
+      ? 'text'
+      : type === 'password'
+      ? showPass
+      : type === 'search'
+      ? 'search'
+      : 'text'
+
+  return (
+    <div className={s.textFieldWrap}>
+      <div className={`${s.label} ${disabled && s.disabledLabel}`}>{label}</div>
+      <input
+        type={_type}
+        value={value}
+        onChange={onchangeHandler}
+        placeholder={placeholder && placeholder}
+        disabled={disabled}
+        {...rest}
+        className={`${s.textField} ${errorMessage && s.errorInput} ${disabled && s.disabledInput}`}
+      />
+      {type === 'password' &&
+        (showPass === 'password' ? (
+          <EyeIcon
+            className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
+            onClick={openClosePssHandler}
+          />
+        ) : (
+          <EyeOffIcon
+            className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
+            onClick={openClosePssHandler}
+          />
+        ))}
+
+      {type === 'search' && <SearchIcon className={s.searchIcon} />}
+      {showErrorMess && (
+        <Typography variant={'regular14'} className={s.errorWrap}>
+          {errorMessage}
+        </Typography>
+      )}
+    </div>
+  )
+}

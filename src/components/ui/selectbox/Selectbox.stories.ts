@@ -9,7 +9,8 @@ const meta: Meta<typeof Selectbox> = {
     layout: "centered",
   },
   tags: ["autodocs"],
-};
+}
+
 
 export default meta
 type Story = StoryObj<typeof Selectbox>

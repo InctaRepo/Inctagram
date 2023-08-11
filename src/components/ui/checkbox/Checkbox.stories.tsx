@@ -1,8 +1,8 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
-import type {StoryObj} from '@storybook/react'
-import {Checkbox} from '@/src/components/ui/checkbox/Checkbox';
+import type { StoryObj } from '@storybook/react'
 
+import { Checkbox } from '@/src/components/ui/checkbox/Checkbox'
 
 const meta = {
   title: 'Components/Checkbox',
@@ -10,7 +10,7 @@ const meta = {
   argTypes: {
     checked: {
       options: [true, false],
-      control: {type: 'boolean'},
+      control: { type: 'boolean' },
     },
   },
 }
@@ -24,16 +24,16 @@ export const Default: Story = {
     const [checked, setChecked] = useState(false)
 
     return (
-        <>
-            <Checkbox
-                {...args}
-    label={'Check-box'}
-    disabled={false}
-    checked={checked}
-    onChange={() => setChecked(!checked)}
-    />
-    </>
-  )
+      <>
+        <Checkbox
+          {...args}
+          label={'Check-box'}
+          disabled={false}
+          checked={checked}
+          onChange={() => setChecked(!checked)}
+        />
+      </>
+    )
   },
 }
 export const Checked: Story = {

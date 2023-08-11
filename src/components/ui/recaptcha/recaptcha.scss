@@ -1,89 +1,100 @@
-@import 'src/styles/mixins';
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+@import '@/src/styles/typography';
 
-$bcgCMain: #333333; // background-color component
-$error: #FF0000; // color for error designation
+$bcgCMain: #171717; // background-color component
+$error: #ff0000; // color for error designation
 $greyBorder: #333333; // border color
-$white: #FFFFFF; // text and checkbox bcg color
-$darkGrey: #9D9D9D; // checkbox :hover bcg color
-$lightGrey: #B7B7B7; // checkbox border color
+$white: #ffffff; // text and checkbox bcg color
+$darkGrey: #9d9d9d; // checkbox :hover bcg color
+$lightGrey: #b7b7b7; // checkbox border color
 $preloader: #4d8df4; // preloader color
+$marginRight: 13px; // distance between changeable block and label "im not a robot" * very import crutch
 
 .recaptcha {
-  @include flex-block (
-    $flex-direction: row,
-    $justify-content: space-between,
-  );
+  @include flex-block($flex-direction: row, $justify-content: space-between);
   width: 300px;
   height: 79px;
-  padding: 0 20px;
+  padding: 0 18px 0 19px;
   background-color: $bcgCMain;
-  border: 1px $greyBorder;
-  border-radius: 2px;
+  border: 1px solid $greyBorder;
+  border-radius: 1px;
 
   .agreement {
-    @include flex-block (
-      $flex-direction: row,
-      $align-items: center
-    );
+    @include flex-block($flex-direction: row, $align-items: center);
     position: relative;
 
     .expiredMessage {
-      position: absolute;
-      font-family: "Roboto", sans-serif;
-      font-weight: 400;
-      left: -4px;
-      top: -24px;
-      font-size: 10px;
-      line-height: 12px;
-      width: 190px;
+      font-family: 'Roboto', sans-serif;
+      @include typography($fs: 10px, $lh: 12px, $fw: 400);
       color: $error;
+      position: absolute;
+      left: -3px;
+      top: -24px;
+      width: 190px;
     }
+
+    .customCheckbox {
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      border: 1px solid $lightGrey;
+      border-radius: 1px;
+      margin-right: $marginRight;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $darkGrey;
+        transition-delay: 0.1s;
+        -webkit-transition-delay: 0.1s;
+      }
+    }
+
     .hidden {
       display: none;
     }
+
     label {
-      font-family: "Roboto", sans-serif;
       font-size: 12px;
       color: $white;
       width: 78px;
     }
+
     .checked {
-      margin-right: 10px;
-      width: 20px;
+      margin: 0 10px 0 -2px;
     }
   }
 
   .privacy {
-    @include flex-block (
-      $align-items: center
-    );
-    &:hover{
+    @include flex-block($align-items: center);
+
+    &:hover {
       cursor: pointer;
     }
   }
 }
 
 .storybook-recaptcha--primary {
-  padding: 9px 8px;
+  padding: 8px 7px;
 }
 
 .storybook-recaptcha--error {
   border: 1px solid $error;
-  padding: 8px 7px 13px;
-  width: 316px;
+  padding: 7px 6px 5px;
+  width: 314px;
 
   .error-text {
     display: block;
     color: $error;
-    margin: 9px 0 0;
-    font-family: "Roboto", sans-serif;
+    margin: 7px 0 0;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 10px;
   }
 }
 
 .storybook-recaptcha--expired {
-  padding: 9px 8px;
+  padding: 8px 7px;
 }
 
 .error-text {
@@ -97,7 +108,8 @@ $preloader: #4d8df4; // preloader color
   position: relative;
   width: 20px;
   height: 20px;
-  margin-right: 10px;
+  margin-right: $marginRight;
+
   div {
     box-sizing: border-box;
     display: block;
@@ -109,12 +121,15 @@ $preloader: #4d8df4; // preloader color
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: $preloader transparent transparent transparent;
+
     &:nth-child(1) {
       animation-delay: -1.45s;
     }
+
     &:nth-child(2) {
       animation-delay: -1.3s;
     }
+
     &:nth-child(3) {
       animation-delay: -1.15s;
     }

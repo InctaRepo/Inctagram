@@ -1,56 +1,71 @@
-$darkGrey: #9D9D9D;
-$lightGrey: #B7B7B7;
+@import '@/src/styles/colors';
+@import '@/src/styles/typography';
+@import '@/src/styles/mixins';
+
+.wrapper {
+  width: 100%;
+}
+
+.error {
+  position: absolute;
+}
+
+// ^^ added 10.09 for error handling
+
 .container {
   display: flex;
   align-items: center;
 }
-.label {
 
+.label {
+  position: relative;
   cursor: pointer;
 
   display: inline-flex;
   gap: 2px;
   align-items: center;
 
-  color: var(--color-light-100);
-  font-family: var(--font-family-primary) ;
+  color: $color-light-100;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
 
-  &.disabled{
-    color: var(--color-dark-100);
+  &.disabled {
+    color: $color-dark-100;
   }
 }
 
-.buttonWrapper{
+.buttonWrapper {
   all: unset;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 8px;
+  padding: 6px;
 
   background-color: inherit;
   border-radius: 50%;
 
-  &.disabled{
+  &.disabled {
     cursor: default;
   }
-  &:active:not(.disabled){
-    background-color: var(--color-dark-100);
+
+  &:active:not(.disabled) {
+    background-color: $color-dark-100;
   }
-  &:focus{
-    background-color: var(--color-dark-500);
+
+  &:focus {
+    background-color: $color-dark-500;
   }
+
   &:hover:not(.disabled),
   &:hover.root:not([data-state='checked'], .disabled) {
-    background-color: var(--color-dark-100);
+    background-color: $color-dark-100;
   }
 }
-.recaptcha,
+
 .checkbox {
   cursor: pointer;
 
@@ -62,40 +77,26 @@ $lightGrey: #B7B7B7;
   width: 24px;
   height: 24px;
 
-  border: 2px solid var(--color-light-500);
+  border: 2px solid $color-light-500;
   border-radius: 3px;
   background-color: transparent;
   transition: 0.2s ease-in-out;
-  &.disabled{
+
+  &.disabled {
     cursor: initial;
-    border: 2px solid var(--color-dark-100);
+    border: 2px solid $color-dark-100;
   }
 }
 
-.recaptcha{
-  width: 20px;
-  height: 20px;
-  background-color: var(--color-light-100);
-  border: 1px $lightGrey;
-  border-radius: 1px;
-  margin-right: 10px;
-  display: inline;
-  &:hover {
-    cursor: pointer;
-    background-color: $darkGrey;
-    transition-delay: 0.1s;
-    -webkit-transition-delay: 0.1s;
-  }
-}
 .checked {
-  background-color:var(--color-light-100);
-  border: 2px solid var(--color-light-100);
-  &.disabled{
-    background-color: var(--color-dark-100);
-    border: 2px solid var(--color-dark-100);
+  background-color: $color-light-100;
+  border: 2px solid $color-light-100;
+
+  &.disabled {
+    background-color: $color-dark-100;
+    border: 2px solid $color-dark-100;
   }
 }
-
 
 .indicator {
   display: flex;
