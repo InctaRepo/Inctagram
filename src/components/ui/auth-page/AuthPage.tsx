@@ -17,6 +17,7 @@ export const AuthPage: FC<AuthPageType> = ({title,variant,nameButtonTwo, childre
   const styles = {
     button: clsx(s.button, variant && s.buttonMerger)
   }
+  
   return (
     <div className={s.container}>
       <div className={s.text_container}>

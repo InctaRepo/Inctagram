@@ -6,15 +6,19 @@ import { getAuthLayout } from "@/src/components/Layout/AuthLayout/AuthLayout";
 import { Typography } from "@/src/components/ui/typography";
 import { Cards } from "../components/ui/Cards/Cards";
 import Header from "../components/ui/Header/Header";
+import { Card } from "../components/ui/card-temporary";
+import { RegisterForm } from "../components/auth/register-form";
 
 const Home: NextPageWithLayout = () => {
 	return (
 
 		<>
 
-			
+      
 			<Header/>
-			<Cards/>
+			<Cards children={<p>Some content inside the card.</p>} />
+			{/* <Card children={<p>Some content inside the card.</p>} /> */}
+
 
 {/* 			
 			<div>

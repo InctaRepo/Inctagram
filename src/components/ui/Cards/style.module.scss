@@ -1,34 +1,24 @@
 
 @import "@/src/styles/colors";
-@import "@/src/styles/typography";
+@import "@/src/styles/_mixins";
 
 
-$main-width: 1002px;
-$card-width: 100px;
-$card-height: 100px;
+
 $card-top: 55px;
 
 
-@mixin center-flex() {
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.main {
-  @include center-flex;
-  width: $main-width;
 
   .card {
-    @include center-flex;
-    width: $card-width;
-    height: $card-height;
+    @include  flex-block;
+    flex-shrink: 0;
+    background-color: $color-dark-500;
+    box-shadow: 0 0 0 1px $color-dark-300;
+    border-radius: 3px;
+
+    padding: 1.44rem 1.5rem 1.5rem;
     top: $card-top;
-    background-color:   $color-dark-300;
     position: relative;
     top: 100px;
   }
 
  
-}
