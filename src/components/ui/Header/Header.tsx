@@ -59,9 +59,9 @@ const Header = () => {
         </div>
 
       </header>
-
+      <br />
       <div className={s.container}>
-        <div className={s.line}></div>
+        <span className={s.line}></span>
       </div>
 
     </div>

@@ -1,18 +1,19 @@
 @import "@/src/styles/colors";
 @import "@/src/styles/typography";
+@import "@/src/styles/_mixins";
 
 // Mixins
 @mixin common-styles {
   display: flex;
   justify-content: space-around;
-  align-items:center ;
+  align-items: center;
   color: $color-light-700;
   font-weight: $font-weight-bold;
   background-color: $color-dark-900;
   height: 60px;
   position: relative;
   top: 30px;
-  left:20px;
+  left: 20px;
   width: 1280px;
 }
 
@@ -43,7 +44,7 @@
   position: relative;
 }
 
-//git push --set-upstream origin HeaderCards
+
 .drop {
   background-color: $color-dark-900;
   border: 1px solid white;
@@ -66,13 +67,15 @@
 
 
 
- .container {
-  display: flex;
-  justify-content: center;
+.container {
+  @include flex-block;
+
+  position: relative;
+  z-index: -9999;
 
 }
 
- .line {
+.line {
   position: relative;
   bottom: 60px;
   height: 102px;
