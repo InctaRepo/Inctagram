@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ForgotPassword } from './ForgotPassword'
+import { PasswordRecovery } from './ForgotPassword'
 
-const meta: Meta<typeof ForgotPassword> = {
-  title: 'Components/ForgotPassword',
-  component: ForgotPassword,
+const meta: Meta<typeof PasswordRecovery> = {
+  title: 'pages/PasswordRecovery',
+  component: PasswordRecovery,
 }
 
 export default meta
 
-type Story = StoryObj<typeof ForgotPassword>
+type Story = StoryObj<typeof PasswordRecovery>
 
 export const Primary: Story = {
   args: {

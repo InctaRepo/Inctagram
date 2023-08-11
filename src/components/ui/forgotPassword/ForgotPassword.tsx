@@ -1,13 +1,13 @@
 import s from './forgotPassword.module.scss'
 
+import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { Recaptcha } from '@/src/components/ui/recaptcha/Recaptcha'
 import { TextField } from '@/src/components/ui/TextField/TextField'
-import { Button } from 'src/components/ui/button/button'
-import { Typography } from 'src/components/ui/typography/typography'
+import { Typography } from '@/src/components/ui/typography/typography'
 
 interface Props {
-  primary?: boolean
+  primary?: boolean | undefined
 }
 
 export const ForgotPassword: React.FC<Props> = ({ primary }) => {
