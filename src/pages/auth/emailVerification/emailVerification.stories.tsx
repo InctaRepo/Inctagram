@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 
-import { EmailVerification } from '@/src/pages/auth/emailVerification/EmailVerification'
+import EmailVerification from '@/src/pages/auth/emailVerification/index'
 
 const meta = {
   title: 'pages/EmailVerification',
