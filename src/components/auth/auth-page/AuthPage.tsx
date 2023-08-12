@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import clsx from 'clsx'
 
-import s from '@/src/components/ui/auth-page/AuthPage.module.scss'
+import s from '@/src/components/auth/auth-page/AuthPage.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography/typography'
 

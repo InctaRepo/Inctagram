@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 
-import { EmailConfirmed } from '@/src/pages/email-сonfirmed/EmailConfirmed'
+import { EmailConfirmed } from 'src/pages/auth/emailConfirmed'
 
 const meta = {
   title: 'pages/emailConfirmed',

@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router'
+
 import s from './forgotPassword.module.scss'
 
 import { Button } from '@/src/components/ui/button/button'
@@ -12,6 +14,7 @@ interface Props {
 
 export const ForgotPassword: React.FC<Props> = ({ primary }) => {
   const mode = `storybook-forgotPassword--${primary ? 'primary' : 'secondary'}`
+  const router = useRouter()
 
   return (
     <div className={s[mode]}>
@@ -29,7 +32,7 @@ export const ForgotPassword: React.FC<Props> = ({ primary }) => {
         <Button variant="text" className={s.cancel}>
           Back to Sign In
         </Button>
-        <Recaptcha primary className={s.recaptcha} />
+        {/*<Recaptcha primary className={s.recaptcha} />*/}
         <Typography variant="regular14" className={s.answer}>
           The link has been sent by email.
           <br />
@@ -38,7 +41,7 @@ export const ForgotPassword: React.FC<Props> = ({ primary }) => {
         <Button variant="primary" className={s.repeat}>
           Send Link Again
         </Button>
-        <Button variant="text" className={s.back}>
+        <Button variant="text" className={s.back} onClick={() => router.push('/')}>
           Back to Sign In
         </Button>
       </Card>

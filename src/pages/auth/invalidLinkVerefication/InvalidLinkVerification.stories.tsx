@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 
-import { InvalidLinkVerification } from '@/src/pages/invalid-link-verefication/invalidLinkVerification'
+import { InvalidLinkVerification } from '@/src/pages/auth/invalidLinkVerefication/invalidLinkVerification'
 
 const meta = {
   title: 'pages/InvalidLinkVerification',
