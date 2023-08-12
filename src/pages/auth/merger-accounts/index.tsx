@@ -1,10 +1,9 @@
 import React from 'react'
 
 import MergerImage from '@/src/assets/images/merger-image'
+import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
 import { AuthLayout } from '@/src/components/Layout/AuthLayout'
-import { AuthPage } from '@/src/components/ui/auth-page/AuthPage'
-
-export const MergerAccounts = () => {
+const MergerAccounts = () => {
   return (
     <AuthLayout>
       <AuthPage
@@ -19,3 +18,5 @@ export const MergerAccounts = () => {
     </AuthLayout>
   )
 }
+
+export default MergerAccounts

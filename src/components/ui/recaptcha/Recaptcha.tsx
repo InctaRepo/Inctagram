@@ -13,6 +13,7 @@ interface FormProps {
 }
 
 export const Recaptcha = ({ primary, expired, className }: FormProps) => {
+  // eslint-disable-next-line no-nested-ternary
   const mode = `storybook-recaptcha--${primary ? 'primary' : !expired ? 'error' : 'expired'}`
 
   const [isLoading, setIsLoading] = useState(false)

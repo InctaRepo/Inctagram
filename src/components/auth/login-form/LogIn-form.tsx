@@ -55,7 +55,7 @@ export const LogInform: React.FC = () => {
         fullWidth
       />
       <div className={s.wrapLinkForgotPass}>
-        <Button variant="text">
+        <Button variant="text" onClick={() => router.push('/auth/forgotPassword')}>
           <Typography variant="medium14" className={s.linkForgotPass}>
             Forgot Password
           </Typography>
