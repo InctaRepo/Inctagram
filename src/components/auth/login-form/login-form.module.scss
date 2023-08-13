@@ -1,33 +1,53 @@
-@import 'src/styles/_mixins.scss';
-@import 'src/styles/_colors.scss';
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
 
-.divWrap {
-  width: 378px;
-  height: 504px;
-  background-color: $color-dark-500;
-  border: 1px solid $color-dark-300;
-  @include flex-block(flex, column, space-evenly);
-  padding: 30px;
+.card {
+  width: 100%;
+  max-width: 378px;
+  padding: 1.44rem 1.5rem 1.5rem;
 
-  .oauthWrap {
+  .content {
     width: 100%;
-    @include flex-block(flex, row, space-evenly);
-  }
+    @include flex-block();
 
-  .wrapLinkForgotPass {
-    width: 100%;
-    @include flex-block(flex, row, flex-end);
-
-    .linkForgotPass {
-      color: $color-light-900;
+    .title {
+      margin-bottom: 13px;
     }
-  }
 
-  .linkSingUP {
-    color: $color-accent-500;
-  }
+    .oauthWrap {
+      @include flex-block($flex-direction: row, $gap: 60px);
+      margin-bottom: 24px;
 
-  .controlTextField {
-    margin-bottom: 10px;
+      a {
+        line-height: 0;
+      }
+    }
+
+    .form {
+      width: 100%;
+      .controlTextField {
+        margin-bottom: 24px;
+        text-align: left;
+      }
+      .singIn {
+        margin-bottom: 18px;
+      }
+      .wrapLinkForgotPass {
+        width: 100%;
+        padding-top: 12px;
+        margin-bottom: 24px;
+        @include flex-block(flex, row, flex-end);
+        .link {
+          text-decoration: none;
+
+          .linkForgotPass {
+            color: $color-light-900;
+          }
+        }
+      }
+    }
+    .linkSingUP {
+      color: $color-accent-500;
+    }
   }
 }
