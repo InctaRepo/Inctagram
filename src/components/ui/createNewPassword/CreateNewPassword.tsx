@@ -1,64 +1,66 @@
-import React  from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
-import { z } from 'zod';
-import { Button } from "../../ui/button";
-import { passwordsMatchSchema } from '@/src/common/schemas/passwordsMatch-schema';
-import styles from './createNewPassword.module.scss';
-import { ControlledTextField } from '@/src/components/ui/controlled';
-import {Typography} from '@/src/components/ui/typography';
+import React from 'react'
 
-export type CteateNewPasswordType = z.infer<typeof passwordsMatchSchema>
+import { DevTool } from '@hookform/devtools'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+
+import { passwordsMatchSchema } from '@/src/common/schemas/passwordsMatch-schema'
+import { Button } from '@/src/components/ui/button'
+import { ControlledTextField } from '@/src/components/ui/controlled'
+import styles from '@/src/components/ui/createNewPassword/createNewPassword.module.scss'
+import { Typography } from '@/src/components/ui/typography'
+
+export type CreateNewPasswordType = z.infer<typeof passwordsMatchSchema>
 
 type CreateNewPasswordPropsType = {
-    onSubmitHandler: (data: CteateNewPasswordType) => void
+  onSubmitHandler: (data: CreateNewPasswordType) => void
 }
 
 export const CreateNewPassword = (props: CreateNewPasswordPropsType) => {
-    const { onSubmitHandler } = props
+  const { onSubmitHandler } = props
 
-    const { control, handleSubmit } = useForm<CteateNewPasswordType>({
-        resolver: zodResolver(passwordsMatchSchema),
-        mode: 'onChange'
-    })
+  const { control, handleSubmit } = useForm<CreateNewPasswordType>({
+    resolver: zodResolver(passwordsMatchSchema),
+    mode: 'onChange',
+  })
 
-    const onSubmit = handleSubmit((data: any) => {
-        onSubmitHandler(data)
-    })
+  const onSubmit = handleSubmit((data: any) => {
+    onSubmitHandler(data)
+  })
 
-    return (
+  return (
+    <form className={styles.wrapper} onSubmit={onSubmit}>
+      <Typography variant={'h1'}>Create New Password</Typography>
+      <DevTool control={control} />
 
-        <form className={styles.wrapper} onSubmit={onSubmit}>
-            <Typography variant={'h1'} >Create New Password</Typography>
-            <DevTool control={control} />
+      <ControlledTextField
+        control={control}
+        name={'password'}
+        type={'password'}
+        label={'New password'}
+        className={styles.password}
+        placeholder={'******************'}
+      />
 
-            <ControlledTextField
-                control={control}
-                name={'password'}
-                type={'password'}
-                label={'New password'}
-                className={styles.password}
-                placeholder={"******************"}/>
+      <ControlledTextField
+        control={control}
+        name={'passwordConfirmation'}
+        type={'password'}
+        label={'Password confirmation'}
+        className={styles.password}
+        placeholder={'******************'}
+      />
 
-            <ControlledTextField
-                control={control}
-                name={'passwordConfirmation'}
-                type={'password'}
-                label={'Password confirmation'}
-                className={styles.password}
-                placeholder={"******************"}/>
+      <Typography variant="medium14" className={styles.passwordRequirement}>
+        Your password must be between 6 and 20 <br />
+        characters
+      </Typography>
 
-            <Typography variant="medium14" className={styles.passwordRequirement}>
-                Your password must be bettwen 6 and 20 <br/>
-                characters
-            </Typography>
-
-            <Button type="submit" variant="primary" fullWidth={true} className={styles.btn}>
-                <Typography variant="bold16">Create new password</Typography>
-            </Button>
-        </form>
-
-    );
-};
-export default CreateNewPassword;
+      <Button type="submit" variant="primary" fullWidth={true} className={styles.btn}>
+        <Typography variant="bold16">Create new password</Typography>
+      </Button>
+    </form>
+  )
+}
+export default CreateNewPassword
