@@ -2,10 +2,19 @@
 @import '@/src/styles/colors';
 
 /* reset */
-button,
-fieldset,
-input {
-  all: unset;
+//button,
+//fieldset,
+//input {
+//  all: unset;
+//}
+
+.widePaddingButton {
+  padding-right: 36px;
+  padding-left: 36px;
+}
+
+.actionButton {
+  margin-left: auto;
 }
 
 .separator[data-orientation='horizontal'] {
@@ -21,6 +30,7 @@ input {
 
 .titleWrapper {
   @include flex-block($flex-direction: row, $justify-content: unset);
+
   height: 36px;
   margin-bottom: 42px;
 }
@@ -35,8 +45,9 @@ input {
 .DialogOverlay {
   position: fixed;
   inset: 0;
+
+  //opacity: 0.6;
   background-color: $color-dark-900;
-  opacity: 0.6;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -62,6 +73,7 @@ input {
   background-color: $color-dark-300;
   border: 1px solid $color-dark-100;
   border-radius: 2px;
+
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &.sm {
@@ -76,14 +88,14 @@ input {
     width: 644px;
   }
 
-  @media screen and (width <= 768px) {
-    &,
-    &.sm,
-    &.md,
-    &.lg {
-      width: calc(100% - 32px);
-    }
-  }
+  //@media screen and (width <= 768px) {
+  //  &,
+  //  &.sm,
+  //  &.md,
+  //  &.lg {
+  //    width: calc(100% - 32px);
+  //  }
+  //}
 }
 
 .DialogContent:focus {
@@ -95,7 +107,9 @@ input {
 
 .contentBox {
   @include flex-block($gap: 24px, $align-items: flex-start);
-  padding: 0 0 18px 0;
+
+  padding: 0 0 18px;
+
   //TODO different paddings bottom 60 36 30 42 (24 without button)
 }
 
@@ -143,9 +157,11 @@ input {
 
   font-size: 15px;
   line-height: 1;
+
   //color: $violet-11);
 
   border-radius: 4px;
+
   //box-shadow: 0 0 0 1px $violet-7);
 }
 
@@ -155,10 +171,6 @@ input {
 
 .footerBlock {
   @include flex-block($flex-direction: row, $justify-content: space-between);
-}
-
-.actionButton {
-  margin-left: auto;
 }
 
 @keyframes contentShow {

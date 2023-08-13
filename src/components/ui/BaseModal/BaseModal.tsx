@@ -2,7 +2,6 @@ import { ComponentProps, FC, ReactNode } from 'react'
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogOverlay,
   DialogPortal,
@@ -12,6 +11,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import CloseIcon from '@/src/assets/icons/close-icon'
+import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 import s from 'src/components/ui/BaseModal/base-modal.module.scss'
 
@@ -20,8 +20,10 @@ export type ModalSize = 'sm' | 'md' | 'lg'
 export type ModalProps = {
   open: boolean
   onClose?: () => void
-  renderCancelButton?: () => ReactNode
-  renderActionButton?: () => ReactNode
+  onAction?: () => void
+  onCancel?: () => void
+  cancelButtonName?: string
+  actionButtonName?: string
   showSeparator?: boolean
   showCloseButton?: boolean
   title?: string
@@ -32,9 +34,11 @@ export type ModalProps = {
 
 export const BaseModal: FC<ModalProps> = ({
   onClose,
+  onAction,
+  onCancel,
   open,
-  renderActionButton,
-  renderCancelButton,
+  cancelButtonName,
+  actionButtonName,
   modalWidth = 'sm',
   title,
   className,
@@ -46,23 +50,28 @@ export const BaseModal: FC<ModalProps> = ({
     content: getContentClassName(modalWidth, className),
   }
 
+  const actionButtonHandler = () => {
+    onAction?.()
+  }
+  const cancelButtonHandler = () => {
+    onCancel?.()
+  }
+
   function onCloseHandler() {
     onClose?.()
   }
 
   return (
-    <Dialog open={open} onOpenChange={onCloseHandler}>
+    <Dialog open={open}>
       {open && (
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
             <div className={s.titleWrapper}>
               {showCloseButton && (
-                <DialogClose>
-                  <button className={s.IconButton}>
-                    <CloseIcon />
-                  </button>
-                </DialogClose>
+                <button className={s.IconButton} onClick={onCloseHandler}>
+                  <CloseIcon />
+                </button>
               )}
               <DialogTitle className={s.DialogTitle}>
                 <Typography variant={'h1'}>{title}</Typography>
@@ -73,8 +82,19 @@ export const BaseModal: FC<ModalProps> = ({
             <div className={s.contentBox}>{children}</div>
 
             <div className={s.footerBlock}>
-              <DialogClose>{renderCancelButton?.()}</DialogClose>
-              <DialogClose className={s.actionButton}>{renderActionButton?.()}</DialogClose>
+              {cancelButtonName && (
+                <Button className={s.widePaddingButton} onClick={cancelButtonHandler}>
+                  {cancelButtonName}
+                </Button>
+              )}
+              {actionButtonName && (
+                <Button
+                  className={`${s.widePaddingButton} ${s.actionButton}`}
+                  onClick={actionButtonHandler}
+                >
+                  {actionButtonName}
+                </Button>
+              )}
             </div>
           </DialogContent>
         </DialogPortal>

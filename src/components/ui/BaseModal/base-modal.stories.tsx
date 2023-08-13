@@ -52,7 +52,7 @@ export const ModalWithSaveButton: Story = {
           {...args}
           title={'With One Button'}
           open={open}
-          renderActionButton={() => <Button>OK</Button>}
+          actionButtonName={'OK'}
           onClose={handler}
         >
           <Typography variant={'regular16'}>

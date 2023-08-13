@@ -2,8 +2,6 @@ import { instance } from './instances'
 
 export const authAPI = {
   createUser(formData: RegisterArgsType) {
-    console.log(formData)
-
     return instance.post('auth/signup', formData)
   },
 }
