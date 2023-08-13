@@ -32,7 +32,7 @@ export const ForgotPassword: React.FC<Props> = ({ primary }) => {
         <Button variant="text" className={s.cancel}>
           Back to Sign In
         </Button>
-        <Recaptcha primary className={s.recaptcha} />
+        {/*<Recaptcha primary className={s.recaptcha} />*/}
         <Typography variant="regular14" className={s.answer}>
           The link has been sent by email.
           <br />
