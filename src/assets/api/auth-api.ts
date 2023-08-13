@@ -1,13 +1,11 @@
-import { AxiosInstance } from 'axios'
+import { instance } from './instances'
 
-export class authAPI {
-  constructor(private instance: AxiosInstance) {}
+export const authAPI = {
+  createUser(formData: RegisterArgsType) {
+    console.log(formData)
 
-  public async createUser(formData: RegisterArgsType) {
-    const res = await this.instance.post<any>('auth/signup', formData)
-
-    return res.data
-  }
+    return instance.post('auth/signup', formData)
+  },
 }
 
 //TYPES ====================================================================================
