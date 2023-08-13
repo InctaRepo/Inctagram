@@ -1,4 +1,5 @@
 import { AuthLayout } from '@/src/components/Layout/AuthLayout'
+// eslint-disable-next-line import/no-named-as-default
 import CreateNewPassword, {
   CreateNewPasswordType,
 } from '@/src/components/ui/createNewPassword/CreateNewPassword'
