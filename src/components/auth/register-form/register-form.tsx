@@ -1,4 +1,3 @@
-import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -57,7 +56,6 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
           </Link>
         </div>
         <form onSubmit={onSubmit} className={s.form}>
-          <DevTool control={control} />
           <ControlledTextField
             control={control}
             name={'username'}

@@ -1,32 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {};
+const nextConfig = {
+  // reactStrictMode: true,
+  env: {
+    BASE_URL: process.env.NEXT_PUBLIC_API_URL,
+  },
+}
 
-module.exports = nextConfig;
-
-// const path = require('path')
-//
-// module.exports = {
-//   sassOptions: {
-//     includePaths: [path.join(__dirname, 'styles')],
-//     prependData: `@import "index.scss";`
-//   },
-//   webpack: (config, {isServer, dev}) => {
-//     if (!dev && !isServer) {
-//       config.module.rules.push({
-//         test: /\.scss$/,
-//         use: [
-//           {
-//             loader: 'css-loader',
-//             options: {sourceMap: false},
-//           },
-//           {
-//             loader: 'sass-loader',
-//             options: {sourceMap: false},
-//           },
-//         ],
-//       });
-//     }
-//     return config
-//   }
-// }
+module.exports = nextConfig
