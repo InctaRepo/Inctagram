@@ -1,8 +1,7 @@
-import React, { useState, FC } from 'react'
 
+import React, { FC } from 'react'
 import * as Select from '@radix-ui/react-select'
 import clsx from 'clsx'
-
 import styles from './selectbox.module.scss'
 
 export type SelectPropsType = {
@@ -14,6 +13,7 @@ export type SelectPropsType = {
   onChange?: (active: boolean) => void
   data?: string[] | number[]
 }
+
 
 export const Selectbox: FC<SelectPropsType> = ({
   def,
@@ -57,8 +57,8 @@ export const Selectbox: FC<SelectPropsType> = ({
         <Select.Content>
           <Select.Viewport>
             <Select.Group className={classNames.options}>
-              {data?.map(i => (
-                <Select.Item value="select-box" /*key={i.id}*/ className={classNames.optionline}>
+              {data?.map((el, i) => (
+                <Select.Item value="select-box" key={i} className={classNames.optionline}>
                   <h1 className={classNames.line}>Select-box</h1>{' '}
                 </Select.Item>
               ))}
