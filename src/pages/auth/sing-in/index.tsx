@@ -1,14 +1,14 @@
-import { LogInForm } from '@/src/components/auth/login-form/logIn-form'
+import { LoginForm } from '@/src/components/auth/login-form/login-form'
 import { NextPageWithLayout } from '@/src/pages/_app'
 
-const SingInPage: NextPageWithLayout = () => {
+const SignInPage: NextPageWithLayout = () => {
   return (
     <>
       {/*@ts-ignore*/}
-      <LogInForm />
+      <LoginForm />
     </>
     //TODO linkpath to sign in
   )
 }
 
-export default SingInPage
+export default SignInPage
