@@ -2,9 +2,8 @@ import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { BaseModal } from './'
-
 import { Button } from '@/src/components/ui/button'
+import { BaseModal } from '@/src/components/ui/modals/BaseModal/index'
 import { Typography } from '@/src/components/ui/typography'
 
 const meta = {

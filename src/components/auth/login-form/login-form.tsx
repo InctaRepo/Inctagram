@@ -19,7 +19,7 @@ import { Card } from '@/src/components/ui/card-temporary'
 
 type FormDataType = z.infer<typeof logInSchema>
 
-export const LogInForm: React.FC = () => {
+export const LoginForm: React.FC = () => {
   const { control, handleSubmit } = useForm<FormDataType>({
     resolver: zodResolver(logInSchema),
     mode: 'onTouched',
