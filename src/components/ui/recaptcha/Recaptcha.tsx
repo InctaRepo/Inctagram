@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 
-import './recaptcha.scss'
 import Image from 'next/image'
+
+import s from './recaptcha.module.scss'
 
 import Privacy from '@/src/assets/icons/recaptcha.svg'
 import Checked from '@/src/assets/icons/recaptchaChecked.svg'
+import { Card } from 'src/components/ui/card-temporary'
 
 interface FormProps {
   primary?: boolean
@@ -29,27 +31,33 @@ export const Recaptcha = ({ primary, expired, className }: FormProps) => {
   }
 
   return (
-    <div className={mode}>
-      <div className={`recaptcha ${className}`}>
-        <div className="agreement">
-          <div className={`expiredMessage ${!expired ? 'hidden' : ''}`}>
+    <div className={s[mode]}>
+      <Card className={`${s.recaptcha} ${className}`}>
+        <div className={s.agreement}>
+          <div className={`${s.expiredMessage} ${!expired ? s.hidden : ''}`}>
             Verification expired. Check the checkbox again.
           </div>
-          <div className={`customCheckbox ${isLoading ? 'hidden' : ''}`} onClick={onClick}></div>
-          <div className={`lds-ring ${!isLoading || isChecked ? 'hidden' : ''}`}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <div className={`${s.customCheckbox} ${isLoading ? s.hidden : ''}`} onClick={onClick} />
+          <div className={`${s.ldsRing} ${!isLoading || isChecked ? s.hidden : ''}`}>
+            <div />
+            <div />
+            <div />
+            <div />
           </div>
-          <Image src={Checked} className={`checked ${!isChecked ? 'hidden' : ''}`} alt="checked" />
+          <Image
+            src={Checked}
+            className={`${s.checked} ${!isChecked ? s.hidden : ''}`}
+            alt="checked"
+          />
           <label>I&apos;m not a robot</label>
         </div>
-        <div className="privacy">
+        <div className={s.privacy}>
           <Image src={Privacy} width="46" height="57" alt="privacy" />
         </div>
-      </div>
-      <p className={`error-text`}>Please verify that you are not a robot</p>
+      </Card>
+      <p className={`${s.errorText} ${primary && !expired ? s.hidden : ''}`}>
+        Please verify that you are not a robot
+      </p>
     </div>
   )
 }
