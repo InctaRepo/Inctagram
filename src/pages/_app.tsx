@@ -31,8 +31,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       {getLayout(<Component {...pageProps} />)}
       <ToastContainer
         position="bottom-left"
-        autoClose={false}
-        newestOnTop={false}
+        autoClose={4000}
+        // newestOnTop={false}
         closeOnClick
         draggable
       />
