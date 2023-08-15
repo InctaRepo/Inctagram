@@ -2,94 +2,72 @@
 @import 'src/styles/colors';
 @import 'src/styles/typography';
 
-//base style ======================================================================
 .regular14 {
-  @include typography; //lh m (24px) ; fs s (0.875rem) ; fw regular (400)
+  @include typography; // lh m (24px) ; fs s (0.875rem) ; fw regular (400)
 }
 
-//variant props ===================================================================
 .large {
-  @include typography(
-          $fs: $font-size-xxl,
-          $lh: $line-height-l,
-          $fw: $font-weight-medium)
-
+  @include typography($fs: $font-size-xxl, $lh: $line-height-l, $fw: $font-weight-medium);
 }
 
 .h1 {
-  @include typography(
-          $fs: $font-size-xl,
-          $lh: $line-height-l,
-          $fw: $font-weight-bold,);
+  @include typography($fs: $font-size-xl, $lh: $line-height-l, $fw: $font-weight-bold);
 }
 
 .h2 {
-  @include typography($fs: $font-size-l, $fw: $font-weight-bold)
+  @include typography($fs: $font-size-l, $fw: $font-weight-bold);
 }
 
 .h3 {
-  @include typography($fs: $font-size-m, $fw: $font-weight-medium)
+  @include typography($fs: $font-size-m, $fw: $font-weight-medium);
 }
 
 .regular16 {
-  @include typography($fs: $font-size-m)
+  @include typography($fs: $font-size-m);
 }
 
 .bold16 {
-  @include typography($fs: $font-size-m, $fw: $font-weight-bold)
+  @include typography($fs: $font-size-m, $fw: $font-weight-bold);
 }
 
 .bold14 {
-  @include typography($fs: $font-size-s, $fw: $font-weight-bold)
+  @include typography($fs: $font-size-s, $fw: $font-weight-bold);
 }
 
 .medium14 {
-  @include typography($fs: $font-size-s, $lh: $line-height-s, $fw: $font-weight-h3-large)
+  @include typography($fs: $font-size-s, $lh: $line-height-s, $fw: $font-weight-h3-large);
 }
 
 .small {
-  @include typography(
-          $fs: $font-size-xs,
-          $lh: $line-height-s);
-
+  @include typography($fs: $font-size-xs, $lh: $line-height-s);
 }
 
-.sb_small { // semi-bold small text
-  @include typography(
-          $fs: $font-size-xs,
-          $lh: $line-height-s,
-          $fw: $font-weight-medium)
-
+.sb_small {
+  // semi-bold small text
+  @include typography($fs: $font-size-xs, $lh: $line-height-s, $fw: $font-weight-medium);
 }
 
 .link {
   @include typography;
+
+  color: $color-accent-500;
   text-decoration-line: underline;
 }
 
 .sm_link {
   @include typography($fs: $font-size-xs, $lh: $line-height-s);
+
   text-decoration-line: underline;
 }
 
-//color props =====================================================================
-
 .primary {
-  color: $color-light-100
+  color: $color-light-100;
 }
 
 .secondary {
-  color: $color-light-900
-}
-
-.link {
-  color: $color-accent-500
+  color: $color-light-900;
 }
 
 .error {
-  color: $color-danger-500
+  color: $color-danger-500;
 }
-
-
-
-

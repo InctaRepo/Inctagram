@@ -1,10 +1,7 @@
 @import 'src/styles/colors';
 @import 'src/styles/typography';
 
-@mixin button(
-  $color: $color-light-100,
-  $bgColor: $color-accent-500,
-) {
+@mixin button($color: $color-light-100, $bgColor: $color-accent-500) {
   all: unset;
 
   cursor: pointer;
@@ -49,57 +46,54 @@
   @include button;
 
   &:active:not(:disabled) {
-    background-color: $color-accent-700
+    background-color: $color-accent-700;
   }
 
   &:hover:not(:disabled) {
-    background-color: $color-accent-300
+    background-color: $color-accent-300;
   }
 }
 
 .secondary {
   @include button($bgColor: $color-dark-300);
 
-
   &:active:not(:disabled) {
     background-color: #212121;
   }
 
   &:hover:not(:disabled) {
-    background-color: $color-dark-100
+    background-color: $color-dark-100;
   }
 
   &:disabled {
     color: $color-light-900;
-    background: $color-dark-500
+    background: $color-dark-500;
   }
 }
 
 .outlined {
-  @include button(
-          $color: $color-accent-500,
-          $bgColor: $color-dark-900,);
+  @include button($color: $color-accent-500, $bgColor: $color-dark-900);
 
   outline: 1px solid $color-accent-500;
 
   &:active:not(:disabled) {
     color: $color-accent-700;
-    outline: 1px solid $color-accent-700
+    outline: 1px solid $color-accent-700;
   }
 
   &:hover:not(:disabled) {
     color: $color-accent-100;
-    outline: 1px solid $color-accent-100
+    outline: 1px solid $color-accent-100;
   }
 
   &:focus:not(:disabled) {
     color: $color-accent-700;
-    outline: 2px solid $color-accent-700
+    outline: 2px solid $color-accent-700;
   }
 
   &:disabled {
     color: $color-accent-900;
-    outline: 2px solid $color-accent-900
+    outline: 2px solid $color-accent-900;
   }
 }
 
@@ -111,13 +105,12 @@
   border-radius: 130px;
 
   &:active:not(:disabled) {
-    color: $color-accent-700
+    color: $color-accent-700;
   }
 
   &:hover:not(:disabled) {
-    color: $color-accent-100
+    color: $color-accent-100;
   }
-
 }
 
 .text {
@@ -128,20 +121,20 @@
   border-radius: 130px;
 
   &:active:not(:disabled) {
-    color: $color-accent-700
+    color: $color-accent-700;
   }
 
   &:hover:not(:disabled) {
-    color: $color-accent-100
+    color: $color-accent-100;
   }
 
   &:focus {
     border-radius: 2px;
-    outline: 2px solid $color-accent-700
+    outline: 2px solid $color-accent-700;
   }
 
   &:disabled {
-    color: $color-accent-900
+    color: $color-accent-900;
   }
 }
 

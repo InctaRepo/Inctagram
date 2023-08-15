@@ -1,30 +1,84 @@
-import {RegisterForm, RegisterFormType} from '@/src/components/auth/register-form';
-import {NextPageWithLayout} from '@/src/pages/_app';
-import {getAuthLayout} from '@/src/components/Layout/AuthLayout/AuthLayout';
-import {useRegistrationMutation} from '@/src/api/authApi/authApi';
-import {Typography} from '@/src/components/ui/typography';
+import { useState } from 'react'
 
-const SignUpPage: NextPageWithLayout = () => {
+import { useMutation } from 'react-query'
 
-	const [register, {isError, isLoading, error, data, isSuccess}] = useRegistrationMutation()
+import s from './sign-up.module.scss'
 
-	const submit = (data: RegisterFormType) => {
-		const {terms, ...formData} = data; // exclude terms for query
-		register(formData)
-	}
+import { authAPI } from '@/src/assets/api'
+import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
+import { Header } from '@/src/components/Header/Header'
+import { BaseModal } from '@/src/components/ui/modals/BaseModal'
+import { ClientOnlyModalWrapper } from '@/src/components/ui/modals/ClientOnlyModalWrapper'
+import { ReactToast } from '@/src/components/ui/toast'
+import { Typography } from '@/src/components/ui/typography'
 
-	if (isLoading) {
-		return <div>Loading...</div>
-	} else
-		return (
-			<>
-				{/*@ts-ignore*/}
-				{isError && <Typography color={'error'}>{error?.data.message[0].message}</Typography>}
-				<RegisterForm linkPath={'#'} onSubmitHandler={submit}/>
-			</>
-			//TODO linkpath to sign in
-		)
+const SignUpPage = () => {
+  const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
+
+  const {
+    mutate: userRegistration,
+    data,
+    isError,
+    isSuccess,
+    error,
+    isLoading,
+  } = useMutation({
+    mutationFn: authAPI.createUser,
+  })
+
+  const submit = (data: RegisterFormType) => {
+    userRegistration(data)
+  }
+
+  const toasthandler = () => {
+    // ReactToast('error', 'some error')
+    ReactToast(true, 'privet')
+    ReactToast(false, 'privet')
+    // ReactToast('success', 'success')
+  }
+
+  if (isSuccess && data.status === 204) {
+    setEmailSentModal(true)
+  }
+
+  const onModalClose = () => {
+    setEmailSentModal(false)
+    //TODO actions on close
+  }
+  const onSaveModalAction = () => {
+    setEmailSentModal(false)
+    // TODO actions on save
+  }
+
+  // TODO error handling
+  let userEmail = null
+
+  return (
+    <div className={s.container}>
+      {!emailSentModal && <Header />}
+      <div className={s.main}>
+        <button onClick={toasthandler}>TOASTER</button>
+        <RegisterForm onSubmitHandler={submit} />
+        <ClientOnlyModalWrapper>
+          {/*using wrapper of the modal to disable SSR*/}
+          <BaseModal
+            modalWidth={'sm'}
+            title={'Email sent'}
+            open={emailSentModal}
+            actionButtonName={'OK'}
+            onClose={onModalClose}
+            onAction={onSaveModalAction}
+          >
+            <Typography variant={'regular16'}>
+              We have sent a link to confirm your email to{' '}
+              {userEmail ? userEmail : 'User Email here'}
+              {/*TODO email from response*/}
+            </Typography>
+          </BaseModal>
+        </ClientOnlyModalWrapper>
+      </div>
+    </div>
+  )
 }
 
-SignUpPage.getLayout = getAuthLayout
 export default SignUpPage

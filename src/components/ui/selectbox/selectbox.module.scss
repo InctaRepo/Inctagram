@@ -3,57 +3,57 @@
 @import 'src/styles/typography';
 
 @mixin wh($w, $h) {
-	width: $w;
-	height: $h;
+  width: $w;
+  height: $h;
 }
 
 .selectbox {
   @include wh(210px, 60px);
-    top: 24px;
-    text-align: start;
-  background-color: $color-dark-900
-  }
-  
-  .label {
-    @include wh(75px, 24px);
-    font: 400 14px Inter;
-    line-height: $line-height-m;
-    letter-spacing: 0;
-    text-align: left;
-    color: $color-light-900
-  }
-  
-  h1 {
-    font: 400 16px Inter;
-    line-height: $line-height-m;
-    letter-spacing: 0;
-    text-align: left;
-    margin-left: 12px;
-  }
+  top: 24px;
+  text-align: start;
+  background-color: $color-dark-900;
+}
 
-  .line {
-    margin: 0 0 0 12px;
-    padding: 0;
-    font: 400 14px Inter;
-    line-height: $line-height-m;
-    letter-spacing: 0;
-  }
-  
-  .optionline {
-    @include wh(210px, 34px);
-    top: 42px;
-    background-color: $color-dark-500;
-    color: $color-light-100;
-    font: 400 14px Inter;
-    line-height: $line-height-m;
-    letter-spacing: 0;
+.label {
+  @include wh(75px, 24px);
+  font: 400 14px Inter;
+  line-height: $line-height-m;
+  letter-spacing: 0;
+  text-align: left;
+  color: $color-light-900;
+}
 
-    &:hover {
-      color: $color-accent-500;
-      background-color: $color-dark-300;
-      cursor: pointer;
-    }
+h1 {
+  font: 400 16px Inter;
+  line-height: $line-height-m;
+  letter-spacing: 0;
+  text-align: left;
+  margin-left: 12px;
+}
+
+.line {
+  margin: 0 0 0 12px;
+  padding: 0;
+  font: 400 14px Inter;
+  line-height: $line-height-m;
+  letter-spacing: 0;
+}
+
+.optionline {
+  @include wh(210px, 34px);
+  top: 42px;
+  background-color: $color-dark-500;
+  color: $color-light-100;
+  font: 400 14px Inter;
+  line-height: $line-height-m;
+  letter-spacing: 0;
+
+  &:hover {
+    color: $color-accent-500;
+    background-color: $color-dark-300;
+    cursor: pointer;
   }
+}
 
 .options {
   margin-left: auto;
@@ -66,18 +66,17 @@
   top: 60px;
   left: 16px;
   border: 1px solid $color-dark-100;
-  background-color:  $color-dark-900;
-  color: $color-light-100
-
+  background-color: $color-dark-900;
+  color: $color-light-100;
 }
 
 .active {
   @include wh(208px, 36px);
- left: 16px;
- position: absolute;
+  left: 16px;
+  position: absolute;
   border: 1px solid $color-light-100;
   color: $color-light-100;
-  background-color:  $color-dark-500
+  background-color: $color-dark-500;
 }
 
 .hover {
@@ -87,7 +86,7 @@
   position: absolute;
   border: 1px solid $color-dark-100;
   color: $color-dark-100;
-  background-color: $color-dark-500
+  background-color: $color-dark-500;
 }
 
 .focus {
@@ -97,7 +96,7 @@
   position: absolute;
   border: 2px solid $color-accent-500;
   color: #8d9094;
-  background-color: $color-dark-500
+  background-color: $color-dark-500;
 }
 
 .disabled {
@@ -107,5 +106,5 @@
   position: absolute;
   border: 2px solid #8d9094;
   color: #8d9094;
-  background-color:  $color-dark-500
+  background-color: $color-dark-500;
 }
