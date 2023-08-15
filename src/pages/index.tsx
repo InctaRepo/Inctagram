@@ -1,14 +1,8 @@
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.scss";
-import { Test } from "@/components/Test";
+import { getAuthLayout } from '@/src/components/Layout/AuthLayout/AuthLayout'
+import { NextPageWithLayout } from '@/src/pages/_app'
+import SignInPage from '@/src/pages/auth/sing-in'
 
-const inter = Inter({ subsets: ["latin"] });
+const Home: NextPageWithLayout = () => <SignInPage />
 
-export default function Home() {
-	return (
-		<div className={styles.test}>
-			<Test />
-			Hello next App!
-		</div>
-	);
-}
+Home.getLayout = getAuthLayout
+export default Home

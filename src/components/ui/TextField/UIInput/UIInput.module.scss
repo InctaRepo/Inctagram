@@ -1,0 +1,89 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.textFieldWrap {
+  width: 100%;
+  position: relative;
+
+  .textField {
+    @include wh(100%, 36px);
+    width: 100%;
+    padding: 0 42px 0 15px;
+    background-color: transparent;
+    border: 1px solid $color-dark-100;
+    border-radius: 2px;
+
+    &[type='password'] {
+      padding-right: 42px;
+    }
+
+    &:focus {
+      &::placeholder {
+        color: $color-light-900;
+      }
+
+      border: none;
+      outline: 1px solid $color-accent-500;
+    }
+
+    &[type='search'] {
+      padding-left: 30px;
+
+      &::-webkit-search-cancel-button {
+        appearance: none;
+      }
+    }
+  }
+
+  .label {
+    font-size: 14px;
+    color: $color-light-900;
+  }
+
+  .disabledLabel {
+    color: $color-dark-100;
+  }
+
+  .errorWrap {
+    color: $color-danger-500;
+    position: absolute;
+  }
+
+  .errorInput {
+    outline-color: $color-danger-500;
+    border-color: $color-danger-500;
+  }
+
+  .disabledInput {
+    border-color: $color-dark-100;
+    color: $color-dark-100;
+  }
+
+  .iconEye {
+    position: absolute;
+    right: 12px;
+    top: 32px;
+    cursor: pointer;
+  }
+
+  .disabledIconEye {
+    fill: $color-dark-100;
+  }
+
+  .searchIcon {
+    fill: $color-dark-100;
+    position: absolute;
+    left: 6px;
+    top: 7px;
+  }
+
+  [type='search']:focus + .searchIcon {
+    fill: $color-light-900;
+  }
+}
