@@ -1,7 +1,8 @@
-
 import React, { FC } from 'react'
+
 import * as Select from '@radix-ui/react-select'
 import clsx from 'clsx'
+
 import styles from './selectbox.module.scss'
 
 export type SelectPropsType = {
@@ -13,7 +14,6 @@ export type SelectPropsType = {
   onChange?: (active: boolean) => void
   data?: string[] | number[]
 }
-
 
 export const Selectbox: FC<SelectPropsType> = ({
   def,
