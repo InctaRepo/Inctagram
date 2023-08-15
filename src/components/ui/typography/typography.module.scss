@@ -2,12 +2,10 @@
 @import 'src/styles/colors';
 @import 'src/styles/typography';
 
-//base style ======================================================================
 .regular14 {
-  @include typography; //lh m (24px) ; fs s (0.875rem) ; fw regular (400)
+  @include typography; // lh m (24px) ; fs s (0.875rem) ; fw regular (400)
 }
 
-//variant props ===================================================================
 .large {
   @include typography($fs: $font-size-xxl, $lh: $line-height-l, $fw: $font-weight-medium);
 }
@@ -51,15 +49,16 @@
 
 .link {
   @include typography;
+
+  color: $color-accent-500;
   text-decoration-line: underline;
 }
 
 .sm_link {
   @include typography($fs: $font-size-xs, $lh: $line-height-s);
+
   text-decoration-line: underline;
 }
-
-//color props =====================================================================
 
 .primary {
   color: $color-light-100;
@@ -67,10 +66,6 @@
 
 .secondary {
   color: $color-light-900;
-}
-
-.link {
-  color: $color-accent-500;
 }
 
 .error {

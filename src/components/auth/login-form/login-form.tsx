@@ -38,7 +38,7 @@ export const LoginForm: React.FC = () => {
     <Card className={s.card}>
       <div className={s.content}>
         <Typography variant="h1" className={s.title}>
-          Sing In
+          Sign In
         </Typography>
         <div className={s.oauthWrap}>
           <Link href={'/google'}>
@@ -73,15 +73,13 @@ export const LoginForm: React.FC = () => {
             </Link>
           </div>
           <Button type="submit" variant="primary" fullWidth className={s.singIn}>
-            <Typography variant="bold16">Sing In</Typography>
+            <Typography variant="bold16">Sign In</Typography>
           </Button>
         </form>
 
         <Typography variant="regular16">Don’t have an account?</Typography>
-        <Button variant="link" onClick={() => router.push('/auth/sign-up')}>
-          <Typography variant="regular16" className={s.linkSingUP}>
-            Sing Up
-          </Typography>
+        <Button variant="link" color={'link'} onClick={() => router.push('/auth/sign-up')}>
+          Sign Up
         </Button>
       </div>
     </Card>

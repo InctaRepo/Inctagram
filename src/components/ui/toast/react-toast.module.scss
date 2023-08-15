@@ -1,3 +1,6 @@
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+
 .wrapper {
   display: flex !important;
   align-items: center !important;
@@ -10,33 +13,32 @@
 
   button[aria-label='close'] {
     position: relative;
-    right: 22px;
-    bottom: -14px;
+    top: 12px;
+    right: 24px;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
     margin: 0;
     padding: 0;
 
     opacity: 1;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $color-dark-700;
+    }
 
     svg {
+      transform: translateX(1px);
       width: 20px;
       height: 20px;
-      margin: 0 auto;
-
-      border-radius: 50%;
-
       fill: white;
-
-      &:hover {
-        background-color: black;
-      }
     }
   }
-
-  //TODO need to correct hover on svg or button
-  //button[aria-label='close']:hover {
-  //  background-color: black;
-  //}
 }
 
 .success {
