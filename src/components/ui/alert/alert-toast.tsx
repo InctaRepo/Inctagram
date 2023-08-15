@@ -1,9 +1,9 @@
 import { clsx } from 'clsx'
 import { toast } from 'react-toastify'
 
-import s from './react-toast.module.scss'
+import s from '@/src/components/ui/alert/alert-toast.module.scss'
 
-export const ReactToast = (error: boolean = false, text: string) => {
+export const alertToast = (error: boolean, text: string) => {
   const classNames = {
     wrapper: clsx(s.wrapper, error ? s.error : s.success),
     toast: s.toast,
@@ -11,6 +11,8 @@ export const ReactToast = (error: boolean = false, text: string) => {
     toastContent: s.toastContent,
     toastClose: s.toastClose,
   }
+
+  const customId = 'toast-id'
 
   return toast(
     <div className={classNames.toastContent}>
@@ -20,6 +22,7 @@ export const ReactToast = (error: boolean = false, text: string) => {
       </div>
     </div>,
     {
+      toastId: customId, // to prevent toast duplicate into stack
       className: classNames.wrapper,
       bodyClassName: classNames.toast,
     }

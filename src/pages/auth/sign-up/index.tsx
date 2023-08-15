@@ -5,20 +5,19 @@ import { useMutation } from 'react-query'
 import s from './sign-up.module.scss'
 
 import { authAPI } from '@/src/assets/api'
+import { errorHandler } from '@/src/common/helpers/error-handler'
 import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/Header/Header'
 import { BaseModal } from '@/src/components/ui/modals/BaseModal'
 import { ClientOnlyModalWrapper } from '@/src/components/ui/modals/ClientOnlyModalWrapper'
-import { ReactToast } from '@/src/components/ui/toast'
 import { Typography } from '@/src/components/ui/typography'
+import { alertToast } from 'src/components/ui/alert'
 
 const SignUpPage = () => {
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
 
   const {
     mutate: userRegistration,
-    data,
-    isError,
     isSuccess,
     error,
     isLoading,
@@ -28,17 +27,6 @@ const SignUpPage = () => {
 
   const submit = (data: RegisterFormType) => {
     userRegistration(data)
-  }
-
-  const toasthandler = () => {
-    // ReactToast('error', 'some error')
-    ReactToast(true, 'privet')
-    ReactToast(false, 'privet')
-    // ReactToast('success', 'success')
-  }
-
-  if (isSuccess && data.status === 204) {
-    setEmailSentModal(true)
   }
 
   const onModalClose = () => {
@@ -53,13 +41,26 @@ const SignUpPage = () => {
   // TODO error handling
   let userEmail = null
 
+  if (isSuccess) {
+    alertToast(false, 'Success')
+    setEmailSentModal(true)
+  }
+  if (error) {
+    alertToast(true, errorHandler(error))
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>
+    //TODO loader component
+  }
+
   return (
     <div className={s.container}>
       {!emailSentModal && <Header />}
       <div className={s.main}>
-        <button onClick={toasthandler}>TOASTER</button>
         <RegisterForm onSubmitHandler={submit} />
         <ClientOnlyModalWrapper>
+          {/*TODO refactor modal and delete wrapper*/}
           {/*using wrapper of the modal to disable SSR*/}
           <BaseModal
             modalWidth={'sm'}
