@@ -6,11 +6,10 @@ const meta: Meta<typeof Selectbox> = {
   title: 'Components/Select',
   component: Selectbox,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 }
-
 
 export default meta
 type Story = StoryObj<typeof Selectbox>
@@ -19,8 +18,8 @@ export const Default: Story = {
   args: {
     def: true,
     active: false,
-    hover: false,
-    focus: false,
+    // hover: false,
+    // focus: false,
     disabled: false,
   },
 }
@@ -28,8 +27,8 @@ export const Default: Story = {
 export const Active: Story = {
   args: {
     active: true,
-    hover: false,
-    focus: false,
+    // hover: false,
+    // focus: false,
     disabled: false,
   },
 }
@@ -37,8 +36,8 @@ export const Active: Story = {
 export const Hover: Story = {
   args: {
     active: false,
-    hover: true,
-    focus: false,
+    // hover: true,
+    // focus: false,
     disabled: false,
   },
 }
@@ -46,8 +45,8 @@ export const Hover: Story = {
 export const Focus: Story = {
   args: {
     active: false,
-    hover: false,
-    focus: true,
+    // hover: false,
+    // focus: true,
     disabled: false,
   },
 }
@@ -55,8 +54,8 @@ export const Focus: Story = {
 export const Disabled: Story = {
   args: {
     active: false,
-    hover: false,
-    focus: false,
+    // hover: false,
+    // focus: false,
     disabled: true,
   },
 }

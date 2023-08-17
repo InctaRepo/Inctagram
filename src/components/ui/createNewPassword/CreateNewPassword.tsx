@@ -10,7 +10,6 @@ import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import styles from '@/src/components/ui/createNewPassword/createNewPassword.module.scss'
 import { Typography } from '@/src/components/ui/typography'
-import { NewPasswordArgsType } from '@/src/assets/api'
 
 export type CreateNewPasswordType = z.infer<typeof passwordsMatchSchema>
 

@@ -4,14 +4,14 @@ import * as Select from '@radix-ui/react-select'
 import clsx from 'clsx'
 
 import styles from './selectbox.module.scss'
+
 import ChevronUp from '@/src/assets/icons/chevron-up'
-import ChevronDown from '@/src/assets/icons/chevron-down'
 
 export type SelectPropsType = {
   def: boolean
   active: boolean
   /*hover: boolean
-  focus: boolean*/
+	focus: boolean*/
   disabled: boolean
   onChange?: (active: boolean) => void
   data?: string[] | number[]
@@ -21,7 +21,7 @@ export const Selectbox: FC<SelectPropsType> = ({
   def,
   active,
   /* hover,
-  focus,*/
+																																																																																															focus,*/
   disabled,
   onChange,
   data,
@@ -39,7 +39,7 @@ export const Selectbox: FC<SelectPropsType> = ({
       def && styles.def,
       active && styles.active,
       /*hover && styles.hover,
-      focus && styles.focus,*/
+			focus && styles.focus,*/
       disabled && styles.disabled
     ),
   }
@@ -52,7 +52,11 @@ export const Selectbox: FC<SelectPropsType> = ({
       <Select.Trigger className={classNames.selectbox}>
         <Select.Value placeholder="Select-box" />
         <Select.Icon className={classNames.selecticon}>
-          {def || disabled ? <ChevronUp /> : <ChevronDown />}
+          {
+            def || disabled ? <ChevronUp /> : null
+            // TODO
+            // <ChevronDown/>
+          }
         </Select.Icon>
       </Select.Trigger>
 

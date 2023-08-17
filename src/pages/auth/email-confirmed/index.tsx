@@ -1,6 +1,6 @@
 import ConfirmedImage from '@/src/assets/images/email-confirmed-image'
 import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
-import { AuthLayout, getAuthLayout } from '@/src/components/Layout/AuthLayout'
+import { AuthLayout } from '@/src/components/Layout/AuthLayout'
 import { NextPageWithLayout } from '@/src/pages/_app'
 
 const EmailConfirmed: NextPageWithLayout = () => {

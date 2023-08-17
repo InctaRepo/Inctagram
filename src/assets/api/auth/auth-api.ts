@@ -4,9 +4,6 @@ export const authAPI = {
   createUser(formData: RegisterArgsType) {
     return instance.post('auth/signup', formData)
   },
-}
-
-export const newPasswordAPI = {
   createNewPassword(formData: NewPasswordArgsType) {
     return instance.post('auth/new-password', formData)
   },
@@ -22,7 +19,7 @@ export type RegisterArgsType = {
 
 export type NewPasswordArgsType = {
   newPassword: string
-  recoveryCode: '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+  recoveryCode: string
 }
 
 export type ResponseType<D = {}> = {

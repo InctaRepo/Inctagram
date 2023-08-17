@@ -9,6 +9,7 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
+import dynamic from 'next/dynamic'
 
 import CloseIcon from '@/src/assets/icons/close-icon'
 import { Button } from '@/src/components/ui/button'
@@ -110,3 +111,8 @@ function getSizeClassName(size: ModalSize) {
 }
 
 export default BaseModal
+export const Modal = dynamic(() => import('@/src/components/ui/modals/BaseModal/BaseModal'), {
+  loading: () => <p>Loading...</p>,
+  // TODO spinner in suspense
+  ssr: false,
+})
