@@ -56,6 +56,14 @@
   padding: 12px 24px !important;
 }
 
+.toastText {
+  overflow: hidden;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
 .toastContent {
   display: flex;
   justify-content: space-between;

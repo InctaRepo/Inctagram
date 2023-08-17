@@ -1,8 +1,11 @@
-import { instance } from './instances'
+import { instance } from 'src/assets/api/instances'
 
 export const authAPI = {
   createUser(formData: RegisterArgsType) {
     return instance.post('auth/signup', formData)
+  },
+  createNewPassword(formData: NewPasswordArgsType) {
+    return instance.post('auth/new-password', formData)
   },
 }
 
@@ -12,6 +15,11 @@ export type RegisterArgsType = {
   email: string
   password: string
   passwordConfirm: string
+}
+
+export type NewPasswordArgsType = {
+  newPassword: string
+  recoveryCode: string
 }
 
 export type ResponseType<D = {}> = {

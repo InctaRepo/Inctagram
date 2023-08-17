@@ -9,6 +9,7 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
+import dynamic from 'next/dynamic'
 
 import CloseIcon from '@/src/assets/icons/close-icon'
 import { Button } from '@/src/components/ui/button'
@@ -22,17 +23,17 @@ export type ModalProps = {
   onClose?: () => void
   onAction?: () => void
   onCancel?: () => void
-  cancelButtonName?: string
-  actionButtonName?: string
-  showSeparator?: boolean
-  showCloseButton?: boolean
+  cancelButtonName?: string // if no props , visibility = hidden
+  actionButtonName?: string // if no props , visibility = hidden
+  showSeparator?: boolean // if no props with false , visibility = visible
   title?: string
   modalWidth?: ModalSize //sm - 378px,md - 492px,lg - 644px.
   children?: ReactNode
   className?: string
 } & ComponentProps<'div'>
 
-export const BaseModal: FC<ModalProps> = ({
+const BaseModal: FC<ModalProps> = ({
+  showSeparator = true,
   onClose,
   onAction,
   onCancel,
@@ -43,11 +44,16 @@ export const BaseModal: FC<ModalProps> = ({
   title,
   className,
   children,
-  showCloseButton = true,
-  showSeparator = true,
 }) => {
   const classNames = {
     content: getContentClassName(modalWidth, className),
+    separator: clsx(s.separator, !showSeparator && s.separatorHide),
+    actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
+    cancelButton: clsx(
+      s.widePaddingButton,
+      !cancelButtonName && s.cancelButtonHide,
+      s.actionButton
+    ),
   }
 
   const actionButtonHandler = () => {
@@ -63,42 +69,31 @@ export const BaseModal: FC<ModalProps> = ({
 
   return (
     <Dialog open={open}>
-      {open && (
-        <DialogPortal>
-          <DialogOverlay className={s.DialogOverlay} />
-          <DialogContent className={classNames.content}>
-            <div className={s.titleWrapper}>
-              {showCloseButton && (
-                <button className={s.IconButton} onClick={onCloseHandler}>
-                  <CloseIcon />
-                </button>
-              )}
-              <DialogTitle className={s.DialogTitle}>
-                <Typography variant={'h1'}>{title}</Typography>
-                {showSeparator && <Separator className={s.separator} />}
-              </DialogTitle>
-            </div>
+      <DialogPortal>
+        <DialogOverlay className={s.DialogOverlay} />
+        <DialogContent className={classNames.content}>
+          <div className={s.titleWrapper}>
+            <button className={s.IconButton} onClick={onCloseHandler}>
+              <CloseIcon />
+            </button>
+            <DialogTitle className={s.DialogTitle}>
+              <Typography variant={'h1'}>{title}</Typography>
+              <Separator className={classNames.separator} />
+            </DialogTitle>
+          </div>
 
-            <div className={s.contentBox}>{children}</div>
+          <div className={s.contentBox}>{children}</div>
 
-            <div className={s.footerBlock}>
-              {cancelButtonName && (
-                <Button className={s.widePaddingButton} onClick={cancelButtonHandler}>
-                  {cancelButtonName}
-                </Button>
-              )}
-              {actionButtonName && (
-                <Button
-                  className={`${s.widePaddingButton} ${s.actionButton}`}
-                  onClick={actionButtonHandler}
-                >
-                  {actionButtonName}
-                </Button>
-              )}
-            </div>
-          </DialogContent>
-        </DialogPortal>
-      )}
+          <div className={s.footerBlock}>
+            <Button className={classNames.cancelButton} onClick={cancelButtonHandler}>
+              {cancelButtonName}
+            </Button>
+            <Button className={classNames.actionButton} onClick={actionButtonHandler}>
+              {actionButtonName}
+            </Button>
+          </div>
+        </DialogContent>
+      </DialogPortal>
     </Dialog>
   )
 }
@@ -114,3 +109,10 @@ function getSizeClassName(size: ModalSize) {
   if (size === 'md') return s.md
   if (size === 'lg') return s.lg
 }
+
+export default BaseModal
+export const Modal = dynamic(() => import('@/src/components/ui/modals/BaseModal/BaseModal'), {
+  loading: () => <p>Loading...</p>,
+  // TODO spinner in suspense
+  ssr: false,
+})

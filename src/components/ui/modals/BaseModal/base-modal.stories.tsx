@@ -3,7 +3,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '@/src/components/ui/button'
-import { BaseModal } from '@/src/components/ui/modals/BaseModal/index'
+import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
 const meta = {

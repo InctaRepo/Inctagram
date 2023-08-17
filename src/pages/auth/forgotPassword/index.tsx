@@ -3,14 +3,12 @@ import React from 'react'
 import { AuthLayout } from '@/src/components/Layout/AuthLayout'
 import { ForgotPassword } from '@/src/components/ui/forgotPassword/ForgotPassword'
 
-interface Props {
-  primary?: boolean | undefined
-}
+interface Props {}
 
-const PasswordRecovery: React.FC<Props> = ({ primary }) => {
+const PasswordRecovery: React.FC<Props> = () => {
   return (
     <AuthLayout>
-      <ForgotPassword primary={primary} />
+      <ForgotPassword />
     </AuthLayout>
   )
 }

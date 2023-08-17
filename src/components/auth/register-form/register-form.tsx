@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -20,22 +22,33 @@ type RegisterFormPropsType = {
   onSubmitHandler: (data: RegisterFormType) => void
 }
 
-export const RegisterForm = (props: RegisterFormPropsType) => {
-  const { onSubmitHandler } = props
+export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
   const router = useRouter()
 
-  const { control, handleSubmit } = useForm<RegisterFormType>({
+  useEffect(() => {
+    const userDataFromLS = localStorage.getItem('userData')
+
+    if (userDataFromLS) {
+      const userData: RegisterFormType = JSON.parse(userDataFromLS)
+
+      setValue('username', userData.username)
+      setValue('email', userData.email)
+      setValue('password', userData.password)
+      setValue('passwordConfirm', userData.passwordConfirm)
+      // TODO saving to localstorage not secure , another method or save only name && mail
+    }
+  }, [])
+
+  const { control, handleSubmit, setValue } = useForm<RegisterFormType>({
     resolver: zodResolver(registerSchema),
     mode: 'onTouched',
     defaultValues: {
-      email: '',
-      password: '',
-      passwordConfirm: '',
-      terms: false,
+      terms: true,
     },
   })
 
   const onSubmit = handleSubmit((data: RegisterFormType) => {
+    localStorage.setItem('userData', JSON.stringify(data))
     onSubmitHandler(data)
   })
 

@@ -12,9 +12,10 @@ interface FormProps {
   primary?: boolean
   expired?: boolean
   className?: string
+  setRecaptchaVal: (value: boolean) => void
 }
 
-export const Recaptcha = ({ primary, expired, className }: FormProps) => {
+export const Recaptcha = ({ primary, expired, className, setRecaptchaVal }: FormProps) => {
   // eslint-disable-next-line no-nested-ternary
   const mode = `storybook-recaptcha--${primary ? 'primary' : !expired ? 'error' : 'expired'}`
 
@@ -27,6 +28,7 @@ export const Recaptcha = ({ primary, expired, className }: FormProps) => {
     setTimeout(() => {
       setIsLoading(!isLoading)
       setIsChecked(!isChecked)
+      setRecaptchaVal(true)
     }, 2000)
   }
 
