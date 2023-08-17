@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import dynamic from 'next/dynamic'
 import { useMutation } from 'react-query'
 
 import s from './sign-up.module.scss'
@@ -8,9 +9,12 @@ import { authAPI } from '@/src/assets/api'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/Header/Header'
-import { BaseModal } from '@/src/components/ui/modals/BaseModal'
-import { ClientOnlyModalWrapper } from '@/src/components/ui/modals/ClientOnlyModalWrapper'
 import { Typography } from '@/src/components/ui/typography'
+
+const SentEmailModal = dynamic(() => import('@/src/components/ui/modals/BaseModal/BaseModal'), {
+  loading: () => <p>Loading...</p>,
+  ssr: false,
+})
 
 const SignUpPage = () => {
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
@@ -19,7 +23,6 @@ const SignUpPage = () => {
     mutate: userRegistration,
     isSuccess,
     error,
-    isLoading,
   } = useMutation({
     mutationFn: authAPI.createUser,
   })
@@ -50,24 +53,19 @@ const SignUpPage = () => {
       {!emailSentModal && <Header />}
       <div className={s.main}>
         <RegisterForm onSubmitHandler={submit} />
-        <ClientOnlyModalWrapper>
-          {/*TODO refactor modal and delete wrapper*/}
-          {/*using wrapper of the modal to disable SSR*/}
-          <BaseModal
-            modalWidth={'sm'}
-            title={'Email sent'}
-            open={emailSentModal}
-            actionButtonName={'OK'}
-            onClose={onModalClose}
-            onAction={onSaveModalAction}
-          >
-            <Typography variant={'regular16'}>
-              We have sent a link to confirm your email to{' '}
-              {userEmail ? userEmail : 'User Email here'}
-              {/*TODO email from response*/}
-            </Typography>
-          </BaseModal>
-        </ClientOnlyModalWrapper>
+        <SentEmailModal
+          modalWidth={'sm'}
+          title={'Email sent'}
+          open={emailSentModal}
+          actionButtonName={'OK'}
+          onClose={onModalClose}
+          onAction={onSaveModalAction}
+        >
+          <Typography variant={'regular16'}>
+            We have sent a link to confirm your email to {userEmail ? userEmail : 'User Email here'}
+            {/*TODO email from response*/}
+          </Typography>
+        </SentEmailModal>
       </div>
     </div>
   )

@@ -51,7 +51,14 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
       {getLayout(<Component {...pageProps} />)}
-      <ToastContainer position="bottom-left" autoClose={4000} closeOnClick draggable />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={4000}
+        closeOnClick
+        draggable
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+      />
     </>
   )
 }
