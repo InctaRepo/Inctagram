@@ -2,9 +2,9 @@ import { SVGProps, Ref, forwardRef, memo } from 'react'
 
 const ChevronUp = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
-    width={12}
-    height={12}
-    viewBox="0 0 12 12"
+    width={24}
+    height={24}
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     ref={ref}
@@ -18,7 +18,7 @@ const ChevronUp = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     </g>
     <defs>
       <clipPath id="clip0_9209_3250">
-        <rect width={12} height={12} fill="white" />
+        <rect width={24} height={24} fill="white" />
       </clipPath>
     </defs>
   </svg>
