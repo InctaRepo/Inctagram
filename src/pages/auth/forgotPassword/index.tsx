@@ -8,7 +8,7 @@ interface Props {}
 const PasswordRecovery: React.FC<Props> = () => {
   return (
     <AuthLayout>
-      <ForgotPassword primary />
+      <ForgotPassword />
     </AuthLayout>
   )
 }
