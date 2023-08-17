@@ -1,50 +1,53 @@
-import { useState } from 'react';
-import Image from 'next/image';
-import s from './style.module.scss';
+import { useState } from 'react'
 
-import bell from '@/src/assets/icons/bell.png';
-import RussiaImage from '@/src/assets/icons/Russia.png'; // Import the Russia image separately
+import Image from 'next/image'
+
+import s from './style.module.scss'
+
+import bell from '@/src/assets/icons/bell.png'
+import RussiaImage from '@/src/assets/icons/Russia.png' // Import the Russia image separately
 type StaticImageData = /*unresolved*/ any
-
 
 //vorna xndiry
 
-
-
-
 interface Option {
-  value: string | number;
-  label: string;
-  img: StaticImageData; // Use StaticImageData type
+  value: string | number
+  label: string
+  img: StaticImageData // Use StaticImageData type
 }
 
 const options: Option[] = [
   { label: 'Russian', value: 'option1', img: RussiaImage }, // Use RussiaImage here
   { label: 'English', value: 'option2', img: RussiaImage },
   // Add more options as needed
-];
+]
 
-const Dropdown = ({ options, onChange }: { options: Option[]; onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void }) => {
+const Dropdown = ({
+  options,
+  onChange,
+}: {
+  options: Option[]
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
+}) => {
   return (
-    <div >
+    <div>
       <select className={s.drop} onChange={onChange}>
         {options.map((option: Option, index: number) => (
           <option key={index} value={option.value}>
             {option.label}
-
           </option>
         ))}
       </select>
     </div>
-  );
-};
+  )
+}
 
-const Header = () => {
-  const [selectedValue, setSelectedValue] = useState("");
+export const Header = () => {
+  const [selectedValue, setSelectedValue] = useState('')
 
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedValue(event.target.value);
-  };
+    setSelectedValue(event.target.value)
+  }
 
   return (
     <div className={s.MainContainer}>
@@ -57,15 +60,11 @@ const Header = () => {
           <Dropdown options={options} onChange={handleDropdownChange} />
           {/* <p>Selected Value: {selectedValue}</p> */}
         </div>
-
       </header>
       <br />
       <div className={s.container}>
         <span className={s.line}></span>
       </div>
-
     </div>
-  );
-};
-
-export default Header;
+  )
+}
