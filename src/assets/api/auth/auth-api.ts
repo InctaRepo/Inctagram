@@ -1,4 +1,4 @@
-import { instance } from './instances'
+import { instance } from 'src/assets/api/instances'
 
 export const authAPI = {
   createUser(formData: RegisterArgsType) {

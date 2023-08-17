@@ -5,7 +5,7 @@ import { useMutation } from 'react-query'
 
 import s from './sign-up.module.scss'
 
-import { authAPI } from '@/src/assets/api'
+import { authAPI } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/Header/Header'
