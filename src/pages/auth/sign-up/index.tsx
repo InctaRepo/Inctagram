@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import dynamic from 'next/dynamic'
 import { useMutation } from 'react-query'
@@ -29,9 +29,11 @@ const SignUpPage = () => {
 
   useErrorToastHandler(isSuccess, error)
 
-  if (isSuccess) {
-    setEmailSentModal(true)
-  }
+  useEffect(() => {
+    if (isSuccess) {
+      setEmailSentModal(true)
+    }
+  }, [isSuccess])
 
   const submit = (data: RegisterFormType) => {
     userRegistration(data)
