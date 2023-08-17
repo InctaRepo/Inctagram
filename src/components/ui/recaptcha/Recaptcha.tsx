@@ -12,7 +12,7 @@ interface FormProps {
   primary?: boolean
   expired?: boolean
   className?: string
-  setRecaptchaVal: (boolean) => void
+  setRecaptchaVal: (value: boolean) => void
 }
 
 export const Recaptcha = ({ primary, expired, className, setRecaptchaVal }: FormProps) => {

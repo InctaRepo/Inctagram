@@ -81,9 +81,9 @@ export const ForgotPassword: React.FC<PropsType> = () => {
             <Typography variant="h3">Back to Sign</Typography>
           </Button>
           <Recaptcha
-            control={control}
-            name="recaptcha"
-            value={recaptchaVal}
+            // control={control}
+            // name="recaptcha"
+            // value={recaptchaVal}
             primary
             className={s.recaptcha}
             setRecaptchaVal={setRecaptchaVal}

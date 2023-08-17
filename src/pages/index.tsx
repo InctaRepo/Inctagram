@@ -16,7 +16,7 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <>
-      <h1>{t.test}</h1>
+      {/*<h1>{t.test}</h1>*/}
       <SignInPage />
     </>
   )
