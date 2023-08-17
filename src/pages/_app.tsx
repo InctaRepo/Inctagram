@@ -2,12 +2,12 @@ import '@/src/styles/_globals.scss'
 import '@/src/styles/nprogress.scss'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { ReactElement, ReactNode, useState } from 'react'
+import { ReactElement, ReactNode, useEffect, useState } from 'react'
 
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
+import NProgress from 'nprogress'
+import { QueryClient, QueryClientProvider, useIsFetching, useIsMutating } from 'react-query'
 import { ToastContainer } from 'react-toastify'
 
 import { useLoader } from '@/src/assets/hooks/useLoader'
@@ -21,22 +21,37 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? (page => page)
   const [queryClient] = useState(() => new QueryClient())
-
-  useLoader()
 
   return (
     <QueryClientProvider client={queryClient}>
-      {getLayout(<Component {...pageProps} />)}
-      <ToastContainer
-        position="bottom-left"
-        autoClose={4000}
-        // newestOnTop={false}
-        closeOnClick
-        draggable
-      />
-      <ReactQueryDevtools initialIsOpen={false} />
+      <MyApp Component={Component} {...pageProps} />
     </QueryClientProvider>
+  )
+}
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  useLoader()
+  const getLayout = Component.getLayout ?? (page => page)
+  const isFetching = useIsFetching()
+  const isMutation = useIsMutating()
+
+  useEffect(() => {
+    if (isFetching || isMutation) {
+      NProgress.start()
+    } else {
+      NProgress.done()
+    }
+
+    return () => {
+      NProgress.done()
+    }
+  }, [isFetching, isMutation])
+
+  return (
+    <>
+      {getLayout(<Component {...pageProps} />)}
+      <ToastContainer position="bottom-left" autoClose={4000} closeOnClick draggable />
+    </>
   )
 }

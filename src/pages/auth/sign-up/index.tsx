@@ -5,13 +5,12 @@ import { useMutation } from 'react-query'
 import s from './sign-up.module.scss'
 
 import { authAPI } from '@/src/assets/api'
-import { errorHandler } from '@/src/common/helpers/error-handler'
+import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/Header/Header'
 import { BaseModal } from '@/src/components/ui/modals/BaseModal'
 import { ClientOnlyModalWrapper } from '@/src/components/ui/modals/ClientOnlyModalWrapper'
 import { Typography } from '@/src/components/ui/typography'
-import { alertToast } from 'src/components/ui/alert'
 
 const SignUpPage = () => {
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
@@ -24,6 +23,12 @@ const SignUpPage = () => {
   } = useMutation({
     mutationFn: authAPI.createUser,
   })
+
+  useErrorToastHandler(isSuccess, error)
+
+  if (isSuccess) {
+    setEmailSentModal(true)
+  }
 
   const submit = (data: RegisterFormType) => {
     userRegistration(data)
@@ -38,21 +43,7 @@ const SignUpPage = () => {
     // TODO actions on save
   }
 
-  // TODO error handling
   let userEmail = null
-
-  if (isSuccess) {
-    alertToast(false, 'Success')
-    setEmailSentModal(true)
-  }
-  if (error) {
-    alertToast(true, errorHandler(error))
-  }
-
-  if (isLoading) {
-    return <div>Loading...</div>
-    //TODO loader component
-  }
 
   return (
     <div className={s.container}>
