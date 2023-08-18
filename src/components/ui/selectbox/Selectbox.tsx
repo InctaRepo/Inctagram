@@ -54,7 +54,7 @@ export const Selectbox: FC<SelectPropsType> = ({
         <Select.Value placeholder="Select-box" />
         <Select.Icon className={classNames.selecticon}>
           {
-            def || disabled ? <ChevronDown /> : <ChevronUp/>
+            data ? <ChevronUp /> : <ChevronDown/>
           }
         </Select.Icon>
       </Select.Trigger>
@@ -68,12 +68,6 @@ export const Selectbox: FC<SelectPropsType> = ({
                   <h1 className={classNames.line}>Select-box</h1>
                 </Select.Item>
               ))}
-              <Select.Item value="select-box" className={classNames.optionline}>
-                Select-box
-              </Select.Item>
-              <Select.Item value="select-box" className={classNames.optionline}>
-                Select-box
-              </Select.Item>
             </Select.Group>
           </Select.Viewport>
         </Select.Content>
