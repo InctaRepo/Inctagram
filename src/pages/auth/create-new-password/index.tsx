@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 import { useMutation } from 'react-query'
 
+import s from './create-new-password.module.scss'
+
 import { authAPI } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import { Header } from '@/src/components/Header/Header'
@@ -20,7 +22,6 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
     mutate: createNewPassword,
     error,
     isSuccess,
-    isLoading,
   } = useMutation({
     mutationFn: authAPI.createNewPassword,
   })
@@ -29,7 +30,6 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
 
   //const router = useRouter()  - I will use it later
 
-  if (isLoading) return <p>Loading...</p>
 
   const code = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
 
@@ -52,13 +52,9 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
   }
 
   return (
-    <div
-    // TODO styles
-    // className={s.container}
-    >
+    <div className={s.container}>
       {!passwordSentModal && <Header />}
-      <div
-      // className={s.main}
+      <div className={s.main}
       >
         <CreateNewPassword onSubmitHandler={submit} />
         <Modal

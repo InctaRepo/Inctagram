@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import styles from './selectbox.module.scss'
 
 import ChevronUp from '@/src/assets/icons/chevron-up'
+import ChevronDown from '@/src/assets/icons/chevron-down'
 
 export type SelectPropsType = {
   def: boolean
@@ -53,9 +54,7 @@ export const Selectbox: FC<SelectPropsType> = ({
         <Select.Value placeholder="Select-box" />
         <Select.Icon className={classNames.selecticon}>
           {
-            def || disabled ? <ChevronUp /> : null
-            // TODO
-            // <ChevronDown/>
+            def || disabled ? <ChevronDown /> : <ChevronUp/>
           }
         </Select.Icon>
       </Select.Trigger>
