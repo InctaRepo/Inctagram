@@ -25,7 +25,7 @@ export const CreateNewPassword = (props: CreateNewPasswordPropsType) => {
     mode: 'onChange',
   })
 
-  const onSubmit = handleSubmit((data: any) => {
+  const onSubmit = handleSubmit((data: CreateNewPasswordType) => {
     onSubmitHandler(data)
   })
 
