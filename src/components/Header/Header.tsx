@@ -5,29 +5,28 @@ import Image from 'next/image'
 import s from './header.module.scss'
 
 import bell from '@/src/assets/icons/bell.png'
+import { LangSelect } from '@/src/components/ui/lang-select/lang-select'
 
-interface Option {
+type OptionType = {
   value: string | number
-  label: string
+  label: string | number
 }
 
 const options = [
   { label: 'Russian', value: 'option1' },
   { label: 'English', value: 'option2' },
-  { label: 'Armenian', value: 'option3' },
-  // Add more options as needed
 ]
 
 const Dropdown = ({
   options,
   onChange,
 }: {
-  options: Option[]
+  options: OptionType[]
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }) => {
   return (
     <select onChange={onChange}>
-      {options.map((option: Option, index: number) => (
+      {options.map((option: OptionType, index: number) => (
         <option key={index} value={option.value}>
           {option.label}
         </option>
@@ -37,7 +36,7 @@ const Dropdown = ({
 }
 
 export const Header = () => {
-  const [selectedValue, setSelectedValue] = useState('')
+  const [selectedValue, setSelectedValue] = useState<any>()
 
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value)
@@ -50,8 +49,9 @@ export const Header = () => {
         <Image src={bell} alt="icon" />
       </div>
       <div className={s.dropDown}>
-        <Dropdown options={options} onChange={handleDropdownChange} />
-        {/* <p>Selected Value: {selectedValue}</p> */}
+        <LangSelect />
+        {/*<Dropdown options={options} onChange={handleDropdownChange} />*/}
+        {/*<p>Selected Value: {selectedValue}</p>*/}
       </div>
     </div>
   )

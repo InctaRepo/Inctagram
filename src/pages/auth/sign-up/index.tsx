@@ -6,6 +6,7 @@ import s from './sign-up.module.scss'
 
 import { authAPI } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
+import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/Header/Header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
@@ -20,6 +21,8 @@ import { Typography } from '@/src/components/ui/typography'
 // )
 
 const SignUpPage = () => {
+  const { t } = useTranslation()
+
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
 
   const {
@@ -53,6 +56,10 @@ const SignUpPage = () => {
 
   let userEmail = null
 
+  {
+    /*TODO email from response*/
+  }
+
   return (
     <div className={s.container}>
       {!emailSentModal && <Header />}
@@ -60,15 +67,14 @@ const SignUpPage = () => {
         <RegisterForm onSubmitHandler={submit} />
         <Modal
           modalWidth={'sm'}
-          title={'Email sent'}
+          title={t.auth.emailSent}
           open={emailSentModal}
-          actionButtonName={'OK'}
+          actionButtonName={t.auth.ok}
           onClose={onModalClose}
           onAction={onSaveModalAction}
         >
           <Typography variant={'regular16'}>
-            We have sent a link to confirm your email to {userEmail ? userEmail : 'User Email here'}
-            {/*TODO email from response*/}
+            {t.auth.emailConfirm(userEmail ? userEmail : '...')}
           </Typography>
         </Modal>
       </div>
