@@ -16,9 +16,17 @@ export const authApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    passwordRecovery: build.mutation<any, PasswordRecoveryType>({
+      query: data => ({
+        method: 'POST',
+        url: 'auth/password-recovery',
+        body: data,
+      }),
+    }),
   }),
 })
-export const { useCreateUserMutation, useCreateNewPasswordMutation } = authApi
+export const { useCreateUserMutation, usePasswordRecoveryMutation, useCreateNewPasswordMutation } =
+  authApi
 
 //TYPES ====================================================================================
 export type RegisterArgsType = {
@@ -31,6 +39,9 @@ export type RegisterArgsType = {
 export type NewPasswordArgsType = {
   newPassword: string
   recoveryCode: string
+}
+export type PasswordRecoveryType = {
+  email: string
 }
 
 export type ResponseType<D = {}> = {

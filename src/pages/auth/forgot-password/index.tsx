@@ -1,14 +1,19 @@
 import React from 'react'
 
+import { PasswordRecoveryType, usePasswordRecoveryMutation } from '@/src/assets/api/auth'
 import { AuthLayout } from '@/src/components/Layout/AuthLayout'
 import { ForgotPassword } from '@/src/components/ui/forgotPassword/ForgotPassword'
 
-interface Props {}
+const PasswordRecovery = () => {
+  const [passwordRecovery, {}] = usePasswordRecoveryMutation()
 
-const PasswordRecovery: React.FC<Props> = () => {
+  const submit = (data: PasswordRecoveryType) => {
+    passwordRecovery(data)
+  }
+
   return (
     <AuthLayout>
-      <ForgotPassword />
+      <ForgotPassword onSubmitHandler={submit} />
     </AuthLayout>
   )
 }

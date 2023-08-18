@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
@@ -8,6 +8,7 @@ import { z } from 'zod'
 
 import s from './forgotPassword.module.scss'
 
+import { PasswordRecoveryType } from '@/src/assets/api/auth'
 import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
 import { alertToast } from '@/src/components/ui/alert'
@@ -17,11 +18,13 @@ import { ControlledTextField } from '@/src/components/ui/controlled'
 import { Recaptcha } from '@/src/components/ui/recaptcha/Recaptcha'
 import { Typography } from '@/src/components/ui/typography/typography'
 
-type PropsType = {}
+type PropsType = {
+  onSubmitHandler: (data: PasswordRecoveryType) => void
+}
 
 type FormDataType = z.infer<typeof passwordRecoverySchema>
 
-export const ForgotPassword: React.FC<PropsType> = () => {
+export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
   const [mode, setMode] = useState('mode--primary')
   // const [recaptchaVal, setRecaptchaVal] = useState(false)
   const { t } = useTranslation()
@@ -43,6 +46,7 @@ export const ForgotPassword: React.FC<PropsType> = () => {
   const submitData = (data: FormDataType) => {
     alertToast(false, JSON.stringify(data))
     setMode('mode--secondary')
+    onSubmitHandler(data)
   }
 
   const classNames = {
