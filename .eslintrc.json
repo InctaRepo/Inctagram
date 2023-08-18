@@ -4,7 +4,5 @@
     "plugin:storybook/recommended",
     "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
-  "plugins": [
-    "@tanstack/query"
-  ]
+  "plugins": ["@tanstack/query"]
 }
