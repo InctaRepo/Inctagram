@@ -19,3 +19,7 @@ export type ResponseType<D = {}> = {
   error?: string
   data: D
 }
+export type LoginArgsType = {
+  email: string
+  password: string
+}

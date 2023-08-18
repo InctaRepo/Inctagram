@@ -1,5 +1,10 @@
 import { baseApi } from '@/src/assets/api/base-api'
-import { NewPasswordArgsType, PasswordRecoveryType, RegisterArgsType } from '@/src/assets/api/types'
+import {
+  LoginArgsType,
+  NewPasswordArgsType,
+  PasswordRecoveryType,
+  RegisterArgsType,
+} from '@/src/assets/api/types'
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -24,7 +29,18 @@ export const authApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    loginUser: build.mutation<any, LoginArgsType>({
+      query: data => ({
+        method: 'POST',
+        url: 'auth/login',
+        body: data,
+      }),
+    }),
   }),
 })
-export const { useCreateUserMutation, usePasswordRecoveryMutation, useCreateNewPasswordMutation } =
-  authApi
+export const {
+  useCreateUserMutation,
+  useLoginUserMutation,
+  usePasswordRecoveryMutation,
+  useCreateNewPasswordMutation,
+} = authApi

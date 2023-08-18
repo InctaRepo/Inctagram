@@ -5,6 +5,10 @@ export const logInSchema = z.object({
   password: z
     .string()
     .trim()
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[a-zA-Z\d!@#$%^&*_]+$/,
+      'Password must contain A-Z, a-z, 0-9, !#$%*+-?^_'
+    )
     .nonempty('Enter password')
     .min(6, 'Min number of characters 6')
     .max(20, 'Max number of characters 20'),

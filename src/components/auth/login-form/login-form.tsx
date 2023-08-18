@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -19,8 +19,10 @@ import { logInSchema } from '@/src/common/schemas/logIn-schema'
 import { Card } from '@/src/components/ui/card-temporary'
 
 type FormDataType = z.infer<typeof logInSchema>
-
-export const LoginForm: React.FC = () => {
+type LoginType = {
+  onSubmitHandler: (data: FormDataType) => void
+}
+export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
   const { t } = useTranslation()
 
   const { control, handleSubmit } = useForm<FormDataType>({
@@ -34,7 +36,7 @@ export const LoginForm: React.FC = () => {
   const router = useRouter()
 
   const submitData = (data: FormDataType) => {
-    alert(JSON.stringify(data))
+    onSubmitHandler(data)
   }
 
   return (
