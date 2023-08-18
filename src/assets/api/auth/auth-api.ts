@@ -1,13 +1,24 @@
-import { instance } from 'src/assets/api/instances'
+import { baseApi } from '@/src/assets/api/base-api'
 
-export const authAPI = {
-  createUser(formData: RegisterArgsType) {
-    return instance.post('auth/signup', formData)
-  },
-  createNewPassword(formData: NewPasswordArgsType) {
-    return instance.post('auth/new-password', formData)
-  },
-}
+export const authApi = baseApi.injectEndpoints({
+  endpoints: build => ({
+    createUser: build.mutation<any, RegisterArgsType>({
+      query: data => ({
+        method: 'POST',
+        url: 'auth/signup',
+        body: data,
+      }),
+    }),
+    createNewPassword: build.mutation<any, NewPasswordArgsType>({
+      query: data => ({
+        method: 'POST',
+        url: 'auth/new-password',
+        body: data,
+      }),
+    }),
+  }),
+})
+export const { useCreateUserMutation, useCreateNewPasswordMutation } = authApi
 
 //TYPES ====================================================================================
 export type RegisterArgsType = {

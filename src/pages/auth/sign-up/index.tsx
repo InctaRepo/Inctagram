@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import { useMutation } from 'react-query'
-
 import s from './sign-up.module.scss'
 
-import { authAPI } from '@/src/assets/api/auth'
+import { useCreateUserMutation } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/Header/Header'
@@ -21,14 +19,7 @@ import { Typography } from '@/src/components/ui/typography'
 
 const SignUpPage = () => {
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-
-  const {
-    mutate: userRegistration,
-    isSuccess,
-    error,
-  } = useMutation({
-    mutationFn: authAPI.createUser,
-  })
+  const [userRegistration, { isSuccess, error }] = useCreateUserMutation()
 
   useErrorToastHandler(isSuccess, error)
 
