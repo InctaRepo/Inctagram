@@ -69,7 +69,7 @@ export const LoginForm: React.FC = () => {
             fullWidth
           />
           <div className={s.wrapLinkForgotPass}>
-            <Link href={'/auth/forgotPassword'} className={s.link}>
+            <Link href={'/auth/forgot-password'} className={s.link}>
               <Typography variant="medium14" className={s.linkForgotPass}>
                 {t.auth.forgotPassword}
               </Typography>

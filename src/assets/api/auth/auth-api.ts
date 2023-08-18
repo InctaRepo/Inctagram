@@ -7,6 +7,9 @@ export const authAPI = {
   createNewPassword(formData: NewPasswordArgsType) {
     return instance.post('auth/new-password', formData)
   },
+  passwordRecovery(formData: PasswordRecoveryType) {
+    return instance.post('auth/password-recovery', formData)
+  },
 }
 
 //TYPES ====================================================================================
@@ -20,6 +23,10 @@ export type RegisterArgsType = {
 export type NewPasswordArgsType = {
   newPassword: string
   recoveryCode: string
+}
+
+export type PasswordRecoveryType = {
+  email: string
 }
 
 export type ResponseType<D = {}> = {
