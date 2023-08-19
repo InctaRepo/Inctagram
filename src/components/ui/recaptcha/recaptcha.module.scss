@@ -68,11 +68,11 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
   }
 }
 
-.mode--primary {
+.mode-primary {
   padding: 8px 7px;
 }
 
-.mode--error {
+.mode-error {
   border: 1px solid $color-danger-500;
   padding: 7px 6px 5px;
   width: 314px;
@@ -87,7 +87,7 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
   }
 }
 
-.mode--expired {
+.mode-expired {
   padding: 8px 7px;
 }
 

@@ -20,7 +20,7 @@ type RecaptchaProps = {
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
   Omit<RecaptchaProps, 'onChange' | 'value'>
 
-const modes = ['mode--primary', 'mode--error', 'mode--expired']
+const modes = ['mode-primary', 'mode-error', 'mode-expired']
 
 export const Recaptcha = <T extends FieldValues>({
   primary,
