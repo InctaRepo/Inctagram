@@ -8,10 +8,9 @@ import { z } from 'zod'
 
 import s from './forgotPassword.module.scss'
 
-import { PasswordRecoveryType } from '@/src/assets/api/auth'
+import { PasswordRecoveryType } from '@/src/assets/api/types'
 import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
-import { alertToast } from '@/src/components/ui/alert'
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { ControlledTextField } from '@/src/components/ui/controlled'
@@ -26,7 +25,6 @@ type FormDataType = z.infer<typeof passwordRecoverySchema>
 
 export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
   const [mode, setMode] = useState('mode--primary')
-  // const [recaptchaVal, setRecaptchaVal] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -39,18 +37,17 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
     mode: 'onTouched',
     defaultValues: {
       email: '',
-      recaptcha: true, // requires update
+      recaptcha: false, // requires update
     },
   })
 
   const submitData = (data: FormDataType) => {
-    alertToast(false, JSON.stringify(data))
     setMode('mode--secondary')
     onSubmitHandler(data)
   }
 
   const classNames = {
-    hintClass: clsx(s.hint, errors.email && s.emailError),
+    hint: clsx(s.hint, errors.email && s.emailError),
   }
 
   return (
@@ -67,7 +64,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
             placeholder="Epam@epam.com"
             className={s.email}
           />
-          <Typography variant="regular14" className={classNames.hintClass}>
+          <Typography variant="regular14" className={classNames.hint}>
             {t.auth.instructions}
           </Typography>
           <Button variant="primary" className={s.submit}>
@@ -83,12 +80,11 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
             <Typography variant="h3">{t.auth.backToSignIn}</Typography>
           </Button>
           <Recaptcha
-            // control={control} // в курсе что так не работает, это временно,
-            // name="recaptcha" //  будет дорабатываться компонента Recaptcha
-            // value={recaptchaVal}
-            primary
+            control={control}
+            name="recaptcha"
+            errors={errors}
             className={s.recaptcha}
-            // setRecaptchaVal={setRecaptchaVal}
+            primary
           />
         </form>
       </Card>

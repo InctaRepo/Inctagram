@@ -68,15 +68,15 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
   }
 }
 
-.storybook-recaptcha--primary {
+.mode--primary {
   padding: 8px 7px;
 }
 
-.storybook-recaptcha--error {
+.mode--error {
   border: 1px solid $color-danger-500;
   padding: 7px 6px 5px;
   width: 314px;
-
+  margin-bottom: 10px;
   .errorText {
     display: block;
     color: $color-danger-500;
@@ -87,7 +87,7 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
   }
 }
 
-.storybook-recaptcha--expired {
+.mode--expired {
   padding: 8px 7px;
 }
 
