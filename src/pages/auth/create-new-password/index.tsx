@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 
-import { useMutation } from 'react-query'
-
-import { authAPI } from '@/src/assets/api/auth'
+import { useCreateNewPasswordMutation } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
-import { Header } from '@/src/components/Header/Header'
 import {
   CreateNewPassword,
   CreateNewPasswordType,
 } from '@/src/components/ui/createNewPassword/CreateNewPassword'
+import { Header } from '@/src/components/ui/Header/Header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { NextPageWithLayout } from '@/src/pages/_app'
@@ -16,14 +14,7 @@ import { NextPageWithLayout } from '@/src/pages/_app'
 const CreateNewPasswordPage: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
 
-  const {
-    mutate: createNewPassword,
-    error,
-    isSuccess,
-    isLoading,
-  } = useMutation({
-    mutationFn: authAPI.createNewPassword,
-  })
+  const [createNewPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
 
   useErrorToastHandler(isSuccess, error)
 

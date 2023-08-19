@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import { useMutation } from 'react-query'
-
 import s from './sign-up.module.scss'
 
-import { authAPI } from '@/src/assets/api/auth'
+import { useCreateUserMutation } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
-import { Header } from '@/src/components/Header/Header'
+import { Header } from '@/src/components/ui/Header/Header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
@@ -24,14 +22,7 @@ const SignUpPage = () => {
   const { t } = useTranslation()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-
-  const {
-    mutate: userRegistration,
-    isSuccess,
-    error,
-  } = useMutation({
-    mutationFn: authAPI.createUser,
-  })
+  const [userRegistration, { isSuccess, error }] = useCreateUserMutation()
 
   useErrorToastHandler(isSuccess, error)
 
