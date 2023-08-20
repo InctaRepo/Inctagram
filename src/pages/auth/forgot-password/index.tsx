@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { PasswordRecoveryType, usePasswordRecoveryMutation } from '@/src/assets/api/auth'
-import { AuthLayout } from '@/src/components/Layout/AuthLayout'
+import { AuhtLayout } from '@/src/components/Layout/AuthLayout'
 import { ForgotPassword } from '@/src/components/ui/forgotPassword/ForgotPassword'
 
 const PasswordRecovery = () => {
@@ -12,9 +12,9 @@ const PasswordRecovery = () => {
   }
 
   return (
-    <AuthLayout>
+    <AuhtLayout>
       <ForgotPassword onSubmitHandler={submit} />
-    </AuthLayout>
+    </AuhtLayout>
   )
 }
 

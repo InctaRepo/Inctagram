@@ -1,1 +1,1 @@
-export * from './AuthLayout'
+export * from './auht-layout'
