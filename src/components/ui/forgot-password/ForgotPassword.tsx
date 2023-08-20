@@ -1,27 +1,31 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import s from './forgotPassword.module.scss'
 
+import { PasswordRecoveryType } from '@/src/assets/api/types'
+import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
-import { alertToast } from '@/src/components/ui/alert'
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import { Recaptcha } from '@/src/components/ui/recaptcha/Recaptcha'
 import { Typography } from '@/src/components/ui/typography/typography'
 
-type PropsType = {}
+type PropsType = {
+  onSubmitHandler: (data: PasswordRecoveryType) => void
+}
 
 type FormDataType = z.infer<typeof passwordRecoverySchema>
 
-export const ForgotPassword: React.FC<PropsType> = () => {
+export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
   const [mode, setMode] = useState('mode--primary')
-  const [recaptchaVal, setRecaptchaVal] = useState(false)
+  const { t } = useTranslation()
   const router = useRouter()
 
   const {
@@ -33,60 +37,54 @@ export const ForgotPassword: React.FC<PropsType> = () => {
     mode: 'onTouched',
     defaultValues: {
       email: '',
-      recaptcha: true, // requires update
+      recaptcha: false, // requires update
     },
   })
 
   const submitData = (data: FormDataType) => {
-    alertToast(false, JSON.stringify(data))
     setMode('mode--secondary')
+    onSubmitHandler(data)
+  }
+
+  const classNames = {
+    hint: clsx(s.hint, errors.email && s.emailError),
   }
 
   return (
     <div className={s[mode]}>
       <Card className={s.main}>
         <Typography variant="h1" className={s.title}>
-          Forgot Password
+          {t.auth.forgotPasswordTitle}
         </Typography>
         <form onSubmit={handleSubmit(submitData)} className={s.form}>
           <ControlledTextField
             control={control}
             name="email"
-            label="Email"
+            label={t.auth.email}
             placeholder="Epam@epam.com"
             className={s.email}
           />
-          <Typography
-            variant="regular14"
-            className={`${s.hint} ${errors.email ? s.emailError : ''}`}
-          >
-            Enter your email address and we will send you further instructions
+          <Typography variant="regular14" className={classNames.hint}>
+            {t.auth.instructions}
           </Typography>
           <Button variant="primary" className={s.submit}>
-            <Typography variant="h3">Send Link</Typography>
+            <Typography variant="h3">{t.auth.sendLink}</Typography>
           </Button>
           <Typography variant="regular14" className={s.answer}>
-            The link has been sent by email.
-            <br />
-            If you don’t receive an email send link again
+            {t.auth.linkHasBeenSent}
           </Typography>
           <Button variant="primary" className={s.repeat}>
-            <Typography variant="h3">Send Link Again</Typography>
+            <Typography variant="h3">{t.auth.sendLinkAgain}</Typography>
           </Button>
-          <Button
-            variant="text"
-            className={`${s.back} ${s.cancel}`}
-            onClick={() => router.push('/')}
-          >
-            <Typography variant="h3">Back to Sign</Typography>
+          <Button variant="text" className={s.back} onClick={() => router.push('/')}>
+            <Typography variant="h3">{t.auth.backToSignIn}</Typography>
           </Button>
           <Recaptcha
-            // control={control}
-            // name="recaptcha"
-            // value={recaptchaVal}
-            primary
+            control={control}
+            name="recaptcha"
+            errors={errors}
             className={s.recaptcha}
-            setRecaptchaVal={setRecaptchaVal}
+            primary
           />
         </form>
       </Card>

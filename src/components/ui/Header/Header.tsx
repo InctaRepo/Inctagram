@@ -2,68 +2,56 @@ import { useState } from 'react'
 
 import Image from 'next/image'
 
-import s from './style.module.scss'
+import s from './header.module.scss'
 
 import bell from '@/src/assets/icons/bell.png'
-import RussiaImage from '@/src/assets/icons/Russia.png' // Import the Russia image separately
-type StaticImageData = /*unresolved*/ any
+import { LangSelect } from '@/src/components/ui/lang-select/lang-select'
 
-//vorna xndiry
-
-interface Option {
+type OptionType = {
   value: string | number
-  label: string
-  img: StaticImageData // Use StaticImageData type
+  label: string | number
 }
 
-const options: Option[] = [
-  { label: 'Russian', value: 'option1', img: RussiaImage }, // Use RussiaImage here
-  { label: 'English', value: 'option2', img: RussiaImage },
-  // Add more options as needed
+const options = [
+  { label: 'Russian', value: 'option1' },
+  { label: 'English', value: 'option2' },
 ]
 
 const Dropdown = ({
   options,
   onChange,
 }: {
-  options: Option[]
+  options: OptionType[]
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }) => {
   return (
-    <div>
-      <select className={s.drop} onChange={onChange}>
-        {options.map((option: Option, index: number) => (
-          <option key={index} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
+    <select onChange={onChange}>
+      {options.map((option: OptionType, index: number) => (
+        <option key={index} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
   )
 }
 
 export const Header = () => {
-  const [selectedValue, setSelectedValue] = useState('')
+  const [selectedValue, setSelectedValue] = useState<any>()
 
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value)
   }
 
   return (
-    <div className={s.MainContainer}>
-      <header className={s.main}>
-        <h2 className={s.insta}>Instagram</h2>
-        <div className={s.img}>
-          <Image src={bell} alt="icon" />
-        </div>
-        <div className={s.dropDown}>
-          <Dropdown options={options} onChange={handleDropdownChange} />
-          {/* <p>Selected Value: {selectedValue}</p> */}
-        </div>
-      </header>
-      <br />
-      <div className={s.container}>
-        <span className={s.line}></span>
+    <div className={s.main}>
+      <h2 className={s.insta}>Instagram</h2>
+      <div className={s.img}>
+        <Image src={bell} alt="icon" />
+      </div>
+      <div className={s.dropDown}>
+        <LangSelect />
+        {/*<Dropdown options={options} onChange={handleDropdownChange} />*/}
+        {/*<p>Selected Value: {selectedValue}</p>*/}
       </div>
     </div>
   )

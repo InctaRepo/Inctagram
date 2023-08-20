@@ -7,30 +7,32 @@
   height: $h;
 }
 
-
 .selectbox {
   @include wh(210px, 36px);
+
   display: inline-flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  font: 400 16px Inter;
+  line-height: $line-height-m;
+  text-align: left;
+  letter-spacing: 0;
+
   background-color: $color-dark-700;
   border: none;
   box-shadow: none;
-  font: 400 16px Inter;
-  line-height: $line-height-m;
-  letter-spacing: 0;
-  text-align: left;
 
   &:focus {
-    border: 1px solid $color-dark-100;
     color: $color-dark-100;
     background-color: $color-dark-500;
+    border: 1px solid $color-dark-100;
   }
 
   &:hover {
-    border: 1px solid $color-dark-100;
     color: $color-dark-100;
     background-color: $color-dark-500;
+    border: 1px solid $color-dark-100;
   }
 }
 
@@ -50,9 +52,9 @@
 
 .selectgroup {
   border: none;
-  box-shadow: none;npm
+  box-shadow: none;
 
-  &:focus {
+  npm &:focus {
     box-shadow: none;
   }
 }
@@ -61,32 +63,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: start;
-  margin-left: auto;
-  margin-right: auto;
-}
 
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: start;
+}
 
 .label {
   @include wh(75px, 24px);
+
   font: 400 14px Inter;
   line-height: $line-height-m;
-  letter-spacing: 0;
-  text-align: left;
   color: $color-light-900;
+  text-align: left;
+  letter-spacing: 0;
 }
 
-h1 {
-  font: 400 16px Inter;
-  line-height: $line-height-m;
-  letter-spacing: 0;
-  text-align: left;
-  margin-left: 12px;
-}
+//h1 {
+//  font: 400 16px Inter;
+//  line-height: $line-height-m;
+//  letter-spacing: 0;
+//  text-align: left;
+//  margin-left: 12px;
+//}
 
 .line {
   margin: 0 0 0 12px;
   padding: 0;
+
   font: 400 14px Inter;
   line-height: $line-height-m;
   letter-spacing: 0;
@@ -94,35 +99,39 @@ h1 {
 
 .optionline {
   @include wh(210px, 34px);
-  background-color: $color-dark-500;
-  color: $color-light-100;
+
   font: 400 14px Inter;
   line-height: $line-height-m;
+  color: $color-light-100;
   letter-spacing: 0;
 
+  background-color: $color-dark-500;
+
   &:hover {
+    cursor: pointer;
     color: $color-accent-500;
     background-color: $color-dark-300;
-    cursor: pointer;
   }
 }
 
 .def {
   @include wh(208px, 36px);
+
   top: 60px;
-  border: 1px solid $color-dark-100;
-  background-color: $color-dark-900;
   color: $color-light-100;
+  background-color: $color-dark-900;
+  border: 1px solid $color-dark-100;
 }
 
 .active {
   @include wh(208px, 36px);
-  border: 1px solid $color-light-100;
+
   color: $color-light-100;
   background-color: $color-dark-500;
+  border: 1px solid $color-light-100;
 }
 
-/*.hover {
+/* .hover {
   @include wh(208px, 36px);
   top: 60px;
   border: 1px solid $color-dark-100;
@@ -136,13 +145,14 @@ h1 {
   border: 2px solid $color-accent-500;
   color: #8d9094;
   background-color: $color-dark-500;
-}*/
+} */
 
 .disabled {
   @include wh(208px, 36px);
+
   top: 60px;
-  border: 2px solid #8d9094;
   color: #8d9094;
   background-color: $color-dark-500;
+  border: 2px solid #8d9094;
 }
 

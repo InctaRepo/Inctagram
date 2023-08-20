@@ -8,6 +8,7 @@ import { z } from 'zod'
 
 import s from './register-form.module.scss'
 
+import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
 import { registerSchema } from '@/src/common/schemas/register-schema'
@@ -23,6 +24,7 @@ type RegisterFormPropsType = {
 }
 
 export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
+  const { t } = useTranslation()
   const router = useRouter()
 
   useEffect(() => {
@@ -56,7 +58,7 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
     <Card className={s.card}>
       <div className={s.content}>
         <Typography variant={'h1'} className={s.title}>
-          Sign Up
+          {t.auth.signUp}
         </Typography>
         <div className={s.authIcons}>
           <Link href={'/google'}>
@@ -72,42 +74,49 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
           <ControlledTextField
             control={control}
             name={'username'}
-            label={'Username'}
+            label={t.auth.userName}
             className={s.field}
           />
           <ControlledTextField
             control={control}
             name={'email'}
-            label={'Email'}
+            label={t.auth.email}
             className={s.field}
           />
           <ControlledTextField
             control={control}
             name={'password'}
             type={'password'}
-            label={'Password'}
+            label={t.auth.password}
             className={s.field}
           />
           <ControlledTextField
             control={control}
             name={'passwordConfirm'}
             type={'password'}
-            label={'Password confirmation'}
+            label={t.auth.passwordConfirmation}
             className={s.field}
           />
+          {/*<Trans*/}
+          {/*  text={t.auth.signUpTerms.description}*/}
+          {/*  tags={{*/}
+          {/*    1: () => <b>{'fdfdf'}</b>,*/}
+          {/*    2: () => <b>{'fdfdf'}</b>,*/}
+          {/*  }}*/}
+          {/*/>*/}
           <div className={s.terms}>
             <ControlledCheckbox
               control={control}
               name={'terms'}
               label={
                 <Typography variant={'small'} className={s.termsRow}>
-                  I agree to the&nbsp;
+                  {t.auth.agree}&nbsp;
                   <Link href={'/terms'} className={s.termsLink}>
-                    Terms of Service
+                    {t.auth.termsOfService}
                   </Link>
-                  &nbsp;and&nbsp;
+                  &nbsp;{t.auth.and}&nbsp;
                   <Link href={'/policy'} className={s.termsLink}>
-                    Privacy Policy
+                    {t.auth.policy}
                   </Link>
                 </Typography>
               }
@@ -120,14 +129,14 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
             // disabled={!formState.isValid}
             //TODO disable
           >
-            <Typography variant={'h3'}>Sign Up</Typography>
+            <Typography variant={'h3'}>{t.auth.signUp}</Typography>
           </Button>
         </form>
         <Typography variant={'regular16'} className={s.subtitle}>
-          Do you have an account?
+          {t.auth.haveAccount}
         </Typography>
         <Button as={'a'} variant={'text'} onClick={() => router.push('/')}>
-          Sign in
+          {t.auth.signIn}
         </Button>
       </div>
     </Card>

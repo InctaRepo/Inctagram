@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -12,14 +12,19 @@ import { Typography } from '../../ui/typography'
 
 import s from './login-form.module.scss'
 
+import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
 import { logInSchema } from '@/src/common/schemas/logIn-schema'
 import { Card } from '@/src/components/ui/card-temporary'
 
 type FormDataType = z.infer<typeof logInSchema>
+type LoginType = {
+  onSubmitHandler: (data: FormDataType) => void
+}
+export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
+  const { t } = useTranslation()
 
-export const LoginForm: React.FC = () => {
   const { control, handleSubmit } = useForm<FormDataType>({
     resolver: zodResolver(logInSchema),
     mode: 'onTouched',
@@ -31,14 +36,14 @@ export const LoginForm: React.FC = () => {
   const router = useRouter()
 
   const submitData = (data: FormDataType) => {
-    alert(JSON.stringify(data))
+    onSubmitHandler(data)
   }
 
   return (
     <Card className={s.card}>
       <div className={s.content}>
         <Typography variant="h1" className={s.title}>
-          Sign In
+          {t.auth.signIn}
         </Typography>
         <div className={s.oauthWrap}>
           <Link href={'/google'}>
@@ -66,20 +71,20 @@ export const LoginForm: React.FC = () => {
             fullWidth
           />
           <div className={s.wrapLinkForgotPass}>
-            <Link href={'/auth/forgotPassword'} className={s.link}>
+            <Link href={'/auth/forgot-password'} className={s.link}>
               <Typography variant="medium14" className={s.linkForgotPass}>
-                Forgot Password
+                {t.auth.forgotPassword}
               </Typography>
             </Link>
           </div>
           <Button type="submit" variant="primary" fullWidth className={s.singIn}>
-            <Typography variant="bold16">Sign In</Typography>
+            <Typography variant="bold16">{t.auth.signIn}</Typography>
           </Button>
         </form>
 
-        <Typography variant="regular16">Don’t have an account?</Typography>
+        <Typography variant="regular16">{t.auth.dontHaveAccount}</Typography>
         <Button variant="link" color={'link'} onClick={() => router.push('/auth/sign-up')}>
-          Sign Up
+          {t.auth.signUp}
         </Button>
       </div>
     </Card>

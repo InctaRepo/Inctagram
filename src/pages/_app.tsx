@@ -7,9 +7,10 @@ import { ReactElement, ReactNode, useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import NProgress from 'nprogress'
-import { QueryClient, QueryClientProvider, useIsFetching, useIsMutating } from 'react-query'
+import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 
+import { store } from '@/src/assets/api/store'
 import { useLoader } from '@/src/assets/hooks/useLoader'
 
 export type NextPageWithLayout<P = {}> = NextPage<P> & {
@@ -21,32 +22,32 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const [queryClient] = useState(() => new QueryClient())
+  // const [queryClient] = useState(() => new QueryClient())
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
       <MyApp Component={Component} {...pageProps} />
-    </QueryClientProvider>
+    </Provider>
   )
 }
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   useLoader()
   const getLayout = Component.getLayout ?? (page => page)
-  const isFetching = useIsFetching()
-  const isMutation = useIsMutating()
+  // const isFetching = useIsFetching()
+  // const isMutation = useIsMutating()
 
-  useEffect(() => {
-    if (isFetching || isMutation) {
-      NProgress.start()
-    } else {
-      NProgress.done()
-    }
-
-    return () => {
-      NProgress.done()
-    }
-  }, [isFetching, isMutation])
+  // useEffect(() => {
+  //   if (isFetching || isMutation) {
+  //     NProgress.start()
+  //   } else {
+  //     NProgress.done()
+  //   }
+  //
+  //   return () => {
+  //     NProgress.done()
+  //   }
+  // }, [isFetching, isMutation])
 
   return (
     <>

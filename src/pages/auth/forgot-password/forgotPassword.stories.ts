@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import PasswordRecovery from '@/src/pages/auth/forgotPassword/index'
+import PasswordRecovery from '@/src/pages/auth/forgot-password/index'
 
 const meta: Meta<typeof PasswordRecovery> = {
   title: 'pages/PasswordRecovery',

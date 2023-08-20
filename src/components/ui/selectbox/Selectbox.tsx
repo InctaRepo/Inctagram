@@ -9,20 +9,21 @@ import ChevronUp from '@/src/assets/icons/chevron-up'
 import ChevronDown from '@/src/assets/icons/chevron-down'
 
 export type SelectPropsType = {
-  def: boolean
-  active: boolean
-  /*hover: boolean
-	focus: boolean*/
-  disabled: boolean
+  def?: boolean // убрать все пропсы касающиеся стилей , стили должны быть в цсс
+  active?: boolean
+  hover?: boolean
+  focus?: boolean
+  disabled?: boolean
   onChange?: (active: boolean) => void
-  data?: string[] | number[]
+  // функция передается в пропс для выполнения какого-то действия с выбранным значением в селекте
+  data: string[] | number[]
 }
 
 export const Selectbox: FC<SelectPropsType> = ({
   def,
   active,
   /* hover,
-																																																																																															focus,*/
+																																																																																																																																																																																																																																																																																																																		 focus,*/
   disabled,
   onChange,
   data,
@@ -51,7 +52,8 @@ export const Selectbox: FC<SelectPropsType> = ({
         <Select.Label className={classNames.label}>Select-box</Select.Label>
       </Select.Group>
       <Select.Trigger className={classNames.selectbox}>
-        <Select.Value placeholder="Select-box" />
+        <Select.Value placeholder={'Select Box'} />
+        {/*value === local state value*/}
         <Select.Icon className={classNames.selecticon}>
           {
             data ? <ChevronUp /> : <ChevronDown/>
@@ -64,6 +66,7 @@ export const Selectbox: FC<SelectPropsType> = ({
           <Select.Viewport>
             <Select.Group>
               {data?.map((el, i) => (
+                // принимаем массив, бежим по массиву и отрисовываем селект итем с вложенным el
                 <Select.Item value="select-box" key={i}>
                   <h1 className={classNames.line}>Select-box</h1>
                 </Select.Item>
