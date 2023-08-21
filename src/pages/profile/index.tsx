@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Profile } from '@/src/components/profile/profile'
+import { Profile } from '@/src/components/profile'
 
 const Index = () => {
   return (
