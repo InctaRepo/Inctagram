@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import styles from './selectbox.module.scss'
 
 import ChevronUp from '@/src/assets/icons/chevron-up'
+import ChevronDown from '@/src/assets/icons/chevron-down'
 
 export type SelectPropsType = {
   def?: boolean // убрать все пропсы касающиеся стилей , стили должны быть в цсс
@@ -55,9 +56,7 @@ export const Selectbox: FC<SelectPropsType> = ({
         {/*value === local state value*/}
         <Select.Icon className={classNames.selecticon}>
           {
-            def || disabled ? <ChevronUp /> : null
-            // TODO
-            // <ChevronDown/>
+            data ? <ChevronUp /> : <ChevronDown/>
           }
         </Select.Icon>
       </Select.Trigger>
@@ -72,12 +71,6 @@ export const Selectbox: FC<SelectPropsType> = ({
                   <h1 className={classNames.line}>Select-box</h1>
                 </Select.Item>
               ))}
-              <Select.Item value="select-box" className={classNames.optionline}>
-                Select-box
-              </Select.Item>
-              <Select.Item value="select-box" className={classNames.optionline}>
-                Select-box
-              </Select.Item>
             </Select.Group>
           </Select.Viewport>
         </Select.Content>

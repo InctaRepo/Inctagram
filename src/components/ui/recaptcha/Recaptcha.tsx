@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
+import clsx from 'clsx'
 import Image from 'next/image'
+import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
 
 import s from './recaptcha.module.scss'
 
@@ -8,16 +10,40 @@ import Privacy from '@/src/assets/icons/recaptcha.svg'
 import Checked from '@/src/assets/icons/recaptchaChecked.svg'
 import { Card } from 'src/components/ui/card-temporary'
 
-interface FormProps {
+type RecaptchaProps = {
   primary?: boolean
   expired?: boolean
   className?: string
-  setRecaptchaVal?: (value: boolean) => void
+  errors?: any
 }
 
-export const Recaptcha = ({ primary, expired, className, setRecaptchaVal }: FormProps) => {
+type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
+  Omit<RecaptchaProps, 'onChange' | 'value'>
+
+const modes = ['mode-primary', 'mode-error', 'mode-expired']
+
+export const Recaptcha = <T extends FieldValues>({
+  primary,
+  expired,
+  className,
+  control,
+  errors,
+  name,
+}: Props<T>) => {
+  const {
+    field: { ref, ...fieldProps },
+  } = useController({
+    name,
+    control,
+  })
+
+  // Current active styles in mode
   // eslint-disable-next-line no-nested-ternary
-  const mode = `storybook-recaptcha--${primary ? 'primary' : !expired ? 'error' : 'expired'}`
+  let mode = modes[0]
+
+  if (errors.recaptcha) {
+    mode = modes[1]
+  }
 
   const [isLoading, setIsLoading] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
@@ -28,38 +54,40 @@ export const Recaptcha = ({ primary, expired, className, setRecaptchaVal }: Form
     setTimeout(() => {
       setIsLoading(!isLoading)
       setIsChecked(!isChecked)
-      setRecaptchaVal!(true)
+      fieldProps.onChange(true)
+      // setRecaptchaVal!(true)
     }, 2000)
+  }
+
+  const classNames = {
+    main: clsx(s.recaptcha, className),
+    expired: clsx(s.expiredMessage, !expired && s.hidden),
+    customCheckbox: clsx(s.customCheckbox, isLoading && s.hidden),
+    preloader: clsx(s.ldsRing, (!isLoading || isChecked) && s.hidden),
+    checked: clsx(s.checked, !isChecked && s.hidden),
+    errorText: clsx(s.errorText, primary && !expired && s.hidden),
   }
 
   return (
     <div className={s[mode]}>
-      <Card className={`${s.recaptcha} ${className}`}>
+      <Card className={classNames.main}>
         <div className={s.agreement}>
-          <div className={`${s.expiredMessage} ${!expired ? s.hidden : ''}`}>
-            Verification expired. Check the checkbox again.
-          </div>
-          <div className={`${s.customCheckbox} ${isLoading ? s.hidden : ''}`} onClick={onClick} />
-          <div className={`${s.ldsRing} ${!isLoading || isChecked ? s.hidden : ''}`}>
+          <div className={classNames.expired}>Verification expired. Check the checkbox again.</div>
+          <div className={classNames.customCheckbox} onClick={onClick} />
+          <div className={classNames.preloader}>
             <div />
             <div />
             <div />
             <div />
           </div>
-          <Image
-            src={Checked}
-            className={`${s.checked} ${!isChecked ? s.hidden : ''}`}
-            alt="checked"
-          />
+          <Image src={Checked} className={classNames.checked} alt="checked" />
           <label>I&apos;m not a robot</label>
         </div>
         <div className={s.privacy}>
           <Image src={Privacy} width="46" height="57" alt="privacy" />
         </div>
       </Card>
-      <p className={`${s.errorText} ${primary && !expired ? s.hidden : ''}`}>
-        Please verify that you are not a robot
-      </p>
+      <p className={classNames.errorText}>Please verify that you are not a robot</p>
     </div>
   )
 }
