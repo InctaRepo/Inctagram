@@ -6,7 +6,7 @@ import s from './auth-layout.module.scss'
 
 import { Header } from '@/src/components/ui/Header/Header'
 
-export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
+export const AuhtLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (
     <div className={s.container}>
       <Header />
@@ -15,4 +15,4 @@ export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   )
 }
 
-export const getAuthLayout = (page: ReactElement) => <AuthLayout>{page}</AuthLayout>
+export const getAuthLayout = (page: ReactElement) => <AuhtLayout>{page}</AuhtLayout>
