@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
+import { useMutation } from 'react-query'
+
+import s from './create-new-password.module.scss'
+
+import { authAPI } from '@/src/assets/api/auth'
+
 import { useCreateNewPasswordMutation } from '@/src/assets/api/auth'
+
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import {
   CreateNewPassword,
@@ -15,7 +22,23 @@ import {useRouter} from "next/router";
 const CreateNewPasswordPage: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
 
+
   const [newPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
+
+  const {
+    mutate: createNewPassword,
+    error,
+    isSuccess,
+  } = useMutation({
+    mutationFn: authAPI.createNewPassword,
+  })
+
+  useErrorToastHandler(isSuccess, error)
+
+  //const router = useRouter()  - I will use it later
+
+  const [createNewPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
+
 
   useErrorToastHandler(isSuccess, error)
 
@@ -42,13 +65,9 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
   }
 
   return (
-    <div
-    // TODO styles
-    // className={s.container}
-    >
+    <div className={s.container}>
       {!passwordSentModal && <Header />}
-      <div
-      // className={s.main}
+      <div className={s.main}
       >
         <CreateNewPassword onSubmitHandler={submit} />
         <Modal
