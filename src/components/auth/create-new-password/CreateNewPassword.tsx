@@ -4,16 +4,15 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+
 import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import { passwordsMatchSchema } from '@/src/common/schemas/passwordsMatch-schema'
+import styles from '@/src/components/auth/create-new-password/createNewPassword.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
-import styles from '@/src/components/ui/createNewPassword/createNewPassword.module.scss'
 import { Typography } from '@/src/components/ui/typography'
 
 export type CreateNewPasswordType = z.infer<typeof passwordsMatchSchema>
-
-const { t } = useTranslation()
 
 type CreateNewPasswordPropsType = {
   onSubmitHandler: (data: CreateNewPasswordType) => void
@@ -21,6 +20,7 @@ type CreateNewPasswordPropsType = {
 
 export const CreateNewPassword = (props: CreateNewPasswordPropsType) => {
   const { onSubmitHandler } = props
+  const { t } = useTranslation()
 
   const { control, handleSubmit } = useForm<CreateNewPasswordType>({
     resolver: zodResolver(passwordsMatchSchema),
@@ -64,4 +64,3 @@ export const CreateNewPassword = (props: CreateNewPasswordPropsType) => {
     </form>
   )
 }
-export default CreateNewPassword

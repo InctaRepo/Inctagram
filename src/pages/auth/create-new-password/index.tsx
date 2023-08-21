@@ -1,44 +1,24 @@
 import React, { useEffect, useState } from 'react'
 
-import { useMutation } from 'react-query'
+import { useRouter } from 'next/router'
 
 import s from './create-new-password.module.scss'
 
-import { authAPI } from '@/src/assets/api/auth'
-
 import { useCreateNewPasswordMutation } from '@/src/assets/api/auth'
-
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import {
   CreateNewPassword,
   CreateNewPasswordType,
-} from '@/src/components/ui/createNewPassword/CreateNewPassword'
+} from '@/src/components/auth/create-new-password/CreateNewPassword'
 import { Header } from '@/src/components/ui/Header/Header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { NextPageWithLayout } from '@/src/pages/_app'
-import {useRouter} from "next/router";
 
 const CreateNewPasswordPage: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
 
-
-  const [newPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
-
-  const {
-    mutate: createNewPassword,
-    error,
-    isSuccess,
-  } = useMutation({
-    mutationFn: authAPI.createNewPassword,
-  })
-
-  useErrorToastHandler(isSuccess, error)
-
-  //const router = useRouter()  - I will use it later
-
   const [createNewPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
-
 
   useErrorToastHandler(isSuccess, error)
 
@@ -48,7 +28,7 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
 
   const submit = (data: CreateNewPasswordType) => {
     setPasswordSentModal(true)
-    newPassword({ newPassword: data.password, recoveryCode: router.pathname })
+    createNewPassword({ newPassword: data.password, recoveryCode: router.pathname })
   }
 
   useEffect(() => {
@@ -67,8 +47,7 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
   return (
     <div className={s.container}>
       {!passwordSentModal && <Header />}
-      <div className={s.main}
-      >
+      <div className={s.main}>
         <CreateNewPassword onSubmitHandler={submit} />
         <Modal
           modalWidth={'sm'}
