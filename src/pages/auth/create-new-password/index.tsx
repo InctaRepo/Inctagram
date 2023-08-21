@@ -15,7 +15,7 @@ import {useRouter} from "next/router";
 const CreateNewPasswordPage: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
 
-  const [createNewPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
+  const [newPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
 
   useErrorToastHandler(isSuccess, error)
 
@@ -25,7 +25,7 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
 
   const submit = (data: CreateNewPasswordType) => {
     setPasswordSentModal(true)
-    createNewPassword({ newPassword: data.password, recoveryCode: router.pathname })
+    newPassword({ newPassword: data.password, recoveryCode: router.pathname })
   }
 
   useEffect(() => {
