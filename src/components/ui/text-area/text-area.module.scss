@@ -1,0 +1,49 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+.fullWidth,
+.label,
+.errorMessage {
+  width: 100%;
+}
+
+.container {
+  @include flex-block($justify-content: start);
+}
+
+.textarea {
+  min-height: 84px;
+  padding: 6px 12px 0;
+  outline: none;
+  resize: none;
+  background-color: $color-dark-500;
+  border: 1px solid $color-dark-100;
+  border-radius: 1px;
+  font-family: $font-family-primary;
+  color: $color-light-900;
+  font-size: $font-size-m;
+  font-weight: $font-weight-h3-large;
+  line-height: $line-height-m;
+  letter-spacing: 0.5px;
+  &:active {
+    border: 1px solid $color-light-100;
+    color: $color-light-100;
+  }
+  &:focus {
+    outline: 1px solid $color-accent-700;
+    border: 1px solid $color-accent-700;
+    border-radius: 2px;
+    color: $color-light-100;
+  }
+}
+
+.label {
+  letter-spacing: 0.5px;
+  padding-left: 1px;
+}
+
+.error {
+  border: 1px solid $color-danger-500;
+  color: $color-light-100;
+}
