@@ -9,15 +9,11 @@
 
 .label {
   @include wh(75px, 24px);
-
-  font: 400 14px Inter;
-  line-height: $line-height-m;
-  color: $color-light-900;
   text-align: left;
   letter-spacing: 0;
 }
 
-.selectbox {
+.selectBox {
   @include wh(210px, 36px);
 
   display: flex;
@@ -50,7 +46,7 @@
   }
 
   &[data-state='open'] {
-    & .selecticon {
+    & .selectIcon {
       transform: rotate(180deg);
     }
   }
@@ -68,7 +64,7 @@
   }
 }
 
-.selecticon {
+.selectIcon {
   color: $color-light-100;
   transition: 0.2s ease-in-out;
 }
