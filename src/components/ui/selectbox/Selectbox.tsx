@@ -1,80 +1,66 @@
-import React, { FC } from 'react'
-
+import React, {FC, ReactNode} from 'react'
 import * as Select from '@radix-ui/react-select'
-import clsx from 'clsx'
-
 import styles from './selectbox.module.scss'
-
-import ChevronUp from '@/src/assets/icons/chevron-up'
 import ChevronDown from '@/src/assets/icons/chevron-down'
+import {Typography} from "@/src/components/ui/typography"
 
-export type SelectPropsType = {
-  def?: boolean // убрать все пропсы касающиеся стилей , стили должны быть в цсс
-  active?: boolean
-  hover?: boolean
-  focus?: boolean
+export type SelectProps = {
+ label?: string
+  placeholder?: ReactNode
+  value?: string
+  onValueChange?: (value: string) => void
+  defaultValue?: string
+  options: Array<{label: string; value: string }>
   disabled?: boolean
-  onChange?: (active: boolean) => void
-  // функция передается в пропс для выполнения какого-то действия с выбранным значением в селекте
-  data: string[] | number[]
+  required?: boolean
 }
 
-export const Selectbox: FC<SelectPropsType> = ({
-  def,
-  active,
-  /* hover,
-																																																																																																																																																																																																																																																																																																																		 focus,*/
-  disabled,
-  onChange,
-  data,
+export const Selectbox: FC<SelectProps> = ({
+defaultValue,
+    //options,
+    value,
+    onValueChange,
+    disabled,
+    required,
+    placeholder,
+    label,
 }) => {
-  const classNames = {
-    selecticon: styles.selecticon,
-    selectContent: styles.selectContent,
-    label: styles.label,
-    line: styles.line,
-    optionline: styles.optionline,
-    selectgroup: styles.selectgroup,
 
-    selectbox: clsx(
-      styles.selectbox,
-      def && styles.def,
-      active && styles.active,
-      /*hover && styles.hover,
-			focus && styles.focus,*/
-      disabled && styles.disabled
-    ),
-  }
+    const options = [{value: 'select-box'}, {value: 'select-box'}, {value: 'select-box'}]
 
   return (
-    <Select.Root>
-      <Select.Group>
-        <Select.Label className={classNames.label}>Select-box</Select.Label>
-      </Select.Group>
-      <Select.Trigger className={classNames.selectbox}>
-        <Select.Value placeholder={'Select Box'} />
-        {/*value === local state value*/}
-        <Select.Icon className={classNames.selecticon}>
-          {
-            data ? <ChevronUp /> : <ChevronDown/>
-          }
+      <Typography variant={'regular14'}>
+          <Typography variant={'regular14'} className={styles.label} >
+              Select-box
+          </Typography>
+    <Select.Root
+        defaultValue={defaultValue}
+    value={value}
+    onValueChange={onValueChange}
+    disabled={disabled}
+    required={required}>
+
+      <Select.Trigger asChild  className={styles.selectbox} tabIndex={1}>
+          <div>
+        <Select.Value placeholder={placeholder} />
+        <Select.Icon asChild className={styles.selecticon}>
+         <ChevronDown/>
         </Select.Icon>
+              </div>
       </Select.Trigger>
 
       <Select.Portal>
-        <Select.Content className={classNames.selectContent}>
+        <Select.Content position={'popper'} className={styles.selectContent}>
           <Select.Viewport>
-            <Select.Group>
-              {data?.map((el, i) => (
-                // принимаем массив, бежим по массиву и отрисовываем селект итем с вложенным el
-                <Select.Item value="select-box" key={i}>
-                  <h1 className={classNames.line}>Select-box</h1>
+              {options.map(el => (
+                <Select.Item value={el.value} key={el.value} className={styles.line}>
+                  <Select.ItemText >{el.value}</Select.ItemText>
                 </Select.Item>
               ))}
-            </Select.Group>
           </Select.Viewport>
         </Select.Content>
       </Select.Portal>
     </Select.Root>
+      </Typography>
   )
 }
