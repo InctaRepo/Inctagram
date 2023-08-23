@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -27,30 +25,33 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
   const { t } = useTranslation()
   const router = useRouter()
 
-  useEffect(() => {
-    const userDataFromLS = localStorage.getItem('userData')
+  // useEffect(() => {
+  //   const userDataFromLS = localStorage.getItem('userData')
+  //
+  //   if (userDataFromLS) {
+  //     const userData: RegisterFormType = JSON.parse(userDataFromLS)
+  //
+  //     setValue('username', userData.username)
+  //     setValue('email', userData.email)
+  //     setValue('password', userData.password)
+  //     setValue('passwordConfirm', userData.passwordConfirm)
+  //   }
+  // }, [])
 
-    if (userDataFromLS) {
-      const userData: RegisterFormType = JSON.parse(userDataFromLS)
-
-      setValue('username', userData.username)
-      setValue('email', userData.email)
-      setValue('password', userData.password)
-      setValue('passwordConfirm', userData.passwordConfirm)
-      // TODO saving to localstorage not secure , another method or save only name && mail
-    }
-  }, [])
-
-  const { control, handleSubmit, setValue } = useForm<RegisterFormType>({
+  const { control, handleSubmit, formState } = useForm<RegisterFormType>({
     resolver: zodResolver(registerSchema),
     mode: 'onTouched',
     defaultValues: {
-      terms: true,
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirm: '',
+      terms: false,
     },
   })
 
   const onSubmit = handleSubmit((data: RegisterFormType) => {
-    localStorage.setItem('userData', JSON.stringify(data))
+    // localStorage.setItem('userData', JSON.stringify(data))
     onSubmitHandler(data)
   })
 
@@ -62,11 +63,11 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
         </Typography>
         <div className={s.authIcons}>
           <Link href={'/google'}>
-            {/*TODO link*/}
+            {/*TODO link Oauth2.0*/}
             <GoogleIcon />
           </Link>
           <Link href={'/github'}>
-            {/*TODO link*/}
+            {/*TODO link Oauth2.0*/}
             <GithubIcon />
           </Link>
         </div>
@@ -126,7 +127,7 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
             type={'submit'}
             fullWidth
             className={s.registerBtn}
-            // disabled={!formState.isValid}
+            disabled={!formState.isValid}
             //TODO disable
           >
             <Typography variant={'h3'}>{t.auth.signUp}</Typography>
