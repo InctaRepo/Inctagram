@@ -36,6 +36,12 @@
     border-radius: 2px;
     color: $color-light-100;
   }
+  &:disabled {
+    color: $color-dark-100;
+    &::placeholder {
+      color: $color-dark-100;
+    }
+  }
 }
 
 .label {
@@ -46,4 +52,8 @@
 .error {
   border: 1px solid $color-danger-500;
   color: $color-light-100;
+}
+
+.disabled {
+  color: $color-dark-100;
 }

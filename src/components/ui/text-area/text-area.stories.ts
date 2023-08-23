@@ -30,3 +30,12 @@ export const Error: Story = {
     fullWidth: true,
   },
 }
+
+export const Disabled: Story = {
+  args: {
+    label: 'Text-area disabled',
+    placeholder: 'Text-area',
+    disabled: true,
+    fullWidth: true,
+  },
+}
