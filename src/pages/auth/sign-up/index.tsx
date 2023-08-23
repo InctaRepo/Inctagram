@@ -10,27 +10,29 @@ import { Header } from '@/src/components/ui/Header/Header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
-// export const SentEmailModal = dynamic(
-//   () => import('@/src/components/ui/modals/BaseModal/BaseModal'),
-//   {
-//     loading: () => <p>Loading...</p>,
-//     ssr: false,
-//   }
-// )
-
 const SignUpPage = () => {
   const { t } = useTranslation()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-  const [userRegistration, { isSuccess, error }] = useCreateUserMutation()
+  const [userRegistration, { isSuccess, data }] = useCreateUserMutation()
 
-  useErrorToastHandler(isSuccess, error)
+  const setToastHandler = () => {
+    if (isSuccess && data?.resultCode === 0) {
+      useErrorToastHandler(isSuccess, false)
+    }
+    if (isSuccess && !(data?.resultCode === 0)) {
+      useErrorToastHandler(false, data?.extensions[0].message)
+    }
+  }
 
   useEffect(() => {
     if (isSuccess) {
-      setEmailSentModal(true)
+      setToastHandler()
+      if (isSuccess && data?.resultCode === 0) {
+        setEmailSentModal(true)
+      }
     }
-  }, [isSuccess])
+  }, [isSuccess, data])
 
   const submit = (data: RegisterFormType) => {
     userRegistration(data)
@@ -38,17 +40,9 @@ const SignUpPage = () => {
 
   const onModalClose = () => {
     setEmailSentModal(false)
-    //TODO actions on close
   }
   const onSaveModalAction = () => {
     setEmailSentModal(false)
-    // TODO actions on save
-  }
-
-  let userEmail = null
-
-  {
-    /*TODO email from response*/
   }
 
   return (
@@ -65,7 +59,7 @@ const SignUpPage = () => {
           onAction={onSaveModalAction}
         >
           <Typography variant={'regular16'}>
-            {t.auth.emailConfirm(userEmail ? userEmail : '...')}
+            {t.auth.emailConfirm(data ? data?.extensions[0].key : '...')}
           </Typography>
         </Modal>
       </div>

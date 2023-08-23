@@ -1,4 +1,3 @@
-import { errorHandler } from '@/src/common/helpers/error-handler'
 import { alertToast } from '@/src/components/ui/alert'
 
 export const useErrorToastHandler = (isSuccess: boolean, error: any) => {
@@ -6,6 +5,6 @@ export const useErrorToastHandler = (isSuccess: boolean, error: any) => {
     alertToast(false, 'Success')
   }
   if (error) {
-    alertToast(true, errorHandler(error))
+    alertToast(true, error)
   }
 }

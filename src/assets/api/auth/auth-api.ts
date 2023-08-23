@@ -4,11 +4,12 @@ import {
   NewPasswordArgsType,
   PasswordRecoveryType,
   RegisterArgsType,
+  RegRes,
 } from '@/src/assets/api/types'
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    createUser: build.mutation<any, RegisterArgsType>({
+    createUser: build.mutation<RegRes, RegisterArgsType>({
       query: data => ({
         method: 'POST',
         url: 'auth/signup',

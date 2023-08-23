@@ -2,8 +2,8 @@ import { ru } from '@/src/locales/ru'
 
 export const en: LocaleType = {
   auth: {
-    signIn: 'Sign in',
-    signUp: 'Sign up',
+    signIn: 'Sign In',
+    signUp: 'Sign Up',
     signUpTitle: 'Registration',
     password: 'Password',
     forgotPassword: 'Forgot Password?',

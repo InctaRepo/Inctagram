@@ -4,6 +4,16 @@ export type RegisterArgsType = {
   password: string
   passwordConfirm: string
 }
+export type RegRes = {
+  resultCode: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
+  extensions: [
+    {
+      key: 'string'
+      message: 'string'
+    },
+  ]
+  data: null | Object
+}
 
 export type NewPasswordArgsType = {
   newPassword: string
