@@ -86,6 +86,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
         <Button variant="link" color={'link'} onClick={() => router.push('/auth/sign-up')}>
           {t.auth.signUp}
         </Button>
+        <Button onClick={() => router.push('/profile')}>Profile</Button>
       </div>
     </Card>
   )
