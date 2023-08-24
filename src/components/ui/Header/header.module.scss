@@ -1,78 +1,17 @@
-@import 'src/styles/variables';
+@import 'src/styles/mixins';
 @import 'src/styles/colors';
 
-.main {
+.container{
   display: flex;
-  justify-content: space-around;
-  background-color: $color-dark-700;
-  max-width: 1280px;
-  height: $header-height;
-  position: relative;
+  justify-content: space-between;
   border-bottom: 1px solid $color-dark-300;
+  .text{
+    padding: 12px 0 12px 60px ;
+  }
+  .options_container{
+    @include flex-block();
+    flex-direction: row;
+    gap: 48px;
+    padding-right: 64px;
+  }
 }
-
-.insta {
-  position: relative;
-
-  bottom: 10px;
-}
-
-.img {
-  position: relative;
-
-  top: 10px;
-  left: 300px;
-}
-
-.dropDown {
-  position: relative;
-  top: 10px;
-}
-
-/*@media screen and (max-width:1284px) {*/
-/*    .main {*/
-/*        display: flex;*/
-/*        justify-content: space-around;*/
-
-/*        width: 1000px;*/
-
-/*    }*/
-/*}*/
-
-/*@media screen and (max-width:1284px) {*/
-/*    .main {*/
-/*        display: flex;*/
-/*        justify-content: space-around;*/
-
-/*        width: 1100px;*/
-
-/*    }*/
-/*}*/
-
-/*@media screen and (max-width:1106px) {*/
-/*    .main {*/
-/*        display: flex;*/
-/*        justify-content: center;*/
-
-/*        width: 930px;*/
-
-/*    }*/
-
-/*    .img{*/
-/*        display: none;*/
-/*    }*/
-/*}*/
-
-/*@media screen and (max-width:1006px) {*/
-/*    .main {*/
-/*        display: flex;*/
-/*        justify-content: center;*/
-
-/*        width: 700px;*/
-
-/*    }*/
-
-/*    .img{*/
-/*        display: none;*/
-/*    }*/
-/*}*/
