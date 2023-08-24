@@ -20,20 +20,13 @@ const PasswordRecovery = () => {
     setOpenModal(!openModal)
   }
 
-  const submit = async (data: PasswordRecoveryType) => {
-    await passwordRecovery(data)
-    modalHandler()
+  const submit = (data: PasswordRecoveryType) => {
+    passwordRecovery(data)
   }
-
-  useEffect(() => {
-    if (isSuccess) {
-      modalHandler()
-    }
-  }, [isSuccess])
 
   return (
     <AuthLayout>
-      <ForgotPassword onSubmitHandler={submit} />
+      <ForgotPassword onSubmitHandler={submit} modalHandler={modalHandler} />
       <Modal
         modalWidth={'sm'}
         open={openModal}

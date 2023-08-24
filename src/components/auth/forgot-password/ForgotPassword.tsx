@@ -19,11 +19,12 @@ import { Typography } from '@/src/components/ui/typography/typography'
 
 type PropsType = {
   onSubmitHandler: (data: PasswordRecoveryType) => void
+  modalHandler: () => void
 }
 
 type FormDataType = z.infer<typeof passwordRecoverySchema>
 
-export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
+export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler }) => {
   const [mode, setMode] = useState('mode--primary')
   const { t } = useTranslation()
   const router = useRouter()
@@ -44,6 +45,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
   const submitData = (data: FormDataType) => {
     setMode('mode--secondary')
     onSubmitHandler(data)
+    modalHandler()
   }
 
   const classNames = {
