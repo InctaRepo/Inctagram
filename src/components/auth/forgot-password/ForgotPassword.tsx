@@ -67,16 +67,16 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler }) => {
           <Typography variant="regular14" className={classNames.hint}>
             {t.auth.instructions}
           </Typography>
-          <Button variant="primary" className={s.submit}>
+          <Button variant="primary" className={s.submit} type="submit">
             <Typography variant="h3">{t.auth.sendLink}</Typography>
           </Button>
           <Typography variant="regular14" className={s.answer}>
             {t.auth.linkHasBeenSent}
           </Typography>
-          <Button variant="primary" className={s.repeat}>
+          <Button variant="primary" className={s.repeat} type="submit">
             <Typography variant="h3">{t.auth.sendLinkAgain}</Typography>
           </Button>
-          <Button variant="text" className={s.back} onClick={() => router.push('/')}>
+          <Button variant="text" className={s.back} type="button" onClick={() => router.push('/')}>
             <Typography variant="h3">{t.auth.backToSignIn}</Typography>
           </Button>
           <Recaptcha
