@@ -1,21 +1,20 @@
+import { useEffect } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 
 import s from './register-form.module.scss'
 
 import { useTranslation } from '@/src/assets/hooks/useTranslation'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
-import { registerSchema } from '@/src/common/schemas/register-schema'
+import { createRegisterSchema, RegisterFormType } from '@/src/common/schemas/register-schema'
 import { Button } from '@/src/components/ui/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { ControlledCheckbox, ControlledTextField } from '@/src/components/ui/controlled'
 import { Typography } from '@/src/components/ui/typography'
-
-export type RegisterFormType = z.infer<typeof registerSchema>
 
 type RegisterFormPropsType = {
   onSubmitHandler: (data: RegisterFormType) => void
@@ -23,23 +22,19 @@ type RegisterFormPropsType = {
 
 export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
   const { t } = useTranslation()
+
+  // z.setErrorMap(makeZodI18nMap({ t }))
+
   const router = useRouter()
 
-  // useEffect(() => {
-  //   const userDataFromLS = localStorage.getItem('userData')
-  //
-  //   if (userDataFromLS) {
-  //     const userData: RegisterFormType = JSON.parse(userDataFromLS)
-  //
-  //     setValue('username', userData.username)
-  //     setValue('email', userData.email)
-  //     setValue('password', userData.password)
-  //     setValue('passwordConfirm', userData.passwordConfirm)
-  //   }
-  // }, [])
-
-  const { control, handleSubmit, formState } = useForm<RegisterFormType>({
-    resolver: zodResolver(registerSchema),
+  const {
+    control,
+    handleSubmit,
+    formState,
+    trigger,
+    formState: { touchedFields },
+  } = useForm<RegisterFormType>({
+    resolver: zodResolver(createRegisterSchema(t)),
     mode: 'onTouched',
     defaultValues: {
       username: '',
@@ -50,8 +45,18 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
     },
   })
 
+  useEffect(() => {
+    const touchedFieldNames = Object.keys(touchedFields)
+
+    if (touchedFieldNames.length > 0) {
+      touchedFieldNames.forEach(fieldName => {
+        trigger(fieldName as keyof RegisterFormType)
+      })
+    }
+    // TODO:  Replace this handler , need to rerender errors after changing language.
+  }, [t, touchedFields])
+
   const onSubmit = handleSubmit((data: RegisterFormType) => {
-    // localStorage.setItem('userData', JSON.stringify(data))
     onSubmitHandler(data)
   })
 
@@ -98,13 +103,6 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
             label={t.auth.passwordConfirmation}
             className={s.field}
           />
-          {/*<Trans*/}
-          {/*  text={t.auth.signUpTerms.description}*/}
-          {/*  tags={{*/}
-          {/*    1: () => <b>{'fdfdf'}</b>,*/}
-          {/*    2: () => <b>{'fdfdf'}</b>,*/}
-          {/*  }}*/}
-          {/*/>*/}
           <div className={s.terms}>
             <ControlledCheckbox
               control={control}
@@ -123,13 +121,7 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
               }
             />
           </div>
-          <Button
-            type={'submit'}
-            fullWidth
-            className={s.registerBtn}
-            disabled={!formState.isValid}
-            //TODO disable
-          >
+          <Button type={'submit'} fullWidth className={s.registerBtn} disabled={!formState.isValid}>
             <Typography variant={'h3'}>{t.auth.signUp}</Typography>
           </Button>
         </form>
