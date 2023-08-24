@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType } from 'react'
+import { ComponentProps, ElementType } from 'react'
 
 import clsx from 'clsx'
 
@@ -6,7 +6,7 @@ import s from './text-area.module.scss'
 
 import { Typography } from '@/src/components/ui/typography'
 
-export type TextAreaProps<T extends ElementType = 'textarea'> = {
+export type TTextAreaProps<T extends ElementType = 'textarea'> = {
   as?: T
   label?: string
   fullWidth?: boolean
@@ -14,10 +14,10 @@ export type TextAreaProps<T extends ElementType = 'textarea'> = {
   errorMessage?: string
   placeholder?: string
   disabled?: boolean
-} & ComponentPropsWithoutRef<T>
+} & ComponentProps<T>
 
 export const TextAreaField = <T extends ElementType = 'textarea'>(
-  props: TextAreaProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TextAreaProps<T>>
+  props: TTextAreaProps<T> & Omit<ComponentProps<T>, keyof TTextAreaProps<T>>
 ) => {
   const {
     as: Component = 'textarea',
@@ -27,7 +27,6 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
     errorMessage,
     placeholder,
     disabled,
-    children,
     ...rest
   } = props
 
