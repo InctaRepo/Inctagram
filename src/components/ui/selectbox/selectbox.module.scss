@@ -7,12 +7,22 @@
   height: $h;
 }
 
-.selectbox {
+.label {
+  @include wh(75px, 24px);
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.selectBox {
   @include wh(210px, 36px);
 
-  display: inline-flex;
-  align-items: flex-start;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 12px;
+  outline: none;
+
+  cursor: pointer;
 
   font: 400 16px Inter;
   line-height: $line-height-m;
@@ -20,13 +30,13 @@
   letter-spacing: 0;
 
   background-color: $color-dark-700;
-  border: none;
+  border: 1px solid $color-dark-100;;
   box-shadow: none;
 
   &:focus {
-    color: $color-dark-100;
+    border: 2px solid $color-accent-500;
+    color: #8d9094;
     background-color: $color-dark-500;
-    border: 1px solid $color-dark-100;
   }
 
   &:hover {
@@ -34,125 +44,51 @@
     background-color: $color-dark-500;
     border: 1px solid $color-dark-100;
   }
+
+  &[data-state='open'] {
+    & .selectIcon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover:not([data-disabled]){
+    cursor: initial;
+    background-color: $color-dark-500;
+  }
+
+  &[data-disabled]{
+    cursor: initial;
+    color: #8d9094;
+    background-color: $color-dark-500;
+    border: 2px solid #8d9094;
+  }
 }
 
-.selecticon {
+.selectIcon {
   color: $color-light-100;
-}
-
-.selectlabel {
-  width: 190px;
-  border: none;
-  box-shadow: none;
-
-  &:focus {
-    border: none;
-  }
-}
-
-.selectgroup {
-  border: none;
-  box-shadow: none;
-
-  npm &:focus {
-    box-shadow: none;
-  }
+  transition: 0.2s ease-in-out;
 }
 
 .selectContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-right: auto;
-  margin-left: auto;
-
-  text-align: start;
+  width: 210px;
+  background-color: $color-dark-500;
+  border: 1px solid $color-dark-100;
 }
-
-.label {
-  @include wh(75px, 24px);
-
-  font: 400 14px Inter;
-  line-height: $line-height-m;
-  color: $color-light-900;
-  text-align: left;
-  letter-spacing: 0;
-}
-
-//h1 {
-//  font: 400 16px Inter;
-//  line-height: $line-height-m;
-//  letter-spacing: 0;
-//  text-align: left;
-//  margin-left: 12px;
-//}
 
 .line {
-  margin: 0 0 0 12px;
-  padding: 0;
-
   font: 400 14px Inter;
   line-height: $line-height-m;
   letter-spacing: 0;
-}
+  padding: 6px 12px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s ease-out;
 
-.optionline {
-  @include wh(210px, 34px);
-
-  font: 400 14px Inter;
-  line-height: $line-height-m;
-  color: $color-light-100;
-  letter-spacing: 0;
-
-  background-color: $color-dark-500;
-
-  &:hover {
-    cursor: pointer;
+  &:hover,
+  &:focus-visible,
+  &[data-state='checked']{
     color: $color-accent-500;
     background-color: $color-dark-300;
   }
-}
-
-.def {
-  @include wh(208px, 36px);
-
-  top: 60px;
-  color: $color-light-100;
-  background-color: $color-dark-900;
-  border: 1px solid $color-dark-100;
-}
-
-.active {
-  @include wh(208px, 36px);
-
-  color: $color-light-100;
-  background-color: $color-dark-500;
-  border: 1px solid $color-light-100;
-}
-
-/* .hover {
-  @include wh(208px, 36px);
-  top: 60px;
-  border: 1px solid $color-dark-100;
-  color: $color-dark-100;
-  background-color: $color-dark-500;
-}
-
-.focus {
-  @include wh(206px, 36px);
-  top: 60px;
-  border: 2px solid $color-accent-500;
-  color: #8d9094;
-  background-color: $color-dark-500;
-} */
-
-.disabled {
-  @include wh(208px, 36px);
-
-  top: 60px;
-  color: #8d9094;
-  background-color: $color-dark-500;
-  border: 2px solid #8d9094;
 }
 
