@@ -1,7 +1,6 @@
 import s from './header.module.scss'
 
 import MaskIcon from '@/src/assets/icons/mask-icon'
-import { SelectBox } from '@/src/components/ui/selectbox'
 import { Typography } from '@/src/components/ui/typography'
 
 const options = [
@@ -17,7 +16,7 @@ export const Header = () => {
       </Typography>
       <div className={s.options_container}>
         <MaskIcon />
-        <SelectBox options={options} />
+        {/*<SelectBox options={options} />*/}
       </div>
     </div>
   )
