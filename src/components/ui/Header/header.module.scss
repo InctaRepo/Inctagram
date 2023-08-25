@@ -2,9 +2,16 @@
 @import 'src/styles/colors';
 
 .container{
-  display: flex;
-  justify-content: space-between;
+  @include flex-block();
   border-bottom: 1px solid $color-dark-300;
+  .wrapper {
+    @include flex-block(
+      $flex-direction: row,
+      $justify-content: space-between,
+    );
+    width: 100%;
+    max-width: 1220px;
+  }
   .text{
     padding: 12px 0 12px 60px ;
   }

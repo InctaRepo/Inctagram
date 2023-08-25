@@ -12,12 +12,14 @@ const options = [
 export const Header = () => {
   return (
     <div className={s.container}>
-      <Typography variant="large" className={s.text}>
-        Inсtagram
-      </Typography>
-      <div className={s.options_container}>
-        <MaskIcon />
-        <SelectBox options={options} />
+      <div className={s.wrapper}>
+        <Typography variant="large" className={s.text}>
+          Inсtagram
+        </Typography>
+        <div className={s.options_container}>
+          <MaskIcon />
+          <SelectBox options={options} />
+        </div>
       </div>
     </div>
   )
