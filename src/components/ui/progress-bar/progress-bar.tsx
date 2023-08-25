@@ -1,6 +1,11 @@
+import { useEffect } from 'react'
+
+import NProgress from 'nprogress'
+
 import s from './progress-bar.module.scss'
 
 export const ProgressBar = () => {
+  //TODO with redux toolkit
   // const isFetching = useIsFetching()
 
   // useEffect(() => {

@@ -34,6 +34,27 @@ export const en: LocaleType = {
     termsOfService: 'Terms of service',
     and: 'and',
     policy: 'Privacy Policy',
+    signUpFormErrors: {
+      usernameField: {
+        nonEmpty: 'Enter username',
+        regex: 'Username can contain only A-Z, a-z, - or _',
+        min: 'Min number of characters 6',
+        max: 'Max number of characters 30',
+      },
+      emailField: {
+        nonEmpty: 'Enter email',
+        email: 'Invalid email address',
+      },
+      terms: 'Please, review and agree to the Terms of Service and Privacy Policy to proceed',
+      password: {
+        nonEmpty: 'Enter password',
+        regex: 'Password must contain A-Z, a-z, 0-9, !#$%*+-?^_',
+        min: 'Min number of characters 6',
+        max: 'Max number of characters 20',
+      },
+      passwordConfirm: 'Confirm your password',
+      refine: 'The passwords must match',
+    },
   },
   profile: {
     home: 'Home',
@@ -80,4 +101,4 @@ export const en: LocaleType = {
   // confirmClose: 'If you close everything will be deleted',
 }
 
-type LocaleType = typeof ru
+export type LocaleType = typeof ru
