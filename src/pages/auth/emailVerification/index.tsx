@@ -1,9 +1,10 @@
 import TimeManagementImage from '@/src/assets/images/time-management-image'
 import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
-import { AuhtLayout } from '@/src/components/Layout/AuthLayout'
+import { AuthLayout } from '@/src/components/Layout/AuthLayout'
+
 const EmailVerification = () => {
   return (
-    <AuhtLayout>
+    <AuthLayout>
       <AuthPage
         title="Email verification link expired"
         text="Looks like the verification link has
@@ -13,7 +14,7 @@ const EmailVerification = () => {
       >
         {<TimeManagementImage />}
       </AuthPage>
-    </AuhtLayout>
+    </AuthLayout>
   )
 }
 

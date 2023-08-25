@@ -7,6 +7,13 @@ import s from '@/src/components/ui/date-picker/date-picker.module.scss'
 import 'react-multi-date-picker/styles/backgrounds/bg-dark.css'
 import { Typography } from '@/src/components/ui/typography'
 
+/**
+ in onChange callback you get DateObject value , you can destruct from object values
+ example:
+ const { year, month, day, hour, minute } = value
+ *
+ */
+
 type DatePickPropsType = {
   label?: string
   onChange?: (value: DateObject | DateObject[] | null) => void
@@ -15,8 +22,7 @@ type DatePickPropsType = {
   disabled?: boolean
   error?: string
 }
-
-const weekDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
 export const DatePick = ({
   error,
@@ -28,52 +34,57 @@ export const DatePick = ({
 }: DatePickPropsType) => {
   const [value, setValue] = useState<DateObject>(new DateObject())
 
-  const handleChange = (value: DateObject | DateObject[]) => {
-    // console.log(value)
-    // console.log(value.year, value.month.name, value.day)
-    // console.log(value.format())
-    // const { year, month, day, hour, minute } = value
-    //
-    // console.log(year, 'month: ' + month.name, 'day: ' + day, 'hour: ' + hour, 'minute: ' + minute)
-    // setValue(value)
-    // onChange?.(value)
-  }
   const onChangeInput = (value: any) => {
-    console.log(value)
+    // const { year, month, day, hour, minute } = value
+    // console.log(year, 'month: ' + month.name, 'day: ' + day, 'hour: ' + hour, 'minute: ' + minute)
     setValue(value)
     onChange?.(value)
   }
+  // TODO multiple dates from input
 
   return (
     <>
       <Typography variant={'regular14'} color={'secondary'}>
         {label}
-        {'Date select'}
       </Typography>
       <DatePicker
+        className={s.calendar}
+        containerClassName={s.container}
         render={
           <DateInput
             value={value}
             onChange={onChangeInput}
             onFocus={''}
+            // TODO onfocus
             disabled={disabled!}
             error={!!error}
           />
         }
         weekDays={weekDays}
+        weekStartDayIndex={1}
         showOtherDays
+        placeholder="00.00.00"
         arrow={false}
-        className={s.calendar}
-        containerClassName={s.container}
         inputClass={s.input}
         range={range}
         dateSeparator=" - "
+        monthYearSeparator=" "
         rangeHover
         headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
         multiple={multiple}
         format={'DD/MM/YYYY'}
         value={value}
         onChange={onChangeInput}
+        mapDays={({ date }) => {
+          let props = {
+            className: '',
+          }
+          let isWeekend = [5, 6].includes(date.weekDay.index)
+
+          if (isWeekend) props.className = 'weekend'
+
+          return props
+        }}
       />
     </>
   )
@@ -88,6 +99,7 @@ type DateInputPropsType = {
 export const DateInput = ({ onFocus, value, onChange, disabled, error }: DateInputPropsType) => {
   const [icon, setIcon] = useState<ReactNode>(<DateIconDefault fill={error ? 'red' : 'white'} />)
 
+  // TODO change icon on active
   return (
     <div className={s.inputContainer}>
       <input
