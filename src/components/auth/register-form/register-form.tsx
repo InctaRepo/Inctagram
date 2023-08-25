@@ -53,7 +53,7 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
         trigger(fieldName as keyof RegisterFormType)
       })
     }
-    // TODO:  Replace this handler , need to rerender errors after changing language.
+    // TODO:  it works ! but need to replace this handler , task: rerender errors from Zod after changing locale.
   }, [t, touchedFields])
 
   const onSubmit = handleSubmit((data: RegisterFormType) => {
