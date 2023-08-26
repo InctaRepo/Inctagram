@@ -38,7 +38,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
     mode: 'onTouched',
     defaultValues: {
       email: '',
-      recaptcha: false, // requires update
+      // recaptcha: false, // requires update
     },
   })
 

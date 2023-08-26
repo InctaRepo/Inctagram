@@ -65,7 +65,7 @@ export const SelectBox: FC<SelectProps> = ({
           <Select.Content position={'popper'} className={classNames.selectContent}>
             <Select.Viewport>
               {options?.map(el => (
-                <Select.Item value={el.value} key={el.value} className={classNames.line}>
+                <Select.Item value={el.value.toString()} key={el.value} className={classNames.line}>
                   <Select.ItemText>{el.label}</Select.ItemText>
                 </Select.Item>
               ))}
