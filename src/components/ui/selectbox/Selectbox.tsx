@@ -5,7 +5,6 @@ import * as Select from '@radix-ui/react-select'
 import styles from './selectbox.module.scss'
 
 import ChevronDown from '@/src/assets/icons/chevron-down'
-import { Typography } from '@/src/components/ui/typography'
 
 export type SelectProps = {
   label?: string
@@ -13,7 +12,7 @@ export type SelectProps = {
   placeholder?: ReactNode
   onValueChange?: (value: string | number) => void
   defaultValue?: string | number
-  options: Array<{ label: string; value: string }> | Array<{ label: string; value: number }>
+  options: string[] | number[]
   disabled?: boolean
   required?: boolean
 }
@@ -21,58 +20,56 @@ export type SelectProps = {
 export const SelectBox: FC<SelectProps> = ({
   defaultValue,
   options,
-
   onValueChange,
   disabled,
   required,
   placeholder,
   label,
 }) => {
-  const [value, setValue] = useState('select-box')
+  const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
-  const classNames = {
+  const s = {
     label: styles.label,
     selectBox: styles.selectBox,
     selectIcon: styles.selectIcon,
     selectContent: styles.selectContent,
     line: styles.line,
   }
+  const onChangeHandler = (newValue: string) => {
+    setValue(newValue)
+    onValueChange?.(newValue)
+  }
 
   return (
-    <Typography variant={'regular14'}>
-      {/*<Typography variant={'regular14'} color="secondary" className={classNames.label}>*/}
-      {/*  Select-box*/}
-      {/*</Typography>*/}
-      <Select.Root
-        defaultValue={value}
-        value={value}
-        onValueChange={setValue}
-        disabled={disabled}
-        required={required}
-      >
-        <Select.Trigger asChild className={classNames.selectBox} tabIndex={1}>
-          <div>
-            <Select.Value placeholder={placeholder} aria-label={value}>
-              {value}
-            </Select.Value>
-            <Select.Icon asChild className={classNames.selectIcon}>
-              <ChevronDown />
-            </Select.Icon>
-          </div>
-        </Select.Trigger>
+    <Select.Root
+      defaultValue={value}
+      value={value}
+      onValueChange={onChangeHandler}
+      disabled={disabled}
+      required={required}
+    >
+      <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
+        <div>
+          <Select.Value placeholder={placeholder} aria-label={value}>
+            {value}
+          </Select.Value>
+          <Select.Icon asChild className={s.selectIcon}>
+            <ChevronDown />
+          </Select.Icon>
+        </div>
+      </Select.Trigger>
 
-        <Select.Portal>
-          <Select.Content position={'popper'} className={classNames.selectContent}>
-            <Select.Viewport>
-              {options?.map(el => (
-                <Select.Item value={el.value.toString()} key={el.value} className={classNames.line}>
-                  <Select.ItemText>{el.label}</Select.ItemText>
-                </Select.Item>
-              ))}
-            </Select.Viewport>
-          </Select.Content>
-        </Select.Portal>
-      </Select.Root>
-    </Typography>
+      <Select.Portal>
+        <Select.Content position={'popper'} className={s.selectContent}>
+          <Select.Viewport>
+            {options?.map((el, idx) => (
+              <Select.Item value={el.toString()} key={idx} className={s.line}>
+                <Select.ItemText>{el}</Select.ItemText>
+              </Select.Item>
+            ))}
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   )
 }

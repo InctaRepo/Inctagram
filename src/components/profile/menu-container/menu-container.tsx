@@ -1,16 +1,17 @@
 import { useState } from 'react'
 
-import { useTranslation } from '@/src/assets/hooks/useTranslation'
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import LogoutIcon from '@/src/assets/icons/LogoutIcon'
 import SaveIcon from '@/src/assets/icons/save-icon'
 import { LinkMenu } from '@/src/components/profile/links'
 import { BaseMenu } from '@/src/components/profile/menu-container/base-menu'
 import s from '@/src/components/profile/menu-container/menu-container.module.scss'
+
 export const MenuContainer = () => {
   const [variantIcon, setVariantIcon] = useState<
     'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
   >()
-  const { t } = useTranslation()
+  const { t } = useTranslate()
 
   const handleItemClick = (
     variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'

@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { usePasswordRecoveryMutation } from '@/src/assets/api/auth'
 import { PasswordRecoveryType } from '@/src/assets/api/types'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
-import { useTranslation } from '@/src/assets/hooks/useTranslation'
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import { ForgotPassword } from '@/src/components/auth/forgot-password/ForgotPassword'
-import { AuthLayout } from '@/src/components/Layout/AuthLayout'
+import { AuthLayout } from '@/src/components/layout/auth-layout'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography/typography'
 
 const PasswordRecovery = () => {
   const [passwordRecovery, { isSuccess, error }] = usePasswordRecoveryMutation()
   const [openModal, setOpenModal] = useState(false)
-  const { t } = useTranslation()
+  const { t } = useTranslate()
 
   useErrorToastHandler(isSuccess, error)
 
