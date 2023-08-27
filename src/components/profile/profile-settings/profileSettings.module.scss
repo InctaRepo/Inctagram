@@ -1,0 +1,118 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.profile {
+  height: auto;
+}
+
+.navMenu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  width: 726px;
+  height: 36px;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+nav:after {
+  content: '';
+  background-color: $color-dark-300;
+  width: 776px;
+  height: 1px;
+  display: block;
+}
+
+li {
+  display: block;
+  color: $color-dark-300;
+
+
+  text-decoration: none;
+  :hover {
+    color: $color-accent-500;
+  }
+}
+
+.link {
+  color: $color-dark-300;
+  text-decoration: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.ellipse {
+  position: relative;
+  width: 192px;
+  height: 192px;
+  top: 20px;
+  background-color: $color-dark-300;
+  border-radius: 50%;
+}
+
+.image {
+  position: relative;
+  top: 552px;
+  left: 316px;
+}
+
+.addBtn {
+  @include wh(196px, 36px);
+
+  border-radius: 2px;
+  border: 1px solid $color-accent-500;
+  background-color: $color-dark-900;
+  gap: 10px;
+}
+
+
+.saveBtn {
+  @include wh(159px, 36px);
+  position: relative;
+  top: 50px;
+  left:570px;
+  padding: 6px 24px 6px 24px;
+  border-radius: 2px;
+  gap: 10px;
+}
+
+.editForm {
+  @include wh(494px, 527px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  margin-left: 40px;
+}
+
+.field {
+  @include wh(494px, 60px);
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.textArea {
+  width: 494px;
+  height: 108px;
+  top: 576px;
+  left: 476px;
+}
