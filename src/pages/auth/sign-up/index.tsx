@@ -4,7 +4,7 @@ import s from './sign-up.module.scss'
 
 import { useCreateUserMutation } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
-import { useTranslation } from '@/src/assets/hooks/useTranslation'
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import { RegisterFormType } from '@/src/common/schemas/register-schema'
 import { RegisterForm } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/ui/Header/Header'
@@ -12,7 +12,7 @@ import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
 const SignUpPage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
   const [userRegistration, { isSuccess, data }] = useCreateUserMutation()

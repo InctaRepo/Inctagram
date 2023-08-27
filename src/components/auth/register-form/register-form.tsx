@@ -7,9 +7,10 @@ import { useForm } from 'react-hook-form'
 
 import s from './register-form.module.scss'
 
-import { useTranslation } from '@/src/assets/hooks/useTranslation'
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
+import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
 import { createRegisterSchema, RegisterFormType } from '@/src/common/schemas/register-schema'
 import { Button } from '@/src/components/ui/button'
 import { Card } from '@/src/components/ui/card-temporary'
@@ -21,9 +22,7 @@ type RegisterFormPropsType = {
 }
 
 export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
-  const { t } = useTranslation()
-
-  // z.setErrorMap(makeZodI18nMap({ t }))
+  const { t } = useTranslate()
 
   const router = useRouter()
 
@@ -46,17 +45,14 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
   })
 
   useEffect(() => {
-    const touchedFieldNames = Object.keys(touchedFields)
+    const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
-    if (touchedFieldNames.length > 0) {
-      touchedFieldNames.forEach(fieldName => {
-        trigger(fieldName as keyof RegisterFormType)
-      })
-    }
-    // TODO:  it works ! but need to replace this handler , task: rerender errors from Zod after changing locale.
-  }, [t, touchedFields])
+    triggerZodFieldError(touchedFieldNames, trigger)
+    // TODO:  it works ! but need to replace this handler (not a good one)
+  }, [t])
 
   const onSubmit = handleSubmit((data: RegisterFormType) => {
+    // TODO after submit error message in field Username:  User with this username is already registered
     onSubmitHandler(data)
   })
 
@@ -68,11 +64,11 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
         </Typography>
         <div className={s.authIcons}>
           <Link href={'/google'}>
-            {/*TODO link Oauth2.0*/}
+            {/*TODO link oAuth 2.0 backend url*/}
             <GoogleIcon />
           </Link>
           <Link href={'/github'}>
-            {/*TODO link Oauth2.0*/}
+            {/*TODO link oAuth 2.0 backend url*/}
             <GithubIcon />
           </Link>
         </div>

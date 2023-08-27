@@ -1,6 +1,6 @@
 import TimeManagementImage from '@/src/assets/images/time-management-image'
 import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
-import { AuthLayout } from '@/src/components/Layout/AuthLayout'
+import { AuthLayout } from '@/src/components/layout/auth-layout'
 
 const InvalidLinkVerification = () => {
   return (

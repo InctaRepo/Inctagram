@@ -34,7 +34,8 @@ export const en: LocaleType = {
     termsOfService: 'Terms of service',
     and: 'and',
     policy: 'Privacy Policy',
-    signUpFormErrors: {
+    // error fields block start =======================================================
+    authErrors: {
       usernameField: {
         nonEmpty: 'Enter username',
         regex: 'Username can contain only A-Z, a-z, - or _',
@@ -55,6 +56,7 @@ export const en: LocaleType = {
       passwordConfirm: 'Confirm your password',
       refine: 'The passwords must match',
     },
+    // error fields block end =======================================================
   },
   profile: {
     home: 'Home',

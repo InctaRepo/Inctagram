@@ -33,7 +33,9 @@ export const ru = {
     termsOfService: 'Правилами',
     and: 'и',
     policy: 'Политикой',
-    signUpFormErrors: {
+    // error fields block start =======================================================
+
+    authErrors: {
       usernameField: {
         nonEmpty: 'Введите имя пользователя',
         regex: 'Пароль должен содержать A-B, a-b, 0-9, !#$%*+-?^_',
@@ -42,7 +44,7 @@ export const ru = {
       },
       emailField: {
         nonEmpty: 'Введите почту',
-        email: 'Неорректный адрес почты',
+        email: 'Некорректный адрес почты',
       },
       terms: 'Пожалуйста ознакомтесь и примите Правила сервиса и Политику конфиденциальности',
       password: {
@@ -54,6 +56,7 @@ export const ru = {
       passwordConfirm: 'Подтвердите ваш пароль',
       refine: 'Пароли должны совпадать',
     },
+    // error fields block end =======================================================
   },
   profile: {
     home: 'Главная',
