@@ -2,7 +2,7 @@ import React from 'react'
 
 import MergerImage from '@/src/assets/images/merger-image'
 import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
-import { AuthLayout } from '@/src/components/Layout/AuthLayout'
+import { AuthLayout } from '@/src/components/layout/auth-layout'
 
 const MergerAccounts = () => {
   return (
