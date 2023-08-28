@@ -25,7 +25,7 @@ export function createRegisterSchema(t: LocaleType) {
         .trim()
         .nonempty(t.auth.authErrors.password.nonEmpty)
         .regex(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!#$%*+-?^_])[a-zA-Z\d!#$%*+-?^_]+$/,
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[a-zA-Z\d!@#$%^&*_]+$/,
           t.auth.authErrors.password.regex
         )
         .min(6, t.auth.authErrors.password.min)
