@@ -4,10 +4,10 @@ import Terms from "@/src/components/auth/terms-privacy/terms-privacy-page/terms-
 
 const TermsService=()=>{
     return (
-        <div>
+        <>
 
             <Terms/>
-        </div>
+        </>
     )
 }
 
