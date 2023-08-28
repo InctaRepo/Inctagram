@@ -31,7 +31,7 @@ export const en: LocaleType = {
       description: 'I agree to the <1>Terms of service</1> and <2>Privacy Policy</2>',
     },
     agree: 'I agree to the',
-    termsOfService: 'Terms of service',
+    termsOfService: 'Terms of Service',
     and: 'and',
     policy: 'Privacy Policy',
     // error fields block start =======================================================
@@ -49,7 +49,7 @@ export const en: LocaleType = {
       terms: 'Please, review and agree to the Terms of Service and Privacy Policy to proceed',
       password: {
         nonEmpty: 'Enter password',
-        regex: 'Password must contain A-Z, a-z, 0-9, !#$%*+-?^_',
+        regex: 'Password must contain A-z, 0-9, !#$%*+-?^_',
         min: 'Min number of characters 6',
         max: 'Max number of characters 20',
       },
