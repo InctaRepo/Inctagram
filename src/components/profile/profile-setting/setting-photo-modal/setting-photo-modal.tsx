@@ -3,7 +3,7 @@ import AvatarEditor from "react-avatar-editor";
 import BaseModal from "@/src/components/ui/modals/BaseModal/BaseModal";
 import s from './setting-photo.module.scss'
 import {Button} from "@/src/components/ui/button";
-import {Photo} from "@/src/components/profile/setting-photo-modal/photo";
+import {Photo} from "@/src/components/profile/profile-setting/setting-photo-modal/photo";
 import {InputTypeFile} from "@/src/components/ui/input-type-file";
 
 export type SettingPhotoModalType = {
