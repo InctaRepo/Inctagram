@@ -7,141 +7,89 @@
   height: $h;
 }
 
+.label {
+  @include wh(75px, 24px);
+  text-align: left;
+  letter-spacing: 0;
+}
 
-.selectbox {
+.selectBox {
   @include wh(210px, 36px);
-  display: inline-flex;
-  align-items: flex-start;
+
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  background-color: $color-dark-700;
-  border: none;
-  box-shadow: none;
+  gap: 12px;
+  outline: none;
+  padding-left: 10px;
+
+  cursor: pointer;
+
   font: 400 16px Inter;
   line-height: $line-height-m;
-  letter-spacing: 0;
   text-align: left;
+  letter-spacing: 0;
+
+  background-color: $color-dark-700;
+  border: 1px solid $color-dark-100;;
+  box-shadow: none;
 
   &:focus {
-    border: 1px solid $color-dark-100;
-    color: $color-dark-100;
+    border: 2px solid $color-accent-500;
+    color: #8d9094;
     background-color: $color-dark-500;
   }
 
   &:hover {
-    border: 1px solid $color-dark-100;
     color: $color-dark-100;
     background-color: $color-dark-500;
+    border: 1px solid $color-dark-100;
+  }
+
+  &[data-state='open'] {
+    & .selectIcon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover:not([data-disabled]){
+    cursor: initial;
+    background-color: $color-dark-500;
+  }
+
+  &[data-disabled]{
+    cursor: initial;
+    color: #8d9094;
+    background-color: $color-dark-500;
+    border: 2px solid #8d9094;
   }
 }
 
-.selecticon {
+.selectIcon {
   color: $color-light-100;
-}
-
-.selectlabel {
-  width: 190px;
-  border: none;
-  box-shadow: none;
-
-  &:focus {
-    border: none;
-  }
-}
-
-.selectgroup {
-  border: none;
-  box-shadow: none;npm
-
-  &:focus {
-    box-shadow: none;
-  }
+  transition: 0.2s ease-in-out;
 }
 
 .selectContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: start;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-.label {
-  @include wh(75px, 24px);
-  font: 400 14px Inter;
-  line-height: $line-height-m;
-  letter-spacing: 0;
-  text-align: left;
-  color: $color-light-900;
-}
-
-h1 {
-  font: 400 16px Inter;
-  line-height: $line-height-m;
-  letter-spacing: 0;
-  text-align: left;
-  margin-left: 12px;
+  width: 210px;
+  background-color: $color-dark-500;
+  border: 1px solid $color-dark-100;
 }
 
 .line {
-  margin: 0 0 0 12px;
-  padding: 0;
   font: 400 14px Inter;
   line-height: $line-height-m;
   letter-spacing: 0;
-}
+  padding: 6px 12px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s ease-out;
 
-.optionline {
-  @include wh(210px, 34px);
-  background-color: $color-dark-500;
-  color: $color-light-100;
-  font: 400 14px Inter;
-  line-height: $line-height-m;
-  letter-spacing: 0;
-
-  &:hover {
+  &:hover,
+  &:focus-visible,
+  &[data-state='checked']{
     color: $color-accent-500;
     background-color: $color-dark-300;
-    cursor: pointer;
   }
 }
 
-.def {
-  @include wh(208px, 36px);
-  top: 60px;
-  border: 1px solid $color-dark-100;
-  background-color: $color-dark-900;
-  color: $color-light-100;
-}
-
-.active {
-  @include wh(208px, 36px);
-  border: 1px solid $color-light-100;
-  color: $color-light-100;
-  background-color: $color-dark-500;
-}
-
-/*.hover {
-  @include wh(208px, 36px);
-  top: 60px;
-  border: 1px solid $color-dark-100;
-  color: $color-dark-100;
-  background-color: $color-dark-500;
-}
-
-.focus {
-  @include wh(206px, 36px);
-  top: 60px;
-  border: 2px solid $color-accent-500;
-  color: #8d9094;
-  background-color: $color-dark-500;
-}*/
-
-.disabled {
-  @include wh(208px, 36px);
-  top: 60px;
-  border: 2px solid #8d9094;
-  color: #8d9094;
-  background-color: $color-dark-500;
-}

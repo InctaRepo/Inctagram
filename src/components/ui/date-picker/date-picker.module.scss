@@ -1,0 +1,176 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+.inputContainer {
+  position: relative;
+}
+
+.container {
+  :global {
+    .rmdp-header {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+
+      .rmdp-header-values {
+        width: 156px;
+        font-size: 16px;
+        font-weight: 700;
+        color: $color-light-100;
+      }
+
+      .rmdp-arrow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 36px;
+        height: 36px;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background-color: $color-dark-100;
+
+        .rmdp-arrow {
+          display: inline-block;
+
+          width: 3px;
+          height: 3px;
+          margin-top: unset;
+          padding: 2.5px;
+
+          border: solid white;
+          border-width: 0 2px 2px 0;
+        }
+      }
+    }
+
+    .rmdp-shadow {
+      box-shadow: none;
+    }
+
+    .rmdp-calendar {
+      padding: 0;
+
+      .rmdp-day-picker {
+        padding: 0;
+
+        .rmdp-week {
+          .rmdp-week-day {
+            width: unset;
+            height: unset;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            font-size: 16px;
+            font-style: normal;
+            line-height: 24px; /* 150% */
+            color: $color-dark-100;
+            text-align: center;
+          }
+
+          .rmdp-day {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 36px;
+            height: 36px;
+            padding: 4px;
+          }
+
+          .rmdp-day span {
+            font-size: 16px;
+            line-height: 24px;
+            color: $color-light-100;
+
+            &:hover {
+              color: $color-light-100 !important;
+              background-color: $color-accent-900;
+            }
+          }
+
+          .rmdp-day.rmdp-deactive span {
+            color: $color-dark-100;
+          }
+
+          .rmdp-day span.sd.weekend {
+            color: $color-light-900;
+          }
+
+          .rmdp-day.rmdp-today span {
+            color: $color-accent-500;
+            background: unset;
+          }
+
+          .rmdp-day.rmdp-selected {
+            background-color: $color-accent-900;
+            border-radius: 18px;
+          }
+
+          .rmdp-day.rmdp-selected span {
+            color: $color-light-100 !important;
+            background-color: $color-accent-500;
+            border-radius: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.calendar {
+  width: 300px;
+  padding: 16px 24px;
+
+  background-color: $color-dark-500;
+  border-radius: 2px;
+  outline: 1px solid $color-dark-300;
+}
+
+.input {
+  all: unset;
+
+  cursor: pointer;
+
+  width: 145px;
+  height: 36px;
+  padding-left: 12px;
+
+  background-color: $color-dark-700;
+  border: 1px solid $color-dark-300;
+  border-radius: 2px;
+
+  &:disabled {
+    cursor: unset;
+    color: $color-light-900;
+    background-color: $color-dark-500;
+    outline: 1px solid $color-dark-300;
+  }
+
+  &:focus,
+  &:active:enabled {
+    background-color: $color-dark-500;
+  }
+
+  &:hover:not(&:disabled) {
+    background: $color-dark-500;
+    border: 1px solid $color-dark-100;
+  }
+
+  // &.error {
+  //  color: var(--color-danger-300);
+  //  box-shadow: 0 0 0 1px var(--color-danger-300);
+  //  &::placeholder {
+  //    color: var(--color-danger-300);
+  //  }
+  // }
+  // TODO error styles
+}
+
+.inputIcon {
+  pointer-events: none;
+  position: absolute;
+  top: 6px;
+  right: 12px;
+}

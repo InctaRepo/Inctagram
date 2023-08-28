@@ -7,8 +7,9 @@
   padding: 1.44rem 1.5rem 1.5rem;
 
   .content {
+    @include flex-block;
+
     width: 100%;
-    @include flex-block();
 
     .title {
       margin-bottom: 13px;
@@ -16,6 +17,7 @@
 
     .authIcons {
       @include flex-block($flex-direction: row, $gap: 60px);
+
       margin-bottom: 24px;
 
       a {
@@ -24,8 +26,8 @@
     }
 
     .form {
-      width: 100%;
       position: relative;
+      width: 100%;
     }
 
     .field {
@@ -33,9 +35,18 @@
       text-align: left;
     }
 
+    .fieldWithError {
+      margin-bottom: 0 !important;
+    }
+
+    .lastField {
+      margin-bottom: 12px;
+    }
+
     .terms {
       @include flex-block($flex-direction: row);
-      margin-bottom: 58px;
+
+      margin-bottom: 12px;
       padding-right: 10px;
 
       .termsRow {

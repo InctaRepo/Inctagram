@@ -1,70 +1,39 @@
-import {useState} from 'react'
+import React from 'react'
 
-import Image from 'next/image'
+import { useRouter } from 'next/router'
 
-import s from './style.module.scss'
+import s from './header.module.scss'
 
-import bell from '@/src/assets/icons/bell.png'
-import RussiaImage from '@/src/assets/icons/Russia.png' // Import the Russia image separately
-type StaticImageData = /*unresolved*/ any
-
-//vorna xndiry
-
-interface Option {
-    value: string | number
-    label: string
-    img: StaticImageData // Use StaticImageData type
-}
-
-const options: Option[] = [
-    {label: 'Russian', value: 'option1', img: RussiaImage}, // Use RussiaImage here
-    {label: 'English', value: 'option2', img: RussiaImage},
-    // Add more options as needed
-]
-
-const Dropdown = ({
-                      options,
-                      onChange,
-                  }: {
-    options: Option[]
-    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
-}) => {
-    return (
-        <div>
-            <select className={s.drop} onChange={onChange}>
-                {options.map((option: Option, index: number) => (
-                    <option key={index} value={option.value}>
-                        {option.label}
-                    </option>
-                ))}
-            </select>
-        </div>
-    )
-}
+import MaskIcon from '@/src/assets/icons/mask-icon'
+import { SelectBox } from '@/src/components/ui/selectbox'
+import { Typography } from '@/src/components/ui/typography'
 
 export const Header = () => {
-    const [selectedValue, setSelectedValue] = useState('')
+  let { locale, push, pathname, query, asPath, locales } = useRouter()
+  const languages = ['English', 'Russian']
+  const changeLangHandler = (value: string | number) => {
+    if (typeof value == 'string') {
+      const locale = value.slice(0, 2).toLowerCase()
 
-    const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedValue(event.target.value)
+      push({ pathname, query }, asPath, { locale })
     }
+  }
 
-    return (
-        <div className={s.MainContainer}>
-            <header className={s.main}>
-                <h2 className={s.insta}>Instagram</h2>
-                <div className={s.img}>
-                    <Image src={bell} alt="icon"/>
-                </div>
-                <div className={s.dropDown}>
-                    <Dropdown options={options} onChange={handleDropdownChange}/>
-                    {/* <p>Selected Value: {selectedValue}</p> */}
-                </div>
-            </header>
-            <br/>
-            <div className={s.container}>
-                <span className={s.line}></span>
-            </div>
+  return (
+    <div className={s.container}>
+      <div className={s.content}>
+        <Typography variant="large" className={s.text}>
+          Inсtagram
+        </Typography>
+        <div className={s.options_container}>
+          <MaskIcon />
+          <SelectBox
+            options={languages}
+            onValueChange={changeLangHandler}
+            defaultValue={languages[0]}
+          />
         </div>
-    )
+      </div>
+    </div>
+  )
 }

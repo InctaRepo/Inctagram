@@ -1,42 +1,43 @@
 import { useEffect, useState } from 'react'
 
-import { useMutation } from 'react-query'
-
 import s from './sign-up.module.scss'
 
-import { authAPI } from '@/src/assets/api/auth'
+import { useCreateUserMutation } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
-import { RegisterForm, RegisterFormType } from '@/src/components/auth/register-form'
-import { Header } from '@/src/components/Header/Header'
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { RegisterFormType } from '@/src/common/schemas/register-schema'
+import { RegisterForm } from '@/src/components/auth/register-form'
+import { Header } from '@/src/components/ui/Header/Header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
-// export const SentEmailModal = dynamic(
-//   () => import('@/src/components/ui/modals/BaseModal/BaseModal'),
-//   {
-//     loading: () => <p>Loading...</p>,
-//     ssr: false,
-//   }
-// )
-
 const SignUpPage = () => {
+  const { t } = useTranslate()
+
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
+  const [userRegistration, { isSuccess, data }] = useCreateUserMutation()
 
-  const {
-    mutate: userRegistration,
-    isSuccess,
-    error,
-  } = useMutation({
-    mutationFn: authAPI.createUser,
-  })
-
-  useErrorToastHandler(isSuccess, error)
+  const successRes = isSuccess && data?.resultCode === 0
+  const errorRes = isSuccess && !(data?.resultCode === 0)
+  const error = data?.extensions[0].message
+  const successKey = data?.extensions[0].key
+  const setToastHandler = () => {
+    if (successRes) {
+      useErrorToastHandler(isSuccess, false)
+    }
+    if (errorRes) {
+      useErrorToastHandler(false, error ? error : 'Some error')
+    }
+  }
 
   useEffect(() => {
     if (isSuccess) {
-      setEmailSentModal(true)
+      setToastHandler()
+      if (successRes) {
+        setEmailSentModal(true)
+      }
     }
-  }, [isSuccess])
+  }, [isSuccess, data])
 
   const submit = (data: RegisterFormType) => {
     userRegistration(data)
@@ -44,14 +45,10 @@ const SignUpPage = () => {
 
   const onModalClose = () => {
     setEmailSentModal(false)
-    //TODO actions on close
   }
   const onSaveModalAction = () => {
     setEmailSentModal(false)
-    // TODO actions on save
   }
-
-  let userEmail = null
 
   return (
     <div className={s.container}>
@@ -60,15 +57,14 @@ const SignUpPage = () => {
         <RegisterForm onSubmitHandler={submit} />
         <Modal
           modalWidth={'sm'}
-          title={'Email sent'}
+          title={t.auth.emailSent}
           open={emailSentModal}
-          actionButtonName={'OK'}
+          actionButtonName={t.auth.ok}
           onClose={onModalClose}
           onAction={onSaveModalAction}
         >
           <Typography variant={'regular16'}>
-            We have sent a link to confirm your email to {userEmail ? userEmail : 'User Email here'}
-            {/*TODO email from response*/}
+            {t.auth.emailConfirm(successKey ? successKey : '...')}
           </Typography>
         </Modal>
       </div>
