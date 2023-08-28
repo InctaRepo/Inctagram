@@ -9,7 +9,7 @@ import { z } from 'zod'
 import s from './forgotPassword.module.scss'
 
 import { PasswordRecoveryType } from '@/src/assets/api/types'
-import { useTranslation } from '@/src/assets/hooks/useTranslation'
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
@@ -26,7 +26,7 @@ type FormDataType = z.infer<typeof passwordRecoverySchema>
 
 export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler }) => {
   const [mode, setMode] = useState('mode--primary')
-  const { t } = useTranslation()
+  const { t } = useTranslate()
   const router = useRouter()
 
   const {
