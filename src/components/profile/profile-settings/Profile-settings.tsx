@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -23,8 +23,7 @@ type ProfileSettingPropsType = {
   onSubmitHandler: (data: ProfileSettingType) => void
 }
 
-export const ProfileSettings = (props: ProfileSettingPropsType) => {
-  const { onSubmitHandler } = props
+export const ProfileSettings: FC<ProfileSettingPropsType> = ({ onSubmitHandler }) => {
   const { t } = useTranslate()
 
   const { control, handleSubmit } = useForm<ProfileSettingType>({
