@@ -12,33 +12,28 @@
 }
 
 .navMenu {
+  @include wh(726px, 36px);
   display: flex;
   justify-content: space-between;
   padding: 0;
   list-style-type: none;
   text-align: center;
-  width: 726px;
-  height: 36px;
-  margin-top: 40px;
-  margin-bottom: 0;
-}
-
-nav:after {
-  content: '';
-  background-color: $color-dark-300;
-  width: 776px;
-  height: 1px;
-  display: block;
+  margin: 36px 310px 0 13px;
 }
 
 li {
-  display: block;
+  @include wh(181.5px, 36px);
+  display: flex;
+  justify-content: center;
   color: $color-dark-300;
+  border-bottom: 1px solid $color-dark-300;
 
-
-  text-decoration: none;
   :hover {
+    @include wh(181.5px, 36px);
+    display: flex;
+    justify-content: center;
     color: $color-accent-500;
+    border-bottom: 1px solid $color-accent-500;
   }
 }
 
@@ -50,47 +45,51 @@ li {
 .content {
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
+  margin-left: 40px;
 }
 
 .userInfo {
   display: flex;
   flex-direction: row;
+  padding-top: 20px;
+  width: 740px;
+  border-bottom: 1px solid $color-dark-300;
+  margin-bottom: 24px;
 }
 
 .ellipse {
-  position: relative;
-  width: 192px;
-  height: 192px;
-  top: 20px;
+  @include wh(192px, 192px);
+  margin-top: 18px;
   background-color: $color-dark-300;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .image {
+  margin: -115px 30px 96px 72px;
+  cursor: pointer;
+}
+
+.calendar {
   position: relative;
-  top: 552px;
-  left: 316px;
+  bottom: 245px;
+  left: 180px;
+  cursor: pointer;
 }
 
 .addBtn {
-  @include wh(196px, 36px);
-
-  border-radius: 2px;
-  border: 1px solid $color-accent-500;
-  background-color: $color-dark-900;
-  gap: 10px;
+  width: 196px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
 }
 
-
 .saveBtn {
-  @include wh(159px, 36px);
-  position: relative;
-  top: 50px;
-  left:570px;
-  padding: 6px 24px 6px 24px;
-  border-radius: 2px;
-  gap: 10px;
+  margin-left: 580px;
+  width: 159px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
 }
 
 .editForm {
@@ -99,7 +98,7 @@ li {
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  margin-left: 40px;
+  padding-left: 50px;
 }
 
 .field {
@@ -110,9 +109,26 @@ li {
   text-align: left;
 }
 
+.date {
+  @include wh(158px, 60px);
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+  text-align: left;
+  ::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $color-light-100;
+  }
+}
+
 .textArea {
-  width: 494px;
-  height: 108px;
+  @include wh(494px, 108px);
   top: 576px;
   left: 476px;
+  margin-bottom: 23px;
 }
+
+

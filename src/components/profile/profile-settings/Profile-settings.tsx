@@ -1,132 +1,137 @@
 import React from 'react'
+
+import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
+import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import s from './profileSettings.module.scss'
-import {ControlledTextField} from "@/src/components/ui/controlled"
-import {Card} from "@/src/components/ui/card-temporary"
-import Link from "next/link"
-import { Button } from '@/src/components/ui/button'
-import {ImgOutline} from '@/src/assets/icons/image-outline'
-import CalendarOutline from '@/src/assets/icons/calendar-outline'
-import {Typography} from "@/src/components/ui/typography"
-import { useTranslation } from '@/src/assets/hooks/useTranslation'
-import {profileSettingSchema} from "@/src/common/schemas/profile-setting-schema";
-import {TextAreaField} from "@/src/components/ui/text-area";
 
+import s from './profileSettings.module.scss'
+
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
+import { ImgOutline } from '@/src/assets/icons/image-outline'
+import { profileSettingSchema } from '@/src/common/schemas/profile-setting-schema'
+import { Button } from '@/src/components/ui/button'
+import { ControlledTextField } from '@/src/components/ui/controlled'
+import { TextAreaField } from '@/src/components/ui/text-area'
+import { Typography } from '@/src/components/ui/typography'
 
 export type ProfileSettingType = z.infer<typeof profileSettingSchema>
 
 type ProfileSettingPropsType = {
-    onSubmitHandler: (data: ProfileSettingType) => void
+  onSubmitHandler: (data: ProfileSettingType) => void
 }
 
 export const ProfileSettings = (props: ProfileSettingPropsType) => {
-    const { onSubmitHandler } = props
-    const { t } = useTranslation()
+  const { onSubmitHandler } = props
+  const { t } = useTranslate()
 
-    const { control, handleSubmit } = useForm<ProfileSettingType>({
-        resolver: zodResolver(profileSettingSchema),
-        mode: 'onChange',
-    })
+  const { control, handleSubmit } = useForm<ProfileSettingType>({
+    resolver: zodResolver(profileSettingSchema),
+    mode: 'onChange',
+  })
 
-    const onSubmit = handleSubmit((data: ProfileSettingType) => {
-        onSubmitHandler(data)
-    })
+  const onSubmit = handleSubmit((data: ProfileSettingType) => {
+    onSubmitHandler(data)
+  })
 
-    return (
-        <div className={s.profile}>
-            <div className={s.content}>
-                    <nav>
-                        <ul className={s.navMenu}>
-                            <li>
-                                <Link className={s.link} href={'/'}>
-                                    <Typography variant={'h3'} color='secondary'>
-                                        General information
-                                    </Typography>
-                                    </Link>
-                            </li>
-                            <li>
-                                <Link className={s.link} href={'/devices'} >
-                                    <Typography variant={'h3'} color='secondary'>
-                                    Devices
-                                    </Typography>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className={s.link} href={'/account-management'}>
-                                    <Typography variant={'h3'} color='secondary'>
-                                    Account Management
-                                </Typography>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className={s.link} href={'/my-payment'}>
-                                    <Typography variant={'h3'} color='secondary'>
-                                    My payments
-                                    </Typography>
-                                    </Link>
-                            </li>
-                        </ul>
-                    </nav>
+  return (
+    <div className={s.profile}>
+      <div className={s.content}>
+        <nav>
+          <ul className={s.navMenu}>
+            <li>
+              <Link className={s.link} href={'/'}>
+                <Typography variant={'h3'} color="secondary">
+                  {t.profileSettings.generalInformation}
+                </Typography>
+              </Link>
+            </li>
+            <li>
+              <Link className={s.link} href={'/devices'}>
+                <Typography variant={'h3'} color="secondary">
+                  {t.profileSettings.devices}
+                </Typography>
+              </Link>
+            </li>
+            <li>
+              <Link className={s.link} href={'/account-management'}>
+                <Typography variant={'h3'} color="secondary">
+                  {t.profileSettings.accountManagement}
+                </Typography>
+              </Link>
+            </li>
+            <li>
+              <Link className={s.link} href={'/my-payment'}>
+                <Typography variant={'h3'} color="secondary">
+                  {t.profileSettings.myPayment}
+                </Typography>
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
-                <div className={s.userInfo}>
-<div>
-                        <div className={s.ellipse}>
-
-                        </div>
-    <ImgOutline className={s.image}/>
-                        <Button  className={s.addBtn}>
-                            <Typography variant={'h3'}>Add a Profile Photo</Typography>
-                        </Button>
-
-</div>
-                    <div>
-                    <form className={s.editForm}>
-                        <ControlledTextField
-                            control={control}
-                            name={'username'}
-                            label="UserName"
-                            className={s.field}
-                        />
-                        <ControlledTextField
-                            control={control}
-                            name={'firstName'}
-                            label="First name"
-                            className={s.field}
-                        />
-                        <ControlledTextField
-                             control={control}
-                            name={'lastName'}
-                            label="Last name"
-                            className={s.field}
-                        />
-                        <ControlledTextField
-                             control={control}
-                            name={'dateOfBirthday'}
-                            label="Date of birthday"
-                            className={s.field}
-                             />
-                            <CalendarOutline/>
-
-                        <ControlledTextField
-                             control={control}
-                            name={'city'}
-                            label="City"
-                            className={s.field}
-                        />
-                        <TextAreaField className={s.textArea} fullWidth={true}
-                            label="About me"/>
-
-                    </form>
-                    </div>
-                </div>
-                <div>
-                <Button variant="primary" className={s.saveBtn}>
-                    <Typography variant={'h3'} color='secondary'>Save Changes</Typography>
-                    </Button>
-                </div>
+        <div className={s.userInfo}>
+          <div>
+            <div className={s.ellipse}></div>
+            <div className={s.image}>
+              <ImgOutline />
             </div>
+
+            <Button variant="outlined" className={s.addBtn}>
+              {t.profileSettings.addAProfilePhoto}
+            </Button>
+          </div>
+          <div>
+            <form onSubmit={onSubmit} className={s.editForm}>
+              <DevTool control={control} />
+              <ControlledTextField
+                control={control}
+                name={'username'}
+                label={t.profileSettings.userName}
+                className={s.field}
+              />
+              <ControlledTextField
+                control={control}
+                name={'firstName'}
+                label={t.profileSettings.firstName}
+                className={s.field}
+              />
+              <ControlledTextField
+                control={control}
+                name={'lastName'}
+                label={t.profileSettings.lastName}
+                className={s.field}
+              />
+              <ControlledTextField
+                control={control}
+                name={'dateOfBirthday'}
+                label={t.profileSettings.dateOfBirthday}
+                className={s.date}
+                placeholder="00.00.00"
+              />
+
+              <ControlledTextField
+                control={control}
+                name={'city'}
+                label={t.profileSettings.city}
+                className={s.field}
+              />
+              <TextAreaField
+                className={s.textArea}
+                fullWidth={true}
+                label={t.profileSettings.aboutMe}
+              />
+            </form>
+            <CalendarOutline className={s.calendar} />
+          </div>
         </div>
-    )
+
+        <Button type={'submit'} variant="primary" className={s.saveBtn}>
+          {t.profileSettings.saveChanges}
+        </Button>
+      </div>
+    </div>
+  )
 }
