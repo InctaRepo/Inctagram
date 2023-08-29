@@ -10,7 +10,6 @@ export const ProfileInfo = () => {
         <div className={s.container}>
             <AvatarImage className={s.image}/>
             <DataProfile/>
-            {/*<SettingPhotoModal/>*/}
         </div>
     )
 }

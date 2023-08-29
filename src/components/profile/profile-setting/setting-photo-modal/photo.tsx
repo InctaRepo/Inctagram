@@ -7,10 +7,10 @@ export const Photo = () => {
             className="x1lliihq x1n2onr6"
             color="rgb(245, 245, 245)"
             fill="rgb(245, 245, 245)"
-            height="77"
+            height="48"
             role="img"
             viewBox="0 0 97.6 77.3"
-            width="96"
+            width="48"
         >
             <title>Значок, соответствующий медиафайлам, например изображениям или видео</title>
             <path

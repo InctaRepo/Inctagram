@@ -10,17 +10,9 @@ export type SettingPhotoModalType = {
     // isModalOpen: boolean
     // setIsModalOpen: () => void
 }
-type ModsProps = Record<string, boolean | string>
-const classNames = (cls: string, mods: ModsProps = {}, className: string[] = []) => {
-    return [
-        cls,
-        ...Object.entries(mods)
-            .filter(([cls, value]) => !!value)
-            .map(([cls, value]) => cls),
-        ...className.filter(Boolean),
-    ].join(' ')
-}
+
 export const SettingPhotoModal = (props: SettingPhotoModalType) => {
+        const [avatar, setAvatar] = useState<string | null>(null)
         const [isModalOpen, setIsModalOpen] = useState(false)
         const [selectedImage, setSelectedImage] = useState<File | null>(null)
         const editorRef = useRef<AvatarEditor>(null)
@@ -33,7 +25,9 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
                 canvas.toBlob(blob => {
                     if (blob) {
                         const file = new File([blob], 'avatar', {type: blob.type})
-
+                        convertFileToBase64(file, (file64: string) => {
+                            setAvatar(file64)
+                        })
                         const formData = new FormData()
 
                         formData.append('file', file)
@@ -49,7 +43,14 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
                 })
             }
         }
-
+        const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const file64 = reader.result as string
+                callBack(file64)
+            }
+            reader.readAsDataURL(file)
+        }
         const handlePositionChange = (position: { x: number; y: number }) => {
             setPosition(position)
         }
@@ -60,15 +61,12 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
         // if (!isModalOpen) return null
         return (
             <div className={s.container}>
+                {avatar && <img src={avatar} alt="ava" style={{borderRadius: "50%"}}/>}
                 <Button onClick={() => setIsModalOpen(true)}>Add a Profile Photo</Button>
-                <BaseModal open={isModalOpen} onClose={handleButtonClick} title={'Add a Profile Photo'}>
-                    <div className={classNames(
-                        s.photoContainer,
-                        {
-                            [s.emptyPhotoContainer]: selectedImage === null,
-                        },
-                        []
-                    )}>
+                {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
+                <BaseModal modalWidth={"md"} open={isModalOpen} onClose={handleButtonClick} title={'Add a Profile Photo'}>
+
+                    <div className={`${s.photoContainer} ${selectedImage === null ? s.emptyPhotoContainer : ''}`}>
                         {selectedImage ? (
                             <AvatarEditor
                                 ref={editorRef}
@@ -88,14 +86,12 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
                             <Photo/>
                         )}
                     </div>
+
                     <div
-                        className={classNames(s.btnContainer, {
-                            [s.selectPhoto]: selectedImage === null,
-                            [s.save]: selectedImage !== null,
-                        })}
+                        className={`${s.btnContainer} ${selectedImage === null ? s.selectPhoto : s.save}`}
                     >
                         {selectedImage ? (
-                                <Button onClick={handleSaveAvatar}>Save</Button>)
+                                <Button className={s.saveBtn} onClick={handleSaveAvatar}>Save</Button>)
                             : (
                                 <InputTypeFile setSelectedImage={setSelectedImage}/>
                             )}
