@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 import s from './header.module.scss'
 
+import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
 import { SelectBox } from '@/src/components/ui/selectbox'
 import { Typography } from '@/src/components/ui/typography'
@@ -31,7 +32,9 @@ export const Header = () => {
             options={languages}
             onValueChange={changeLangHandler}
             defaultValue={languages[0]}
-          />
+          >
+            <FlagRussiaIcon />
+          </SelectBox>
         </div>
       </div>
     </div>
