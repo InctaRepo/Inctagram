@@ -46,6 +46,7 @@ li {
   display: flex;
   flex-direction: column;
   margin-left: 40px;
+  width: 726px;
 }
 
 .userInfo {
@@ -84,9 +85,16 @@ li {
   justify-content: center;
 }
 
+.photoContent {
+  justify-content: center;
+}
+
+.photo {
+  justify-content: center;
+}
+
 .saveBtn {
-  margin-left: 580px;
-  width: 159px;
+  align-self: flex-end;
   height: 36px;
   display: flex;
   justify-content: center;

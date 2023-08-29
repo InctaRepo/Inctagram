@@ -73,10 +73,12 @@ export const ProfileSettings = (props: ProfileSettingPropsType) => {
         </nav>
 
         <div className={s.userInfo}>
-          <div>
-            <div className={s.ellipse}></div>
-            <div className={s.image}>
-              <ImgOutline />
+          <div className={s.photoContent}>
+            <div className={s.photo}>
+              <div className={s.ellipse}></div>
+              <div className={s.image}>
+                <ImgOutline />
+              </div>
             </div>
 
             <Button variant="outlined" className={s.addBtn}>

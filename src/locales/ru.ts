@@ -85,7 +85,7 @@ export const ru = {
     dateOfBirthday: 'Дата рождения',
     city: 'Город',
     aboutMe: 'Обо мне',
-    saveChanges: 'Сохранить',
+    saveChanges: 'Сохранить изменения',
   },
 
   // deletePost: 'Удалить пост',
