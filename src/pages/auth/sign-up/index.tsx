@@ -17,19 +17,23 @@ const SignUpPage = () => {
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
   const [userRegistration, { isSuccess, data }] = useCreateUserMutation()
 
+  const successRes = isSuccess && data?.resultCode === 0
+  const errorRes = isSuccess && !(data?.resultCode === 0)
+  const error = data?.extensions[0].message
+  const successKey = data?.extensions[0].key
   const setToastHandler = () => {
-    if (isSuccess && data?.resultCode === 0) {
+    if (successRes) {
       useErrorToastHandler(isSuccess, false)
     }
-    if (isSuccess && !(data?.resultCode === 0)) {
-      useErrorToastHandler(false, data?.extensions[0].message)
+    if (errorRes) {
+      useErrorToastHandler(false, error ? error : 'Some error')
     }
   }
 
   useEffect(() => {
     if (isSuccess) {
       setToastHandler()
-      if (isSuccess && data?.resultCode === 0) {
+      if (successRes) {
         setEmailSentModal(true)
       }
     }
@@ -60,7 +64,7 @@ const SignUpPage = () => {
           onAction={onSaveModalAction}
         >
           <Typography variant={'regular16'}>
-            {t.auth.emailConfirm(data ? data?.extensions[0].key : '...')}
+            {t.auth.emailConfirm(successKey ? successKey : '...')}
           </Typography>
         </Modal>
       </div>

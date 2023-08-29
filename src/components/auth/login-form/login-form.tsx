@@ -29,7 +29,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
     control,
     handleSubmit,
     trigger,
-    formState: { touchedFields },
+    formState: { touchedFields, errors },
   } = useForm<LoginFormType>({
     resolver: zodResolver(createLoginSchema(t)),
     mode: 'onTouched',
@@ -70,7 +70,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
             control={control}
             name="email"
             label={t.auth.email}
-            className={s.controlTextField}
+            className={`${s.field} ${errors.email && s.fieldWithError}`}
             fullWidth
           />
 
@@ -79,7 +79,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
             name="password"
             label={t.auth.password}
             type="password"
-            className={s.controlTextField}
+            className={s.passField}
             fullWidth
           />
           <div className={s.wrapLinkForgotPass}>

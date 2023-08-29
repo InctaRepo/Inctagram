@@ -31,7 +31,7 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
     handleSubmit,
     formState,
     trigger,
-    formState: { touchedFields },
+    formState: { touchedFields, errors },
   } = useForm<RegisterFormType>({
     resolver: zodResolver(createRegisterSchema(t)),
     mode: 'onTouched',
@@ -48,7 +48,6 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
-    // TODO:  it works ! but need to replace this handler (not a good one)
   }, [t])
 
   const onSubmit = handleSubmit((data: RegisterFormType) => {
@@ -77,27 +76,27 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
             control={control}
             name={'username'}
             label={t.auth.userName}
-            className={s.field}
+            className={`${s.field} ${errors.username && s.fieldWithError}`}
           />
           <ControlledTextField
             control={control}
             name={'email'}
             label={t.auth.email}
-            className={s.field}
+            className={`${s.field} ${errors.email && s.fieldWithError}`}
           />
           <ControlledTextField
             control={control}
             name={'password'}
             type={'password'}
             label={t.auth.password}
-            className={s.field}
+            className={`${s.field} ${errors.password && s.fieldWithError}`}
           />
           <ControlledTextField
             control={control}
             name={'passwordConfirm'}
             type={'password'}
             label={t.auth.passwordConfirmation}
-            className={s.field}
+            className={`${s.field} ${s.lastField}`}
           />
           <div className={s.terms}>
             <ControlledCheckbox
