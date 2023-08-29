@@ -47,6 +47,9 @@ dependencies:
   '@types/react':
     specifier: 18.2.17
     version: 18.2.17
+  '@types/react-avatar-editor':
+    specifier: ^13.0.0
+    version: 13.0.0
   '@types/react-dom':
     specifier: 18.2.7
     version: 18.2.7
@@ -71,6 +74,9 @@ dependencies:
   react:
     specifier: 18.2.0
     version: 18.2.0
+  react-avatar-editor:
+    specifier: ^13.0.0
+    version: 13.0.0(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
@@ -1177,7 +1183,6 @@ packages:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@babel/plugin-transform-shorthand-properties@7.22.5(@babel/core@7.22.9):
     resolution: {integrity: sha512-vM4fq9IXHscXVKzDv5itkO1X52SmdFBFcMIBZ2FRn2nqVYqw6dBexUgMvAjHW+KXpPPViD/Yo3GrDEBaRC0QYA==}
@@ -4401,6 +4406,12 @@ packages:
   /@types/range-parser@1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: true
+
+  /@types/react-avatar-editor@13.0.0:
+    resolution: {integrity: sha512-5ymOayy6mfT35xTqzni7UjXvCNEg8/pH4pI5RenITp9PBc02KGTYjSV1WboXiQDYSh5KomLT0ngBLEAIhV1QoQ==}
+    dependencies:
+      '@types/react': 18.2.17
+    dev: false
 
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
@@ -9742,6 +9753,22 @@ packages:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
     dev: true
+
+  /react-avatar-editor@13.0.0(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-0xw63MbRRQdDy7YI1IXU9+7tTFxYEFLV8CABvryYOGjZmXRTH2/UA0mafe57ns62uaEFX181kA4XlGlxCaeXKA==}
+    peerDependencies:
+      react: ^0.14.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^0.14.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/plugin-transform-runtime': 7.22.9(@babel/core@7.22.9)
+      '@babel/runtime': 7.22.6
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: false
 
   /react-colorful@5.6.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
