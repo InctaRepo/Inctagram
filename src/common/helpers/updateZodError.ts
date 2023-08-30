@@ -1,7 +1,8 @@
 import { LoginFormType } from '@/src/common/schemas/create-login-schema'
+import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
 import { RegisterFormType } from '@/src/common/schemas/register-schema'
 
-type FormType = LoginFormType | RegisterFormType
+type FormType = LoginFormType | RegisterFormType | ProfileSettingFormType
 // add your form manual type
 
 export type FormFields = keyof FormType
