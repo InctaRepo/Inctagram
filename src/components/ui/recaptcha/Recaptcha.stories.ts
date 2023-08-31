@@ -5,10 +5,10 @@ import { Recaptcha } from './Recaptcha'
 const meta: Meta<typeof Recaptcha> = {
   title: 'Components/Recaptcha',
   component: Recaptcha,
+  tags: ['autodocs'],
 }
 
 export default meta
-
 type Story = StoryObj<typeof Recaptcha>
 
 export const Primary: Story = {
@@ -20,11 +20,15 @@ export const Primary: Story = {
 export const Error: Story = {
   args: {
     primary: false,
+    errors: {
+      recaptcha: true,
+    },
   },
 }
 
 export const Expired: Story = {
   args: {
     expired: true,
+    primary: true,
   },
 }
