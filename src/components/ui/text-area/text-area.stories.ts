@@ -5,9 +5,6 @@ import { TextAreaField } from './text-area'
 const meta = {
   title: 'Components/TextAreaField',
   component: TextAreaField,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
 }
 

@@ -53,6 +53,11 @@ export const en: LocaleType = {
         min: 'Min number of characters 6',
         max: 'Max number of characters 20',
       },
+      recaptcha: {
+        notARobot: 'I’m not a robot',
+        verifyPlease: 'Please verify that you are not a robot',
+        expired: 'Verification expired. Check the checkbox\n' + 'again.',
+      },
       passwordConfirm: 'Confirm your password',
       refine: 'The passwords must match',
     },

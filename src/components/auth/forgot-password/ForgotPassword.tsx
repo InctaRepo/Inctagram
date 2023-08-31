@@ -14,7 +14,7 @@ import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-s
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { ControlledTextField } from '@/src/components/ui/controlled'
-import { Recaptcha } from '@/src/components/ui/recaptcha/Recaptcha'
+import { ControlledRecaptcha } from '@/src/components/ui/controlled/controlled-recaptcha'
 import { Typography } from '@/src/components/ui/typography/typography'
 
 type PropsType = {
@@ -28,17 +28,16 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
   const [mode, setMode] = useState('mode--primary')
   const { t } = useTranslate()
   const router = useRouter()
-
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormDataType>({
-    resolver: zodResolver(passwordRecoverySchema),
+    resolver: zodResolver(passwordRecoverySchema(t)),
     mode: 'onTouched',
     defaultValues: {
       email: '',
-      // recaptcha: false, // requires update
+      recaptcha: false, // requires update
     },
   })
 
@@ -78,10 +77,16 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
           <Button variant="primary" className={s.repeat} type="submit">
             <Typography variant="h3">{t.auth.sendLinkAgain}</Typography>
           </Button>
-          <Button variant="text" className={s.back} type="button" onClick={() => router.push('/')}>
+          <Button
+            variant="link"
+            color={'link'}
+            className={s.back}
+            type="button"
+            onClick={() => router.push('/')}
+          >
             <Typography variant="h3">{t.auth.backToSignIn}</Typography>
           </Button>
-          <Recaptcha
+          <ControlledRecaptcha
             control={control}
             name="recaptcha"
             errors={errors}
