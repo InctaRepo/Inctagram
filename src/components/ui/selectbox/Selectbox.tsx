@@ -5,7 +5,7 @@ import * as Select from '@radix-ui/react-select'
 import styles from './selectbox.module.scss'
 
 import ChevronDown from '@/src/assets/icons/chevron-down'
-import {Typography} from "@/src/components/ui/typography";
+import { Typography } from '@/src/components/ui/typography'
 
 export type SelectProps = {
   label?: string
@@ -49,9 +49,13 @@ export const SelectBox: FC<SelectProps> = ({
       disabled={disabled}
       required={required}
     >
-      { label? <Typography variant={'regular14'} color="secondary" className={s.label}>
-        {label}
-      </Typography>: ''}
+      {label ? (
+        <Typography variant={'regular14'} color="secondary" className={s.label}>
+          {label}
+        </Typography>
+      ) : (
+        ''
+      )}
       <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
         <div>
           <Select.Value placeholder={placeholder} aria-label={value}>

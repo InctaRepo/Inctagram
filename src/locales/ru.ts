@@ -8,7 +8,7 @@ export const ru = {
     forgotPassword: 'Забыли пароль?',
     forgotPasswordTitle: 'Восстановление пароля',
     passwordConfirmation: 'Подтверждение пароля',
-    createNewPassword: 'Создайте новый пароль',
+    createNewPassword: 'Создать новый пароль',
     newPassword: 'Новый пароль',
     passwordCharacters: 'Ваш пароль должен быть от 6 до 20 символов',
     dontHaveAccount: 'Нет аккаунта?',

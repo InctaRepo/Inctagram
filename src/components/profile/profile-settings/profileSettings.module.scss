@@ -12,17 +12,15 @@
 }
 
 .navMenu {
-  @include wh(726px, 36px);
   display: flex;
   justify-content: space-between;
   padding: 0;
   list-style-type: none;
   text-align: center;
-  margin: 36px 310px 0 13px;
 }
 
 li {
-  @include wh(181.5px, 36px);
+  @include wh(243px, 36px);
   display: flex;
   justify-content: center;
   color: $color-dark-300;
@@ -43,17 +41,13 @@ li {
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
+  @include flex-block(flex, column);
   margin-left: 40px;
-  width: 726px;
 }
 
 .userInfo {
-  display: flex;
-  flex-direction: row;
+  @include flex-block(flex, row);
   padding-top: 20px;
-  width: 740px;
   border-bottom: 1px solid $color-dark-300;
   margin-bottom: 24px;
 }
@@ -79,14 +73,13 @@ li {
 }
 
 .addBtn {
-  width: 196px;
-  height: 36px;
+  @include wh(196px, 36px);
   display: flex;
   justify-content: center;
 }
 
 .photoContent {
-  justify-content: center;
+  align-self: start;
 }
 
 .photo {
@@ -110,7 +103,7 @@ li {
 }
 
 .field {
-  @include wh(494px, 60px);
+  @include wh(740px, 60px);
   top: 240px;
   left: 476px;
   margin-bottom: 24px;
