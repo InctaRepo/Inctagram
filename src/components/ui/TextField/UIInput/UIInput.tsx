@@ -15,12 +15,24 @@ type UIInputPropsType = {
 } & ComponentProps<'input'>
 
 export const UIInput: React.FC<UIInputPropsType> = props => {
-  const { type, disabled, onChangeText, errorMessage, label, placeholder, value, ...rest } = props
+  const {
+    type = 'text',
+    disabled,
+    onChangeText,
+    errorMessage,
+    label,
+    placeholder,
+    value,
+    ...rest
+  } = props
 
-  const [showPass, setShowPass] = useState<'text' | 'password'>('password')
+  const [showPassword, setShowPassword] = useState<boolean>(false)
 
-  const openClosePssHandler = () =>
-    showPass === 'password' ? setShowPass('text') : setShowPass('password')
+  const onClickShowValue = () => {
+    if (!disabled) {
+      setShowPassword(!showPassword)
+    }
+  }
 
   const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChangeText && onChangeText(e.currentTarget.value)
@@ -28,20 +40,11 @@ export const UIInput: React.FC<UIInputPropsType> = props => {
 
   const showErrorMess = errorMessage && errorMessage.length > 0
 
-  const _type =
-    type === 'text'
-      ? 'text'
-      : type === 'password'
-      ? showPass
-      : type === 'search'
-      ? 'search'
-      : 'text'
-
   return (
     <div className={s.textFieldWrap}>
       <div className={`${s.label} ${disabled && s.disabledLabel}`}>{label}</div>
       <input
-        type={_type}
+        type={showPassword ? 'text' : type}
         value={value}
         onChange={onchangeHandler}
         placeholder={placeholder && placeholder}
@@ -49,18 +52,19 @@ export const UIInput: React.FC<UIInputPropsType> = props => {
         {...rest}
         className={`${s.textField} ${errorMessage && s.errorInput} ${disabled && s.disabledInput}`}
       />
-      {type === 'password' &&
-        (showPass === 'password' ? (
-          <EyeIcon
-            className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
-            onClick={openClosePssHandler}
-          />
-        ) : (
-          <EyeOffIcon
-            className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
-            onClick={openClosePssHandler}
-          />
-        ))}
+
+      {type === 'password' && !showPassword && (
+        <EyeIcon
+          className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
+          onClick={onClickShowValue}
+        />
+      )}
+      {type === 'password' && showPassword && (
+        <EyeOffIcon
+          className={`${s.iconEye} ${disabled && s.disabledIconEye}`}
+          onClick={onClickShowValue}
+        />
+      )}
 
       {type === 'search' && <SearchIcon className={s.searchIcon} />}
       {showErrorMess && (

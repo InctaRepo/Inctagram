@@ -16,6 +16,7 @@ export type SelectProps = {
   options: string[] | number[]
   disabled?: boolean
   required?: boolean
+  children?: ReactNode
 }
 
 export const SelectBox: FC<SelectProps> = ({
@@ -26,6 +27,7 @@ export const SelectBox: FC<SelectProps> = ({
   required,
   placeholder,
   label,
+  children,
 }) => {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
@@ -59,7 +61,7 @@ export const SelectBox: FC<SelectProps> = ({
       <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
         <div>
           <Select.Value placeholder={placeholder} aria-label={value}>
-            {value}
+            {children} {value}
           </Select.Value>
           <Select.Icon asChild className={s.selectIcon}>
             <ChevronDown />
@@ -72,7 +74,10 @@ export const SelectBox: FC<SelectProps> = ({
           <Select.Viewport>
             {options?.map((el, idx) => (
               <Select.Item value={el.toString()} key={idx} className={s.line}>
-                <Select.ItemText>{el}</Select.ItemText>
+                <Select.ItemText>
+                  {children}
+                  {el}
+                </Select.ItemText>
               </Select.Item>
             ))}
           </Select.Viewport>
