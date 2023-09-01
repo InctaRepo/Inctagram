@@ -30,7 +30,7 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
     handleSubmit,
     formState,
     trigger,
-    formState: { touchedFields },
+    formState: { touchedFields, errors },
   } = useForm<PasswodsMatchFormType>({
     resolver: zodResolver(passwordsMatchSchema(t)),
     mode: 'onTouched',
@@ -69,7 +69,7 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
         name={'passwordConfirm'}
         type={'password'}
         label={t.auth.passwordConfirmation}
-        className={styles.password}
+        className={`${styles.password} ${errors.passwordConfirm && styles.lastField}`}
       />
       <div className={styles.text}>
         <Typography variant="medium14" className={styles.passwordRequirement}>
