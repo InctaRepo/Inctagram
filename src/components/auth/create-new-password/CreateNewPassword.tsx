@@ -62,7 +62,6 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
         type={'password'}
         label={t.auth.newPassword}
         className={styles.password}
-        placeholder={'******************'}
       />
 
       <ControlledTextField
@@ -71,13 +70,12 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
         type={'password'}
         label={t.auth.passwordConfirmation}
         className={styles.password}
-        placeholder={'******************'}
       />
-
-      <Typography variant="medium14" className={styles.passwordRequirement}>
-        {t.auth.passwordCharacters}
-      </Typography>
-
+      <div className={styles.text}>
+        <Typography variant="medium14" className={styles.passwordRequirement}>
+          {t.auth.passwordCharacters}
+        </Typography>
+      </div>
       <Button type="submit" variant="primary" fullWidth={true} className={styles.btn}>
         <Typography variant="bold16">{t.auth.createNewPassword}</Typography>
       </Button>

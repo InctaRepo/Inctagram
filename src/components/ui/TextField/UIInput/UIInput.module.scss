@@ -8,13 +8,24 @@
 }
 
 .textFieldWrap {
-  width: 100%;
   position: relative;
+  width: 100%;
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px $color-dark-500 inset;
+
+    -webkit-text-fill-color: $color-light-100;
+  }
 
   .textField {
     @include wh(100%, 36px);
+
     width: 100%;
     padding: 0 42px 0 15px;
+
     background-color: transparent;
     border: 1px solid $color-dark-100;
     border-radius: 2px;
@@ -24,12 +35,12 @@
     }
 
     &:focus {
+      border: none;
+      outline: 1px solid $color-accent-500;
+
       &::placeholder {
         color: $color-light-900;
       }
-
-      border: none;
-      outline: 1px solid $color-accent-500;
     }
 
     &[type='search'] {
@@ -52,24 +63,23 @@
 
   .errorWrap {
     color: $color-danger-500;
-    position: absolute;
   }
 
   .errorInput {
-    outline-color: $color-danger-500;
     border-color: $color-danger-500;
+    outline-color: $color-danger-500;
   }
 
   .disabledInput {
-    border-color: $color-dark-100;
     color: $color-dark-100;
+    border-color: $color-dark-100;
   }
 
   .iconEye {
-    position: absolute;
-    right: 12px;
-    top: 32px;
     cursor: pointer;
+    position: absolute;
+    top: 32px;
+    right: 12px;
   }
 
   .disabledIconEye {
@@ -77,10 +87,10 @@
   }
 
   .searchIcon {
-    fill: $color-dark-100;
     position: absolute;
-    left: 6px;
     top: 7px;
+    left: 6px;
+    fill: $color-dark-100;
   }
 
   [type='search']:focus + .searchIcon {

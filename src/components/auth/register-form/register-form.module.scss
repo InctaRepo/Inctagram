@@ -35,10 +35,18 @@
       text-align: left;
     }
 
+    .fieldWithError {
+      margin-bottom: 0 !important;
+    }
+
+    .lastField {
+      margin-bottom: 12px;
+    }
+
     .terms {
       @include flex-block($flex-direction: row);
 
-      margin-bottom: 58px;
+      margin-bottom: 12px;
       padding-right: 10px;
 
       .termsRow {

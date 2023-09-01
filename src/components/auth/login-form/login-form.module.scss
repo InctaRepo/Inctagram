@@ -28,9 +28,16 @@
     .form {
       width: 100%;
 
-      .controlTextField {
+      .field {
         margin-bottom: 24px;
-        text-align: left;
+      }
+
+      .passField {
+        margin-bottom: 36px;
+      }
+
+      .fieldWithError {
+        margin-bottom: 0 !important;
       }
 
       .singIn {
@@ -42,7 +49,6 @@
 
         width: 100%;
         margin-bottom: 24px;
-        padding-top: 12px;
 
         .link {
           text-decoration: none;
