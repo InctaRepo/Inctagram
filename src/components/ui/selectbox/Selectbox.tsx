@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactElement, ReactNode, useState } from 'react'
 
 import * as Select from '@radix-ui/react-select'
 
@@ -13,12 +13,15 @@ export type SelectProps = {
   placeholder?: ReactNode
   onValueChange?: (value: string | number) => void
   defaultValue?: string | number
-  options: string[] | number[]
+  options: OptionsType[]
   disabled?: boolean
   required?: boolean
-  children?: ReactNode
+  defaultImage?: ReactElement
 }
-
+export type OptionsType = {
+  value: string
+  image?: ReactElement
+}
 export const SelectBox: FC<SelectProps> = ({
   defaultValue,
   options,
@@ -27,16 +30,15 @@ export const SelectBox: FC<SelectProps> = ({
   required,
   placeholder,
   label,
-  children,
 }) => {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
-
   const s = {
     label: styles.label,
     selectBox: styles.selectBox,
     selectIcon: styles.selectIcon,
     selectContent: styles.selectContent,
     line: styles.line,
+    value: styles.value,
   }
   const onChangeHandler = (newValue: string) => {
     setValue(newValue)
@@ -60,9 +62,11 @@ export const SelectBox: FC<SelectProps> = ({
       )}
       <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
         <div>
-          <Select.Value placeholder={placeholder} aria-label={value}>
-            {children} {value}
-          </Select.Value>
+          <Typography variant={'regular14'} color="secondary" className={s.value}>
+            {options?.map(el => <>{value === el.value && el.image}</>)}
+            {value}
+          </Typography>
+
           <Select.Icon asChild className={s.selectIcon}>
             <ChevronDown />
           </Select.Icon>
@@ -73,11 +77,9 @@ export const SelectBox: FC<SelectProps> = ({
         <Select.Content position={'popper'} className={s.selectContent}>
           <Select.Viewport>
             {options?.map((el, idx) => (
-              <Select.Item value={el.toString()} key={idx} className={s.line}>
-                <Select.ItemText>
-                  {children}
-                  {el}
-                </Select.ItemText>
+              <Select.Item value={el.value.toString()} key={idx} className={s.line}>
+                {el.image}
+                <Select.ItemText>{el.value}</Select.ItemText>
               </Select.Item>
             ))}
           </Select.Viewport>
