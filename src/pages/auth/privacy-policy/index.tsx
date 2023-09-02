@@ -4,9 +4,9 @@ import Privacy from "@/src/components/auth/terms-privacy/terms-privacy-page/priv
 
 const PrivacyPolicy=()=>{
     return (
-        <div>
+        <>
             <Privacy/>
-        </div>
+        </>
     )
 }
 
