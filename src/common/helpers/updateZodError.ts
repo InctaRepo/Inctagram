@@ -1,5 +1,6 @@
 import { LoginFormType } from '@/src/common/schemas/create-login-schema'
 import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
+import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schema'
 import { RegisterFormType } from '@/src/common/schemas/register-schema'
 
 type FormType = LoginFormType | RegisterFormType | ProfileSettingFormType
