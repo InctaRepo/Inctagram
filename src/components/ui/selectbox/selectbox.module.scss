@@ -75,8 +75,15 @@
   background-color: $color-dark-500;
   border: 1px solid $color-dark-100;
 }
-
+.value{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font: 400 14px Inter;
   line-height: $line-height-m;
   letter-spacing: 0;
