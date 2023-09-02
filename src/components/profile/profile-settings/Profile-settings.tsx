@@ -16,7 +16,6 @@ import {
   ProfileSettingFormType,
   createProfileSettingSchema,
 } from '@/src/common/schemas/profile-setting-schema'
-import { Photo } from '@/src/components/profile/profile-setting/setting-photo-modal/photo'
 import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
