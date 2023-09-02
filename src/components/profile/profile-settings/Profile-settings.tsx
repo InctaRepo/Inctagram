@@ -63,7 +63,6 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
     onSubmitHandler(data)
   })
 
-  const cities = ['City1', 'City2', 'City3']
   const changeCityHandler = (newCity: string | number) => {}
 
   return (
@@ -143,7 +142,6 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
             />
             <div className={s.fieldSelect}>
               <SelectBox
-                options={cities}
                 label={t.profile.profileSetting.selectYourCity}
                 onValueChange={changeCityHandler}
                 defaultValue={t.profile.profileSetting.city}

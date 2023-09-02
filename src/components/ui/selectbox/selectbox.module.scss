@@ -8,15 +8,13 @@
 }
 
 .label {
-  //@include wh(75px, 24px);
   height: 24px;
   text-align: left;
   letter-spacing: 0;
 }
 
 .selectBox {
- // @include wh(210px, 36px);
-height: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
