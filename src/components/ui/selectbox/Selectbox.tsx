@@ -13,15 +13,18 @@ export type SelectProps = {
   placeholder?: ReactNode
   onValueChange?: (value: string | number) => void
   defaultValue?: string | number
-  options: OptionsType[]
+  options?: OptionsType[]
   disabled?: boolean
   required?: boolean
   defaultImage?: ReactElement
+  children?: ReactNode
 }
+
 export type OptionsType = {
   value: string
   image?: ReactElement
 }
+
 export const SelectBox: FC<SelectProps> = ({
   defaultValue,
   options,
@@ -32,6 +35,7 @@ export const SelectBox: FC<SelectProps> = ({
   label,
 }) => {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
+
   const s = {
     label: styles.label,
     selectBox: styles.selectBox,

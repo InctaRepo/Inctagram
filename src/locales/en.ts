@@ -77,30 +77,31 @@ export const en: LocaleType = {
     favorites: 'Favorites',
     messenger: 'Messenger',
     search: 'Search',
-  },
-  profileSettings: {
-    generalInformation: 'General information',
-    devices: 'Devices',
-    accountManagement: 'Account Management',
-    myPayment: 'My payments',
-    addAProfilePhoto: 'Add a Profile Photo',
-    userName: 'Username',
-    firstName: 'First name',
-    lastName: 'Last name',
-    dateOfBirthday: 'Date of birthday',
-    city: 'City',
-    aboutMe: 'About me',
-    saveChanges: 'Save Changes',
+    profileSetting: {
+      generalInformation: 'General information',
+      devices: 'Devices',
+      accountManagement: 'Account Management',
+      myPayment: 'My payments',
+      addAProfilePhoto: 'Add a Profile Photo',
+      userName: 'Username',
+      firstName: 'First name',
+      lastName: 'Last name',
+      dateOfBirthday: 'Date of birthday',
+      city: 'City',
+      selectYourCity: 'Select your city',
+      aboutMe: 'About me',
+      saveChanges: 'Save Changes',
 
-    profileSettingsErrors: {
-      usernameField: {
-        nonEmpty: 'Enter username',
-        regex: 'Username can contain only A-Z, a-z, - or _',
-        min: 'Min number of characters 6',
-        max: 'Max number of characters 30',
+      profileSettingsErrors: {
+        usernameField: {
+          nonEmpty: 'Enter username',
+          regex: 'Username can contain only A-Z, a-z, - or _',
+          min: 'Min number of characters 6',
+          max: 'Max number of characters 30',
+        },
+
+        aboutMeError: 'Max number of characters 200',
       },
-
-      aboutMeError: 'Max number of characters 200',
     },
   },
 }

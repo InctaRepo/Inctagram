@@ -14,7 +14,7 @@ export const Header = () => {
   let { locale, push, pathname, query, asPath, locales } = useRouter()
   const languages: OptionsType[] = [
     { value: 'English', image: <FlagUKIcon /> },
-    { value: 'Russia', image: <FlagRussiaIcon /> },
+    { value: 'Russian', image: <FlagRussiaIcon /> },
   ]
   const changeLangHandler = (value: string | number) => {
     if (typeof value == 'string') {
@@ -32,11 +32,13 @@ export const Header = () => {
         </Typography>
         <div className={s.options_container}>
           <MaskIcon />
-          <SelectBox
-            options={languages}
-            onValueChange={changeLangHandler}
-            defaultValue={languages[0].value}
-          />
+          <div className={s.select}>
+            <SelectBox
+              options={languages}
+              onValueChange={changeLangHandler}
+              defaultValue={languages[0].value}
+            />
+          </div>
         </div>
       </div>
     </div>
