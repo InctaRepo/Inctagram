@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -16,19 +16,23 @@ import {
   ProfileSettingFormType,
   createProfileSettingSchema,
 } from '@/src/common/schemas/profile-setting-schema'
+import { Photo } from '@/src/components/profile/profile-setting/setting-photo-modal/photo'
+import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
+import { SelectBox } from '@/src/components/ui/selectbox'
 import { TextAreaField } from '@/src/components/ui/text-area'
 import { Typography } from '@/src/components/ui/typography'
 
 type ProfileSettingFormPropsType = {
   onSubmitHandler: (data: ProfileSettingFormType) => void
+  defaultValue: string | number
 }
 
-export const ProfileSettings = ({ onSubmitHandler }: ProfileSettingFormPropsType) => {
+export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
   const { t } = useTranslate()
-
   const router = useRouter()
+  //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
 
   const {
     control,
@@ -60,101 +64,104 @@ export const ProfileSettings = ({ onSubmitHandler }: ProfileSettingFormPropsType
     onSubmitHandler(data)
   })
 
+  const cities = ['City1', 'City2', 'City3']
+  const changeCityHandler = (newCity: string | number) => {}
+
   return (
     <div className={s.profile}>
+      <nav>
+        <ul className={s.navMenu}>
+          <li>
+            <Link className={s.link} href={'/'}>
+              <Typography variant={'h3'} color="secondary">
+                {t.profile.profileSetting.generalInformation}
+              </Typography>
+            </Link>
+          </li>
+          <li>
+            <Link className={s.link} href={'/devices'}>
+              <Typography variant={'h3'} color="secondary">
+                {t.profile.profileSetting.devices}
+              </Typography>
+            </Link>
+          </li>
+          <li>
+            <Link className={s.link} href={'/account-management'}>
+              <Typography variant={'h3'} color="secondary">
+                {t.profile.profileSetting.accountManagement}
+              </Typography>
+            </Link>
+          </li>
+          <li>
+            <Link className={s.link} href={'/my-payment'}>
+              <Typography variant={'h3'} color="secondary">
+                {t.profile.profileSetting.myPayment}
+              </Typography>
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <div className={s.content}>
-        <nav>
-          <ul className={s.navMenu}>
-            <li>
-              <Link className={s.link} href={'/'}>
-                <Typography variant={'h3'} color="secondary">
-                  {t.profile.profileSetting.generalInformation}
-                </Typography>
-              </Link>
-            </li>
-            <li>
-              <Link className={s.link} href={'/devices'}>
-                <Typography variant={'h3'} color="secondary">
-                  {t.profile.profileSetting.devices}
-                </Typography>
-              </Link>
-            </li>
-            <li>
-              <Link className={s.link} href={'/account-management'}>
-                <Typography variant={'h3'} color="secondary">
-                  {t.profile.profileSetting.accountManagement}
-                </Typography>
-              </Link>
-            </li>
-            <li>
-              <Link className={s.link} href={'/my-payment'}>
-                <Typography variant={'h3'} color="secondary">
-                  {t.profile.profileSetting.myPayment}
-                </Typography>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-
-        <div className={s.userInfo}>
-          <div className={s.photoContent}>
-            <div className={s.photo}>
-              <div className={s.ellipse}></div>
-              <div className={s.image}>
-                <ImgOutline />
-              </div>
+        <div className={s.photoContent}>
+          <div className={s.photo}>
+            <div className={s.ellipse}></div>
+            <div className={s.image}>
+              <ImgOutline />
             </div>
-
-            <Button variant="outlined" className={s.addBtn}>
-              {t.profile.profileSetting.addAProfilePhoto}
-            </Button>
           </div>
-          <div>
-            <form onSubmit={onSubmit} className={s.editForm}>
-              <DevTool control={control} />
-              <ControlledTextField
-                control={control}
-                name={'username'}
-                label={t.profile.profileSetting.userName}
-                className={s.field}
-              />
-              <ControlledTextField
-                control={control}
-                name={'firstName'}
-                label={t.profile.profileSetting.firstName}
-                className={s.field}
-              />
-              <ControlledTextField
-                control={control}
-                name={'lastName'}
-                label={t.profile.profileSetting.lastName}
-                className={s.field}
-              />
-              <ControlledTextField
-                control={control}
-                name={'dateOfBirthday'}
-                label={t.profile.profileSetting.dateOfBirthday}
-                className={s.date}
-                placeholder="00.00.00"
-              />
-
-              <ControlledTextField
-                control={control}
-                name={'city'}
-                label={t.profile.profileSetting.city}
-                className={s.field}
-              />
-              <TextAreaField
-                className={s.textArea}
-                fullWidth={true}
-                label={t.profile.profileSetting.aboutMe}
-              />
-            </form>
-            <CalendarOutline className={s.calendar} />
+          <div className={s.addBtn}>
+            <SettingPhotoModal />
           </div>
         </div>
 
-        <Button type={'submit'} variant="primary" className={s.saveBtn}>
+        <div>
+          <form onSubmit={onSubmit} className={s.editForm}>
+            <DevTool control={control} />
+            <ControlledTextField
+              control={control}
+              name={'username'}
+              label={t.profile.profileSetting.userName}
+              className={s.field}
+            />
+            <ControlledTextField
+              control={control}
+              name={'firstName'}
+              label={t.profile.profileSetting.firstName}
+              className={s.field}
+            />
+            <ControlledTextField
+              control={control}
+              name={'lastName'}
+              label={t.profile.profileSetting.lastName}
+              className={s.field}
+            />
+            <ControlledTextField
+              control={control}
+              name={'dateOfBirthday'}
+              label={t.profile.profileSetting.dateOfBirthday}
+              className={s.date}
+              placeholder="00.00.00"
+            />
+            <div className={s.fieldSelect}>
+              <SelectBox
+                options={cities}
+                label={t.profile.profileSetting.selectYourCity}
+                onValueChange={changeCityHandler}
+                defaultValue={t.profile.profileSetting.city}
+              />
+            </div>
+
+            <TextAreaField
+              className={s.textArea}
+              fullWidth={true}
+              label={t.profile.profileSetting.aboutMe}
+            />
+          </form>
+          <CalendarOutline className={s.calendar} />
+        </div>
+      </div>
+      <div className={s.saveBtn}>
+        <Button type={'submit'} variant="primary">
           {t.profile.profileSetting.saveChanges}
         </Button>
       </div>

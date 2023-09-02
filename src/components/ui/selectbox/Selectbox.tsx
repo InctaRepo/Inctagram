@@ -17,6 +17,7 @@ export type SelectProps = {
   disabled?: boolean
   required?: boolean
   children?: ReactNode
+  className?: string
 }
 
 export const SelectBox: FC<SelectProps> = ({

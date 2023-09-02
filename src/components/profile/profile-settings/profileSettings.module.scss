@@ -9,11 +9,11 @@
 
 .profile {
   height: auto;
+  width: 972px;
 }
 
 .navMenu {
   display: flex;
-  justify-content: space-between;
   padding: 0;
   list-style-type: none;
   text-align: center;
@@ -27,7 +27,7 @@ li {
   border-bottom: 1px solid $color-dark-300;
 
   :hover {
-    @include wh(181.5px, 36px);
+    @include wh(243px, 36px);
     display: flex;
     justify-content: center;
     color: $color-accent-500;
@@ -41,16 +41,13 @@ li {
 }
 
 .content {
-  @include flex-block(flex, column);
-  margin-left: 40px;
-}
-
-.userInfo {
   @include flex-block(flex, row);
-  padding-top: 20px;
   border-bottom: 1px solid $color-dark-300;
   margin-bottom: 24px;
+  width: 972px;
+  justify-content: flex-start;
 }
+
 
 .ellipse {
   @include wh(192px, 192px);
@@ -68,7 +65,7 @@ li {
 .calendar {
   position: relative;
   bottom: 245px;
-  left: 180px;
+  left: 750px;
   cursor: pointer;
 }
 
@@ -94,12 +91,12 @@ li {
 }
 
 .editForm {
-  @include wh(494px, 527px);
+  @include wh(740px, 527px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  padding-left: 50px;
+  padding-left: 40px;
 }
 
 .field {
@@ -110,8 +107,15 @@ li {
   text-align: left;
 }
 
+.fieldSelect {
+  @include wh(740px, 60px);
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+}
+
 .date {
-  @include wh(158px, 60px);
+  @include wh(740px, 60px);
   top: 240px;
   left: 476px;
   margin-bottom: 24px;
@@ -126,10 +130,14 @@ li {
 }
 
 .textArea {
-  @include wh(494px, 108px);
+  @include wh(740px, 108px);
   top: 576px;
   left: 476px;
   margin-bottom: 23px;
+}
+
+.saveBtn {
+  justify-content: flex-end;
 }
 
 

@@ -88,6 +88,7 @@ export const en: LocaleType = {
       lastName: 'Last name',
       dateOfBirthday: 'Date of birthday',
       city: 'City',
+      selectYourCity: 'Select your city',
       aboutMe: 'About me',
       saveChanges: 'Save Changes',
 

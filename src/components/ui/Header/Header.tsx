@@ -28,13 +28,15 @@ export const Header = () => {
         </Typography>
         <div className={s.options_container}>
           <MaskIcon />
-          <SelectBox
-            options={languages}
-            onValueChange={changeLangHandler}
-            defaultValue={languages[0]}
-          >
-            <FlagRussiaIcon />
-          </SelectBox>
+          <div className={s.select}>
+            <SelectBox
+              options={languages}
+              onValueChange={changeLangHandler}
+              defaultValue={languages[0]}
+            >
+              <FlagRussiaIcon />
+            </SelectBox>
+          </div>
         </div>
       </div>
     </div>
