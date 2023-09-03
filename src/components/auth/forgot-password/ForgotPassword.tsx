@@ -24,8 +24,10 @@ type PropsType = {
 
 type FormDataType = z.infer<typeof passwordRecoverySchema>
 
+const modes = ['mode-primary', 'mode-secondary']
+
 export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler }) => {
-  const [mode, setMode] = useState('mode--primary')
+  const [mode, setMode] = useState(modes[0])
   const { t } = useTranslate()
   const router = useRouter()
   const {
@@ -42,7 +44,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
   })
 
   const submitData = (data: FormDataType) => {
-    setMode('mode--secondary')
+    setMode(modes[1])
     onSubmitHandler(data)
     modalHandler()
   }
@@ -75,16 +77,16 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
             {t.auth.linkHasBeenSent}
           </Typography>
           <Button variant="primary" className={s.repeat} type="submit">
-            <Typography variant="h3">{t.auth.sendLinkAgain}</Typography>
+            <Typography variant="regular16">{t.auth.sendLinkAgain}</Typography>
           </Button>
           <Button
             variant="link"
-            color={'link'}
+            color={'$color-accent-500'}
             className={s.back}
             type="button"
             onClick={() => router.push('/')}
           >
-            <Typography variant="h3">{t.auth.backToSignIn}</Typography>
+            <Typography variant="regular16">{t.auth.backToSignIn}</Typography>
           </Button>
           <ControlledRecaptcha
             control={control}

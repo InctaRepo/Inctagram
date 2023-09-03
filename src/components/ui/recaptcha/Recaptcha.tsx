@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import clsx from 'clsx'
 import Image from 'next/image'
@@ -31,13 +31,17 @@ export const Recaptcha = <T extends FieldValues>({
   expired,
   ...rest
 }: Props<T>) => {
+  const [mode, setMode] = useState(modes[0])
   const { t } = useTranslate()
-  let mode = modes[0]
 
-  if (errors?.recaptcha) {
-    // Current active styles in mode
-    mode = modes[1]
-  }
+  useEffect(() => {
+    if (errors?.recaptcha) {
+      // Current active styles in mode
+      setMode(modes[1])
+    } else {
+      setMode(modes[0])
+    }
+  }, [errors.recaptcha])
 
   const [isLoading, setIsLoading] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
