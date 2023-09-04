@@ -6,10 +6,8 @@ import s from './create-new-password.module.scss'
 
 import { useCreateNewPasswordMutation } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
-import {
-  CreateNewPassword,
-  CreateNewPasswordType,
-} from '@/src/components/auth/create-new-password/CreateNewPassword'
+import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schema'
+import { CreateNewPassword } from '@/src/components/auth/create-new-password/CreateNewPassword'
 import { Header } from '@/src/components/ui/Header/Header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
@@ -26,7 +24,7 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
 
   const router = useRouter()
 
-  const submit = (data: CreateNewPasswordType) => {
+  const submit = (data: PasswodsMatchFormType) => {
     setPasswordSentModal(true)
     createNewPassword({ newPassword: data.password, recoveryCode: router.pathname })
   }
