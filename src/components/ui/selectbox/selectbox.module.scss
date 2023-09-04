@@ -8,14 +8,13 @@
 }
 
 .label {
-  @include wh(75px, 24px);
+  height: 24px;
   text-align: left;
   letter-spacing: 0;
 }
 
 .selectBox {
-  @include wh(210px, 36px);
-
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,12 +70,19 @@
 }
 
 .selectContent {
-  width: 210px;
+  width: var(--radix-select-trigger-width);
   background-color: $color-dark-500;
   border: 1px solid $color-dark-100;
 }
-
+.value{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font: 400 14px Inter;
   line-height: $line-height-m;
   letter-spacing: 0;

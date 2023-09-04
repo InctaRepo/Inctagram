@@ -1,11 +1,11 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactElement, ReactNode, useState } from 'react'
 
 import * as Select from '@radix-ui/react-select'
 
 import styles from './selectbox.module.scss'
 
 import ChevronDown from '@/src/assets/icons/chevron-down'
-import {Typography} from "@/src/components/ui/typography";
+import { Typography } from '@/src/components/ui/typography'
 
 export type SelectProps = {
   label?: string
@@ -13,9 +13,16 @@ export type SelectProps = {
   placeholder?: ReactNode
   onValueChange?: (value: string | number) => void
   defaultValue?: string | number
-  options: string[] | number[]
+  options?: OptionsType[]
   disabled?: boolean
   required?: boolean
+  defaultImage?: ReactElement
+  children?: ReactNode
+}
+
+export type OptionsType = {
+  value: string
+  image?: ReactElement
 }
 
 export const SelectBox: FC<SelectProps> = ({
@@ -35,6 +42,7 @@ export const SelectBox: FC<SelectProps> = ({
     selectIcon: styles.selectIcon,
     selectContent: styles.selectContent,
     line: styles.line,
+    value: styles.value,
   }
   const onChangeHandler = (newValue: string) => {
     setValue(newValue)
@@ -49,14 +57,20 @@ export const SelectBox: FC<SelectProps> = ({
       disabled={disabled}
       required={required}
     >
-      { label? <Typography variant={'regular14'} color="secondary" className={s.label}>
-        {label}
-      </Typography>: ''}
+      {label ? (
+        <Typography variant={'regular14'} color="secondary" className={s.label}>
+          {label}
+        </Typography>
+      ) : (
+        ''
+      )}
       <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
         <div>
-          <Select.Value placeholder={placeholder} aria-label={value}>
+          <Typography variant={'regular14'} color="secondary" className={s.value}>
+            {options?.map(el => <>{value === el.value && el.image}</>)}
             {value}
-          </Select.Value>
+          </Typography>
+
           <Select.Icon asChild className={s.selectIcon}>
             <ChevronDown />
           </Select.Icon>
@@ -67,8 +81,9 @@ export const SelectBox: FC<SelectProps> = ({
         <Select.Content position={'popper'} className={s.selectContent}>
           <Select.Viewport>
             {options?.map((el, idx) => (
-              <Select.Item value={el.toString()} key={idx} className={s.line}>
-                <Select.ItemText>{el}</Select.ItemText>
+              <Select.Item value={el.value.toString()} key={idx} className={s.line}>
+                {el.image}
+                <Select.ItemText>{el.value}</Select.ItemText>
               </Select.Item>
             ))}
           </Select.Viewport>

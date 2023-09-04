@@ -87,6 +87,7 @@
 
   &.md {
     width: 492px;
+    //height: 564px;
   }
 
   &.lg {
@@ -111,7 +112,7 @@
 }
 
 .contentBox {
-  @include flex-block($gap: 24px, $align-items: flex-start);
+  @include flex-block($gap: 24px, $align-items: center);
 
   margin-bottom: 18px;
 }

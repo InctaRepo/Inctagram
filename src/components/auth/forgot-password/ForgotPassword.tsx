@@ -14,7 +14,7 @@ import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-s
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { ControlledTextField } from '@/src/components/ui/controlled'
-import { Recaptcha } from '@/src/components/ui/recaptcha/Recaptcha'
+import { ControlledRecaptcha } from '@/src/components/ui/controlled/controlled-recaptcha'
 import { Typography } from '@/src/components/ui/typography/typography'
 
 type PropsType = {
@@ -24,26 +24,27 @@ type PropsType = {
 
 type FormDataType = z.infer<typeof passwordRecoverySchema>
 
+const modes = ['mode-primary', 'mode-secondary']
+
 export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler }) => {
-  const [mode, setMode] = useState('mode--primary')
+  const [mode, setMode] = useState(modes[0])
   const { t } = useTranslate()
   const router = useRouter()
-
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormDataType>({
-    resolver: zodResolver(passwordRecoverySchema),
+    resolver: zodResolver(passwordRecoverySchema(t)),
     mode: 'onTouched',
     defaultValues: {
       email: '',
-      // recaptcha: false, // requires update
+      recaptcha: false, // requires update
     },
   })
 
   const submitData = (data: FormDataType) => {
-    setMode('mode--secondary')
+    setMode(modes[1])
     onSubmitHandler(data)
     modalHandler()
   }
@@ -76,12 +77,18 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
             {t.auth.linkHasBeenSent}
           </Typography>
           <Button variant="primary" className={s.repeat} type="submit">
-            <Typography variant="h3">{t.auth.sendLinkAgain}</Typography>
+            <Typography variant="regular16">{t.auth.sendLinkAgain}</Typography>
           </Button>
-          <Button variant="text" className={s.back} type="button" onClick={() => router.push('/')}>
-            <Typography variant="h3">{t.auth.backToSignIn}</Typography>
+          <Button
+            variant="link"
+            color={'$color-accent-500'}
+            className={s.back}
+            type="button"
+            onClick={() => router.push('/')}
+          >
+            <Typography variant="regular16">{t.auth.backToSignIn}</Typography>
           </Button>
-          <Recaptcha
+          <ControlledRecaptcha
             control={control}
             name="recaptcha"
             errors={errors}

@@ -11,17 +11,18 @@ import { Typography } from '@/src/components/ui/typography/typography'
 
 const PasswordRecovery = () => {
   const [passwordRecovery, { isSuccess, error }] = usePasswordRecoveryMutation()
-  const [openModal, setOpenModal] = useState(false)
   const { t } = useTranslate()
-
-  useErrorToastHandler(isSuccess, error)
-
+  const [email, setEmail] = useState('')
+  const [openModal, setOpenModal] = useState(false)
   const modalHandler = () => {
     setOpenModal(!openModal)
   }
 
+  useErrorToastHandler(isSuccess, error)
+
   const submit = (data: PasswordRecoveryType) => {
     passwordRecovery(data)
+    setEmail(data.email)
   }
 
   return (
@@ -30,12 +31,12 @@ const PasswordRecovery = () => {
       <Modal
         modalWidth={'sm'}
         open={openModal}
-        title={t.auth.forgotPasswordTitle}
+        title={t.auth.emailSent}
         onAction={modalHandler}
         onCancel={modalHandler}
         onClose={modalHandler}
       >
-        <Typography variant="regular16">{t.auth.linkHasBeenSent}</Typography>
+        <Typography variant="regular16">{t.auth.emailConfirm(email)}</Typography>
       </Modal>
     </AuthLayout>
   )

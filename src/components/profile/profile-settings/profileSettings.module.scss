@@ -1,0 +1,143 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.profile {
+  height: auto;
+  width: 972px;
+}
+
+.navMenu {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+li {
+  @include wh(243px, 36px);
+  display: flex;
+  justify-content: center;
+  color: $color-dark-300;
+  border-bottom: 1px solid $color-dark-300;
+
+  :hover {
+    @include wh(243px, 36px);
+    display: flex;
+    justify-content: center;
+    color: $color-accent-500;
+    border-bottom: 1px solid $color-accent-500;
+  }
+}
+
+.link {
+  color: $color-dark-300;
+  text-decoration: none;
+}
+
+.content {
+  @include flex-block(flex, row);
+  border-bottom: 1px solid $color-dark-300;
+  margin-bottom: 24px;
+  width: 972px;
+  justify-content: flex-start;
+}
+
+
+.ellipse {
+  @include wh(192px, 192px);
+  margin-top: 18px;
+  background-color: $color-dark-300;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.image {
+  margin: -115px 30px 96px 72px;
+  cursor: pointer;
+}
+
+.calendar {
+  position: relative;
+  bottom: 245px;
+  left: 750px;
+  cursor: pointer;
+}
+
+.addBtn {
+  @include wh(196px, 36px);
+  display: flex;
+  justify-content: center;
+}
+
+.photoContent {
+  align-self: start;
+}
+
+.photo {
+  justify-content: center;
+}
+
+.saveBtn {
+  align-self: flex-end;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+}
+
+.editForm {
+  @include wh(740px, 527px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding-left: 40px;
+}
+
+.field {
+  @include wh(740px, 60px);
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.fieldSelect {
+  @include wh(740px, 60px);
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+}
+
+.date {
+  @include wh(740px, 60px);
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+  text-align: left;
+  ::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $color-light-100;
+  }
+}
+
+.textArea {
+  @include wh(740px, 108px);
+  top: 576px;
+  left: 476px;
+  margin-bottom: 23px;
+}
+
+.saveBtn {
+  justify-content: flex-end;
+}
+
+

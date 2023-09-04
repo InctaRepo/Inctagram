@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import clsx from 'clsx'
 import Image from 'next/image'
-import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
+import { FieldValues, UseControllerProps } from 'react-hook-form'
 
 import s from './recaptcha.module.scss'
 
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import Privacy from '@/src/assets/icons/recaptcha.svg'
 import Checked from '@/src/assets/icons/recaptchaChecked.svg'
 import { Card } from 'src/components/ui/card-temporary'
 
-type RecaptchaProps = {
+export type RecaptchaProps = {
   primary?: boolean
   expired?: boolean
   className?: string
@@ -23,27 +24,24 @@ type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defau
 const modes = ['mode-primary', 'mode-error', 'mode-expired']
 
 export const Recaptcha = <T extends FieldValues>({
-  primary,
-  expired,
   className,
-  control,
   errors,
   name,
+  primary,
+  expired,
+  ...rest
 }: Props<T>) => {
-  const {
-    field: { ref, ...fieldProps },
-  } = useController({
-    name,
-    control,
-  })
+  const [mode, setMode] = useState(modes[0])
+  const { t } = useTranslate()
 
-  // Current active styles in mode
-  // eslint-disable-next-line no-nested-ternary
-  let mode = modes[0]
-
-  if (errors.recaptcha) {
-    mode = modes[1]
-  }
+  useEffect(() => {
+    if (errors?.recaptcha) {
+      // Current active styles in mode
+      setMode(modes[1])
+    } else {
+      setMode(modes[0])
+    }
+  }, [errors.recaptcha])
 
   const [isLoading, setIsLoading] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
@@ -54,9 +52,8 @@ export const Recaptcha = <T extends FieldValues>({
     setTimeout(() => {
       setIsLoading(!isLoading)
       setIsChecked(!isChecked)
-      fieldProps.onChange(true)
-      // setRecaptchaVal!(true)
-    }, 2000)
+      rest.onChange(true)
+    }, 1000)
   }
 
   const classNames = {
@@ -65,14 +62,14 @@ export const Recaptcha = <T extends FieldValues>({
     customCheckbox: clsx(s.customCheckbox, isLoading && s.hidden),
     preloader: clsx(s.ldsRing, (!isLoading || isChecked) && s.hidden),
     checked: clsx(s.checked, !isChecked && s.hidden),
-    errorText: clsx(s.errorText, primary && !expired && s.hidden),
+    errorText: clsx(s.errorText, !errors?.recaptcha && s.hidden),
   }
 
   return (
     <div className={s[mode]}>
       <Card className={classNames.main}>
         <div className={s.agreement}>
-          <div className={classNames.expired}>Verification expired. Check the checkbox again.</div>
+          <div className={classNames.expired}>{t.auth.authErrors.recaptcha.expired}</div>
           <div className={classNames.customCheckbox} onClick={onClick} />
           <div className={classNames.preloader}>
             <div />
@@ -81,13 +78,13 @@ export const Recaptcha = <T extends FieldValues>({
             <div />
           </div>
           <Image src={Checked} className={classNames.checked} alt="checked" />
-          <label>I&apos;m not a robot</label>
+          <label>{t.auth.authErrors.recaptcha.notARobot}</label>
         </div>
         <div className={s.privacy}>
           <Image src={Privacy} width="46" height="57" alt="privacy" />
         </div>
       </Card>
-      <p className={classNames.errorText}>Please verify that you are not a robot</p>
+      <p className={classNames.errorText}>{t.auth.authErrors.recaptcha.verifyPlease}</p>
     </div>
   )
 }
