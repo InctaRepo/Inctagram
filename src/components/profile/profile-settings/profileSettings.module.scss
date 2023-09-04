@@ -1,7 +1,6 @@
 @import '@/src/styles/mixins';
 @import '@/src/styles/colors';
 
-
 @mixin wh($w, $h) {
   width: $w;
   height: $h;
@@ -47,7 +46,6 @@ li {
   width: 972px;
   justify-content: flex-start;
 }
-
 
 .ellipse {
   @include wh(192px, 192px);
@@ -139,5 +137,3 @@ li {
 .saveBtn {
   justify-content: flex-end;
 }
-
-

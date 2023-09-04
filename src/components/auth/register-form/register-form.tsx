@@ -105,11 +105,11 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
               label={
                 <Typography variant={'small'} className={s.termsRow}>
                   {t.auth.agree}&nbsp;
-                  <Link href={'/terms'} className={s.termsLink}>
+                  <Link href={'/auth/terms-of-use'} className={s.termsLink}>
                     {t.auth.termsOfService}
                   </Link>
                   &nbsp;{t.auth.and}&nbsp;
-                  <Link href={'/policy'} className={s.termsLink}>
+                  <Link href={'/auth/privacy-policy'} className={s.termsLink}>
                     {t.auth.policy}
                   </Link>
                 </Typography>

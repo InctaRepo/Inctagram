@@ -1,11 +1,9 @@
-
 @import '@/src/styles/mixins';
 
-.main{
+.main {
   @include flex-block;
   // display: flex;
   // justify-content: center;
   // align-items: center;
   // flex-direction: column;
-
 }

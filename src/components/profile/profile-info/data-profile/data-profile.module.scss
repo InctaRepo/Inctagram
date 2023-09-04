@@ -1,21 +1,20 @@
 @import 'src/styles/colors';
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.progressProfile{
+.progressProfile {
   display: flex;
   gap: 80px;
-  margin-bottom:23px ;
-  .info{
+  margin-bottom: 23px;
+  .info {
     display: flex;
     flex-direction: column;
   }
-
 }
-  .text{
-    color: $color-accent-500;
-    text-decoration-color: $color-accent-500;
+.text {
+  color: $color-accent-500;
+  text-decoration-color: $color-accent-500;
 }
