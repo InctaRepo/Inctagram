@@ -1,13 +1,5 @@
-import React from 'react'
+import Profile from '@/src/components/profile/profile'
 
-import { Profile } from '@/src/components/profile'
-
-const Index = () => {
-  return (
-    <div>
-      <Profile />
-    </div>
-  )
-}
+const Index = () => <Profile />
 
 export default Index

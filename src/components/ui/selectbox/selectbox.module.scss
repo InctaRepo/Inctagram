@@ -30,7 +30,7 @@
   letter-spacing: 0;
 
   background-color: $color-dark-700;
-  border: 1px solid $color-dark-100;;
+  border: 1px solid $color-dark-100;
   box-shadow: none;
 
   &:focus {
@@ -51,12 +51,12 @@
     }
   }
 
-  &:hover:not([data-disabled]){
+  &:hover:not([data-disabled]) {
     cursor: initial;
     background-color: $color-dark-500;
   }
 
-  &[data-disabled]{
+  &[data-disabled] {
     cursor: initial;
     color: #8d9094;
     background-color: $color-dark-500;
@@ -74,7 +74,7 @@
   background-color: $color-dark-500;
   border: 1px solid $color-dark-100;
 }
-.value{
+.value {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -93,9 +93,8 @@
 
   &:hover,
   &:focus-visible,
-  &[data-state='checked']{
+  &[data-state='checked'] {
     color: $color-accent-500;
     background-color: $color-dark-300;
   }
 }
-
