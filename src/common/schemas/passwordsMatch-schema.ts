@@ -17,7 +17,7 @@ export function passwordsMatchSchema(t: LocaleType) {
         .max(20, t.auth.authErrors.password.max),
       passwordConfirm: z.string().nonempty(t.auth.authErrors.passwordConfirm),
     })
-    .refine(data => data.password == data.passwordConfirm, {
+    .refine(({ password, passwordConfirm }) => password == passwordConfirm, {
       message: t.auth.authErrors.refine,
       path: ['passwordConfirm'],
     })

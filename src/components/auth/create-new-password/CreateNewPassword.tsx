@@ -12,6 +12,7 @@ import {
   passwordsMatchSchema,
 } from '@/src/common/schemas/passwordsMatch-schema'
 import styles from '@/src/components/auth/create-new-password/createNewPassword.module.scss'
+import s from '@/src/components/auth/register-form/register-form.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import { Typography } from '@/src/components/ui/typography'
@@ -68,14 +69,14 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
         name={'passwordConfirm'}
         type={'password'}
         label={t.auth.passwordConfirmation}
-        className={`${styles.password} ${errors.passwordConfirm && styles.lastField}`}
+        className={`${styles.password} ${errors.passwordConfirm && styles.fieldWithError}`}
       />
       <div className={styles.text}>
         <Typography variant="medium14" className={styles.passwordRequirement}>
           {t.auth.passwordCharacters}
         </Typography>
       </div>
-      <Button type="submit" variant="primary" fullWidth={true} className={styles.btn}>
+      <Button type={'submit'} variant="primary" fullWidth={true} className={styles.btn}>
         <Typography variant="bold16">{t.auth.createNewPassword}</Typography>
       </Button>
     </form>
