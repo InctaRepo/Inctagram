@@ -15,6 +15,7 @@ type Story = StoryObj<typeof DatePick>
 export const Primary: Story = {
   args: {},
 }
+
 export const WithRangeData: Story = {
   args: {
     range: true,

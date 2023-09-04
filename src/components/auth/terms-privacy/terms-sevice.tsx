@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from 'src/components/auth/terms-privacy/style.module.scss'
+import s from '@/src/components/auth/terms-privacy/privacy-terms.module.scss'
 import { Header } from 'src/components/ui/header'
 import { Typography } from 'src/components/ui/typography'
 

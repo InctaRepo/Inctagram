@@ -42,12 +42,10 @@ export const DatePick = ({
   )
   const [datePickerOpen, setDatePickerOpen] = useState(false)
 
-  const onChangeInput = (value: any) => {
-    const { year, month, day } = value
-
-    console.log(year, 'month: ' + month.name, 'day: ' + day)
+  const onChangeInput = (value: DateObject | DateObject[] | null) => {
     setValue(value)
     onChange?.(value)
+    //TODO validation with react hook form ?
   }
 
   return (

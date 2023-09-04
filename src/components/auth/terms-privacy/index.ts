@@ -1,2 +1,2 @@
-export * from './privacy-policy-page'
-export * from './terms-sevice-page'
+export * from 'src/components/auth/terms-privacy/privacy-policy'
+export * from 'src/components/auth/terms-privacy/terms-sevice'

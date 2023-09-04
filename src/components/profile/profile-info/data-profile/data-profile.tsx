@@ -1,8 +1,9 @@
+import { router } from 'next/client'
+
 import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import s from '@/src/components/profile/profile-info/data-profile/data-profile.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
-import {router} from "next/client";
 
 export const DataProfile = () => {
   const { t } = useTranslate()
