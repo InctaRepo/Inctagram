@@ -45,6 +45,7 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
   })
 
   useEffect(() => {
+    // TODO custom hook with useTranslate ?
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)

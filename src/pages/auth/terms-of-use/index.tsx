@@ -1,15 +1,7 @@
 import React from 'react'
-import Terms from "@/src/components/auth/terms-privacy/terms-privacy-page/terms-sevice-page.tsx";
 
+import { Terms } from '@/src/components/auth/terms-privacy'
 
-const TermsService=()=>{
-    return (
-        <div>
+const TermsService = () => <Terms />
 
-            <Terms/>
-        </div>
-    )
-}
-
-
-export default   TermsService
+export default TermsService

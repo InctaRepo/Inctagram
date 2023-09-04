@@ -10,7 +10,7 @@ import {
   CreateNewPassword,
   CreateNewPasswordType,
 } from '@/src/components/auth/create-new-password/CreateNewPassword'
-import { Header } from '@/src/components/ui/Header/Header'
+import { Header } from '@/src/components/ui/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { NextPageWithLayout } from '@/src/pages/_app'

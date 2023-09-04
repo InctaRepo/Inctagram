@@ -1,10 +1,10 @@
-import { PropsWithChildren, ReactElement } from 'react'
+import { PropsWithChildren } from 'react'
 
 import { NextPage } from 'next'
 
 import s from './profile-layout.module.scss'
 
-import { Header } from '@/src/components/ui/Header/Header'
+import { Header } from '@/src/components/ui/header'
 
 export const ProfileLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (
