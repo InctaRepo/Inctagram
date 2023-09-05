@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 
 import s from './forgotPassword.module.scss'
 
@@ -21,8 +20,10 @@ type PropsType = {
   onSubmitHandler: (data: PasswordRecoveryType) => void
   modalHandler: () => void
 }
-
-type FormDataType = z.infer<typeof passwordRecoverySchema>
+export type ForgotFormType = {
+  email: string
+  recaptcha: boolean
+}
 
 const modes = ['mode-primary', 'mode-secondary']
 
@@ -34,7 +35,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormDataType>({
+  } = useForm<ForgotFormType>({
     resolver: zodResolver(passwordRecoverySchema(t)),
     mode: 'onTouched',
     defaultValues: {
@@ -43,7 +44,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
     },
   })
 
-  const submitData = (data: FormDataType) => {
+  const submitData = (data: ForgotFormType) => {
     setMode(modes[1])
     onSubmitHandler(data)
     modalHandler()

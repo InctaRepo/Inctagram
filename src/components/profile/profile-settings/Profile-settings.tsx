@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -13,15 +13,15 @@ import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
 import {
-  ProfileSettingFormType,
   createProfileSettingSchema,
+  ProfileSettingFormType,
 } from '@/src/common/schemas/profile-setting-schema'
 import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
-import { SelectBox } from '@/src/components/ui/selectbox'
 import { TextAreaField } from '@/src/components/ui/text-area'
 import { Typography } from '@/src/components/ui/typography'
+import { SelectBox } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
   onSubmitHandler: (data: ProfileSettingFormType) => void

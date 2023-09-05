@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 
 import s from './auth-layout.module.scss'
 
-import { Header } from '@/src/components/ui/Header/Header'
+import { Header } from '@/src/components/layout/header/header'
 
 export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (

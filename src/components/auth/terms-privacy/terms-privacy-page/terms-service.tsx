@@ -2,7 +2,7 @@ import React from 'react'
 
 import s from './style.module.scss'
 
-import { Header } from '@/src/components/ui/Header/Header'
+import { Header } from '@/src/components/layout/header/header'
 import { Typography } from '@/src/components/ui/typography'
 
 export const Terms = () => {

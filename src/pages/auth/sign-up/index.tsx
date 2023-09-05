@@ -7,7 +7,7 @@ import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
 import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import { RegisterFormType } from '@/src/common/schemas/register-schema'
 import { RegisterForm } from '@/src/components/auth/register-form'
-import { Header } from '@/src/components/ui/Header/Header'
+import { Header } from '@/src/components/layout/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 

@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react'
 
-import s from './textField.module.scss'
-import { UIInput } from './UIInput/UIInput'
+import { InputMain } from '@/src/components/ui/text-field/input-main/input-main'
+import s from '@/src/components/ui/text-field/text-field.module.scss'
 
 export type TextFieldPropsType = {
   errorMessage?: string
@@ -12,7 +12,7 @@ export type TextFieldPropsType = {
   onChangeText?: (value: string) => void
 } & ComponentProps<'input'>
 
-export const TextField: React.FC<TextFieldPropsType> = ({
+export const TexField: React.FC<TextFieldPropsType> = ({
   value,
   errorMessage,
   className,
@@ -21,7 +21,7 @@ export const TextField: React.FC<TextFieldPropsType> = ({
 }) => {
   return (
     <div className={`${className} ${fullWidth ? s.fullWidth : ''}`}>
-      <UIInput errorMessage={errorMessage} {...restProps} value={value ?? ''} />
+      <InputMain errorMessage={errorMessage} {...restProps} value={value ?? ''} />
     </div>
   )
 }

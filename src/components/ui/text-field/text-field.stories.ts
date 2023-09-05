@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { TextField } from './TextField'
+import { TexField } from '@/src/components/ui/text-field/tex-field'
 
 const meta = {
   title: 'Components/TextField',
-  component: TextField,
+  component: TexField,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof TextField>
+} satisfies Meta<typeof TexField>
 
 export default meta
 type Story = StoryObj<typeof meta>
