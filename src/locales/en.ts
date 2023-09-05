@@ -10,6 +10,7 @@ export const en: LocaleType = {
     forgotPasswordTitle: 'Forgot Password',
     passwordConfirmation: 'Password confirmation',
     createNewPassword: 'Create New Password',
+    passwordChanged: 'Your password was successfully changed',
     newPassword: 'New password',
     passwordCharacters: 'Your password must be between 6 and 20 characters',
     dontHaveAccount: 'Don’t have an account?',
@@ -77,6 +78,7 @@ export const en: LocaleType = {
     favorites: 'Favorites',
     messenger: 'Messenger',
     search: 'Search',
+    passwordChanged: 'Your password was successfully changed',
     profileSetting: {
       generalInformation: 'General information',
       devices: 'Devices',
