@@ -4,7 +4,7 @@ import { Typography } from '../../../ui/typography'
 
 import s from './style.module.scss'
 
-import { Header } from '@/src/components/ui/Header/Header'
+import { Header } from '@/src/components/layout/header/header'
 
 export const Privacy = () => {
   return (

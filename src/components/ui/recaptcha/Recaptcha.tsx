@@ -52,7 +52,8 @@ export const Recaptcha = <T extends FieldValues>({
     setTimeout(() => {
       setIsLoading(!isLoading)
       setIsChecked(!isChecked)
-      rest.onChange(true)
+      // rest.onChange(true)
+      // TODO error no onchange props
     }, 1000)
   }
 

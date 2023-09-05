@@ -2,13 +2,12 @@ import React from 'react'
 
 import { useRouter } from 'next/router'
 
-import s from './header.module.scss'
-
 import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
-import { OptionsType, SelectBox } from '@/src/components/ui/selectbox'
 import { Typography } from '@/src/components/ui/typography'
+import s from 'src/components/layout/header/header.module.scss'
+import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 
 export const Header = () => {
   let { locale, push, pathname, query, asPath, locales } = useRouter()

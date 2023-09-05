@@ -4,7 +4,7 @@ import { ProfileInfo } from '@/src/components/profile/profile-info'
 import s from '@/src/components/profile/profile.module.scss'
 import { ProfileLayout } from 'src/components/layout/profile-layout'
 
-const Profile = () => {
+export const Profile = () => {
   return (
     <ProfileLayout>
       <div className={s.container}>
@@ -17,5 +17,3 @@ const Profile = () => {
     </ProfileLayout>
   )
 }
-
-export default Profile

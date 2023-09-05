@@ -1,6 +1,6 @@
 import React, { ChangeEvent, ComponentProps, useState } from 'react'
 
-import s from './UIInput.module.scss'
+import s from './input-main.module.scss'
 
 import EyeIcon from '@/src/assets/icons/eye-icon'
 import EyeOffIcon from '@/src/assets/icons/eye-off-icon'
@@ -14,7 +14,7 @@ type UIInputPropsType = {
   onChangeText?: (value: string) => void
 } & ComponentProps<'input'>
 
-export const UIInput: React.FC<UIInputPropsType> = props => {
+export const InputMain: React.FC<UIInputPropsType> = props => {
   const {
     type = 'text',
     disabled,
