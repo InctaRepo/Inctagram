@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 
 import s from './profile-layout.module.scss'
 
-import { Header } from '@/src/components/ui/header'
+import { Header } from '@/src/components/layout/header/header'
 
 export const ProfileLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (

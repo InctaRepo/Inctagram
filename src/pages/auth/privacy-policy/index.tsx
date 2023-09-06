@@ -1,5 +1,5 @@
-import React from 'react'
+import { Privacy } from '@/src/components/auth/terms-privacy/terms-privacy-page'
 
-import { Privacy } from '@/src/components/auth/terms-privacy'
+const PrivacyPolicy = () => <Privacy />
 
-export const PrivacyPolicy = () => <Privacy />
+export default PrivacyPolicy

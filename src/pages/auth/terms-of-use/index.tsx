@@ -1,5 +1,5 @@
-import React from 'react'
+import { Terms } from '@/src/components/auth/terms-privacy/terms-privacy-page'
 
-import { Terms } from '@/src/components/auth/terms-privacy'
+const TermsService = () => <Terms />
 
-export const TermsService = () => <Terms />
+export default TermsService

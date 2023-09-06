@@ -1,7 +1,7 @@
 import React from 'react'
 
 import s from '@/src/components/auth/terms-privacy/privacy-terms.module.scss'
-import { Header } from 'src/components/ui/header'
+import { Header } from 'src/components/layout/header'
 import { Typography } from 'src/components/ui/typography'
 
 export const Terms = () => {

@@ -24,7 +24,6 @@ export type ForgotFormType = {
   email: string
   recaptcha: boolean
 }
-// type FormDataType = z.infer<typeof passwordRecoverySchema>
 
 const modes = ['mode-primary', 'mode-secondary']
 

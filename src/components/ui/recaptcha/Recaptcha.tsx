@@ -29,7 +29,6 @@ export const Recaptcha = <T extends FieldValues>({
   name,
   primary,
   expired,
-  onChange,
   ...rest
 }: Props<T>) => {
   const [mode, setMode] = useState(modes[0])
@@ -53,8 +52,8 @@ export const Recaptcha = <T extends FieldValues>({
     setTimeout(() => {
       setIsLoading(!isLoading)
       setIsChecked(!isChecked)
-      rest.onChange(true)
-      //TODO error
+      // rest.onChange(true)
+      // TODO error no onchange props
     }, 1000)
   }
 
