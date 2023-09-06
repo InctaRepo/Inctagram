@@ -78,6 +78,8 @@ export const ru = {
     favorites: 'Избранное',
     messenger: 'Сообщения',
     search: 'Поиск',
+    addPostPhoto: 'Добавить фото',
+    selectFromComputer: 'Выбрать с компьютера',
     passwordChanged: 'Ваш пароль был успешно изменен',
     profileSetting: {
       generalInformation: 'Общая информация',

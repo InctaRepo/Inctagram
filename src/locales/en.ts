@@ -78,6 +78,8 @@ export const en: LocaleType = {
     favorites: 'Favorites',
     messenger: 'Messenger',
     search: 'Search',
+    addPostPhoto: 'Add Photo',
+    selectFromComputer: 'Select from Computer',
     passwordChanged: 'Your password was successfully changed',
     profileSetting: {
       generalInformation: 'General information',
