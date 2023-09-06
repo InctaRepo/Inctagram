@@ -10,6 +10,7 @@ export const ru = {
     passwordConfirmation: 'Подтверждение пароля',
     createNewPassword: 'Создать новый пароль',
     newPassword: 'Новый пароль',
+    passwordChanged: 'Ваш пароль был успешно изменен',
     passwordCharacters: 'Ваш пароль должен быть от 6 до 20 символов',
     dontHaveAccount: 'Нет аккаунта?',
     haveAccount: 'Уже зарегистрированы?',
@@ -77,6 +78,9 @@ export const ru = {
     favorites: 'Избранное',
     messenger: 'Сообщения',
     search: 'Поиск',
+    addPostPhoto: 'Добавить фото',
+    selectFromComputer: 'Выбрать с компьютера',
+    passwordChanged: 'Ваш пароль был успешно изменен',
     profileSetting: {
       generalInformation: 'Общая информация',
       devices: 'Устройства',

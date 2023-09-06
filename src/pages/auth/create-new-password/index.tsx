@@ -6,6 +6,7 @@ import s from './create-new-password.module.scss'
 
 import { useCreateNewPasswordMutation } from '@/src/assets/api/auth'
 import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
+import { useTranslate } from '@/src/assets/hooks/useTranslate'
 import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schema'
 import { CreateNewPassword } from '@/src/components/auth/create-new-password/CreateNewPassword'
 import { Header } from '@/src/components/layout/header/header'
@@ -17,6 +18,7 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
 
   const [createNewPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
+  const { t } = useTranslate()
 
   useErrorToastHandler(isSuccess, error)
 
@@ -55,7 +57,7 @@ const CreateNewPasswordPage: NextPageWithLayout = () => {
           onClose={onModalClose}
           onAction={onSaveModalAction}
         >
-          <Typography variant={'regular16'}>Your password was successfully changed</Typography>
+          <Typography variant={'regular16'}>{t.auth.passwordChanged}</Typography>
         </Modal>
       </div>
     </div>
