@@ -5,14 +5,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
 import {
   PasswodsMatchFormType,
   passwordsMatchSchema,
 } from '@/src/common/schemas/passwordsMatch-schema'
 import styles from '@/src/components/auth/create-new-password/createNewPassword.module.scss'
-import s from '@/src/components/auth/register-form/register-form.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import { Typography } from '@/src/components/ui/typography'

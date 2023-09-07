@@ -11,7 +11,7 @@ import { Typography } from '../../ui/typography'
 
 import s from './login-form.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'

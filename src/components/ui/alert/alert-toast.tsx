@@ -1,9 +1,13 @@
 import { clsx } from 'clsx'
 import { toast } from 'react-toastify'
 
-import s from '@/src/components/ui/alert/alert-toast.module.scss'
+import s from './alert-toast.module.scss'
 
-export const alertToast = (error: boolean, text: string) => {
+export const AlertToast = (error: boolean, text: string) => {
+  // const err = useAppSelector(appErrorSelector)
+  // TODO selector not working
+  // const dispatch = useAppDispatch()
+  //
   const classNames = {
     wrapper: clsx(s.wrapper, error ? s.error : s.success),
     toast: s.toast,
@@ -11,8 +15,20 @@ export const alertToast = (error: boolean, text: string) => {
     toastContent: s.toastContent,
     toastClose: s.toastClose,
   }
-
+  //
   const customId = 'toast-id'
+  //
+  // if (err !== null) {
+  //   toast.error(error)
+  // }
+  //
+  // useEffect(() => {
+  //   if (err !== null) {
+  //     setTimeout(() => {
+  //       dispatch(appActions.setError({ error: null }))
+  //     }, 1000)
+  //   }
+  // }, [err])
 
   return toast(
     <div className={classNames.toastContent}>

@@ -4,21 +4,21 @@ import { useRouter } from 'next/router'
 
 import s from './create-new-password.module.scss'
 
-import { useCreateNewPasswordMutation } from '@/src/assets/api/auth'
-import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
+import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
 import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schema'
 import { CreateNewPassword } from '@/src/components/auth/create-new-password/CreateNewPassword'
 import { Header } from '@/src/components/layout/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { NextPageWithLayout } from '@/src/pages/_app'
+import { useCreateNewPasswordMutation } from 'src/services/auth'
 
 const CreateNewPasswordPage: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
 
   const [createNewPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
 
-  useErrorToastHandler(isSuccess, error)
+  useErrorToast(isSuccess, error)
 
   if (isLoading) return <p>Loading...</p>
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import LogoutIcon from '@/src/assets/icons/LogoutIcon'
 import SaveIcon from '@/src/assets/icons/save-icon'
 import { LinkMenu } from '@/src/components/profile/links'

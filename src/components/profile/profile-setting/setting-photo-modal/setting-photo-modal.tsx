@@ -4,7 +4,7 @@ import AvatarEditor from 'react-avatar-editor'
 
 import s from './setting-photo.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { Photo } from '@/src/components/profile/profile-setting/setting-photo-modal/photo'
 import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
