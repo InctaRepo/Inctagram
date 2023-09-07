@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 
 import s from './profileSettings.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'

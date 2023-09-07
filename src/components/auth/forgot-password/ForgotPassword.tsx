@@ -7,14 +7,14 @@ import { useForm } from 'react-hook-form'
 
 import s from './forgotPassword.module.scss'
 
-import { PasswordRecoveryType } from '@/src/assets/api/types'
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import { ControlledRecaptcha } from '@/src/components/ui/controlled/controlled-recaptcha'
 import { Typography } from '@/src/components/ui/typography/typography'
+import { PasswordRecoveryType } from '@/src/services/auth/auth-api-types'
 
 type PropsType = {
   onSubmitHandler: (data: PasswordRecoveryType) => void

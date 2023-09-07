@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import CreateIcon from '@/src/assets/icons/create-icon'
 import HomeIcon from '@/src/assets/icons/home-icon'
 import MessageIcon from '@/src/assets/icons/message-icon'

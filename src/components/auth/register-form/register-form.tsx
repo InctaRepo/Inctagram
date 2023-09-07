@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 
 import s from './register-form.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'

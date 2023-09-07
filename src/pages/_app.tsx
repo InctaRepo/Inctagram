@@ -1,17 +1,15 @@
+import { useLoader } from '@/src/assets/hooks/use-loader'
+import { store } from '@/src/services/store'
 import '@/src/styles/_globals.scss'
 import '@/src/styles/nprogress.scss'
-import 'react-toastify/dist/ReactToastify.css'
 
-import { ReactElement, ReactNode, useEffect, useState } from 'react'
+import { ReactElement, ReactNode } from 'react'
 
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import NProgress from 'nprogress'
 import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
-
-import { store } from '@/src/assets/api/store'
-import { useLoader } from '@/src/assets/hooks/useLoader'
+import 'react-toastify/dist/ReactToastify.css'
 
 export type NextPageWithLayout<P = {}> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactNode

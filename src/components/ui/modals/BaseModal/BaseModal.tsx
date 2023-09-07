@@ -110,7 +110,7 @@ function getSizeClassName(size: ModalSize) {
   if (size === 'lg') return s.lg
 }
 
-export default BaseModal
+export default BaseModal // do not export this , instead use dynamic import "Modal" for js bundle reduce
 export const Modal = dynamic(() => import('@/src/components/ui/modals/BaseModal/BaseModal'), {
   loading: () => <p>Loading...</p>,
   // TODO spinner in suspense

@@ -6,7 +6,7 @@ import { FieldValues, UseControllerProps } from 'react-hook-form'
 
 import s from './recaptcha.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import Privacy from '@/src/assets/icons/recaptcha.svg'
 import Checked from '@/src/assets/icons/recaptchaChecked.svg'
 import { Card } from 'src/components/ui/card-temporary'
