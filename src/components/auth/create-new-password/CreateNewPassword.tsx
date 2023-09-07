@@ -11,7 +11,7 @@ import {
   PasswodsMatchFormType,
   passwordsMatchSchema,
 } from '@/src/common/schemas/passwordsMatch-schema'
-import styles from '@/src/components/auth/create-new-password/createNewPassword.module.scss'
+import s from '@/src/components/auth/create-new-password/createNewPassword.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import { Typography } from '@/src/components/ui/typography'
@@ -51,7 +51,7 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
   })
 
   return (
-    <form className={styles.wrapper} onSubmit={onSubmit}>
+    <form className={s.wrapper} onSubmit={onSubmit}>
       <Typography variant={'h1'}>{t.auth.createNewPassword}</Typography>
       <DevTool control={control} />
 
@@ -60,7 +60,7 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
         name={'password'}
         type={'password'}
         label={t.auth.newPassword}
-        className={styles.password}
+        className={s.password}
       />
 
       <ControlledTextField
@@ -68,14 +68,14 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
         name={'passwordConfirm'}
         type={'password'}
         label={t.auth.passwordConfirmation}
-        className={`${styles.password} ${errors.passwordConfirm && styles.fieldWithError}`}
+        className={`${s.password} ${errors.passwordConfirm && s.fieldWithError}`}
       />
-      <div className={styles.text}>
-        <Typography variant="medium14" className={styles.passwordRequirement}>
+      <div className={s.text}>
+        <Typography variant="medium14" className={s.passwordRequirement}>
           {t.auth.passwordCharacters}
         </Typography>
       </div>
-      <Button type={'submit'} variant="primary" fullWidth={true} className={styles.btn}>
+      <Button type={'submit'} variant="primary" fullWidth={true} className={s.btn}>
         <Typography variant="bold16">{t.auth.createNewPassword}</Typography>
       </Button>
     </form>
