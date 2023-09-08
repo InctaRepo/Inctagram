@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 import clsx from 'clsx'
 import Image from 'next/image'
-import { FieldValues, UseControllerProps } from 'react-hook-form'
+import { useRouter } from 'next/router'
+import { FieldError, FieldValues, UseControllerProps } from 'react-hook-form'
 
 import s from './recaptcha.module.scss'
 
@@ -15,7 +16,8 @@ export type RecaptchaProps = {
   primary?: boolean
   expired?: boolean
   className?: string
-  errors?: any
+  errors?: FieldError | undefined
+  // onChange?: (val: boolean) => void // look at comment in context
 }
 
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
@@ -29,10 +31,12 @@ export const Recaptcha = <T extends FieldValues>({
   name,
   primary,
   expired,
+  onChange,
   ...rest
 }: Props<T>) => {
   const [mode, setMode] = useState(modes[0])
   const { t } = useTranslate()
+  const router = useRouter()
 
   useEffect(() => {
     if (errors?.recaptcha) {
@@ -52,8 +56,7 @@ export const Recaptcha = <T extends FieldValues>({
     setTimeout(() => {
       setIsLoading(!isLoading)
       setIsChecked(!isChecked)
-      // rest.onChange(true)
-      // TODO error no onchange props
+      onChange(true)
     }, 1000)
   }
 
@@ -82,7 +85,13 @@ export const Recaptcha = <T extends FieldValues>({
           <label>{t.auth.authErrors.recaptcha.notARobot}</label>
         </div>
         <div className={s.privacy}>
-          <Image src={Privacy} width="46" height="57" alt="privacy" />
+          <Image
+            src={Privacy}
+            width="46"
+            height="57"
+            alt="privacy"
+            onClick={() => router.push('/auth/terms-of-use')}
+          />
         </div>
       </Card>
       <p className={classNames.errorText}>{t.auth.authErrors.recaptcha.verifyPlease}</p>
