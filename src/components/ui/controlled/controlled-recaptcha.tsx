@@ -12,7 +12,7 @@ export const ControlledRecaptcha = <T extends FieldValues>({
 }: Props<T>) => {
   const {
     fieldState: { error },
-    field: { ref, ...fieldProps },
+    field: { ref, ...fieldProps }, // context should to type as here https://github.com/react-hook-form/react-hook-form/issues/10466
   } = useController({
     name,
     control,
