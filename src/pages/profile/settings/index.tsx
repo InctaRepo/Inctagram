@@ -1,7 +1,24 @@
-import React from 'react'
+import { useEffect } from 'react'
 
-import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
+import { useRouter } from 'next/router'
 
-const Index = () => <SettingPhotoModal />
+import { RouteNames } from '@/src/common/constants/route-names'
+import { ProfileSettings } from '@/src/components/profile/profile-settings/Profile-settings'
+import { useAppSelector } from '@/src/services'
+import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
+
+const Index = () => {
+  const isAuth = useAppSelector(authIsAuthSelector)
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!isAuth) {
+      router.push(RouteNames.SIGN_IN)
+    }
+  }, [isAuth, router])
+
+  return isAuth && <ProfileSettings />
+}
 
 export default Index
