@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 
 import clsx from 'clsx'
+import { useRouter } from 'next/router'
 
 import s from '@/src/components/auth/auth-page/AuthPage.module.scss'
 import { Button } from '@/src/components/ui/button'
@@ -13,6 +14,7 @@ type AuthPageType = {
   children?: React.ReactNode
   nameButtonTwo?: string
   variant?: 'merger'
+  linkPath?: string
 }
 export const AuthPage: FC<AuthPageType> = ({
   title,
@@ -21,10 +23,12 @@ export const AuthPage: FC<AuthPageType> = ({
   children,
   text,
   nameButton,
+  linkPath,
 }) => {
   const styles = {
     button: clsx(s.button, variant && s.buttonMerger),
   }
+  const router = useRouter()
 
   return (
     <div className={s.container}>
@@ -43,6 +47,7 @@ export const AuthPage: FC<AuthPageType> = ({
           variant={variant ? 'outlined' : 'primary'}
           fullWidth={true}
           className={styles.button}
+          onClick={() => linkPath && router.push(linkPath)}
         >
           <Typography variant="bold14">{nameButton}</Typography>
         </Button>

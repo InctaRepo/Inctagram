@@ -3,7 +3,7 @@ import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schem
 import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
 import { RegisterFormType } from '@/src/common/schemas/register-schema'
 
-type FormType = LoginFormType | RegisterFormType | ProfileSettingFormType
+type FormType = LoginFormType | RegisterFormType | ProfileSettingFormType | PasswodsMatchFormType
 // add your form manual type
 
 export type FormFields = keyof FormType

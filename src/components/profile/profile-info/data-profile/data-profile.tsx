@@ -1,4 +1,4 @@
-import { router } from 'next/client'
+import { useRouter } from 'next/router'
 
 import s from './data-profile.module.scss'
 
@@ -7,13 +7,16 @@ import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
 export const DataProfile = () => {
+  const { push } = useRouter()
+
   const { t } = useTranslate()
+  const router = useRouter()
 
   return (
     <div>
       <div className={s.header}>
         <Typography variant="h1">URLProfile</Typography>
-        <Button variant={'secondary'} onClick={() => router.push('/profile-setting')}>
+        <Button variant={'secondary'} onClick={() => push('/profile/settings')}>
           <Typography variant={'medium14'}>{t.profile.profileSettings}</Typography>
         </Button>
       </div>

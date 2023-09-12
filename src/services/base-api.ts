@@ -1,22 +1,20 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-/**
- * all requests from this basequery
- */
+export const baseUrl = 'https://inctagram-social.vercel.app/back-api/'
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://inctagram-social.vercel.app/back-api/',
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = (getState() as RootState).authReducer.token
-    //
-    //   if (token) {
-    //     headers.set('Authorization', `Bearer ${token}`)
-    //   }
-    //
-    //   return headers
-    // },
+    baseUrl,
+    prepareHeaders: headers => {
+      const access = localStorage.getItem('access')
+
+      if (access) {
+        headers.set('Authorization', `Bearer ${access}`) // set the Authorization header
+      }
+
+      return headers
+    },
   }),
   endpoints: () => ({}),
 })

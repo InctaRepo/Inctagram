@@ -56,7 +56,6 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
-    // TODO:  it works ! but need to replace this handler (not a good one)
   }, [t])
 
   const onSubmit = handleSubmit((data: ProfileSettingFormType) => {
