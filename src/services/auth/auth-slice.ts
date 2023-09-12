@@ -1,13 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { UserType } from '@/src/services/auth/auth-api-types'
+
+type AuthState = {
+  user: UserType | null
+  isAuth: boolean
+}
+
+const initialState: AuthState = {
+  user: null,
+  isAuth: false,
+}
+
 const slice = createSlice({
+  initialState,
+
   name: 'auth',
-  initialState: {
-    accessToken: '' as string,
-  },
   reducers: {
-    setAccessToken(state, action: PayloadAction<string>) {
-      state.accessToken = action.payload
+    logout: () => initialState,
+    setIsAuth: (state, action: PayloadAction<boolean>) => {
+      state.isAuth = action.payload
+    },
+    setUser: (state, action: PayloadAction<UserType>) => {
+      state.user = action.payload
     },
   },
 })

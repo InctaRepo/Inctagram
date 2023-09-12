@@ -1,4 +1,4 @@
-import { router } from 'next/client'
+import { useRouter } from 'next/router'
 
 import s from './data-profile.module.scss'
 
@@ -8,6 +8,7 @@ import { Typography } from '@/src/components/ui/typography'
 
 export const DataProfile = () => {
   const { t } = useTranslate()
+  const router = useRouter()
 
   return (
     <div>
