@@ -18,7 +18,7 @@
   text-align: center;
 }
 
-li {
+.oneLink {
   @include wh(243px, 36px);
   display: flex;
   justify-content: center;

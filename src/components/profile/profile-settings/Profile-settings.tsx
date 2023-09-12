@@ -24,73 +24,73 @@ import { Typography } from '@/src/components/ui/typography'
 import { SelectBox } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
-  onSubmitHandler: (data: ProfileSettingFormType) => void
-  defaultValue: string | number
+  onSubmitHandler?: (data: ProfileSettingFormType) => void
+  defaultValue?: string | number
 }
 
-export const ProfileSettings =
-  (/*{ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType*/) => {
-    const { t } = useTranslate()
-    const router = useRouter()
-    //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
+export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
+  const { t } = useTranslate()
+  const router = useRouter()
+  //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
 
-    const {
-      control,
-      handleSubmit,
-      formState,
-      trigger,
-      formState: { touchedFields },
-    } = useForm<ProfileSettingFormType>({
-      resolver: zodResolver(createProfileSettingSchema(t)),
-      mode: 'onTouched',
-      defaultValues: {
-        username: '',
-        firstName: '',
-        lastName: '',
-        dateOfBirthday: '',
-        city: '',
-        aboutMe: '',
-      },
-    })
+  const {
+    control,
+    handleSubmit,
+    formState,
+    trigger,
+    formState: { touchedFields },
+  } = useForm<ProfileSettingFormType>({
+    resolver: zodResolver(createProfileSettingSchema(t)),
+    mode: 'onTouched',
+    defaultValues: {
+      username: '',
+      firstName: '',
+      lastName: '',
+      dateOfBirthday: '',
+      city: '',
+      aboutMe: '',
+    },
+  })
 
-    useEffect(() => {
-      const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
+  useEffect(() => {
+    const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
-      triggerZodFieldError(touchedFieldNames, trigger)
-    }, [t])
+    triggerZodFieldError(touchedFieldNames, trigger)
+  }, [t])
 
-    /*const onSubmit = handleSubmit((data: ProfileSettingFormType) => {
-      onSubmitHandler(data)
-    })*/
+  const onSubmit = handleSubmit((data: ProfileSettingFormType) => {
+    onSubmitHandler(data)
+  })
 
-    const changeCityHandler = (newCity: string | number) => {}
+  const changeCityHandler = (newCity: string | number) => {}
 
-    return (
+  return (
+    <>
       <div className={s.profile}>
         <nav>
           <ul className={s.navMenu}>
-            <li>
+            <li className={s.oneLink}>
               <Link className={s.link} href={'/'}>
                 <Typography variant={'h3'} color="secondary">
                   {t.profile.profileSetting.generalInformation}
                 </Typography>
               </Link>
             </li>
-            <li>
+            <li className={s.oneLink}>
               <Link className={s.link} href={'/devices'}>
                 <Typography variant={'h3'} color="secondary">
                   {t.profile.profileSetting.devices}
                 </Typography>
               </Link>
             </li>
-            <li>
+            <li className={s.oneLink}>
               <Link className={s.link} href={'/account-management'}>
                 <Typography variant={'h3'} color="secondary">
                   {t.profile.profileSetting.accountManagement}
                 </Typography>
               </Link>
             </li>
-            <li>
+            <li className={s.oneLink}>
               <Link className={s.link} href={'/my-payment'}>
                 <Typography variant={'h3'} color="secondary">
                   {t.profile.profileSetting.myPayment}
@@ -163,5 +163,6 @@ export const ProfileSettings =
           </Button>
         </div>
       </div>
-    )
-  }
+    </>
+  )
+}
