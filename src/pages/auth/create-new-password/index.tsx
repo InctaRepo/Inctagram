@@ -4,18 +4,15 @@ import { useRouter } from 'next/router'
 
 import s from './create-new-password.module.scss'
 
+import { useTranslate } from '@/src/assets/hooks'
 import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
-import { useCreateNewPasswordMutation } from '@/src/assets/api/auth'
-import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
-
 import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schema'
 import { CreateNewPassword } from '@/src/components/auth/create-new-password/CreateNewPassword'
 import { Header } from '@/src/components/layout/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { NextPageWithLayout } from '@/src/pages/_app'
-import { useCreateNewPasswordMutation } from 'src/services/auth'
+import { useCreateNewPasswordMutation } from '@/src/services/auth/auth-api'
 
 const CreateNewPasswordPage: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
