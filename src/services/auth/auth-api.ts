@@ -16,6 +16,7 @@ import { baseQueryWithReauth } from '@/src/services/custom-fetch-base'
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: baseQueryWithReauth,
+  tagTypes: ['getMe'],
   endpoints: builder => ({
     getMe: builder.query<BaseResponseType<UserType>, void>({
       query: () => 'auth/me',
@@ -33,6 +34,7 @@ export const authApi = createApi({
           dispatch(appActions.setAppInitialized({ isInitialized: true }))
         }
       },
+      providesTags: ['getMe'],
       extraOptions: { maxRetries: false },
     }),
     loginUser: builder.mutation<BaseResponseType<AccessType>, LoginArgsType>({
@@ -47,13 +49,13 @@ export const authApi = createApi({
 
           if (data.resultCode === 0) {
             localStorage.setItem('access', data.data.accessToken)
-            dispatch(authApi.endpoints?.getMe.initiate())
-            // TODO: need fix - not working on every handler "login" from sign-in page, may be did from addMatcher in slice
+            // TODO: invalidate getMe only after access token is set ( now getMe query without token )
           }
         } catch (e) {
           console.error(e)
         }
       },
+      invalidatesTags: ['getMe'],
     }),
     logoutUser: builder.mutation<void, void>({
       query: () => ({

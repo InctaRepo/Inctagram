@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import ConfirmedImage from '@/src/assets/images/email-confirmed-image'
 import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
 import { AuthLayout } from '@/src/components/layout/auth-layout'
+import AppLoader from '@/src/components/ui/loader/app-loader'
 import { NextPageWithLayout } from '@/src/pages/_app'
 import { useRegConfirmMutation } from '@/src/services/auth/auth-api'
 
@@ -32,8 +33,8 @@ const EmailConfirmed: NextPageWithLayout = () => {
           <ConfirmedImage />
         </AuthPage>
       ) : (
-        <div>Waiting...</div>
-        // TODO loader on waiting response and global error handling
+        <AppLoader />
+        // TODO global loader on waiting response and global error handling
       )}
     </AuthLayout>
   )

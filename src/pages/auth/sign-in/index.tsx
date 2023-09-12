@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
+import { RouteNames } from '@/src/common/constants/route-names'
 import { LoginForm } from '@/src/components/auth/login-form/login-form'
 import { getAuthLayout } from '@/src/components/layout/auth-layout'
 import { NextPageWithLayout } from '@/src/pages/_app'
@@ -17,7 +18,7 @@ const SignInPage: NextPageWithLayout = () => {
 
   useEffect(() => {
     if (isAuth) {
-      router.push('/profile')
+      router.push(RouteNames.MY_PROFILE)
     }
   }, [isAuth, router])
 
