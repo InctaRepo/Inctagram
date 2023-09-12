@@ -1,0 +1,86 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+
+label {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+button {
+  z-index: 2;
+  cursor: pointer;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.croppedImage {
+  height: 503px;
+  width: 490px;
+}
+
+.croppedImageContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+._coverImage-holder  {
+  padding: 25px 40px;
+  background-color:black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 490px;
+  height: 503px;
+}
+
+.cropContainer {
+  height: 503px;
+  width: 490px;
+}
+
+.croppedPhoto {
+  height: 490px;
+  width: 503px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  position: absolute;
+  bottom: 15px;
+}
+
+.expand {
+  position: relative;
+  cursor: pointer;
+
+}
+
+.maximize {
+  position: relative;
+  cursor: pointer;
+}
+
+.edit {
+  display: flex;
+  flex-direction: row;
+}
+
+.editAndAdd {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+

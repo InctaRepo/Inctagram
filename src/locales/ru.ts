@@ -81,6 +81,7 @@ export const ru = {
     addPostPhoto: 'Добавить фото',
     selectFromComputer: 'Выбрать с компьютера',
     passwordChanged: 'Ваш пароль был успешно изменен',
+    save: 'Сохранить',
     profileSetting: {
       generalInformation: 'Общая информация',
       devices: 'Устройства',

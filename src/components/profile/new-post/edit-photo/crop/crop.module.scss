@@ -1,0 +1,62 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.cropBtn {
+  @include wh(36px, 36px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: $color-dark-500;
+  color: $color-light-700;
+  opacity: 80%;
+  cursor: pointer;
+  border-radius: 2px;
+  margin: 0 24px 11px 11px;
+  &:hover{
+    color:$color-light-100;
+  }
+}
+
+.cropOptions{
+  @include wh(156px, 152px);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  gap: 2px;
+  background-color: $color-dark-500;
+  border-radius: 2px;
+  opacity: 80%;
+  color: $color-light-900;
+  margin-top: -200px;
+  margin-left: 11px;
+}
+
+.cropOption{
+  @include wh(128px, 26px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1px 12px 11px 12px;
+  cursor: pointer;
+  &:hover{
+    color:$color-light-100;
+  }
+}
+
+.cropOption1{
+  @include wh(128px, 26px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 12px 11px 12px;
+  cursor: pointer;
+  &:hover{
+    color:$color-light-100;
+  }
+}

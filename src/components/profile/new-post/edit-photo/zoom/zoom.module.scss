@@ -1,0 +1,23 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.zoomBtn {
+  @include wh(36px, 36px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: $color-dark-500;
+  color: $color-light-700;
+  opacity: 80%;
+  cursor: pointer;
+  border-radius: 2px;
+  &:hover{
+    color:$color-light-100;
+  }
+}

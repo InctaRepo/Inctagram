@@ -81,6 +81,7 @@ export const en: LocaleType = {
     addPostPhoto: 'Add Photo',
     selectFromComputer: 'Select from Computer',
     passwordChanged: 'Your password was successfully changed',
+    save: 'Save',
     profileSetting: {
       generalInformation: 'General information',
       devices: 'Devices',

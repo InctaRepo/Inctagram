@@ -1,7 +1,10 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
 
+import { Typography } from '@mui/material'
+
 import s from './input-type-file.module.scss'
 
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { Button } from '@/src/components/ui/button'
 
 type InputTypeFileProps = {
@@ -9,6 +12,7 @@ type InputTypeFileProps = {
 }
 export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const { t } = useTranslate()
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
@@ -27,7 +31,7 @@ export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
   return (
     <div>
       <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
-        Select from Computer
+        <Typography>{t.profile.selectFromComputer}</Typography>
       </Button>
       <input
         style={{ display: 'none' }}
