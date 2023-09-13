@@ -87,7 +87,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
             type="button"
             onClick={() => router.push('/')}
           >
-            <Typography variant="regular16">{t.auth.backToSignIn}</Typography>
+            <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
           </Button>
           <ControlledRecaptcha
             control={control}

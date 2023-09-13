@@ -9,12 +9,12 @@ import s from '@/src/components/profile/menu-container/menu-container.module.scs
 
 export const MenuContainer = () => {
   const [variantIcon, setVariantIcon] = useState<
-    'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+    'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   >()
   const { t } = useTranslate()
 
   const handleItemClick = (
-    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+    variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   ) => {
     setVariantIcon(variant)
   }

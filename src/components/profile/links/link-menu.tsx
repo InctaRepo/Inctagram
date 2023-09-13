@@ -9,9 +9,9 @@ type LinkMenuType = {
   nameLink: string
   link: string
   children: ReactNode
-  variantIcon?: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+  variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   handleClick: (
-    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+    variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   ) => void
 }
 export const LinkMenu: FC<LinkMenuType> = ({
