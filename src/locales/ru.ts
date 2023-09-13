@@ -34,6 +34,7 @@ export const ru = {
     termsOfService: 'Правилами',
     and: 'и',
     policy: 'Политикой',
+
     // error fields block start =======================================================
 
     authErrors: {
@@ -69,7 +70,11 @@ export const ru = {
     createPost: 'Создать пост',
     myProfile: 'Мой профиль',
     logout: 'Выйти',
-    confirmLogout: 'Вы действительно хотите выйти из своей учетной записи',
+    confirmLogout(email: string) {
+      return `Вы действительно хотите выйти из своей учетной записи ${email}?`
+    },
+    yes: 'Да',
+    no: 'Нет',
     subscriptions: 'Подписки',
     subscribers: 'Подписчики',
     publications: 'Публикации',

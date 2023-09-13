@@ -11,7 +11,10 @@
     height: 100%;
     align-items: start;
     justify-content: space-between;
-    width: 114px;
+    width: 140px;
+    .favorites{
+      padding: 6px 12px;
+    }
     .logout {
       margin-bottom: 36px;
       margin-left: 5px;
