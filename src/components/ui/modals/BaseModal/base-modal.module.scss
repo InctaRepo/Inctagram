@@ -11,7 +11,7 @@
 }
 
 .actionButton {
-  margin-left: auto;
+  //margin-right: auto;
 }
 
 .actionButtonHide {
@@ -137,7 +137,8 @@
 }
 
 .footerBlock {
-  @include flex-block($flex-direction: row, $justify-content: space-between);
+  padding-top: 12px;
+  @include flex-block($flex-direction: row, $justify-content: flex-end, $gap: 20px);
 }
 
 @keyframes contentShow {

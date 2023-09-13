@@ -72,8 +72,7 @@
 }
 
 .outlined {
-  @include button($color: $color-accent-500, $bgColor: $color-dark-900);
-
+  @include button($color: $color-accent-500, $bgColor: none);
   outline: 1px solid $color-accent-500;
 
   &:active:not(:disabled) {
