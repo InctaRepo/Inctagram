@@ -10,6 +10,7 @@ export const DataProfile = () => {
   const { push } = useRouter()
 
   const { t } = useTranslate()
+  const router = useRouter()
 
   return (
     <div>

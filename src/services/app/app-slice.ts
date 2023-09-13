@@ -1,20 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { toast } from 'react-toastify'
 
-export type ErrorType = string | null | undefined
+// export type ErrorType = string | null | undefined
 
 const slice = createSlice({
   name: 'app',
   initialState: {
-    error: null as ErrorType,
     isLoading: false as boolean,
+    error: null as string | null,
+    isInitialized: false as boolean,
   },
   reducers: {
-    setError: (state, action: PayloadAction<{ error: ErrorType }>) => {
-      state.error = action.payload.error
-    },
+    // setError: (state, action: PayloadAction<{ error: string | null }>) => {
+    //   state.error = action.payload.error
+    // },
     setIsLoading: (state, action: PayloadAction<{ isLoading: boolean }>) => {
       state.isLoading = action.payload.isLoading
+    },
+    setAppInitialized: (state, action: PayloadAction<{ isInitialized: boolean }>) => {
+      state.isInitialized = action.payload.isInitialized
     },
   },
   extraReducers: builder => {
@@ -37,20 +40,21 @@ const slice = createSlice({
       )
       .addMatcher(
         action => {
-          return action.type.endsWith('/rejected')
+          return action.type.endsWith('/fulfilled')
         },
-        (state, action) => {
-          state.isLoading = false
-          const { errorMessage, showGlobalError = true } = action.payload
+        //TODO error handling with status codes in response
 
-          if (!showGlobalError) return
-          if (errorMessage) {
-            state.error = errorMessage
-          } else {
-            state.error = `Undefined error occurred`
-          }
-          toast.error(state.error)
-          state.error = ''
+        (state, action) => {
+          // state.isLoading = false
+          // const { errorMessage, showGlobalError = true } = action.payload
+          // if (!showGlobalError) return
+          // if (errorMessage) {
+          //   state.error = errorMessage
+          // } else {
+          //   state.error = `Undefined error occurred`
+          // }
+          // toast.error(state.error)
+          // state.error = ''
         }
       )
   },

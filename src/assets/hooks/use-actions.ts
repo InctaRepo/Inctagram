@@ -7,7 +7,7 @@ import {
   bindActionCreators,
 } from '@reduxjs/toolkit'
 
-import { useAppDispatch } from './use-app-dispatch'
+import { useAppDispatch } from '@/src/services'
 
 /**
  * Данная функция useActions является React-хуком, который принимает объект actions с функциями-создателями действий (action creators)

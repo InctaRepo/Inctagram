@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic'
 
 import CloseIcon from '@/src/assets/icons/close-icon'
 import { Button } from '@/src/components/ui/button'
+import AppLoader from '@/src/components/ui/loader/app-loader'
 import s from '@/src/components/ui/modals/BaseModal/base-modal.module.scss'
 import { Typography } from '@/src/components/ui/typography'
 
@@ -112,7 +113,6 @@ function getSizeClassName(size: ModalSize) {
 
 export default BaseModal // do not export this , instead use dynamic import "Modal" for js bundle reduce
 export const Modal = dynamic(() => import('@/src/components/ui/modals/BaseModal/BaseModal'), {
-  loading: () => <p>Loading...</p>,
-  // TODO spinner in suspense
+  loading: () => <AppLoader />,
   ssr: false,
 })

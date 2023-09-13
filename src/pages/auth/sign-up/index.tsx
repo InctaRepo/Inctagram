@@ -9,13 +9,13 @@ import { RegisterForm } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/layout/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
-import { useCreateUserMutation } from 'src/services/auth'
+import { useRegisterMutation } from '@/src/services/auth/auth-api'
 
 const SignUpPage = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-  const [userRegistration, { isSuccess, data }] = useCreateUserMutation()
+  const [userRegistration, { isSuccess, data }] = useRegisterMutation()
 
   // START : for error handling manual , need refactor =================================================
   const successRes = isSuccess && data?.resultCode === 0
@@ -40,6 +40,8 @@ const SignUpPage = () => {
       }
     }
   }, [isSuccess, data])
+  //TODO refactor error handling to global
+
   // END : for error handling manual , need refactor =================================================
 
   const submit = (data: RegisterFormType) => {
