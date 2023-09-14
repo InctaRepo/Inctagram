@@ -59,7 +59,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   }, [t])
 
   const onSubmit = handleSubmit((data: ProfileSettingFormType) => {
-    onSubmitHandler(data)
+    onSubmitHandler?.(data)
   })
 
   const changeCityHandler = (newCity: string | number) => {}

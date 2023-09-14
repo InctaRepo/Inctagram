@@ -9,8 +9,7 @@ import { baseUrl } from '@/src/services/base-api'
 const baseQuery = fetchBaseQuery({
   baseUrl,
   // credentials: 'include',
-  // TODO turn on, when server will add deployed front side
-  // need for sent cookies to server side
+  // TODO: turn on, when server will add deployed front side, need for sent cookies to server side
   prepareHeaders: headers => {
     const access = localStorage.getItem('access')
 
@@ -30,9 +29,8 @@ export const baseQueryWithReauth: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions)
 
   //@ts-ignore
-  if (result.data.resultCode === 3) {
-    console.log('reauthQuery: Unauthorized case')
-    api.dispatch(authActions.setIsAuth(false))
+  if (result.data.resultCode !== 0) {
+    console.log('reauthQuery: access token invalid')
     const refreshResult = await baseQuery(
       { url: 'auth/refresh-token', method: 'POST' },
       api,
@@ -41,14 +39,14 @@ export const baseQueryWithReauth: BaseQueryFn<
 
     //@ts-ignore
     if (refreshResult.data.resultCode === 0) {
-      console.log('reauthQuery: refresh result success')
+      console.log('reauthQuery: access token refreshed')
       //@ts-ignore
       localStorage.setItem('access', refreshResult.data.data.accessToken)
       api.dispatch(authApi.endpoints.getMe.initiate())
       // Retry the initial query
       result = await baseQuery(args, api, extraOptions)
     } else {
-      console.log('reauthQuery: refresh result error')
+      console.log('reauthQuery: refresh token invalid , logout')
       api.dispatch(authActions.logout())
     }
   }

@@ -11,12 +11,12 @@ import {
   UserType,
 } from '@/src/services/auth/auth-api-types'
 import { authActions } from '@/src/services/auth/auth-slice'
-import { baseQueryWithReauth } from '@/src/services/custom-fetch-base'
+import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: baseQueryWithReauth,
-  tagTypes: ['getMe'],
+  tagTypes: ['Me'],
   endpoints: builder => ({
     getMe: builder.query<BaseResponseType<UserType>, void>({
       query: () => 'auth/me',
@@ -34,7 +34,7 @@ export const authApi = createApi({
           dispatch(appActions.setAppInitialized({ isInitialized: true }))
         }
       },
-      providesTags: ['getMe'],
+      providesTags: ['Me'],
       extraOptions: { maxRetries: false },
     }),
     loginUser: builder.mutation<BaseResponseType<AccessType>, LoginArgsType>({
@@ -49,13 +49,13 @@ export const authApi = createApi({
 
           if (data.resultCode === 0) {
             localStorage.setItem('access', data.data.accessToken)
-            // TODO: invalidate getMe only after access token is set ( now getMe query without token )
+            dispatch(authApi.util.invalidateTags(['Me']))
+            // reQuery getMe, after login
           }
         } catch (e) {
           console.error(e)
         }
       },
-      invalidatesTags: ['getMe'],
     }),
     logoutUser: builder.mutation<void, void>({
       query: () => ({
@@ -101,5 +101,4 @@ export const {
   useRegConfirmMutation,
   useLogoutUserMutation,
   useGetMeQuery,
-  useLazyGetMeQuery,
 } = authApi
