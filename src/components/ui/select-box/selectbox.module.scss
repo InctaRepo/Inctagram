@@ -13,30 +13,35 @@
   letter-spacing: 0;
 }
 
-.selectBox {
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  outline: none;
-  padding-left: 10px;
+.selectIcon {
+  color: $color-light-100;
+  transition: 0.2s ease-in-out;
+}
 
+.selectBox {
   cursor: pointer;
 
-  font: 400 16px Inter;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 36px;
+  padding-left: 10px;
+
   line-height: $line-height-m;
   text-align: left;
   letter-spacing: 0;
 
   background-color: $color-dark-700;
   border: 1px solid $color-dark-100;
+  outline: none;
   box-shadow: none;
 
   &:focus {
-    border: 2px solid $color-accent-500;
     color: #8d9094;
     background-color: $color-dark-500;
+    border: 2px solid $color-accent-500;
   }
 
   &:hover {
@@ -64,31 +69,32 @@
   }
 }
 
-.selectIcon {
-  color: $color-light-100;
-  transition: 0.2s ease-in-out;
-}
-
 .selectContent {
   width: var(--radix-select-trigger-width);
   background-color: $color-dark-500;
   border: 1px solid $color-dark-100;
 }
+
 .value {
   display: flex;
-  align-items: center;
   gap: 12px;
+  align-items: center;
 }
+
 .line {
+  cursor: pointer;
+
   display: flex;
-  align-items: center;
   gap: 12px;
-  font: 400 14px Inter;
+  align-items: center;
+
+  padding: 6px 12px;
+
   line-height: $line-height-m;
   letter-spacing: 0;
-  padding: 6px 12px;
-  cursor: pointer;
+
   outline: none;
+
   transition: 0.2s ease-out;
 
   &:hover,

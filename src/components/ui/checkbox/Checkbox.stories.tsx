@@ -20,7 +20,6 @@ type Story = StoryObj<typeof Checkbox>
 
 export const Default: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [checked, setChecked] = useState(false)
 
     return (

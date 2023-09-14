@@ -121,8 +121,10 @@
             }
           }
 
-          .rmdp-day .rmdp-day.rmdp-deactive span {
-            color: $color-dark-100 !important;
+          .rmdp-day.rmdp-selected span {
+            color: $color-light-100 !important;
+            background-color: $color-accent-500;
+            border-radius: 14px;
           }
 
           .rmdp-day.rmdp-today span {
@@ -130,15 +132,13 @@
             background: unset;
           }
 
+          .rmdp-day .rmdp-day.rmdp-deactive span {
+            color: $color-dark-100 !important;
+          }
+
           .rmdp-day.rmdp-selected {
             background-color: $color-accent-900;
             border-radius: 18px;
-          }
-
-          .rmdp-day.rmdp-selected span {
-            color: $color-light-100 !important;
-            background-color: $color-accent-500;
-            border-radius: 14px;
           }
         }
       }
