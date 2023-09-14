@@ -17,11 +17,11 @@ export type RecaptchaProps = {
   expired?: boolean
   className?: string
   errors?: FieldError | undefined
-  // onChange?: (val: boolean) => void // look at comment in context
+  onChange?: (val: boolean) => void
 }
 
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
-  Omit<RecaptchaProps, 'onChange' | 'value'>
+  Omit<RecaptchaProps, 'value'>
 
 const modes = ['mode-primary', 'mode-error', 'mode-expired']
 
@@ -39,13 +39,14 @@ export const Recaptcha = <T extends FieldValues>({
   const router = useRouter()
 
   useEffect(() => {
-    if (errors?.recaptcha) {
+    if (errors && 'recaptcha' in errors) {
       // Current active styles in mode
       setMode(modes[1])
     } else {
       setMode(modes[0])
     }
-  }, [errors.recaptcha])
+    //TODO: fix this ts error
+  }, [errors && 'recaptcha' in errors && errors?.recaptcha])
 
   const [isLoading, setIsLoading] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
@@ -56,7 +57,7 @@ export const Recaptcha = <T extends FieldValues>({
     setTimeout(() => {
       setIsLoading(!isLoading)
       setIsChecked(!isChecked)
-      onChange(true)
+      onChange?.(true)
     }, 1000)
   }
 
@@ -66,7 +67,11 @@ export const Recaptcha = <T extends FieldValues>({
     customCheckbox: clsx(s.customCheckbox, isLoading && s.hidden),
     preloader: clsx(s.ldsRing, (!isLoading || isChecked) && s.hidden),
     checked: clsx(s.checked, !isChecked && s.hidden),
-    errorText: clsx(s.errorText, !errors?.recaptcha && s.hidden),
+    errorText: clsx(
+      s.errorText,
+      //TODO: fix this ts error
+      !(errors && 'recaptcha' in errors && errors.recaptcha) && s.hidden
+    ),
   }
 
   return (
