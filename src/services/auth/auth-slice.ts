@@ -25,14 +25,6 @@ const slice = createSlice({
       state.user = action.payload
     },
   },
-  // extraReducers: builder => {
-  //   builder.addMatcher(authApi.endpoints.loginUser.matchFulfilled, (state, action) => {
-  //     if (action.payload.resultCode === 0) {
-  //       localStorage.setItem('access', action.payload.data.accessToken)
-  //       authApi.endpoints.getMe.initiate() // Dispatch getMe after loginUser is fulfilled
-  //     }
-  //   })
-  // },
 })
 
 export const authReducer = slice.reducer
