@@ -1,14 +1,14 @@
 import type { StoryObj } from '@storybook/react'
 
-import EmailConfirmed from '@/src/pages/auth/email-confirmed/index'
+import { EmailConfirmedPage } from '@/src/components/auth/email-confirmed-page/email-confirmed-page'
 
 const meta = {
   title: 'pages/emailConfirmed',
-  component: EmailConfirmed,
+  component: EmailConfirmedPage,
 }
 
 export default meta
-type Story = StoryObj<typeof EmailConfirmed>
+type Story = StoryObj<typeof EmailConfirmedPage>
 
 export const Primary: Story = {
   args: {

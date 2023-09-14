@@ -1,19 +1,6 @@
-import TimeManagementImage from '@/src/assets/images/time-management-image'
-import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
-import { AuthLayout } from '@/src/components/layout/auth-layout'
-
+import { InvalidLinkVerificationPage } from '@/src/components/auth/invalid-link-verification/invalid-link-verification-page'
 const InvalidLinkVerification = () => {
-  return (
-    <AuthLayout>
-      <AuthPage
-        title="Email verification link invalid"
-        text="Looks like the verification link has expired. Not to worry, we can send the link again"
-        nameButton="Resend link"
-      >
-        {<TimeManagementImage />}
-      </AuthPage>
-    </AuthLayout>
-  )
+  return <InvalidLinkVerificationPage />
 }
 
 export default InvalidLinkVerification
