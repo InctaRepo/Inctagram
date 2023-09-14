@@ -1,16 +1,14 @@
 import { useState } from 'react'
 
+import s from './menu-container.module.scss'
+
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import SaveIcon from '@/src/assets/icons/save-icon'
 import { Logout } from '@/src/components/auth/logout/logout'
 import { LinkMenu } from '@/src/components/profile/links'
 import { BaseMenu } from '@/src/components/profile/menu-container/base-menu'
-import s from '@/src/components/profile/menu-container/menu-container.module.scss'
-import { useAppDispatch } from '@/src/services'
 
 export const MenuContainer = () => {
-  const dispatch = useAppDispatch()
-
   const [variantIcon, setVariantIcon] = useState<
     'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   >()

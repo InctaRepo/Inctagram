@@ -9,7 +9,7 @@
 }
 
 .container {
-  @include flex-block($justify-content: start);
+  @include flex-block($justify-content: flex-start);
 }
 
 .textarea {
