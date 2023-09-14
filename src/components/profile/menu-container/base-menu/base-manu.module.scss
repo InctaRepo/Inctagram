@@ -1,8 +1,9 @@
-.container{
-  margin-top: 48px;
+.container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
   gap: 24px;
+
   width: 120px;
+  margin-top: 48px;
+  margin-bottom: 60px;
 }

@@ -9,35 +9,42 @@
 }
 
 .container {
-  @include flex-block($justify-content: start);
+  @include flex-block($justify-content: flex-start);
 }
 
 .textarea {
+  resize: none;
+
   min-height: 84px;
   padding: 6px 12px 0;
-  outline: none;
-  resize: none;
-  background-color: $color-dark-500;
-  border: 1px solid $color-dark-100;
-  border-radius: 1px;
+
   font-family: $font-family-primary;
-  color: $color-light-900;
   font-size: $font-size-m;
   font-weight: $font-weight-h3-large;
   line-height: $line-height-m;
+  color: $color-light-900;
   letter-spacing: 0.5px;
+
+  background-color: $color-dark-500;
+  border: 1px solid $color-dark-100;
+  border-radius: 1px;
+  outline: none;
+
   &:active {
-    border: 1px solid $color-light-100;
     color: $color-light-100;
+    border: 1px solid $color-light-100;
   }
+
   &:focus {
-    outline: 1px solid $color-accent-700;
+    color: $color-light-100;
     border: 1px solid $color-accent-700;
     border-radius: 2px;
-    color: $color-light-100;
+    outline: 1px solid $color-accent-700;
   }
+
   &:disabled {
     color: $color-dark-100;
+
     &::placeholder {
       color: $color-dark-100;
     }
@@ -45,13 +52,13 @@
 }
 
 .label {
-  letter-spacing: 0.5px;
   padding-left: 1px;
+  letter-spacing: 0.5px;
 }
 
 .error {
-  border: 1px solid $color-danger-500;
   color: $color-light-100;
+  border: 1px solid $color-danger-500;
 }
 
 .disabled {

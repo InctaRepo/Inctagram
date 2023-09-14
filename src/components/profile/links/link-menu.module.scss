@@ -1,15 +1,15 @@
-@import "src/styles/colors";
-.container{
+@import 'src/styles/colors';
+
+.container {
   display: flex;
   align-items: center;
 
-  .link{
-    text-decoration: none;
+  .link {
     padding-left: 12px;
-    .active{
+    text-decoration: none;
+
+    .active {
       color: $color-accent-500;
     }
   }
 }
-
-

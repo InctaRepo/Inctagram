@@ -7,11 +7,11 @@ import s from '@/src/components/profile/links/link-menu.module.scss'
 import { Typography } from '@/src/components/ui/typography'
 type LinkMenuType = {
   nameLink: string
-  link: string
+  link?: string
   children: ReactNode
-  variantIcon?: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+  variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   handleClick: (
-    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+    variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites' | null
   ) => void
 }
 export const LinkMenu: FC<LinkMenuType> = ({
@@ -32,7 +32,7 @@ export const LinkMenu: FC<LinkMenuType> = ({
   return (
     <div className={s.container} onClick={handleItemClick}>
       {children}
-      <Link href={`/profile/${link}`} className={s.link}>
+      <Link href={`${link}`} className={s.link}>
         <Typography variant="medium14" className={styles.check}>
           {nameLink}
         </Typography>

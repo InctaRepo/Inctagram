@@ -1,8 +1,10 @@
-import { ChangeEvent, ReactNode, useState } from 'react'
+import { ComponentProps, useState } from 'react'
 
+import { clsx } from 'clsx'
 import DatePicker, { DateObject } from 'react-multi-date-picker'
 
 import DateIconDefault from '@/src/assets/icons/date-icon-default'
+import DateIconFilled from '@/src/assets/icons/date-icon-filled'
 import s from '@/src/components/ui/date-picker/date-picker.module.scss'
 import 'react-multi-date-picker/styles/backgrounds/bg-dark.css'
 import { Typography } from '@/src/components/ui/typography'
@@ -19,28 +21,32 @@ type DatePickPropsType = {
   onChange?: (value: DateObject | DateObject[] | null) => void
   multiple?: boolean
   range?: boolean
-  disabled?: boolean
-  error?: string
-}
+  errorMessage?: string
+} & ComponentProps<'input'>
+
 const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
 export const DatePick = ({
-  error,
+  errorMessage,
   label,
   multiple,
   onChange,
   range,
   disabled,
+  ...rest
 }: DatePickPropsType) => {
-  const [value, setValue] = useState<DateObject>(new DateObject())
+  const [value, setValue] = useState<DateObject | DateObject[] | null>(
+    range
+      ? [new DateObject().subtract(4, 'days'), new DateObject().add(4, 'days')]
+      : new DateObject()
+  )
+  const [datePickerOpen, setDatePickerOpen] = useState(false)
 
-  const onChangeInput = (value: any) => {
-    // const { year, month, day, hour, minute } = value
-    // console.log(year, 'month: ' + month.name, 'day: ' + day, 'hour: ' + hour, 'minute: ' + minute)
+  const onChangeInput = (value: DateObject | DateObject[] | null) => {
     setValue(value)
     onChange?.(value)
+    //TODO validation with react hook form ?
   }
-  // TODO multiple dates from input
 
   return (
     <>
@@ -48,16 +54,17 @@ export const DatePick = ({
         {label}
       </Typography>
       <DatePicker
+        onOpen={() => setDatePickerOpen(true)}
+        onClose={() => setDatePickerOpen(false)}
+        hideOnScroll
         className={s.calendar}
         containerClassName={s.container}
         render={
           <DateInput
-            value={value}
-            onChange={onChangeInput}
-            onFocus={''}
-            // TODO onfocus
-            disabled={disabled!}
-            error={!!error}
+            datePickerOpen={datePickerOpen}
+            range={range}
+            errorMessage={errorMessage}
+            {...rest}
           />
         }
         weekDays={weekDays}
@@ -67,19 +74,19 @@ export const DatePick = ({
         arrow={false}
         inputClass={s.input}
         range={range}
+        rangeHover
         dateSeparator=" - "
         monthYearSeparator=" "
-        rangeHover
         headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
         multiple={multiple}
         format={'DD/MM/YYYY'}
         value={value}
-        onChange={onChangeInput}
+        onChange={setValue}
         mapDays={({ date }) => {
           let props = {
             className: '',
           }
-          let isWeekend = [5, 6].includes(date.weekDay.index)
+          let isWeekend = [6, 0].includes(date.weekDay.index)
 
           if (isWeekend) props.className = 'weekend'
 
@@ -89,27 +96,50 @@ export const DatePick = ({
     </>
   )
 }
-type DateInputPropsType = {
-  onFocus: any
-  value: any
-  onChange: (value: ChangeEvent<HTMLInputElement>) => void
-  disabled: boolean
-  error: boolean
-}
-export const DateInput = ({ onFocus, value, onChange, disabled, error }: DateInputPropsType) => {
-  const [icon, setIcon] = useState<ReactNode>(<DateIconDefault fill={error ? 'red' : 'white'} />)
 
-  // TODO change icon on active
+type DateInputPropsType = {
+  errorMessage?: string
+  range?: boolean
+  className?: string
+  datePickerOpen: boolean
+} & ComponentProps<'input'>
+export const DateInput = ({
+  onChange,
+  disabled,
+  range,
+  errorMessage,
+  className,
+  datePickerOpen,
+  ...rest
+}: DateInputPropsType) => {
+  const showError = errorMessage && errorMessage.length > 0
+  const classNames = {
+    input: clsx(
+      s.input,
+      className,
+      showError && s.error,
+      disabled && s.disabled,
+      range && s.rangeInput
+    ),
+  }
+
   return (
-    <div className={s.inputContainer}>
-      <input
-        disabled={disabled}
-        className={s.input}
-        onFocus={onFocus}
-        value={value}
-        onChange={e => onChange(e)}
-      />
-      <div className={s.inputIcon}>{icon}</div>
-    </div>
+    <>
+      <div className={s.inputContainer}>
+        <input disabled={disabled} className={classNames.input} onChange={onChange} {...rest} />
+        <div className={s.inputIcon}>
+          {datePickerOpen ? (
+            <DateIconFilled fill={showError ? '#cc1439' : '#fff'} />
+          ) : (
+            <DateIconDefault fill={showError ? '#cc1439' : '#fff'} />
+          )}
+        </div>
+      </div>
+      {showError && (
+        <Typography color={'error'} className={s.errorText}>
+          {errorMessage}
+        </Typography>
+      )}
+    </>
   )
 }

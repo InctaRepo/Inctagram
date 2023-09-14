@@ -4,46 +4,48 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 
 import s from './forgotPassword.module.scss'
 
-import { PasswordRecoveryType } from '@/src/assets/api/types'
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
 import { ControlledTextField } from '@/src/components/ui/controlled'
-import { Recaptcha } from '@/src/components/ui/recaptcha/Recaptcha'
+import { ControlledRecaptcha } from '@/src/components/ui/controlled/controlled-recaptcha'
 import { Typography } from '@/src/components/ui/typography/typography'
+import { PasswordRecoveryType } from '@/src/services/auth/auth-api-types'
 
 type PropsType = {
   onSubmitHandler: (data: PasswordRecoveryType) => void
   modalHandler: () => void
 }
+export type ForgotFormType = {
+  email: string
+  recaptcha: boolean
+}
 
-type FormDataType = z.infer<typeof passwordRecoverySchema>
+const modes = ['mode-primary', 'mode-secondary']
 
 export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler }) => {
-  const [mode, setMode] = useState('mode--primary')
+  const [mode, setMode] = useState(modes[0])
   const { t } = useTranslate()
   const router = useRouter()
-
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormDataType>({
-    resolver: zodResolver(passwordRecoverySchema),
+  } = useForm<ForgotFormType>({
+    resolver: zodResolver(passwordRecoverySchema(t)),
     mode: 'onTouched',
     defaultValues: {
       email: '',
-      // recaptcha: false, // requires update
+      recaptcha: false, // requires update
     },
   })
 
-  const submitData = (data: FormDataType) => {
-    setMode('mode--secondary')
+  const submitData = (data: ForgotFormType) => {
+    setMode(modes[1])
     onSubmitHandler(data)
     modalHandler()
   }
@@ -76,14 +78,21 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
             {t.auth.linkHasBeenSent}
           </Typography>
           <Button variant="primary" className={s.repeat} type="submit">
-            <Typography variant="h3">{t.auth.sendLinkAgain}</Typography>
+            <Typography variant="regular16">{t.auth.sendLinkAgain}</Typography>
           </Button>
-          <Button variant="text" className={s.back} type="button" onClick={() => router.push('/')}>
-            <Typography variant="h3">{t.auth.backToSignIn}</Typography>
+          <Button
+            variant="link"
+            color={'$color-accent-500'}
+            className={s.back}
+            type="button"
+            onClick={() => router.push('/')}
+          >
+            <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
           </Button>
-          <Recaptcha
+          <ControlledRecaptcha
             control={control}
             name="recaptcha"
+            //@ts-ignore //TODO: fix this
             errors={errors}
             className={s.recaptcha}
             primary

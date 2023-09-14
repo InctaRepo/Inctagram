@@ -52,6 +52,23 @@
     .rmdp-calendar {
       padding: 0;
 
+      .rmdp-month-picker,
+      .rmdp-year-picker {
+        top: 10px;
+        right: 0;
+        left: 0;
+
+        color: $color-light-100;
+
+        background-color: $color-dark-500;
+        border-radius: 2px;
+        outline: 1px solid $color-dark-300;
+
+        span {
+          color: $color-light-100;
+        }
+      }
+
       .rmdp-day-picker {
         padding: 0;
 
@@ -77,25 +94,37 @@
             width: 36px;
             height: 36px;
             padding: 4px;
-          }
 
-          .rmdp-day span {
-            font-size: 16px;
-            line-height: 24px;
-            color: $color-light-100;
+            span {
+              inset: 4px;
+              font-size: 16px;
+              line-height: 24px;
+              color: $color-light-100;
 
-            &:hover {
-              color: $color-light-100 !important;
-              background-color: $color-accent-900;
+              &:hover {
+                color: $color-light-100 !important;
+                background-color: $color-accent-900;
+              }
+            }
+
+            span.sd.weekend {
+              color: $color-light-900;
             }
           }
 
-          .rmdp-day.rmdp-deactive span {
-            color: $color-dark-100;
+          .rmdp-range {
+            background-color: $color-accent-900;
+
+            &.start span,
+            &.end span {
+              background-color: $color-accent-500;
+            }
           }
 
-          .rmdp-day span.sd.weekend {
-            color: $color-light-900;
+          .rmdp-day.rmdp-selected span {
+            color: $color-light-100 !important;
+            background-color: $color-accent-500;
+            border-radius: 14px;
           }
 
           .rmdp-day.rmdp-today span {
@@ -103,15 +132,13 @@
             background: unset;
           }
 
+          .rmdp-day .rmdp-day.rmdp-deactive span {
+            color: $color-dark-100 !important;
+          }
+
           .rmdp-day.rmdp-selected {
             background-color: $color-accent-900;
             border-radius: 18px;
-          }
-
-          .rmdp-day.rmdp-selected span {
-            color: $color-light-100 !important;
-            background-color: $color-accent-500;
-            border-radius: 14px;
           }
         }
       }
@@ -141,13 +168,6 @@
   border: 1px solid $color-dark-300;
   border-radius: 2px;
 
-  &:disabled {
-    cursor: unset;
-    color: $color-light-900;
-    background-color: $color-dark-500;
-    outline: 1px solid $color-dark-300;
-  }
-
   &:focus,
   &:active:enabled {
     background-color: $color-dark-500;
@@ -158,14 +178,30 @@
     border: 1px solid $color-dark-100;
   }
 
-  // &.error {
-  //  color: var(--color-danger-300);
-  //  box-shadow: 0 0 0 1px var(--color-danger-300);
-  //  &::placeholder {
-  //    color: var(--color-danger-300);
-  //  }
-  // }
-  // TODO error styles
+  &.disabled {
+    cursor: unset;
+    color: $color-light-900;
+    background-color: $color-dark-500;
+    outline: 1px solid $color-dark-300;
+  }
+
+  &.error {
+    color: $color-danger-500;
+    box-shadow: 0 0 0 1px $color-danger-500;
+
+    &::placeholder {
+      color: $color-danger-500;
+    }
+  }
+
+  &.rangeInput {
+    width: 262px;
+  }
+}
+
+.errorText {
+  margin: 0;
+  padding: 0;
 }
 
 .inputIcon {

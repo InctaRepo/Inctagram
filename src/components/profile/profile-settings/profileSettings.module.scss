@@ -1,0 +1,147 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.profile {
+  width: 972px;
+  height: auto;
+}
+
+.navMenu {
+  display: flex;
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+}
+
+.oneLink {
+  @include wh(243px, 36px);
+
+  display: flex;
+  justify-content: center;
+  color: $color-dark-300;
+  border-bottom: 1px solid $color-dark-300;
+
+  :hover {
+    @include wh(243px, 36px);
+
+    display: flex;
+    justify-content: center;
+    color: $color-accent-500;
+    border-bottom: 1px solid $color-accent-500;
+  }
+}
+
+.link {
+  color: $color-dark-300;
+  text-decoration: none;
+}
+
+.content {
+  @include flex-block(flex, row);
+
+  justify-content: flex-start;
+  width: 972px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid $color-dark-300;
+}
+
+.ellipse {
+  @include wh(192px, 192px);
+
+  cursor: pointer;
+  margin-top: 18px;
+  background-color: $color-dark-300;
+  border-radius: 50%;
+}
+
+.image {
+  cursor: pointer;
+  margin: -115px 30px 96px 72px;
+}
+
+.calendar {
+  cursor: pointer;
+  position: relative;
+  bottom: 245px;
+  left: 750px;
+}
+
+.addBtn {
+  @include wh(196px, 36px);
+
+  display: flex;
+  justify-content: center;
+}
+
+.photoContent {
+  align-self: start;
+}
+
+.photo {
+  justify-content: center;
+}
+
+.saveBtn {
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  height: 36px;
+}
+
+.editForm {
+  @include wh(740px, 527px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-left: 40px;
+}
+
+.field {
+  @include wh(740px, 60px);
+
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.fieldSelect {
+  @include wh(740px, 60px);
+
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+}
+
+.date {
+  @include wh(740px, 60px);
+
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+  text-align: left;
+
+  ::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $color-light-100;
+    text-align: left;
+  }
+}
+
+.textArea {
+  @include wh(740px, 108px);
+
+  top: 576px;
+  left: 476px;
+  margin-bottom: 23px;
+}

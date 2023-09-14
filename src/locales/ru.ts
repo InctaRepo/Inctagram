@@ -8,8 +8,9 @@ export const ru = {
     forgotPassword: 'Забыли пароль?',
     forgotPasswordTitle: 'Восстановление пароля',
     passwordConfirmation: 'Подтверждение пароля',
-    createNewPassword: 'Создайте новый пароль',
+    createNewPassword: 'Создать новый пароль',
     newPassword: 'Новый пароль',
+    passwordChanged: 'Ваш пароль был успешно изменен',
     passwordCharacters: 'Ваш пароль должен быть от 6 до 20 символов',
     dontHaveAccount: 'Нет аккаунта?',
     haveAccount: 'Уже зарегистрированы?',
@@ -33,6 +34,7 @@ export const ru = {
     termsOfService: 'Правилами',
     and: 'и',
     policy: 'Политикой',
+
     // error fields block start =======================================================
 
     authErrors: {
@@ -43,7 +45,7 @@ export const ru = {
         max: 'Макс количество символов 30',
       },
       emailField: {
-        nonEmpty: 'Введите почту',
+        nonEmpty: 'Введите электронную почту',
         email: 'Некорректный адрес почты',
       },
       terms: 'Пожалуйста ознакомтесь и примите Правила сервиса и Политику конфиденциальности',
@@ -52,6 +54,11 @@ export const ru = {
         regex: 'Пароль должен содержать A-z, 0-9, !#$%*+-?^_',
         min: 'Мин количество символов 6',
         max: 'Макс количество символов 20',
+      },
+      recaptcha: {
+        notARobot: 'Я не робот',
+        verifyPlease: 'Пожалуйста, проверьте, не являетесь ли вы роботом',
+        expired: 'Проверка истекла. Установите флажок еще раз.',
       },
       passwordConfirm: 'Подтвердите ваш пароль',
       refine: 'Пароли должны совпадать',
@@ -63,7 +70,11 @@ export const ru = {
     createPost: 'Создать пост',
     myProfile: 'Мой профиль',
     logout: 'Выйти',
-    confirmLogout: 'Вы действительно хотите выйти из своей учетной записи',
+    confirmLogout(email: string) {
+      return `Вы действительно хотите выйти из своей учетной записи ${email}?`
+    },
+    yes: 'Да',
+    no: 'Нет',
     subscriptions: 'Подписки',
     subscribers: 'Подписчики',
     publications: 'Публикации',
@@ -72,6 +83,33 @@ export const ru = {
     favorites: 'Избранное',
     messenger: 'Сообщения',
     search: 'Поиск',
+    addPostPhoto: 'Добавить фото',
+    selectFromComputer: 'Выбрать с компьютера',
+    passwordChanged: 'Ваш пароль был успешно изменен',
+    profileSetting: {
+      generalInformation: 'Общая информация',
+      devices: 'Устройства',
+      accountManagement: 'Управление аккаунтом',
+      myPayment: 'Мои платежи',
+      addAProfilePhoto: 'Добавить фото профиля',
+      userName: 'Имя пользователя',
+      firstName: 'Имя',
+      lastName: 'Фамилия',
+      dateOfBirthday: 'Дата рождения',
+      city: 'Город',
+      selectYourCity: 'Выбрать свой город',
+      aboutMe: 'Обо мне',
+      saveChanges: 'Сохранить изменения',
+      profileSettingsErrors: {
+        usernameField: {
+          nonEmpty: 'Введите имя пользователя',
+          regex: 'Пароль должен содержать A-B, a-b, 0-9, !#$%*+-?^_',
+          min: 'Мин количество символов 6',
+          max: 'Макс количество символов 30',
+        },
+        aboutMeError: 'Максимальное колличество знаков 200',
+      },
+    },
   },
 
   // deletePost: 'Удалить пост',

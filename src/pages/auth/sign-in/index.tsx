@@ -1,13 +1,26 @@
-import { useLoginUserMutation } from '@/src/assets/api/auth'
-import { LoginArgsType } from '@/src/assets/api/types'
-import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
+import { useEffect } from 'react'
+
+import { useRouter } from 'next/router'
+
+import { RouteNames } from '@/src/common/constants/route-names'
 import { LoginForm } from '@/src/components/auth/login-form/login-form'
+import { getAuthLayout } from '@/src/components/layout/auth-layout'
 import { NextPageWithLayout } from '@/src/pages/_app'
+import { useAppSelector } from '@/src/services'
+import { useLoginUserMutation } from '@/src/services/auth/auth-api'
+import { LoginArgsType } from '@/src/services/auth/auth-api-types'
+import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 
 const SignInPage: NextPageWithLayout = () => {
-  const [loginUser, { isSuccess, error }] = useLoginUserMutation()
+  const [loginUser] = useLoginUserMutation()
+  const isAuth = useAppSelector(authIsAuthSelector)
+  const router = useRouter()
 
-  useErrorToastHandler(isSuccess, error)
+  useEffect(() => {
+    if (isAuth) {
+      router.push(RouteNames.MY_PROFILE)
+    }
+  }, [isAuth, router])
 
   const submit = (data: LoginArgsType) => {
     loginUser(data)
@@ -16,4 +29,5 @@ const SignInPage: NextPageWithLayout = () => {
   return <LoginForm onSubmitHandler={submit} />
 }
 
+SignInPage.getLayout = getAuthLayout
 export default SignInPage

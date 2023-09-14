@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import CreateIcon from '@/src/assets/icons/create-icon'
 import HomeIcon from '@/src/assets/icons/home-icon'
 import MessageIcon from '@/src/assets/icons/message-icon'
@@ -10,9 +10,9 @@ import { LinkMenu } from '@/src/components/profile/links'
 import s from '@/src/components/profile/menu-container/base-menu/base-manu.module.scss'
 
 type BaseMenuType = {
-  variantIcon?: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+  variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   handleClick: (
-    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+    variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   ) => void
 }
 export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
@@ -44,11 +44,11 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
       <div>
         <LinkMenu
           nameLink={t.profile.myProfile}
-          link={'profile'}
-          handleClick={() => handleClick('profile')}
+          link={'my-profile'}
+          handleClick={() => handleClick('my-profile')}
           variantIcon={variantIcon}
         >
-          <ProfileIcon color={variantIcon === 'profile' ? '#397df6' : 'white'} />
+          <ProfileIcon color={variantIcon === 'my-profile' ? '#397df6' : 'white'} />
         </LinkMenu>
       </div>
       <div>

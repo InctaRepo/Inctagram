@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 
 import s from './register-form.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
@@ -45,6 +45,7 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
   })
 
   useEffect(() => {
+    // TODO custom hook with useTranslate ?
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
@@ -105,11 +106,11 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
               label={
                 <Typography variant={'small'} className={s.termsRow}>
                   {t.auth.agree}&nbsp;
-                  <Link href={'/terms'} className={s.termsLink}>
+                  <Link href={'/auth/terms-of-use'} className={s.termsLink}>
                     {t.auth.termsOfService}
                   </Link>
                   &nbsp;{t.auth.and}&nbsp;
-                  <Link href={'/policy'} className={s.termsLink}>
+                  <Link href={'/auth/privacy-policy'} className={s.termsLink}>
                     {t.auth.policy}
                   </Link>
                 </Typography>

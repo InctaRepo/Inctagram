@@ -1,16 +1,7 @@
-import ConfirmedImage from '@/src/assets/images/email-confirmed-image'
-import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
-import { AuthLayout } from '@/src/components/layout/auth-layout'
-import { NextPageWithLayout } from '@/src/pages/_app'
+import { EmailConfirmedPage } from '@/src/components/auth/email-confirmed-page/email-confirmed-page'
 
-const EmailConfirmed: NextPageWithLayout = () => {
-  return (
-    <AuthLayout>
-      <AuthPage title="Congratulations!" text="Your email has been confirmed" nameButton="Sign In">
-        <ConfirmedImage />
-      </AuthPage>
-    </AuthLayout>
-  )
+const EmailConfirmed = () => {
+  return <EmailConfirmedPage />
 }
 
 export default EmailConfirmed

@@ -2,31 +2,33 @@ import { useEffect, useState } from 'react'
 
 import s from './sign-up.module.scss'
 
-import { useCreateUserMutation } from '@/src/assets/api/auth'
-import { useErrorToastHandler } from '@/src/assets/hooks/useErrorToastHandler'
-import { useTranslate } from '@/src/assets/hooks/useTranslate'
+import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { RegisterFormType } from '@/src/common/schemas/register-schema'
 import { RegisterForm } from '@/src/components/auth/register-form'
-import { Header } from '@/src/components/ui/Header/Header'
+import { Header } from '@/src/components/layout/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
+import { useRegisterMutation } from '@/src/services/auth/auth-api'
 
 const SignUpPage = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-  const [userRegistration, { isSuccess, data }] = useCreateUserMutation()
+  const [userRegistration, { isSuccess, data }] = useRegisterMutation()
 
+  // START : for error handling manual , need refactor =================================================
   const successRes = isSuccess && data?.resultCode === 0
-  const errorRes = isSuccess && !(data?.resultCode === 0)
-  const error = data?.extensions[0].message
-  const successKey = data?.extensions[0].key
+  const errorRes = isSuccess && data?.resultCode !== 0
+  const error = data?.extensions && data.extensions.length > 0 && data.extensions[0].message
+  const successKey = data?.extensions && data.extensions.length > 0 && data.extensions[0].key
+
   const setToastHandler = () => {
     if (successRes) {
-      useErrorToastHandler(isSuccess, false)
+      useErrorToast(isSuccess, false)
     }
     if (errorRes) {
-      useErrorToastHandler(false, error ? error : 'Some error')
+      useErrorToast(false, error ? error : 'Some error')
     }
   }
 
@@ -38,6 +40,9 @@ const SignUpPage = () => {
       }
     }
   }, [isSuccess, data])
+  //TODO refactor error handling to global
+
+  // END : for error handling manual , need refactor =================================================
 
   const submit = (data: RegisterFormType) => {
     userRegistration(data)

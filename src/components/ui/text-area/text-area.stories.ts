@@ -1,13 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 
 import { TextAreaField } from './text-area'
 
 const meta = {
   title: 'Components/TextAreaField',
   component: TextAreaField,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
 }
 

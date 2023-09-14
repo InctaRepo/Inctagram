@@ -4,21 +4,25 @@ import NProgress from 'nprogress'
 
 import s from './progress-bar.module.scss'
 
-export const ProgressBar = () => {
-  //TODO with redux toolkit
-  // const isFetching = useIsFetching()
+import { useAppSelector } from '@/src/services'
+import { appIsLoadingSelector } from '@/src/services/app'
 
-  // useEffect(() => {
-  //   if (isFetching) {
-  //     NProgress.start()
-  //   } else {
-  //     NProgress.done()
-  //   }
-  //
-  //   return () => {
-  //     NProgress.done()
-  //   }
-  // }, [isFetching])
+// eslint-disable-next-line import/no-named-as-default
+
+export const ProgressBar = () => {
+  const isLoading = useAppSelector(appIsLoadingSelector)
+
+  useEffect(() => {
+    if (isLoading) {
+      NProgress.start()
+    } else {
+      NProgress.done()
+    }
+
+    return () => {
+      NProgress.done()
+    }
+  }, [isLoading])
 
   return <div className={s.wrapper}></div>
 }

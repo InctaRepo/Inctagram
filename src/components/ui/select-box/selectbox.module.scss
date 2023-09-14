@@ -1,0 +1,106 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.label {
+  height: 24px;
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.selectIcon {
+  color: $color-light-100;
+  transition: 0.2s ease-in-out;
+}
+
+.selectBox {
+  cursor: pointer;
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 36px;
+  padding-left: 10px;
+
+  line-height: $line-height-m;
+  text-align: left;
+  letter-spacing: 0;
+
+  background-color: $color-dark-700;
+  border: 1px solid $color-dark-100;
+  outline: none;
+  box-shadow: none;
+
+  &:focus {
+    color: #8d9094;
+    background-color: $color-dark-500;
+    border: 2px solid $color-accent-500;
+  }
+
+  &:hover {
+    color: $color-dark-100;
+    background-color: $color-dark-500;
+    border: 1px solid $color-dark-100;
+  }
+
+  &[data-state='open'] {
+    & .selectIcon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover:not([data-disabled]) {
+    cursor: initial;
+    background-color: $color-dark-500;
+  }
+
+  &[data-disabled] {
+    cursor: initial;
+    color: #8d9094;
+    background-color: $color-dark-500;
+    border: 2px solid #8d9094;
+  }
+}
+
+.selectContent {
+  width: var(--radix-select-trigger-width);
+  background-color: $color-dark-500;
+  border: 1px solid $color-dark-100;
+}
+
+.value {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.line {
+  cursor: pointer;
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  padding: 6px 12px;
+
+  line-height: $line-height-m;
+  letter-spacing: 0;
+
+  outline: none;
+
+  transition: 0.2s ease-out;
+
+  &:hover,
+  &:focus-visible,
+  &[data-state='checked'] {
+    color: $color-accent-500;
+    background-color: $color-dark-300;
+  }
+}

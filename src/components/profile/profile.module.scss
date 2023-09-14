@@ -1,8 +1,9 @@
-.container{
+.container {
   display: flex;
   height: 100%;
-  .containerInfo{
-    margin: 35px 65px 0 20px;
+
+  .containerInfo {
     max-width: 900px;
+    margin: 35px 65px 0 20px;
   }
 }
