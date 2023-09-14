@@ -30,7 +30,6 @@ export const baseQueryWithReauth: BaseQueryFn<
 
   //@ts-ignore
   if (result.data.resultCode !== 0) {
-    console.log('reauthQuery: access token invalid')
     const refreshResult = await baseQuery(
       { url: 'auth/refresh-token', method: 'POST' },
       api,
@@ -39,14 +38,12 @@ export const baseQueryWithReauth: BaseQueryFn<
 
     //@ts-ignore
     if (refreshResult.data.resultCode === 0) {
-      console.log('reauthQuery: access token refreshed')
       //@ts-ignore
       localStorage.setItem('access', refreshResult.data.data.accessToken)
       api.dispatch(authApi.endpoints.getMe.initiate())
       // Retry the initial query
       result = await baseQuery(args, api, extraOptions)
     } else {
-      console.log('reauthQuery: refresh token invalid , logout')
       api.dispatch(authActions.logout())
     }
   }

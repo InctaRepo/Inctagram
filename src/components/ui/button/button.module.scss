@@ -26,14 +26,14 @@
 
   transition: 0.3s;
 
-  &:focus:not(:disabled) {
-    outline: 1px solid $color-accent-300;
-  }
-
   &:disabled {
     cursor: default;
     color: $color-light-900;
     background: $color-accent-900;
+  }
+
+  &:focus:not(:disabled) {
+    outline: 1px solid $color-accent-300;
   }
 
   &.fullWidth {
@@ -57,6 +57,11 @@
 .secondary {
   @include button($bgColor: $color-dark-300);
 
+  &:disabled {
+    color: $color-light-900;
+    background: $color-dark-500;
+  }
+
   &:active:not(:disabled) {
     background-color: #212121;
   }
@@ -64,16 +69,17 @@
   &:hover:not(:disabled) {
     background-color: $color-dark-100;
   }
-
-  &:disabled {
-    color: $color-light-900;
-    background: $color-dark-500;
-  }
 }
 
 .outlined {
   @include button($color: $color-accent-500, $bgColor: none);
+
   outline: 1px solid $color-accent-500;
+
+  &:disabled {
+    color: $color-accent-900;
+    outline: 2px solid $color-accent-900;
+  }
 
   &:active:not(:disabled) {
     color: $color-accent-700;
@@ -89,19 +95,14 @@
     color: $color-accent-700;
     outline: 2px solid $color-accent-700;
   }
-
-  &:disabled {
-    color: $color-accent-900;
-    outline: 2px solid $color-accent-900;
-  }
 }
 
 .link {
   @include button($color: $color-accent-500, $bgColor: none);
 
   padding: 6px 12px;
-  outline: 1px solid transparent;
   border-radius: 130px;
+  outline: 1px solid transparent;
 
   &:active:not(:disabled) {
     color: $color-accent-700;
@@ -116,8 +117,17 @@
   @include button($color: $color-accent-500, $bgColor: none);
 
   padding: 6px 12px;
-  outline: 1px solid transparent;
   border-radius: 130px;
+  outline: 1px solid transparent;
+
+  &:disabled {
+    color: $color-accent-900;
+  }
+
+  &:focus {
+    border-radius: 2px;
+    outline: 2px solid $color-accent-700;
+  }
 
   &:active:not(:disabled) {
     color: $color-accent-700;
@@ -126,18 +136,10 @@
   &:hover:not(:disabled) {
     color: $color-accent-100;
   }
-
-  &:focus {
-    border-radius: 2px;
-    outline: 2px solid $color-accent-700;
-  }
-
-  &:disabled {
-    color: $color-accent-900;
-  }
 }
 
 .internation {
   @include button($color: $color-light-100, $bgColor: $color-dark-300);
+
   padding: 6px 12px;
 }

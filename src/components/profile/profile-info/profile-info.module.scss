@@ -1,9 +1,10 @@
 .container {
   display: flex;
   margin-bottom: 53px;
+
   .image {
-    margin-right: 38px;
-    max-width: 204px;
     width: 100%;
+    max-width: 204px;
+    margin-right: 38px;
   }
 }

@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic'
 
 import CloseIcon from '@/src/assets/icons/close-icon'
 import { Button } from '@/src/components/ui/button'
-import AppLoader from '@/src/components/ui/loader/app-loader'
+import { AppLoader } from '@/src/components/ui/loader'
 import s from '@/src/components/ui/modals/BaseModal/base-modal.module.scss'
 import { Typography } from '@/src/components/ui/typography'
 

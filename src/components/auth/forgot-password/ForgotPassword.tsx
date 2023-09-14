@@ -92,6 +92,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
           <ControlledRecaptcha
             control={control}
             name="recaptcha"
+            //@ts-ignore //TODO: fix this
             errors={errors}
             className={s.recaptcha}
             primary

@@ -6,4 +6,4 @@
 
 - run dev server: pnpm dev
 
-- tech stack: Next JS | StoryBook | UI kit (based on Radix UI) | SASS | Redux-Toolkit | RTK Query | Typescript
+- tech stack: Next.js | StoryBook | UI kit (based on Radix UI) | SASS | Redux-Toolkit | RTK Query | Typescript
