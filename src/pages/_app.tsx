@@ -4,14 +4,20 @@ import { store, useAppSelector } from '@/src/services/store'
 import '@/src/styles/_globals.scss'
 import '@/src/styles/nprogress.scss'
 
+// eslint-disable-next-line import/order
 import { NextPage } from 'next'
+// eslint-disable-next-line import/order
 import type { AppProps } from 'next/app'
+// eslint-disable-next-line import/order,import/no-named-as-default
 import NProgress from 'nprogress'
 
+// eslint-disable-next-line import/order
 import { ReactElement, ReactNode, useEffect } from 'react'
-
+// eslint-disable-next-line import/order
 import { Provider } from 'react-redux'
+// eslint-disable-next-line import/order
 import { ToastContainer } from 'react-toastify'
+
 import 'react-toastify/dist/ReactToastify.css'
 
 export type NextPageWithLayout<P = {}> = NextPage<P> & {
