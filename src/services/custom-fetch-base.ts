@@ -9,8 +9,7 @@ import { baseUrl } from '@/src/services/base-api'
 const baseQuery = fetchBaseQuery({
   baseUrl,
   // credentials: 'include',
-  // TODO turn on, when server will add deployed front side
-  // need for sent cookies to server side
+  // TODO: turn on, when server will add deployed front side, need for sent cookies to server side
   prepareHeaders: headers => {
     const access = localStorage.getItem('access')
 
