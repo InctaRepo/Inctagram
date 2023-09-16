@@ -17,7 +17,28 @@
   opacity: 80%;
   cursor: pointer;
   border-radius: 2px;
-  &:hover{
-    color:$color-light-100;
+}
+
+.slider {
+  @include wh(124px, 36px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: $color-dark-500;
+  opacity: 80%;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-top: -74px;
+}
+
+.range {
+  @include wh(100px, 12px);
+}
+
+.blue {
+  filter: brightness(0) invert(1);
+  &:hover {
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
   }
 }

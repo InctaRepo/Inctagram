@@ -1,7 +1,6 @@
 @import '@/src/styles/mixins';
 @import '@/src/styles/colors';
 
-
 label {
   font-weight: bold;
   padding-left: 10px;
@@ -27,14 +26,13 @@ button {
   flex-direction: column;
 }
 
-._coverImage-holder  {
+._coverImage-holder {
   padding: 25px 40px;
-  background-color:black;
+  background-color: black;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 20px;
 }
-
 
 .container {
   display: flex;
@@ -65,7 +63,6 @@ button {
 .expand {
   position: relative;
   cursor: pointer;
-
 }
 
 .maximize {
@@ -83,4 +80,3 @@ button {
   flex-direction: row;
   justify-content: space-between;
 }
-

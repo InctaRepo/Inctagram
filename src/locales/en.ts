@@ -82,6 +82,7 @@ export const en: LocaleType = {
     selectFromComputer: 'Select from Computer',
     passwordChanged: 'Your password was successfully changed',
     save: 'Save',
+    next: 'Next',
     profileSetting: {
       generalInformation: 'General information',
       devices: 'Devices',

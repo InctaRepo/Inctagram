@@ -82,6 +82,7 @@ export const ru = {
     selectFromComputer: 'Выбрать с компьютера',
     passwordChanged: 'Ваш пароль был успешно изменен',
     save: 'Сохранить',
+    next: 'Далее',
     profileSetting: {
       generalInformation: 'Общая информация',
       devices: 'Устройства',

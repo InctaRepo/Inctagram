@@ -34,11 +34,11 @@ export const Crop: FC<PropsType> = ({ setAspectRatio }) => {
   return (
     <div ref={cropRef}>
       <div onClick={() => setIsOpen(true)} className={s.cropBtn}>
-        <Image src={expandOutline} alt={'crop'} width={24} height={24} color={'blue'} />
+        <Image src={expandOutline} alt={'crop'} width={24} height={24} className={s.blue} />
       </div>
       {isOpen && (
         <div className={s.cropOptions}>
-          <div className={s.cropOption1} onClick={() => setAspectRatio(4 / 3)}>
+          <div className={s.cropOption1} onClick={() => setAspectRatio(3 / 4)}>
             Original
             <Image src={img} alt={'image'} width={24} height={24} />
           </div>

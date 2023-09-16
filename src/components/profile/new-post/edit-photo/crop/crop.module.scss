@@ -18,12 +18,12 @@
   cursor: pointer;
   border-radius: 2px;
   margin: 0 24px 11px 11px;
-  &:hover{
-    color:$color-light-100;
+  &:hover {
+    color: $color-light-100;
   }
 }
 
-.cropOptions{
+.cropOptions {
   @include wh(156px, 152px);
   display: flex;
   flex-direction: column;
@@ -37,26 +37,30 @@
   margin-left: 11px;
 }
 
-.cropOption{
+.cropOption {
   @include wh(128px, 26px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1px 12px 11px 12px;
   cursor: pointer;
-  &:hover{
-    color:$color-light-100;
+  &:hover {
+    color: $color-light-100;
   }
 }
 
-.cropOption1{
+.cropOption1 {
   @include wh(128px, 26px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 8px 12px 11px 12px;
   cursor: pointer;
-  &:hover{
-    color:$color-light-100;
+}
+
+.blue {
+  filter: brightness(0) invert(1);
+  &:hover {
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
   }
 }

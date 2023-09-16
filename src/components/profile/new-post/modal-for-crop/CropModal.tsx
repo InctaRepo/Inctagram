@@ -13,7 +13,8 @@ import dynamic from 'next/dynamic'
 
 import s from './crop-modal.module.scss'
 
-import CloseIcon from '@/src/assets/icons/close-icon'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
+import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
@@ -32,7 +33,6 @@ export type ModalProps = {
 
 const CropModal: FC<ModalProps> = ({
   showSeparator = true,
-  onClose,
   onAction,
   onCancel,
   open,
@@ -52,7 +52,7 @@ const CropModal: FC<ModalProps> = ({
       s.actionButton
     ),
   }
-
+  const { t } = useTranslate()
   const actionButtonHandler = () => {
     onAction?.()
   }
@@ -60,8 +60,8 @@ const CropModal: FC<ModalProps> = ({
     onCancel?.()
   }
 
-  function onCloseHandler() {
-    onClose?.()
+  function onCancelHandler() {
+    onCancel?.()
   }
 
   return (
@@ -70,9 +70,10 @@ const CropModal: FC<ModalProps> = ({
         <DialogOverlay className={s.DialogOverlay} />
         <DialogContent className={classNames.content}>
           <div className={s.titleWrapper}>
-            <button className={s.IconButton} onClick={onCloseHandler}>
-              <CloseIcon />
+            <button className={s.arrowButton} onClick={onCancelHandler}>
+              <ArrowBack />
             </button>
+            <button className={s.nextButton}>{t.profile.next}</button>
             <DialogTitle className={s.DialogTitle}>
               <Typography variant={'h1'}>{title}</Typography>
               <Separator className={classNames.separator} />

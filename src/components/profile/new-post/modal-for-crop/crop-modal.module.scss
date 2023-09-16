@@ -1,6 +1,10 @@
 @import '@/src/styles/mixins';
 @import '@/src/styles/colors';
 
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
 
 .widePaddingButton {
   padding-right: 36px;
@@ -79,9 +83,7 @@
   border-radius: 2px;
 
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-
-  }
-
+}
 
 .DialogContent:focus {
   outline: none;
@@ -112,6 +114,36 @@
   &:hover svg {
     background-color: $color-dark-500;
     border-radius: 100%;
+  }
+}
+
+.arrowButton {
+  all: unset;
+  cursor: pointer;
+
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  svg {
+    transform: scale(1.5);
+  }
+
+  &:hover svg {
+    background-color: $color-dark-500;
+    border-radius: 100%;
+  }
+}
+
+.nextButton {
+  position: absolute;
+  width: 47px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  right: 36px;
+  color: $color-accent-500;
+  &:hover {
+    color: $color-accent-100;
   }
 }
 

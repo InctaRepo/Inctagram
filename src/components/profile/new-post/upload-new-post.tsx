@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import { Typography } from '@mui/material'
 
@@ -8,6 +8,7 @@ import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 import CroppedImage from '@/src/components/profile/new-post/CpoppedImage/CroppedImage'
 import CropModal from '@/src/components/profile/new-post/modal-for-crop/CropModal'
+import { Button } from '@/src/components/ui/button'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 
 export type SettingPhotoModalType = {
@@ -17,11 +18,10 @@ export type SettingPhotoModalType = {
 
 export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
   const { t } = useTranslate()
+  const inputRef = useRef<HTMLInputElement>(null)
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [image, setImage] = useState<string | null>(null)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
-  const [imgAfterCrop, setImgAfterCrop] = useState('')
-  const [croppedImage, setCroppedImage] = useState(null)
 
   const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
     const reader = new FileReader()
@@ -40,9 +40,15 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
     setIsModalOpen(false)
     setImage(null)
   }
+  const cancelButtonClick = () => {
+    setImage(null)
+  }
 
   const handleImageUpload = async (e: any) => {
     setImage(URL.createObjectURL(e.target.files[0]))
+  }
+  const selectFileHandler = () => {
+    inputRef && inputRef.current?.click()
   }
 
   return (
@@ -57,39 +63,28 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
           <div className={`${s.photoContainer} ${image === null ? s.emptyPhotoContainer : ''}`}>
             <ImgOutline />
           </div>
-
-          <label className="_coverImage-holder">
-            <Typography>{t.profile.selectFromComputer}</Typography>
+          <div>
+            <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
+              <Typography>{t.profile.selectFromComputer}</Typography>
+            </Button>
             <input
               type="file"
+              ref={inputRef}
               name="cover"
               onChange={handleImageUpload}
-              accept="img/*"
+              accept="image/png, image/jpeg, image/jpg"
               style={{ display: 'none' }}
             />
-          </label>
+          </div>
         </BaseModal>
       ) : (
-        <CropModal open={isModalOpen} onClose={handleButtonClick} title="Cropping">
-          {!croppedImage ? (
-            <CroppedImage
-              image={image}
-              onComplete={imagePromisse => {
-                imagePromisse.then(image => {
-                  setCroppedImage(image)
-                })
-              }}
-            />
-          ) : (
-            <CroppedImage
-              image={croppedImage}
-              onComplete={imagePromisse => {
-                imagePromisse.then(image => {
-                  setCroppedImage(image)
-                })
-              }}
-            />
-          )}
+        <CropModal
+          open={isModalOpen}
+          onClose={handleButtonClick}
+          onCancel={cancelButtonClick}
+          title="Cropping"
+        >
+          <CroppedImage image={image} />
         </CropModal>
       )}
     </div>

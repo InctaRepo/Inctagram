@@ -16,9 +16,9 @@ export const Zoom: FC<PropsType> = ({ zoom, setZoom }) => {
   const zoomRef = useRef() as MutableRefObject<HTMLDivElement>
 
   const onZoomChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const scale = parseFloat(event.target.value)
+    const zoomValue = parseFloat(event.target.value)
 
-    setZoom(scale)
+    setZoom(zoomValue)
   }
 
   useEffect(() => {
@@ -36,13 +36,13 @@ export const Zoom: FC<PropsType> = ({ zoom, setZoom }) => {
   return (
     <div ref={zoomRef}>
       <div onClick={() => setIsOpen(true)} className={s.zoomBtn}>
-        <Image src={maximize} alt={'zoom'} width={24} height={24} />
+        <Image src={maximize} alt={'zoom'} width={24} height={24} className={s.blue} />
       </div>
 
       {isOpen && (
-        <div className={'absolute bg-dark-500 p-2 pt-3 rounded-sm opacity-80 -top-14 left-11'}>
+        <div className={s.slider}>
           <input
-            className={'cursor-pointer'}
+            className={s.range}
             type="range"
             min="1"
             max="3"

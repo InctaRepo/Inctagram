@@ -8,7 +8,7 @@ import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { Button } from '@/src/components/ui/button'
 
 type InputTypeFileProps = {
-  setSelectedImage: (image: File) => void
+  setSelectedImage?: (image: File) => void
 }
 export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -21,7 +21,9 @@ export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
       const file = e.target.files[0]
 
       if (file.size < 10000000) {
-        setSelectedImage(file)
+        if (setSelectedImage) {
+          setSelectedImage(file)
+        }
       } else {
         console.error('Error: ', 'Файл слишком большого размера')
       }
