@@ -1,8 +1,15 @@
+@import '@/src/styles/mixins';
 @import '@/src/styles/colors';
 
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
 .container {
+  @include wh(196px, 36px);
+
   position: relative;
-  width: 492px;
   background-color: var(--dark-300);
 }
 
@@ -32,3 +39,13 @@
 .saveBtn {
   padding: 6px 24px;
 }
+
+.addBtn {
+  color: $color-accent-500 !important;
+}
+
+.photoBtn {
+  @include wh(198px, 36px);
+
+}
+

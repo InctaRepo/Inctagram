@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -31,6 +31,8 @@ type ProfileSettingFormPropsType = {
 export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
   const { t } = useTranslate()
   const router = useRouter()
+
+  const [selectedAvatar, setselectedAvatar] = useState()
   //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
 
   const {
@@ -69,9 +71,9 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
       <div className={s.profile}>
         <nav>
           <ul className={s.navMenu}>
-            <li className={s.oneLink}>
-              <Link className={s.link} href={'/'}>
-                <Typography variant={'h3'} color="secondary">
+            <li className={s.generalLink}>
+              <Link className={s.link} href={'/settings'}>
+                <Typography variant={'h3'} className={s.general}>
                   {t.profile.profileSetting.generalInformation}
                 </Typography>
               </Link>
@@ -138,7 +140,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                 name={'dateOfBirthday'}
                 label={t.profile.profileSetting.dateOfBirthday}
                 className={s.date}
-                placeholder="00.00.00"
+                placeholder="00.00.0000"
               />
               <div className={s.fieldSelect}>
                 <SelectBox

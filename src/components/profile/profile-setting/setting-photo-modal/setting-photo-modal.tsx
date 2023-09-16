@@ -9,6 +9,7 @@ import { Photo } from '@/src/components/profile/profile-setting/setting-photo-mo
 import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
+import { Typography } from '@/src/components/ui/typography'
 
 export type SettingPhotoModalType = {
   // isModalOpen: boolean
@@ -71,8 +72,10 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
   return (
     <div className={s.container}>
       {avatar && <img src={avatar} alt="ava" style={{ borderRadius: '50%' }} />}
-      <Button variant="outlined" onClick={() => setIsModalOpen(true)}>
-        {t.profile.profileSetting.addAProfilePhoto}
+      <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
+        <Typography variant={'h3'} className={s.addBtn}>
+          {t.profile.profileSetting.addAProfilePhoto}
+        </Typography>
       </Button>
       {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
       <BaseModal

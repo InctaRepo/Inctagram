@@ -18,6 +18,18 @@
   list-style-type: none;
 }
 
+.generalLink{
+  @include wh(243px, 36px);
+
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid $color-accent-500;
+}
+
+.general {
+  color: $color-accent-500 !important;
+}
+
 .oneLink {
   @include wh(243px, 36px);
 
@@ -37,7 +49,6 @@
 }
 
 .link {
-  color: $color-dark-300;
   text-decoration: none;
 }
 
@@ -88,8 +99,7 @@
 
 .saveBtn {
   display: flex;
-  align-self: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   height: 36px;
 }
 
@@ -124,8 +134,6 @@
 .date {
   @include wh(740px, 60px);
 
-  top: 240px;
-  left: 476px;
   margin-bottom: 24px;
   text-align: left;
 
