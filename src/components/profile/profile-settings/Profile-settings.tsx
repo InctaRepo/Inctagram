@@ -32,7 +32,6 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   const { t } = useTranslate()
   const router = useRouter()
 
-  const [selectedAvatar, setselectedAvatar] = useState()
   //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
 
   const {

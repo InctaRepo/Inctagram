@@ -10,6 +10,7 @@
   @include wh(196px, 36px);
 
   position: relative;
+margin-top: -25px;
   background-color: var(--dark-300);
 }
 
@@ -41,11 +42,13 @@
 }
 
 .addBtn {
+  display: flex;
   color: $color-accent-500 !important;
 }
 
 .photoBtn {
   @include wh(198px, 36px);
 
+justify-content: center;
 }
 

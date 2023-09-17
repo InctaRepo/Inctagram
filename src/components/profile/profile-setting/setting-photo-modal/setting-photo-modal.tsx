@@ -71,7 +71,19 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
   // if (!isModalOpen) return null
   return (
     <div className={s.container}>
-      {avatar && <img src={avatar} alt="ava" style={{ borderRadius: '50%' }} />}
+      {avatar && (
+        <img
+          src={avatar}
+          alt="ava"
+          style={{
+            borderRadius: '50%',
+            width: 196,
+            height: 196,
+            marginTop: -210,
+            marginBottom: 24,
+          }}
+        />
+      )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
         <Typography variant={'h3'} className={s.addBtn}>
           {t.profile.profileSetting.addAProfilePhoto}
