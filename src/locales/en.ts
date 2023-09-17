@@ -109,6 +109,18 @@ export const en: LocaleType = {
           min: 'Min number of characters 6',
           max: 'Max number of characters 30',
         },
+        firstNameField: {
+          nonEmpty: 'Enter first name',
+          regex: 'First name can contain only A-Z, a-z',
+          min: 'Min number of characters 1',
+          max: 'Max number of characters 50',
+        },
+        lastNameField: {
+          nonEmpty: 'Enter first name',
+          regex: 'First name can contain only A-Z, a-z',
+          min: 'Min number of characters 1',
+          max: 'Max number of characters 50',
+        },
 
         aboutMeError: 'Max number of characters 200',
       },

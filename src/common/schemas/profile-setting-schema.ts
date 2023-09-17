@@ -11,8 +11,20 @@ export function createProfileSettingSchema(t: LocaleType) {
       .regex(/^[A-Za-z0-9-_]+$/, t.profile.profileSetting.profileSettingsErrors.usernameField.regex)
       .min(6, t.profile.profileSetting.profileSettingsErrors.usernameField.min)
       .max(30, t.profile.profileSetting.profileSettingsErrors.usernameField.max),
-    firstName: z.string(),
-    lastName: z.string(),
+    firstName: z
+      .string()
+      .trim()
+      .nonempty(t.profile.profileSetting.profileSettingsErrors.firstNameField.nonEmpty)
+      .regex(/^[A-Za_]+$/, t.profile.profileSetting.profileSettingsErrors.firstNameField.regex)
+      .min(1, t.profile.profileSetting.profileSettingsErrors.firstNameField.min)
+      .max(50, t.profile.profileSetting.profileSettingsErrors.firstNameField.max),
+    lastName: z
+      .string()
+      .trim()
+      .nonempty(t.profile.profileSetting.profileSettingsErrors.lastNameField.nonEmpty)
+      .regex(/^[A-Za_]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
+      .min(1, t.profile.profileSetting.profileSettingsErrors.lastNameField.min)
+      .max(50, t.profile.profileSetting.profileSettingsErrors.lastNameField.max),
     dateOfBirthday: z.date(),
     city: z.string(),
     aboutMe: z
