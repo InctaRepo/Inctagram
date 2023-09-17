@@ -18,7 +18,7 @@
   list-style-type: none;
 }
 
-.generalLink{
+.generalLink {
   @include wh(243px, 36px);
 
   display: flex;
@@ -132,18 +132,11 @@
 }
 
 .date {
-  @include wh(740px, 60px);
-
-  margin-bottom: 24px;
   text-align: left;
+}
 
-  ::placeholder {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: $color-light-100;
-    text-align: left;
-  }
+.datePicker {
+  margin-bottom: 22px;
 }
 
 .textArea {
