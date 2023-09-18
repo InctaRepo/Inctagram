@@ -35,6 +35,7 @@ export const en: LocaleType = {
     termsOfService: 'Terms of Service',
     and: 'and',
     policy: 'Privacy Policy',
+
     // error fields block start =======================================================
     authErrors: {
       usernameField: {
@@ -62,6 +63,7 @@ export const en: LocaleType = {
       passwordConfirm: 'Confirm your password',
       refine: 'The passwords must match',
     },
+
     // error fields block end =======================================================
   },
   profile: {
@@ -69,7 +71,11 @@ export const en: LocaleType = {
     createPost: 'Create',
     myProfile: 'My Profile',
     logout: 'Log Out',
-    confirmLogout: 'Are you really want to log out of your account',
+    confirmLogout(email: string) {
+      return `Are you really want to log out of your account ${email}?`
+    },
+    yes: 'Yes',
+    no: 'No',
     subscriptions: 'Subscriptions',
     subscribers: 'Subscribers',
     publications: 'Publications',
@@ -104,6 +110,18 @@ export const en: LocaleType = {
           regex: 'Username can contain only A-Z, a-z, - or _',
           min: 'Min number of characters 6',
           max: 'Max number of characters 30',
+        },
+        firstNameField: {
+          nonEmpty: 'Enter first name',
+          regex: 'First name can contain only A-Z, a-z',
+          min: 'Min number of characters 1',
+          max: 'Max number of characters 50',
+        },
+        lastNameField: {
+          nonEmpty: 'Enter first name',
+          regex: 'First name can contain only A-Z, a-z',
+          min: 'Min number of characters 1',
+          max: 'Max number of characters 50',
         },
 
         aboutMeError: 'Max number of characters 200',

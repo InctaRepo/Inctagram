@@ -1,33 +1,31 @@
+@import '@/src/styles/mixins';
 @import '@/src/styles/colors';
-.container {
-  width: 492px;
-  //height: 564px;
-  //margin: 72px auto;
-  background-color: var(--dark-300);
-  position: relative;
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
 }
 
-//.main {
-//  display: flex;
-//  flex-direction: column;
-//  align-items: center;
-//  padding-top: 72px;
-//}
+.container {
+  @include wh(196px, 36px);
+
+  position: relative;
+  margin-top: -25px;
+  background-color: var(--dark-300);
+}
 
 .photoContainer {
-  background-color: $color-dark-500;
   margin-top: 54px;
+  background-color: $color-dark-500;
 }
 
 .emptyPhotoContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+
   min-width: 222px;
   min-height: 228px;
-}
-
-.btnContainer {
 }
 
 .selectPhoto {
@@ -37,11 +35,19 @@
 
 .save {
   align-self: flex-end;
-  //margin-top: 42px;
-  //margin-bottom: 36px;
-  //margin-right: 42px;
 }
 
 .saveBtn {
   padding: 6px 24px;
+}
+
+.addBtn {
+  display: flex;
+  color: $color-accent-500 !important;
+}
+
+.photoBtn {
+  @include wh(198px, 36px);
+
+  justify-content: center;
 }

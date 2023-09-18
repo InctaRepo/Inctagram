@@ -2,13 +2,18 @@
 @import 'src/styles/colors';
 @import 'src/styles/typography';
 
-$darkGrey: #9d9d9d; // checkbox :hover bcg color
-$lightGrey: #b7b7b7; // checkbox border color
+$dark-gray: #9d9d9d; // checkbox :hover bcg color
+$light-gray: #b7b7b7; // checkbox border color
 $preloader: #4d8df4; // preloader color
-$marginRight: 13px; // distance between changeable block and label "im not a robot" * very import crutch
+$margin-right: 13px; // distance between changeable block and label "im not a robot" * very import crutch
+
+.hidden {
+  display: none;
+}
 
 .recaptcha {
   @include flex-block($flex-direction: row, $justify-content: space-between);
+
   width: 300px;
   height: 79px;
   padding: 0 18px 0 19px;
@@ -16,31 +21,35 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
 
   .agreement {
     @include flex-block($flex-direction: row, $align-items: center);
+
     position: relative;
 
     .expiredMessage {
-      font-family: 'Roboto', sans-serif;
       @include typography($fs: 10px, $lh: 12px, $fw: 400);
-      color: $color-danger-500;
+
       position: absolute;
-      left: -3px;
       top: -24px;
+      left: -3px;
+
       width: 190px;
+
+      font-family: Roboto, sans-serif;
+      color: $color-danger-500;
     }
 
     .customCheckbox {
       width: 20px;
       height: 20px;
+      margin-right: $margin-right;
+
       background-color: $color-light-100;
-      border: 1px solid $lightGrey;
+      border: 1px solid $light-gray;
       border-radius: 1px;
-      margin-right: $marginRight;
 
       &:hover {
         cursor: pointer;
-        background-color: $darkGrey;
+        background-color: $dark-gray;
         transition-delay: 0.1s;
-        -webkit-transition-delay: 0.1s;
       }
     }
 
@@ -49,9 +58,9 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
     }
 
     label {
+      width: 78px;
       font-size: 12px;
       color: $color-light-100;
-      width: 78px;
     }
 
     .checked {
@@ -73,17 +82,20 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
 }
 
 .mode-error {
-  border: 1px solid $color-danger-500;
-  padding: 7px 6px 5px;
   width: 314px;
   margin-bottom: 10px;
+  padding: 7px 6px 5px;
+  border: 1px solid $color-danger-500;
+
   .errorText {
     display: block;
-    color: $color-danger-500;
+
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+
+    font-family: Roboto, sans-serif;
     font-size: 10px;
+    font-weight: 400;
+    color: $color-danger-500;
   }
 }
 
@@ -95,30 +107,32 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
   display: none;
 }
 
-.hidden {
-  display: none;
-}
-
 // preloader
 .ldsRing {
+  position: relative;
+
   display: inline-block;
   align-items: center;
-  position: relative;
+
   width: 20px;
   height: 20px;
-  margin-right: $marginRight;
+  margin-right: $margin-right;
 
   div {
-    box-sizing: border-box;
-    display: block;
     position: absolute;
+
+    display: block;
+
+    box-sizing: border-box;
     width: 20px;
     height: 20px;
     margin: 0;
+
     border: 3px solid $preloader;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: $preloader transparent transparent transparent;
+    border-radius: 50%;
+
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 
     &:nth-child(1) {
       animation-delay: -1.45s;
@@ -138,6 +152,7 @@ $marginRight: 13px; // distance between changeable block and label "im not a rob
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

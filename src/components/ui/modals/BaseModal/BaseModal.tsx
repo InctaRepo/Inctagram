@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic'
 
 import CloseIcon from '@/src/assets/icons/close-icon'
 import { Button } from '@/src/components/ui/button'
-import AppLoader from '@/src/components/ui/loader/app-loader'
+import { AppLoader } from '@/src/components/ui/loader'
 import s from '@/src/components/ui/modals/BaseModal/base-modal.module.scss'
 import { Typography } from '@/src/components/ui/typography'
 
@@ -86,11 +86,15 @@ const BaseModal: FC<ModalProps> = ({
           <div className={s.contentBox}>{children}</div>
 
           <div className={s.footerBlock}>
+            <Button
+              variant={actionButtonName ? 'outlined' : 'primary'}
+              className={classNames.actionButton}
+              onClick={actionButtonHandler}
+            >
+              {actionButtonName}
+            </Button>
             <Button className={classNames.cancelButton} onClick={cancelButtonHandler}>
               {cancelButtonName}
-            </Button>
-            <Button className={classNames.actionButton} onClick={actionButtonHandler}>
-              {actionButtonName}
             </Button>
           </div>
         </DialogContent>

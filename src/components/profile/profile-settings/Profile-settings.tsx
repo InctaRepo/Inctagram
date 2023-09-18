@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -9,7 +9,6 @@ import { useForm } from 'react-hook-form'
 import s from './profileSettings.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
 import {
@@ -19,6 +18,7 @@ import {
 import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
+import { DatePick } from '@/src/components/ui/date-picker'
 import { TextAreaField } from '@/src/components/ui/text-area'
 import { Typography } from '@/src/components/ui/typography'
 import { SelectBox } from 'src/components/ui/select-box'
@@ -31,6 +31,7 @@ type ProfileSettingFormPropsType = {
 export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
   const { t } = useTranslate()
   const router = useRouter()
+
   //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
 
   const {
@@ -59,7 +60,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   }, [t])
 
   const onSubmit = handleSubmit((data: ProfileSettingFormType) => {
-    onSubmitHandler(data)
+    onSubmitHandler?.(data)
   })
 
   const changeCityHandler = (newCity: string | number) => {}
@@ -69,9 +70,9 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
       <div className={s.profile}>
         <nav>
           <ul className={s.navMenu}>
-            <li className={s.oneLink}>
-              <Link className={s.link} href={'/'}>
-                <Typography variant={'h3'} color="secondary">
+            <li className={s.generalLink}>
+              <Link className={s.link} href={'/settings'}>
+                <Typography variant={'h3'} className={s.general}>
                   {t.profile.profileSetting.generalInformation}
                 </Typography>
               </Link>
@@ -133,13 +134,10 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                 label={t.profile.profileSetting.lastName}
                 className={s.field}
               />
-              <ControlledTextField
-                control={control}
-                name={'dateOfBirthday'}
-                label={t.profile.profileSetting.dateOfBirthday}
-                className={s.date}
-                placeholder="00.00.00"
-              />
+              <div className={s.datePicker}>
+                <DatePick className={s.date} label={t.profile.profileSetting.dateOfBirthday} />
+              </div>
+
               <div className={s.fieldSelect}>
                 <SelectBox
                   label={t.profile.profileSetting.selectYourCity}
@@ -147,14 +145,12 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                   defaultValue={t.profile.profileSetting.city}
                 />
               </div>
-
               <TextAreaField
                 className={s.textArea}
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />
             </form>
-            <CalendarOutline className={s.calendar} />
           </div>
         </div>
         <div className={s.saveBtn}>

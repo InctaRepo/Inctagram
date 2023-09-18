@@ -17,7 +17,6 @@ type Story = StoryObj<typeof BaseModal>
 
 export const DefaultModal: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = useState(false)
     const handler = () => {
       setOpen(!open)
@@ -38,7 +37,6 @@ export const DefaultModal: Story = {
 
 export const ModalWithSaveButton: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = useState(false)
     const handler = () => {
       setOpen(!open)

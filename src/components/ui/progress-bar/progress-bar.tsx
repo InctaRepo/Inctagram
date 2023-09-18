@@ -7,6 +7,8 @@ import s from './progress-bar.module.scss'
 import { useAppSelector } from '@/src/services'
 import { appIsLoadingSelector } from '@/src/services/app'
 
+// eslint-disable-next-line import/no-named-as-default
+
 export const ProgressBar = () => {
   const isLoading = useAppSelector(appIsLoadingSelector)
 

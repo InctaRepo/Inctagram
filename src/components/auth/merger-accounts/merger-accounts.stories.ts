@@ -1,14 +1,14 @@
 import type { StoryObj } from '@storybook/react'
 
-import MergerAccounts from '@/src/pages/auth/merger-accounts/index'
+import { MergerAccountsPage } from '@/src/components/auth/merger-accounts/merger-accounts-page'
 
 const meta = {
   title: 'pages/MergerAccounts',
-  component: MergerAccounts,
+  component: MergerAccountsPage,
 }
 
 export default meta
-type Story = StoryObj<typeof MergerAccounts>
+type Story = StoryObj<typeof MergerAccountsPage>
 
 export const Primary: Story = {
   args: {

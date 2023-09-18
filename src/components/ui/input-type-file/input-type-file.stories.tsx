@@ -1,8 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 
-import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file/input-type-file'
-import { Typography } from '@/src/components/ui/typography'
 
 const meta = {
   title: 'Components/InputTypeFile',

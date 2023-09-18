@@ -1,17 +1,26 @@
 @import 'src/styles/mixins';
 @import 'src/styles/colors';
+
 .container {
-  @include flex-block();
+  @include flex-block;
+
+  justify-content: space-between;
   width: 220px;
   height: 100%;
-  justify-content: space-between;
   border-right: 1px solid $color-dark-300;
+
   .containerLinks {
-    @include flex-block();
-    height: 100%;
-    align-items: start;
+    @include flex-block;
+
+    align-items: flex-start;
     justify-content: space-between;
-    width: 114px;
+    width: 140px;
+    height: 100%;
+
+    .favorites {
+      padding: 6px 12px;
+    }
+
     .logout {
       margin-bottom: 36px;
       margin-left: 5px;
