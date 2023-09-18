@@ -33,7 +33,7 @@ export const Logout = () => {
         <Typography variant="medium14">{t.profile.logout}</Typography>
       </Button>
       <Modal
-        modalWidth={'sm'}
+        modalWidth={'md'}
         title={t.profile.logout}
         open={openModal}
         actionButtonName={t.profile.yes}

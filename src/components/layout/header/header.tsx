@@ -10,7 +10,7 @@ import s from 'src/components/layout/header/header.module.scss'
 import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 
 export const Header = () => {
-  const { push, pathname, query, asPath } = useRouter()
+  const { push, pathname, query, asPath, locale } = useRouter()
   const languages: OptionsType[] = [
     { value: 'English', image: <FlagUKIcon /> },
     { value: 'Russian', image: <FlagRussiaIcon /> },
@@ -35,7 +35,7 @@ export const Header = () => {
             <SelectBox
               options={languages}
               onValueChange={changeLangHandler}
-              defaultValue={languages[1].value}
+              defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
             />
           </div>
         </div>

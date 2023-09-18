@@ -93,6 +93,7 @@ export const en: LocaleType = {
       accountManagement: 'Account Management',
       myPayment: 'My payments',
       addAProfilePhoto: 'Add a Profile Photo',
+      save: 'Save',
       userName: 'Username',
       firstName: 'First name',
       lastName: 'Last name',
@@ -108,6 +109,18 @@ export const en: LocaleType = {
           regex: 'Username can contain only A-Z, a-z, - or _',
           min: 'Min number of characters 6',
           max: 'Max number of characters 30',
+        },
+        firstNameField: {
+          nonEmpty: 'Enter first name',
+          regex: 'First name can contain only A-Z, a-z',
+          min: 'Min number of characters 1',
+          max: 'Max number of characters 50',
+        },
+        lastNameField: {
+          nonEmpty: 'Enter first name',
+          regex: 'First name can contain only A-Z, a-z',
+          min: 'Min number of characters 1',
+          max: 'Max number of characters 50',
         },
 
         aboutMeError: 'Max number of characters 200',
