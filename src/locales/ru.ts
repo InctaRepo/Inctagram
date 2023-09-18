@@ -92,6 +92,7 @@ export const ru = {
       accountManagement: 'Управление аккаунтом',
       myPayment: 'Мои платежи',
       addAProfilePhoto: 'Добавить фото',
+      save: 'Сохранить',
       userName: 'Имя пользователя',
       firstName: 'Имя',
       lastName: 'Фамилия',

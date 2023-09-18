@@ -5,6 +5,7 @@ import AvatarEditor from 'react-avatar-editor'
 import s from './setting-photo.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
+import { ImgOutline } from '@/src/assets/icons/image-outline'
 import { Photo } from '@/src/components/profile/profile-setting/setting-photo-modal/photo'
 import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
@@ -94,7 +95,7 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
         modalWidth={'md'}
         open={isModalOpen}
         onClose={handleButtonClick}
-        title={'Add a Profile Photo'}
+        title={t.profile.profileSetting.addAProfilePhoto}
       >
         <div
           className={`${s.photoContainer} ${selectedImage === null ? s.emptyPhotoContainer : ''}`}
@@ -115,14 +116,14 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
               disableBoundaryChecks={false}
             />
           ) : (
-            <Photo />
+            <ImgOutline />
           )}
         </div>
 
         <div className={`${s.btnContainer} ${selectedImage === null ? s.selectPhoto : s.save}`}>
           {selectedImage ? (
             <Button className={s.saveBtn} onClick={handleSaveAvatar}>
-              Save
+              {t.profile.profileSetting.save}
             </Button>
           ) : (
             <InputTypeFile setSelectedImage={setSelectedImage} />
