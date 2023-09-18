@@ -11,11 +11,10 @@
 
   position: relative;
   margin-top: -25px;
-  background-color: var(--dark-300);
-}
+  }
 
 .photoContainer {
-  margin-top: 54px;
+  //margin-top: 16px;
   background-color: $color-dark-500;
 }
 
@@ -29,8 +28,8 @@
 }
 
 .selectPhoto {
-  margin-top: 66px;
-  margin-bottom: 114px;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .save {

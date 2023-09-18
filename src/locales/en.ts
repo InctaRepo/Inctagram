@@ -93,6 +93,7 @@ export const en: LocaleType = {
       accountManagement: 'Account Management',
       myPayment: 'My payments',
       addAProfilePhoto: 'Add a Profile Photo',
+      save: 'Save',
       userName: 'Username',
       firstName: 'First name',
       lastName: 'Last name',
