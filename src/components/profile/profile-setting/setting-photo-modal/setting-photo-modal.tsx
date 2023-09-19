@@ -5,10 +5,12 @@ import AvatarEditor from 'react-avatar-editor'
 import s from './setting-photo.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
+import { ImgOutline } from '@/src/assets/icons/image-outline'
 import { Photo } from '@/src/components/profile/profile-setting/setting-photo-modal/photo'
 import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
+import { Typography } from '@/src/components/ui/typography'
 
 export type SettingPhotoModalType = {
   // isModalOpen: boolean
@@ -70,16 +72,30 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
   // if (!isModalOpen) return null
   return (
     <div className={s.container}>
-      {avatar && <img src={avatar} alt="ava" style={{ borderRadius: '50%' }} />}
-      <Button variant="outlined" onClick={() => setIsModalOpen(true)}>
-        {t.profile.profileSetting.addAProfilePhoto}
+      {avatar && (
+        <img
+          src={avatar}
+          alt="ava"
+          style={{
+            borderRadius: '50%',
+            width: 196,
+            height: 196,
+            marginTop: -210,
+            marginBottom: 24,
+          }}
+        />
+      )}
+      <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
+        <Typography variant={'h3'} className={s.addBtn}>
+          {t.profile.profileSetting.addAProfilePhoto}
+        </Typography>
       </Button>
       {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
       <BaseModal
         modalWidth={'md'}
         open={isModalOpen}
         onClose={handleButtonClick}
-        title={'Add a Profile Photo'}
+        title={t.profile.profileSetting.addAProfilePhoto}
       >
         <div
           className={`${s.photoContainer} ${selectedImage === null ? s.emptyPhotoContainer : ''}`}
@@ -100,14 +116,14 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
               disableBoundaryChecks={false}
             />
           ) : (
-            <Photo />
+            <ImgOutline />
           )}
         </div>
 
         <div className={`${s.btnContainer} ${selectedImage === null ? s.selectPhoto : s.save}`}>
           {selectedImage ? (
             <Button className={s.saveBtn} onClick={handleSaveAvatar}>
-              Save
+              {t.profile.profileSetting.save}
             </Button>
           ) : (
             <InputTypeFile setSelectedImage={setSelectedImage} />

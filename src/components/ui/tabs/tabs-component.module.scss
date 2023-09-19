@@ -1,0 +1,56 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+
+  .tabs_list {
+    display: flex;
+
+    .trigger {
+      @include typography($fs: $font-size-m, $lh: $line-height-m, $fw: $font-weight-medium);
+
+      cursor: pointer;
+
+      height: 45px;
+      padding: 0 20px;
+
+      font-family: inherit;
+      font-size: 15px;
+      line-height: 1;
+      color: $color-dark-100;
+
+      background: none;
+      border: none;
+      border-bottom: 2px solid $color-dark-100;
+      outline: none;
+
+      &:focus {
+        color: $color-accent-500;
+        background-color: rgba($color-accent-100, 0.15);
+        border: 2px solid $color-accent-900;
+        border-radius: 2px;
+      }
+
+      &[data-state='active'] {
+        color: $color-accent-500;
+        background-color: rgba($color-accent-100, 0.15);
+        border-bottom: 2px solid $color-accent-500;
+      }
+
+      &:hover {
+        color: $color-accent-500;
+        background-color: rgba($color-accent-900, 0.15);
+        border-bottom: 2px solid $color-accent-500;
+      }
+
+      &.disabled {
+        color: $color-dark-300;
+        border-bottom: 2px solid $color-dark-300;
+      }
+    }
+  }
+}
