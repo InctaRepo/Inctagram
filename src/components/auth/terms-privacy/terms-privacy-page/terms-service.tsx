@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Link from 'next/link'
+
 import s from './style.module.scss'
 
 import { Header } from '@/src/components/layout/header/header'
@@ -10,7 +12,13 @@ export const Terms = () => {
     <div className={s.main}>
       <Header />
       <Typography as="h2" variant="h2" color="primary">
-        Terms of Service
+        Terms of Service s
+      </Typography>
+
+      <Typography variant={'small'} className={s.termsRow}>
+        <Link href={'/auth/register-form/register-form'} className={s.termsLink}>
+          jhj
+        </Link>
       </Typography>
 
       <blockquote>
