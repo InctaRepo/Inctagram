@@ -10,11 +10,12 @@
   .content {
     @include flex-block($flex-direction: row, $justify-content: space-between);
 
-    width: 1280px;
+    width: 1200px;
+    margin: 0 auto;
 
     .text {
       display: block;
-      padding: 12px 0 12px 60px;
+      padding: 12px 0 12px 88px;
     }
 
     .options_container {
@@ -22,7 +23,7 @@
 
       flex-direction: row;
       gap: 48px;
-      padding-right: 64px;
+      padding-right: 42px;
     }
   }
 }
