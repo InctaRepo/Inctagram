@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Link from 'next/link'
+
 import { Typography } from '../../../ui/typography'
 
 import s from './style.module.scss'
@@ -11,6 +13,7 @@ export const Privacy = () => {
     <div className={s.main}>
       <Header />
 
+      <Link href={'/register-form/auth'}>Sign up</Link>
       <Typography>Privacy Policy</Typography>
       <blockquote>
         {' '}
