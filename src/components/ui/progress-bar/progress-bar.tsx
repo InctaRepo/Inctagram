@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+// eslint-disable-next-line import/no-named-as-default
 import NProgress from 'nprogress'
 
 import s from './progress-bar.module.scss'
