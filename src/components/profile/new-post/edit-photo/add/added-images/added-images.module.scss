@@ -1,0 +1,19 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.addedPhoto {
+  @include wh(80px, 82px);
+
+
+  margin: 12px 0 12px 12px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}

@@ -2,72 +2,84 @@
 @import '@/src/styles/colors';
 
 label {
-  font-weight: bold;
   padding-left: 10px;
+  font-weight: bold;
 }
 
 button {
-  z-index: 2;
   cursor: pointer;
+
+  z-index: 2;
+
   width: 100%;
-  background-color: #000;
-  color: #fff;
   padding: 10px 0;
+
+  color: #fff;
+
+  background-color: #000;
 }
 
 .croppedImage {
-  height: 503px;
   width: 490px;
+  height: 503px;
 }
 
 .croppedImageContainer {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 ._coverImage-holder {
+  cursor: pointer;
+
+  margin-bottom: 20px;
   padding: 25px 40px;
+
   background-color: black;
   border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
 }
 
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 490px;
-  height: 503px;
 }
 
 .cropContainer {
-  height: 503px;
   width: 490px;
+  height: 457px;
+}
+
+.carousel {
+  position: relative;
+  width: 490px;
+  height: 467px;
 }
 
 .croppedPhoto {
-  height: 490px;
   width: 503px;
+  height: 490px;
 }
 
 .controls {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
   position: absolute;
   bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 600px;
 }
 
 .expand {
-  position: relative;
   cursor: pointer;
+  position: relative;
 }
 
 .maximize {
-  position: relative;
   cursor: pointer;
+  position: relative;
 }
 
 .edit {
@@ -79,4 +91,17 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.slick-next {
+  right: 15px;
+}
+
+.slick-prev {
+  left: 15px;
+}
+
+.slick-dots {
+  bottom: 10px;
+  color: #fff;;
 }

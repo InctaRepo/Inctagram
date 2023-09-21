@@ -1,28 +1,61 @@
-import { useCallback, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
-import Cropper from 'react-easy-crop'
+import ReactCrop, { Point } from 'react-easy-crop'
 
 import getCroppedImg from './Crop'
 import s from './croped-image.module.scss'
-
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Slider from 'react-slick'
 import { Add } from '@/src/components/profile/new-post/edit-photo/add/add'
 import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
 import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
+import Image from 'next/image'
 
-const CroppedImage = ({ image }) => {
+const CroppedImage = ({ image, addedImages, setAddedImages }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
   const [aspectRatio, setAspectRatio] = useState(3 / 4)
+
   const [croppedImage, setCroppedImage] = useState<string | null>(null)
+
+  const settings = {
+    dots: true,
+    swipe: false,
+    arrows: true,
+    dotsClass: 'slick-dots slick-thumb',
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  }
+
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'block', right: 15 }}
+        onClick={onClick}
+      />
+    )
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'block', left: 15, zIndex: 1 }}
+        onClick={onClick}
+      />
+    )
+  }
   const onAspectRatioChange = number => {
     setAspectRatio(number)
-  }
-  const onZoomChange = zoom => {
-    setZoom(zoom)
-  }
-  const onCropChange = crop => {
-    setCrop(crop)
   }
 
   const onCropDone = imgCroppedArea => {
@@ -57,41 +90,46 @@ const CroppedImage = ({ image }) => {
 
   const showCroppedImage = useCallback(async () => {
     try {
-      const croppedImage = await getCroppedImg(image, croppedAreaPixels, aspectRatio)
+      const croppedImage: string = await getCroppedImg(image, croppedAreaPixels, aspectRatio)
 
       console.log('donee', { croppedImage }, aspectRatio)
       setCroppedImage(croppedImage)
+      setAddedImages([
+        ...addedImages,
+        { id: (addedImages.length + 1).toString(), image: croppedImage },
+      ])
     } catch (e) {
       console.error(e)
     }
   }, [croppedAreaPixels, aspectRatio])
 
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels)
+  }, [])
+
   return (
     <>
       <div className={s.container}>
         <div className={s.cropContainer}>
-          <Cropper
-            image={croppedImage ? croppedImage : image}
-            aspect={aspectRatio}
-            crop={crop}
-            zoom={zoom}
-            maxZoom={3}
-            showGrid={false}
-            onZoomChange={onZoomChange}
-            onCropChange={onCropChange}
-            //objectFit="cover"
-            cropShape={undefined}
-            onCropComplete={(_, croppedAreaPixels) => {
-              setCroppedAreaPixels(croppedAreaPixels)
-            }}
-            style={{
-              containerStyle: {
-                width: '100%',
-                height: '100%',
-                backgroundColor: '#4c4c4c',
-              },
-            }}
-          />
+          <Slider {...settings}>
+            {addedImages.map((el, idx) => {
+              return (
+                <div key={idx} className={s.carousel}>
+                  <ReactCrop
+                    image={el.image}
+                    objectFit={'contain'}
+                    crop={crop}
+                    zoom={zoom}
+                    aspect={aspectRatio}
+                    onCropChange={setCrop}
+                    onCropComplete={onCropComplete}
+                    onZoomChange={setZoom}
+                  />
+                  {/*<Image src={el.image} alt={'photos'} height={300} width={300} />*/}
+                </div>
+              )
+            })}
+          </Slider>
         </div>
         <div className={s.editAndAdd}>
           <div className={s.edit}>
@@ -99,7 +137,11 @@ const CroppedImage = ({ image }) => {
             <Zoom className={s.maximize} zoom={zoom} setZoom={zoom => setZoom(zoom)} />
           </div>
           <div>
-            <Add image={croppedImage ? croppedImage : image} />
+            <Add
+              image={croppedImage ? croppedImage : image}
+              addedImages={addedImages}
+              setAddedImages={setAddedImages}
+            />
           </div>
         </div>
       </div>

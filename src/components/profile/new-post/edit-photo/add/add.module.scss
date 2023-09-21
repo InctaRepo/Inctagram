@@ -41,12 +41,12 @@
 }
 
 .addContainer {
-  @include wh(152px, 106px);
-
   cursor: pointer;
 
   display: flex;
-
+  
+  min-width: 152px;
+  height: 106px;
   margin-top: -154px;
   margin-right: 11px;
 
@@ -71,4 +71,10 @@
 
 .photo {
  // object-fit: cover;
+}
+
+.carouselPhoto {
+  @include wh(80px, 82px);
+
+  margin: 12px;
 }

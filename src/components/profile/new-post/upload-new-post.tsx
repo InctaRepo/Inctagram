@@ -16,12 +16,18 @@ export type SettingPhotoModalType = {
   // setIsModalOpen: () => void
 }
 
+export type ImageType = {
+  id: string
+  image: string
+}
+
 export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [image, setImage] = useState<string | null>(null)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
+  const [addedImages, setAddedImages] = useState<ImageType[]>([])
 
   const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
     const reader = new FileReader()
@@ -46,6 +52,9 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
 
   const handleImageUpload = async (e: any) => {
     setImage(URL.createObjectURL(e.target.files[0]))
+    setAddedImages([
+      { id: (addedImages.length + 1).toString(), image: URL.createObjectURL(e.target.files[0]) },
+    ])
   }
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
@@ -84,7 +93,7 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
           onCancel={cancelButtonClick}
           title="Cropping"
         >
-          <CroppedImage image={image} />
+          <CroppedImage image={image} addedImages={addedImages} setAddedImages={setAddedImages} />
         </CropModal>
       )}
     </div>
