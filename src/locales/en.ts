@@ -117,8 +117,8 @@ export const en: LocaleType = {
           max: 'Max number of characters 50',
         },
         lastNameField: {
-          nonEmpty: 'Enter first name',
-          regex: 'First name can contain only A-Z, a-z',
+          nonEmpty: 'Enter last name',
+          regex: 'Last name can contain only A-Z, a-z',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },

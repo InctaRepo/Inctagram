@@ -7,7 +7,7 @@ import s from './tabs-component.module.scss'
 type TabProps = {
   label: string
   value: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 type TabsProps = {
