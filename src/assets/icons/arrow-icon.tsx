@@ -26,7 +26,7 @@ const SvgComponent = (props: Props, ref: Ref<SVGSVGElement>) => {
       ref={ref}
       {...props}
       onClick={handleClick}
-      style={{ transform: direction === 'desc' ? 'rotate(180deg)' : undefined }}
+      style={{ transform: direction === 'desc' ? 'rotate(270deg)' : undefined }}
     >
       <g clipPath="url(#a)">
         <path
