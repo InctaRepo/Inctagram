@@ -1,12 +1,13 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { Typography } from '../../../ui/typography'
 
 import s from './style.module.scss'
 
-import { ArrowIcon } from '@/src/assets/icons/arrow-icon'
+import ImageArrow from '@/src/assets/images/rightArrow.png'
 import { Header } from '@/src/components/layout/header/header'
 
 export const Privacy = () => {
@@ -14,14 +15,18 @@ export const Privacy = () => {
     <div className={s.main}>
       <Header />
 
-      {/*<Link href={'/auth/sign-up'}>*/}
-      {/*  <span className="arrow">*/}
-      {/*    <ArrowIcon direction="desc" /> Back to sign in*/}
-      {/*  </span>*/}
-      {/*</Link>*/}
-      <Typography>Privacy Policy</Typography>
+      <div className={s.signIn}>
+        <Link className={s.link} href={'/auth/sign-up'}>
+          <span className={s.arrow}>
+            <Image className={s.img} src={ImageArrow} alt="arrow" />
+            Back to sign in
+          </span>
+        </Link>
+      </div>
 
-      <p className={s.privacyPolicy}>
+      <div className={s.privacyPolicy}>
+        <Typography variant="h1">Privacy Policy</Typography>
+        <br />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Fames ac turpis egestas integer eget aliquet nibh. Amet
         consectetur adipiscing elit ut aliquam purus sit amet luctus. Tortor vitae purus faucibus
@@ -80,7 +85,7 @@ export const Privacy = () => {
         velit. Commodo odio aenean sed adipiscing diam. Viverra nam libero justo laoreet. Id neque
         aliquam vestibulum morbi blandit cursus. Vel facilisis volutpat est velit egestas dui id
         ornare. Feugiat nibh sed pulvinar proin.
-      </p>
+      </div>
     </div>
   )
 }

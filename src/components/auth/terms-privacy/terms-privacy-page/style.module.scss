@@ -1,15 +1,29 @@
 @import '@/src/styles/mixins';
 
-.main {
-  @include flex-block;
+.arrow {
+  display: flex;
+}
+.img {
+  position: relative;
+  right: 15px;
+}
+.signIn {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 34px;
+  right: 436px;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .privacyPolicy {
-  position: relative;
-  top: 17px;
-
+  padding: 100px;
   text-align: center;
-
-  width: 60%;
+  width: 85%;
   margin: 0 auto;
+  font-size: 14px;
+  list-style: none;
 }
