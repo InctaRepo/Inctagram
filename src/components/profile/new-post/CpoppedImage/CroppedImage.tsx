@@ -1,15 +1,19 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
-import ReactCrop, { Point } from 'react-easy-crop'
+import Cropper from 'react-easy-crop'
+import Slider from 'react-slick'
 
 import getCroppedImg from './Crop'
 import s from './croped-image.module.scss'
+
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import Slider from 'react-slick'
+
 import { Add } from '@/src/components/profile/new-post/edit-photo/add/add'
 import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
 import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
+
+// eslint-disable-next-line import/order
 import Image from 'next/image'
 
 const CroppedImage = ({ image, addedImages, setAddedImages }) => {
@@ -17,7 +21,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
   const [zoom, setZoom] = useState(1)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
   const [aspectRatio, setAspectRatio] = useState(3 / 4)
-
+  const [zoomValue, setZoomValue] = useState(1)
   const [croppedImage, setCroppedImage] = useState<string | null>(null)
 
   const settings = {
@@ -35,6 +39,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props
+
     return (
       <div
         className={className}
@@ -46,6 +51,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
 
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props
+
     return (
       <div
         className={className}
@@ -103,9 +109,17 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
     }
   }, [croppedAreaPixels, aspectRatio])
 
+  useEffect(() => {
+    setAddedImages(addedImages)
+  }, [addedImages])
+
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels)
   }, [])
+
+  const onZoomImage = (value: number) => {
+    setZoomValue(value)
+  }
 
   return (
     <>
@@ -115,17 +129,18 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
             {addedImages.map((el, idx) => {
               return (
                 <div key={idx} className={s.carousel}>
-                  <ReactCrop
+                  <Cropper
                     image={el.image}
-                    objectFit={'contain'}
+                    //objectFit={'cover'}
                     crop={crop}
-                    zoom={zoom}
+                    zoom={zoomValue}
+                    zoomSpeed={4}
+                    showGrid={false}
                     aspect={aspectRatio}
                     onCropChange={setCrop}
                     onCropComplete={onCropComplete}
-                    onZoomChange={setZoom}
+                    onZoomChange={setZoomValue}
                   />
-                  {/*<Image src={el.image} alt={'photos'} height={300} width={300} />*/}
                 </div>
               )
             })}
@@ -134,7 +149,13 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
         <div className={s.editAndAdd}>
           <div className={s.edit}>
             <Crop className={s.expand} setAspectRatio={onAspectRatioChange} />
-            <Zoom className={s.maximize} zoom={zoom} setZoom={zoom => setZoom(zoom)} />
+            <Zoom
+              className={s.maximize}
+              zoom={zoomValue}
+              setZoom={setZoomValue}
+              onZoomImage={onZoomImage}
+              zoomImage={zoomValue}
+            />
           </div>
           <div>
             <Add

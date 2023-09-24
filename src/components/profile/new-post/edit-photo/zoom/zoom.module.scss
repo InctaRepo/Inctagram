@@ -8,29 +8,40 @@
 
 .zoomBtn {
   @include wh(36px, 36px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-color: $color-dark-500;
-  color: $color-light-700;
-  opacity: 80%;
+
   cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $color-light-700;
+
+  opacity: 0.8;
+  background-color: $color-dark-500;
   border-radius: 2px;
 }
 
 .slider {
   @include wh(124px, 36px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  background-color: $color-dark-500;
-  opacity: 80%;
+
   cursor: pointer;
-  border-radius: 2px;
+
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   margin-top: -74px;
+
+  opacity: 0.8;
+  background-color: $color-dark-500;
+  border-radius: 2px;
 }
+
 
 .range {
   @include wh(100px, 12px);
@@ -38,7 +49,10 @@
 
 .blue {
   filter: brightness(0) invert(1);
+
   &:hover {
     filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
   }
 }
+
+

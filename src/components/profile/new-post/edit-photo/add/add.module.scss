@@ -45,7 +45,7 @@
 
   display: flex;
   
-  min-width: 152px;
+  min-width: 162px;
   height: 106px;
   margin-top: -154px;
   margin-right: 11px;
@@ -69,9 +69,13 @@
   margin: 12px;
 }
 
-.photo {
- // object-fit: cover;
+.addTheSecondPhoto {
+  @include wh(36px, 36px);
+
+  margin: 12px 12px 12px 5px;
 }
+
+
 
 .carouselPhoto {
   @include wh(80px, 82px);

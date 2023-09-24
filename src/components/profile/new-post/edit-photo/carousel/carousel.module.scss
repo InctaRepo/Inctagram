@@ -1,7 +1,0 @@
-@import '@/src/styles/colors';
-@import 'src/styles/mixins';
-
-@mixin wh($w, $h) {
-  width: $w;
-  height: $h;
-}

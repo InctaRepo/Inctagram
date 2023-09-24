@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC, ReactNode, useState, Dispatch, SetStateAction } from 'react'
+import { ComponentProps, FC, ReactNode, useState } from 'react'
 
 import {
   Dialog,
@@ -10,13 +10,11 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import s from './crop-modal.module.scss'
+import s from './filters-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-import FiltersModal from '@/src/components/profile/new-post/edit-photo/filters/filters-modal'
-import SelectedImages from '@/src/components/profile/new-post/edit-photo/filters/selected-images/selected-images'
-import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
+import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
@@ -30,10 +28,9 @@ export type ModalProps = {
   title?: string
   children?: ReactNode
   className?: string
-  addedImages: ImageType[]
 } & ComponentProps<'div'>
 
-const CropModal: FC<ModalProps> = ({
+const FiltersModal: FC<ModalProps> = ({
   showSeparator = true,
   onAction,
   onCancel,
@@ -43,7 +40,6 @@ const CropModal: FC<ModalProps> = ({
   title,
   className,
   children,
-  addedImages,
 }) => {
   const classNames = {
     content: getContentClassName(className),
@@ -55,7 +51,7 @@ const CropModal: FC<ModalProps> = ({
       s.actionButton
     ),
   }
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
   const { t } = useTranslate()
   const actionButtonHandler = () => {
     onAction?.()
@@ -67,32 +63,36 @@ const CropModal: FC<ModalProps> = ({
   function onCancelHandler() {
     onCancel?.()
   }
-  console.log(addedImages)
 
   return (
-    <Dialog open={open}>
-      <DialogPortal>
-        <DialogOverlay className={s.DialogOverlay} />
-        <DialogContent className={classNames.content}>
-          <div className={s.titleWrapper}>
-            <button className={s.arrowButton} onClick={onCancelHandler}>
-              <ArrowBack />
-            </button>
-            <div className={s.nextButton}>
-              <FiltersModal open={isModalOpen} onCancel={cancelButtonHandler} title="Filters">
-                <SelectedImages addedImages={addedImages} />
-              </FiltersModal>
+    <div>
+      <Button variant="text" className={s.nextButton} onClick={() => setIsFiltersModalOpen(true)}>
+        {t.profile.next}
+      </Button>
+      <Dialog open={isFiltersModalOpen}>
+        <DialogPortal>
+          <DialogOverlay className={s.DialogOverlay} />
+          <DialogContent className={classNames.content}>
+            <div className={s.titleWrapper}>
+              <button className={s.arrowButton} onClick={onCancelHandler}>
+                <ArrowBack />
+              </button>
+              <div className={s.next}>
+                <Button variant="text" className={s.nextBtn}>
+                  {t.profile.next}
+                </Button>
+              </div>
+              <DialogTitle className={s.DialogTitle}>
+                <Typography variant={'h1'}>{title}</Typography>
+                <Separator className={classNames.separator} />
+              </DialogTitle>
             </div>
-            <DialogTitle className={s.DialogTitle}>
-              <Typography variant={'h1'}>{title}</Typography>
-              <Separator className={classNames.separator} />
-            </DialogTitle>
-          </div>
 
-          <div className={s.contentBox}>{children}</div>
-        </DialogContent>
-      </DialogPortal>
-    </Dialog>
+            <div className={s.contentBox}>{children}</div>
+          </DialogContent>
+        </DialogPortal>
+      </Dialog>
+    </div>
   )
 }
 
@@ -100,4 +100,4 @@ function getContentClassName(className?: string) {
   return clsx(className, s.DialogContent)
 }
 
-export default CropModal // do not export this , instead use dynamic import "Modal" for js bundle reduce
+export default FiltersModal // do not export this , instead use dynamic import "Modal" for js bundle reduce

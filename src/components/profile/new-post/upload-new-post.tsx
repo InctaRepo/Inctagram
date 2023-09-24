@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 
 import { Typography } from '@mui/material'
 
@@ -15,6 +15,12 @@ export type SettingPhotoModalType = {
   // isModalOpen: boolean
   // setIsModalOpen: () => void
 }
+/*type addProps = {
+  addedImages: ImageType[]
+  setAddedImages: Dispatch<SetStateAction<ImageType[]>>
+  image: string
+}
+type ImageType = [{ id: string; image: string }]*/
 
 export type ImageType = {
   id: string
@@ -92,6 +98,7 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
           onClose={handleButtonClick}
           onCancel={cancelButtonClick}
           title="Cropping"
+          addedImages={addedImages}
         >
           <CroppedImage image={image} addedImages={addedImages} setAddedImages={setAddedImages} />
         </CropModal>
