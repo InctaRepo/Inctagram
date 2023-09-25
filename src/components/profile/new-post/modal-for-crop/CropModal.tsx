@@ -20,6 +20,7 @@ import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
+  image: string
   open: boolean
   onClose?: () => void
   onAction?: () => void
@@ -31,9 +32,11 @@ export type ModalProps = {
   children?: ReactNode
   className?: string
   addedImages: ImageType[]
+  changedPostImage: React.MutableRefObject<any>
 } & ComponentProps<'div'>
 
 const CropModal: FC<ModalProps> = ({
+  image,
   showSeparator = true,
   onAction,
   onCancel,
@@ -44,6 +47,7 @@ const CropModal: FC<ModalProps> = ({
   className,
   children,
   addedImages,
+  changedPostImage,
 }) => {
   const classNames = {
     content: getContentClassName(className),
@@ -56,6 +60,7 @@ const CropModal: FC<ModalProps> = ({
     ),
   }
   const [isModalOpen, setIsModalOpen] = useState(true)
+  const [activeFilter, setActiveFilter] = useState('')
   const { t } = useTranslate()
   const actionButtonHandler = () => {
     onAction?.()
@@ -79,8 +84,20 @@ const CropModal: FC<ModalProps> = ({
               <ArrowBack />
             </button>
             <div className={s.nextButton}>
-              <FiltersModal open={isModalOpen} onCancel={cancelButtonHandler} title="Filters">
-                <SelectedImages addedImages={addedImages} />
+              <FiltersModal
+                image={image}
+                open={isModalOpen}
+                onCancel={cancelButtonHandler}
+                changedPostImage={changedPostImage}
+                title="Filters"
+              >
+                <SelectedImages
+                  image={image}
+                  changedPostImage={changedPostImage}
+                  addedImages={addedImages}
+                  setActiveFilter={setActiveFilter}
+                  activeFilter={activeFilter}
+                />
               </FiltersModal>
             </div>
             <DialogTitle className={s.DialogTitle}>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { FC, useCallback, useEffect, useState } from 'react'
 
 import Cropper from 'react-easy-crop'
 import Slider from 'react-slick'
@@ -15,12 +15,19 @@ import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
 
 // eslint-disable-next-line import/order
 import Image from 'next/image'
+import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
 
-const CroppedImage = ({ image, addedImages, setAddedImages }) => {
+type PropsType = {
+  image: string | null
+  addedImages: ImageType[]
+  setAddedImages: (addedImages: ImageType[]) => void
+}
+
+const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
-  const [aspectRatio, setAspectRatio] = useState(3 / 4)
+  const [aspectRatio, setAspectRatio] = useState(4 / 3)
   const [zoomValue, setZoomValue] = useState(1)
   const [croppedImage, setCroppedImage] = useState<string | null>(null)
 
@@ -37,7 +44,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
     prevArrow: <SamplePrevArrow />,
   }
 
-  function SampleNextArrow(props) {
+  function SampleNextArrow(props: any) {
     const { className, style, onClick } = props
 
     return (
@@ -49,7 +56,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
     )
   }
 
-  function SamplePrevArrow(props) {
+  function SamplePrevArrow(props: any) {
     const { className, style, onClick } = props
 
     return (
@@ -62,36 +69,6 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
   }
   const onAspectRatioChange = number => {
     setAspectRatio(number)
-  }
-
-  const onCropDone = imgCroppedArea => {
-    const canvasEle = document.createElement('canvas')
-
-    canvasEle.width = imgCroppedArea.width
-    canvasEle.height = imgCroppedArea.height
-
-    const context = canvasEle.getContext('2d')
-
-    let imageObj1 = new Image()
-
-    imageObj1.src = image
-    imageObj1.onload = function () {
-      context.drawImage(
-        imageObj1,
-        imgCroppedArea.x,
-        imgCroppedArea.y,
-        imgCroppedArea.width,
-        imgCroppedArea.height,
-        0,
-        0,
-        imgCroppedArea.width,
-        imgCroppedArea.height
-      )
-
-      const dataURL = canvasEle.toDataURL('image/jpeg')
-
-      setCroppedImage(dataURL)
-    }
   }
 
   const showCroppedImage = useCallback(async () => {
@@ -113,11 +90,12 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
     setAddedImages(addedImages)
   }, [addedImages])
 
-  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+  const onCropComplete = (croppedArea: any, croppedAreaPixels: any) => {
     setCroppedAreaPixels(croppedAreaPixels)
-  }, [])
+    console.log(croppedAreaPixels)
+  }
 
-  const onZoomImage = (value: number) => {
+  const onZoomImage = (value: any) => {
     setZoomValue(value)
   }
 
@@ -134,7 +112,6 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
                     //objectFit={'cover'}
                     crop={crop}
                     zoom={zoomValue}
-                    zoomSpeed={4}
                     showGrid={false}
                     aspect={aspectRatio}
                     onCropChange={setCrop}
@@ -169,14 +146,6 @@ const CroppedImage = ({ image, addedImages, setAddedImages }) => {
 
       <button onClick={showCroppedImage} color="primary">
         Show Result
-      </button>
-      <button
-        className="btn"
-        onClick={() => {
-          onCropDone(croppedAreaPixels)
-        }}
-      >
-        Done
       </button>
     </>
   )

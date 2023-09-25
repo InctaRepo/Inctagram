@@ -15,13 +15,6 @@ export const AddedImages = ({ addedImages, setAddedImages, className }) => {
     setAddedImages(addedImages)
   }, [addedImages])
 
-  const onDeleteImage = i => {
-    addedImages.splice(i, 1)
-    setAddedImages(addedImages)
-    console.log(addedImages)
-    console.log(i)
-  }
-
   const onDeleteImageToShow = i => {
     const image = i === 0 ? imagesToShow.slice(1) : imagesToShow.slice(0, -1)
 

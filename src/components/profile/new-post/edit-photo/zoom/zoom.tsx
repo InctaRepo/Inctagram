@@ -7,7 +7,15 @@ import Image from 'next/image'
 import maximize from '@/src/assets/icons/maximize-outline.svg'
 import s from '@/src/components/profile/new-post/edit-photo/zoom/zoom.module.scss'
 
-export const Zoom = ({ className, zoom, setZoom, onZoomImage, zoomImage }) => {
+type PropsType = {
+  className?: string
+  onZoomImage: (value: string) => void
+  zoom: number
+  setZoom: (zoom: number) => void
+  zoomImage: number
+}
+
+export const Zoom: FC<PropsType> = ({ className, zoom, setZoom, onZoomImage, zoomImage }) => {
   const [isOpen, setIsOpen] = useState(false)
   const zoomRef = useRef() as MutableRefObject<HTMLDivElement>
   const [value, setValue] = useState(zoomImage ? zoomImage : '0')

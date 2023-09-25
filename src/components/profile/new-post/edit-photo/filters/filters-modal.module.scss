@@ -60,7 +60,7 @@
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes overlayShow {
+/* @keyframes overlayShow {
   from {
     opacity: 0;
   }
@@ -68,7 +68,7 @@
   to {
     opacity: 1;
   }
-}
+} */
 
 .DialogContent {
   position: fixed;
@@ -91,11 +91,12 @@
   outline: none;
 }
 
-.DialogDescription {
-}
-
 .contentBox {
-  @include flex-block($align-items: flex-start);
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: flex-start;
+  justify-content: space-between;
 
   margin-bottom: 18px;
 }

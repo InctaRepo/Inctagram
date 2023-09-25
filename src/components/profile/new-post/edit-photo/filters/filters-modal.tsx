@@ -1,4 +1,4 @@
-import { ComponentProps, FC, ReactNode, useState } from 'react'
+import React, { ComponentProps, FC, ReactNode, useState } from 'react'
 
 import {
   Dialog,
@@ -18,6 +18,7 @@ import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
+  image: string
   open: boolean
   onClose?: () => void
   onAction?: () => void
@@ -28,9 +29,11 @@ export type ModalProps = {
   title?: string
   children?: ReactNode
   className?: string
+  changedPostImage: React.MutableRefObject<any>
 } & ComponentProps<'div'>
 
 const FiltersModal: FC<ModalProps> = ({
+  image,
   showSeparator = true,
   onAction,
   onCancel,
@@ -40,6 +43,7 @@ const FiltersModal: FC<ModalProps> = ({
   title,
   className,
   children,
+  changedPostImage,
 }) => {
   const classNames = {
     content: getContentClassName(className),
