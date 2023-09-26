@@ -1,8 +1,9 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 
 import Slider from 'react-slick'
 
-import settings from '@/src/components/profile/new-post/CpoppedImage/CroppedImage'
+import airBalloon from '@/src/assets/images/air-balloon.jpg'
+import settings from '@/src/components/profile/new-post/cropped-image/CroppedImage'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -13,13 +14,14 @@ import s from './selected-images.module.scss'
 import Image from 'next/image'
 import { filters } from '@/src/components/profile/new-post/edit-photo/filters/filters'
 import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
+import { Typography } from '@/src/components/ui/typography'
 
 type PropsType = {
   addedImages: ImageType[]
   activeFilter: string
   setActiveFilter: (activeFilter: string) => void
-  changedPostImage: React.MutableRefObject<any>
   image: string
+  setAddedImages: (addedImages: ImageType[]) => void
 }
 
 const SelectedImages: FC<PropsType> = ({
@@ -27,8 +29,21 @@ const SelectedImages: FC<PropsType> = ({
   addedImages,
   activeFilter,
   setActiveFilter,
-  changedPostImage,
+  setAddedImages,
 }) => {
+  const settings = {
+    dots: true,
+    swipe: false,
+    arrows: true,
+    dotsClass: 'slick-dots slick-thumb',
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  }
+
   function SampleNextArrow(props: any) {
     const { className, style, onClick } = props
 
@@ -67,8 +82,8 @@ const SelectedImages: FC<PropsType> = ({
       case 'Gingham':
         setActiveFilter('contrast(160%)')
         break
-      case 'Moon':
-        setActiveFilter('brightness(0.25)')
+      case 'Happy':
+        setActiveFilter('contrast(110%) brightness(110%) saturate(130%)')
         break
       case 'Clarendon':
         setActiveFilter('invert(100%)')
@@ -91,10 +106,6 @@ const SelectedImages: FC<PropsType> = ({
     }
   }
 
-  useEffect(() => {
-    console.log(activeFilter)
-  }, [activeFilter])
-
   return (
     <>
       <div className={s.imgContainer}>
@@ -102,7 +113,13 @@ const SelectedImages: FC<PropsType> = ({
           {addedImages.map((el: any, idx: any) => {
             return (
               <div key={idx} className={s.carousel}>
-                <Image alt={'img'} src={el.image} width={490} height={503} ref={changedPostImage} />
+                <Image
+                  alt={'img'}
+                  style={{ filter: activeFilter }}
+                  src={el.image}
+                  width={490}
+                  height={503}
+                />
               </div>
             )
           })}
@@ -113,15 +130,16 @@ const SelectedImages: FC<PropsType> = ({
           return (
             <div key={idx} className={s.imgWithFilter} onClick={() => onActiveFilter(el.name)}>
               <Image
-                src={image}
+                src={airBalloon}
                 alt={'image-with-filter'}
                 width={108}
                 height={108}
                 style={{ filter: el.filter }}
-                //className={}
-                ref={changedPostImage}
+                className={s.image}
               />
-              <p>{el.name}</p>
+              <div className={s.filterName}>
+                <Typography variant={'h3'}>{el.name}</Typography>
+              </div>
             </div>
           )
         })}

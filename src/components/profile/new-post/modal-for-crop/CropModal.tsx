@@ -32,7 +32,7 @@ export type ModalProps = {
   children?: ReactNode
   className?: string
   addedImages: ImageType[]
-  changedPostImage: React.MutableRefObject<any>
+  setAddedImages: (addedImages: ImageType[]) => void
 } & ComponentProps<'div'>
 
 const CropModal: FC<ModalProps> = ({
@@ -47,7 +47,7 @@ const CropModal: FC<ModalProps> = ({
   className,
   children,
   addedImages,
-  changedPostImage,
+  setAddedImages,
 }) => {
   const classNames = {
     content: getContentClassName(className),
@@ -88,15 +88,14 @@ const CropModal: FC<ModalProps> = ({
                 image={image}
                 open={isModalOpen}
                 onCancel={cancelButtonHandler}
-                changedPostImage={changedPostImage}
                 title="Filters"
               >
                 <SelectedImages
                   image={image}
-                  changedPostImage={changedPostImage}
                   addedImages={addedImages}
                   setActiveFilter={setActiveFilter}
                   activeFilter={activeFilter}
+                  setAddedImages={setAddedImages}
                 />
               </FiltersModal>
             </div>

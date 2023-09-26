@@ -16,8 +16,8 @@ export const filters = [
     filter: 'contrast(160%)',
   },
   {
-    name: 'Moon',
-    filter: 'brightness(0.5)',
+    name: 'Happy',
+    filter: 'contrast(110%) brightness(110%) saturate(130%)',
   },
   {
     name: 'Clarendon',

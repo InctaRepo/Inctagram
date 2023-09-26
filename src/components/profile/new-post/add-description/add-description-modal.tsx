@@ -10,16 +10,14 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import s from './filters-modal.module.scss'
+import s from './add-description-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-import DescriptionModal from '@/src/components/profile/new-post/add-description/add-description-modal'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
-  image: string
   open: boolean
   onClose?: () => void
   onAction?: () => void
@@ -32,8 +30,7 @@ export type ModalProps = {
   className?: string
 } & ComponentProps<'div'>
 
-const FiltersModal: FC<ModalProps> = ({
-  image,
+const DescriptionModal: FC<ModalProps> = ({
   showSeparator = true,
   onAction,
   onCancel,
@@ -54,8 +51,7 @@ const FiltersModal: FC<ModalProps> = ({
       s.actionButton
     ),
   }
-  const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isDescriptionModalOpen, setDescriptionModalOpen] = useState(false)
   const { t } = useTranslate()
   const actionButtonHandler = () => {
     onAction?.()
@@ -70,10 +66,10 @@ const FiltersModal: FC<ModalProps> = ({
 
   return (
     <div>
-      <Button variant="text" className={s.nextButton} onClick={() => setIsFiltersModalOpen(true)}>
+      <Button variant="text" className={s.nextButton} onClick={() => setDescriptionModalOpen(true)}>
         {t.profile.next}
       </Button>
-      <Dialog open={isFiltersModalOpen}>
+      <Dialog open={isDescriptionModalOpen}>
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
@@ -82,11 +78,9 @@ const FiltersModal: FC<ModalProps> = ({
                 <ArrowBack />
               </button>
               <div className={s.next}>
-                <DescriptionModal
-                  open={isModalOpen}
-                  onCancel={cancelButtonHandler}
-                  title="Publication"
-                />
+                <Button variant="text" className={s.nextBtn}>
+                  {t.profile.next}
+                </Button>
               </div>
               <DialogTitle className={s.DialogTitle}>
                 <Typography variant={'h1'}>{title}</Typography>
@@ -106,4 +100,4 @@ function getContentClassName(className?: string) {
   return clsx(className, s.DialogContent)
 }
 
-export default FiltersModal // do not export this , instead use dynamic import "Modal" for js bundle reduce
+export default DescriptionModal // do not export this , instead use dynamic import "Modal" for js bundle reduce

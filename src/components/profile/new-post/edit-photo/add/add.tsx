@@ -5,6 +5,7 @@ import React, {
   MutableRefObject,
   Dispatch,
   SetStateAction,
+  FC,
 } from 'react'
 
 import { add } from 'husky'
@@ -15,15 +16,15 @@ import s from './add.module.scss'
 import img from '@/src/assets/icons/image-ouline.svg'
 import { PlusCircleOutline } from '@/src/assets/icons/plus-circle-outline'
 import { AddedImages } from '@/src/components/profile/new-post/edit-photo/add/added-images/added-images'
+import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
 
-type addProps = {
+type PropsType = {
   addedImages: ImageType[]
-  setAddedImages: Dispatch<SetStateAction<ImageType[]>>
-  image: string
+  setAddedImages: (addedImages: ImageType[]) => void
+  image: string | null
 }
-type ImageType = [{ id: string; image: string }]
 
-export const Add = ({ image, addedImages, setAddedImages }) => {
+export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
   const [isAddOpen, setIsAddOpen] = useState(false)
   const addRef = useRef() as MutableRefObject<HTMLDivElement>
   const inputRef = useRef<HTMLInputElement>(null)
@@ -73,11 +74,7 @@ export const Add = ({ image, addedImages, setAddedImages }) => {
       {isAddOpen && (
         <div className={s.addContainer}>
           {addedImages.length && (
-            <AddedImages
-              addedImages={addedImages}
-              setAddedImages={setAddedImages}
-              className={s.carouselPhoto}
-            />
+            <AddedImages addedImages={addedImages} setAddedImages={setAddedImages} />
           )}
           {addedImages.length < 10 ? (
             <div

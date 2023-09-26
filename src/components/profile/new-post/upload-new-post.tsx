@@ -6,7 +6,7 @@ import s from './upload-new-post.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-import CroppedImage from '@/src/components/profile/new-post/CpoppedImage/CroppedImage'
+import CroppedImage from '@/src/components/profile/new-post/cropped-image/CroppedImage'
 import CropModal from '@/src/components/profile/new-post/modal-for-crop/CropModal'
 import { Button } from '@/src/components/ui/button'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
@@ -30,7 +30,6 @@ export type ImageType = {
 export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
-  const changedPostImage = useRef<any>()
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [image, setImage] = useState<string | null>(null)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
@@ -101,7 +100,6 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
           onCancel={cancelButtonClick}
           title="Cropping"
           addedImages={addedImages}
-          changedPostImage={changedPostImage}
         >
           <CroppedImage image={image} addedImages={addedImages} setAddedImages={setAddedImages} />
         </CropModal>

@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
 import s from './added-images.module.scss'
 
 import { CloseIcon } from '@/src/assets/icons/close-icon'
+import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
 
-export const AddedImages = ({ addedImages, setAddedImages, className }) => {
+type PropsType = {
+  addedImages: ImageType[]
+  setAddedImages: (addedImages: ImageType[]) => void
+}
+
+export const AddedImages: FC<PropsType> = ({ addedImages, setAddedImages }) => {
   const imagesToShow = addedImages.slice(-2)
 
   console.log(imagesToShow)
@@ -15,7 +21,7 @@ export const AddedImages = ({ addedImages, setAddedImages, className }) => {
     setAddedImages(addedImages)
   }, [addedImages])
 
-  const onDeleteImageToShow = i => {
+  const onDeleteImage = i => {
     const image = i === 0 ? imagesToShow.slice(1) : imagesToShow.slice(0, -1)
 
     setAddedImages(addedImages.slice(0, -2).concat(image))
@@ -45,8 +51,8 @@ export const AddedImages = ({ addedImages, setAddedImages, className }) => {
         : imagesToShow.map((el, i) => {
             return (
               <>
-                <div key={i} className={s.addedPhoto} /*onClick={() => setPostImage(el.image)}*/>
-                  <div className={s.closeIcon} onClick={() => onDeleteImageToShow(i)}>
+                <div key={i} className={s.addedPhoto}>
+                  <div className={s.closeIcon} onClick={() => onDeleteImage(i)}>
                     <CloseIcon className={s.close} />
                   </div>
                   <Image className={s.image} src={el.image} alt={'photos'} height={82} width={80} />

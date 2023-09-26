@@ -26,7 +26,34 @@
 }
 
 .imgWithFilter {
-  width: 108px;
-  height: 108px;
+  display: flex;
+  flex-direction: column;
   margin: 12px;
+}
+
+.image {
+  cursor: pointer;
+  margin-bottom: 2px;
+  object-fit: cover;
+}
+
+.filterName {
+  @include wh(108px, 24px);
+
+  display: flex;
+  justify-content: center;
+}
+
+
+.slick-next {
+  right: 15px;
+}
+
+.slick-prev {
+  left: 15px;
+}
+
+.slick-dots {
+  bottom: 10px;
+  color: #fff;;
 }
