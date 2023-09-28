@@ -7,22 +7,25 @@ import { Typography } from '../../../ui/typography'
 
 import s from './style.module.scss'
 
+import { useTranslate } from '@/src/assets/hooks'
 import ImageArrow from '@/src/assets/images/rightArrow.png'
 import { Header } from '@/src/components/layout/header/header'
 
 export const Privacy = () => {
+  const { t } = useTranslate()
+
   return (
     <div className={s.main}>
       <Header />
 
-      <div className={s.signIn}>
+      <Typography variant={'regular14'} className={s.signIn}>
         <Link className={s.link} href={'/auth/sign-up'}>
           <span className={s.arrow}>
             <Image className={s.img} src={ImageArrow} alt="arrow" />
-            Back to sign in
+            {t.auth.backToSignIn}
           </span>
         </Link>
-      </div>
+      </Typography>
 
       <div className={s.privacyPolicy}>
         <Typography variant="h1">Privacy Policy</Typography>

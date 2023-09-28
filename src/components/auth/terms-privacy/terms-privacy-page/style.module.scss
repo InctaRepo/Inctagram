@@ -5,14 +5,15 @@
 }
 .img {
   position: relative;
+
   right: 15px;
 }
 .signIn {
   display: flex;
-  justify-content: space-around;
+  max-width: 80%;
   position: relative;
   top: 34px;
-  right: 436px;
+  left: 182px;
 }
 
 .link {
@@ -22,8 +23,12 @@
 .privacyPolicy {
   padding: 100px;
   text-align: center;
-  width: 85%;
+  position: relative;
+  z-index: -9999;
+  bottom: 30px;
+  width: 978px;
   margin: 0 auto;
-  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400px;
   list-style: none;
 }

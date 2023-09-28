@@ -7,25 +7,27 @@ import { Typography } from '../../../ui/typography'
 
 import s from './style.module.scss'
 
+import { useTranslate } from '@/src/assets/hooks'
 import ImageArrow from '@/src/assets/images/rightArrow.png'
-// import { Terms } from '@/src/components/auth/terms-privacy/terms-privacy-page/terms-service'
 import { Header } from '@/src/components/layout/header/header'
 
 export const Terms = () => {
+  const { t } = useTranslate()
+
   return (
     <div className={s.main}>
       <Header />
 
-      <div className={s.signIn}>
+      <Typography variant={'regular14'} className={s.signIn}>
         <Link className={s.link} href={'/auth/sign-up'}>
           <span className={s.arrow}>
             <Image className={s.img} src={ImageArrow} alt="arrow" />
-            Back to sign in
+            {t.auth.backToSignIn}
           </span>
         </Link>
-      </div>
+      </Typography>
 
-      <div className={s.privacyPolicy}>
+      <Typography variant={'regular14'} className={s.privacyPolicy}>
         <Typography variant="h1">Terms of Service</Typography>
         <br />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -86,7 +88,7 @@ export const Terms = () => {
         velit. Commodo odio aenean sed adipiscing diam. Viverra nam libero justo laoreet. Id neque
         aliquam vestibulum morbi blandit cursus. Vel facilisis volutpat est velit egestas dui id
         ornare. Feugiat nibh sed pulvinar proin.
-      </div>
+      </Typography>
     </div>
   )
 }
