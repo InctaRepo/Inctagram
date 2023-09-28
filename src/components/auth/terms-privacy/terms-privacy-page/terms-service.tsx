@@ -28,7 +28,8 @@ export const Terms = () => {
       </Typography>
 
       <Typography variant={'regular14'} className={s.privacyPolicy}>
-        <Typography variant="h1">Terms of Service</Typography>
+        <Typography variant="h1">                    {t.auth.termsOfService}</Typography>
+
         <br />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Fames ac turpis egestas integer eget aliquet nibh. Amet

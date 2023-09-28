@@ -28,7 +28,9 @@ export const Privacy = () => {
       </Typography>
 
       <div className={s.privacyPolicy}>
-        <Typography variant="h1">Privacy Policy</Typography>
+        <Typography variant="h1"> {t.auth.policy}</Typography>
+
+
         <br />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Fames ac turpis egestas integer eget aliquet nibh. Amet
