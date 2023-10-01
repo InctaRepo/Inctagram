@@ -8,6 +8,7 @@ import MaskIcon from '@/src/assets/icons/mask-icon'
 import { Typography } from '@/src/components/ui/typography'
 import s from 'src/components/layout/header/header.module.scss'
 import { OptionsType, SelectBox } from 'src/components/ui/select-box'
+import Link from 'next/link'
 
 export const Header = () => {
   const { push, pathname, query, asPath, locale } = useRouter()
@@ -27,7 +28,8 @@ export const Header = () => {
     <div className={s.container}>
       <div className={s.content}>
         <Typography variant="large" className={s.text}>
-          Inсtagram
+          <Link className={s.incta} href={"/auth/sign-in"}>Inсtagram</Link>
+
         </Typography>
         <div className={s.options_container}>
           <MaskIcon />
