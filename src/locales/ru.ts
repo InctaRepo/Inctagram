@@ -24,7 +24,7 @@ export const ru = {
     },
     sendLink: 'Отправить ссылку',
     sendLinkAgain: 'Отправить ссылку снова',
-    backToSignIn: 'Вернуться на страницу входа',
+    BackToSignUp : 'Вернуться на страницу регистрации',
     linkHasBeenSent:
       'Ссылка отправлена по электронной почте. Если вы не получили письмо, отправьте ссылку еще раз',
     signUpTerms: {
@@ -34,7 +34,11 @@ export const ru = {
     termsOfService: 'Правилами',
     and: 'и',
     policy: 'Политикой',
+    termsOfServicePage:"Пользовательское соглашение",
+    PrivacyPolicyPage:"Политика конфиденциальности",
 
+
+    
     // error fields block start =======================================================
 
     authErrors: {

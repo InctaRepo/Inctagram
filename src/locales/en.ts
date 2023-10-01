@@ -25,7 +25,7 @@ export const en: LocaleType = {
     },
     sendLink: 'Send Link',
     sendLinkAgain: 'Send Link Again',
-    backToSignIn: 'Back to Sign In',
+    BackToSignUp: 'Back to Sign Up',
     linkHasBeenSent:
       'The link has been sent by email. If you dont receive an email send link again',
     signUpTerms: {
@@ -35,6 +35,8 @@ export const en: LocaleType = {
     termsOfService: 'Terms of Service',
     and: 'and',
     policy: 'Privacy Policy',
+    termsOfServicePage:"Terms of Service",
+    PrivacyPolicyPage:"Privacy Policy",
 
     // error fields block start =======================================================
     authErrors: {
