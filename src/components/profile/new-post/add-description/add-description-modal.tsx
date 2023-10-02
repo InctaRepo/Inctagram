@@ -19,6 +19,8 @@ import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
   open: boolean
+  isFiltersModalOpen: boolean
+  setIsFiltersModalOpen: (isFiltersModalOpen: boolean) => void
   onClose?: () => void
   onAction?: () => void
   onCancel?: () => void
@@ -31,6 +33,8 @@ export type ModalProps = {
 } & ComponentProps<'div'>
 
 const DescriptionModal: FC<ModalProps> = ({
+  isFiltersModalOpen,
+  setIsFiltersModalOpen,
   showSeparator = true,
   onAction,
   onCancel,
@@ -60,8 +64,9 @@ const DescriptionModal: FC<ModalProps> = ({
     onCancel?.()
   }
 
-  function onCancelHandler() {
-    onCancel?.()
+  const handleBackClick = () => {
+    setDescriptionModalOpen(false)
+    setIsFiltersModalOpen(true)
   }
 
   return (
@@ -74,7 +79,7 @@ const DescriptionModal: FC<ModalProps> = ({
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
             <div className={s.titleWrapper}>
-              <button className={s.arrowButton} onClick={onCancelHandler}>
+              <button className={s.arrowButton} onClick={handleBackClick}>
                 <ArrowBack />
               </button>
               <div className={s.next}>

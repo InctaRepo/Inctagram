@@ -1,4 +1,12 @@
-import React, { ComponentProps, FC, ReactNode, useState } from 'react'
+import React, {
+  ComponentProps,
+  FC,
+  MutableRefObject,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 
 import {
   Dialog,
@@ -15,11 +23,15 @@ import s from './filters-modal.module.scss'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import DescriptionModal from '@/src/components/profile/new-post/add-description/add-description-modal'
+import { PostDescription } from '@/src/components/profile/new-post/add-description/description/description'
+import FilteredImages from '@/src/components/profile/new-post/add-description/images-with-filters/images-with-filters'
+import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure-modal'
+import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
-  image: string
+  image: string | null
   open: boolean
   onClose?: () => void
   onAction?: () => void
@@ -30,6 +42,13 @@ export type ModalProps = {
   title?: string
   children?: ReactNode
   className?: string
+  addedImages: ImageType[]
+  activeFilter: string
+  setActiveFilter: (activeFilter: string) => void
+  setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
+  setImage: (image: string | null) => void
+  openSureModal: boolean
+  setOpenSureModal: (openSureModal: boolean) => void
 } & ComponentProps<'div'>
 
 const FiltersModal: FC<ModalProps> = ({
@@ -43,6 +62,13 @@ const FiltersModal: FC<ModalProps> = ({
   title,
   className,
   children,
+  addedImages,
+  activeFilter,
+  setActiveFilter,
+  setIsBaseModalOpen,
+  setImage,
+  openSureModal,
+  setOpenSureModal,
 }) => {
   const classNames = {
     content: getContentClassName(className),
@@ -55,6 +81,8 @@ const FiltersModal: FC<ModalProps> = ({
     ),
   }
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
+  const ref = useRef() as MutableRefObject<HTMLDivElement>
+  const filterRef = useRef() as MutableRefObject<HTMLDivElement>
   const [isModalOpen, setIsModalOpen] = useState(true)
   const { t } = useTranslate()
   const actionButtonHandler = () => {
@@ -64,9 +92,24 @@ const FiltersModal: FC<ModalProps> = ({
     onCancel?.()
   }
 
-  function onCancelHandler() {
-    onCancel?.()
+  function onBackHandler() {
+    setIsFiltersModalOpen(false)
+    setIsModalOpen(true)
   }
+
+  useEffect(() => {
+    const handleClickOutside = (e: any) => {
+      if (filterRef.current && !filterRef.current.contains(e.target!)) {
+        setOpenSureModal(true)
+        console.log(openSureModal)
+      }
+    }
+
+    document.body.addEventListener('click', handleClickOutside, true)
+
+    return () => document.body.removeEventListener('click', handleClickOutside)
+  }, [])
+  console.log(openSureModal)
 
   return (
     <div>
@@ -77,24 +120,31 @@ const FiltersModal: FC<ModalProps> = ({
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
-            <div className={s.titleWrapper}>
-              <button className={s.arrowButton} onClick={onCancelHandler}>
-                <ArrowBack />
-              </button>
-              <div className={s.next}>
-                <DescriptionModal
-                  open={isModalOpen}
-                  onCancel={cancelButtonHandler}
-                  title="Publication"
-                />
-              </div>
-              <DialogTitle className={s.DialogTitle}>
-                <Typography variant={'h1'}>{title}</Typography>
-                <Separator className={classNames.separator} />
-              </DialogTitle>
-            </div>
+            <div ref={filterRef}>
+              <div className={s.titleWrapper}>
+                <button className={s.arrowButton} onClick={onBackHandler}>
+                  <ArrowBack />
+                </button>
+                <div className={s.next}>
+                  <DescriptionModal
+                    open={isModalOpen}
+                    onCancel={cancelButtonHandler}
+                    title={t.profile.addNewPost.publication}
+                    isFiltersModalOpen={isFiltersModalOpen}
+                    setIsFiltersModalOpen={setIsFiltersModalOpen}
+                  >
+                    <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
+                    <PostDescription />
+                  </DescriptionModal>
+                </div>
 
-            <div className={s.contentBox}>{children}</div>
+                <DialogTitle className={s.DialogTitle}>
+                  <Typography variant={'h1'}>{title}</Typography>
+                  <Separator className={classNames.separator} />
+                </DialogTitle>
+              </div>
+              <div className={s.contentBox}>{children}</div>
+            </div>
           </DialogContent>
         </DialogPortal>
       </Dialog>

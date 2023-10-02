@@ -15,8 +15,8 @@ import s from './add.module.scss'
 
 import img from '@/src/assets/icons/image-ouline.svg'
 import { PlusCircleOutline } from '@/src/assets/icons/plus-circle-outline'
+import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import { AddedImages } from '@/src/components/profile/new-post/edit-photo/add/added-images/added-images'
-import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
 
 type PropsType = {
   addedImages: ImageType[]
@@ -51,10 +51,7 @@ export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
 
   const handleImageUpload = async (e: any) => {
     console.log(addedImages)
-    setAddedImages([
-      ...addedImages,
-      { id: (addedImages.length + 1).toString(), image: URL.createObjectURL(e.target.files[0]) },
-    ])
+    setAddedImages([...addedImages, { image: URL.createObjectURL(e.target.files[0]) }])
   }
 
   console.log(addedImages)

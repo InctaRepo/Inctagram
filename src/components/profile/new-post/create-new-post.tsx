@@ -1,15 +1,22 @@
-import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
+import React, {
+  Dispatch,
+  MutableRefObject,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 
-import { Typography } from '@mui/material'
-
-import s from './upload-new-post.module.scss'
+import s from './create-new-post.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-import CroppedImage from '@/src/components/profile/new-post/cropped-image/CroppedImage'
-import CropModal from '@/src/components/profile/new-post/modal-for-crop/CropModal'
+// eslint-disable-next-line import/namespace,import/default
+import CroppedImage from '@/src/components/profile/new-post/cropped-image/cropped-image'
+import CropModal from '@/src/components/profile/new-post/modal-for-crop/crop-modal'
 import { Button } from '@/src/components/ui/button'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
+import { Typography } from '@/src/components/ui/typography'
 
 export type SettingPhotoModalType = {
   // isModalOpen: boolean
@@ -23,33 +30,28 @@ export type SettingPhotoModalType = {
 type ImageType = [{ id: string; image: string }]*/
 
 export type ImageType = {
-  id: string
   image: string
+  crop: {
+    x: number
+    y: number
+  }
+  zoom: number
+  aspectRatio: number
 }
 
-export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
+export const CreatePostModal = (props: SettingPhotoModalType) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
+  const [isBaseModalOpen, setIsBaseModalOpen] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [image, setImage] = useState<string | null>(null)
-  const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
+  const [crop, setCrop] = useState({ x: 0, y: 0 })
+  const [zoom, setZoom] = useState(1)
+  const [aspectRatio, setAspectRatio] = useState(4 / 3)
   const [addedImages, setAddedImages] = useState<ImageType[]>([])
 
-  const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
-    const reader = new FileReader()
-
-    reader.onloadend = () => {
-      const file64 = reader.result as string
-
-      callBack(file64)
-    }
-    reader.readAsDataURL(file)
-  }
-  const handlePositionChange = (position: { x: number; y: number }) => {
-    setPosition(position)
-  }
   const handleButtonClick = () => {
-    setIsModalOpen(false)
+    setIsBaseModalOpen(false)
     setImage(null)
   }
   const cancelButtonClick = () => {
@@ -59,7 +61,12 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
   const handleImageUpload = async (e: any) => {
     setImage(URL.createObjectURL(e.target.files[0]))
     setAddedImages([
-      { id: (addedImages.length + 1).toString(), image: URL.createObjectURL(e.target.files[0]) },
+      {
+        image: URL.createObjectURL(e.target.files[0]),
+        crop: { x: 0, y: 0 },
+        zoom: 1,
+        aspectRatio: 4 / 3,
+      },
     ])
   }
   const selectFileHandler = () => {
@@ -68,10 +75,10 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
 
   return (
     <div className={s.container}>
-      {!image ? (
+      {!image && isBaseModalOpen ? (
         <BaseModal
           modalWidth={'md'}
-          open={isModalOpen}
+          open={isBaseModalOpen}
           onClose={handleButtonClick}
           title={t.profile.addPostPhoto}
         >
@@ -80,7 +87,7 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
           </div>
           <div>
             <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
-              <Typography>{t.profile.selectFromComputer}</Typography>
+              <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
             </Button>
             <input
               type="file"
@@ -98,8 +105,12 @@ export const UploadPostPhotoModal = (props: SettingPhotoModalType) => {
           open={isModalOpen}
           onClose={handleButtonClick}
           onCancel={cancelButtonClick}
-          title="Cropping"
+          title={t.profile.addNewPost.cropping}
           addedImages={addedImages}
+          setAddedImages={setAddedImages}
+          isBaseModalOpen={isBaseModalOpen}
+          setIsBaseModalOpen={setIsBaseModalOpen}
+          setImage={setImage}
         >
           <CroppedImage image={image} addedImages={addedImages} setAddedImages={setAddedImages} />
         </CropModal>

@@ -40,6 +40,7 @@
 
 .titleWrapper {
   @include flex-block($flex-direction: row, $justify-content: center);
+
   height: 61px;
 }
 
@@ -71,12 +72,13 @@
 
 .DialogContent {
   position: fixed;
-  width: 492px;
-  height: 564px;
   z-index: 100;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  width: 492px;
+  height: 564px;
 
   background-color: $color-dark-300;
   border: 1px solid $color-dark-100;
@@ -119,29 +121,42 @@
 
 .arrowButton {
   all: unset;
+
   cursor: pointer;
 
   position: absolute;
   top: 20px;
   left: 24px;
-  svg {
-    transform: scale(1.5);
-  }
+
+
 
   &:hover svg {
     background-color: $color-dark-500;
     border-radius: 100%;
   }
+
+  svg {
+    transform: scale(1.5);
+  }
 }
 
 .nextButton {
-  position: absolute;
-  width: 47px;
+
+  @include wh(82px, 36px);
+
   cursor: pointer;
+
+  position: absolute;
+  left: 406px;
+
+  display: flex;
+  justify-content: center;
+
+  color: $color-accent-500;
+
   background-color: transparent;
   border: none;
-  right: 36px;
-  color: $color-accent-500;
+
   &:hover {
     color: $color-accent-100;
   }

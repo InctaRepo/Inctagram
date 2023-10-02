@@ -1,4 +1,6 @@
-export const createImage = url =>
+import { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
+
+export const createImage = (url: string): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
     const image = new Image()
 
@@ -8,14 +10,14 @@ export const createImage = url =>
     image.src = url
   })
 
-export function getRadianAngle(degreeValue) {
+export function getRadianAngle(degreeValue: number) {
   return (degreeValue * Math.PI) / 180
 }
 
 /**
  * Returns the new bounding area of a rotated rectangle.
  */
-export function rotateSize(width, height, rotation) {
+export function rotateSize(width: number, height: number, rotation: number) {
   const rotRad = getRadianAngle(rotation)
 
   return {
@@ -28,11 +30,11 @@ export function rotateSize(width, height, rotation) {
  * This function was adapted from the one in the ReadMe of https://github.com/DominicTobias/react-image-crop
  */
 export default async function getCroppedImg(
-  imageSrc,
-  pixelCrop,
+  imageSrc: string,
+  pixelCrop: CropArgType,
   rotation = 0,
   flip = { horizontal: false, vertical: false }
-) {
+): Promise<string | null> {
   const image = await createImage(imageSrc)
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
@@ -85,12 +87,21 @@ export default async function getCroppedImg(
   )
 
   // As Base64 string
-  // return croppedCanvas.toDataURL('image/jpeg');
+  return croppedCanvas.toDataURL('image/jpeg')
 
   // As a blob
-  return new Promise((resolve, reject) => {
-    croppedCanvas.toBlob(file => {
-      resolve(URL.createObjectURL(file))
-    }, 'image/jpeg')
-  })
+  //return new Promise((resolve, reject) => {
+  //  croppedCanvas.toBlob(file => {
+  //    resolve(URL.createObjectURL(file))
+  //   }, 'image/jpeg')
+  // })
+}
+
+export const getImage = async (imageSrc: string): Promise<number> => {
+  const image = await createImage(imageSrc)
+  const { width } = image
+  const { height } = image
+  const imageRatio = width / height
+
+  return imageRatio
 }

@@ -139,14 +139,13 @@
   }
 }
 
-
 .nextButton {
+
+  @include wh(82px, 36px);
+
   cursor: pointer;
 
   position: relative;
-
-
-  width: 47px;
 
   color: $color-accent-500;
 
@@ -159,12 +158,15 @@
 }
 
 .nextBtn {
+
+  @include wh(82px, 36px);
+
   cursor: pointer;
 
   position: relative;
 
-
-  width: 47px;
+  display: flex;
+  justify-content: center;
 
   color: $color-accent-500;
 
@@ -177,8 +179,10 @@
 }
 
 .next {
+  @include wh(82px, 36px);
+
   position: relative;
-  left: 450px;
+  left: 490px;
 }
 
 .footerBlock {

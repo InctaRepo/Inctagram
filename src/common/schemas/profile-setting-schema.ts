@@ -27,10 +27,7 @@ export function createProfileSettingSchema(t: LocaleType) {
       .max(50, t.profile.profileSetting.profileSettingsErrors.lastNameField.max),
     dateOfBirthday: z.date(),
     city: z.string(),
-    aboutMe: z
-      .string()
-      .trim()
-      .max(200, t.profile.profileSetting.profileSettingsErrors.aboutMeError),
+    aboutMe: z.string().max(200, t.profile.profileSetting.profileSettingsErrors.aboutMeError),
   })
 }
 

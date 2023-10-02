@@ -9,13 +9,14 @@ import s from './croped-image.module.scss'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+import { ImageType } from '@/src/components/profile/new-post/create-new-post'
+import EasyCrop, { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
 import { Add } from '@/src/components/profile/new-post/edit-photo/add/add'
 import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
 import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
 
 // eslint-disable-next-line import/order
 import Image from 'next/image'
-import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
 
 type PropsType = {
   image: string | null
@@ -24,12 +25,13 @@ type PropsType = {
 }
 
 const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
+  const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
   const [aspectRatio, setAspectRatio] = useState(4 / 3)
-  const [zoomValue, setZoomValue] = useState(1)
   const [croppedImage, setCroppedImage] = useState<string | null>(null)
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArgType | null>(null)
+  const [imagesAfterCrop, setImagesAfterCrop] = useState<ImageType[]>([])
 
   const settings = {
     dots: true,
@@ -67,36 +69,39 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
       />
     )
   }
-  const onAspectRatioChange = number => {
+  const onAspectRatioChange = (number: number) => {
     setAspectRatio(number)
   }
-
-  const showCroppedImage = useCallback(async () => {
-    try {
-      const croppedImage: string = await getCroppedImg(image, croppedAreaPixels, aspectRatio)
-
-      console.log('donee', { croppedImage }, aspectRatio)
-      setCroppedImage(croppedImage)
-      setAddedImages([
-        ...addedImages,
-        { id: (addedImages.length + 1).toString(), image: croppedImage },
-      ])
-    } catch (e) {
-      console.error(e)
-    }
-  }, [croppedAreaPixels, aspectRatio])
 
   useEffect(() => {
     setAddedImages(addedImages)
   }, [addedImages])
 
-  const onCropComplete = (croppedArea: any, croppedAreaPixels: any) => {
-    setCroppedAreaPixels(croppedAreaPixels)
-    console.log(croppedAreaPixels)
-  }
-
   const onZoomImage = (value: any) => {
     setZoomValue(value)
+  }
+
+  const showCroppedImage = async () => {
+    if (croppedAreaPixels && image) {
+      try {
+        {
+          addedImages.map(async (el, idx) => {
+            const croppedImage = await getCroppedImg(el.image, croppedAreaPixels)
+
+            console.log('donee', { croppedImage }, croppedAreaPixels)
+            setCroppedImage(croppedImage as string)
+            // @ts-ignore
+            imagesAfterCrop.push(croppedImage)
+            setAddedImages(
+              imagesAfterCrop /*[{ image: image, crop: crop, zoom: zoom, aspectRatio: aspectRatio }]*/
+            )
+            console.log(addedImages)
+          })
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    }
   }
 
   return (
@@ -107,16 +112,16 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
             {addedImages.map((el, idx) => {
               return (
                 <div key={idx} className={s.carousel}>
-                  <Cropper
-                    image={el.image}
-                    //objectFit={'cover'}
+                  <EasyCrop
+                    image={croppedImage ? croppedImage : el.image}
+                    objectFit={'cover'}
                     crop={crop}
                     zoom={zoomValue}
-                    showGrid={false}
-                    aspect={aspectRatio}
-                    onCropChange={setCrop}
-                    onCropComplete={onCropComplete}
-                    onZoomChange={setZoomValue}
+                    setZoom={setZoomValue}
+                    setCrop={setCrop}
+                    aspectRatio={aspectRatio}
+                    croppedAreaPixels={croppedAreaPixels}
+                    setCroppedAreaPixels={setCroppedAreaPixels}
                   />
                 </div>
               )

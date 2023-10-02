@@ -124,6 +124,22 @@ export const ru = {
         aboutMeError: 'Максимальное колличество знаков 200',
       },
     },
+    addNewPost: {
+      cropping: 'Редактирование',
+      filters: 'Фильтры',
+      publication: 'Публикация',
+      addDescription: 'Добавить описание публикации',
+    },
+    descriptionError: {
+      error: 'Максимальное колличество знаков 200',
+    },
+    areYouSure: {
+      areYouSure:
+        'Вы действительно хотите отменить создание публикации? Все изменения будут потеряны',
+      discard: 'Сбросить',
+      saveDraft: 'Сохранить',
+      close: 'Закрыть',
+    },
   },
 
   // deletePost: 'Удалить пост',

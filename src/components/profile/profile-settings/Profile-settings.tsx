@@ -147,6 +147,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
               <TextAreaField
                 className={s.textArea}
+                name={'aboutMe'}
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />

@@ -127,6 +127,22 @@ export const en: LocaleType = {
         aboutMeError: 'Max number of characters 200',
       },
     },
+    addNewPost: {
+      cropping: 'Cropping',
+      filters: 'Filters',
+      publication: 'Publication',
+      addDescription: 'Add publication description',
+    },
+    descriptionError: {
+      error: 'Max number of characters 500',
+    },
+    areYouSure: {
+      areYouSure:
+        'Do you really want to close the creation of a publication? If you close everything will be deleted',
+      discard: 'Discard',
+      saveDraft: 'Safe draft',
+      close: 'Close',
+    },
   },
 }
 // deletePost: 'Delete post',

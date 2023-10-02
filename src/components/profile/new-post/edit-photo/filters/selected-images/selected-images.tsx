@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import Slider from 'react-slick'
 
 import airBalloon from '@/src/assets/images/air-balloon.jpg'
-import settings from '@/src/components/profile/new-post/cropped-image/CroppedImage'
+import settings from '@/src/components/profile/new-post/cropped-image/cropped-image'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -13,14 +13,15 @@ import s from './selected-images.module.scss'
 // eslint-disable-next-line import/order
 import Image from 'next/image'
 import { filters } from '@/src/components/profile/new-post/edit-photo/filters/filters'
-import { ImageType } from '@/src/components/profile/new-post/upload-new-post'
+// eslint-disable-next-line import/order
+import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import { Typography } from '@/src/components/ui/typography'
 
 type PropsType = {
   addedImages: ImageType[]
   activeFilter: string
   setActiveFilter: (activeFilter: string) => void
-  image: string
+  image: string | null
   setAddedImages: (addedImages: ImageType[]) => void
 }
 
@@ -105,6 +106,8 @@ const SelectedImages: FC<PropsType> = ({
       }
     }
   }
+
+  console.log(activeFilter)
 
   return (
     <>
