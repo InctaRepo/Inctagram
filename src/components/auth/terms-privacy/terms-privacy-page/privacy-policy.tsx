@@ -18,17 +18,17 @@ export const Privacy = () => {
     <div className={s.main}>
       <Header />
 
-      <Typography variant={'regular14'} className={s.signIn}>
+      <Typography variant={'regular14'} className={s.SignUp}>
         <Link className={s.link} href={'/auth/sign-up'}>
           <span className={s.arrow}>
             <Image className={s.img} src={ImageArrow} alt="arrow" />
-            {t.auth.backToSignIn}
+            {t.auth.BackToSignUp}
           </span>
         </Link>
       </Typography>
 
-      <div className={s.privacyPolicy}>
-        <Typography variant="h1"> {t.auth.policy}</Typography>
+      <div className={s.Text}>
+        <Typography variant="h1">{t.auth.PrivacyPolicyPage}</Typography>
 
 
         <br />

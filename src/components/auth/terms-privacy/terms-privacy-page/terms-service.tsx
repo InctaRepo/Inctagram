@@ -18,17 +18,17 @@ export const Terms = () => {
     <div className={s.main}>
       <Header />
 
-      <Typography variant={'regular14'} className={s.signIn}>
+      <Typography variant={'regular14'} className={s.SignUp}>
         <Link className={s.link} href={'/auth/sign-up'}>
           <span className={s.arrow}>
             <Image className={s.img} src={ImageArrow} alt="arrow" />
-            {t.auth.backToSignIn}
+            {t.auth.BackToSignUp}
           </span>
         </Link>
       </Typography>
 
-      <Typography variant={'regular14'} className={s.privacyPolicy}>
-        <Typography variant="h1">                    {t.auth.termsOfService}</Typography>
+      <Typography variant={'regular14'} className={s.Text}>
+        <Typography variant="h1">{t.auth.termsOfServicePage}</Typography>
 
         <br />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

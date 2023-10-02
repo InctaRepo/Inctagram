@@ -10,9 +10,12 @@
   .content {
     @include flex-block($flex-direction: row, $justify-content: space-between);
 
-    width: 1200px;
+    width: 1280px;
     margin: 0 auto;
+.incta{
+  text-decoration: none;
 
+}
     .text {
       display: block;
       padding: 12px 0 12px 88px;
