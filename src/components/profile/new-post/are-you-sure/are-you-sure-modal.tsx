@@ -33,7 +33,7 @@ export const AreYouSureModal: FC<ModalProps> = ({
   }
 
   return (
-    <div>
+    <div hidden={!openSureModal} id={'areYouSureModal'}>
       <BaseModal
         modalWidth={'sm'}
         title={t.profile.areYouSure.close}

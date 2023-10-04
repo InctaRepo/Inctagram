@@ -81,6 +81,7 @@ const CropModal: FC<ModalProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [activeFilter, setActiveFilter] = useState('')
   const [openSureModal, setOpenSureModal] = useState<boolean>(false)
+  const areYouSureRef = useRef(null)
 
   const { t } = useTranslate()
   const actionButtonHandler = () => {
@@ -94,6 +95,7 @@ const CropModal: FC<ModalProps> = ({
     onCancel?.()
   }
   console.log(openSureModal)
+  console.log(areYouSureRef)
 
   return (
     <div>
@@ -102,8 +104,12 @@ const CropModal: FC<ModalProps> = ({
           <DialogPortal>
             <DialogOverlay className={s.DialogOverlay} />
             <DialogContent className={classNames.content}>
-              <OutsideCloseModal setState={setOpenSureModal}>
-                <div className={s.titleWrapper}>
+              <OutsideCloseModal
+                openSureModal={openSureModal}
+                setState={setOpenSureModal}
+                areYouSureRef={areYouSureRef}
+              >
+                <div className={s.titleWrapper} id={'titleWrap'}>
                   <button className={s.arrowButton} onClick={onCancelHandler}>
                     <ArrowBack />
                   </button>
@@ -135,23 +141,20 @@ const CropModal: FC<ModalProps> = ({
                     <Separator className={classNames.separator} />
                   </DialogTitle>
                 </div>
-
+                <div ref={areYouSureRef}>
+                  <AreYouSureModal
+                    openSureModal={openSureModal}
+                    setOpenSureModal={setOpenSureModal}
+                    setIsModalOpen={setIsModalOpen}
+                    setIsBaseModalOpen={setIsBaseModalOpen}
+                    setImage={setImage}
+                  />
+                </div>
                 <div className={s.contentBox}>{children}</div>
               </OutsideCloseModal>
             </DialogContent>
           </DialogPortal>
         </Dialog>
-      )}
-      {openSureModal && (
-        <div>
-          <AreYouSureModal
-            openSureModal={openSureModal}
-            setOpenSureModal={setOpenSureModal}
-            setIsModalOpen={setIsModalOpen}
-            setIsBaseModalOpen={setIsBaseModalOpen}
-            setImage={setImage}
-          />
-        </div>
       )}
     </div>
   )
