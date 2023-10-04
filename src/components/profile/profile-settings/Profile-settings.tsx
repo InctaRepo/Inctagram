@@ -46,13 +46,21 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   }
   const countriesList = getCountries(countries)
 
+  function getCities(arr) {
+    return arr.map(el => ({ value: el }))
+  }
+
   console.log(countriesList)
   console.log(countries)
-  const fetchCities = country => {
-    const cities = countries.find(c => c.value === country)
+
+  const changeCountryHandler = (country: string | number) => {
+    const cities = countriesList.find(c => c.value === country)
 
     setCities(cities.cities)
-    console.log(cities)
+
+    const citiesSelected = getCities(cities.cities)
+
+    setCities(citiesSelected)
   }
 
   useEffect(() => {
@@ -89,7 +97,6 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   })
 
   const changeCityHandler = (newCity: string | number) => {}
-  const changeCountryHandler = (newCountry: string | number) => {}
 
   return (
     <>
@@ -155,7 +162,6 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                     label={t.profile.profileSetting.selectYourCountry}
                     onValueChange={changeCountryHandler}
                     defaultValue={t.profile.profileSetting.country}
-                    onChange={e => fetchCities(e.target.value)}
                   />
                 </div>
                 <div className={s.select}>
