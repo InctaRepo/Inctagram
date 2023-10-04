@@ -91,6 +91,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 420px;
 }
 
 .slick-next {
@@ -101,7 +102,7 @@ button {
   left: 15px;
 }
 
-.slick-dots {
-  bottom: 10px;
-  color: #fff;;
+.dots {
+  bottom: 21px;
 }
+

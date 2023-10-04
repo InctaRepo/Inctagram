@@ -22,9 +22,10 @@ type PropsType = {
   addedImages: ImageType[]
   setAddedImages: (addedImages: ImageType[]) => void
   image: string | null
+  croppedImage: string | null
 }
 
-export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
+export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages, croppedImage }) => {
   const [isAddOpen, setIsAddOpen] = useState(false)
   const addRef = useRef() as MutableRefObject<HTMLDivElement>
   const inputRef = useRef<HTMLInputElement>(null)
@@ -50,11 +51,11 @@ export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
   }
 
   const handleImageUpload = async (e: any) => {
-    console.log(addedImages)
+    //console.log(addedImages)
     setAddedImages([...addedImages, { image: URL.createObjectURL(e.target.files[0]) }])
   }
 
-  console.log(addedImages)
+  //console.log(addedImages)
 
   return (
     <div ref={addRef} className={s.wrapper}>
@@ -71,7 +72,12 @@ export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
       {isAddOpen && (
         <div className={s.addContainer}>
           {addedImages.length && (
-            <AddedImages addedImages={addedImages} setAddedImages={setAddedImages} />
+            <AddedImages
+              croppedImage={croppedImage}
+              addedImages={addedImages}
+              setAddedImages={setAddedImages}
+              image={image}
+            />
           )}
           {addedImages.length < 10 ? (
             <div

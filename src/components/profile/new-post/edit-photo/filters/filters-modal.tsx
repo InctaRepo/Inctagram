@@ -25,7 +25,8 @@ import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import DescriptionModal from '@/src/components/profile/new-post/add-description/add-description-modal'
 import { PostDescription } from '@/src/components/profile/new-post/add-description/description/description'
 import FilteredImages from '@/src/components/profile/new-post/add-description/images-with-filters/images-with-filters'
-import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure-modal'
+import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure/are-you-sure-modal'
+import OutsideCloseModal from '@/src/components/profile/new-post/are-you-sure/outside-close-modal'
 import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
@@ -97,20 +98,6 @@ const FiltersModal: FC<ModalProps> = ({
     setIsModalOpen(true)
   }
 
-  useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (filterRef.current && !filterRef.current.contains(e.target!)) {
-        setOpenSureModal(true)
-        console.log(openSureModal)
-      }
-    }
-
-    document.body.addEventListener('click', handleClickOutside, true)
-
-    return () => document.body.removeEventListener('click', handleClickOutside)
-  }, [])
-  console.log(openSureModal)
-
   return (
     <div>
       <Button variant="text" className={s.nextButton} onClick={() => setIsFiltersModalOpen(true)}>
@@ -120,7 +107,7 @@ const FiltersModal: FC<ModalProps> = ({
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
-            <div ref={filterRef}>
+            <OutsideCloseModal setState={setOpenSureModal}>
               <div className={s.titleWrapper}>
                 <button className={s.arrowButton} onClick={onBackHandler}>
                   <ArrowBack />
@@ -144,7 +131,7 @@ const FiltersModal: FC<ModalProps> = ({
                 </DialogTitle>
               </div>
               <div className={s.contentBox}>{children}</div>
-            </div>
+            </OutsideCloseModal>
           </DialogContent>
         </DialogPortal>
       </Dialog>

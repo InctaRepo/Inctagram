@@ -10,9 +10,16 @@ import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 type PropsType = {
   addedImages: ImageType[]
   setAddedImages: (addedImages: ImageType[]) => void
+  image: string | null
+  croppedImage: string | null
 }
 
-export const AddedImages: FC<PropsType> = ({ addedImages, setAddedImages }) => {
+export const AddedImages: FC<PropsType> = ({
+  addedImages,
+  setAddedImages,
+  croppedImage,
+  image,
+}) => {
   const imagesToShow = addedImages.slice(-2)
 
   console.log(imagesToShow)
@@ -21,7 +28,7 @@ export const AddedImages: FC<PropsType> = ({ addedImages, setAddedImages }) => {
     setAddedImages(addedImages)
   }, [addedImages])
 
-  const onDeleteImage = i => {
+  const onDeleteImage = (i: number) => {
     const image = i === 0 ? imagesToShow.slice(1) : imagesToShow.slice(0, -1)
 
     setAddedImages(addedImages.slice(0, -2).concat(image))
@@ -31,15 +38,14 @@ export const AddedImages: FC<PropsType> = ({ addedImages, setAddedImages }) => {
     <div className={addedImages.length === 10 ? s.wrapperForImg : s.wrapper}>
       {addedImages.length <= 1
         ? addedImages.map((el, idx) => {
+            // @ts-ignore
+            // @ts-ignore
             return (
               <>
-                <div
-                  key={idx}
-                  className={s.addedPhoto} /*onClick={() => setCurrentImage(el.image)}*/
-                >
+                <div key={idx} className={s.addedPhoto}>
                   <Image
                     className={s.oneImage}
-                    src={el.image}
+                    src={croppedImage ? croppedImage : el.image}
                     alt={'photos'}
                     height={82}
                     width={80}
@@ -49,13 +55,20 @@ export const AddedImages: FC<PropsType> = ({ addedImages, setAddedImages }) => {
             )
           })
         : imagesToShow.map((el, i) => {
+            // @ts-ignore
             return (
               <>
                 <div key={i} className={s.addedPhoto}>
                   <div className={s.closeIcon} onClick={() => onDeleteImage(i)}>
                     <CloseIcon className={s.close} />
                   </div>
-                  <Image className={s.image} src={el.image} alt={'photos'} height={82} width={80} />
+                  <Image
+                    className={s.image}
+                    src={croppedImage ? croppedImage : el.image}
+                    alt={'photos'}
+                    height={82}
+                    width={80}
+                  />
                 </div>
               </>
             )

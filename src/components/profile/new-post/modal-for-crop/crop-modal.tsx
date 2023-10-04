@@ -24,7 +24,8 @@ import s from './crop-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure-modal'
+import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure/are-you-sure-modal'
+import OutsideCloseModal from '@/src/components/profile/new-post/are-you-sure/outside-close-modal'
 import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import FiltersModal from '@/src/components/profile/new-post/edit-photo/filters/filters-modal'
 import SelectedImages from '@/src/components/profile/new-post/edit-photo/filters/selected-images/selected-images'
@@ -80,8 +81,7 @@ const CropModal: FC<ModalProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [activeFilter, setActiveFilter] = useState('')
   const [openSureModal, setOpenSureModal] = useState<boolean>(false)
-  const ref = useRef() as MutableRefObject<HTMLDivElement>
-  const filterRef = useRef() as MutableRefObject<HTMLDivElement>
+
   const { t } = useTranslate()
   const actionButtonHandler = () => {
     onAction?.()
@@ -93,35 +93,7 @@ const CropModal: FC<ModalProps> = ({
   function onCancelHandler() {
     onCancel?.()
   }
-  //console.log(addedImages)
-
-  useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (ref.current && !ref.current.contains(e.target!)) {
-        setOpenSureModal(true)
-        console.log(openSureModal)
-        console.log(!ref.current.contains(e.target!))
-      }
-    }
-
-    document.body.addEventListener('click', handleClickOutside, true)
-
-    return () => document.body.removeEventListener('click', handleClickOutside)
-  }, [])
-
-  useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (filterRef.current && !filterRef.current.contains(e.target!)) {
-        setOpenSureModal(true)
-        console.log(openSureModal)
-        console.log(!filterRef.current.contains(e.target!))
-      }
-    }
-
-    document.body.addEventListener('click', handleClickOutside, true)
-
-    return () => document.body.removeEventListener('click', handleClickOutside)
-  }, [])
+  console.log(openSureModal)
 
   return (
     <div>
@@ -130,7 +102,7 @@ const CropModal: FC<ModalProps> = ({
           <DialogPortal>
             <DialogOverlay className={s.DialogOverlay} />
             <DialogContent className={classNames.content}>
-              <div ref={ref}>
+              <OutsideCloseModal setState={setOpenSureModal}>
                 <div className={s.titleWrapper}>
                   <button className={s.arrowButton} onClick={onCancelHandler}>
                     <ArrowBack />
@@ -148,7 +120,6 @@ const CropModal: FC<ModalProps> = ({
                       setImage={setImage}
                       openSureModal={openSureModal}
                       setOpenSureModal={setOpenSureModal}
-                      ref={filterRef}
                     >
                       <SelectedImages
                         image={image}
@@ -166,7 +137,7 @@ const CropModal: FC<ModalProps> = ({
                 </div>
 
                 <div className={s.contentBox}>{children}</div>
-              </div>
+              </OutsideCloseModal>
             </DialogContent>
           </DialogPortal>
         </Dialog>

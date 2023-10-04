@@ -1,13 +1,15 @@
 import { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
 
-export const createImage = (url: string): Promise<HTMLImageElement> =>
+export const createImage = (url: string | null): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
     const image = new Image()
 
     image.addEventListener('load', () => resolve(image))
     image.addEventListener('error', error => reject(error))
     image.setAttribute('crossOrigin', 'anonymous') // needed to avoid cross-origin issues on CodeSandbox
-    image.src = url
+    if (typeof url === 'string') {
+      image.src = url
+    }
   })
 
 export function getRadianAngle(degreeValue: number) {

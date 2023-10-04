@@ -7,12 +7,16 @@ import React, {
   useState,
 } from 'react'
 
+import { Area, Point } from 'react-easy-crop'
+
 import s from './create-new-post.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line import/namespace,import/default
 import CroppedImage from '@/src/components/profile/new-post/cropped-image/cropped-image'
+import { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
+import { Demo } from '@/src/components/profile/new-post/cropped-image/test-component'
 import CropModal from '@/src/components/profile/new-post/modal-for-crop/crop-modal'
 import { Button } from '@/src/components/ui/button'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
@@ -31,12 +35,15 @@ type ImageType = [{ id: string; image: string }]*/
 
 export type ImageType = {
   image: string
-  crop: {
-    x: number
-    y: number
-  }
-  zoom: number
-  aspectRatio: number
+  id?: string
+  //croppedImage?: string
+  /*url?: string
+  cropData?: {
+    crop: { x: number; y: number }
+    croppedAreaPixels: CropArgType
+    aspect: number
+    zoom: number
+  }*/
 }
 
 export const CreatePostModal = (props: SettingPhotoModalType) => {
@@ -62,10 +69,8 @@ export const CreatePostModal = (props: SettingPhotoModalType) => {
     setImage(URL.createObjectURL(e.target.files[0]))
     setAddedImages([
       {
+        id: (addedImages.length + 1).toString(),
         image: URL.createObjectURL(e.target.files[0]),
-        crop: { x: 0, y: 0 },
-        zoom: 1,
-        aspectRatio: 4 / 3,
       },
     ])
   }
@@ -112,7 +117,12 @@ export const CreatePostModal = (props: SettingPhotoModalType) => {
           setIsBaseModalOpen={setIsBaseModalOpen}
           setImage={setImage}
         >
-          <CroppedImage image={image} addedImages={addedImages} setAddedImages={setAddedImages} />
+          <CroppedImage
+            image={image}
+            setImage={setImage}
+            addedImages={addedImages}
+            setAddedImages={setAddedImages}
+          />
         </CropModal>
       )}
     </div>

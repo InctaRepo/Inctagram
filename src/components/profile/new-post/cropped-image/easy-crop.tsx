@@ -1,23 +1,15 @@
-import React, { FC, useCallback, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 
-import Cropper from 'react-easy-crop'
-
-// eslint-disable-next-line import/namespace
-import { ImageType } from '@/src/components/profile/new-post/create-new-post'
-import getCroppedImg from '@/src/components/profile/new-post/cropped-image/Crop'
-// eslint-disable-next-line import/namespace
+import ReactCrop from 'react-easy-crop'
 
 type PropsType = {
-  image: string
-  crop: {
-    x: number
-    y: number
-  }
+  image: string | null
+  crop: { x: number; y: number }
   zoom: number
   aspectRatio: number
-  objectFit: string
-  setZoom: (zoom: number) => void
+  objectFit?: string
   setCrop: (crop: { x: number; y: number }) => void
+  setZoom: (zoom: number) => void
   croppedAreaPixels: CropArgType | null
   setCroppedAreaPixels: (croppedAreaPixels: CropArgType | null) => void
 }
@@ -30,33 +22,38 @@ export type CropArgType = {
 }
 
 const EasyCrop: FC<PropsType> = ({
-  croppedAreaPixels,
-  setCroppedAreaPixels,
-  setZoom,
-  setCrop,
   zoom,
+  aspectRatio,
   crop,
   image,
-  aspectRatio,
   objectFit,
+  setZoom,
+  setCroppedAreaPixels,
+  setCrop,
 }) => {
-  const onCropComplete = useCallback((croppedArea: CropArgType, croppedAreaPixels: CropArgType) => {
+  const onCropComplete = (croppedArea: CropArgType, croppedAreaPixels: CropArgType) => {
+    debugger
     setCroppedAreaPixels(croppedAreaPixels)
-    console.log(croppedAreaPixels)
-  }, [])
+    console.log('onCropComplete', croppedAreaPixels)
+  }
 
+  // @ts-ignore
+  // @ts-ignore
   return (
-    <Cropper
-      image={image}
-      objectFit={'contain'}
-      crop={crop}
-      zoom={zoom}
-      showGrid={false}
-      aspect={aspectRatio}
-      onCropChange={setCrop}
-      onCropComplete={onCropComplete}
-      onZoomChange={setZoom}
-    />
+    <>
+      <ReactCrop
+        image={image}
+        objectFit={'fill'} //zoom and crop doesn't work correctly without it
+        crop={crop}
+        zoom={zoom}
+        zoomWithScroll={true}
+        showGrid={false}
+        aspect={aspectRatio}
+        onCropChange={setCrop}
+        onCropComplete={onCropComplete}
+        onZoomChange={setZoom}
+      />
+    </>
   )
 }
 

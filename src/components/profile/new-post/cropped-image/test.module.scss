@@ -1,0 +1,34 @@
+.cropContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.controls {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   padding: 16px;
+ }
+
+.sliderContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.slider {
+  margin-left: 32px;
+  padding: 22px 0;
+}
+
+.cropButton {
+  width: 100px;
+  height: 36px;
+  margin-left: 16px;
+}
+
+.cropImg {
+  width: 550px;
+  height: 450px;
+}

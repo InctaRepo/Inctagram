@@ -1,6 +1,5 @@
 import React, { FC, useCallback, useEffect, useState } from 'react'
 
-import Cropper from 'react-easy-crop'
 import Slider from 'react-slick'
 
 import getCroppedImg from './Crop'
@@ -11,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import EasyCrop, { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
+import { Demo } from '@/src/components/profile/new-post/cropped-image/test-component'
 import { Add } from '@/src/components/profile/new-post/edit-photo/add/add'
 import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
 import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
@@ -20,11 +20,12 @@ import Image from 'next/image'
 
 type PropsType = {
   image: string | null
+  setImage: (image: string | null) => void
   addedImages: ImageType[]
   setAddedImages: (addedImages: ImageType[]) => void
 }
 
-const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
+const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedImages }) => {
   const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
@@ -37,7 +38,7 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
     dots: true,
     swipe: false,
     arrows: true,
-    dotsClass: 'slick-dots slick-thumb',
+    dotsClass: `slick-dots ${s.dots}`,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -90,12 +91,8 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
 
             console.log('donee', { croppedImage }, croppedAreaPixels)
             setCroppedImage(croppedImage as string)
-            // @ts-ignore
-            imagesAfterCrop.push(croppedImage)
-            setAddedImages(
-              imagesAfterCrop /*[{ image: image, crop: crop, zoom: zoom, aspectRatio: aspectRatio }]*/
-            )
-            console.log(addedImages)
+            /*setImagesAfterCrop([...imagesAfterCrop, { image: croppedImage }])
+            setAddedImages(imagesAfterCrop)*/
           })
         }
       } catch (e) {
@@ -114,7 +111,7 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
                 <div key={idx} className={s.carousel}>
                   <EasyCrop
                     image={croppedImage ? croppedImage : el.image}
-                    objectFit={'cover'}
+                    objectFit={'fill'}
                     crop={crop}
                     zoom={zoomValue}
                     setZoom={setZoomValue}
@@ -123,29 +120,24 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
                     croppedAreaPixels={croppedAreaPixels}
                     setCroppedAreaPixels={setCroppedAreaPixels}
                   />
+                  <div className={s.editAndAdd}>
+                    <div className={s.edit}>
+                      <Crop className={s.expand} setAspectRatio={setAspectRatio} />
+                      <Zoom className={s.maximize} zoom={zoomValue} setZoom={setZoomValue} />
+                    </div>
+                    <div>
+                      <Add
+                        image={croppedImage ? croppedImage : image}
+                        addedImages={addedImages}
+                        setAddedImages={setAddedImages}
+                        croppedImage={croppedImage}
+                      />
+                    </div>
+                  </div>
                 </div>
               )
             })}
           </Slider>
-        </div>
-        <div className={s.editAndAdd}>
-          <div className={s.edit}>
-            <Crop className={s.expand} setAspectRatio={onAspectRatioChange} />
-            <Zoom
-              className={s.maximize}
-              zoom={zoomValue}
-              setZoom={setZoomValue}
-              onZoomImage={onZoomImage}
-              zoomImage={zoomValue}
-            />
-          </div>
-          <div>
-            <Add
-              image={croppedImage ? croppedImage : image}
-              addedImages={addedImages}
-              setAddedImages={setAddedImages}
-            />
-          </div>
         </div>
       </div>
 
