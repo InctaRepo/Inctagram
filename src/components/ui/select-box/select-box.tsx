@@ -18,11 +18,13 @@ export type SelectProps = {
   required?: boolean
   defaultImage?: ReactElement
   children?: ReactNode
+  onChange?: (e: any) => void
 }
 
 export type OptionsType = {
   value: string
   image?: ReactElement
+  cities?: string
 }
 
 export const SelectBox: FC<SelectProps> = ({
@@ -33,6 +35,7 @@ export const SelectBox: FC<SelectProps> = ({
   required,
   placeholder,
   label,
+  onChange,
 }) => {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
