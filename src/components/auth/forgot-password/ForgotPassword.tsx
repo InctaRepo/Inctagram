@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 import s from './forgotPassword.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
+import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
 import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
 import { Button } from '@/src/components/ui/button/button'
 import { Card } from '@/src/components/ui/card-temporary'
@@ -25,27 +26,38 @@ export type ForgotFormType = {
   recaptcha: boolean
 }
 
-const modes = ['mode-primary', 'mode-secondary']
+// css variator
+const CSSMod = {
+  primary: 'primary',
+  secondary: 'secondary',
+}
 
 export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler }) => {
-  const [mode, setMode] = useState(modes[0])
+  const [mode, setMode] = useState(CSSMod.primary)
   const { t } = useTranslate()
   const router = useRouter()
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    trigger,
+    formState: { touchedFields, errors },
   } = useForm<ForgotFormType>({
     resolver: zodResolver(passwordRecoverySchema(t)),
     mode: 'onTouched',
     defaultValues: {
       email: '',
-      recaptcha: false, // requires update
+      recaptcha: false,
     },
   })
 
+  useEffect(() => {
+    // TODO custom hook with useTranslate ?
+    triggerZodFieldError(Object.keys(touchedFields) as FormFields[], trigger)
+  }, [t])
+
   const submitData = (data: ForgotFormType) => {
-    setMode(modes[1])
+    setMode(CSSMod.secondary)
+    delete data.recaptcha // our server doesnt receive it yet
     onSubmitHandler(data)
     modalHandler()
   }
@@ -87,13 +99,12 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
             type="button"
             onClick={() => router.push('/')}
           >
-            <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
+            <Typography variant="bold16">{t.auth.BackToSignUp}</Typography>
           </Button>
           <ControlledRecaptcha
             control={control}
             name="recaptcha"
-            //@ts-ignore //TODO: fix this
-            errors={errors}
+            error={errors?.recaptcha?.message}
             className={s.recaptcha}
             primary
           />
