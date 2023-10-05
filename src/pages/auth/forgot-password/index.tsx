@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ForgotPassword } from '@/src/components/auth/forgot-password/ForgotPassword'
 import s from '@/src/components/auth/forgot-password/forgotPassword.module.scss'
@@ -12,7 +11,7 @@ import { usePasswordRecoveryMutation } from '@/src/services/auth/auth-api'
 import { PasswordRecoveryType } from '@/src/services/auth/auth-api-types'
 
 const PasswordRecovery = () => {
-  const [passwordRecovery, { isSuccess, error }] = usePasswordRecoveryMutation()
+  const [passwordRecovery] = usePasswordRecoveryMutation()
   const { t } = useTranslate()
   const [email, setEmail] = useState('')
   const [openModal, setOpenModal] = useState(false)
@@ -20,11 +19,9 @@ const PasswordRecovery = () => {
     setOpenModal(!openModal)
   }
 
-  useErrorToast(isSuccess, error)
-
   const submit = (data: PasswordRecoveryType) => {
     passwordRecovery(data)
-    setEmail(data.email)
+    setEmail(data.email.length > 30 ? data.email.slice(0, 30) + '...' : data.email)
   }
 
   return (

@@ -16,4 +16,3 @@ export const Card = ({ children, className }: CardPropsType) => {
 
   return <div className={classNames.root}>{children}</div>
 }
-//niun cev ara axper

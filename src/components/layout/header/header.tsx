@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
@@ -27,7 +28,9 @@ export const Header = () => {
     <div className={s.container}>
       <div className={s.content}>
         <Typography variant="large" className={s.text}>
-          Inсtagram
+          <Link className={s.incta} href={'/auth/sign-in'}>
+            Inсtagram
+          </Link>
         </Typography>
         <div className={s.options_container}>
           <MaskIcon />

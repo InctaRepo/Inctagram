@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
@@ -19,8 +18,8 @@ import { SettingPhotoModal } from '@/src/components/profile/profile-setting/sett
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import { DatePick } from '@/src/components/ui/date-picker'
+import { TabsComponent } from '@/src/components/ui/tabs'
 import { TextAreaField } from '@/src/components/ui/text-area'
-import { Typography } from '@/src/components/ui/typography'
 import { SelectBox } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
@@ -68,38 +67,22 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   return (
     <>
       <div className={s.profile}>
-        <nav>
-          <ul className={s.navMenu}>
-            <li className={s.generalLink}>
-              <Link className={s.link} href={'/settings'}>
-                <Typography variant={'h3'} className={s.general}>
-                  {t.profile.profileSetting.generalInformation}
-                </Typography>
-              </Link>
-            </li>
-            <li className={s.oneLink}>
-              <Link className={s.link} href={'/devices'}>
-                <Typography variant={'h3'} color="secondary">
-                  {t.profile.profileSetting.devices}
-                </Typography>
-              </Link>
-            </li>
-            <li className={s.oneLink}>
-              <Link className={s.link} href={'/account-management'}>
-                <Typography variant={'h3'} color="secondary">
-                  {t.profile.profileSetting.accountManagement}
-                </Typography>
-              </Link>
-            </li>
-            <li className={s.oneLink}>
-              <Link className={s.link} href={'/my-payment'}>
-                <Typography variant={'h3'} color="secondary">
-                  {t.profile.profileSetting.myPayment}
-                </Typography>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div className={s.tabsMenu}>
+          <TabsComponent
+            tabs={[
+              {
+                label: `${t.profile.profileSetting.generalInformation}`,
+                value: 'settings',
+              },
+              { label: `${t.profile.profileSetting.devices}`, value: 'devices' },
+              {
+                label: `${t.profile.profileSetting.accountManagement}`,
+                value: 'account-management',
+              },
+              { label: `${t.profile.profileSetting.myPayment}`, value: 'my-payment' },
+            ]}
+          />
+        </div>
         <div className={s.content}>
           <div className={s.photoContent}>
             <div className={s.photo}>

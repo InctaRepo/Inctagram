@@ -1,18 +1,17 @@
 import React, { ChangeEvent, useRef } from 'react'
 
-import { Typography } from '@mui/material'
-
 import s from './input-type-file.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { Button } from '@/src/components/ui/button'
+import { Typography } from '@/src/components/ui/typography'
 
 type InputTypeFileProps = {
-  setSelectedImage?: (image: File) => void
+  setSelectedImage: (image: File) => void
 }
 export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
-  const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslate()
+  const inputRef = useRef<HTMLInputElement>(null)
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
@@ -21,9 +20,7 @@ export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
       const file = e.target.files[0]
 
       if (file.size < 10000000) {
-        if (setSelectedImage) {
-          setSelectedImage(file)
-        }
+        setSelectedImage(file)
       } else {
         console.error('Error: ', 'Файл слишком большого размера')
       }

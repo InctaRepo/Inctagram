@@ -15,14 +15,16 @@ export function createProfileSettingSchema(t: LocaleType) {
       .string()
       .trim()
       .nonempty(t.profile.profileSetting.profileSettingsErrors.firstNameField.nonEmpty)
-      .regex(/^[A-Za_]+$/, t.profile.profileSetting.profileSettingsErrors.firstNameField.regex)
+      .regex(/^[А-Яа-я- _]+$/, t.profile.profileSetting.profileSettingsErrors.firstNameField.regex)
+      .regex(/^[A-Za-z _]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
       .min(1, t.profile.profileSetting.profileSettingsErrors.firstNameField.min)
       .max(50, t.profile.profileSetting.profileSettingsErrors.firstNameField.max),
     lastName: z
       .string()
       .trim()
       .nonempty(t.profile.profileSetting.profileSettingsErrors.lastNameField.nonEmpty)
-      .regex(/^[A-Za_]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
+      .regex(/^[А-Яа-я- _]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
+      .regex(/^[A-Za-z _]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
       .min(1, t.profile.profileSetting.profileSettingsErrors.lastNameField.min)
       .max(50, t.profile.profileSetting.profileSettingsErrors.lastNameField.max),
     dateOfBirthday: z.date(),

@@ -1,5 +1,36 @@
 @import '@/src/styles/mixins';
 
-.main {
-  @include flex-block;
+.arrow {
+  display: flex;
+}
+.img {
+  position: relative;
+
+  right: 15px;
+}
+
+
+.SignUp {
+  display: flex;
+  max-width: 80%;
+  position: relative;
+  top: 34px;
+  left: 143px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.Text {
+  padding: 100px;
+  text-align: center;
+  position: relative;
+  z-index: -9999;
+  bottom: 30px;
+  width: 1158px;
+  margin: 0 auto;
+  line-height: 24px;
+  font-weight: 400px;
+  list-style: none;
 }

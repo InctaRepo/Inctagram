@@ -10,7 +10,14 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format": "prettier --write src",
-    "lint": "eslint --fix src/**/*.{tsx,ts,jsx,js} --no-error-on-unmatched-pattern && stylelint --fix src/{,*/}*.{scss,css} --allow-empty-input"
+    "lint": "eslint --fix src/**/*.{tsx,ts,jsx,js} --no-error-on-unmatched-pattern && stylelint --fix src/{,*/}*.{scss,css} --allow-empty-input",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.22.9",
@@ -31,6 +38,7 @@
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-select": "^1.2.2",
     "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-tabs": "^1.0.4",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react": "18.2.17",
     "@types/react-avatar-editor": "^13.0.0",
@@ -78,6 +86,7 @@
     "husky": "^8.0.0",
     "sass": "^1.64.1",
     "storybook": "7.1.1",
-    "stylelint": "^15.10.2"
+    "stylelint": "^15.10.2",
+    "husky": "^8.0.0"
   }
 }
