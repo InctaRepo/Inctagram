@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import ReactCrop from 'react-easy-crop'
 
 type PropsType = {
-  image: string | null
+  image?: string | null
   crop: { x: number; y: number }
   zoom: number
   aspectRatio: number
@@ -37,8 +37,6 @@ const EasyCrop: FC<PropsType> = ({
     console.log('onCropComplete', croppedAreaPixels)
   }
 
-  // @ts-ignore
-  // @ts-ignore
   return (
     <>
       <ReactCrop

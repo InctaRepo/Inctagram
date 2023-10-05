@@ -16,7 +16,6 @@ import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line import/namespace,import/default
 import CroppedImage from '@/src/components/profile/new-post/cropped-image/cropped-image'
 import { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
-import { Demo } from '@/src/components/profile/new-post/cropped-image/test-component'
 import CropModal from '@/src/components/profile/new-post/modal-for-crop/crop-modal'
 import { Button } from '@/src/components/ui/button'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
@@ -26,24 +25,11 @@ export type SettingPhotoModalType = {
   // isModalOpen: boolean
   // setIsModalOpen: () => void
 }
-/*type addProps = {
-  addedImages: ImageType[]
-  setAddedImages: Dispatch<SetStateAction<ImageType[]>>
-  image: string
-}
-type ImageType = [{ id: string; image: string }]*/
 
 export type ImageType = {
   image: string
   id?: string
-  //croppedImage?: string
-  /*url?: string
-  cropData?: {
-    crop: { x: number; y: number }
-    croppedAreaPixels: CropArgType
-    aspect: number
-    zoom: number
-  }*/
+  croppedImage?: string
 }
 
 export const CreatePostModal = (props: SettingPhotoModalType) => {

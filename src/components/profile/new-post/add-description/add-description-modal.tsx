@@ -30,6 +30,7 @@ export type ModalProps = {
   title?: string
   children?: ReactNode
   className?: string
+  setOpenSureModal: (openSureModal: boolean) => void
 } & ComponentProps<'div'>
 
 const DescriptionModal: FC<ModalProps> = ({
@@ -44,6 +45,7 @@ const DescriptionModal: FC<ModalProps> = ({
   title,
   className,
   children,
+  setOpenSureModal,
 }) => {
   const classNames = {
     content: getContentClassName(className),
@@ -74,7 +76,7 @@ const DescriptionModal: FC<ModalProps> = ({
       <Button variant="text" className={s.nextButton} onClick={() => setDescriptionModalOpen(true)}>
         {t.profile.next}
       </Button>
-      <Dialog open={isDescriptionModalOpen}>
+      <Dialog open={isDescriptionModalOpen} onOpenChange={open => !open && setOpenSureModal(true)}>
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>

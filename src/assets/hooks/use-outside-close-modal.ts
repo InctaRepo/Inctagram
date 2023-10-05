@@ -11,7 +11,7 @@ const useOutsideCloseModal = (
       const modal = document.getElementById('areYouSureModal')
       const condition = !modal?.contains(event.target)
 
-      console.log(modal, condition)
+      console.log(modal, !condition)
 
       if (
         setState &&

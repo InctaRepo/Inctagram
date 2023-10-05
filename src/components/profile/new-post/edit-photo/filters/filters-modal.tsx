@@ -103,35 +103,34 @@ const FiltersModal: FC<ModalProps> = ({
       <Button variant="text" className={s.nextButton} onClick={() => setIsFiltersModalOpen(true)}>
         {t.profile.next}
       </Button>
-      <Dialog open={isFiltersModalOpen}>
+      <Dialog open={isFiltersModalOpen} onOpenChange={open => !open && setOpenSureModal(true)}>
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
-            <OutsideCloseModal setState={setOpenSureModal}>
-              <div className={s.titleWrapper}>
-                <button className={s.arrowButton} onClick={onBackHandler}>
-                  <ArrowBack />
-                </button>
-                <div className={s.next}>
-                  <DescriptionModal
-                    open={isModalOpen}
-                    onCancel={cancelButtonHandler}
-                    title={t.profile.addNewPost.publication}
-                    isFiltersModalOpen={isFiltersModalOpen}
-                    setIsFiltersModalOpen={setIsFiltersModalOpen}
-                  >
-                    <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
-                    <PostDescription />
-                  </DescriptionModal>
-                </div>
-
-                <DialogTitle className={s.DialogTitle}>
-                  <Typography variant={'h1'}>{title}</Typography>
-                  <Separator className={classNames.separator} />
-                </DialogTitle>
+            <div className={s.titleWrapper}>
+              <button className={s.arrowButton} onClick={onBackHandler}>
+                <ArrowBack />
+              </button>
+              <div className={s.next}>
+                <DescriptionModal
+                  open={isModalOpen}
+                  onCancel={cancelButtonHandler}
+                  title={t.profile.addNewPost.publication}
+                  isFiltersModalOpen={isFiltersModalOpen}
+                  setIsFiltersModalOpen={setIsFiltersModalOpen}
+                  setOpenSureModal={setOpenSureModal}
+                >
+                  <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
+                  <PostDescription />
+                </DescriptionModal>
               </div>
-              <div className={s.contentBox}>{children}</div>
-            </OutsideCloseModal>
+
+              <DialogTitle className={s.DialogTitle}>
+                <Typography variant={'h1'}>{title}</Typography>
+                <Separator className={classNames.separator} />
+              </DialogTitle>
+            </div>
+            <div className={s.contentBox}>{children}</div>
           </DialogContent>
         </DialogPortal>
       </Dialog>

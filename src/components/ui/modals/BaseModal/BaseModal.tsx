@@ -1,4 +1,4 @@
-import { ComponentProps, FC, ReactNode } from 'react'
+import { ComponentProps, ComponentPropsWithoutRef, FC, ReactNode } from 'react'
 
 import {
   Dialog,
@@ -31,7 +31,7 @@ export type ModalProps = {
   modalWidth?: ModalSize //sm - 378px,md - 492px,lg - 644px.
   children?: ReactNode
   className?: string
-} & ComponentProps<'div'>
+} & ComponentPropsWithoutRef<'div'>
 
 const BaseModal: FC<ModalProps> = ({
   showSeparator = true,
@@ -45,6 +45,7 @@ const BaseModal: FC<ModalProps> = ({
   title,
   className,
   children,
+  ...rest
 }) => {
   const classNames = {
     content: getContentClassName(modalWidth, className),
@@ -72,7 +73,7 @@ const BaseModal: FC<ModalProps> = ({
     <Dialog open={open}>
       <DialogPortal>
         <DialogOverlay className={s.DialogOverlay} />
-        <DialogContent className={classNames.content}>
+        <DialogContent className={classNames.content} {...rest}>
           <div className={s.titleWrapper}>
             <button className={s.IconButton} onClick={onCloseHandler}>
               <CloseIcon />

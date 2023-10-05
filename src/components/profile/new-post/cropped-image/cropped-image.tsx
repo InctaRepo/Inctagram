@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import Slider from 'react-slick'
 
@@ -10,7 +10,6 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import EasyCrop, { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
-import { Demo } from '@/src/components/profile/new-post/cropped-image/test-component'
 import { Add } from '@/src/components/profile/new-post/edit-photo/add/add'
 import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
 import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
@@ -28,7 +27,6 @@ type PropsType = {
 const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedImages }) => {
   const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(1)
   const [aspectRatio, setAspectRatio] = useState(4 / 3)
   const [croppedImage, setCroppedImage] = useState<string | null>(null)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArgType | null>(null)
@@ -91,8 +89,10 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
 
             console.log('donee', { croppedImage }, croppedAreaPixels)
             setCroppedImage(croppedImage as string)
-            /*setImagesAfterCrop([...imagesAfterCrop, { image: croppedImage }])
-            setAddedImages(imagesAfterCrop)*/
+
+            console.log({ croppedImage })
+            imagesAfterCrop.push({ image: croppedImage } as ImageType)
+            setAddedImages(imagesAfterCrop)
           })
         }
       } catch (e) {
@@ -100,6 +100,8 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
       }
     }
   }
+
+  console.log(imagesAfterCrop)
 
   return (
     <>
@@ -110,7 +112,7 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
               return (
                 <div key={idx} className={s.carousel}>
                   <EasyCrop
-                    image={croppedImage ? croppedImage : el.image}
+                    image={el.image}
                     objectFit={'fill'}
                     crop={crop}
                     zoom={zoomValue}

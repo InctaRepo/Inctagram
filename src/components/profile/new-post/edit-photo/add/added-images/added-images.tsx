@@ -38,14 +38,12 @@ export const AddedImages: FC<PropsType> = ({
     <div className={addedImages.length === 10 ? s.wrapperForImg : s.wrapper}>
       {addedImages.length <= 1
         ? addedImages.map((el, idx) => {
-            // @ts-ignore
-            // @ts-ignore
             return (
               <>
                 <div key={idx} className={s.addedPhoto}>
                   <Image
                     className={s.oneImage}
-                    src={croppedImage ? croppedImage : el.image}
+                    src={el.image}
                     alt={'photos'}
                     height={82}
                     width={80}
@@ -55,20 +53,13 @@ export const AddedImages: FC<PropsType> = ({
             )
           })
         : imagesToShow.map((el, i) => {
-            // @ts-ignore
             return (
               <>
                 <div key={i} className={s.addedPhoto}>
                   <div className={s.closeIcon} onClick={() => onDeleteImage(i)}>
                     <CloseIcon className={s.close} />
                   </div>
-                  <Image
-                    className={s.image}
-                    src={croppedImage ? croppedImage : el.image}
-                    alt={'photos'}
-                    height={82}
-                    width={80}
-                  />
+                  <Image className={s.image} src={el.image} alt={'photos'} height={82} width={80} />
                 </div>
               </>
             )

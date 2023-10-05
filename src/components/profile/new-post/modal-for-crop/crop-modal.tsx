@@ -25,7 +25,6 @@ import s from './crop-modal.module.scss'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure/are-you-sure-modal'
-import OutsideCloseModal from '@/src/components/profile/new-post/are-you-sure/outside-close-modal'
 import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import FiltersModal from '@/src/components/profile/new-post/edit-photo/filters/filters-modal'
 import SelectedImages from '@/src/components/profile/new-post/edit-photo/filters/selected-images/selected-images'
@@ -100,58 +99,52 @@ const CropModal: FC<ModalProps> = ({
   return (
     <div>
       {isModalOpen && (
-        <Dialog open={open}>
+        <Dialog open={open} onOpenChange={open => !open && setOpenSureModal(true)}>
           <DialogPortal>
             <DialogOverlay className={s.DialogOverlay} />
             <DialogContent className={classNames.content}>
-              <OutsideCloseModal
-                openSureModal={openSureModal}
-                setState={setOpenSureModal}
-                areYouSureRef={areYouSureRef}
-              >
-                <div className={s.titleWrapper} id={'titleWrap'}>
-                  <button className={s.arrowButton} onClick={onCancelHandler}>
-                    <ArrowBack />
-                  </button>
-                  <div className={s.nextButton}>
-                    <FiltersModal
-                      image={image}
-                      addedImages={addedImages}
-                      open={isModalOpen}
-                      onCancel={cancelButtonHandler}
-                      title={t.profile.addNewPost.filters}
-                      activeFilter={activeFilter}
-                      setActiveFilter={setActiveFilter}
-                      setIsBaseModalOpen={setIsBaseModalOpen}
-                      setImage={setImage}
-                      openSureModal={openSureModal}
-                      setOpenSureModal={setOpenSureModal}
-                    >
-                      <SelectedImages
-                        image={image}
-                        addedImages={addedImages}
-                        setActiveFilter={setActiveFilter}
-                        activeFilter={activeFilter}
-                        setAddedImages={setAddedImages}
-                      />
-                    </FiltersModal>
-                  </div>
-                  <DialogTitle className={s.DialogTitle}>
-                    <Typography variant={'h1'}>{title}</Typography>
-                    <Separator className={classNames.separator} />
-                  </DialogTitle>
-                </div>
-                <div ref={areYouSureRef}>
-                  <AreYouSureModal
-                    openSureModal={openSureModal}
-                    setOpenSureModal={setOpenSureModal}
-                    setIsModalOpen={setIsModalOpen}
+              <div className={s.titleWrapper} id={'titleWrap'}>
+                <button className={s.arrowButton} onClick={onCancelHandler}>
+                  <ArrowBack />
+                </button>
+                <div className={s.nextButton}>
+                  <FiltersModal
+                    image={image}
+                    addedImages={addedImages}
+                    open={isModalOpen}
+                    onCancel={cancelButtonHandler}
+                    title={t.profile.addNewPost.filters}
+                    activeFilter={activeFilter}
+                    setActiveFilter={setActiveFilter}
                     setIsBaseModalOpen={setIsBaseModalOpen}
                     setImage={setImage}
-                  />
+                    openSureModal={openSureModal}
+                    setOpenSureModal={setOpenSureModal}
+                  >
+                    <SelectedImages
+                      image={image}
+                      addedImages={addedImages}
+                      setActiveFilter={setActiveFilter}
+                      activeFilter={activeFilter}
+                      setAddedImages={setAddedImages}
+                    />
+                  </FiltersModal>
                 </div>
-                <div className={s.contentBox}>{children}</div>
-              </OutsideCloseModal>
+                <DialogTitle className={s.DialogTitle}>
+                  <Typography variant={'h1'}>{title}</Typography>
+                  <Separator className={classNames.separator} />
+                </DialogTitle>
+              </div>
+              <div ref={areYouSureRef}>
+                <AreYouSureModal
+                  openSureModal={openSureModal}
+                  setOpenSureModal={setOpenSureModal}
+                  setIsModalOpen={setIsModalOpen}
+                  setIsBaseModalOpen={setIsBaseModalOpen}
+                  setImage={setImage}
+                />
+              </div>
+              <div className={s.contentBox}>{children}</div>
             </DialogContent>
           </DialogPortal>
         </Dialog>
