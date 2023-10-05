@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { default as Axios } from 'axios'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
@@ -20,7 +21,7 @@ import { ControlledTextField } from '@/src/components/ui/controlled'
 import { DatePick } from '@/src/components/ui/date-picker'
 import { TabsComponent } from '@/src/components/ui/tabs'
 import { TextAreaField } from '@/src/components/ui/text-area'
-import { SelectBox } from 'src/components/ui/select-box'
+import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
   onSubmitHandler?: (data: ProfileSettingFormType) => void
@@ -28,10 +29,43 @@ type ProfileSettingFormPropsType = {
 }
 
 export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
+  const [countries, setCountries] = useState<OptionsType[]>([])
+  const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
   const router = useRouter()
 
   //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
+  const fetchCountries = async () => {
+    let country = await Axios.get('https://countriesnow.space/api/v0.1/countries')
+
+    setCountries(country.data.data)
+  }
+
+  function getCountries(arr) {
+    return arr.map(el => ({ value: el.country, cities: el.cities }))
+  }
+  const countriesList = getCountries(countries)
+
+  function getCities(arr) {
+    return arr.map(el => ({ value: el }))
+  }
+
+  console.log(countriesList)
+  console.log(countries)
+
+  const changeCountryHandler = (country: string | number) => {
+    const cities = countriesList.find(c => c.value === country)
+
+    setCities(cities.cities)
+
+    const citiesSelected = getCities(cities.cities)
+
+    setCities(citiesSelected)
+  }
+
+  useEffect(() => {
+    fetchCountries()
+  }, [])
 
   const {
     control,
@@ -122,11 +156,22 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
 
               <div className={s.fieldSelect}>
-                <SelectBox
-                  label={t.profile.profileSetting.selectYourCity}
-                  onValueChange={changeCityHandler}
-                  defaultValue={t.profile.profileSetting.city}
-                />
+                <div className={s.select}>
+                  <SelectBox
+                    options={countriesList}
+                    label={t.profile.profileSetting.selectYourCountry}
+                    onValueChange={changeCountryHandler}
+                    defaultValue={t.profile.profileSetting.country}
+                  />
+                </div>
+                <div className={s.select}>
+                  <SelectBox
+                    options={cities}
+                    label={t.profile.profileSetting.selectYourCity}
+                    onValueChange={changeCityHandler}
+                    defaultValue={t.profile.profileSetting.city}
+                  />
+                </div>
               </div>
               <TextAreaField
                 className={s.textArea}

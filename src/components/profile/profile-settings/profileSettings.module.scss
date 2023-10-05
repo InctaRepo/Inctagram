@@ -91,7 +91,17 @@
 
   top: 240px;
   left: 476px;
+
+display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
   margin-bottom: 24px;
+}
+
+.select {
+  @include wh(340px, 60px);
+
 }
 
 .date {
