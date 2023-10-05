@@ -160,8 +160,10 @@ export const ru = {
       firstName: 'Имя',
       lastName: 'Фамилия',
       dateOfBirthday: 'Дата рождения',
+      country: 'Страна',
+      selectYourCountry: 'Выбрать страну',
       city: 'Город',
-      selectYourCity: 'Выбрать свой город',
+      selectYourCity: 'Выбрать город',
       aboutMe: 'Обо мне',
       saveChanges: 'Сохранить изменения',
       profileSettingsErrors: {

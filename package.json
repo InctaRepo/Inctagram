@@ -36,6 +36,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "1.0.6",
     "@radix-ui/react-progress": "^1.0.3",
+    "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-select": "^1.2.2",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
@@ -86,7 +87,6 @@
     "husky": "^8.0.0",
     "sass": "^1.64.1",
     "storybook": "7.1.1",
-    "stylelint": "^15.10.2",
-    "husky": "^8.0.0"
+    "stylelint": "^15.10.2"
   }
 }
