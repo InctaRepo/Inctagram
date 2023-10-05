@@ -1,5 +1,6 @@
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
 
+import { ForgotFormType } from '@/src/components/auth/forgot-password/ForgotPassword'
 import { Recaptcha, RecaptchaProps } from '@/src/components/ui/recaptcha'
 
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
@@ -9,14 +10,13 @@ export const ControlledRecaptcha = <T extends FieldValues>({
   control,
   name,
   ...props
-}: Props<T>) => {
+}: Props<ForgotFormType>) => {
   const {
-    fieldState: { error },
-    field: { ref, ...fieldProps }, // context should to type as here https://github.com/react-hook-form/react-hook-form/issues/10466
+    field: { ref, ...fieldProps },
   } = useController({
     name,
     control,
   })
 
-  return <Recaptcha {...fieldProps} errors={error} {...props} />
+  return <Recaptcha {...fieldProps} {...props} />
 }
