@@ -14,7 +14,7 @@ export type SelectProps = {
   placeholder?: ReactNode
   onValueChange?: (value: string | number) => void
   defaultValue?: string | number
-  options?: OptionsType[]
+  options: OptionsType[]
   disabled?: boolean
   required?: boolean
   defaultImage?: ReactElement
@@ -89,21 +89,32 @@ export const SelectBox: FC<SelectProps> = ({
 
       <Select.Portal>
         <Select.Content position={'popper'} className={s.selectContent}>
-          <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
-            <Select.Viewport asChild>
-              <ScrollArea.Viewport className={s.scrollAreaViewport}>
-                {options?.map((el, idx) => (
-                  <Select.Item value={el.value.toString()} key={idx} className={s.line}>
-                    {el.image}
-                    <Select.ItemText>{el.value}</Select.ItemText>
-                  </Select.Item>
-                ))}
-              </ScrollArea.Viewport>
+          {options.length > 2 ? (
+            <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
+              <Select.Viewport asChild>
+                <ScrollArea.Viewport className={s.scrollAreaViewport}>
+                  {options?.map((el, idx) => (
+                    <Select.Item value={el.value.toString()} key={idx} className={s.line}>
+                      {el.image}
+                      <Select.ItemText>{el.value}</Select.ItemText>
+                    </Select.Item>
+                  ))}
+                </ScrollArea.Viewport>
+              </Select.Viewport>
+              <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation="vertical">
+                <ScrollArea.Thumb className={s.scrollAreaThumb} />
+              </ScrollArea.Scrollbar>
+            </ScrollArea.Root>
+          ) : (
+            <Select.Viewport>
+              {options?.map((el, idx) => (
+                <Select.Item value={el.value.toString()} key={idx} className={s.line}>
+                  {el.image}
+                  <Select.ItemText>{el.value}</Select.ItemText>
+                </Select.Item>
+              ))}
             </Select.Viewport>
-            <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation="vertical">
-              <ScrollArea.Thumb className={s.scrollAreaThumb} />
-            </ScrollArea.Scrollbar>
-          </ScrollArea.Root>
+          )}
         </Select.Content>
       </Select.Portal>
     </Select.Root>

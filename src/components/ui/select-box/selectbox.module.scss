@@ -109,7 +109,7 @@
   --scrollbar-size: 10px;
 
   overflow: hidden;
-  height: 425px;
+  height: var(--radix-select-content-available-height);
   border-radius: 4px;
 
 }
