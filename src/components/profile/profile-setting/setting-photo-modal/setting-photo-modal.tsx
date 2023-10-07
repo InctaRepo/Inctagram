@@ -13,13 +13,12 @@ import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
 export type SettingPhotoModalType = {
-  // isModalOpen: boolean
-  // setIsModalOpen: () => void
+  avatar: string | null
+  setAvatar: (avatar: string) => void
 }
 
-export const SettingPhotoModal = (props: SettingPhotoModalType) => {
+export const SettingPhotoModal = ({ avatar, setAvatar }: SettingPhotoModalType) => {
   const { t } = useTranslate()
-  const [avatar, setAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const editorRef = useRef<AvatarEditor>(null)

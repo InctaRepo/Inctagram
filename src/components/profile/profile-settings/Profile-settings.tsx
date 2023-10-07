@@ -29,6 +29,8 @@ type ProfileSettingFormPropsType = {
 }
 
 export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
+  const [avatar, setAvatar] = useState<string | null>(null)
+
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
@@ -41,12 +43,12 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
     setCountries(country.data.data)
   }
 
-  function getCountries(arr) {
+  function getCountries(arr: any[]) {
     return arr.map(el => ({ value: el.country, cities: el.cities }))
   }
   const countriesList = getCountries(countries)
 
-  function getCities(arr) {
+  function getCities(arr: any[]) {
     return arr.map(el => ({ value: el }))
   }
 
@@ -56,8 +58,10 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   const changeCountryHandler = (country: string | number) => {
     const cities = countriesList.find(c => c.value === country)
 
+    // @ts-ignore
     setCities(cities.cities)
 
+    // @ts-ignore
     const citiesSelected = getCities(cities.cities)
 
     setCities(citiesSelected)
@@ -83,8 +87,11 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
       dateOfBirthday: '',
       city: '',
       aboutMe: '',
+      avatar: '',
     },
   })
+
+  console.log(avatar)
 
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
@@ -126,7 +133,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
             </div>
             <div className={s.addBtn}>
-              <SettingPhotoModal />
+              <SettingPhotoModal avatar={avatar} setAvatar={setAvatar} />
             </div>
           </div>
 
@@ -178,13 +185,14 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />
+
+              <div className={s.saveBtn}>
+                <Button type={'submit'} variant="primary">
+                  {t.profile.profileSetting.saveChanges}
+                </Button>
+              </div>
             </form>
           </div>
-        </div>
-        <div className={s.saveBtn}>
-          <Button type={'submit'} variant="primary">
-            {t.profile.profileSetting.saveChanges}
-          </Button>
         </div>
       </div>
     </>

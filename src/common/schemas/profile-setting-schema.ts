@@ -43,4 +43,5 @@ export type ProfileSettingFormType = {
   dateOfBirthday: string
   city: string
   aboutMe: string
+  avatar: string
 }
