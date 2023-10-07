@@ -2,7 +2,7 @@ import React, { ChangeEvent, useRef } from 'react'
 
 import s from './input-type-file.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks'
+import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
@@ -30,7 +30,7 @@ export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
   return (
     <div>
       <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
-        <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
+        <Typography>{t.profile.selectFromComputer}</Typography>
       </Button>
       <input
         style={{ display: 'none' }}

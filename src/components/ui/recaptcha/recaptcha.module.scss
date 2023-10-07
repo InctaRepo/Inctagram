@@ -5,7 +5,7 @@
 $dark-gray: #9d9d9d; // checkbox :hover bcg color
 $light-gray: #b7b7b7; // checkbox border color
 $preloader: #4d8df4; // preloader color
-$margin-right: 13px; // distance between changeable block and label "im not a robot" * very import crutch
+$margin-right: 13px; // distance between changeable block and label "im not a robot" * very important crutch
 
 .hidden {
   display: none;
@@ -77,11 +77,11 @@ $margin-right: 13px; // distance between changeable block and label "im not a ro
   }
 }
 
-.mode-primary {
+.primary {
   padding: 8px 7px;
 }
 
-.mode-error {
+.error {
   width: 314px;
   margin-bottom: 10px;
   padding: 7px 6px 5px;
@@ -99,7 +99,7 @@ $margin-right: 13px; // distance between changeable block and label "im not a ro
   }
 }
 
-.mode-expired {
+.expired {
   padding: 8px 7px;
 }
 
