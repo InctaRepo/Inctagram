@@ -41,20 +41,23 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
     setCountries(country.data.data)
   }
 
-  function getCountries(arr) {
-    return arr.map(el => ({ value: el.country, cities: el.cities }))
+  function getCountries(arr: any) {
+    return arr.map((el: { country: string; cities: string }) => ({
+      value: el.country,
+      cities: el.cities,
+    }))
   }
   const countriesList = getCountries(countries)
 
-  function getCities(arr) {
-    return arr.map(el => ({ value: el }))
+  function getCities(arr: any) {
+    return arr.map((el: string) => ({ value: el }))
   }
 
   console.log(countriesList)
   console.log(countries)
 
   const changeCountryHandler = (country: string | number) => {
-    const cities = countriesList.find(c => c.value === country)
+    const cities = countriesList.find((c: { value: string | number }) => c.value === country)
 
     setCities(cities.cities)
 
@@ -175,6 +178,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
               <TextAreaField
                 className={s.textArea}
+                name={'aboutMe'}
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />

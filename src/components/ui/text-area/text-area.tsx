@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType } from 'react'
+import { ComponentProps, ElementType, LegacyRef, MutableRefObject } from 'react'
 
 import clsx from 'clsx'
 
