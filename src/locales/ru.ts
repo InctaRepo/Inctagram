@@ -147,6 +147,8 @@ export const ru = {
     addPostPhoto: 'Добавить фото',
     selectFromComputer: 'Выбрать с компьютера',
     passwordChanged: 'Ваш пароль был успешно изменен',
+    save: 'Сохранить',
+    next: 'Далее',
     profileSetting: {
       generalInformation: 'Общая информация',
       devices: 'Устройства',
@@ -187,6 +189,22 @@ export const ru = {
         refine: 'Пользователь младше 13 лет не может создать профиль.',
         aboutMeError: 'Максимальное колличество знаков 200',
       },
+    },
+    addNewPost: {
+      cropping: 'Редактирование',
+      filters: 'Фильтры',
+      publication: 'Публикация',
+      addDescription: 'Добавить описание публикации',
+    },
+    descriptionError: {
+      error: 'Максимальное колличество знаков 200',
+    },
+    areYouSure: {
+      areYouSure:
+        'Вы действительно хотите отменить создание публикации? Все изменения будут потеряны',
+      discard: 'Сбросить',
+      saveDraft: 'Сохранить',
+      close: 'Закрыть',
     },
   },
 

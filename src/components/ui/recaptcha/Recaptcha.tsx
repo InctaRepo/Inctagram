@@ -3,50 +3,51 @@ import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { FieldError, FieldValues, UseControllerProps } from 'react-hook-form'
+import { FieldValues, UseControllerProps } from 'react-hook-form'
 
 import s from './recaptcha.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import Privacy from '@/src/assets/icons/recaptcha.svg'
 import Checked from '@/src/assets/icons/recaptchaChecked.svg'
+import { ForgotFormType } from '@/src/components/auth/forgot-password/ForgotPassword'
 import { Card } from 'src/components/ui/card-temporary'
 
 export type RecaptchaProps = {
   primary?: boolean
   expired?: boolean
   className?: string
-  errors?: FieldError | undefined
+  error?: string | undefined
   onChange?: (val: boolean) => void
 }
 
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
   Omit<RecaptchaProps, 'value'>
 
-const modes = ['mode-primary', 'mode-error', 'mode-expired']
+const CSSMod = {
+  primary: 'primary',
+  error: 'error',
+  expired: 'expired',
+}
 
 export const Recaptcha = <T extends FieldValues>({
   className,
-  errors,
-  name,
-  primary,
+  error,
   expired,
   onChange,
-  ...rest
-}: Props<T>) => {
-  const [mode, setMode] = useState(modes[0])
+}: Props<ForgotFormType>) => {
+  const [mode, setMode] = useState(CSSMod.primary)
   const { t } = useTranslate()
   const router = useRouter()
 
   useEffect(() => {
-    if (errors && 'recaptcha' in errors) {
+    if (error) {
       // Current active styles in mode
-      setMode(modes[1])
+      setMode(CSSMod.error)
     } else {
-      setMode(modes[0])
+      setMode(CSSMod.primary)
     }
-    //TODO: fix this ts error
-  }, [errors && 'recaptcha' in errors && errors?.recaptcha])
+  }, [error])
 
   const [isLoading, setIsLoading] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
@@ -67,11 +68,7 @@ export const Recaptcha = <T extends FieldValues>({
     customCheckbox: clsx(s.customCheckbox, isLoading && s.hidden),
     preloader: clsx(s.ldsRing, (!isLoading || isChecked) && s.hidden),
     checked: clsx(s.checked, !isChecked && s.hidden),
-    errorText: clsx(
-      s.errorText,
-      //TODO: fix this ts error
-      !(errors && 'recaptcha' in errors && errors.recaptcha) && s.hidden
-    ),
+    errorText: clsx(s.errorText, !error && s.hidden),
   }
 
   return (

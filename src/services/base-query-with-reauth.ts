@@ -29,7 +29,7 @@ export const baseQueryWithReauth: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions)
 
   //@ts-ignore
-  if (result.data.resultCode !== 0) {
+  if (result.data.resultCode === 3) {
     const refreshResult = await baseQuery(
       { url: 'auth/refresh-token', method: 'POST' },
       api,
