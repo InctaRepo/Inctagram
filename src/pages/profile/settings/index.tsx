@@ -16,13 +16,14 @@ const Index = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
-  const [updateProfile, { isSuccess, isLoading, error }] = useUpdateProfileMutation()
+  const [updateProfile] = useUpdateProfileMutation()
 
   const submit = (data: ProfileSettingFormType) => {
     updateProfile({
       username: data.username,
       firstName: data.firstName,
       lastName: data.lastName,
+      country: data.country,
       city: data.city,
       dateOfBirth: data.dateOfBirthday,
       aboutMe: data.aboutMe,

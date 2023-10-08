@@ -188,6 +188,7 @@ export const en: LocaleType = {
           max: 'Max number of characters 50',
         },
 
+        refine: 'A user under 13 cannot create a profile.',
         aboutMeError: 'Max number of characters 200',
       },
     },

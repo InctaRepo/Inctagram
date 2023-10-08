@@ -159,7 +159,11 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                 className={s.field}
               />
               <div className={s.datePicker}>
-                <DatePick className={s.date} label={t.profile.profileSetting.dateOfBirthday} />
+                <DatePick
+                  className={s.date}
+                  name={'dateOfBirthday'}
+                  label={t.profile.profileSetting.dateOfBirthday}
+                />
               </div>
 
               <div className={s.fieldSelect}>
@@ -182,6 +186,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
               <TextAreaField
                 className={s.textArea}
+                name={'aboutMe'}
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />

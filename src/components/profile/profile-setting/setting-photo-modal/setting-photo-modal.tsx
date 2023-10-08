@@ -11,6 +11,7 @@ import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
+import { useUploadAvatarMutation } from '@/src/services/profile/profile-api'
 
 export type SettingPhotoModalType = {
   avatar: string | null
@@ -19,11 +20,13 @@ export type SettingPhotoModalType = {
 
 export const SettingPhotoModal = ({ avatar, setAvatar }: SettingPhotoModalType) => {
   const { t } = useTranslate()
+  const [uploadAvatar] = useUploadAvatarMutation()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const editorRef = useRef<AvatarEditor>(null)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
   // const [sendAvatar, { isLoading: isAvatarLoading }] = useSendAvatarMutation()
+
   const handleSaveAvatar = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
@@ -40,12 +43,12 @@ export const SettingPhotoModal = ({ avatar, setAvatar }: SettingPhotoModalType) 
           formData.append('file', file)
           setIsModalOpen(false)
           setSelectedImage(null)
-          // sendAvatar(formData)
-          //     .unwrap()
-          //     .then(() => {
-          //         setIsModalOpen(false)
-          //         setSelectedImage(null)
-          //     })
+          uploadAvatar(formData)
+            .unwrap()
+            .then(() => {
+              setIsModalOpen(false)
+              setSelectedImage(null)
+            })
         }
       })
     }
