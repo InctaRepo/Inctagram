@@ -15,7 +15,6 @@ import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
 import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
 
 // eslint-disable-next-line import/order
-import Image from 'next/image'
 
 type PropsType = {
   image: string | null
@@ -24,13 +23,13 @@ type PropsType = {
   setAddedImages: (addedImages: ImageType[]) => void
 }
 
-const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedImages }) => {
+const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => {
+  const [index, setIndex] = useState<number>(0)
   const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [aspectRatio, setAspectRatio] = useState(4 / 3)
   const [croppedImage, setCroppedImage] = useState<string | null>(null)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArgType | null>(null)
-  const [imagesAfterCrop, setImagesAfterCrop] = useState<ImageType[]>([])
 
   const settings = {
     dots: true,
@@ -68,19 +67,12 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
       />
     )
   }
-  const onAspectRatioChange = (number: number) => {
-    setAspectRatio(number)
-  }
 
   useEffect(() => {
     setAddedImages(addedImages)
   }, [addedImages])
 
-  const onZoomImage = (value: any) => {
-    setZoomValue(value)
-  }
-
-  const showCroppedImage = async () => {
+  /* const showCroppedImage = async () => {
     if (croppedAreaPixels && image) {
       try {
         {
@@ -99,9 +91,25 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
         console.error(e)
       }
     }
-  }
+  }*/
 
-  console.log(imagesAfterCrop)
+  const showCroppedImg = async (image: string, croppedAreaPixels: CropArgType | null) => {
+    if (croppedAreaPixels && image) {
+      try {
+        {
+          const croppedImage = await getCroppedImg(image, croppedAreaPixels)
+
+          //console.log('donee', { croppedImage }, croppedAreaPixels)
+          setCroppedImage(croppedImage as string)
+
+          // @ts-ignore
+          addedImages[index] = { image: croppedImage }
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    }
+  }
 
   return (
     <>
@@ -110,7 +118,7 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
           <Slider {...settings}>
             {addedImages.map((el, idx) => {
               return (
-                <div key={idx} className={s.carousel}>
+                <div key={idx} className={s.carousel} onClick={() => setIndex(idx)}>
                   <EasyCrop
                     image={el.image}
                     objectFit={'fill'}
@@ -136,6 +144,12 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
                       />
                     </div>
                   </div>
+                  <button
+                    onClick={() => showCroppedImg(el.image, croppedAreaPixels)}
+                    color="primary"
+                  >
+                    Show Result
+                  </button>
                 </div>
               )
             })}
@@ -143,9 +157,9 @@ const CroppedImage: FC<PropsType> = ({ image, setImage, addedImages, setAddedIma
         </div>
       </div>
 
-      <button onClick={showCroppedImage} color="primary">
+      {/* <button onClick={showCroppedImg} color="primary">
         Show Result
-      </button>
+      </button>*/}
     </>
   )
 }

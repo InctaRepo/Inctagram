@@ -7,15 +7,12 @@ import React, {
   useState,
 } from 'react'
 
-import { Area, Point } from 'react-easy-crop'
-
 import s from './create-new-post.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line import/namespace,import/default
 import CroppedImage from '@/src/components/profile/new-post/cropped-image/cropped-image'
-import { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
 import CropModal from '@/src/components/profile/new-post/modal-for-crop/crop-modal'
 import { Button } from '@/src/components/ui/button'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
@@ -52,7 +49,7 @@ export const CreatePostModal = (props: SettingPhotoModalType) => {
   }
 
   const handleImageUpload = async (e: any) => {
-    setImage(URL.createObjectURL(e.target.files[0]))
+    // setImage(URL.createObjectURL(e.target.files[0]))
     setAddedImages([
       {
         id: (addedImages.length + 1).toString(),
@@ -66,7 +63,7 @@ export const CreatePostModal = (props: SettingPhotoModalType) => {
 
   return (
     <div className={s.container}>
-      {!image && isBaseModalOpen ? (
+      {!addedImages.length && isBaseModalOpen ? (
         <BaseModal
           modalWidth={'md'}
           open={isBaseModalOpen}
