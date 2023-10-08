@@ -21,6 +21,19 @@ export function passwordsMatchSchema(t: LocaleType) {
       message: t.auth.authErrors.refine,
       path: ['passwordConfirm'],
     })
+    .refine(
+      ({ password, passwordConfirm }) => {
+        if (passwordConfirm) {
+          return password == passwordConfirm
+        }
+
+        return true
+      },
+      {
+        message: t.auth.authErrors.refine,
+        path: ['password'],
+      }
+    )
 }
 
 export type PasswodsMatchFormType = {
