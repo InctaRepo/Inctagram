@@ -50,6 +50,7 @@ export const authApi = createApi({
           if (data.resultCode === 0) {
             localStorage.setItem('access', data.data.accessToken)
             dispatch(authApi.util.invalidateTags(['Me']))
+            await dispatch(authApi.endpoints.getMe.initiate())
             // reQuery getMe, after login
           }
         } catch (e) {
@@ -57,11 +58,22 @@ export const authApi = createApi({
         }
       },
     }),
-    logoutUser: builder.mutation<void, void>({
+    logoutUser: builder.mutation<BaseResponseType<AccessType>, void>({
       query: () => ({
         method: 'POST',
         url: 'auth/logout',
       }),
+      async onQueryStarted(_, { queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+
+          if (data?.resultCode === 0) {
+            localStorage.removeItem('access')
+          }
+        } catch (e) {
+          console.error(e)
+        }
+      },
     }),
     register: builder.mutation<BaseResponseType, RegisterArgsType>({
       query: data => ({
