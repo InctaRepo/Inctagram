@@ -4,6 +4,7 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { default as Axios } from 'axios'
 import { useRouter } from 'next/router'
+import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
 import s from './profileSettings.module.scss'
@@ -26,9 +27,29 @@ import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 type ProfileSettingFormPropsType = {
   onSubmitHandler?: (data: ProfileSettingFormType) => void
   defaultValue?: string | number
+  children?: any
+  avatar: string | null
+  setAvatar: (avatar: string | null) => void
+  isModalOpen: boolean
+  setIsModalOpen: (isModalOpen: boolean) => void
+  selectedImage: File | null
+  setSelectedImage: (selectedImage: File | null) => void
+  editorRef: React.RefObject<AvatarEditor>
+  handleSaveAvatar: () => void
 }
 
-export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
+export const ProfileSettings = ({
+  onSubmitHandler,
+  defaultValue,
+  avatar,
+  setAvatar,
+  isModalOpen,
+  setIsModalOpen,
+  selectedImage,
+  setSelectedImage,
+  editorRef,
+  handleSaveAvatar,
+}: ProfileSettingFormPropsType) => {
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
@@ -126,7 +147,16 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
             </div>
             <div className={s.addBtn}>
-              <SettingPhotoModal />
+              <SettingPhotoModal
+                avatar={avatar}
+                setAvatar={setAvatar}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                selectedImage={selectedImage}
+                setSelectedImage={setSelectedImage}
+                editorRef={editorRef}
+                handleSaveAvatar={handleSaveAvatar}
+              />
             </div>
           </div>
 
@@ -184,7 +214,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />
-              <div className={s.grayLine} />
+
               <div className={s.saveBtn}>
                 <Button type={'submit'} variant="primary">
                   {t.profile.profileSetting.saveChanges}
@@ -193,6 +223,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
             </form>
           </div>
         </div>
+        <div className={`${s.grayLine} ${errors.dateOfBirthday && s.grayLineError}`} />
       </div>
     </>
   )

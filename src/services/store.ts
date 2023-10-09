@@ -4,11 +4,14 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { appReducer } from '@/src/services/app/app-slice'
 import { authApi } from '@/src/services/auth/auth-api'
 import { authReducer } from '@/src/services/auth/auth-slice'
+import { ProfileAPI } from '@/src/services/profile/profile-api'
+import { avaReducer } from '@/src/services/profile/profile-slice'
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   auth: authReducer,
   app: appReducer,
+  ava: avaReducer,
 })
 
 export const store = configureStore({
