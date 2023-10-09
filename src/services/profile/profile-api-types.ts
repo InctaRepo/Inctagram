@@ -7,11 +7,11 @@ export type UpdateProfileType = {
   dateOfBirth: string
   aboutMe: string
   avatar: string
-  //avatar: Avatar
+  //avatar: AvatarType
 }
 
-export type Avatar = {
+export type AvatarType = {
   url: string
-  x: number
-  y: number
+  /* x: number
+  y: number*/
 }

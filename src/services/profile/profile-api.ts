@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 
 import { BaseResponseType } from '@/src/services'
 import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
-import { UpdateProfileType } from '@/src/services/profile/profile-api-types'
+import { AvatarType, UpdateProfileType } from '@/src/services/profile/profile-api-types'
 
 export const ProfileAPI = createApi({
   reducerPath: 'profileApi',
@@ -16,11 +16,11 @@ export const ProfileAPI = createApi({
         body: data,
       }),
     }),
-    uploadAvatar: builder.mutation<BaseResponseType, any>({
-      query: body => ({
+    uploadAvatar: builder.mutation<BaseResponseType, FormData>({
+      query: FormData => ({
         url: `users/profile/avatar/upload`,
         method: 'POST',
-        body,
+        body: FormData,
       }),
     }),
   }),

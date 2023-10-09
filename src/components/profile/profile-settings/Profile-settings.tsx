@@ -29,34 +29,31 @@ type ProfileSettingFormPropsType = {
 }
 
 export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
-  const [avatar, setAvatar] = useState<string | null>(null)
-
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
   const router = useRouter()
 
-  //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
   const fetchCountries = async () => {
     let country = await Axios.get('https://countriesnow.space/api/v0.1/countries')
 
     setCountries(country.data.data)
   }
 
-  function getCountries(arr: any[]) {
-    return arr.map(el => ({ value: el.country, cities: el.cities }))
+  function getCountries(arr: any) {
+    return arr.map((el: { country: string; cities: string }) => ({
+      value: el.country,
+      cities: el.cities,
+    }))
   }
   const countriesList = getCountries(countries)
 
-  function getCities(arr: any[]) {
-    return arr.map(el => ({ value: el }))
+  function getCities(arr: any) {
+    return arr.map((el: string) => ({ value: el }))
   }
 
-  console.log(countriesList)
-  console.log(countries)
-
   const changeCountryHandler = (country: string | number) => {
-    const cities = countriesList.find(c => c.value === country)
+    const cities = countriesList.find((c: { value: string | number }) => c.value === country)
 
     // @ts-ignore
     setCities(cities.cities)
@@ -74,9 +71,8 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
   const {
     control,
     handleSubmit,
-    formState,
+    formState: { errors, touchedFields },
     trigger,
-    formState: { touchedFields },
   } = useForm<ProfileSettingFormType>({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onTouched',
@@ -84,14 +80,11 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
       username: '',
       firstName: '',
       lastName: '',
-      dateOfBirthday: '',
+      dateOfBirthday: new Date(),
       city: '',
       aboutMe: '',
-      avatar: '',
     },
   })
-
-  console.log(avatar)
 
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
@@ -133,7 +126,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
             </div>
             <div className={s.addBtn}>
-              <SettingPhotoModal avatar={avatar} setAvatar={setAvatar} />
+              <SettingPhotoModal />
             </div>
           </div>
 
@@ -161,8 +154,9 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               <div className={s.datePicker}>
                 <DatePick
                   className={s.date}
-                  name={'dateOfBirthday'}
                   label={t.profile.profileSetting.dateOfBirthday}
+                  name={'dateOfBirth'}
+                  errorMessage={errors.dateOfBirthday?.message}
                 />
               </div>
 
@@ -190,7 +184,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />
-
+              <div className={s.grayLine} />
               <div className={s.saveBtn}>
                 <Button type={'submit'} variant="primary">
                   {t.profile.profileSetting.saveChanges}
