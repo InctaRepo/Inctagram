@@ -41,8 +41,7 @@ const Index = () => {
           const formData = new FormData()
 
           formData.append('file', file)
-          /* setIsModalOpen(false)
-          setSelectedImage(null)*/
+
           uploadAvatar(formData)
             .unwrap()
             .then(() => {
@@ -63,8 +62,6 @@ const Index = () => {
     }
     reader.readAsDataURL(file)
   }
-
-  console.log(isModalOpen)
 
   const submit = (data: ProfileSettingFormType) => {
     updateProfile({

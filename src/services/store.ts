@@ -9,6 +9,7 @@ import { avaReducer } from '@/src/services/profile/profile-slice'
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
+  [ProfileAPI.reducerPath]: ProfileAPI.reducer,
   auth: authReducer,
   app: appReducer,
   ava: avaReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat([authApi.middleware]),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat([authApi.middleware]).concat([ProfileAPI.middleware]),
 })
 
 export type AppDispatch = typeof store.dispatch
