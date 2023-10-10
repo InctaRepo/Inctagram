@@ -1,12 +1,7 @@
 @import '@/src/styles/mixins';
 @import '@/src/styles/colors';
 
-label {
-  padding-left: 10px;
-  font-weight: bold;
-}
-
-button {
+.button {
   cursor: pointer;
 
   z-index: 2;
@@ -103,6 +98,6 @@ button {
 }
 
 .dots {
-  bottom: 21px;
+  bottom: 40px!important;
 }
 
