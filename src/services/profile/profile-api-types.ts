@@ -10,6 +10,17 @@ export type UpdateProfileType = {
   //avatar: AvatarType
 }
 
+export type UserType = {
+  username: string
+  firstName: string
+  lastName: string
+  country: string
+  city: string
+  dateOfBirth: string
+  aboutMe: string
+  avatar: string
+} | null
+
 export type AvatarType = {
   url: string
   /* x: number

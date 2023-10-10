@@ -5,14 +5,14 @@ import { appReducer } from '@/src/services/app/app-slice'
 import { authApi } from '@/src/services/auth/auth-api'
 import { authReducer } from '@/src/services/auth/auth-slice'
 import { ProfileAPI } from '@/src/services/profile/profile-api'
-import { avaReducer } from '@/src/services/profile/profile-slice'
+import { profileReducer } from '@/src/services/profile/profile-slice'
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [ProfileAPI.reducerPath]: ProfileAPI.reducer,
   auth: authReducer,
   app: appReducer,
-  ava: avaReducer,
+  profile: profileReducer,
 })
 
 export const store = configureStore({
