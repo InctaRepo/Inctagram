@@ -107,8 +107,6 @@ const SelectedImages: FC<PropsType> = ({
     }
   }
 
-  console.log(activeFilter)
-
   return (
     <>
       <div className={s.imgContainer}>

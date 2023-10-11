@@ -95,7 +95,6 @@ const CropModal: FC<ModalProps> = ({
     setIsBaseModalOpen(true)
     setAddedImages([])
   }
-  console.log(isBaseModalOpen)
 
   return (
     <div>

@@ -22,8 +22,6 @@ export const AddedImages: FC<PropsType> = ({
 }) => {
   const imagesToShow = addedImages.slice(-2)
 
-  console.log(imagesToShow)
-
   useEffect(() => {
     setAddedImages(addedImages)
   }, [addedImages])

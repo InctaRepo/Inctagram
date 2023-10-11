@@ -48,8 +48,6 @@ const Index = () => {
     reader.readAsDataURL(file)
   }
 
-  console.log(isModalOpen)
-
   return (
     <div>
       <SettingPhotoModal

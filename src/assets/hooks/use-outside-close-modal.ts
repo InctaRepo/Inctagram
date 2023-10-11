@@ -11,8 +11,6 @@ const useOutsideCloseModal = (
       const modal = document.getElementById('areYouSureModal')
       const condition = !modal?.contains(event.target)
 
-      console.log(modal, !condition)
-
       if (
         setState &&
         ref.current &&
@@ -34,9 +32,6 @@ const useOutsideCloseModal = (
   useEffect(() => {
     const wrap = document.getElementById('titleWrap')
     const modal = document.getElementById('areYouSureModal')
-
-    console.log(modal)
-    console.log(ref.current)
   }, [])
 }
 

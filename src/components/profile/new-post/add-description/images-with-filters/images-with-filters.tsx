@@ -53,7 +53,6 @@ const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => {
       />
     )
   }
-  console.log(activeFilter)
 
   return (
     <>

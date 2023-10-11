@@ -23,7 +23,15 @@ import { Typography } from '@/src/components/ui/typography'
 export type SettingPhotoModalType = {
   // isModalOpen: boolean
   // setIsModalOpen: () => void
-  variantIcon?: string
+  variantIcon?:
+    | 'search'
+    | 'home'
+    | 'my-profile'
+    | 'create'
+    | 'message'
+    | 'logout'
+    | 'favorites'
+    | undefined
 }
 
 export type ImageType = {
@@ -32,7 +40,7 @@ export type ImageType = {
   croppedImage?: string
 }
 
-export const CreatePostModal = (variantIcon: SettingPhotoModalType) => {
+export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)

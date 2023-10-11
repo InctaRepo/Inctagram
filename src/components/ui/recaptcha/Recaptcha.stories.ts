@@ -20,10 +20,7 @@ export const Primary: Story = {
 export const Error: Story = {
   args: {
     primary: false,
-    errors: {
-      //@ts-ignore //TODO: fix this
-      recaptcha: true,
-    },
+    error: 'error',
   },
 }
 
