@@ -15,21 +15,44 @@ export function createProfileSettingSchema(t: LocaleType) {
       .string()
       .trim()
       .nonempty(t.profile.profileSetting.profileSettingsErrors.firstNameField.nonEmpty)
-      .regex(/^[А-Яа-я- _]+$/, t.profile.profileSetting.profileSettingsErrors.firstNameField.regex)
-      .regex(/^[A-Za-z _]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
+      .regex(
+        /^[А-Яа-я- _A-Za-z]+$/,
+        t.profile.profileSetting.profileSettingsErrors.firstNameField.regex
+      )
       .min(1, t.profile.profileSetting.profileSettingsErrors.firstNameField.min)
       .max(50, t.profile.profileSetting.profileSettingsErrors.firstNameField.max),
     lastName: z
       .string()
       .trim()
       .nonempty(t.profile.profileSetting.profileSettingsErrors.lastNameField.nonEmpty)
-      .regex(/^[А-Яа-я- _]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
-      .regex(/^[A-Za-z _]+$/, t.profile.profileSetting.profileSettingsErrors.lastNameField.regex)
+      .regex(
+        /^[А-Яа-я- _A-Za-z]+$/,
+        t.profile.profileSetting.profileSettingsErrors.lastNameField.regex
+      )
       .min(1, t.profile.profileSetting.profileSettingsErrors.lastNameField.min)
       .max(50, t.profile.profileSetting.profileSettingsErrors.lastNameField.max),
-    dateOfBirthday: z.date(),
+    dateOfBirthday: z.date().refine(
+      data => {
+        const dateOfB = new Date(data)
+        const now = new Date()
+        const minimumAge = now.getFullYear() - dateOfB.getFullYear()
+
+        return minimumAge >= 13
+      },
+      {
+        message: t.profile.profileSetting.profileSettingsErrors.refine,
+      }
+    ),
     city: z.string(),
-    aboutMe: z.string().max(200, t.profile.profileSetting.profileSettingsErrors.aboutMeError),
+    aboutMe: z
+      .string()
+      .trim()
+      .max(200, t.profile.profileSetting.profileSettingsErrors.aboutMeError)
+      .regex(
+        /^[0-9- _A-Za-zА-Яа-я\s\S]+$/,
+        t.profile.profileSetting.profileSettingsErrors.aboutMeError
+      )
+      .optional(),
   })
 }
 
@@ -37,7 +60,9 @@ export type ProfileSettingFormType = {
   username: string
   firstName: string
   lastName: string
-  dateOfBirthday: string
+  dateOfBirthday: Date
+  country: string
   city: string
   aboutMe: string
+  avatar: string
 }

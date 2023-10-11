@@ -3,6 +3,7 @@ import { ComponentProps, useState } from 'react'
 import { clsx } from 'clsx'
 import DatePicker, { DateObject } from 'react-multi-date-picker'
 
+import { useTranslate } from '@/src/assets/hooks'
 import DateIconDefault from '@/src/assets/icons/date-icon-default'
 import DateIconFilled from '@/src/assets/icons/date-icon-filled'
 import s from '@/src/components/ui/date-picker/date-picker.module.scss'
@@ -47,6 +48,10 @@ export const DatePick = ({
     onChange?.(value)
     //TODO validation with react hook form ?
   }
+
+  const isError =
+    errorMessage?.includes('A user under 13 cannot create a profile.') ||
+    errorMessage?.includes('Пользователь младше 13 лет не может создать профиль.')
 
   return (
     <>
@@ -122,6 +127,10 @@ export const DateInput = ({
       range && s.rangeInput
     ),
   }
+  const { t } = useTranslate()
+  const isError =
+    errorMessage?.includes('A user under 13 cannot create a profile.') ||
+    errorMessage?.includes('Пользователь младше 13 лет не может создать профиль.')
 
   return (
     <>
@@ -136,9 +145,22 @@ export const DateInput = ({
         </div>
       </div>
       {showError && (
-        <Typography color={'error'} className={s.errorText}>
-          {errorMessage}
-        </Typography>
+        <div style={{ display: 'flex' }}>
+          <Typography color={'error'} className={s.errorText}>
+            {errorMessage}
+          </Typography>
+          {isError && (
+            <Typography
+              style={{ textDecoration: 'underline', marginLeft: '3px' }}
+              color="error"
+              variant="regular16"
+              as="a"
+              href={`${'https://inctagram.space/api/v1/auth/policy'}?referrer=data-picker`}
+            >
+              {t.auth.privacyAndTermsPages.titleOfTermsOfService}
+            </Typography>
+          )}
+        </div>
       )}
     </>
   )

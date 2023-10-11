@@ -21,7 +21,6 @@
   justify-content: flex-start;
   width: 972px;
   margin-bottom: 24px;
-  border-bottom: 1px solid $color-dark-300;
 }
 
 .ellipse {
@@ -62,12 +61,15 @@
 
 .saveBtn {
   display: flex;
+  align-self: end;
   justify-content: flex-end;
+
   height: 36px;
+  margin-top: 24px;
 }
 
 .editForm {
-  @include wh(740px, 550px);
+  @include wh(775px, 573px);
 
   display: flex;
   flex-direction: column;
@@ -118,4 +120,18 @@ display: flex;
   top: 576px;
   left: 476px;
   margin-bottom: 23px;
+}
+
+.grayLine {
+  width: 100%;
+  height: 1px;
+  margin-top: -44px;
+  background: $color-dark-300
+}
+
+.grayLineError{
+  width: 100%;
+  height: 1px;
+  margin-top: -23px;
+  background: $color-dark-300
 }

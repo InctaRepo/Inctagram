@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { FC, useRef, useState } from 'react'
 
 import AvatarEditor from 'react-avatar-editor'
 
@@ -6,26 +6,38 @@ import s from './setting-photo.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-import { Photo } from '@/src/components/profile/profile-setting/setting-photo-modal/photo'
 import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
-export type SettingPhotoModalType = {
-  // isModalOpen: boolean
-  // setIsModalOpen: () => void
+type SettingPhotoModalType = {
+  avatar: string | null
+  setAvatar: (avatar: string | null) => void
+  isModalOpen: boolean
+  setIsModalOpen: (isModalOpen: boolean) => void
+  selectedImage: File | null
+  setSelectedImage: (selectedImage: File | null) => void
+  editorRef: React.RefObject<AvatarEditor>
+  handleSaveAvatar: () => void
 }
 
-export const SettingPhotoModal = (props: SettingPhotoModalType) => {
+export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
+  avatar,
+  setAvatar,
+  isModalOpen,
+  setIsModalOpen,
+  selectedImage,
+  setSelectedImage,
+  editorRef,
+  handleSaveAvatar,
+}) => {
   const { t } = useTranslate()
-  const [avatar, setAvatar] = useState<string | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedImage, setSelectedImage] = useState<File | null>(null)
-  const editorRef = useRef<AvatarEditor>(null)
+
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
-  // const [sendAvatar, { isLoading: isAvatarLoading }] = useSendAvatarMutation()
-  const handleSaveAvatar = () => {
+  //const [uploadAvatar] = useUploadAvatarMutation()
+
+  /* const handleSaveAvatar = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
 
@@ -41,12 +53,12 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
           formData.append('file', file)
           setIsModalOpen(false)
           setSelectedImage(null)
-          // sendAvatar(formData)
-          //     .unwrap()
-          //     .then(() => {
-          //         setIsModalOpen(false)
-          //         setSelectedImage(null)
-          //     })
+          /!*uploadAvatar(formData)
+            .unwrap()
+            .then(() => {
+              setIsModalOpen(false)
+              setSelectedImage(null)
+            })*!/
         }
       })
     }
@@ -60,7 +72,7 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
       callBack(file64)
     }
     reader.readAsDataURL(file)
-  }
+  }*/
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -68,6 +80,8 @@ export const SettingPhotoModal = (props: SettingPhotoModalType) => {
     setIsModalOpen(false)
     setSelectedImage(null)
   }
+
+  console.log(isModalOpen)
 
   // if (!isModalOpen) return null
   return (
