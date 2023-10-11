@@ -3,6 +3,7 @@ import React, { FC, useEffect } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import GoogleLogin from 'react-google-login'
 import { useForm } from 'react-hook-form'
 
 import { Button } from '../../ui/button'
@@ -23,6 +24,13 @@ type LoginType = {
 }
 export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
   const { t } = useTranslate()
+  const login = () => {
+    const CLIENT_ID = '645207642523-2he3ueh6ops35dflekhvorlrngg816hg.apps.googleusercontent.com'
+    const REDIRECT_URL = 'https://inctagram.space/profile/my-profile'
+    const url = `https://accounts.google.com/o/oauth2/auth?redirect_uri=${REDIRECT_URL}&response_type=permission%20id_token&scope=email%20profile%20openid&openid.realm=&include_granted_scopes=true&client_id=${CLIENT_ID}&ss_domain=http%3A%2F%2Flocalhost%3A3000&prompt=&fetch_basic_profile=true&gsiwebsdk=2`
+
+    window.location.assign(url)
+  }
   const router = useRouter()
 
   const {
@@ -58,9 +66,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
           {t.auth.signIn}
         </Typography>
         <div className={s.oauthWrap}>
-          <Link href={'/google'}>
-            <GoogleIcon />
-          </Link>
+          <GoogleIcon onClick={login} />
           <Link href={'/github'}>
             <GithubIcon />
           </Link>
