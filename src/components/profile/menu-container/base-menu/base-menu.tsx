@@ -8,6 +8,7 @@ import ProfileIcon from '@/src/assets/icons/profile-icon'
 import SearchIcon from '@/src/assets/icons/search-icon'
 import { LinkMenu } from '@/src/components/profile/links'
 import s from '@/src/components/profile/menu-container/base-menu/base-manu.module.scss'
+import { CreatePostModal } from '@/src/components/profile/new-post/create-new-post'
 
 type BaseMenuType = {
   variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
@@ -31,14 +32,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
         </LinkMenu>
       </div>
       <div>
-        <LinkMenu
-          nameLink={t.profile.createPost}
-          link={'create'}
-          handleClick={() => handleClick('create')}
-          variantIcon={variantIcon}
-        >
-          <CreateIcon color={variantIcon === 'create' ? '#397df6' : 'white'} />
-        </LinkMenu>
+        <CreatePostModal variantIcon={variantIcon} />
       </div>
 
       <div>
