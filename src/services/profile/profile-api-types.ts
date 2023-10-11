@@ -4,7 +4,7 @@ export type UpdateProfileType = {
   lastName: string
   country: string
   city: string
-  dateOfBirth: string
+  dateOfBirth: Date
   aboutMe: string
   avatar: string
   //avatar: AvatarType

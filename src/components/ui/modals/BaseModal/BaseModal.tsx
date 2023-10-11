@@ -11,6 +11,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 import dynamic from 'next/dynamic'
 
+// eslint-disable-next-line import/no-named-as-default
 import CloseIcon from '@/src/assets/icons/close-icon'
 import { Button } from '@/src/components/ui/button'
 import { AppLoader } from '@/src/components/ui/loader'

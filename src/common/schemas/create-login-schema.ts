@@ -12,10 +12,6 @@ export const createLoginSchema = (t: LocaleType) => {
     password: z
       .string()
       .trim()
-      .regex(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[a-zA-Z\d!@#$%^&*_]+$/,
-        t.auth.authErrors.password.regex
-      )
       .nonempty(t.auth.authErrors.password.nonEmpty)
       .min(6, t.auth.authErrors.password.min)
       .max(20, t.auth.authErrors.password.max),

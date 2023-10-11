@@ -81,8 +81,6 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
     setSelectedImage(null)
   }
 
-  console.log(isModalOpen)
-
   // if (!isModalOpen) return null
   return (
     <div className={s.container}>
