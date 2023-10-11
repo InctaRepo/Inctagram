@@ -106,6 +106,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
       </Button>
       {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
       <BaseModal
+        className={s.baseModal}
         modalWidth={'md'}
         open={isModalOpen}
         onClose={handleButtonClick}
