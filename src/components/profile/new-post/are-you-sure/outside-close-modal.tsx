@@ -20,7 +20,6 @@ const OutsideCloseModal: FC<IOutsideCloseModalProps> = ({
   const wrapperRef = useRef(null)
 
   useOutsideCloseModal(setState, wrapperRef, areYouSureRef, openSureModal)
-  console.log('1')
 
   return (
     <div className={addClass} ref={wrapperRef}>

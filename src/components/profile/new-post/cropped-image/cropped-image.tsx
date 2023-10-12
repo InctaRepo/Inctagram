@@ -147,6 +147,7 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
                   <button
                     onClick={() => showCroppedImg(el.image, croppedAreaPixels)}
                     color="primary"
+                    className={s.button}
                   >
                     Show Result
                   </button>

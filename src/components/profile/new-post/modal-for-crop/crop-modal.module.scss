@@ -55,8 +55,9 @@
   position: fixed;
   inset: 0;
 
-  // opacity: 0.6;
+  opacity: 0.6;
   background-color: $color-dark-900;
+
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -89,9 +90,6 @@
 
 .DialogContent:focus {
   outline: none;
-}
-
-.DialogDescription {
 }
 
 .contentBox {
@@ -128,16 +126,16 @@
   top: 20px;
   left: 24px;
 
-
+  svg {
+    transform: scale(1.5);
+  }
 
   &:hover svg {
     background-color: $color-dark-500;
     border-radius: 100%;
   }
 
-  svg {
-    transform: scale(1.5);
-  }
+
 }
 
 .nextButton {

@@ -91,10 +91,10 @@ const CropModal: FC<ModalProps> = ({
   }
 
   function onCancelHandler() {
-    onCancel?.()
+    setIsModalOpen(false)
+    setIsBaseModalOpen(true)
+    setAddedImages([])
   }
-  console.log(openSureModal)
-  console.log(areYouSureRef)
 
   return (
     <div>

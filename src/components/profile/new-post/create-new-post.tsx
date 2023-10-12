@@ -10,8 +10,10 @@ import React, {
 import s from './create-new-post.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
+import CreateIcon from '@/src/assets/icons/create-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line import/namespace,import/default
+import { LinkMenu } from '@/src/components/profile/links'
 import CroppedImage from '@/src/components/profile/new-post/cropped-image/cropped-image'
 import CropModal from '@/src/components/profile/new-post/modal-for-crop/crop-modal'
 import { Button } from '@/src/components/ui/button'
@@ -21,6 +23,15 @@ import { Typography } from '@/src/components/ui/typography'
 export type SettingPhotoModalType = {
   // isModalOpen: boolean
   // setIsModalOpen: () => void
+  variantIcon?:
+    | 'search'
+    | 'home'
+    | 'my-profile'
+    | 'create'
+    | 'message'
+    | 'logout'
+    | 'favorites'
+    | undefined
 }
 
 export type ImageType = {
@@ -29,11 +40,11 @@ export type ImageType = {
   croppedImage?: string
 }
 
-export const CreatePostModal = (props: SettingPhotoModalType) => {
+export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
-  const [isBaseModalOpen, setIsBaseModalOpen] = useState(true)
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [image, setImage] = useState<string | null>(null)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
@@ -43,9 +54,11 @@ export const CreatePostModal = (props: SettingPhotoModalType) => {
   const handleButtonClick = () => {
     setIsBaseModalOpen(false)
     setImage(null)
+    setIsModalOpen(false)
   }
   const cancelButtonClick = () => {
-    setImage(null)
+    setIsBaseModalOpen(false)
+    setIsModalOpen(false)
   }
 
   const handleImageUpload = async (e: any) => {
@@ -56,7 +69,14 @@ export const CreatePostModal = (props: SettingPhotoModalType) => {
         image: URL.createObjectURL(e.target.files[0]),
       },
     ])
+    setIsBaseModalOpen(false)
+    setIsModalOpen(true)
   }
+
+  const handleClick = () => {
+    setIsBaseModalOpen(true)
+  }
+
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
@@ -108,6 +128,14 @@ export const CreatePostModal = (props: SettingPhotoModalType) => {
           />
         </CropModal>
       )}
+      <LinkMenu
+        nameLink={t.profile.createPost}
+        link={'my-profile'}
+        handleClick={handleClick}
+        variantIcon={variantIcon}
+      >
+        <CreateIcon color={variantIcon === 'create' ? '#397df6' : 'white'} />
+      </LinkMenu>
     </div>
   )
 }
