@@ -25,7 +25,7 @@ import { TextAreaField } from '@/src/components/ui/text-area'
 import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
-  onSubmitHandler?: (data: ProfileSettingFormType) => void
+  onSubmitHandler: (data: ProfileSettingFormType) => void
   defaultValue?: string | number
   children?: any
   avatar: string | null
@@ -85,9 +85,7 @@ export const ProfileSettings = ({
     setCities(citiesSelected)
   }
 
-  useEffect(() => {
-    fetchCountries()
-  }, [])
+  const changeCityHandler = (newCity: string | number) => {}
 
   const {
     control,
@@ -104,8 +102,13 @@ export const ProfileSettings = ({
       dateOfBirthday: new Date(),
       city: '',
       aboutMe: '',
+      avatar: '',
     },
   })
+
+  useEffect(() => {
+    fetchCountries()
+  }, [])
 
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
@@ -114,10 +117,10 @@ export const ProfileSettings = ({
   }, [t])
 
   const onSubmit = handleSubmit((data: ProfileSettingFormType) => {
-    onSubmitHandler?.(data)
+    onSubmitHandler(data)
   })
 
-  const changeCityHandler = (newCity: string | number) => {}
+  debugger
 
   return (
     <>

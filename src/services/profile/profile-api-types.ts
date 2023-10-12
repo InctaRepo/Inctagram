@@ -1,22 +1,11 @@
-export type UpdateProfileType = {
+export type UserInfoType = {
+  id?: string
   username: string
   firstName: string
   lastName: string
   country: string
   city: string
-  dateOfBirth: string
-  aboutMe: string
-  avatar: string
-  //avatar: AvatarType
-}
-
-export type UserType = {
-  username: string
-  firstName: string
-  lastName: string
-  country: string
-  city: string
-  dateOfBirth: string
+  dateOfBirth: Date
   aboutMe: string
   avatar: string
 } | null

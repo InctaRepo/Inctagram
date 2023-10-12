@@ -2,31 +2,31 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 
 import { BaseResponseType } from '@/src/services'
 import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
-import { AvatarType, UpdateProfileType, UserType } from '@/src/services/profile/profile-api-types'
+import { AvatarType, UserInfoType } from '@/src/services/profile/profile-api-types'
 
 export const ProfileAPI = createApi({
   reducerPath: 'profileApi',
   baseQuery: baseQueryWithReauth,
   tagTypes: ['Me'],
   endpoints: builder => ({
-    createProfile: builder.mutation<BaseResponseType, UserType>({
-      query: data => ({
+    createProfile: builder.mutation<BaseResponseType, UserInfoType & Pick<UserInfoType, 'id'>>({
+      query: ({ id, ...patch }) => ({
         method: 'POST',
-        url: `users/profile`,
-        body: data,
+        url: `users/profile/${id}`,
+        body: patch,
       }),
     }),
-    updateProfile: builder.mutation<BaseResponseType, UserType>({
+    updateProfile: builder.mutation<BaseResponseType, UserInfoType & 'id'>({
       query: data => ({
         method: 'PUT',
-        url: `users/profile`,
+        url: `users/profile/${id}`,
         body: data,
       }),
     }),
-    getProfile: builder.mutation<BaseResponseType, any>({
+    getProfile: builder.query<BaseResponseType, any & 'id'>({
       query: id => ({
         method: 'GET',
-        url: `users/profile`,
+        url: `users/profile/${id}`,
         params: id,
       }),
     }),
@@ -43,6 +43,6 @@ export const ProfileAPI = createApi({
 export const {
   useUpdateProfileMutation,
   useUploadAvatarMutation,
-  useGetProfileMutation,
+  useGetProfileQuery,
   useCreateProfileMutation,
 } = ProfileAPI

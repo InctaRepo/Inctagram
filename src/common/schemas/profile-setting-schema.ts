@@ -31,18 +31,18 @@ export function createProfileSettingSchema(t: LocaleType) {
       )
       .min(1, t.profile.profileSetting.profileSettingsErrors.lastNameField.min)
       .max(50, t.profile.profileSetting.profileSettingsErrors.lastNameField.max),
-    dateOfBirthday: z.date().refine(
+    dateOfBirthday: z.date() /*.refine(
       data => {
         const dateOfB = new Date(data)
         const now = new Date()
-        const minimumAge = now.getFullYear() - dateOfB.getFullYear()
+        const usersAge = now.getFullYear() - dateOfB.getFullYear()
 
-        return minimumAge >= 13
+        return usersAge >= 13
       },
       {
         message: t.profile.profileSetting.profileSettingsErrors.refine,
       }
-    ),
+    )*/,
     city: z.string(),
     aboutMe: z
       .string()
