@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const baseUrl = 'https://inctagram-social.vercel.app/back-api/'
+export const baseUrl = 'https://inctagram.space/api/v1/'
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',

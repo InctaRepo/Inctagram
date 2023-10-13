@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { default as Axios } from 'axios'
 import { useRouter } from 'next/router'
+import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
 import s from './profileSettings.module.scss'
@@ -20,25 +22,78 @@ import { ControlledTextField } from '@/src/components/ui/controlled'
 import { DatePick } from '@/src/components/ui/date-picker'
 import { TabsComponent } from '@/src/components/ui/tabs'
 import { TextAreaField } from '@/src/components/ui/text-area'
-import { SelectBox } from 'src/components/ui/select-box'
+import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
   onSubmitHandler?: (data: ProfileSettingFormType) => void
   defaultValue?: string | number
+  children?: any
+  avatar: string | null
+  setAvatar: (avatar: string | null) => void
+  isModalOpen: boolean
+  setIsModalOpen: (isModalOpen: boolean) => void
+  selectedImage: File | null
+  setSelectedImage: (selectedImage: File | null) => void
+  editorRef: React.RefObject<AvatarEditor>
+  handleSaveAvatar: () => void
 }
 
-export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettingFormPropsType) => {
+export const ProfileSettings = ({
+  onSubmitHandler,
+  defaultValue,
+  avatar,
+  setAvatar,
+  isModalOpen,
+  setIsModalOpen,
+  selectedImage,
+  setSelectedImage,
+  editorRef,
+  handleSaveAvatar,
+}: ProfileSettingFormPropsType) => {
+  const [countries, setCountries] = useState<OptionsType[]>([])
+  const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
   const router = useRouter()
 
-  //const [city, setCity] = useState(defaultValue ? defaultValue.toString() : 'City')
+  const fetchCountries = async () => {
+    let country = await Axios.get('https://countriesnow.space/api/v0.1/countries')
+
+    setCountries(country.data.data)
+  }
+
+  function getCountries(arr: any) {
+    return arr.map((el: { country: string; cities: string }) => ({
+      value: el.country,
+      cities: el.cities,
+    }))
+  }
+  const countriesList = getCountries(countries)
+
+  function getCities(arr: any) {
+    return arr.map((el: string) => ({ value: el }))
+  }
+
+  const changeCountryHandler = (country: string | number) => {
+    const cities = countriesList.find((c: { value: string | number }) => c.value === country)
+
+    // @ts-ignore
+    setCities(cities.cities)
+
+    // @ts-ignore
+    const citiesSelected = getCities(cities.cities)
+
+    setCities(citiesSelected)
+  }
+
+  useEffect(() => {
+    fetchCountries()
+  }, [])
 
   const {
     control,
     handleSubmit,
-    formState,
+    formState: { errors, touchedFields },
     trigger,
-    formState: { touchedFields },
   } = useForm<ProfileSettingFormType>({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onTouched',
@@ -46,7 +101,7 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
       username: '',
       firstName: '',
       lastName: '',
-      dateOfBirthday: '',
+      dateOfBirthday: new Date(),
       city: '',
       aboutMe: '',
     },
@@ -92,7 +147,16 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
               </div>
             </div>
             <div className={s.addBtn}>
-              <SettingPhotoModal />
+              <SettingPhotoModal
+                avatar={avatar}
+                setAvatar={setAvatar}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                selectedImage={selectedImage}
+                setSelectedImage={setSelectedImage}
+                editorRef={editorRef}
+                handleSaveAvatar={handleSaveAvatar}
+              />
             </div>
           </div>
 
@@ -118,29 +182,48 @@ export const ProfileSettings = ({ onSubmitHandler, defaultValue }: ProfileSettin
                 className={s.field}
               />
               <div className={s.datePicker}>
-                <DatePick className={s.date} label={t.profile.profileSetting.dateOfBirthday} />
+                <DatePick
+                  className={s.date}
+                  label={t.profile.profileSetting.dateOfBirthday}
+                  name={'dateOfBirth'}
+                  errorMessage={errors.dateOfBirthday?.message}
+                />
               </div>
 
               <div className={s.fieldSelect}>
-                <SelectBox
-                  label={t.profile.profileSetting.selectYourCity}
-                  onValueChange={changeCityHandler}
-                  defaultValue={t.profile.profileSetting.city}
-                />
+                <div className={s.select}>
+                  <SelectBox
+                    options={countriesList}
+                    label={t.profile.profileSetting.selectYourCountry}
+                    onValueChange={changeCountryHandler}
+                    defaultValue={t.profile.profileSetting.country}
+                  />
+                </div>
+                <div className={s.select}>
+                  <SelectBox
+                    options={cities}
+                    label={t.profile.profileSetting.selectYourCity}
+                    onValueChange={changeCityHandler}
+                    defaultValue={t.profile.profileSetting.city}
+                  />
+                </div>
               </div>
               <TextAreaField
                 className={s.textArea}
+                name={'aboutMe'}
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
               />
+
+              <div className={s.saveBtn}>
+                <Button type={'submit'} variant="primary">
+                  {t.profile.profileSetting.saveChanges}
+                </Button>
+              </div>
             </form>
           </div>
         </div>
-        <div className={s.saveBtn}>
-          <Button type={'submit'} variant="primary">
-            {t.profile.profileSetting.saveChanges}
-          </Button>
-        </div>
+        <div className={`${s.grayLine} ${errors.dateOfBirthday && s.grayLineError}`} />
       </div>
     </>
   )

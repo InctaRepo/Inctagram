@@ -1,0 +1,33 @@
+@import '@/src/styles/colors';
+@import 'src/styles/mixins';
+
+.container {
+  position: relative;
+  background-color: var(--dark-300);
+}
+
+.photoContainer {
+  margin-top: 54px;
+  background-color: $color-dark-500;
+}
+
+.emptyPhotoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+}
+
+.selectPhoto {
+  margin-top: 36px;
+}
+
+.save {
+  align-self: flex-end;
+}
+
+.saveBtn {
+  padding: 6px 24px;
+}

@@ -150,6 +150,8 @@ export const en: LocaleType = {
     addPostPhoto: 'Add Photo',
     selectFromComputer: 'Select from Computer',
     passwordChanged: 'Your password was successfully changed',
+    save: 'Save',
+    next: 'Next',
     profileSetting: {
       generalInformation: 'General information',
       devices: 'Devices',
@@ -161,6 +163,8 @@ export const en: LocaleType = {
       firstName: 'First name',
       lastName: 'Last name',
       dateOfBirthday: 'Date of birthday',
+      country: 'Country',
+      selectYourCountry: 'Select your country',
       city: 'City',
       selectYourCity: 'Select your city',
       aboutMe: 'About me',
@@ -186,8 +190,25 @@ export const en: LocaleType = {
           max: 'Max number of characters 50',
         },
 
+        refine: 'A user under 13 cannot create a profile.',
         aboutMeError: 'Max number of characters 200',
       },
+    },
+    addNewPost: {
+      cropping: 'Cropping',
+      filters: 'Filters',
+      publication: 'Publication',
+      addDescription: 'Add publication description',
+    },
+    descriptionError: {
+      error: 'Max number of characters 500',
+    },
+    areYouSure: {
+      areYouSure:
+        'Do you really want to close the creation of a publication? If you close everything will be deleted',
+      discard: 'Discard',
+      saveDraft: 'Safe draft',
+      close: 'Close',
     },
   },
 }

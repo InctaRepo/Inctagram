@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 
 import Link from 'next/link'
@@ -8,9 +7,6 @@ import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
 import { Typography } from '@/src/components/ui/typography'
-import { useAppSelector } from '@/src/services'
-import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
-import { RouteNames } from 'src/common/constants/route-names'
 import s from 'src/components/layout/header/header.module.scss'
 import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 
@@ -27,21 +23,12 @@ export const Header = () => {
       push({ pathname, query }, asPath, { locale })
     }
   }
-  const IsAuth = useAppSelector(authIsAuthSelector)
-
-  function navigateToAuth() {
-    if (IsAuth) {
-      push(RouteNames.MY_PROFILE)
-    } else {
-      push(RouteNames.SIGN_IN)
-    }
-  }
 
   return (
     <div className={s.container}>
       <div className={s.content}>
         <Typography variant="large" className={s.text}>
-          <Link className={s.incta} href={RouteNames.SIGN_IN} onClick={navigateToAuth}>
+          <Link className={s.incta} href={'/auth/sign-in'}>
             Inсtagram
           </Link>
         </Typography>

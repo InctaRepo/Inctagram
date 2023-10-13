@@ -6,15 +6,16 @@ import { Button } from '@/src/components/ui/button'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { useAppDispatch, useAppSelector } from '@/src/services'
-import { authActions } from '@/src/services/auth'
+import { authActions, useLogoutUserMutation } from '@/src/services/auth'
 export const Logout = () => {
   const dispatch = useAppDispatch()
   const { user } = useAppSelector(state => state.auth)
   const [openModal, setOpenModal] = useState<boolean>(false)
+  const [logoutUser] = useLogoutUserMutation()
 
   const { t } = useTranslate()
-  const logoutHandler = () => {
-    // logoutUser()
+  const logoutHandler = async () => {
+    logoutUser()
     // TODO when CORS will be fixed ( query for logout + use useAppDispatch)
     dispatch(authActions.logout())
     setOpenModal(false)

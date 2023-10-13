@@ -1,6 +1,6 @@
 import { SVGProps, memo } from 'react'
 
-const CloseIconSVG = (props: SVGProps<SVGSVGElement>) => (
+export const CloseIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none" {...props}>
     <g clipPath="url(#a)">
       <path
@@ -15,8 +15,8 @@ const CloseIconSVG = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 )
-const CloseIcon = memo(CloseIconSVG)
+const Icon = memo(CloseIcon)
 
-export default CloseIcon
+export default Icon
 
 // transform: scale(2)

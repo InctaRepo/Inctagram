@@ -8,8 +8,7 @@ import { baseUrl } from '@/src/services/base-api'
 
 const baseQuery = fetchBaseQuery({
   baseUrl,
-  // credentials: 'include',
-  // TODO: turn on, when server will add deployed front side, need for sent cookies to server side
+  credentials: 'include',
   prepareHeaders: headers => {
     const access = localStorage.getItem('access')
 
@@ -29,7 +28,7 @@ export const baseQueryWithReauth: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions)
 
   //@ts-ignore
-  if (result.data.resultCode !== 0) {
+  if (args.url !== 'auth/logout' && result.data.resultCode === 3) {
     const refreshResult = await baseQuery(
       { url: 'auth/refresh-token', method: 'POST' },
       api,
