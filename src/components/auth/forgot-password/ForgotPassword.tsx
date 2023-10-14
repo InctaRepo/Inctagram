@@ -57,8 +57,9 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
 
   const submitData = (data: ForgotFormType) => {
     setMode(CSSMod.secondary)
-    // @ts-ignore
-    delete data.recaptcha // our server doesnt receive it yet
+    if (data && data.recaptcha) {
+      delete data.recaptcha // our server doesnt receive it yet
+    }
     onSubmitHandler(data)
     modalHandler()
   }
