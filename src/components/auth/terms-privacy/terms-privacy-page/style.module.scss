@@ -1,21 +1,26 @@
 @import '@/src/styles/mixins';
 
+.main {
+  display: flex;
+  justify-content: center;
+}
+
 .arrow {
   display: flex;
+  width: 300px;
 }
+
 .img {
   position: relative;
 
   right: 15px;
 }
 
-
 .SignUp {
-  display: flex;
-  max-width: 80%;
+  max-width: 10%;
   position: relative;
   top: 34px;
-  left: 143px;
+  left: 102px;
 }
 
 .link {
@@ -24,13 +29,13 @@
 
 .Text {
   padding: 100px;
-  text-align: center;
   position: relative;
   z-index: -9999;
   bottom: 30px;
-  width: 1158px;
-  margin: 0 auto;
-  line-height: 24px;
   font-weight: 400px;
   list-style: none;
+}
+
+.title {
+  @include flex-block($justify-content: center);
 }
