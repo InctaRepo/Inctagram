@@ -16,18 +16,17 @@ export const ProfileAPI = createApi({
         body: patch,
       }),
     }),
-    updateProfile: builder.mutation<BaseResponseType, UserInfoType & 'id'>({
-      query: data => ({
+    updateProfile: builder.mutation<BaseResponseType, UserInfoType & Pick<UserInfoType, 'id'>>({
+      query: ({ id, ...patch }) => ({
         method: 'PUT',
         url: `users/profile/${id}`,
-        body: data,
+        body: patch,
       }),
     }),
-    getProfile: builder.query<BaseResponseType, any & 'id'>({
+    getProfile: builder.query<BaseResponseType, { id: string | undefined }>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,
-        params: id,
       }),
     }),
     uploadAvatar: builder.mutation<BaseResponseType, FormData>({

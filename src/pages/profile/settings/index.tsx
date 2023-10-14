@@ -14,6 +14,7 @@ import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 import {
   useCreateProfileMutation,
+  useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } from '@/src/services/profile/profile-api'
@@ -24,17 +25,21 @@ const Index = () => {
 
   const router = useRouter()
   const [updateProfile] = useUpdateProfileMutation()
-  const [createProfile, { isSuccess, isLoading, error }] = useCreateProfileMutation()
+  const [createProfile] = useCreateProfileMutation()
   const { data: user } = useGetMeQuery()
+  const id = user?.data?.userId
   const [uploadAvatar] = useUploadAvatarMutation()
+  const { data: profile } = useGetProfileQuery(id)
 
   const editorRef = useRef<AvatarEditor>(null)
   const [avatar, setAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
+  console.log(profile)
+
   const formData = new FormData()
-  const handleSaveAvatar = () => {
+  const handleSavePhoto = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
 
@@ -53,6 +58,7 @@ const Index = () => {
       })
     }
   }
+
   const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
     const reader = new FileReader()
 
@@ -66,7 +72,7 @@ const Index = () => {
 
   const submit = (data: ProfileSettingFormType) => {
     createProfile({
-      id: user?.data?.userId, //data was taken from the string 28
+      id: id, //id was taken from the string 30
       username: data.username,
       firstName: data.firstName,
       lastName: data.lastName,
@@ -106,7 +112,7 @@ const Index = () => {
               selectedImage={selectedImage}
               setSelectedImage={setSelectedImage}
               editorRef={editorRef}
-              handleSaveAvatar={handleSaveAvatar}
+              handleSavePhoto={handleSavePhoto}
             />
           </div>
         </div>

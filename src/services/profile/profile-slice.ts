@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { UserType } from '@/src/services/auth'
-import { AvatarType, UpdateProfileType } from '@/src/services/profile/profile-api-types'
+import { AvatarType, UserInfoType } from '@/src/services/profile/profile-api-types'
 
 type ProfileState = {
   ava: AvatarType | null
-  info: UserType | null
+  info: UserInfoType | null
 }
 
 const initialState: ProfileState = {
@@ -21,7 +20,7 @@ const slice = createSlice({
     setAva: (state, action: PayloadAction<AvatarType>) => {
       state.ava = action.payload
     },
-    setUserInfo: (state, action: PayloadAction<UserType>) => {
+    setUserInfo: (state, action: PayloadAction<UserInfoType>) => {
       state.info = action.payload
     },
   },

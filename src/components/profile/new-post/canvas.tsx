@@ -5,15 +5,11 @@ import React, { useRef, useEffect } from 'react'
 const Canvas = ({
   photo,
   filter,
-  width,
-  height,
   setImageUrl,
 }: {
   filter: string
-  height: string
   photo: string
   setImageUrl: (canvasUrl: string) => void
-  width: string
 }) => {
   const canvasRef = useRef(null)
 
@@ -55,7 +51,7 @@ const Canvas = ({
     img.src = photo
   }, [])
 
-  return <canvas ref={canvasRef} height={height} width={width} />
+  return <canvas ref={canvasRef} />
 }
 
 export default Canvas

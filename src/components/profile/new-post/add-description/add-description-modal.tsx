@@ -71,6 +71,8 @@ const DescriptionModal: FC<ModalProps> = ({
     setIsFiltersModalOpen(true)
   }
 
+  const handlePublish = () => {}
+
   return (
     <div>
       <Button variant="text" className={s.nextButton} onClick={() => setDescriptionModalOpen(true)}>
@@ -85,8 +87,8 @@ const DescriptionModal: FC<ModalProps> = ({
                 <ArrowBack />
               </button>
               <div className={s.next}>
-                <Button variant="text" className={s.nextBtn}>
-                  {t.profile.next}
+                <Button variant="text" className={s.nextBtn} onClick={handlePublish}>
+                  {t.profile.publish}
                 </Button>
               </div>
               <DialogTitle className={s.DialogTitle}>

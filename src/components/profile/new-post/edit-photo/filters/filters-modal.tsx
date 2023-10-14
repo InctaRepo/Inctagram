@@ -25,8 +25,6 @@ import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import DescriptionModal from '@/src/components/profile/new-post/add-description/add-description-modal'
 import { PostDescription } from '@/src/components/profile/new-post/add-description/description/description'
 import FilteredImages from '@/src/components/profile/new-post/add-description/images-with-filters/images-with-filters'
-import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure/are-you-sure-modal'
-import OutsideCloseModal from '@/src/components/profile/new-post/are-you-sure/outside-close-modal'
 import { ImageType } from '@/src/components/profile/new-post/create-new-post'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
@@ -65,10 +63,6 @@ const FiltersModal: FC<ModalProps> = ({
   children,
   addedImages,
   activeFilter,
-  setActiveFilter,
-  setIsBaseModalOpen,
-  setImage,
-  openSureModal,
   setOpenSureModal,
 }) => {
   const classNames = {
@@ -82,8 +76,7 @@ const FiltersModal: FC<ModalProps> = ({
     ),
   }
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
-  const ref = useRef() as MutableRefObject<HTMLDivElement>
-  const filterRef = useRef() as MutableRefObject<HTMLDivElement>
+
   const [isModalOpen, setIsModalOpen] = useState(true)
   const { t } = useTranslate()
   const actionButtonHandler = () => {

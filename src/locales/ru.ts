@@ -149,6 +149,7 @@ export const ru = {
     passwordChanged: 'Ваш пароль был успешно изменен',
     save: 'Сохранить',
     next: 'Далее',
+    publish: 'Опубликовать',
     profileSetting: {
       generalInformation: 'Общая информация',
       devices: 'Устройства',

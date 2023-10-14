@@ -19,10 +19,11 @@ import {
 import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
-import { DatePick } from '@/src/components/ui/date-picker'
+import { ControlledDatePick } from '@/src/components/ui/controlled/controlled-data-picker'
+import { ControlledSelect } from '@/src/components/ui/controlled/controlled-select'
+import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
 import { TabsComponent } from '@/src/components/ui/tabs'
-import { TextAreaField } from '@/src/components/ui/text-area'
-import { OptionsType, SelectBox } from 'src/components/ui/select-box'
+import { OptionsType } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
   onSubmitHandler: (data: ProfileSettingFormType) => void
@@ -35,7 +36,7 @@ type ProfileSettingFormPropsType = {
   selectedImage: File | null
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
-  handleSaveAvatar: () => void
+  handleSavePhoto: () => void
 }
 
 export const ProfileSettings = ({
@@ -48,7 +49,7 @@ export const ProfileSettings = ({
   selectedImage,
   setSelectedImage,
   editorRef,
-  handleSaveAvatar,
+  handleSavePhoto,
 }: ProfileSettingFormPropsType) => {
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
@@ -94,12 +95,13 @@ export const ProfileSettings = ({
     trigger,
   } = useForm<ProfileSettingFormType>({
     resolver: zodResolver(createProfileSettingSchema(t)),
-    mode: 'onTouched',
+    mode: 'onChange',
     defaultValues: {
       username: '',
       firstName: '',
       lastName: '',
       dateOfBirthday: new Date(),
+      country: '',
       city: '',
       aboutMe: '',
       avatar: '',
@@ -116,11 +118,10 @@ export const ProfileSettings = ({
     triggerZodFieldError(touchedFieldNames, trigger)
   }, [t])
 
-  const onSubmit = handleSubmit((data: ProfileSettingFormType) => {
+  const submitData = (data: ProfileSettingFormType) => {
+    console.log('submit data')
     onSubmitHandler(data)
-  })
-
-  debugger
+  }
 
   return (
     <>
@@ -158,13 +159,13 @@ export const ProfileSettings = ({
                 selectedImage={selectedImage}
                 setSelectedImage={setSelectedImage}
                 editorRef={editorRef}
-                handleSaveAvatar={handleSaveAvatar}
+                handleSavePhoto={handleSavePhoto}
               />
             </div>
           </div>
 
           <div>
-            <form onSubmit={onSubmit} className={s.editForm}>
+            <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
               <DevTool control={control} />
               <ControlledTextField
                 control={control}
@@ -185,17 +186,20 @@ export const ProfileSettings = ({
                 className={s.field}
               />
               <div className={s.datePicker}>
-                <DatePick
+                <ControlledDatePick
+                  control={control}
                   className={s.date}
                   label={t.profile.profileSetting.dateOfBirthday}
-                  name={'dateOfBirth'}
+                  name={'dateOfBirthday'}
                   errorMessage={errors.dateOfBirthday?.message}
                 />
               </div>
 
               <div className={s.fieldSelect}>
                 <div className={s.select}>
-                  <SelectBox
+                  <ControlledSelect
+                    control={control}
+                    name="country"
                     options={countriesList}
                     label={t.profile.profileSetting.selectYourCountry}
                     onValueChange={changeCountryHandler}
@@ -203,7 +207,9 @@ export const ProfileSettings = ({
                   />
                 </div>
                 <div className={s.select}>
-                  <SelectBox
+                  <ControlledSelect
+                    control={control}
+                    name="city"
                     options={cities}
                     label={t.profile.profileSetting.selectYourCity}
                     onValueChange={changeCityHandler}
@@ -211,7 +217,8 @@ export const ProfileSettings = ({
                   />
                 </div>
               </div>
-              <TextAreaField
+              <ControlledTextArea
+                control={control}
                 className={s.textArea}
                 name={'aboutMe'}
                 fullWidth={true}
@@ -219,7 +226,7 @@ export const ProfileSettings = ({
               />
 
               <div className={s.saveBtn}>
-                <Button type={'submit'} variant="primary">
+                <Button type="submit" fullWidth variant="primary">
                   {t.profile.profileSetting.saveChanges}
                 </Button>
               </div>

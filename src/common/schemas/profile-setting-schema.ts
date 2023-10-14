@@ -31,18 +31,22 @@ export function createProfileSettingSchema(t: LocaleType) {
       )
       .min(1, t.profile.profileSetting.profileSettingsErrors.lastNameField.min)
       .max(50, t.profile.profileSetting.profileSettingsErrors.lastNameField.max),
-    dateOfBirthday: z.date() /*.refine(
+    dateOfBirthday: z.date().refine(
       data => {
-        const dateOfB = new Date(data)
-        const now = new Date()
-        const usersAge = now.getFullYear() - dateOfB.getFullYear()
+        if (data === null) return true
+        if (data) {
+          const dateOfB = new Date(data)
+          const now = new Date()
+          const usersAge = now.getFullYear() - dateOfB.getFullYear()
 
-        return usersAge >= 13
+          return usersAge >= 13
+        }
       },
       {
         message: t.profile.profileSetting.profileSettingsErrors.refine,
       }
-    )*/,
+    ),
+    country: z.string(),
     city: z.string(),
     aboutMe: z
       .string()
