@@ -1,6 +1,5 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-import { useParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 
@@ -32,13 +31,10 @@ const Index = () => {
   const { data: profile } = useGetProfileQuery(id)
 
   const editorRef = useRef<AvatarEditor>(null)
-  const [avatar, setAvatar] = useState<string | null>(null)
+  const [avatar, setAvatar] = useState<FormData | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
-  console.log(profile)
-
-  const formData = new FormData()
   const handleSavePhoto = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
@@ -46,12 +42,13 @@ const Index = () => {
       canvas.toBlob(blob => {
         if (blob) {
           const file = new File([blob], 'avatar', { type: blob.type })
-
-          convertFileToBase64(file, (file64: string) => {
-            setAvatar(file64)
-          })
+          const formData = new FormData()
 
           formData.append('file', file)
+          /*convertFileToBase64(file, (file64: string) => {
+            setAvatar(file64)
+          })*/
+          setAvatar(formData)
           setIsModalOpen(false)
           setSelectedImage(null)
         }
@@ -82,7 +79,7 @@ const Index = () => {
       aboutMe: data.aboutMe,
       avatar: data.avatar,
     }).then(() => {
-      uploadAvatar(formData)
+      uploadAvatar(avatar!)
         .unwrap()
         .then(() => {
           setIsModalOpen(false)

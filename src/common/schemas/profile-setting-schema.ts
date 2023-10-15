@@ -52,10 +52,10 @@ export function createProfileSettingSchema(t: LocaleType) {
       .string()
       .trim()
       .max(200, t.profile.profileSetting.profileSettingsErrors.aboutMeError)
-      .regex(
+      /* .regex(
         /^[0-9- _A-Za-zА-Яа-я\s\S]+$/,
         t.profile.profileSetting.profileSettingsErrors.aboutMeError
-      )
+      )*/
       .optional(),
   })
 }

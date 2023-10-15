@@ -8,8 +8,10 @@ import s from './croped-image.module.scss'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import { ImageType } from '@/src/components/profile/new-post/create-new-post'
-import EasyCrop, { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
+import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
+import EasyCrop, {
+  CropArgType,
+} from '@/src/components/profile/new-post/create-post/cropped-image/easy-crop'
 import { Add } from '@/src/components/profile/new-post/edit-photo/add/add'
 import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
 import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
@@ -72,34 +74,12 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
     setAddedImages(addedImages)
   }, [addedImages])
 
-  /* const showCroppedImage = async () => {
-    if (croppedAreaPixels && image) {
-      try {
-        {
-          addedImages.map(async (el, idx) => {
-            const croppedImage = await getCroppedImg(el.image, croppedAreaPixels)
-
-            console.log('donee', { croppedImage }, croppedAreaPixels)
-            setCroppedImage(croppedImage as string)
-
-            console.log({ croppedImage })
-            imagesAfterCrop.push({ image: croppedImage } as ImageType)
-            setAddedImages(imagesAfterCrop)
-          })
-        }
-      } catch (e) {
-        console.error(e)
-      }
-    }
-  }*/
-
   const showCroppedImg = async (image: string, croppedAreaPixels: CropArgType | null) => {
     if (croppedAreaPixels && image) {
       try {
         {
           const croppedImage = await getCroppedImg(image, croppedAreaPixels)
 
-          //console.log('donee', { croppedImage }, croppedAreaPixels)
           setCroppedImage(croppedImage as string)
 
           // @ts-ignore
@@ -157,10 +137,6 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
           </Slider>
         </div>
       </div>
-
-      {/* <button onClick={showCroppedImg} color="primary">
-        Show Result
-      </button>*/}
     </>
   )
 }

@@ -33,7 +33,7 @@
   }
 
   &:focus:not(:disabled) {
-    outline: 1px solid $color-accent-300;
+  //  outline: 1px solid $color-accent-300;
   }
 
   &.fullWidth {
@@ -118,7 +118,8 @@
 
   padding: 6px 12px;
   border-radius: 130px;
-  outline: 1px solid transparent;
+
+ // outline: 1px solid transparent;
 
   &:disabled {
     color: $color-accent-900;

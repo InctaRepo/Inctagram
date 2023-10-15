@@ -1,4 +1,4 @@
-import { CropArgType } from '@/src/components/profile/new-post/cropped-image/easy-crop'
+import { CropArgType } from '@/src/components/profile/new-post/create-post/cropped-image/easy-crop'
 
 export const createImage = (url: string | null): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
@@ -59,7 +59,6 @@ export default async function getCroppedImg(
   ctx.rotate(rotRad)
   ctx.scale(flip.horizontal ? -1 : 1, flip.vertical ? -1 : 1)
   ctx.translate(-image.width / 2, -image.height / 2)
-
   // draw rotated image
   ctx.drawImage(image, 0, 0)
 
