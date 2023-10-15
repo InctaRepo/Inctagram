@@ -1,26 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { AvatarType } from '@/src/services/profile/profile-api-types'
+import { AvatarType, UserInfoType } from '@/src/services/profile/profile-api-types'
 
-type AvaState = {
+type ProfileState = {
   ava: AvatarType | null
+  info: UserInfoType | null
 }
 
-const initialState: AvaState = {
+const initialState: ProfileState = {
   ava: null,
+  info: null,
 }
 
 const slice = createSlice({
   initialState,
 
-  name: 'avatar',
+  name: 'profile',
   reducers: {
     setAva: (state, action: PayloadAction<AvatarType>) => {
       state.ava = action.payload
     },
+    setUserInfo: (state, action: PayloadAction<UserInfoType>) => {
+      state.info = action.payload
+    },
   },
 })
 
-export const avaReducer = slice.reducer
+export const profileReducer = slice.reducer
 
-export const avaActions = slice.actions
+export const profileActions = slice.actions

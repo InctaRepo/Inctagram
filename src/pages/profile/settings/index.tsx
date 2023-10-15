@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
@@ -6,12 +6,14 @@ import AvatarEditor from 'react-avatar-editor'
 import { RouteNames } from '@/src/common/constants/route-names'
 import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
 import { MenuContainer } from '@/src/components/profile/menu-container'
-import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
 import { ProfileSettings } from '@/src/components/profile/profile-settings/Profile-settings'
 import s from '@/src/components/profile/profile.module.scss'
 import { useAppSelector } from '@/src/services'
+import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 import {
+  useCreateProfileMutation,
+  useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } from '@/src/services/profile/profile-api'
@@ -22,36 +24,38 @@ const Index = () => {
 
   const router = useRouter()
   const [updateProfile] = useUpdateProfileMutation()
-  const editorRef = useRef<AvatarEditor>(null)
+  const [createProfile] = useCreateProfileMutation()
+  const { data: user } = useGetMeQuery()
+  const id = user?.data?.userId
   const [uploadAvatar] = useUploadAvatarMutation()
-  const [avatar, setAvatar] = useState<string | null>(null)
+  const { data: profile } = useGetProfileQuery(id)
+
+  const editorRef = useRef<AvatarEditor>(null)
+  const [avatar, setAvatar] = useState<FormData | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
-  const handleSaveAvatar = () => {
+
+  const handleSavePhoto = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
 
       canvas.toBlob(blob => {
         if (blob) {
           const file = new File([blob], 'avatar', { type: blob.type })
-
-          convertFileToBase64(file, (file64: string) => {
-            setAvatar(file64)
-          })
           const formData = new FormData()
 
           formData.append('file', file)
-
-          uploadAvatar(formData)
-            .unwrap()
-            .then(() => {
-              setIsModalOpen(false)
-              setSelectedImage(null)
-            })
+          /*convertFileToBase64(file, (file64: string) => {
+            setAvatar(file64)
+          })*/
+          setAvatar(formData)
+          setIsModalOpen(false)
+          setSelectedImage(null)
         }
       })
     }
   }
+
   const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
     const reader = new FileReader()
 
@@ -64,7 +68,8 @@ const Index = () => {
   }
 
   const submit = (data: ProfileSettingFormType) => {
-    updateProfile({
+    createProfile({
+      id: id, //id was taken from the string 30
       username: data.username,
       firstName: data.firstName,
       lastName: data.lastName,
@@ -73,6 +78,13 @@ const Index = () => {
       dateOfBirth: data.dateOfBirthday,
       aboutMe: data.aboutMe,
       avatar: data.avatar,
+    }).then(() => {
+      uploadAvatar(avatar!)
+        .unwrap()
+        .then(() => {
+          setIsModalOpen(false)
+          setSelectedImage(null)
+        })
     })
   }
 
@@ -97,7 +109,7 @@ const Index = () => {
               selectedImage={selectedImage}
               setSelectedImage={setSelectedImage}
               editorRef={editorRef}
-              handleSaveAvatar={handleSaveAvatar}
+              handleSavePhoto={handleSavePhoto}
             />
           </div>
         </div>

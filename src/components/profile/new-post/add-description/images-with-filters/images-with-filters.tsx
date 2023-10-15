@@ -9,7 +9,7 @@ import s from './images-with-filters.module.scss'
 // eslint-disable-next-line import/order
 import Image from 'next/image'
 
-import { ImageType } from '@/src/components/profile/new-post/create-new-post'
+import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
 
 type PropsType = {
   addedImages: ImageType[]

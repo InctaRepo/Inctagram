@@ -24,8 +24,8 @@ import s from './crop-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-import { AreYouSureModal } from '@/src/components/profile/new-post/are-you-sure/are-you-sure-modal'
-import { ImageType } from '@/src/components/profile/new-post/create-new-post'
+import { AreYouSureModal } from '@/src/components/profile/new-post/create-post/are-you-sure/are-you-sure-modal'
+import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
 import FiltersModal from '@/src/components/profile/new-post/edit-photo/filters/filters-modal'
 import SelectedImages from '@/src/components/profile/new-post/edit-photo/filters/selected-images/selected-images'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
@@ -111,6 +111,7 @@ const CropModal: FC<ModalProps> = ({
                   <FiltersModal
                     image={image}
                     addedImages={addedImages}
+                    setAddedImages={setAddedImages}
                     open={isModalOpen}
                     onCancel={cancelButtonHandler}
                     title={t.profile.addNewPost.filters}

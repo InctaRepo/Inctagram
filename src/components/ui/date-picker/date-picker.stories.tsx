@@ -1,28 +1,51 @@
-import type { StoryObj } from '@storybook/react'
+import { useState } from 'react'
 
-import { DatePick } from './'
+import type { Meta, StoryObj } from '@storybook/react'
+
+import { DatePicker } from './date-picker'
 
 const meta = {
-  title: 'Components/DatePick',
-  component: DatePick,
+  title: 'Components/DataPicker',
+  component: DatePicker,
   tags: ['autodocs'],
-  argTypes: {},
-}
+} satisfies Meta<typeof DatePicker>
 
 export default meta
-type Story = StoryObj<typeof DatePick>
+type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
-  args: {},
-}
+export const Default: Story = {
+  render: () => {
+    const [startDate, setStartDate] = useState<Date | null>(new Date())
 
-export const WithRangeData: Story = {
+    return <DatePicker setStartDate={setStartDate} startDate={startDate} />
+  },
+
   args: {
-    range: true,
+    setStartDate: () => {},
+    startDate: null,
   },
 }
-export const WithErrorPrimary: Story = {
+
+export const Range: Story = {
+  render: () => {
+    const [startDate, setStartDate] = useState<Date | null>(new Date())
+
+    const [endDate, setEndDate] = useState<Date | null>(
+      startDate ? new Date(startDate.getTime() + 5 * 24 * 60 * 60 * 1000) : null
+    )
+
+    return (
+      <DatePicker
+        setStartDate={setStartDate}
+        startDate={startDate}
+        endDate={endDate}
+        setEndDate={setEndDate}
+      />
+    )
+  },
+
   args: {
-    errorMessage: 'Error!',
+    setStartDate: () => {},
+    startDate: null,
   },
 }

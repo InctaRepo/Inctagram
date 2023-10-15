@@ -30,7 +30,7 @@ export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
   return (
     <div>
       <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
-        <Typography>{t.profile.selectFromComputer}</Typography>
+        <Typography variant={'sb_small'}>{t.profile.selectFromComputer}</Typography>
       </Button>
       <input
         style={{ display: 'none' }}
