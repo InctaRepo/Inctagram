@@ -22,19 +22,19 @@ export const Privacy = () => {
     <div>
       <Header />
       <div className={s.main}>
-        <Typography variant={'regular14'} className={s.SignUp}>
+        <div className={s.SignUp}>
           <Button
             as={'a'}
             className={s.btn}
             variant={'text'}
             onClick={() => router.push(RouteNames.SIGN_IN)}
           >
-            <span className={s.arrow}>
+            <div className={s.arrow}>
               <Image className={s.img} src={ImageArrow} alt="arrow" />
-              {t.auth.BackToSignUp}
-            </span>
+              <Typography variant={'regular14'}> {t.auth.BackToSignUp}</Typography>
+            </div>
           </Button>
-        </Typography>
+        </div>
 
         <div className={s.Text}>
           <Typography className={s.title} variant="h1">

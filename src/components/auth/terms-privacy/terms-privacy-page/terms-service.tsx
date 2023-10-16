@@ -1,9 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { Typography } from '../../../ui/typography'
@@ -24,21 +21,19 @@ export const Terms = () => {
     <div>
       <Header />
       <div className={s.main}>
-        {/*RouteNames.SIGN_IN*/}
-        <Typography variant={'regular14'} className={s.SignUp}>
+        <div className={s.SignUp}>
           <Button
             as={'a'}
             className={s.btn}
             variant={'text'}
             onClick={() => router.push(RouteNames.SIGN_IN)}
           >
-            <span className={s.arrow}>
+            <div className={s.arrow}>
               <Image className={s.img} src={ImageArrow} alt="arrow" />
-              {t.auth.BackToSignUp}
-            </span>
+              <Typography variant={'regular14'}> {t.auth.BackToSignUp}</Typography>
+            </div>
           </Button>
-        </Typography>
-
+        </div>
         <div className={s.Text}>
           <Typography className={s.title} variant="h1">
             {t.auth.privacyAndTermsPages.titleOfTermsOfService}
