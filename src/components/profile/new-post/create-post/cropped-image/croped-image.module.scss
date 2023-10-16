@@ -1,6 +1,11 @@
 @import '@/src/styles/mixins';
 @import '@/src/styles/colors';
 
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
 .button {
   cursor: pointer;
 
@@ -15,8 +20,7 @@
 }
 
 .croppedImage {
-  width: 490px;
-  height: 503px;
+  @include wh(490px, 503px);
 }
 
 .croppedImageContainer {
