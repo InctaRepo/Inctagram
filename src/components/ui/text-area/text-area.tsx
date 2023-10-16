@@ -1,6 +1,7 @@
-import { ComponentProps, ElementType, LegacyRef, MutableRefObject } from 'react'
+import { ComponentProps, ElementType } from 'react'
 
 import clsx from 'clsx'
+import { FieldError } from 'react-hook-form'
 
 import s from './text-area.module.scss'
 
@@ -11,9 +12,12 @@ export type TTextAreaProps<T extends ElementType = 'textarea'> = {
   label?: string
   fullWidth?: boolean
   className?: string
-  errorMessage?: string
+  errorMessage?: string | undefined
+  validationError?: FieldError | undefined
   placeholder?: string
   disabled?: boolean
+  maxLength?: number
+  onChange?: (s: string) => void
 } & ComponentProps<T>
 
 export const TextAreaField = <T extends ElementType = 'textarea'>(
@@ -25,15 +29,26 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
     fullWidth,
     className,
     errorMessage,
+    validationError,
     placeholder,
     disabled,
+    maxLength,
+    onChange,
     ...rest
   } = props
 
   const classNames = {
     textAreaContainer: clsx(className, s.container),
     label: clsx(s.label, disabled && s.disabled),
-    textArea: clsx(s.textarea, errorMessage && s.error, fullWidth && s.fullWidth),
+    textArea: clsx(
+      s.textarea,
+      (errorMessage || validationError) && s.error,
+      fullWidth && s.fullWidth
+    ),
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    onChange && onChange(e.target.value)
   }
 
   return (
@@ -45,10 +60,12 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
         placeholder={placeholder}
         className={classNames.textArea}
         disabled={disabled}
+        onChange={handleChange}
+        maxLength={maxLength}
         {...rest}
       />
       <Typography variant="regular14" color="error" className={s.errorMessage}>
-        {errorMessage}
+        {errorMessage || validationError?.message}
       </Typography>
     </div>
   )

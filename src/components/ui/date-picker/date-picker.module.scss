@@ -1,148 +1,93 @@
 @import '@/src/styles/mixins';
 @import '@/src/styles/colors';
 
-.inputContainer {
-  position: relative;
-  width: 145px;
-}
+.root {
+  width: 100%;
 
-.container {
-  :global {
-    .rmdp-header {
-      margin: 0;
-      padding: 0;
-      text-align: left;
+  :global(.react-datepicker-wrapper) {
+    width: 150px;
+  }
 
-      .rmdp-header-values {
-        width: 156px;
-        font-size: 16px;
-        font-weight: 700;
-        color: $color-light-100;
-      }
+  :global(.react-datepicker__day--outside-month) {
+    color: $color-dark-100;
+  }
 
-      .rmdp-arrow-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  :global(.react-datepicker__day--weekend) {
+    color: $color-light-900;
+  }
 
-        width: 36px;
-        height: 36px;
-        margin: 0 !important;
-        padding: 0 !important;
+  :global(.react-datepicker__day--today) {
+    color: $color-accent-500;
+  }
 
-        background-color: $color-dark-100;
+  :global(.react-datepicker__day--selected) {
+    color: $color-light-100;
+    background-color: $color-accent-900;
+    background-image: radial-gradient(28px circle, $color-accent-500 48%, transparent 51%);
+    border-radius: 50%;
+  }
 
-        .rmdp-arrow {
-          display: inline-block;
+  :global(.react-datepicker__day--keyboard-selected) {
+    background-color: transparent;
+  }
 
-          width: 3px;
-          height: 3px;
-          margin-top: unset;
-          padding: 2.5px;
+  :global(.react-datepicker__day-name) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-          border: solid white;
-          border-width: 0 2px 2px 0;
-        }
-      }
+    width: 36px;
+    height: 36px;
+    margin: 0;
+
+    color: $color-dark-100;
+  }
+
+  :global(.react-datepicker__header) {
+    padding: 0;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  :global(.react-datepicker__month) {
+    margin: 0;
+  }
+
+  :global(.react-datepicker__month-container) {
+    width: 252px;
+  }
+
+  :global(.react-datepicker__day-names) {
+    margin-bottom: 12px;
+  }
+
+  /* day styles */
+  :global(.react-datepicker__day) {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    margin: 0;
+
+    color: $color-light-100;
+
+    border-radius: 50%;
+    outline: none;
+
+    transition: 200ms background-color;
+
+    &:hover {
+      background-color: $color-accent-900;
+      border-radius: 50%;
     }
 
-    .rmdp-shadow {
-      box-shadow: none;
-    }
-
-    .rmdp-calendar {
-      padding: 0;
-
-      .rmdp-month-picker,
-      .rmdp-year-picker {
-        top: 10px;
-        right: 0;
-        left: 0;
-
-        color: $color-light-100;
-
-        background-color: $color-dark-500;
-        border-radius: 2px;
-        outline: 1px solid $color-dark-300;
-
-        span {
-          color: $color-light-100;
-        }
-      }
-
-      .rmdp-day-picker {
-        padding: 0;
-
-        .rmdp-week {
-          .rmdp-week-day {
-            width: unset;
-            height: unset;
-            margin-top: 20px;
-            margin-bottom: 20px;
-
-            font-size: 16px;
-            font-style: normal;
-            line-height: 24px; /* 150% */
-            color: $color-dark-100;
-            text-align: center;
-          }
-
-          .rmdp-day {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 36px;
-            height: 36px;
-            padding: 4px;
-
-            span {
-              inset: 4px;
-              font-size: 16px;
-              line-height: 24px;
-              color: $color-light-100;
-
-              &:hover {
-                color: $color-light-100 !important;
-                background-color: $color-accent-900;
-              }
-            }
-
-            span.sd.weekend {
-              color: $color-light-900;
-            }
-          }
-
-          .rmdp-range {
-            background-color: $color-accent-900;
-
-            &.start span,
-            &.end span {
-              background-color: $color-accent-500;
-            }
-          }
-
-          .rmdp-day.rmdp-selected span {
-            color: $color-light-100 !important;
-            background-color: $color-accent-500;
-            border-radius: 14px;
-          }
-
-          .rmdp-day.rmdp-today span {
-            color: $color-accent-500;
-            background: unset;
-          }
-
-          .rmdp-day .rmdp-day.rmdp-deactive span {
-            color: $color-dark-100 !important;
-          }
-
-          .rmdp-day.rmdp-selected {
-            background-color: $color-accent-900;
-            border-radius: 18px;
-          }
-        }
-      }
+    &:focus-visible {
+      background-color: transparent;
+      border: 2px solid $color-accent-300;
     }
   }
 }
@@ -151,63 +96,203 @@
   width: 300px;
   padding: 16px 24px;
 
+  font-family: inherit;
+  font-size: $font-size-m;
+  line-height: $line-height-m;
+  color: $color-light-100;
+
   background-color: $color-dark-500;
+  border-color: $color-dark-300;
   border-radius: 2px;
-  outline: 1px solid $color-dark-300;
+}
+
+.icon {
+  position: absolute;
+  right: 12px;
+
+  &.disabled {
+    //  color: var(--color-text-disabled);
+  }
 }
 
 .input {
-  all: unset;
+  position: relative;
 
-  cursor: pointer;
+  width: 100%;
 
-  width: 145px;
-  height: 36px;
-  padding-left: 12px;
+  color: $color-light-900;
+
+  background-color: $color-dark-700;
+  border: none;
+
+  &:hover {
+    color: $color-light-100;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+  &:focus-within {
+    color: $color-light-100;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+  &:active {
+    color: $color-light-100;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+  &.error {
+    color: $color-danger-500;
+  }
+}
+
+.inputContainer {
+  position: relative;
+
+  display: flex;
+  gap: 22px;
+  align-items: center;
+
+  width: 150px;
+  padding: 6px 10px;
 
   background-color: $color-dark-700;
   border: 1px solid $color-dark-300;
   border-radius: 2px;
 
-  &:focus,
-  &:active:enabled {
-    background-color: $color-dark-500;
-  }
+  transition: 0.2s ease-out;
 
-  &:hover:not(&:disabled) {
-    background: $color-dark-500;
-    border: 1px solid $color-dark-100;
-  }
-
-  &.disabled {
-    cursor: unset;
-    color: $color-light-900;
-    background-color: $color-dark-500;
-    outline: 1px solid $color-dark-300;
+  &:hover {
+    border: 1px solid $color-light-900;
   }
 
   &.error {
-    color: $color-danger-500;
-    box-shadow: 0 0 0 1px $color-danger-500;
+    border-color: $color-danger-500;
 
-    &::placeholder {
-      color: $color-danger-500;
+    // outline: 1px solid var(--danger-300);
+  }
+
+  &.error:focus-within {
+   /* border-color: $color-dark-300;
+    outline: 1px solid $color-dark-300; */
+    color: $color-danger-500;
+  }
+
+  &:has(.range) {
+    .icon {
+      position: static;
+    }
+
+    .input {
+      width: 193px;
     }
   }
 
-  &.rangeInput {
-    width: 262px;
+  &:focus-within:not(.error) {
+    border: 1px solid $color-accent-700;
+    outline: 1px solid $color-accent-700;
+  }
+
+  &:active:not(.error) {
+    border: 1px solid $color-accent-700;
+    outline: 1px solid $color-accent-700;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 8px;
+}
+
+.buttonBox {
+  display: flex;
+}
+
+.button {
+  all: unset;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background: $color-dark-100;
+  border-radius: 50%;
+
+  transition: 200ms background-color;
+
+  &:hover {
+    background-color: $color-dark-100;
   }
 }
 
 .errorText {
-  margin: 0;
-  padding: 0;
+  margin: 4px 0 0;
+  font-size: $font-size-xs;
+  line-height: $line-height-m;
+  color: $color-danger-300;
 }
 
-.inputIcon {
-  pointer-events: none;
-  position: absolute;
-  top: 6px;
-  right: 2px;
+.errorContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 23px;
+}
+
+/* date-range day styles */
+
+.day {
+  &:global(.react-datepicker__day--in-selecting-range) {
+    background-color: $color-accent-900;
+    border-radius: 0;
+  }
+
+  &:global(.react-datepicker__day--selecting-range-start) {
+    background-color: $color-accent-900;
+    background-image: radial-gradient(28px circle, $color-accent-500 48%, transparent 51%);
+    border-radius: 50% 0 0 50%;
+
+  }
+
+  &:global(.react-datepicker__day--selecting-range-end) {
+    background-color: $color-accent-900;
+    background-image: radial-gradient(28px circle, $color-accent-500 48%, transparent 51%);
+    border-radius: 0 50% 50% 0;
+  }
+
+  &:global(.react-datepicker__day--in-range) {
+    background-color: $color-accent-900;
+    border-radius: 0;
+  }
+
+  &:global(.react-datepicker__day--range-start) {
+    background-color: $color-accent-900;
+    background-image: radial-gradient(28px circle, $color-accent-500 48%, transparent 51%);
+    border-radius: 50% 0 0 50%;
+  }
+
+  &:global(.react-datepicker__day--range-end) {
+    background-color: $color-accent-900;
+    background-image: radial-gradient(28px circle, $color-accent-500 48%, transparent 51%);
+    border-radius: 0 50% 50% 0;
+  }
+}
+
+.label {
+  user-select: none;
+
+  font-size: 14px !important;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  color: $color-light-900 !important;
 }

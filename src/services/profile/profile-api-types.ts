@@ -1,4 +1,5 @@
-export type UpdateProfileType = {
+export type UserInfoType = {
+  id?: string
   username: string
   firstName: string
   lastName: string
@@ -7,8 +8,7 @@ export type UpdateProfileType = {
   dateOfBirth: Date
   aboutMe: string
   avatar: string
-  //avatar: AvatarType
-}
+} | null
 
 export type AvatarType = {
   url: string

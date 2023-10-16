@@ -5,7 +5,7 @@ import Image from 'next/image'
 import s from './added-images.module.scss'
 
 import { CloseIcon } from '@/src/assets/icons/close-icon'
-import { ImageType } from '@/src/components/profile/new-post/create-new-post'
+import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
 
 type PropsType = {
   addedImages: ImageType[]

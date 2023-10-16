@@ -152,6 +152,7 @@ export const en: LocaleType = {
     passwordChanged: 'Your password was successfully changed',
     save: 'Save',
     next: 'Next',
+    publish: 'Publish',
     profileSetting: {
       generalInformation: 'General information',
       devices: 'Devices',

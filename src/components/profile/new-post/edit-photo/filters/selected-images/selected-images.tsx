@@ -3,7 +3,7 @@ import React, { FC, useEffect, useState } from 'react'
 import Slider from 'react-slick'
 
 import airBalloon from '@/src/assets/images/air-balloon.jpg'
-import settings from '@/src/components/profile/new-post/cropped-image/cropped-image'
+import settings from '@/src/components/profile/new-post/create-post/cropped-image/cropped-image'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -14,7 +14,7 @@ import s from './selected-images.module.scss'
 import Image from 'next/image'
 import { filters } from '@/src/components/profile/new-post/edit-photo/filters/filters'
 // eslint-disable-next-line import/order
-import { ImageType } from '@/src/components/profile/new-post/create-new-post'
+import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
 import { Typography } from '@/src/components/ui/typography'
 
 type PropsType = {

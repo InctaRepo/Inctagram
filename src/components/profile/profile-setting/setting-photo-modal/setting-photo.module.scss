@@ -10,6 +10,8 @@
   @include wh(196px, 36px);
 
   position: relative;
+  display: flex;
+  justify-content: center;
   margin-top: -25px;
 }
 
@@ -25,10 +27,11 @@
 
   min-width: 222px;
   min-height: 228px;
+  margin-top: 50px;
 }
 
 .selectPhoto {
-  margin-top: 60px;
+  margin-top: 35px;
   margin-bottom: 30px;
 }
 
@@ -49,4 +52,8 @@
   @include wh(198px, 36px);
 
   justify-content: center;
+}
+
+.baseModal {
+  @include wh(452px, 544px);
 }

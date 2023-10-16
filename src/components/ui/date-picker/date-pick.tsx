@@ -17,9 +17,10 @@ import { Typography } from '@/src/components/ui/typography'
  *
  */
 
-type DatePickPropsType = {
+export type DatePickPropsType = {
   label?: string
-  onChange?: (value: DateObject | DateObject[] | null) => void
+  onChange?: (value: Date | Date[] | null) => void
+  startDate: Date
   multiple?: boolean
   range?: boolean
   errorMessage?: string
@@ -29,6 +30,7 @@ const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
 export const DatePick = ({
   errorMessage,
+  startDate,
   label,
   multiple,
   onChange,
@@ -36,22 +38,12 @@ export const DatePick = ({
   disabled,
   ...rest
 }: DatePickPropsType) => {
-  const [value, setValue] = useState<DateObject | DateObject[] | null>(
-    range
-      ? [new DateObject().subtract(4, 'days'), new DateObject().add(4, 'days')]
-      : new DateObject()
-  )
   const [datePickerOpen, setDatePickerOpen] = useState(false)
 
-  const onChangeInput = (value: DateObject | DateObject[] | null) => {
-    setValue(value)
+  const onChangeInput = (value: Date | Date[] | null) => {
     onChange?.(value)
     //TODO validation with react hook form ?
   }
-
-  const isError =
-    errorMessage?.includes('A user under 13 cannot create a profile.') ||
-    errorMessage?.includes('Пользователь младше 13 лет не может создать профиль.')
 
   return (
     <>
@@ -85,8 +77,8 @@ export const DatePick = ({
         headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
         multiple={multiple}
         format={'DD/MM/YYYY'}
-        value={value}
-        onChange={setValue}
+        startDate={startDate}
+        onChange={onChangeInput}
         mapDays={({ date }) => {
           let props = {
             className: '',

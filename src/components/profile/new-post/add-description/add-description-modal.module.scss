@@ -155,27 +155,20 @@
 
   &:hover {
     color: $color-accent-100;
+    outline: 0;
+    outline-offset: 0;
   }
-}
 
-.nextBtn {
-
-  @include wh(82px, 36px);
-
-  cursor: pointer;
-
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-
-  color: $color-accent-500;
-
-  background-color: transparent;
-  border: none;
-
-  &:hover {
+  &:focus-within {
     color: $color-accent-100;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+  &:active {
+    color: $color-accent-100;
+    outline: 0;
+    outline-offset: 0;
   }
 }
 
@@ -183,7 +176,7 @@
   @include wh(82px, 36px);
 
   position: relative;
-  left: 490px;
+  left: 440px;
 }
 
 .footerBlock {

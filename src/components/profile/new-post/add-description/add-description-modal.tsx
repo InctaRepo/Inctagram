@@ -14,16 +14,23 @@ import s from './add-description-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
+import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
+import getCroppedImg from '@/src/components/profile/new-post/create-post/cropped-image/Crop'
+import { CropArgType } from '@/src/components/profile/new-post/create-post/cropped-image/easy-crop'
+import getFilteredImg from '@/src/components/profile/new-post/edit-photo/filters/Filter'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
+  image: string | null
   open: boolean
   isFiltersModalOpen: boolean
   setIsFiltersModalOpen: (isFiltersModalOpen: boolean) => void
   onClose?: () => void
   onAction?: () => void
   onCancel?: () => void
+  activeFilter: string
+  setActiveFilter: (activeFilter: string) => void
   cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string // if no props , visibility = hidden
   showSeparator?: boolean // if no props with false , visibility = visible
@@ -31,9 +38,16 @@ export type ModalProps = {
   children?: ReactNode
   className?: string
   setOpenSureModal: (openSureModal: boolean) => void
+  addedImages: ImageType[]
+  setAddedImages: (addedImages: Awaited<{ image: string }>[]) => void
 } & ComponentProps<'div'>
 
 const DescriptionModal: FC<ModalProps> = ({
+  image,
+  addedImages,
+  setAddedImages,
+  activeFilter,
+  setActiveFilter,
   isFiltersModalOpen,
   setIsFiltersModalOpen,
   showSeparator = true,
@@ -71,9 +85,32 @@ const DescriptionModal: FC<ModalProps> = ({
     setIsFiltersModalOpen(true)
   }
 
+  const handlePublish = () => {
+    setDescriptionModalOpen(true)
+  }
+
+  const showFilteredImg = async (activeFilter: string) => {
+    try {
+      const updatedImages = await Promise.all(
+        addedImages.map(async (el, idx) => {
+          const filteredImage = await getFilteredImg(el.image, activeFilter)
+
+          return {
+            image: filteredImage as string,
+          }
+        })
+      )
+
+      setAddedImages(updatedImages)
+      setActiveFilter('')
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return (
     <div>
-      <Button variant="text" className={s.nextButton} onClick={() => setDescriptionModalOpen(true)}>
+      <Button variant="text" className={s.nextButton} onClick={handlePublish}>
         {t.profile.next}
       </Button>
       <Dialog open={isDescriptionModalOpen} onOpenChange={open => !open && setOpenSureModal(true)}>
@@ -85,8 +122,12 @@ const DescriptionModal: FC<ModalProps> = ({
                 <ArrowBack />
               </button>
               <div className={s.next}>
-                <Button variant="text" className={s.nextBtn}>
-                  {t.profile.next}
+                <Button
+                  variant="text"
+                  className={s.nextButton}
+                  onClick={() => showFilteredImg(activeFilter)}
+                >
+                  {t.profile.publish}
                 </Button>
               </div>
               <DialogTitle className={s.DialogTitle}>

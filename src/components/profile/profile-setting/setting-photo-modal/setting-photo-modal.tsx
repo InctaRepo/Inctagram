@@ -19,7 +19,7 @@ type SettingPhotoModalType = {
   selectedImage: File | null
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
-  handleSaveAvatar: () => void
+  handleSavePhoto: () => void
 }
 
 export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
@@ -30,49 +30,12 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   selectedImage,
   setSelectedImage,
   editorRef,
-  handleSaveAvatar,
+  handleSavePhoto,
 }) => {
   const { t } = useTranslate()
 
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
-  //const [uploadAvatar] = useUploadAvatarMutation()
 
-  /* const handleSaveAvatar = () => {
-    if (editorRef.current) {
-      const canvas = editorRef.current.getImageScaledToCanvas()
-
-      canvas.toBlob(blob => {
-        if (blob) {
-          const file = new File([blob], 'avatar', { type: blob.type })
-
-          convertFileToBase64(file, (file64: string) => {
-            setAvatar(file64)
-          })
-          const formData = new FormData()
-
-          formData.append('file', file)
-          setIsModalOpen(false)
-          setSelectedImage(null)
-          /!*uploadAvatar(formData)
-            .unwrap()
-            .then(() => {
-              setIsModalOpen(false)
-              setSelectedImage(null)
-            })*!/
-        }
-      })
-    }
-  }
-  const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
-    const reader = new FileReader()
-
-    reader.onloadend = () => {
-      const file64 = reader.result as string
-
-      callBack(file64)
-    }
-    reader.readAsDataURL(file)
-  }*/
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -104,6 +67,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
       </Button>
       {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
       <BaseModal
+        className={s.baseModal}
         modalWidth={'md'}
         open={isModalOpen}
         onClose={handleButtonClick}
@@ -134,7 +98,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
 
         <div className={`${s.btnContainer} ${selectedImage === null ? s.selectPhoto : s.save}`}>
           {selectedImage ? (
-            <Button className={s.saveBtn} onClick={handleSaveAvatar}>
+            <Button className={s.saveBtn} onClick={handleSavePhoto}>
               {t.profile.profileSetting.save}
             </Button>
           ) : (
