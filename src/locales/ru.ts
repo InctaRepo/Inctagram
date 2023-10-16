@@ -167,6 +167,9 @@ export const ru = {
       selectYourCity: 'Выбрать город',
       aboutMe: 'Обо мне',
       saveChanges: 'Сохранить изменения',
+      original: 'Оригинал',
+      edit: 'Редактировать',
+      delete: 'Удалить',
       profileSettingsErrors: {
         usernameField: {
           nonEmpty: 'Введите имя пользователя',

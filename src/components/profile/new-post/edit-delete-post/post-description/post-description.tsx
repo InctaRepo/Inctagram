@@ -4,7 +4,7 @@ import { Separator } from '@radix-ui/react-separator'
 
 import s from './post-description.module.scss'
 
-import DotsOutline from '@/src/assets/icons/more-horizontal-outline'
+import { Buttons } from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-delete-buttons/buttons'
 
 type PropsType = {
   defaultValue?: string | number
@@ -16,7 +16,7 @@ export const PostDescription: FC<PropsType> = ({ defaultValue }) => {
       <div className={s.wrapper}>
         <div className={s.title}>
           <div className={s.user}></div>
-          <DotsOutline />
+          <Buttons />
         </div>
         <Separator className={s.separator} />
       </div>

@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import s from './crop.module.scss'
 
+import { useTranslate } from '@/src/assets/hooks'
 import expandOutline from '@/src/assets/icons/expand-outline.svg'
 import img from '@/src/assets/icons/image-ouline.svg'
 import rectangle11 from '@/src/assets/icons/rectangle11.svg'
@@ -18,6 +19,7 @@ type PropsType = {
 export const Crop: FC<PropsType> = ({ setAspectRatio }) => {
   const [isOpen, setIsOpen] = useState(false)
   const cropRef = useRef() as MutableRefObject<HTMLDivElement>
+  const { t } = useTranslate()
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -39,7 +41,7 @@ export const Crop: FC<PropsType> = ({ setAspectRatio }) => {
       {isOpen && (
         <div className={s.cropOptions}>
           <div className={s.cropOption1} onClick={() => setAspectRatio(4 / 3)}>
-            Original
+            {t.profile.profileSetting.original}
             <Image src={img} alt={'image'} width={24} height={24} />
           </div>
           <div className={s.cropOption} onClick={() => setAspectRatio(1)}>

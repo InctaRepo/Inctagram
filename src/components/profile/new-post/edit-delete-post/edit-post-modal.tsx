@@ -13,11 +13,9 @@ import { clsx } from 'clsx'
 import s from './edit-post-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks'
-import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import DescriptionModal from '@/src/components/profile/new-post/add-description/add-description-modal'
 import { PostDescription } from '@/src/components/profile/new-post/edit-delete-post/post-description/post-description'
 import { PostImages } from '@/src/components/profile/new-post/edit-delete-post/post-photos/post-photos'
-import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {

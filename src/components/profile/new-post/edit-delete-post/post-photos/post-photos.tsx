@@ -7,16 +7,11 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import s from './post-photos.module.scss'
 
-// eslint-disable-next-line import/order
-import Image from 'next/image'
-
-import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
-
 type PropsType = {
-  postImages: ImageType[]
+  //postImages: ImageType[]
 }
 
-export const PostImages: FC<PropsType> = ({ postImages }) => {
+export const PostImages: FC<PropsType> = () => {
   const settings = {
     dots: true,
     swipe: false,
