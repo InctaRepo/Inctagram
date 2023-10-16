@@ -16,8 +16,12 @@ export const DataProfile = () => {
     <div>
       <div className={s.header}>
         <Typography variant="h1">URLProfile</Typography>
-        <Button variant={'secondary'} onClick={() => push('/profile/settings')}>
-          <Typography variant={'medium14'}>{t.profile.profileSettings}</Typography>
+        <Button
+          variant={'secondary'}
+          className={s.button}
+          onClick={() => push('/profile/settings')}
+        >
+          <Typography variant={'h3'}>{t.profile.profileSettings}</Typography>
         </Button>
       </div>
       <div className={s.progressProfile}>

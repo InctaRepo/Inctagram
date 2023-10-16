@@ -5,14 +5,14 @@ import { TextAreaField, TTextAreaProps } from '@/src/components/ui/text-area/tex
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
   Omit<TTextAreaProps, 'onChange' | 'value'>
 
-export const ControlledTextArea = <T extends FieldValues>({ control, name, ...rest }: Props<T>) => {
+export const ControlledTextArea = <T extends FieldValues>({ name, control, ...rest }: Props<T>) => {
   const {
     fieldState: { error },
-    field: { ref, ...fieldProps },
+    field: { ref, onChange, ...fieldProps },
   } = useController({
     name,
     control,
   })
 
-  return <TextAreaField {...fieldProps} errorMessage={error?.message} {...rest} />
+  return <TextAreaField validationError={error} {...fieldProps} {...rest} onChange={onChange} />
 }
