@@ -170,6 +170,9 @@ export const en: LocaleType = {
       selectYourCity: 'Select your city',
       aboutMe: 'About me',
       saveChanges: 'Save Changes',
+      original: 'Original',
+      edit: 'Edit',
+      delete: 'Delete',
 
       profileSettingsErrors: {
         usernameField: {

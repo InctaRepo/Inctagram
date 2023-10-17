@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.min.css'
 import { format } from 'date-fns'
 // eslint-disable-next-line import/no-duplicates
 import { ru } from 'date-fns/locale'
+import { useRouter } from 'next/router'
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import * as RDP from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
@@ -56,6 +57,8 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
 
     const showError = !!errorMessage && errorMessage.length > 0
     const { t } = useTranslate()
+    const router = useRouter()
+    const { replace } = useRouter()
 
     const classNames = {
       root: clsx(s.root, className),
@@ -127,11 +130,13 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    color: '#cc1439',
+                    cursor: 'pointer',
                   }}
                   color="error"
                   variant="small"
                   as="a"
-                  href={`${'https://inctagram.space/api/v1/auth/policy'}?referrer=data-picker`}
+                  onClick={() => router.replace('/auth/privacy-policy')}
                 >
                   {t.auth.privacyAndTermsPages.titleOfTermsOfService}
                 </Typography>
