@@ -1,4 +1,5 @@
 @import '@/src/styles/mixins';
+@import '@/src/styles/colors';
 
 .main {
   display: flex;
@@ -20,11 +21,12 @@
   max-width: 10%;
   position: relative;
   top: 34px;
-  left: 102px;
+  left: 90px;
 }
 
-.link {
+.btn {
   text-decoration: none;
+  color: inherit;
 }
 
 .Text {
