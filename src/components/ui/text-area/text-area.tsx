@@ -18,6 +18,7 @@ export type TTextAreaProps<T extends ElementType = 'textarea'> = {
   disabled?: boolean
   maxLength?: number
   onChange?: (s: string) => void
+  setValue?: (value: string) => void
 } & ComponentProps<T>
 
 export const TextAreaField = <T extends ElementType = 'textarea'>(
@@ -34,6 +35,7 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
     disabled,
     maxLength,
     onChange,
+    setValue,
     ...rest
   } = props
 
@@ -49,6 +51,7 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange && onChange(e.target.value)
+    setValue(e.target.value)
   }
 
   return (

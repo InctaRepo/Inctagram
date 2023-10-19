@@ -6,14 +6,19 @@ import s from './buttons.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks'
 import dots from '@/src/assets/icons/dots.svg'
-import edit from '@/src/assets/icons/edit.svg'
-import trash from '@/src/assets/icons/trash.svg'
-import { Typography } from '@/src/components/ui/typography'
+import { PostDescription } from '@/src/components/profile/new-post/create-post/add-description/description/description'
+import { EditDescriptionModal } from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-description/edit-description-modal'
+import { PostImages } from '@/src/components/profile/new-post/edit-delete-post/post-photos/post-photos'
+import { DeleteModal } from '@/src/components/profile/new-post/edit-delete-post/small-modals/delete-modal'
 
-type PropsType = {}
+type PropsType = {
+  isEditModalOpen?: boolean
+  setIsEditModalOpen?: (isEditModalOpen: boolean) => void
+}
 
-export const Buttons: FC<PropsType> = () => {
+export const Buttons: FC<PropsType> = ({ isEditModalOpen, setIsEditModalOpen }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const editRef = useRef() as MutableRefObject<HTMLDivElement>
   const { t } = useTranslate()
 
@@ -32,17 +37,26 @@ export const Buttons: FC<PropsType> = () => {
   return (
     <div ref={editRef}>
       <div onClick={() => setIsOpen(true)} className={s.editBtn}>
-        <Image src={dots} alt={'edit'} width={24} height={24} className={s.blue} />
+        <Image src={dots} alt={'dots'} width={24} height={24} className={s.blue} />
       </div>
       {isOpen && (
         <div className={s.editOptions}>
-          <div className={s.editOption1}>
-            <Image src={edit} alt={'edit'} width={24} height={24} />
-            <Typography variant={'regular14'}>{t.profile.profileSetting.edit}</Typography>
-          </div>
-          <div className={s.editOption}>
-            <Image src={trash} alt={'trash'} width={24} height={24} />
-            <Typography variant={'regular14'}> {t.profile.profileSetting.delete}</Typography>
+          <EditDescriptionModal
+            isEditModalOpen={isEditModalOpen}
+            setIsEditModalOpen={setIsEditModalOpen}
+          >
+            <div className={s.wrapper}>
+              <PostImages />
+              <PostDescription />
+            </div>
+          </EditDescriptionModal>
+
+          <div>
+            <DeleteModal
+              setIsEditModalOpen={setIsEditModalOpen}
+              openDeleteModal={openDeleteModal}
+              setOpenDeleteModal={setOpenDeleteModal}
+            />
           </div>
         </div>
       )}

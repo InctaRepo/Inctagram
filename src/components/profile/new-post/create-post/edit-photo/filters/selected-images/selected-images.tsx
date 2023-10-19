@@ -12,7 +12,7 @@ import s from './selected-images.module.scss'
 
 // eslint-disable-next-line import/order
 import Image from 'next/image'
-import { filters } from '@/src/components/profile/new-post/edit-photo/filters/filters'
+import { filters } from '@/src/components/profile/new-post/create-post/edit-photo/filters/filters'
 // eslint-disable-next-line import/order
 import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
 import { Typography } from '@/src/components/ui/typography'
