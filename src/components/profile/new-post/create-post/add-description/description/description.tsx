@@ -9,12 +9,14 @@ import { useTranslate } from '@/src/assets/hooks'
 import AvatarImage from '@/src/assets/images/avatar-image'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
 import { DescriptionFormType, descriptionSchema } from '@/src/common/schemas/description-schema'
-import { TextAreaField } from '@/src/components/ui/text-area'
+import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
 import { Typography } from '@/src/components/ui/typography'
 
 type DescriptionFormTypeProps = {
   onSubmitHandler?: (data: DescriptionFormType) => void
   defaultValue?: string | number
+  isEditModalOpen?: boolean
+  setIsEditModalOpen?: (isEditModalOpen: boolean) => void
 }
 
 export const PostDescription = ({ onSubmitHandler, defaultValue }: DescriptionFormTypeProps) => {
@@ -58,15 +60,13 @@ export const PostDescription = ({ onSubmitHandler, defaultValue }: DescriptionFo
             </Typography>
           </div>
         </div>
-        <TextAreaField
+        <ControlledTextArea
+          control={control}
           className={s.textArea}
           fullWidth={true}
           name={'description'}
           label={t.profile.addNewPost.addDescription}
-          onChange={e => {
-            setValue(e.currentTarget.value)
-          }}
-          value={value}
+          setValue={setValue}
         />
         <div className={s.counter}>
           <Typography variant={'small'} color="secondary">

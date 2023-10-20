@@ -49,19 +49,7 @@
   border-radius: 2px;
 }
 
-.editOption {
-  cursor: pointer;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin: 1px 12px 11px;
-
-  &:hover {
-    color: $color-light-100;
-  }
-}
 
 .editOption1 {
   cursor: pointer;
@@ -80,3 +68,9 @@
     filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
   }
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+

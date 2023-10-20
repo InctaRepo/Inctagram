@@ -1,14 +1,4 @@
-import React, {
-  ComponentProps,
-  FC,
-  ReactNode,
-  useState,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useRef,
-  MutableRefObject,
-} from 'react'
+import React, { ComponentProps, FC, ReactNode, useState, useRef } from 'react'
 
 import {
   Dialog,
@@ -26,9 +16,8 @@ import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import { AreYouSureModal } from '@/src/components/profile/new-post/create-post/are-you-sure/are-you-sure-modal'
 import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
-import FiltersModal from '@/src/components/profile/new-post/edit-photo/filters/filters-modal'
-import SelectedImages from '@/src/components/profile/new-post/edit-photo/filters/selected-images/selected-images'
-import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
+import FiltersModal from '@/src/components/profile/new-post/create-post/edit-photo/filters/filters-modal'
+import SelectedImages from '@/src/components/profile/new-post/create-post/edit-photo/filters/selected-images/selected-images'
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
@@ -112,7 +101,8 @@ const CropModal: FC<ModalProps> = ({
                     image={image}
                     addedImages={addedImages}
                     setAddedImages={setAddedImages}
-                    open={isModalOpen}
+                    isModalOpen={isModalOpen}
+                    setIsModalOpen={setIsModalOpen}
                     onCancel={cancelButtonHandler}
                     title={t.profile.addNewPost.filters}
                     activeFilter={activeFilter}

@@ -27,7 +27,6 @@ import { OptionsType } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
   onSubmitHandler: (data: ProfileSettingFormType) => void
-  defaultValue?: string | number
   children?: any
   avatar: string | null
   setAvatar: (avatar: string | null) => void
@@ -41,7 +40,6 @@ type ProfileSettingFormPropsType = {
 
 export const ProfileSettings = ({
   onSubmitHandler,
-  defaultValue,
   avatar,
   setAvatar,
   isModalOpen,
@@ -119,7 +117,6 @@ export const ProfileSettings = ({
   }, [t])
 
   const submitData = (data: ProfileSettingFormType) => {
-    console.log('submit data')
     onSubmitHandler(data)
   }
 

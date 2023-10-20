@@ -6,6 +6,12 @@
   height: $h;
 }
 
+.next {
+  display: flex;
+  justify-content: space-between;
+  width: 972px;
+}
+
 .separator[data-orientation='horizontal'] {
   position: absolute;
   top: 59px;
@@ -32,14 +38,13 @@
 }
 
 .DialogContent {
+  @include wh(972px, 564px);
+
   position: fixed;
   z-index: 100;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  width: 972px;
-  height: 564px;
 
   background-color: $color-dark-300;
   border: 1px solid $color-dark-100;
@@ -68,45 +73,6 @@
   height: 61px;
 }
 
-.next {
-  @include wh(82px, 36px);
-
-  position: relative;
-  left: 440px;
-}
-
-.nextButton {
-
-  @include wh(82px, 36px);
-
-  cursor: pointer;
-
-  position: relative;
-
-  color: $color-accent-500;
-
-  background-color: transparent;
-  border: none;
-
-  &:hover {
-    color: $color-accent-100;
-    outline: 0;
-    outline-offset: 0;
-  }
-
-  &:focus-within {
-    color: $color-accent-100;
-    outline: 0;
-    outline-offset: 0;
-  }
-
-  &:active {
-    color: $color-accent-100;
-    outline: 0;
-    outline-offset: 0;
-  }
-}
-
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -120,4 +86,27 @@
   justify-content: space-between;
 
   margin: 8px 12px 11px;
+}
+
+.editOption {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 1px 12px 11px;
+
+  &:hover {
+    color: $color-light-100;
+  }
+}
+
+.DialogTitle {
+  margin-left: 24px;
+}
+
+.close {
+  cursor: pointer;
+  margin-right: 24px;
 }

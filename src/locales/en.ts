@@ -214,6 +214,19 @@ export const en: LocaleType = {
       saveDraft: 'Safe draft',
       close: 'Close',
     },
+    editPost: {
+      comment: 'Add a Comment ...',
+      edit: 'Edit',
+      closePost: 'Close Post',
+      question:
+        'Do you really want to close the edition of the publication? If you close changes won`t be saved',
+      yes: 'Yes',
+      no: 'No',
+    },
+    deletePost: {
+      delete: 'Delete Post',
+      areYouSure: 'Are you sure you want to delete this post?',
+    },
   },
 }
 // deletePost: 'Delete post',

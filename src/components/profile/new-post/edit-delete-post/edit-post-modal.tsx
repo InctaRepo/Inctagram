@@ -13,10 +13,9 @@ import { clsx } from 'clsx'
 import s from './edit-post-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks'
-import DescriptionModal from '@/src/components/profile/new-post/add-description/add-description-modal'
-import { PostDescription } from '@/src/components/profile/new-post/edit-delete-post/post-description/post-description'
+import DescriptionModal from '@/src/components/profile/new-post/create-post/add-description/add-description-modal'
+import { RightDescription } from '@/src/components/profile/new-post/edit-delete-post/post-description/right-description'
 import { PostImages } from '@/src/components/profile/new-post/edit-delete-post/post-photos/post-photos'
-import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
   open: boolean
@@ -55,23 +54,26 @@ export const EditPostModal: FC<ModalProps> = ({
     ),
   }
   const [isEditModalOpen, setIsEditModalOpen] = useState(true)
+
   const { t } = useTranslate()
 
   return (
-    <div>
-      <Dialog open={isEditModalOpen} onOpenChange={open => !open && setDeletePostModal(true)}>
-        <DialogPortal>
-          <DialogOverlay className={s.DialogOverlay} />
-          <DialogContent className={classNames.content}>
-            <div className={classNames.wrapper}>
-              <PostImages />
-              <PostDescription />
-            </div>
-            <div className={s.contentBox}>{children}</div>
-          </DialogContent>
-        </DialogPortal>
-      </Dialog>
-    </div>
+    <Dialog open={isEditModalOpen} onOpenChange={open => !open && setDeletePostModal(true)}>
+      <DialogPortal>
+        <DialogOverlay className={s.DialogOverlay} />
+        <DialogContent className={classNames.content}>
+          <div className={classNames.wrapper}>
+            <PostImages />
+            <RightDescription
+              isEditModalOpen={isEditModalOpen}
+              setIsEditModalOpen={setIsEditModalOpen}
+            />
+          </div>
+
+          <div className={s.contentBox}>{children}</div>
+        </DialogContent>
+      </DialogPortal>
+    </Dialog>
   )
 }
 

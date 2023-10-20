@@ -1,11 +1,4 @@
-import React, {
-  Dispatch,
-  MutableRefObject,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { useRef, useState } from 'react'
 
 import s from './create-new-post.module.scss'
 
@@ -15,15 +8,12 @@ import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line import/namespace,import/default
 import { LinkMenu } from '@/src/components/profile/links'
 import CroppedImage from '@/src/components/profile/new-post/create-post/cropped-image/cropped-image'
-import { CropArgType } from '@/src/components/profile/new-post/create-post/cropped-image/easy-crop'
 import CropModal from '@/src/components/profile/new-post/create-post/modal-for-crop/crop-modal'
 import { Button } from '@/src/components/ui/button'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
 export type SettingPhotoModalType = {
-  // isModalOpen: boolean
-  // setIsModalOpen: () => void
   variantIcon?:
     | 'search'
     | 'home'
