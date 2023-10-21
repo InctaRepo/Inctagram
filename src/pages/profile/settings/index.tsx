@@ -27,6 +27,7 @@ const Index = () => {
   const [createProfile] = useCreateProfileMutation()
   const { data: user } = useGetMeQuery()
   const id = user?.data?.userId
+  const userName = user?.data?.username
   const [uploadAvatar] = useUploadAvatarMutation()
   const { data: profile } = useGetProfileQuery(id)
 
@@ -101,6 +102,7 @@ const Index = () => {
           <MenuContainer />
           <div className={s.containerInfo}>
             <ProfileSettings
+              userName={userName}
               onSubmitHandler={submit}
               avatar={avatar}
               setAvatar={setAvatar}

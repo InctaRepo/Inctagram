@@ -35,6 +35,8 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   const { t } = useTranslate()
 
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
+  const [errorMessage, setErrorMessage] = useState('')
+  const showError = !!errorMessage && errorMessage.length > 0
 
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
@@ -42,7 +44,14 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   const handleButtonClick = () => {
     setIsModalOpen(false)
     setSelectedImage(null)
+    setErrorMessage('')
   }
+
+  const isError =
+    errorMessage?.includes('Error! Photo size must be less than 10 MB') ||
+    errorMessage?.includes('Ошибка! Размер фото не должен превышать 10 MB') ||
+    errorMessage?.includes('Error! The format of the uploaded photo must be PNG or JPEG') ||
+    errorMessage?.includes('Ошибка! Формат загружаемой фотографии должен быть PNG или JPEG')
 
   // if (!isModalOpen) return null
   return (
@@ -73,15 +82,26 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
         onClose={handleButtonClick}
         title={t.profile.profileSetting.addAProfilePhoto}
       >
+        <div className={s.errorContainer}>
+          {showError && (
+            <div className={s.error}>
+              <Typography color="primary" variant="small">
+                {errorMessage}
+              </Typography>
+            </div>
+          )}
+        </div>
         <div
-          className={`${s.photoContainer} ${selectedImage === null ? s.emptyPhotoContainer : ''}`}
+          className={`${s.photoContainer} ${selectedImage === null ? s.emptyPhotoContainer : ''} ${
+            showError ? s.errorPhotoContainer : ''
+          }`}
         >
           {selectedImage ? (
             <AvatarEditor
               ref={editorRef}
               image={selectedImage}
-              width={316}
-              height={316}
+              width={282}
+              height={290}
               color={[23, 23, 23, 0.6]}
               backgroundColor={'black'}
               scale={1}
@@ -102,7 +122,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
               {t.profile.profileSetting.save}
             </Button>
           ) : (
-            <InputTypeFile setSelectedImage={setSelectedImage} />
+            <InputTypeFile setSelectedImage={setSelectedImage} setErrorMessage={setErrorMessage} />
           )}
         </div>
       </BaseModal>

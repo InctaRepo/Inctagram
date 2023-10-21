@@ -8,8 +8,9 @@ import { Typography } from '@/src/components/ui/typography'
 
 type InputTypeFileProps = {
   setSelectedImage: (image: File) => void
+  setErrorMessage?: (errorMessage: string) => void
 }
-export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
+export const InputTypeFile = ({ setSelectedImage, setErrorMessage }: InputTypeFileProps) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const selectFileHandler = () => {
@@ -19,10 +20,24 @@ export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
     if (e.target.files && e.target.files.length) {
       const file = e.target.files[0]
 
-      if (file.size < 10000000) {
-        setSelectedImage(file)
+      console.log(file.size)
+      if (
+        (file.size < 10000000 && file.type === 'image/jpg') ||
+        (file.size < 10000000 && file.type === 'image/png') ||
+        (file.size < 10000000 && file.type === 'image/jpeg')
+      ) {
+        if (setErrorMessage) {
+          setErrorMessage('')
+          setSelectedImage(file)
+        }
+      } else if (file.size >= 10000000) {
+        if (setErrorMessage) {
+          setErrorMessage(t.profile.profileSetting.profileSettingsErrors.avatarError.size)
+        }
       } else {
-        console.error('Error: ', 'Файл слишком большого размера')
+        if (setErrorMessage) {
+          setErrorMessage(t.profile.profileSetting.profileSettingsErrors.avatarError.format)
+        }
       }
     }
   }

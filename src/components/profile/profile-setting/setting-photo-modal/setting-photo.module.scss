@@ -30,6 +30,16 @@
   margin-top: 50px;
 }
 
+.errorPhotoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+  margin-top: 14px;
+}
+
 .selectPhoto {
   margin-top: 35px;
   margin-bottom: 30px;
@@ -55,5 +65,17 @@
 }
 
 .baseModal {
-  @include wh(452px, 544px);
+  width: 492px !important;
+  height: 544px;
+}
+
+.error {
+  @include wh(444px, 36px);
+
+display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $color-danger-900;
+  border: 1px solid $color-danger-500;
 }

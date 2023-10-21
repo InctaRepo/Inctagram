@@ -193,6 +193,10 @@ export const en: LocaleType = {
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },
+        avatarError: {
+          size: 'Error! Photo size must be less than 10 MB',
+          format: 'Error! The format of the uploaded photo must be PNG or JPEG',
+        },
 
         refine: 'A user under 13 cannot create a profile.',
         aboutMeError: 'Max number of characters 200',
