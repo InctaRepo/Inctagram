@@ -170,6 +170,9 @@ export const en: LocaleType = {
       selectYourCity: 'Select your city',
       aboutMe: 'About me',
       saveChanges: 'Save Changes',
+      original: 'Original',
+      edit: 'Edit',
+      delete: 'Delete',
 
       profileSettingsErrors: {
         usernameField: {
@@ -210,6 +213,19 @@ export const en: LocaleType = {
       discard: 'Discard',
       saveDraft: 'Safe draft',
       close: 'Close',
+    },
+    editPost: {
+      comment: 'Add a Comment ...',
+      edit: 'Edit',
+      closePost: 'Close Post',
+      question:
+        'Do you really want to close the edition of the publication? If you close changes won`t be saved',
+      yes: 'Yes',
+      no: 'No',
+    },
+    deletePost: {
+      delete: 'Delete Post',
+      areYouSure: 'Are you sure you want to delete this post?',
     },
   },
 }

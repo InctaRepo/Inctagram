@@ -12,9 +12,9 @@ import { ImageType } from '@/src/components/profile/new-post/create-post/create-
 import EasyCrop, {
   CropArgType,
 } from '@/src/components/profile/new-post/create-post/cropped-image/easy-crop'
-import { Add } from '@/src/components/profile/new-post/edit-photo/add/add'
-import { Crop } from '@/src/components/profile/new-post/edit-photo/crop/crop'
-import { Zoom } from '@/src/components/profile/new-post/edit-photo/zoom/zoom'
+import { Add } from '@/src/components/profile/new-post/create-post/edit-photo/add/add'
+import { Crop } from '@/src/components/profile/new-post/create-post/edit-photo/crop/crop'
+import { Zoom } from '@/src/components/profile/new-post/create-post/edit-photo/zoom/zoom'
 
 // eslint-disable-next-line import/order
 

@@ -8,16 +8,23 @@
 
 .cropBtn {
   @include wh(36px, 36px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-color: $color-dark-500;
-  color: $color-light-700;
-  opacity: 80%;
+
   cursor: pointer;
-  border-radius: 2px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   margin: 0 24px 11px 11px;
+
+  color: $color-light-700;
+
+  opacity: 0.8;
+  background-color: $color-dark-500;
+  border-radius: 2px;
+
   &:hover {
     color: $color-light-100;
   }
@@ -25,25 +32,34 @@
 
 .cropOptions {
   @include wh(156px, 152px);
+
+  position: absolute;
+
   display: flex;
   flex-direction: column;
-  position: absolute;
   gap: 2px;
-  background-color: $color-dark-500;
-  border-radius: 2px;
-  opacity: 80%;
-  color: $color-light-900;
+
   margin-top: -200px;
   margin-left: 11px;
+
+  color: $color-light-900;
+
+  opacity: 0.8;
+  background-color: $color-dark-500;
+  border-radius: 2px;
 }
 
 .cropOption {
   @include wh(128px, 26px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1px 12px 11px 12px;
+
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 1px 12px 11px;
+
   &:hover {
     color: $color-light-100;
   }
@@ -51,15 +67,19 @@
 
 .cropOption1 {
   @include wh(128px, 26px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px 12px 11px 12px;
+
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 8px 12px 11px;
 }
 
 .blue {
   filter: brightness(0) invert(1);
+
   &:hover {
     filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
   }

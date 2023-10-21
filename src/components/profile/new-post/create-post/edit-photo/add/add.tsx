@@ -16,7 +16,7 @@ import s from './add.module.scss'
 import img from '@/src/assets/icons/image-ouline.svg'
 import { PlusCircleOutline } from '@/src/assets/icons/plus-circle-outline'
 import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
-import { AddedImages } from '@/src/components/profile/new-post/edit-photo/add/added-images/added-images'
+import { AddedImages } from '@/src/components/profile/new-post/create-post/edit-photo/add/added-images/added-images'
 
 type PropsType = {
   addedImages: ImageType[]

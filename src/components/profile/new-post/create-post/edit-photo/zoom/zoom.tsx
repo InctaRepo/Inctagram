@@ -4,7 +4,7 @@ import { Slider } from '@mui/base/Slider'
 import Image from 'next/image'
 
 import maximize from '@/src/assets/icons/maximize-outline.svg'
-import s from '@/src/components/profile/new-post/edit-photo/zoom/zoom.module.scss'
+import s from '@/src/components/profile/new-post/create-post/edit-photo/zoom/zoom.module.scss'
 
 type PropsType = {
   className?: string

@@ -167,6 +167,9 @@ export const ru = {
       selectYourCity: 'Выбрать город',
       aboutMe: 'Обо мне',
       saveChanges: 'Сохранить изменения',
+      original: 'Оригинал',
+      edit: 'Редактировать',
+      delete: 'Удалить',
       profileSettingsErrors: {
         usernameField: {
           nonEmpty: 'Введите имя пользователя',
@@ -206,6 +209,19 @@ export const ru = {
       discard: 'Сбросить',
       saveDraft: 'Сохранить',
       close: 'Закрыть',
+    },
+    editPost: {
+      comment: 'Добавить комментарий ...',
+      edit: 'Редактирование',
+      closePost: 'Закрыть пост',
+      question:
+        'Вы действительно хотите выйти из редактирования публикации? Все изменения будут потеряны',
+      yes: 'Да',
+      no: 'Нет',
+    },
+    deletePost: {
+      delete: 'Удалить пост',
+      areYouSure: 'Вы действительно хотите удалить пост?',
     },
   },
 

@@ -9,9 +9,10 @@ import ChevronDown from '@/src/assets/icons/chevron-down'
 import { Typography } from '@/src/components/ui/typography'
 
 export type SelectProps = {
+  onBlur?: () => void
   label?: string
   value?: string | number
-  placeholder?: ReactNode
+  placeholder?: string | ReactElement
   onValueChange?: (value: string | number) => void
   defaultValue?: string | number
   options: OptionsType[]
@@ -78,7 +79,7 @@ export const SelectBox: FC<SelectProps> = ({
             {options?.map((el, id) => {
               return <React.Fragment key={id}>{value === el.value && el.image}</React.Fragment>
             })}
-            {value}
+            {defaultValue}
           </Typography>
 
           <Select.Icon asChild className={s.selectIcon}>
