@@ -28,14 +28,15 @@ import { OptionsType } from 'src/components/ui/select-box'
 type ProfileSettingFormPropsType = {
   onSubmitHandler: (data: ProfileSettingFormType) => void
   children?: any
-  avatar: string | null
-  setAvatar: (avatar: string | null) => void
+  avatar: FormData | null
+  setAvatar: (avatar: FormData | null) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
   selectedImage: File | null
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
+  userName?: string
 }
 
 export const ProfileSettings = ({
@@ -48,6 +49,7 @@ export const ProfileSettings = ({
   setSelectedImage,
   editorRef,
   handleSavePhoto,
+  userName,
 }: ProfileSettingFormPropsType) => {
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
@@ -165,6 +167,7 @@ export const ProfileSettings = ({
             <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
               <DevTool control={control} />
               <ControlledTextField
+                value={userName}
                 control={control}
                 name={'username'}
                 label={t.profile.profileSetting.userName}
