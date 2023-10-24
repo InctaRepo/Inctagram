@@ -120,7 +120,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
           {showError && (
             <div style={{ display: 'flex' }}>
               <Typography color="error" variant="small">
-                {errorMessage}
+                {t.profile.profileSetting.profileSettingsErrors.refine}
               </Typography>
               {isError && (
                 <Typography
@@ -138,7 +138,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
                   as="a"
                   onClick={() => router.replace('/auth/privacy-policy')}
                 >
-                  {t.auth.privacyAndTermsPages.titleOfTermsOfService}
+                  {t.auth.privacyAndTermsPages.titleOfPrivacyPolicy}
                 </Typography>
               )}
             </div>
