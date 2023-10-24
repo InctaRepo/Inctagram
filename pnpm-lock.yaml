@@ -163,6 +163,9 @@ devDependencies:
   '@next/eslint-plugin-next':
     specifier: ^13.4.19
     version: 13.4.19
+  '@storybook/addon-designs':
+    specifier: ^7.0.5
+    version: 7.0.5(@storybook/addon-docs@7.1.1)(@storybook/addons@7.1.1)(@storybook/components@7.1.1)(@storybook/manager-api@7.1.1)(@storybook/preview-api@7.1.1)(@storybook/theming@7.1.1)(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-essentials':
     specifier: 7.1.1
     version: 7.1.1(react-dom@18.2.0)(react@18.2.0)
@@ -1948,6 +1951,22 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
+  /@figspec/components@1.0.2:
+    resolution: {integrity: sha512-rTjjH7wvM55ZuX+MRVPND1cs4Z4JspJvKc9lzGxm/8gD4dLfgeFztQuNy+daGglaxcGXLXTuJ2oJtZ0/lmRKmw==}
+    dependencies:
+      lit: 2.8.0
+    dev: true
+
+  /@figspec/react@1.0.3(react@18.2.0):
+    resolution: {integrity: sha512-r683qOko+5CbT48Ox280fMx2MNAtaFPgCNJvldOqN3YtmAzlcTT+YSxd3OahA+kjXGGrnzDbUgeTOX1cPLII+g==}
+    peerDependencies:
+      react: ^16.14.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@figspec/components': 1.0.2
+      '@lit-labs/react': 1.2.1
+      react: 18.2.0
+    dev: true
+
   /@floating-ui/core@1.3.1:
     resolution: {integrity: sha512-Bu+AMaXNjrpjh41znzHqaz3r2Nr8hHuHZT6V2LBKMhyMl0FgKA62PNYbqnfgmzOhoWZj70Zecisbo4H1rotP5g==}
     dev: false
@@ -2186,6 +2205,20 @@ packages:
 
   /@juggle/resize-observer@3.4.0:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
+    dev: true
+
+  /@lit-labs/react@1.2.1:
+    resolution: {integrity: sha512-DiZdJYFU0tBbdQkfwwRSwYyI/mcWkg3sWesKRsHUd4G+NekTmmeq9fzsurvcKTNVa0comNljwtg4Hvi1ds3V+A==}
+    dev: true
+
+  /@lit-labs/ssr-dom-shim@1.1.2:
+    resolution: {integrity: sha512-jnOD+/+dSrfTWYfSXBXlo5l5f0q1UuJo3tkbMDCYA2lKUYq79jaxqtGEvnRoh049nt1vdo1+45RinipU6FGY2g==}
+    dev: true
+
+  /@lit/reactive-element@1.6.3:
+    resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.1.2
     dev: true
 
   /@material/animation@14.0.0:
@@ -3490,6 +3523,34 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: true
+
+  /@storybook/addon-designs@7.0.5(@storybook/addon-docs@7.1.1)(@storybook/addons@7.1.1)(@storybook/components@7.1.1)(@storybook/manager-api@7.1.1)(@storybook/preview-api@7.1.1)(@storybook/theming@7.1.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-yB1YwkVhnTI28mS+00avAf7vPAppZi2pdXQF91725g+RoiM7llY87q+c1z2/YiQNQYNm2QXpYcrcYiLQzyr0NQ==}
+    peerDependencies:
+      '@storybook/addon-docs': ^7.0.0
+      '@storybook/addons': ^7.0.0
+      '@storybook/components': ^7.0.0
+      '@storybook/manager-api': ^7.0.0
+      '@storybook/preview-api': ^7.0.0
+      '@storybook/theming': ^7.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@figspec/react': 1.0.3(react@18.2.0)
+      '@storybook/addon-docs': 7.1.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addons': 7.1.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/components': 7.1.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/manager-api': 7.1.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/preview-api': 7.1.1
+      '@storybook/theming': 7.1.1(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: true
 
   /@storybook/addon-docs@7.1.1(react-dom@18.2.0)(react@18.2.0):
@@ -4937,6 +4998,10 @@ packages:
       '@types/http-errors': 2.0.1
       '@types/mime': 3.0.1
       '@types/node': 20.4.5
+    dev: true
+
+  /@types/trusted-types@2.0.5:
+    resolution: {integrity: sha512-I3pkr8j/6tmQtKV/ZzHtuaqYSQvyjGRKH4go60Rr0IDLlFxuRT5V32uvB1mecM5G1EVAUyF/4r4QZ1GHgz+mxA==}
     dev: true
 
   /@types/unist@2.0.7:
@@ -8979,6 +9044,28 @@ packages:
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
+
+  /lit-element@3.3.3:
+    resolution: {integrity: sha512-XbeRxmTHubXENkV4h8RIPyr8lXc+Ff28rkcQzw3G6up2xg5E8Zu1IgOWIwBLEQsu3cOVFqdYwiVi0hv0SlpqUA==}
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.1.2
+      '@lit/reactive-element': 1.6.3
+      lit-html: 2.8.0
+    dev: true
+
+  /lit-html@2.8.0:
+    resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
+    dependencies:
+      '@types/trusted-types': 2.0.5
+    dev: true
+
+  /lit@2.8.0:
+    resolution: {integrity: sha512-4Sc3OFX9QHOJaHbmTMk28SYgVxLN3ePDjg7hofEft2zWlehFL3LiAuapWc4U/kYwMYJSh2hTCPZ6/LIC7ii0MA==}
+    dependencies:
+      '@lit/reactive-element': 1.6.3
+      lit-element: 3.3.3
+      lit-html: 2.8.0
+    dev: true
 
   /little-state-machine@4.8.0(react@18.2.0):
     resolution: {integrity: sha512-xfi5+iDxTLhu0hbnNubUs+qoQQqxhtEZeObP5ELjUlHnl74bbasY7mOonsGQrAouyrbag3ebNLSse5xX1T7buQ==}
