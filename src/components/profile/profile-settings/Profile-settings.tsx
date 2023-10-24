@@ -51,6 +51,7 @@ export const ProfileSettings = ({
   handleSavePhoto,
   userName,
 }: ProfileSettingFormPropsType) => {
+  const [aboutMe, setValue] = useState('')
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
@@ -167,7 +168,7 @@ export const ProfileSettings = ({
             <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
               <DevTool control={control} />
               <ControlledTextField
-                value={userName}
+                // value={userName}
                 control={control}
                 name={'username'}
                 label={t.profile.profileSetting.userName}
@@ -220,6 +221,7 @@ export const ProfileSettings = ({
               <ControlledTextArea
                 control={control}
                 className={s.textArea}
+                setValue={setValue}
                 name={'aboutMe'}
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}

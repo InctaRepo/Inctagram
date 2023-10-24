@@ -79,7 +79,7 @@ export const SelectBox: FC<SelectProps> = ({
             {options?.map((el, id) => {
               return <React.Fragment key={id}>{value === el.value && el.image}</React.Fragment>
             })}
-            {defaultValue}
+            {value ? value : defaultValue}
           </Typography>
 
           <Select.Icon asChild className={s.selectIcon}>

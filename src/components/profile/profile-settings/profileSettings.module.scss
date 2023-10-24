@@ -114,17 +114,22 @@ display: flex;
 }
 
 .textArea {
-  @include wh(740px, 108px);
+
+  @include wh(740px, 132px);
 
   top: 576px;
   left: 476px;
   margin-bottom: 23px;
+
+  textarea {
+    height: 132px;
+  }
 }
 
 .grayLine {
   width: 100%;
   height: 1px;
-  margin-top: -74px;
+  margin-top: -23px;
   background: $color-dark-300
 }
 
