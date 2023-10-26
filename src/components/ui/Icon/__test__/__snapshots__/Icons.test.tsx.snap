@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render snapshot correctly 	 Subcomponent: Create 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Create
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Create 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Create
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Favorites 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Favorites
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Favorites 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Favorites
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Home 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Home
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Home 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Home
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Logout 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Logout
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Logout 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Logout
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Messenger 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Messenger
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Messenger 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Messenger
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Profile 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Profile
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Profile 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Profile
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Search 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Search
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Search 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Search
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Statistics 	
+      disabled: false 	
+       1`] = `
+<DocumentFragment>
+  <a
+    class="IconWrapper"
+    href=""
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Statistics
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`render snapshot correctly 	 Subcomponent: Statistics 	
+      disabled: true 	
+       1`] = `
+<DocumentFragment>
+  <div
+    class="IconWrapper IconWrapperDisabled"
+  >
+    <div
+      class="Icon"
+    >
+      <svg />
+    </div>
+    <span
+      class="Text"
+    >
+      Statistics
+    </span>
+  </div>
+</DocumentFragment>
+`;

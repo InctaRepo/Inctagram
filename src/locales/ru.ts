@@ -126,11 +126,15 @@ export const ru = {
     },
     // error fields block end =======================================================
   },
-  profile: {
+  sidebar: {
     home: 'Главная',
     createPost: 'Создать пост',
     myProfile: 'Мой профиль',
     logout: 'Выйти',
+    messenger: 'Сообщения',
+    search: 'Поиск',
+  },
+  profile: {
     confirmLogout(email: string) {
       return `Вы действительно хотите выйти из своей учетной записи ${email}?`
     },
@@ -142,8 +146,7 @@ export const ru = {
     aboutYourself: 'Расскажите о себе',
     profileSettings: 'Настройки профиля',
     favorites: 'Избранное',
-    messenger: 'Сообщения',
-    search: 'Поиск',
+
     addPostPhoto: 'Добавить фото',
     selectFromComputer: 'Выбрать с компьютера',
     passwordChanged: 'Ваш пароль был успешно изменен',

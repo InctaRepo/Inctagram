@@ -129,11 +129,15 @@ export const en: LocaleType = {
 
     // error fields block end =======================================================
   },
-  profile: {
+  sidebar: {
     home: 'Home',
     createPost: 'Create',
     myProfile: 'My Profile',
     logout: 'Log Out',
+    messenger: 'Messenger',
+    search: 'Search',
+  },
+  profile: {
     confirmLogout(email: string) {
       return `Are you really want to log out of your account ${email}?`
     },
@@ -145,8 +149,7 @@ export const en: LocaleType = {
     aboutYourself: 'tell about yourself',
     profileSettings: 'Profile Settings',
     favorites: 'Favorites',
-    messenger: 'Messenger',
-    search: 'Search',
+
     addPostPhoto: 'Add Photo',
     selectFromComputer: 'Select from Computer',
     passwordChanged: 'Your password was successfully changed',

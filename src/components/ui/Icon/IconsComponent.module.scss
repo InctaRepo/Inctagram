@@ -1,0 +1,73 @@
+@use '../../design/settings/colors.scss';
+
+.IconWrapper {
+  display: flex;
+  transition: 0.2s;
+  width: fit-content;
+  color: colors.$light-100;
+  box-sizing: content-box;
+  text-decoration: none;
+
+  .Icon {
+    filter: invert(1);
+  }
+
+  &:hover {
+    color: colors.$primary-100;
+    cursor: pointer;
+
+    .Icon {
+      filter: invert(61%) sepia(8%) saturate(3135%) hue-rotate(183deg) brightness(102%) contrast(101%);
+    }
+  }
+
+  &:active,
+  &Active,
+  &Active:hover {
+    color: colors.$primary-500;
+
+    .Icon {
+      filter: invert(36%) sepia(80%) saturate(1143%) hue-rotate(197deg) brightness(102%) contrast(93%);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid colors.$primary-100;
+    border-radius: 4px;
+  }
+
+  &Disabled,
+  &Disabled:hover {
+    color: colors.$dark-100;
+    cursor: not-allowed;
+
+    .Icon {
+      filter: invert(30%) sepia(0%) saturate(1160%) hue-rotate(134deg) brightness(99%) contrast(98%);
+    }
+  }
+
+  .Text {
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+.SideBar a,
+.SideBar > div {
+  width: 180px;
+  padding: 10px 0;
+  margin: 0 20px;
+
+  .Icon {
+    margin-left: 40px;
+  }
+
+  .Text {
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
