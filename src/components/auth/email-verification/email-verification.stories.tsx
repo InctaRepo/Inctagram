@@ -1,20 +1,12 @@
 import type { StoryObj } from '@storybook/react'
 import { Meta } from '@storybook/react'
-import { Provider } from 'react-redux'
 
 import { EmailVerificationPage } from '@/src/components/auth/email-verification/email-verification-page'
-import { store } from '@/src/services'
 
 const meta = {
   title: 'pages/EmailVerification',
   component: EmailVerificationPage,
-  decorators: [
-    Story => (
-      <Provider store={store}>
-        <Story />
-      </Provider>
-    ),
-  ],
+
   tags: ['autodocs'],
   parameters: {
     design: {
