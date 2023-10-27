@@ -24,8 +24,6 @@ export const ControlledSelect = <T extends FieldValues>({
     defaultValue,
   })
 
-  console.log(value)
-
   return (
     <SelectBox
       defaultValue={value ? value : defaultValue}
