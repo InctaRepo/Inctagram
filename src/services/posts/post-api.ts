@@ -2,21 +2,54 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 
 import { BaseResponseType } from '@/src/services'
 import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
-import { PostType } from '@/src/services/posts/post-api-types'
+import {
+  GetUserPostsRequest,
+  GetUserPostsResponse,
+  UpdatePostType,
+  UpdateResponseType,
+} from '@/src/services/posts/post-api-types'
 
 export const PostAPI = createApi({
   reducerPath: 'postApi',
   baseQuery: baseQueryWithReauth,
-  tagTypes: ['Me'],
+  tagTypes: ['createPost', 'editPost', 'deletePost'],
   endpoints: builder => ({
-    addPost: builder.mutation<BaseResponseType, PostType>({
+    addPost: builder.mutation<BaseResponseType, FormData>({
       query: body => ({
         method: 'POST',
-        url: `post/create`,
-        body: body,
+        url: `posts/create`,
+        body,
       }),
+      invalidatesTags: ['createPost'],
+    }),
+    updatePost: builder.mutation<UpdateResponseType, UpdatePostType>({
+      query: ({ body, postId }) => ({
+        method: 'PUT',
+        url: `posts/${postId}`,
+        body,
+      }),
+      invalidatesTags: ['editPost'],
+    }),
+    deletePost: builder.mutation<BaseResponseType, string>({
+      query: postId => ({
+        url: `posts/${postId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['deletePost'],
+    }),
+    getUserPosts: builder.query<GetUserPostsResponse, GetUserPostsRequest>({
+      query: ({ userId, pageNumber, pageSize }) => ({
+        url: `${userId}?pageNumber=${pageNumber}&pageSize=${pageSize}&postId=0`,
+        method: 'GET',
+      }),
+      providesTags: ['deletePost', 'createPost'],
     }),
   }),
 })
 
-export const { useAddPostMutation } = PostAPI
+export const {
+  useAddPostMutation,
+  useUpdatePostMutation,
+  useDeletePostMutation,
+  useGetUserPostsQuery,
+} = PostAPI

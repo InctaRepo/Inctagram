@@ -7,6 +7,7 @@ import trash from '@/src/assets/icons/trash.svg'
 import s from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-description/edit-description-modal.module.scss'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
+import { useDeletePostMutation } from '@/src/services/posts/post-api'
 
 export type ModalProps = {
   openDeleteModal: boolean
@@ -20,6 +21,7 @@ export const DeleteModal: FC<ModalProps> = ({
   setIsEditModalOpen,
 }) => {
   const { t } = useTranslate()
+  const [deletePost] = useDeletePostMutation()
   const onModalClose = () => {
     setOpenDeleteModal(false)
   }

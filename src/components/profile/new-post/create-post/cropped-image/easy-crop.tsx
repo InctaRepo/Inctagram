@@ -32,7 +32,6 @@ const EasyCrop: FC<PropsType> = ({
   setCrop,
 }) => {
   const onCropComplete = (croppedArea: CropArgType, croppedAreaPixels: CropArgType) => {
-    debugger
     setCroppedAreaPixels(croppedAreaPixels)
   }
 
