@@ -75,7 +75,7 @@ export const authApi = createApi({
         }
       },
     }),
-    register: builder.mutation<BaseResponseType, RegisterArgsType>({
+    register: builder.mutation<BaseResponseType<{ email: string }>, RegisterArgsType>({
       query: data => ({
         method: 'POST',
         url: 'auth/signup',

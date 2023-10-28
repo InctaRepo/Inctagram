@@ -42,7 +42,6 @@
   border-radius: 2px;
 }
 
-
 .range {
   @include wh(100px, 12px);
 }
@@ -54,5 +53,3 @@
     filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
   }
 }
-
-

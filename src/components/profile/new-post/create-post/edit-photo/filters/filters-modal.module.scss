@@ -55,7 +55,7 @@
   position: fixed;
   inset: 0;
 
-   opacity: 0.6;
+  opacity: 0.6;
   background-color: $color-dark-900;
 
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -140,14 +140,12 @@
   }
 }
 
-
 .nextButton {
   @include wh(82px, 36px);
 
   cursor: pointer;
 
   position: relative;
-
 
   color: $color-accent-500;
 
@@ -174,7 +172,6 @@
 }
 
 .nextBtn {
-
   @include wh(82px, 36px);
 
   cursor: pointer;

@@ -175,7 +175,7 @@
   }
 
   &.error:focus-within {
-   /* border-color: $color-dark-300;
+    /* border-color: $color-dark-300;
     outline: 1px solid $color-dark-300; */
     color: $color-danger-500;
   }
@@ -260,7 +260,6 @@
     background-color: $color-accent-900;
     background-image: radial-gradient(28px circle, $color-accent-500 48%, transparent 51%);
     border-radius: 50% 0 0 50%;
-
   }
 
   &:global(.react-datepicker__day--selecting-range-end) {

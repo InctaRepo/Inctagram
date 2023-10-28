@@ -89,14 +89,14 @@ const BaseModal: FC<ModalProps> = ({
 
           <div className={s.footerBlock}>
             <Button
-              variant={actionButtonName ? 'outlined' : 'primary'}
-              className={classNames.actionButton}
-              onClick={actionButtonHandler}
+              className={classNames.cancelButton}
+              onClick={cancelButtonHandler}
+              variant={'outlined'}
             >
-              {actionButtonName}
-            </Button>
-            <Button className={classNames.cancelButton} onClick={cancelButtonHandler}>
               {cancelButtonName}
+            </Button>
+            <Button className={classNames.actionButton} onClick={actionButtonHandler}>
+              {actionButtonName}
             </Button>
           </div>
         </DialogContent>
