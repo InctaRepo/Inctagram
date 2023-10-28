@@ -134,12 +134,9 @@
     background-color: $color-dark-500;
     border-radius: 100%;
   }
-
-
 }
 
 .nextButton {
-
   @include wh(82px, 36px);
 
   cursor: pointer;

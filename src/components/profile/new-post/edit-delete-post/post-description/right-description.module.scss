@@ -102,12 +102,12 @@
 }
 
 .comment {
-display: flex;
-align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 
   width: 100%;
 
-  background-color:$color-dark-300!important; ;
+  background-color: $color-dark-300 !important;
   border: none;
   outline: 0;
   outline-offset: 0;
@@ -128,7 +128,7 @@ align-items: flex-start;
 
   position: relative;
 
- height: 36px;
+  height: 36px;
 
   color: $color-accent-500;
 
@@ -153,4 +153,3 @@ align-items: flex-start;
     outline-offset: 0;
   }
 }
-
