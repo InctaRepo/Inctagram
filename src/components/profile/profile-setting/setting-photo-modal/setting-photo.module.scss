@@ -17,6 +17,10 @@
 
 .photoContainer {
   // margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: $color-dark-500;
 }
 

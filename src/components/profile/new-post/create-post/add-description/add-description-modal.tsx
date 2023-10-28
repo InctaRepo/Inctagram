@@ -18,6 +18,7 @@ import { ImageType } from '@/src/components/profile/new-post/create-post/create-
 import getFilteredImg from '@/src/components/profile/new-post/create-post/edit-photo/filters/Filter'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
+import { useAddPostMutation } from '@/src/services/posts/post-api'
 
 export type ModalProps = {
   image: string | null
@@ -39,6 +40,9 @@ export type ModalProps = {
   setOpenSureModal: (openSureModal: boolean) => void
   addedImages: ImageType[]
   setAddedImages: (addedImages: Awaited<{ image: string }>[]) => void
+  sendFilteredImg: (activeFilter: string) => void
+  isDescriptionModalOpen: boolean
+  setIsDescriptionModalOpen: (isDescriptionModalOpen: boolean) => void
 } & ComponentProps<'div'>
 
 const DescriptionModal: FC<ModalProps> = ({
@@ -60,6 +64,9 @@ const DescriptionModal: FC<ModalProps> = ({
   className,
   children,
   setOpenSureModal,
+  sendFilteredImg,
+  setIsDescriptionModalOpen,
+  isDescriptionModalOpen,
 }) => {
   const classNames = {
     content: getContentClassName(className),
@@ -71,8 +78,8 @@ const DescriptionModal: FC<ModalProps> = ({
       s.actionButton
     ),
   }
-  const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
   const { t } = useTranslate()
+
   const actionButtonHandler = () => {
     onAction?.()
   }
@@ -87,28 +94,6 @@ const DescriptionModal: FC<ModalProps> = ({
 
   const handlePublish = () => {
     setIsDescriptionModalOpen(true)
-  }
-
-  const showFilteredImg = async (activeFilter: string) => {
-    try {
-      const updatedImages = await Promise.all(
-        addedImages.map(async (el, idx) => {
-          const filteredImage = await getFilteredImg(el.image, activeFilter)
-
-          return {
-            image: filteredImage as string,
-          }
-        })
-      )
-
-      setAddedImages(updatedImages)
-      setActiveFilter('')
-      setIsFiltersModalOpen(false)
-      setIsDescriptionModalOpen(false)
-      setIsModalOpen(false)
-    } catch (e) {
-      console.error(e)
-    }
   }
 
   return (
@@ -128,7 +113,7 @@ const DescriptionModal: FC<ModalProps> = ({
                 <Button
                   variant="text"
                   className={s.nextButton}
-                  onClick={() => showFilteredImg(activeFilter)}
+                  onClick={() => sendFilteredImg(activeFilter)}
                 >
                   {t.profile.publish}
                 </Button>

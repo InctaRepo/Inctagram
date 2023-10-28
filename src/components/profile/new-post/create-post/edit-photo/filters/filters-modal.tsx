@@ -26,8 +26,10 @@ import DescriptionModal from '@/src/components/profile/new-post/create-post/add-
 import { PostDescription } from '@/src/components/profile/new-post/create-post/add-description/description/description'
 import FilteredImages from '@/src/components/profile/new-post/create-post/add-description/images-with-filters/images-with-filters'
 import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
+import getFilteredImg from '@/src/components/profile/new-post/create-post/edit-photo/filters/Filter'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
+import { useAddPostMutation } from '@/src/services/posts/post-api'
 
 export type ModalProps = {
   image: string | null
@@ -82,8 +84,10 @@ const FiltersModal: FC<ModalProps> = ({
     ),
   }
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
-
+  const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
+  const [value, setValue] = useState('')
   const { t } = useTranslate()
+  const [addPost] = useAddPostMutation()
   const actionButtonHandler = () => {
     onAction?.()
   }
@@ -100,6 +104,35 @@ const FiltersModal: FC<ModalProps> = ({
     setIsFiltersModalOpen(true)
     setIsBaseModalOpen(false)
     //setIsModalOpen(false)
+  }
+  const formData = new FormData()
+  const sendFilteredImg = async (activeFilter: string) => {
+    const updatedImages = await Promise.all(
+      addedImages.map(async (el, idx) => {
+        const filteredImage = await getFilteredImg(el.image, activeFilter)
+
+        // @ts-ignore
+        const file = new File([filteredImage], 'photo', { type: 'image/jpeg' })
+
+        formData.append('images', file as File)
+
+        return {
+          image: filteredImage,
+        }
+      })
+    )
+
+    formData.append('description', value)
+
+    addPost(formData)
+      .unwrap()
+      .then(() => {
+        setAddedImages(updatedImages)
+        setActiveFilter('')
+        setIsFiltersModalOpen(false)
+        setIsDescriptionModalOpen(false)
+        setIsModalOpen(false)
+      })
   }
 
   return (
@@ -129,9 +162,12 @@ const FiltersModal: FC<ModalProps> = ({
                   isFiltersModalOpen={isFiltersModalOpen}
                   setIsFiltersModalOpen={setIsFiltersModalOpen}
                   setOpenSureModal={setOpenSureModal}
+                  isDescriptionModalOpen={isDescriptionModalOpen}
+                  setIsDescriptionModalOpen={setIsDescriptionModalOpen}
+                  sendFilteredImg={sendFilteredImg}
                 >
                   <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
-                  <PostDescription />
+                  <PostDescription value={value} setValue={setValue} addedImages={addedImages} />
                 </DescriptionModal>
               </div>
 

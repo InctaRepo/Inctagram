@@ -1,5 +1,6 @@
 import React, { FC, useRef, useState } from 'react'
 
+import Slider from '@mui/material/Slider'
 import AvatarEditor from 'react-avatar-editor'
 
 import s from './setting-photo.module.scss'
@@ -33,7 +34,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   handleSavePhoto,
 }) => {
   const { t } = useTranslate()
-
+  const [slideValue, setSlideValue] = useState(10)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
   const [errorMessage, setErrorMessage] = useState('')
   const showError = !!errorMessage && errorMessage.length > 0
@@ -97,20 +98,35 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
           }`}
         >
           {selectedImage ? (
-            <AvatarEditor
-              ref={editorRef}
-              image={selectedImage}
-              width={282}
-              height={290}
-              color={[23, 23, 23, 0.6]}
-              backgroundColor={'black'}
-              scale={1}
-              borderRadius={155}
-              position={position}
-              onPositionChange={handlePositionChange}
-              crossOrigin="anonymous"
-              disableBoundaryChecks={false}
-            />
+            <>
+              <AvatarEditor
+                ref={editorRef}
+                image={selectedImage}
+                width={282}
+                height={290}
+                color={[23, 23, 23, 0.6]}
+                backgroundColor={'black'}
+                scale={slideValue / 10}
+                borderRadius={155}
+                position={position}
+                onPositionChange={handlePositionChange}
+                crossOrigin="anonymous"
+                disableBoundaryChecks={false}
+              />
+              <Slider
+                min={10}
+                max={50}
+                sx={{
+                  margin: '0 auto',
+                  width: '50%',
+                  color: 'white',
+                }}
+                size="small"
+                defaultValue={slideValue}
+                value={slideValue}
+                onChange={e => setSlideValue(e.target.value)}
+              />
+            </>
           ) : (
             <ImgOutline />
           )}

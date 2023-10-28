@@ -52,5 +52,12 @@ export default async function getFilteredImg(
   ctx.filter = filter || 'none'
   ctx.drawImage(image, 0, 0)
 
-  return canvas.toDataURL('image/jpeg')
+  //return canvas.toDataURL('image/jpeg')
+  // As a blob
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => {
+      // @ts-ignore
+      return resolve(URL.createObjectURL(blob))
+    })
+  })
 }
