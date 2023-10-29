@@ -1,14 +1,15 @@
 import { ComponentProps, useState } from 'react'
 
 import { clsx } from 'clsx'
-import DatePicker, { DateObject } from 'react-multi-date-picker'
+import DatePicker from 'react-multi-date-picker'
 
 import { useTranslate } from '@/src/assets/hooks'
 import DateIconDefault from '@/src/assets/icons/date-icon-default'
 import DateIconFilled from '@/src/assets/icons/date-icon-filled'
 import s from '@/src/components/ui/date-picker/date-picker.module.scss'
-import 'react-multi-date-picker/styles/backgrounds/bg-dark.css'
 import { Typography } from '@/src/components/ui/typography'
+
+import 'react-multi-date-picker/styles/backgrounds/bg-dark.css'
 
 /**
  in onChange callback you get DateObject value , you can destruct from object values
@@ -77,8 +78,8 @@ export const DatePick = ({
         headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
         multiple={multiple}
         format={'DD/MM/YYYY'}
-        startDate={startDate}
-        onChange={onChangeInput}
+        // startDate={startDate}
+        // onChange={onChangeInput}
         mapDays={({ date }) => {
           let props = {
             className: '',
