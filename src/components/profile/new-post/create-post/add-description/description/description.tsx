@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -78,7 +78,7 @@ export const PostDescription = ({
         />
         <div className={s.counter}>
           <Typography variant={'small'} color="secondary">
-            {value.length}/500
+            {value?.length}/500
           </Typography>
         </div>
       </div>

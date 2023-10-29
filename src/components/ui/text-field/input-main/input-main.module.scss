@@ -26,9 +26,13 @@
     width: 100%;
     padding: 0 42px 0 15px;
 
+    letter-spacing: .07em; /* Adjust as needed */
+
     background-color: transparent;
     border: 1px solid $color-dark-100;
     border-radius: 2px;
+    caret-color: auto;
+
 
     &[type='password'] {
       padding-right: 42px;
@@ -97,3 +101,4 @@
     fill: $color-light-900;
   }
 }
+
