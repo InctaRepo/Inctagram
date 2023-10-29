@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { ChangeEvent, FC, useState } from 'react'
 
 import Slider from '@mui/material/Slider'
 import AvatarEditor from 'react-avatar-editor'
@@ -53,6 +53,10 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
     errorMessage?.includes('Ошибка! Размер фото не должен превышать 10 MB') ||
     errorMessage?.includes('Error! The format of the uploaded photo must be PNG or JPEG') ||
     errorMessage?.includes('Ошибка! Формат загружаемой фотографии должен быть PNG или JPEG')
+
+  const handleSliderChange = (e: ChangeEvent<HTMLInputElement>, value: number | number[]) => {
+    setSlideValue(value as number)
+  }
 
   // if (!isModalOpen) return null
   return (
@@ -124,7 +128,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
                 size="small"
                 defaultValue={slideValue}
                 value={slideValue}
-                onChange={e => setSlideValue(e.target.value)}
+                onChange={handleSliderChange}
               />
             </>
           ) : (
