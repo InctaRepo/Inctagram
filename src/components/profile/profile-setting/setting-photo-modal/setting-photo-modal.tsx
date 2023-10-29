@@ -6,6 +6,7 @@ import AvatarEditor from 'react-avatar-editor'
 import s from './setting-photo.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
+import CloseIcon from '@/src/assets/icons/close-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
@@ -13,19 +14,23 @@ import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 
 type SettingPhotoModalType = {
-  avatar: string | null
-  setAvatar: (avatar: string | null) => void
+  avatar?: string | null
+  setAvatar?: (avatar: string | null) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
   selectedImage: File | null
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
+  croppedAvatar: string | null
+  setCroppedAvatar: (croppedAvatar: string | null) => void
 }
 
 export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   avatar,
   setAvatar,
+  croppedAvatar,
+  setCroppedAvatar,
   isModalOpen,
   setIsModalOpen,
   selectedImage,
@@ -55,20 +60,26 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
     errorMessage?.includes('Ошибка! Формат загружаемой фотографии должен быть PNG или JPEG')
 
   // if (!isModalOpen) return null
+  const deleteAvatarHandler = () => {
+    setCroppedAvatar(null)
+  }
+
   return (
     <div className={s.container}>
-      {avatar && (
-        <img
-          src={avatar}
-          alt="ava"
-          style={{
-            borderRadius: '50%',
-            width: 196,
-            height: 196,
-            marginTop: -210,
-            marginBottom: 24,
-          }}
-        />
+      {croppedAvatar && (
+        <>
+          <img
+            src={croppedAvatar}
+            alt="ava"
+            style={{
+              borderRadius: '50%',
+              width: 196,
+              height: 196,
+              marginBottom: 20,
+            }}
+          />
+          <CloseIcon className={s.deleteAvatarIcon} onClick={deleteAvatarHandler} />
+        </>
       )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
         <Typography variant={'h3'} className={s.addBtn}>
