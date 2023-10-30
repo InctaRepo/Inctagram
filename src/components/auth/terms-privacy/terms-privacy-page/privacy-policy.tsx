@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { Typography } from '../../../ui/typography'
@@ -9,12 +8,13 @@ import { Typography } from '../../../ui/typography'
 import s from './style.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks'
+import { useHistory } from '@/src/assets/hooks/useHistory'
 import ImageArrow from '@/src/assets/images/rightArrow.png'
-import { RouteNames } from '@/src/common/constants/route-names'
 import { Header } from '@/src/components/layout/header/header'
 import { Button } from '@/src/components/ui/button'
 
 export const Privacy = () => {
+  const { back, history } = useHistory()
   const { t } = useTranslate()
   const router = useRouter()
 
@@ -23,15 +23,10 @@ export const Privacy = () => {
       <Header />
       <div className={s.main}>
         <div className={s.SignUp}>
-          <Button
-            as={'a'}
-            className={s.btn}
-            variant={'text'}
-            onClick={() => router.push(RouteNames.SIGN_IN)}
-          >
+          <Button as={'a'} className={s.btn} variant={'text'} onClick={back}>
             <div className={s.arrow}>
               <Image className={s.img} src={ImageArrow} alt="arrow" />
-              <Typography variant={'regular14'}> {t.auth.BackToSignUp}</Typography>
+              <Typography variant={'regular14'}> {t.auth.Return}</Typography>
             </div>
           </Button>
         </div>
