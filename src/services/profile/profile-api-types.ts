@@ -12,6 +12,4 @@ export type UserInfoType = {
 
 export type AvatarType = {
   url: string
-  /* x: number
-  y: number*/
 }

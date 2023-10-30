@@ -111,7 +111,6 @@
   overflow: hidden;
   height: var(--radix-select-content-available-height);
   border-radius: 4px;
-
 }
 
 .scrollAreaViewport {
@@ -131,7 +130,7 @@
 
   padding: 2px;
 
-  background:  #8d9094;
+  background: #8d9094;
 
   transition: background 160ms ease-out;
 
@@ -139,17 +138,15 @@
     background: $color-dark-100;
   }
 
-&[data-orientation='vertical'] {
-  width: var(--scrollbar-size);
-}
+  &[data-orientation='vertical'] {
+    width: var(--scrollbar-size);
+  }
 
-&[data-orientation='horizontal'] {
-  flex-direction: column;
-  height: var(--scrollbar-size);
+  &[data-orientation='horizontal'] {
+    flex-direction: column;
+    height: var(--scrollbar-size);
+  }
 }
-
-}
-
 
 .scrollAreaThumb {
   position: relative;

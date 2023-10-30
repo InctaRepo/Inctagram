@@ -16,7 +16,7 @@ export function createProfileSettingSchema(t: LocaleType) {
       .trim()
       .nonempty(t.profile.profileSetting.profileSettingsErrors.firstNameField.nonEmpty)
       .regex(
-        /^[А-Яа-я- _A-Za-z]+$/,
+        /^[А-Яа-я- 'A-Za-z]+$/,
         t.profile.profileSetting.profileSettingsErrors.firstNameField.regex
       )
       .min(1, t.profile.profileSetting.profileSettingsErrors.firstNameField.min)
@@ -26,7 +26,7 @@ export function createProfileSettingSchema(t: LocaleType) {
       .trim()
       .nonempty(t.profile.profileSetting.profileSettingsErrors.lastNameField.nonEmpty)
       .regex(
-        /^[А-Яа-я- _A-Za-z]+$/,
+        /^[А-Яа-я- 'A-Za-z]+$/,
         t.profile.profileSetting.profileSettingsErrors.lastNameField.regex
       )
       .min(1, t.profile.profileSetting.profileSettingsErrors.lastNameField.min)

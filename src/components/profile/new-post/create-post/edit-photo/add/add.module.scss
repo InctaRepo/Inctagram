@@ -44,7 +44,7 @@
   cursor: pointer;
 
   display: flex;
-  
+
   min-width: 162px;
   height: 106px;
   margin-top: -154px;
@@ -74,8 +74,6 @@
 
   margin: 12px 12px 12px 5px;
 }
-
-
 
 .carouselPhoto {
   @include wh(80px, 82px);

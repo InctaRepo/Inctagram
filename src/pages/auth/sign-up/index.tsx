@@ -16,12 +16,10 @@ const SignUpPage = () => {
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
   const [userRegistration, { isSuccess, data }] = useRegisterMutation()
-
   // START : for error handling manual , need refactor =================================================
   const successRes = isSuccess && data?.resultCode === 0
   const errorRes = isSuccess && data?.resultCode !== 0
   const error = data?.extensions && data.extensions.length > 0 && data.extensions[0].message
-  const successKey = data?.extensions && data.extensions.length > 0 && data.extensions[0].key
 
   const setToastHandler = () => {
     if (successRes) {
@@ -69,7 +67,7 @@ const SignUpPage = () => {
           onAction={onSaveModalAction}
         >
           <Typography variant={'regular16'}>
-            {t.auth.emailConfirm(successKey ? successKey : '...')}
+            {t.auth.emailConfirm(data?.data?.email ? data?.data?.email : '...')}
           </Typography>
         </Modal>
       </div>

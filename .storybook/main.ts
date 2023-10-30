@@ -9,14 +9,24 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
+    '@storybook/addon-designs',
   ],
+  //    previewHead: head => `
+  //    ${head}
+  //    <style>
+  //      html, body {
+  //        background: #827979;
+  //        width: 100vh;
+  //      }
+  //    </style>
+  // `,
   framework: {
     name: '@storybook/nextjs',
     options: {},
   },
   webpackFinal: async (config, { configType }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
+    config.resolve!.alias = {
+      ...config.resolve?.alias,
       '@/src': path.resolve(__dirname, '../src'),
     }
     return config

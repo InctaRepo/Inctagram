@@ -10,13 +10,15 @@
   @include wh(196px, 36px);
 
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: -25px;
 }
 
 .photoContainer {
   // margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   background-color: $color-dark-500;
 }
 
@@ -28,6 +30,16 @@
   min-width: 222px;
   min-height: 228px;
   margin-top: 50px;
+}
+
+.errorPhotoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+  margin-top: 14px;
 }
 
 .selectPhoto {
@@ -52,8 +64,38 @@
   @include wh(198px, 36px);
 
   justify-content: center;
+
+ // margin-top: 20px;
 }
 
 .baseModal {
-  @include wh(452px, 544px);
+  width: 492px !important;
+  height: 564px;
+}
+
+.error {
+  @include wh(444px, 36px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $color-danger-900;
+  border: 1px solid $color-danger-500;
+}
+
+.deleteAvatarIcon {
+cursor: pointer;
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+  margin-top: 18px;
+  margin-left: -35px;
+  padding: 0;
+
+  background-color: $color-danger-500;
+border: 1px solid $color-dark-900;
+border-radius: 50%;
 }

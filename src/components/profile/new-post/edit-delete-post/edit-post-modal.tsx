@@ -7,7 +7,6 @@ import {
   DialogPortal,
   DialogTitle,
 } from '@radix-ui/react-dialog'
-import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import s from './edit-post-modal.module.scss'

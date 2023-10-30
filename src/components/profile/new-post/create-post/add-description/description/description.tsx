@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -9,19 +9,30 @@ import { useTranslate } from '@/src/assets/hooks'
 import AvatarImage from '@/src/assets/images/avatar-image'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
 import { DescriptionFormType, descriptionSchema } from '@/src/common/schemas/description-schema'
+import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
 import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
 import { Typography } from '@/src/components/ui/typography'
+import { useAddPostMutation } from '@/src/services/posts/post-api'
 
 type DescriptionFormTypeProps = {
   onSubmitHandler?: (data: DescriptionFormType) => void
   defaultValue?: string | number
   isEditModalOpen?: boolean
   setIsEditModalOpen?: (isEditModalOpen: boolean) => void
+  value?: string
+  setValue?: (value: string) => void
+  addedImages?: ImageType[]
 }
 
-export const PostDescription = ({ onSubmitHandler, defaultValue }: DescriptionFormTypeProps) => {
+export const PostDescription = ({
+  onSubmitHandler,
+  defaultValue,
+  addedImages,
+  value,
+  setValue,
+}: DescriptionFormTypeProps) => {
   const { t } = useTranslate()
-  const [value, setValue] = useState('')
+  const [addPost] = useAddPostMutation()
 
   const {
     control,
@@ -43,13 +54,9 @@ export const PostDescription = ({ onSubmitHandler, defaultValue }: DescriptionFo
     triggerZodFieldError(touchedFieldNames, trigger)
   }, [t])
 
-  const onSubmit = handleSubmit((data: DescriptionFormType) => {
-    onSubmitHandler?.(data)
-  })
-
   return (
     <>
-      <div className={s.wrapper} onSubmit={onSubmit}>
+      <div className={s.wrapper}>
         <div className={s.userInfo}>
           <div>
             <AvatarImage className={s.ava} />
@@ -60,6 +67,7 @@ export const PostDescription = ({ onSubmitHandler, defaultValue }: DescriptionFo
             </Typography>
           </div>
         </div>
+
         <ControlledTextArea
           control={control}
           className={s.textArea}
@@ -70,7 +78,7 @@ export const PostDescription = ({ onSubmitHandler, defaultValue }: DescriptionFo
         />
         <div className={s.counter}>
           <Typography variant={'small'} color="secondary">
-            {value.length}/500
+            {value?.length}/500
           </Typography>
         </div>
       </div>

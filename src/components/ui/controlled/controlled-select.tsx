@@ -26,7 +26,7 @@ export const ControlledSelect = <T extends FieldValues>({
 
   return (
     <SelectBox
-      defaultValue={defaultValue}
+      defaultValue={value ? value : defaultValue}
       onBlur={onBlur}
       value={value}
       onChange={onChange}

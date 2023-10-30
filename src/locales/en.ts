@@ -25,7 +25,7 @@ export const en: LocaleType = {
     },
     sendLink: 'Send Link',
     sendLinkAgain: 'Send Link Again',
-    BackToSignUp: 'Back to Sign Up',
+    Return: 'Return',
     linkHasBeenSent:
       'The link has been sent by email. If you dont receive an email send link again',
     signUpTerms: {
@@ -183,15 +183,19 @@ export const en: LocaleType = {
         },
         firstNameField: {
           nonEmpty: 'Enter first name',
-          regex: 'First name can contain only A-Z, a-z',
+          regex: 'First name can contain only A-Z; -; apostrophe; space',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },
         lastNameField: {
           nonEmpty: 'Enter last name',
-          regex: 'Last name can contain only A-Z, a-z',
+          regex: 'Last name can contain only A-Z; -; apostrophe; space',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
+        },
+        avatarError: {
+          size: 'Error! Photo size must be less than 10 MB',
+          format: 'Error! The format of the uploaded photo must be PNG or JPEG',
         },
 
         refine: 'A user under 13 cannot create a profile.',

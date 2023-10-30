@@ -28,27 +28,34 @@ import { OptionsType } from 'src/components/ui/select-box'
 type ProfileSettingFormPropsType = {
   onSubmitHandler: (data: ProfileSettingFormType) => void
   children?: any
-  avatar: string | null
-  setAvatar: (avatar: string | null) => void
+  avatar: FormData | null
+  setAvatar: (avatar: FormData | null) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
   selectedImage: File | null
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
+  userName?: string
+  croppedAvatar: string | null
+  setCroppedAvatar: (croppedAvatar: string | null) => void
 }
 
 export const ProfileSettings = ({
   onSubmitHandler,
   avatar,
   setAvatar,
+  croppedAvatar,
+  setCroppedAvatar,
   isModalOpen,
   setIsModalOpen,
   selectedImage,
   setSelectedImage,
   editorRef,
   handleSavePhoto,
+  userName,
 }: ProfileSettingFormPropsType) => {
+  const [aboutMe, setValue] = useState('')
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
@@ -141,16 +148,18 @@ export const ProfileSettings = ({
         </div>
         <div className={s.content}>
           <div className={s.photoContent}>
-            <div className={s.photo}>
-              <div className={s.ellipse}></div>
-              <div className={s.image}>
-                <ImgOutline />
+            {!croppedAvatar && (
+              <div className={s.photo}>
+                <div className={s.ellipse}></div>
+                <div className={s.image}>
+                  <ImgOutline />
+                </div>
               </div>
-            </div>
+            )}
             <div className={s.addBtn}>
               <SettingPhotoModal
-                avatar={avatar}
-                setAvatar={setAvatar}
+                croppedAvatar={croppedAvatar}
+                setCroppedAvatar={setCroppedAvatar}
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
                 selectedImage={selectedImage}
@@ -165,6 +174,7 @@ export const ProfileSettings = ({
             <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
               <DevTool control={control} />
               <ControlledTextField
+                // value={userName}
                 control={control}
                 name={'username'}
                 label={t.profile.profileSetting.userName}
@@ -217,6 +227,7 @@ export const ProfileSettings = ({
               <ControlledTextArea
                 control={control}
                 className={s.textArea}
+                setValue={setValue}
                 name={'aboutMe'}
                 fullWidth={true}
                 label={t.profile.profileSetting.aboutMe}
