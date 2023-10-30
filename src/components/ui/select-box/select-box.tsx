@@ -56,6 +56,7 @@ export const SelectBox: FC<SelectProps> = ({
   const onChangeHandler = (newValue: string) => {
     setValue(newValue)
     onValueChange?.(newValue)
+    onChange?.(newValue)
   }
 
   return (

@@ -13,7 +13,6 @@ import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 import {
   useCreateProfileMutation,
-  useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } from '@/src/services/profile/profile-api'
@@ -31,7 +30,7 @@ const Index = () => {
   const [uploadAvatar] = useUploadAvatarMutation()
   const editorRef = useRef<AvatarEditor>(null)
   const [avatar, setAvatar] = useState<FormData | null>(null)
-  const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
+  const [croppedAvatar, setCroppedAvatar] = useState<string | null | Blob>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
@@ -103,12 +102,9 @@ const Index = () => {
           <MenuContainer />
           <div className={s.containerInfo}>
             <ProfileSettings
-              userName={userName}
               onSubmitHandler={submit}
-              avatar={avatar}
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}
-              setAvatar={setAvatar}
               isModalOpen={isModalOpen}
               setIsModalOpen={setIsModalOpen}
               selectedImage={selectedImage}
