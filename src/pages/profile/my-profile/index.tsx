@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { RouteNames } from '@/src/common/constants/route-names'
 import { Profile } from '@/src/components/profile'
 import { useAppSelector } from '@/src/services'
+import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 
 const Index = () => {

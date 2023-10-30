@@ -29,8 +29,6 @@ const Index = () => {
   const id = user?.data?.userId
   const userName = user?.data?.username
   const [uploadAvatar] = useUploadAvatarMutation()
-  const { data: profile } = useGetProfileQuery(id)
-
   const editorRef = useRef<AvatarEditor>(null)
   const [avatar, setAvatar] = useState<FormData | null>(null)
   const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
