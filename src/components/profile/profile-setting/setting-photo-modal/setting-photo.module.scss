@@ -10,9 +10,6 @@
   @include wh(196px, 36px);
 
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: -25px;
 }
 
 .photoContainer {
@@ -21,6 +18,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   background-color: $color-dark-500;
 }
 
@@ -66,11 +64,13 @@
   @include wh(198px, 36px);
 
   justify-content: center;
+
+ // margin-top: 20px;
 }
 
 .baseModal {
   width: 492px !important;
-  height: 544px;
+  height: 564px;
 }
 
 .error {
@@ -82,4 +82,20 @@
 
   background-color: $color-danger-900;
   border: 1px solid $color-danger-500;
+}
+
+.deleteAvatarIcon {
+cursor: pointer;
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+  margin-top: 18px;
+  margin-left: -35px;
+  padding: 0;
+
+  background-color: $color-danger-500;
+border: 1px solid $color-dark-900;
+border-radius: 50%;
 }

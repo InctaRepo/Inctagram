@@ -33,6 +33,7 @@ const Index = () => {
 
   const editorRef = useRef<AvatarEditor>(null)
   const [avatar, setAvatar] = useState<FormData | null>(null)
+  const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
@@ -42,13 +43,14 @@ const Index = () => {
 
       canvas.toBlob(blob => {
         if (blob) {
+          setCroppedAvatar(blob)
           const file = new File([blob], 'avatar', { type: blob.type })
           const formData = new FormData()
 
           formData.append('file', file)
-          /*convertFileToBase64(file, (file64: string) => {
-            setAvatar(file64)
-          })*/
+          convertFileToBase64(file, (file64: string) => {
+            setCroppedAvatar(file64)
+          })
           setAvatar(formData)
 
           setIsModalOpen(false)
@@ -106,6 +108,8 @@ const Index = () => {
               userName={userName}
               onSubmitHandler={submit}
               avatar={avatar}
+              croppedAvatar={croppedAvatar}
+              setCroppedAvatar={setCroppedAvatar}
               setAvatar={setAvatar}
               isModalOpen={isModalOpen}
               setIsModalOpen={setIsModalOpen}

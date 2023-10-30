@@ -37,12 +37,16 @@ type ProfileSettingFormPropsType = {
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
   userName?: string
+  croppedAvatar: string | null
+  setCroppedAvatar: (croppedAvatar: string | null) => void
 }
 
 export const ProfileSettings = ({
   onSubmitHandler,
   avatar,
   setAvatar,
+  croppedAvatar,
+  setCroppedAvatar,
   isModalOpen,
   setIsModalOpen,
   selectedImage,
@@ -144,16 +148,18 @@ export const ProfileSettings = ({
         </div>
         <div className={s.content}>
           <div className={s.photoContent}>
-            <div className={s.photo}>
-              <div className={s.ellipse}></div>
-              <div className={s.image}>
-                <ImgOutline />
+            {!croppedAvatar && (
+              <div className={s.photo}>
+                <div className={s.ellipse}></div>
+                <div className={s.image}>
+                  <ImgOutline />
+                </div>
               </div>
-            </div>
+            )}
             <div className={s.addBtn}>
               <SettingPhotoModal
-                avatar={avatar}
-                setAvatar={setAvatar}
+                croppedAvatar={croppedAvatar}
+                setCroppedAvatar={setCroppedAvatar}
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
                 selectedImage={selectedImage}
