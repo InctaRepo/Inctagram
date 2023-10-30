@@ -25,7 +25,7 @@ export const en: LocaleType = {
     },
     sendLink: 'Send Link',
     sendLinkAgain: 'Send Link Again',
-    BackToSignUp: 'Back to Sign Up',
+    Return: 'Return',
     linkHasBeenSent:
       'The link has been sent by email. If you dont receive an email send link again',
     signUpTerms: {

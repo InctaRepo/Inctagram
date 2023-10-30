@@ -1,4 +1,5 @@
 import { useLoader } from '@/src/assets/hooks/use-loader'
+import { HistoryProvider } from '@/src/assets/hooks/useHistory'
 import { appIsLoadingSelector } from '@/src/services/app'
 import { store, useAppSelector } from '@/src/services/store'
 import '@/src/styles/_globals.scss'
@@ -30,9 +31,11 @@ type AppPropsWithLayout = AppProps & {
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
-    <Provider store={store}>
-      <MyApp Component={Component} {...pageProps} />
-    </Provider>
+    <HistoryProvider>
+      <Provider store={store}>
+        <MyApp Component={Component} {...pageProps} />
+      </Provider>
+    </HistoryProvider>
   )
 }
 
