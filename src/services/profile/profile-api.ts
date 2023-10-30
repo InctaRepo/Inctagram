@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 
 import { BaseResponseType } from '@/src/services'
 import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
-import { AvatarType, UserInfoType } from '@/src/services/profile/profile-api-types'
+import { UserInfoType } from '@/src/services/profile/profile-api-types'
 
 export const ProfileAPI = createApi({
   reducerPath: 'profileApi',
