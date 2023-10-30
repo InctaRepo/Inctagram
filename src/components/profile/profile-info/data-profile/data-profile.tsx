@@ -5,17 +5,20 @@ import s from './data-profile.module.scss'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
+import { UserInfoType } from '@/src/services/profile/profile-api-types'
 
-export const DataProfile = () => {
+type DataProfileType = {
+  userData?: UserInfoType
+}
+export const DataProfile = ({ userData }: DataProfileType) => {
   const { push } = useRouter()
 
   const { t } = useTranslate()
-  const router = useRouter()
 
   return (
     <div>
       <div className={s.header}>
-        <Typography variant="h1">URLProfile</Typography>
+        <Typography variant="h1">{userData?.username}</Typography>
         <Button
           variant={'secondary'}
           className={s.button}
@@ -26,7 +29,7 @@ export const DataProfile = () => {
       </div>
       <div className={s.progressProfile}>
         <div className={s.info}>
-          <Typography variant="bold14">2218</Typography>
+          <Typography variant="bold14">1231</Typography>
           <Typography variant="regular14">{t.profile.subscriptions}</Typography>
         </div>
         <div className={s.info}>
@@ -39,10 +42,7 @@ export const DataProfile = () => {
         </div>
       </div>
       <div>
-        <Typography variant="regular16">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-        </Typography>
+        <Typography variant="regular16">{userData?.aboutMe}</Typography>
       </div>
     </div>
   )

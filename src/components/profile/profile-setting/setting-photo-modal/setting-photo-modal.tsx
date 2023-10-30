@@ -22,7 +22,7 @@ type SettingPhotoModalType = {
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
-  croppedAvatar: string | null
+  croppedAvatar: string | null | Blob
   setCroppedAvatar: (croppedAvatar: string | null) => void
 }
 
@@ -73,7 +73,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
       {croppedAvatar && (
         <>
           <img
-            src={croppedAvatar}
+            src={String(croppedAvatar)}
             alt="ava"
             style={{
               borderRadius: '50%',
