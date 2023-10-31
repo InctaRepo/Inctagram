@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { default as Axios } from 'axios'
-import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
@@ -27,24 +26,17 @@ import { OptionsType } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
   onSubmitHandler: (data: ProfileSettingFormType) => void
-  children?: any
-  avatar: FormData | null
-  setAvatar: (avatar: FormData | null) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
   selectedImage: File | null
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
-  userName?: string
-  croppedAvatar: string | null
+  croppedAvatar: string | null | Blob
   setCroppedAvatar: (croppedAvatar: string | null) => void
 }
 
 export const ProfileSettings = ({
-  onSubmitHandler,
-  avatar,
-  setAvatar,
   croppedAvatar,
   setCroppedAvatar,
   isModalOpen,
@@ -53,13 +45,12 @@ export const ProfileSettings = ({
   setSelectedImage,
   editorRef,
   handleSavePhoto,
-  userName,
+  onSubmitHandler,
 }: ProfileSettingFormPropsType) => {
   const [aboutMe, setValue] = useState('')
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()
-  const router = useRouter()
 
   const fetchCountries = async () => {
     let country = await Axios.get('https://countriesnow.space/api/v0.1/countries')
@@ -82,16 +73,12 @@ export const ProfileSettings = ({
   const changeCountryHandler = (country: string | number) => {
     const cities = countriesList.find((c: { value: string | number }) => c.value === country)
 
-    // @ts-ignore
     setCities(cities.cities)
 
-    // @ts-ignore
     const citiesSelected = getCities(cities.cities)
 
     setCities(citiesSelected)
   }
-
-  const changeCityHandler = (newCity: string | number) => {}
 
   const {
     control,
@@ -174,7 +161,6 @@ export const ProfileSettings = ({
             <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
               <DevTool control={control} />
               <ControlledTextField
-                // value={userName}
                 control={control}
                 name={'username'}
                 label={t.profile.profileSetting.userName}
@@ -219,7 +205,6 @@ export const ProfileSettings = ({
                     name="city"
                     options={cities}
                     label={t.profile.profileSetting.selectYourCity}
-                    onValueChange={changeCityHandler}
                     defaultValue={t.profile.profileSetting.city}
                   />
                 </div>
