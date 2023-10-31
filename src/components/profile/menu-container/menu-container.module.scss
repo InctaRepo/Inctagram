@@ -4,10 +4,13 @@
 .container {
   @include flex-block;
 
+  position: sticky;
+  top: 0;
+
   justify-content: space-between;
+
   width: 220px;
-  height: 100%;
-  border-right: 1px solid $color-dark-300;
+  height: 734px;
 
   .containerLinks {
     @include flex-block;

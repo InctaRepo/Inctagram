@@ -12,12 +12,14 @@
 
     width: 1280px;
     margin: 0 auto;
+
     .incta {
       text-decoration: none;
     }
+
     .text {
       display: block;
-      padding: 12px 0 12px 88px;
+      padding: 12px 0 12px 60px;
     }
 
     .options_container {
@@ -25,7 +27,7 @@
 
       flex-direction: row;
       gap: 48px;
-      padding-right: 42px;
+      padding-right: 76px;
     }
   }
 }

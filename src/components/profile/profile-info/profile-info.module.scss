@@ -1,6 +1,8 @@
 .container {
   display: flex;
+  justify-content: space-between;
   margin-bottom: 53px;
+  border: 1px solid red;
 
   .image {
     width: 100%;

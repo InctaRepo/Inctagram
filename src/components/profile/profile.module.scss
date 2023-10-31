@@ -1,9 +1,13 @@
+@import 'src/styles/colors';
+
 .container {
   display: flex;
   height: 100%;
+  border: 1px solid green;
 
   .containerInfo {
-    max-width: 900px;
+    max-width: 980px;
     padding: 35px 0 0 20px;
+    border-left: 1px solid $color-dark-300;
   }
 }
