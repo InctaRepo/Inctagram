@@ -4,13 +4,9 @@
 .container {
   @include flex-block;
 
-  position: fixed;
-
   justify-content: space-between;
-
   width: 220px;
   height: 100%;
-
   border-right: 1px solid $color-dark-300;
 
   .containerLinks {
