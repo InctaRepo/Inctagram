@@ -4,6 +4,7 @@ export const en: LocaleType = {
   auth: {
     signIn: 'Sign In',
     signUp: 'Sign Up',
+    backToSignIn: 'Back to Sign In',
     signUpTitle: 'Registration',
     password: 'Password',
     forgotPassword: 'Forgot Password?',

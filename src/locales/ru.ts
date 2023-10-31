@@ -3,6 +3,7 @@ export const ru = {
   auth: {
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
+    backToSignIn: 'Вернуться на страницу входа',
     signUpTitle: 'Регистрация',
     password: 'Пароль',
     forgotPassword: 'Забыли пароль?',
