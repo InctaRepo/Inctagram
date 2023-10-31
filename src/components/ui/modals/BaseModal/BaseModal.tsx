@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithoutRef, FC, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, FC, ReactNode } from 'react'
 
 import {
   Dialog,
@@ -11,8 +11,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 import dynamic from 'next/dynamic'
 
-// eslint-disable-next-line import/no-named-as-default
-import CloseIcon from '@/src/assets/icons/close-icon'
+import { CloseIcon } from '@/src/assets/icons/close-icon'
 import { Button } from '@/src/components/ui/button'
 import { AppLoader } from '@/src/components/ui/loader'
 import s from '@/src/components/ui/modals/BaseModal/base-modal.module.scss'
