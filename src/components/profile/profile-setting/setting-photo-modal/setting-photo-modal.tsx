@@ -6,7 +6,7 @@ import AvatarEditor from 'react-avatar-editor'
 import s from './setting-photo.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
-import CloseIcon from '@/src/assets/icons/close-icon'
+import { CloseIcon } from '@/src/assets/icons/close-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
@@ -59,7 +59,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
     errorMessage?.includes('Error! The format of the uploaded photo must be PNG or JPEG') ||
     errorMessage?.includes('Ошибка! Формат загружаемой фотографии должен быть PNG или JPEG')
 
-  const handleSliderChange = (e: ChangeEvent<HTMLInputElement>, value: number | number[]) => {
+  const handleSliderChange = (e: Event, value: number | number[]) => {
     setSlideValue(value as number)
   }
 

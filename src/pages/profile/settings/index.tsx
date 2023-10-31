@@ -28,6 +28,7 @@ const Index = () => {
   const id = user?.data?.userId
   const userName = user?.data?.username
   const [uploadAvatar] = useUploadAvatarMutation()
+
   const editorRef = useRef<AvatarEditor>(null)
   const [avatar, setAvatar] = useState<FormData | null>(null)
   const [croppedAvatar, setCroppedAvatar] = useState<string | null | Blob>(null)
@@ -40,7 +41,6 @@ const Index = () => {
 
       canvas.toBlob(blob => {
         if (blob) {
-          setCroppedAvatar(blob)
           const file = new File([blob], 'avatar', { type: blob.type })
           const formData = new FormData()
 
