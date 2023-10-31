@@ -65,7 +65,7 @@
 
   justify-content: center;
 
- // margin-top: 20px;
+  // margin-top: 20px;
 }
 
 .baseModal {
@@ -85,7 +85,7 @@
 }
 
 .deleteAvatarIcon {
-cursor: pointer;
+  cursor: pointer;
 
   position: absolute;
 
@@ -96,6 +96,6 @@ cursor: pointer;
   padding: 0;
 
   background-color: $color-danger-500;
-border: 1px solid $color-dark-900;
-border-radius: 50%;
+  border: 1px solid $color-dark-900;
+  border-radius: 50%;
 }
