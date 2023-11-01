@@ -9,8 +9,8 @@
 
   justify-content: space-between;
 
-  width: 220px;
   height: 734px;
+  padding-right: 50px;
 
   .containerLinks {
     @include flex-block;

@@ -1,2 +1,6 @@
 export * from './controlled-text-field'
 export * from './controlled-checkbox'
+export * from './controlled-select'
+export * from './controlled-data-picker'
+export * from './controlled-recaptcha'
+export * from './controlled-text-area'
