@@ -16,7 +16,7 @@ export const DataProfile = ({ userData }: DataProfileType) => {
   const { t } = useTranslate()
 
   return (
-    <div>
+    <>
       <div className={s.header}>
         <Typography variant="h1">{userData?.username}</Typography>
         <Button
@@ -41,9 +41,9 @@ export const DataProfile = ({ userData }: DataProfileType) => {
           <Typography variant="regular14">{t.profile.publications}</Typography>
         </div>
       </div>
-      <div>
+      <div className={s.text}>
         <Typography variant="regular16">{userData?.aboutMe}</Typography>
       </div>
-    </div>
+    </>
   )
 }
