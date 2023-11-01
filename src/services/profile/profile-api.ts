@@ -9,7 +9,6 @@ export const ProfileAPI = createApi({
   baseQuery: baseQueryWithReauth,
   tagTypes: ['Me'],
   endpoints: builder => ({
-    // @ts-ignore
     createProfile: builder.mutation<BaseResponseType, UserInfoType & Pick<UserInfoType, 'id'>>({
       query: ({ id, ...patch }) => ({
         method: 'POST',
@@ -17,7 +16,6 @@ export const ProfileAPI = createApi({
         body: patch,
       }),
     }),
-    // @ts-ignore
     updateProfile: builder.mutation<BaseResponseType, UserInfoType & Pick<UserInfoType, 'id'>>({
       query: ({ id, ...patch }) => ({
         method: 'PUT',

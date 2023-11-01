@@ -86,7 +86,16 @@
   left: 476px;
   margin-bottom: 24px;
   text-align: left;
+
+  .textFieldWrap {
+    .label::after{
+      content: " *";
+      color: $color-danger-300;
+    }
+  }
 }
+
+
 
 .fieldSelect {
   @include wh(740px, 60px);

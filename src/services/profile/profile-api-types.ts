@@ -1,4 +1,4 @@
-export type UserInfoType = {
+export interface UserInfoType {
   id?: string
   username: string
   firstName: string
@@ -8,7 +8,7 @@ export type UserInfoType = {
   dateOfBirth: Date
   aboutMe: string
   avatar: string
-} | null
+}
 
 export type AvatarType = {
   url: string
