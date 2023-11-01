@@ -1,11 +1,22 @@
 .container {
   display: flex;
+  gap: 39px;
   justify-content: space-between;
   margin-bottom: 53px;
 
   .image {
-    width: 100%;
-    max-width: 204px;
-    margin-right: 38px;
+    display: flex;
+
+    width: 204px;
+    height: 100%;
+    min-height: 200px;
+
+    // TODO background-color: red; delete
+    background-color: red;
+    border-radius: 50%;
+  }
+
+  .dataProfile {
+    width: 78%;
   }
 }
