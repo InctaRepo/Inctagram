@@ -2,8 +2,9 @@
 @import 'src/styles/variables';
 
 .container {
-  @include flex-block($justify-content: 'start');
+  @include flex-block;
 
+  // width: 1280px;
   .main {
     @include flex-block($align-items: 'start');
 
