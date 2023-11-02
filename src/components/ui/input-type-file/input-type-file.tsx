@@ -45,7 +45,7 @@ export const InputTypeFile = ({ setSelectedImage, setErrorMessage }: InputTypeFi
   return (
     <div>
       <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
-        <Typography variant={'sb_small'}>{t.profile.selectFromComputer}</Typography>
+        <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
       </Button>
       <input
         style={{ display: 'none' }}

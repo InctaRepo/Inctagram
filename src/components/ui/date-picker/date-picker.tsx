@@ -208,8 +208,9 @@ const CustomHeaderWrapper = (locale: Locale) => {
 
   return CustomHeader
 }
-
-const formatWeekDay = (day: string) => capitalizeFirstLetter(day.substring(0, 2))
+const regExp = /о|е|у|я|\$/g
+const formatWeekDay = (day: string) =>
+  capitalizeFirstLetter(day.replace(regExp, '').substring(0, 2))
 
 const capitalizeFirstLetter = (text: string) => {
   return text[0].toUpperCase() + text.slice(1)
