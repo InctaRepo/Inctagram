@@ -2,6 +2,8 @@
 @import 'src/styles/variables';
 
 .container {
+  @include flex-block;
+
   .main {
     @include flex-block($justify-content: 'unset');
 
