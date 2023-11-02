@@ -2,12 +2,13 @@
 
 .container {
   display: flex;
+  justify-content: center;
+  width: 100%;
   height: 100%;
-  border: 1px solid green;
 
   .containerInfo {
     max-width: 980px;
-    padding: 35px 0 0 20px;
+    padding: 35px 22px 0 20px;
     border-left: 1px solid $color-dark-300;
   }
 }

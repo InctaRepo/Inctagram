@@ -3,14 +3,15 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import { RouteNames } from '@/src/common/constants/route-names'
-import { ProfileLayout } from '@/src/components/layout/profile-layout'
+import { getProfileLayout } from '@/src/components/layout/profile-layout'
 import { MenuContainer } from '@/src/components/profile/menu-container'
 import s from '@/src/components/profile/profile.module.scss'
 import { Typography } from '@/src/components/ui/typography'
+import { NextPageWithLayout } from '@/src/pages/_app'
 import { useAppSelector } from '@/src/services'
 import { authIsAuthSelector } from '@/src/services/auth'
 
-const Index = () => {
+const HomePage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
@@ -23,16 +24,15 @@ const Index = () => {
 
   return (
     isAuth && (
-      <ProfileLayout>
-        <div className={s.container}>
-          <MenuContainer />
-          <div className={s.containerInfo}>
-            <Typography>Home Page</Typography>
-          </div>
+      <div className={s.container}>
+        <MenuContainer />
+        <div className={s.containerInfo}>
+          <Typography>Home Page</Typography>
         </div>
-      </ProfileLayout>
+      </div>
     )
   )
 }
 
-export default Index
+HomePage.getLayout = getProfileLayout
+export default HomePage

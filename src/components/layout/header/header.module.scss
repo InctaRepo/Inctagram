@@ -4,13 +4,15 @@
 .container {
   @include flex-block($flex-direction: row);
 
-  width: 100%;
+  min-width: 1280px;
   border-bottom: 1px solid $color-dark-300;
+
+  // width: 100%;
 
   .content {
     @include flex-block($flex-direction: row, $justify-content: space-between);
 
-    width: 1280px;
+    width: 100%;
     margin: 0 auto;
 
     .incta {

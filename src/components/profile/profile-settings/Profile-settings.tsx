@@ -16,12 +16,14 @@ import {
   createProfileSettingSchema,
   ProfileSettingFormType,
 } from '@/src/common/schemas/profile-setting-schema'
-import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal/setting-photo-modal'
+import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal'
 import { Button } from '@/src/components/ui/button'
-import { ControlledTextField } from '@/src/components/ui/controlled'
-import { ControlledDatePick } from '@/src/components/ui/controlled/controlled-data-picker'
-import { ControlledSelect } from '@/src/components/ui/controlled/controlled-select'
-import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
+import {
+  ControlledTextField,
+  ControlledDatePick,
+  ControlledSelect,
+  ControlledTextArea,
+} from '@/src/components/ui/controlled'
 import { TabsComponent } from '@/src/components/ui/tabs'
 import { UserInfoType } from '@/src/services/profile/profile-api-types'
 import { OptionsType } from 'src/components/ui/select-box'
@@ -38,7 +40,6 @@ type ProfileSettingFormPropsType = {
   setCroppedAvatar: (croppedAvatar: string | null) => void
   userData?: UserInfoType
 }
-
 export const ProfileSettings = ({
   croppedAvatar,
   setCroppedAvatar,
@@ -51,7 +52,7 @@ export const ProfileSettings = ({
   onSubmitHandler,
   userData,
 }: ProfileSettingFormPropsType) => {
-  const [aboutMe, setValue] = useState('')
+  const [_, setValue] = useState('')
   const [countries, setCountries] = useState<OptionsType[]>([])
   const [cities, setCities] = useState<OptionsType[]>([])
   const { t } = useTranslate()

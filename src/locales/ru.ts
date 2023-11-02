@@ -1,8 +1,10 @@
 export const ru = {
   // object = feature
   auth: {
+    BackToSignUp: 'Вернуться на страницу регистрации',
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
+    backToSignIn: 'Вернуться на страницу входа',
     signUpTitle: 'Регистрация',
     password: 'Пароль',
     forgotPassword: 'Забыли пароль?',

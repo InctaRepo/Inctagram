@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
 
@@ -15,6 +15,7 @@ const SignInPage: NextPageWithLayout = () => {
   const [loginUser] = useLoginUserMutation()
   const isAuth = useAppSelector(authIsAuthSelector)
   const router = useRouter()
+  const [errorServer, setErrorServer] = useState<string>('')
 
   useEffect(() => {
     if (isAuth) {
@@ -24,9 +25,20 @@ const SignInPage: NextPageWithLayout = () => {
 
   const submit = (data: LoginArgsType) => {
     loginUser(data)
+      .unwrap()
+      .then(payload => {
+        if (typeof payload.extensions[0]?.message === 'string') {
+          setErrorServer(payload.extensions[0]?.message)
+          console.log(payload.extensions[0]?.message)
+        }
+        if (typeof payload.extensions[0]?.message !== 'string') {
+          setErrorServer(payload.extensions[0]?.message[0].message)
+          console.log(payload.extensions[0]?.message[0].message)
+        }
+      })
   }
 
-  return <LoginForm onSubmitHandler={submit} />
+  return <LoginForm onSubmitHandler={submit} errorServer={errorServer} />
 }
 
 SignInPage.getLayout = getAuthLayout

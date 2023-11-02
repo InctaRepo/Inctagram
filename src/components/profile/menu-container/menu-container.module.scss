@@ -9,15 +9,16 @@
 
   justify-content: space-between;
 
-  width: 220px;
+  width: 240px;
   height: 734px;
+  padding-right: 50px;
 
   .containerLinks {
     @include flex-block;
 
     align-items: flex-start;
     justify-content: space-between;
-    width: 140px;
+    width: 155px;
     height: 100%;
 
     .favorites {

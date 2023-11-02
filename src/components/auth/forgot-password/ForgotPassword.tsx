@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
@@ -58,6 +58,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
   const submitData = (data: ForgotFormType) => {
     setMode(CSSMod.secondary)
     if (data && data.recaptcha) {
+      // @ts-ignore
       delete data.recaptcha // our server doesnt receive it yet
     }
     onSubmitHandler(data)
@@ -101,7 +102,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
             type="button"
             onClick={() => router.push('/')}
           >
-            <Typography variant="bold16">{t.auth.BackToSignUp}</Typography>
+            <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
           </Button>
           <ControlledRecaptcha
             control={control}

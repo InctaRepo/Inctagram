@@ -20,8 +20,9 @@ import { Card } from '@/src/components/ui/card-temporary'
 
 type LoginType = {
   onSubmitHandler: (data: LoginFormType) => void
+  errorServer: string
 }
-export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
+export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
   const { t } = useTranslate()
   const router = useRouter()
 
@@ -29,6 +30,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
     control,
     handleSubmit,
     trigger,
+    setError,
     formState: { touchedFields, errors },
   } = useForm<LoginFormType>({
     resolver: zodResolver(createLoginSchema(t)),
@@ -46,8 +48,12 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
     // TODO:  it works ! but need to replace this handler (not a good one)
   }, [t])
 
+  useEffect(() => {
+    setError('password', { type: 'custom', message: errorServer })
+  }, [errorServer, onSubmitHandler])
+
   const submitData = (data: LoginFormType) => {
-    //TODO errors from backend after submit : (1)This email address is not registered. Please register ; (2)The password is incorrect. Try again please
+    //TODO errors from backend after submit : (1)This email address is not registered. Please register ;
     onSubmitHandler(data)
   }
 
@@ -79,7 +85,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler }) => {
             name="password"
             label={t.auth.password}
             type="password"
-            className={s.passField}
+            className={`${s.passField} ${errors.password && s.fieldWithError && errorServer}`}
             fullWidth
           />
           <div className={s.wrapLinkForgotPass}>
