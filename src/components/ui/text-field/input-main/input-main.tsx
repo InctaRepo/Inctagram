@@ -12,6 +12,7 @@ type UIInputPropsType = {
   label?: string
   errorMessage?: string
   onChangeText?: (value: string) => void
+  isRequired?: boolean
 } & ComponentProps<'input'>
 
 export const InputMain: React.FC<UIInputPropsType> = props => {
@@ -23,6 +24,7 @@ export const InputMain: React.FC<UIInputPropsType> = props => {
     label,
     placeholder,
     value,
+    isRequired,
     ...rest
   } = props
 
@@ -42,7 +44,10 @@ export const InputMain: React.FC<UIInputPropsType> = props => {
 
   return (
     <div className={s.textFieldWrap}>
-      <div className={`${s.label} ${disabled && s.disabledLabel}`}>{label}</div>
+      <label className={`${s.label} ${disabled && s.disabledLabel}`}>
+        {label}
+        {isRequired && <span className={s.star}>*</span>}
+      </label>
       <input
         type={showPassword ? 'text' : type}
         value={value}

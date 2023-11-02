@@ -19,8 +19,8 @@ import { Zoom } from '@/src/components/profile/new-post/create-post/edit-photo/z
 // eslint-disable-next-line import/order
 
 type PropsType = {
-  image: string | null
-  setImage: (image: string | null) => void
+  image?: string
+  setImage: (image: string | undefined) => void
   addedImages: ImageType[]
   setAddedImages: (addedImages: ImageType[]) => void
 }
@@ -30,7 +30,7 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
   const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [aspectRatio, setAspectRatio] = useState(4 / 3)
-  const [croppedImage, setCroppedImage] = useState<string | null>(null)
+  const [croppedImage, setCroppedImage] = useState<string | undefined>(undefined)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArgType | null>(null)
 
   const settings = {
@@ -74,7 +74,10 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
     setAddedImages(addedImages)
   }, [addedImages])
 
-  const showCroppedImg = async (image: string, croppedAreaPixels: CropArgType | null) => {
+  const showCroppedImg = async (
+    image: string | undefined,
+    croppedAreaPixels: CropArgType | null
+  ) => {
     if (croppedAreaPixels && image) {
       try {
         {
@@ -82,7 +85,6 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
 
           setCroppedImage(croppedImage as string)
 
-          // @ts-ignore
           addedImages[index] = { image: croppedImage }
         }
       } catch (e) {

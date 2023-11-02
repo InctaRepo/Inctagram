@@ -24,20 +24,12 @@ type DescriptionFormTypeProps = {
   addedImages?: ImageType[]
 }
 
-export const PostDescription = ({
-  onSubmitHandler,
-  defaultValue,
-  addedImages,
-  value,
-  setValue,
-}: DescriptionFormTypeProps) => {
+export const PostDescription = ({ value, setValue }: DescriptionFormTypeProps) => {
   const { t } = useTranslate()
   const [addPost] = useAddPostMutation()
 
   const {
     control,
-    handleSubmit,
-    formState,
     trigger,
     formState: { touchedFields },
   } = useForm<DescriptionFormType>({

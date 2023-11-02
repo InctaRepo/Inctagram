@@ -170,6 +170,9 @@ export const ru = {
       original: 'Оригинал',
       edit: 'Редактировать',
       delete: 'Удалить',
+      deletePhoto: 'Удалить фото',
+      areYouSure: 'Вы уверены что хотите удалить фото?',
+
       profileSettingsErrors: {
         usernameField: {
           nonEmpty: 'Введите имя пользователя',

@@ -15,6 +15,7 @@ import {
   useCreateProfileMutation,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
+  useGetProfileQuery,
 } from '@/src/services/profile/profile-api'
 import { ProfileLayout } from 'src/components/layout/profile-layout'
 
@@ -31,10 +32,11 @@ const Index = () => {
 
   const editorRef = useRef<AvatarEditor>(null)
   const [avatar, setAvatar] = useState<FormData | null>(null)
-  const [croppedAvatar, setCroppedAvatar] = useState<string | null | Blob>(null)
+  const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
+  const { data } = useGetProfileQuery(id!)
   const handleSavePhoto = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
@@ -102,6 +104,7 @@ const Index = () => {
           <MenuContainer />
           <div className={s.containerInfo}>
             <ProfileSettings
+              userData={data?.data}
               onSubmitHandler={submit}
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}

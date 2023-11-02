@@ -24,11 +24,11 @@ function rotateSize(width: number, height: number, rotation: number): Size {
 }
 
 export default async function getFilteredImg(
-  imageSrc: string,
+  imageSrc: string | undefined,
   filter: string = 'none',
   rotation = 0,
   flip = { horizontal: false, vertical: false }
-): Promise<unknown> {
+): Promise<BlobPart | null> {
   const image = await createImage(String(imageSrc))
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
@@ -56,7 +56,10 @@ export default async function getFilteredImg(
   // As a blob
   return new Promise((resolve, reject) => {
     canvas.toBlob(blob => {
-      // @ts-ignore
+      if (!blob) {
+        return null
+      }
+
       return resolve(URL.createObjectURL(blob))
     })
   })

@@ -21,7 +21,7 @@ import SelectedImages from '@/src/components/profile/new-post/create-post/edit-p
 import { Typography } from '@/src/components/ui/typography'
 
 export type ModalProps = {
-  image: string | null
+  image?: string
   open: boolean
   onClose?: () => void
   onAction?: () => void
@@ -36,7 +36,7 @@ export type ModalProps = {
   setAddedImages: (addedImages: ImageType[]) => void
   isBaseModalOpen: boolean
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
-  setImage: (image: string | null) => void
+  setImage: (image: string | undefined) => void
 } & ComponentProps<'div'>
 
 const CropModal: FC<ModalProps> = ({

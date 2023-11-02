@@ -64,8 +64,6 @@
   @include wh(198px, 36px);
 
   justify-content: center;
-
-  // margin-top: 20px;
 }
 
 .baseModal {
@@ -91,8 +89,8 @@
 
   width: 18px;
   height: 18px;
-  margin-top: 18px;
-  margin-left: -35px;
+  margin-top: -210px;
+  margin-left: 155px;
   padding: 0;
 
   background-color: $color-danger-500;

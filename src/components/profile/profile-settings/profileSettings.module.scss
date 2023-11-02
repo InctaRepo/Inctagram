@@ -77,24 +77,18 @@
   justify-content: space-between;
 
   padding-left: 40px;
-}
-
-.field {
-  @include wh(740px, 60px);
-
-  top: 240px;
-  left: 476px;
-  margin-bottom: 24px;
-  text-align: left;
-
-  .textFieldWrap {
-    .label::after{
-      content: " *";
-      color: $color-danger-300;
-    }
   }
-}
 
+
+  .field {
+    @include wh(740px, 60px);
+
+    top: 240px;
+    left: 476px;
+    margin-bottom: 24px;
+    text-align: left;
+
+  }
 
 
 .fieldSelect {
@@ -115,10 +109,6 @@
 
 .date {
   text-align: left;
-}
-
-.datePicker {
-  //margin-bottom: 22px;
 }
 
 .textArea {

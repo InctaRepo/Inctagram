@@ -10,8 +10,8 @@ import { ImageType } from '@/src/components/profile/new-post/create-post/create-
 type PropsType = {
   addedImages: ImageType[]
   setAddedImages: (addedImages: ImageType[]) => void
-  image: string | null
-  croppedImage: string | null
+  image?: string
+  croppedImage?: string
 }
 
 export const AddedImages: FC<PropsType> = ({
@@ -41,7 +41,7 @@ export const AddedImages: FC<PropsType> = ({
                 <div key={idx} className={s.addedPhoto}>
                   <Image
                     className={s.oneImage}
-                    src={el.image}
+                    src={String(el.image)}
                     alt={'photos'}
                     height={82}
                     width={80}
@@ -57,7 +57,13 @@ export const AddedImages: FC<PropsType> = ({
                   <div className={s.closeIcon} onClick={() => onDeleteImage(i)}>
                     <CloseIcon className={s.close} />
                   </div>
-                  <Image className={s.image} src={el.image} alt={'photos'} height={82} width={80} />
+                  <Image
+                    className={s.image}
+                    src={String(el.image)}
+                    alt={'photos'}
+                    height={82}
+                    width={80}
+                  />
                 </div>
               </>
             )
