@@ -8,6 +8,7 @@ import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-sch
 import { MenuContainer } from '@/src/components/profile/menu-container'
 import { ProfileSettings } from '@/src/components/profile/profile-settings/Profile-settings'
 import s from '@/src/components/profile/profile.module.scss'
+import { NextPageWithLayout } from '@/src/pages/_app'
 import { useAppSelector } from '@/src/services'
 import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
@@ -16,9 +17,9 @@ import {
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } from '@/src/services/profile/profile-api'
-import { ProfileLayout } from 'src/components/layout/profile-layout'
+import { getProfileLayout } from 'src/components/layout/profile-layout'
 
-const Index = () => {
+const SettingPage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
@@ -97,26 +98,25 @@ const Index = () => {
 
   return (
     isAuth && (
-      <ProfileLayout>
-        <div className={s.container}>
-          <MenuContainer />
-          <div className={s.containerInfo}>
-            <ProfileSettings
-              onSubmitHandler={submit}
-              croppedAvatar={croppedAvatar}
-              setCroppedAvatar={setCroppedAvatar}
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-              selectedImage={selectedImage}
-              setSelectedImage={setSelectedImage}
-              editorRef={editorRef}
-              handleSavePhoto={handleSavePhoto}
-            />
-          </div>
+      <div className={s.container}>
+        <MenuContainer />
+        <div className={s.containerInfo}>
+          <ProfileSettings
+            onSubmitHandler={submit}
+            croppedAvatar={croppedAvatar}
+            setCroppedAvatar={setCroppedAvatar}
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            selectedImage={selectedImage}
+            setSelectedImage={setSelectedImage}
+            editorRef={editorRef}
+            handleSavePhoto={handleSavePhoto}
+          />
         </div>
-      </ProfileLayout>
+      </div>
     )
   )
 }
 
-export default Index
+SettingPage.getLayout = getProfileLayout
+export default SettingPage

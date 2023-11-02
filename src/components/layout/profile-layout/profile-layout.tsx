@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, ReactElement } from 'react'
 
 import { NextPage } from 'next'
 
@@ -14,3 +14,4 @@ export const ProfileLayout: NextPage<PropsWithChildren> = ({ children }) => {
     </div>
   )
 }
+export const getProfileLayout = (page: ReactElement) => <ProfileLayout>{page}</ProfileLayout>

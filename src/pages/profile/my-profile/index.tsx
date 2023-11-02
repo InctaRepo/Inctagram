@@ -3,12 +3,13 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import { RouteNames } from '@/src/common/constants/route-names'
+import { getProfileLayout } from '@/src/components/layout/profile-layout'
 import { Profile } from '@/src/components/profile'
+import { NextPageWithLayout } from '@/src/pages/_app'
 import { useAppSelector } from '@/src/services'
-import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 
-const Index = () => {
+const MyProfilePage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
@@ -22,4 +23,5 @@ const Index = () => {
   return isAuth && <Profile />
 }
 
-export default Index
+MyProfilePage.getLayout = getProfileLayout
+export default MyProfilePage
