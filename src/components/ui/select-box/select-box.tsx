@@ -11,10 +11,10 @@ import { Typography } from '@/src/components/ui/typography'
 export type SelectProps = {
   onBlur?: () => void
   label?: string
-  value?: string | number
+  value?: string
   placeholder?: string | ReactElement
   onValueChange?: (value: string | number) => void
-  defaultValue?: string | number
+  defaultValue?: string
   options: OptionsType[]
   disabled?: boolean
   required?: boolean
@@ -62,7 +62,7 @@ export const SelectBox: FC<SelectProps> = ({
   return (
     <Select.Root
       defaultValue={value}
-      value={value}
+      value={defaultValue}
       onValueChange={onChangeHandler}
       disabled={disabled}
       required={required}
@@ -76,7 +76,7 @@ export const SelectBox: FC<SelectProps> = ({
       )}
       <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
         <div>
-          <Typography variant={'regular14'} color="secondary" className={s.value}>
+          <Typography variant={'regular16'} color="secondary" className={s.value}>
             {options?.map((el, id) => {
               return <React.Fragment key={id}>{value === el.value && el.image}</React.Fragment>
             })}
