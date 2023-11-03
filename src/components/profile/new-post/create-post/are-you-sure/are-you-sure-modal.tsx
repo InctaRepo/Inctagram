@@ -10,7 +10,7 @@ export type ModalProps = {
   setIsModalOpen: (isModalOpen: boolean) => void
   setOpenSureModal: (openSureModal: boolean) => void
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
-  setImage: (image: string | null) => void
+  setImage: (image?: string) => void
 }
 
 export const AreYouSureModal: FC<ModalProps> = ({
@@ -29,7 +29,7 @@ export const AreYouSureModal: FC<ModalProps> = ({
     setOpenSureModal(false)
     setIsModalOpen(false)
     setIsBaseModalOpen(true)
-    setImage(null)
+    setImage(undefined)
   }
 
   return (

@@ -1,4 +1,4 @@
-import { ComponentProps, FC, useState, forwardRef } from 'react'
+import { ComponentProps, useState, forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 import 'react-datepicker/dist/react-datepicker.min.css'
@@ -37,29 +37,24 @@ const RDPC = (((RDP.default as any).default as any) ||
   (RDP as any)) as typeof RDP.default
 
 export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
-  (
-    {
-      className,
-      disabled,
-      endDate,
-      errorMessage,
-      label,
-      placeholder,
-      setEndDate,
-      setStartDate,
-      startDate,
-      ...rest
-    },
-    ref
-  ) => {
+  ({
+    className,
+    disabled,
+    endDate,
+    errorMessage,
+    label,
+    placeholder,
+    setEndDate,
+    setStartDate,
+    startDate,
+    ...rest
+  }) => {
     const isRange = endDate !== undefined
     const [datePickerOpen, setDatePickerOpen] = useState(false)
 
     const showError = !!errorMessage && errorMessage.length > 0
     const { t } = useTranslate()
     const router = useRouter()
-
-    const { replace } = useRouter()
 
     const classNames = {
       root: clsx(s.root, className),

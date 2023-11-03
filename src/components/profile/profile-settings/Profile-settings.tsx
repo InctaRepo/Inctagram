@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { default as Axios } from 'axios'
+import { parseISO } from 'date-fns'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
@@ -24,6 +25,7 @@ import {
   ControlledTextArea,
 } from '@/src/components/ui/controlled'
 import { TabsComponent } from '@/src/components/ui/tabs'
+import { UserInfoType } from '@/src/services/profile/profile-api-types'
 import { OptionsType } from 'src/components/ui/select-box'
 
 type ProfileSettingFormPropsType = {
@@ -34,8 +36,9 @@ type ProfileSettingFormPropsType = {
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
-  croppedAvatar: string | null | Blob
+  croppedAvatar: string | null
   setCroppedAvatar: (croppedAvatar: string | null) => void
+  userData?: UserInfoType
 }
 export const ProfileSettings = ({
   croppedAvatar,
@@ -47,6 +50,7 @@ export const ProfileSettings = ({
   editorRef,
   handleSavePhoto,
   onSubmitHandler,
+  userData,
 }: ProfileSettingFormPropsType) => {
   const [_, setValue] = useState('')
   const [countries, setCountries] = useState<OptionsType[]>([])
@@ -90,16 +94,18 @@ export const ProfileSettings = ({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onChange',
     defaultValues: {
-      username: '',
-      firstName: '',
-      lastName: '',
-      dateOfBirthday: new Date(),
-      country: '',
-      city: '',
-      aboutMe: '',
-      avatar: '',
+      username: userData?.username,
+      firstName: userData?.firstName,
+      lastName: userData?.lastName,
+      dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData.dateOfBirth}`) : new Date(),
+      country: userData?.country,
+      city: userData?.city,
+      aboutMe: userData?.aboutMe,
+      avatar: userData?.avatar,
     },
   })
+
+  console.log(userData)
 
   useEffect(() => {
     fetchCountries()
@@ -136,7 +142,7 @@ export const ProfileSettings = ({
         </div>
         <div className={s.content}>
           <div className={s.photoContent}>
-            {!croppedAvatar && (
+            {!croppedAvatar && !userData?.avatar && (
               <div className={s.photo}>
                 <div className={s.ellipse}></div>
                 <div className={s.image}>
@@ -146,6 +152,7 @@ export const ProfileSettings = ({
             )}
             <div className={s.addBtn}>
               <SettingPhotoModal
+                avatar={userData?.avatar}
                 croppedAvatar={croppedAvatar}
                 setCroppedAvatar={setCroppedAvatar}
                 isModalOpen={isModalOpen}
@@ -166,18 +173,21 @@ export const ProfileSettings = ({
                 name={'username'}
                 label={t.profile.profileSetting.userName}
                 className={s.field}
+                isRequired
               />
               <ControlledTextField
                 control={control}
                 name={'firstName'}
                 label={t.profile.profileSetting.firstName}
                 className={s.field}
+                isRequired
               />
               <ControlledTextField
                 control={control}
                 name={'lastName'}
                 label={t.profile.profileSetting.lastName}
                 className={s.field}
+                isRequired
               />
               <div className={s.datePicker}>
                 <ControlledDatePick

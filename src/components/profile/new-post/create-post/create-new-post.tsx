@@ -26,7 +26,7 @@ export type SettingPhotoModalType = {
 }
 
 export type ImageType = {
-  image: string
+  image?: string
   id?: string
   croppedImage?: string
 }
@@ -36,7 +36,7 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [image, setImage] = useState<string | null>(null)
+  const [image, setImage] = useState<string | undefined>(undefined)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
   const [aspectRatio, setAspectRatio] = useState(4 / 3)
@@ -44,7 +44,7 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
 
   const handleButtonClick = () => {
     setIsBaseModalOpen(false)
-    setImage(null)
+    setImage(undefined)
     setIsModalOpen(false)
   }
   const cancelButtonClick = () => {
@@ -76,6 +76,7 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
     <div className={s.container}>
       {!addedImages.length && isBaseModalOpen ? (
         <BaseModal
+          className={s.baseModal}
           modalWidth={'md'}
           open={isBaseModalOpen}
           onClose={handleButtonClick}
@@ -84,7 +85,7 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
           <div className={`${s.photoContainer} ${image === null ? s.emptyPhotoContainer : ''}`}>
             <ImgOutline />
           </div>
-          <div>
+          <div className={s.selectPhoto}>
             <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
               <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
             </Button>

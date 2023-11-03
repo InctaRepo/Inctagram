@@ -21,7 +21,7 @@ import { Typography } from '@/src/components/ui/typography'
 import { useAddPostMutation } from '@/src/services/posts/post-api'
 
 export type ModalProps = {
-  image: string | null
+  image?: string
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
   isFiltersModalOpen: boolean
@@ -46,18 +46,9 @@ export type ModalProps = {
 } & ComponentProps<'div'>
 
 const DescriptionModal: FC<ModalProps> = ({
-  isModalOpen,
-  setIsModalOpen,
-  image,
-  addedImages,
-  setAddedImages,
   activeFilter,
-  setActiveFilter,
-  isFiltersModalOpen,
   setIsFiltersModalOpen,
   showSeparator = true,
-  onAction,
-  onCancel,
   cancelButtonName,
   actionButtonName,
   title,
@@ -79,13 +70,6 @@ const DescriptionModal: FC<ModalProps> = ({
     ),
   }
   const { t } = useTranslate()
-
-  const actionButtonHandler = () => {
-    onAction?.()
-  }
-  const cancelButtonHandler = () => {
-    onCancel?.()
-  }
 
   const handleBackClick = () => {
     setIsDescriptionModalOpen(false)

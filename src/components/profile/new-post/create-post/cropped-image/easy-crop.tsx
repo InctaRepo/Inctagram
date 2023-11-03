@@ -26,7 +26,6 @@ const EasyCrop: FC<PropsType> = ({
   aspectRatio,
   crop,
   image,
-  objectFit,
   setZoom,
   setCroppedAreaPixels,
   setCrop,

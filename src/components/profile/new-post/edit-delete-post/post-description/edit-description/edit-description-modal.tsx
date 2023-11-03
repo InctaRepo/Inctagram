@@ -14,7 +14,6 @@ import Image from 'next/image'
 import s from './edit-description-modal.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { CloseIconOutline } from '@/src/assets/icons/close-outline'
 import edit from '@/src/assets/icons/edit.svg'
 import { PostDescription } from '@/src/components/profile/new-post/create-post/add-description/description/description'
 import { PostImages } from '@/src/components/profile/new-post/edit-delete-post/post-photos/post-photos'

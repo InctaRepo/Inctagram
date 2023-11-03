@@ -1,14 +1,5 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  MutableRefObject,
-  Dispatch,
-  SetStateAction,
-  FC,
-} from 'react'
+import React, { useEffect, useState, useRef, MutableRefObject, FC } from 'react'
 
-import { add } from 'husky'
 import Image from 'next/image'
 
 import s from './add.module.scss'
@@ -21,8 +12,8 @@ import { AddedImages } from '@/src/components/profile/new-post/create-post/edit-
 type PropsType = {
   addedImages: ImageType[]
   setAddedImages: (addedImages: ImageType[]) => void
-  image: string | null
-  croppedImage: string | null
+  image?: string
+  croppedImage?: string
 }
 
 export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages, croppedImage }) => {
@@ -51,11 +42,8 @@ export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages, cropped
   }
 
   const handleImageUpload = async (e: any) => {
-    //console.log(addedImages)
     setAddedImages([...addedImages, { image: URL.createObjectURL(e.target.files[0]) }])
   }
-
-  //console.log(addedImages)
 
   return (
     <div ref={addRef} className={s.wrapper}>

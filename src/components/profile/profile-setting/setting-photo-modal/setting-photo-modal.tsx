@@ -22,7 +22,7 @@ type SettingPhotoModalType = {
   setSelectedImage: (selectedImage: File | null) => void
   editorRef: React.RefObject<AvatarEditor>
   handleSavePhoto: () => void
-  croppedAvatar: string | null | Blob
+  croppedAvatar: string | null
   setCroppedAvatar: (croppedAvatar: string | null) => void
 }
 
@@ -42,6 +42,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   const [slideValue, setSlideValue] = useState(10)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
   const [errorMessage, setErrorMessage] = useState('')
+  const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const showError = !!errorMessage && errorMessage.length > 0
 
   const handlePositionChange = (position: { x: number; y: number }) => {
@@ -65,15 +66,26 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
 
   // if (!isModalOpen) return null
   const deleteAvatarHandler = () => {
+    if (setAvatar) {
+      setAvatar(null)
+    }
     setCroppedAvatar(null)
+  }
+
+  const onModalClose = () => {
+    setOpenDeleteModal(false)
+  }
+
+  const discardHandler = () => {
+    setOpenDeleteModal(false)
   }
 
   return (
     <div className={s.container}>
-      {croppedAvatar && (
+      {avatar && (
         <>
           <img
-            src={String(croppedAvatar)}
+            src={croppedAvatar ? croppedAvatar : avatar}
             alt="ava"
             style={{
               borderRadius: '50%',
@@ -82,7 +94,21 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
               marginBottom: 20,
             }}
           />
-          <CloseIcon className={s.deleteAvatarIcon} onClick={deleteAvatarHandler} />
+          <div onClick={() => setOpenDeleteModal(true)}>
+            <CloseIcon className={s.deleteAvatarIcon} onClick={deleteAvatarHandler} />
+          </div>
+          <BaseModal
+            modalWidth={'sm'}
+            open={openDeleteModal}
+            onClose={onModalClose}
+            title={t.profile.profileSetting.deletePhoto}
+            cancelButtonName={t.profile.editPost.no}
+            actionButtonName={t.profile.editPost.yes}
+            onCancel={onModalClose}
+            onAction={discardHandler}
+          >
+            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+          </BaseModal>
         </>
       )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>

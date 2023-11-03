@@ -21,7 +21,7 @@ type PropsType = {
   addedImages: ImageType[]
   activeFilter: string
   setActiveFilter: (activeFilter: string) => void
-  image: string | null
+  image?: string
   setAddedImages: (addedImages: ImageType[]) => void
 }
 

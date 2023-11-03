@@ -7,8 +7,27 @@
 }
 
 .photoContainer {
-  margin-top: 54px;
+  // margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+  margin-top: 50px;
+
   background-color: $color-dark-500;
+}
+
+.selectPhoto {
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+.baseModal {
+  width: 492px !important;
+  height: 564px;
 }
 
 .emptyPhotoContainer {

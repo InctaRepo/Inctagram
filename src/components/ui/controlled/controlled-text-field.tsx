@@ -8,6 +8,7 @@ type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defau
 export const ControlledTextField = <T extends FieldValues>({
   control,
   name,
+  isRequired,
   ...rest
 }: Props<T>) => {
   const {
@@ -18,5 +19,7 @@ export const ControlledTextField = <T extends FieldValues>({
     control,
   })
 
-  return <TexField {...fieldProps} errorMessage={error?.message} {...rest} />
+  return (
+    <TexField {...fieldProps} errorMessage={error?.message} {...rest} isRequired={isRequired} />
+  )
 }

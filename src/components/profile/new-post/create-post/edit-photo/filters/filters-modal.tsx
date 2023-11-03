@@ -32,7 +32,7 @@ import { Typography } from '@/src/components/ui/typography'
 import { useAddPostMutation } from '@/src/services/posts/post-api'
 
 export type ModalProps = {
-  image: string | null
+  image?: string
   isModalOpen: boolean
   onClose?: () => void
   onAction?: () => void
@@ -48,7 +48,7 @@ export type ModalProps = {
   activeFilter: string
   setActiveFilter: (activeFilter: string) => void
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
-  setImage: (image: string | null) => void
+  setImage: (image: string | undefined) => void
   openSureModal: boolean
   setOpenSureModal: (openSureModal: boolean) => void
   setIsModalOpen: (open: boolean) => void
@@ -111,10 +111,12 @@ const FiltersModal: FC<ModalProps> = ({
       addedImages.map(async (el, idx) => {
         const filteredImage = await getFilteredImg(el.image, activeFilter)
 
-        // @ts-ignore
+        if (!filteredImage) {
+          return null
+        }
         const file = new File([filteredImage], 'photo', { type: 'image/jpeg' })
 
-        formData.append('images', file as File)
+        formData.append('images', file)
 
         return {
           image: filteredImage,
@@ -127,7 +129,7 @@ const FiltersModal: FC<ModalProps> = ({
     addPost(formData)
       .unwrap()
       .then(() => {
-        setAddedImages(updatedImages)
+        //setAddedImages(updatedImages)
         setActiveFilter('')
         setIsFiltersModalOpen(false)
         setIsDescriptionModalOpen(false)

@@ -8,7 +8,6 @@ import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-sch
 import { MenuContainer } from '@/src/components/profile/menu-container'
 import { ProfileSettings } from '@/src/components/profile/profile-settings/Profile-settings'
 import s from '@/src/components/profile/profile.module.scss'
-import { NextPageWithLayout } from '@/src/pages/_app'
 import { useAppSelector } from '@/src/services'
 import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
@@ -16,10 +15,11 @@ import {
   useCreateProfileMutation,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
+  useGetProfileQuery,
 } from '@/src/services/profile/profile-api'
-import { getProfileLayout } from 'src/components/layout/profile-layout'
+import { ProfileLayout } from 'src/components/layout/profile-layout'
 
-const SettingPage: NextPageWithLayout = () => {
+const Index = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
@@ -32,10 +32,11 @@ const SettingPage: NextPageWithLayout = () => {
 
   const editorRef = useRef<AvatarEditor>(null)
   const [avatar, setAvatar] = useState<FormData | null>(null)
-  const [croppedAvatar, setCroppedAvatar] = useState<string | null | Blob>(null)
+  const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
+  const { data } = useGetProfileQuery(id!)
   const handleSavePhoto = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
@@ -98,25 +99,27 @@ const SettingPage: NextPageWithLayout = () => {
 
   return (
     isAuth && (
-      <div className={s.container}>
-        <MenuContainer />
-        <div className={s.containerInfo}>
-          <ProfileSettings
-            onSubmitHandler={submit}
-            croppedAvatar={croppedAvatar}
-            setCroppedAvatar={setCroppedAvatar}
-            isModalOpen={isModalOpen}
-            setIsModalOpen={setIsModalOpen}
-            selectedImage={selectedImage}
-            setSelectedImage={setSelectedImage}
-            editorRef={editorRef}
-            handleSavePhoto={handleSavePhoto}
-          />
+      <ProfileLayout>
+        <div className={s.container}>
+          <MenuContainer />
+          <div className={s.containerInfo}>
+            <ProfileSettings
+              userData={data?.data}
+              onSubmitHandler={submit}
+              croppedAvatar={croppedAvatar}
+              setCroppedAvatar={setCroppedAvatar}
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+              selectedImage={selectedImage}
+              setSelectedImage={setSelectedImage}
+              editorRef={editorRef}
+              handleSavePhoto={handleSavePhoto}
+            />
+          </div>
         </div>
-      </div>
+      </ProfileLayout>
     )
   )
 }
 
-SettingPage.getLayout = getProfileLayout
-export default SettingPage
+export default Index

@@ -10,6 +10,7 @@ export type TextFieldPropsType = {
   className?: string
   value?: string
   onChangeText?: (value: string) => void
+  isRequired?: boolean
 } & ComponentProps<'input'>
 
 export const TexField: React.FC<TextFieldPropsType> = ({
@@ -17,11 +18,17 @@ export const TexField: React.FC<TextFieldPropsType> = ({
   errorMessage,
   className,
   fullWidth,
+  isRequired,
   ...restProps
 }) => {
   return (
     <div className={`${className} ${fullWidth ? s.fullWidth : ''}`}>
-      <InputMain errorMessage={errorMessage} {...restProps} value={value ?? ''} />
+      <InputMain
+        errorMessage={errorMessage}
+        {...restProps}
+        value={value ?? ''}
+        isRequired={isRequired}
+      />
     </div>
   )
 }

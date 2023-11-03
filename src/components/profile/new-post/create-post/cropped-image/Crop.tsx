@@ -36,13 +36,13 @@ export default async function getCroppedImg(
   pixelCrop: CropArgType,
   rotation = 0,
   flip = { horizontal: false, vertical: false }
-): Promise<string | null> {
+): Promise<string | undefined> {
   const image = await createImage(imageSrc)
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
 
   if (!ctx) {
-    return null
+    return undefined
   }
 
   const rotRad = getRadianAngle(rotation)
@@ -67,7 +67,7 @@ export default async function getCroppedImg(
   const croppedCtx = croppedCanvas.getContext('2d')
 
   if (!croppedCtx) {
-    return null
+    return undefined
   }
 
   // Set the size of the cropped canvas
