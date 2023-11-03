@@ -12,7 +12,7 @@ const meta: Meta<typeof ForgotPassword> = {
 }
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof ForgotPassword>
 
 export const Default: Story = {
   args: {
