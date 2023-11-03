@@ -20,7 +20,6 @@ export const InputTypeFile = ({ setSelectedImage, setErrorMessage }: InputTypeFi
     if (e.target.files && e.target.files.length) {
       const file = e.target.files[0]
 
-      console.log(file.size)
       if (
         (file.size < 10000000 && file.type === 'image/jpg') ||
         (file.size < 10000000 && file.type === 'image/png') ||

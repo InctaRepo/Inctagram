@@ -19,8 +19,8 @@ import { createLoginSchema, LoginFormType } from '@/src/common/schemas/create-lo
 import { Card } from '@/src/components/ui/card-temporary'
 
 type LoginType = {
-  onSubmitHandler: (data: LoginFormType) => void
-  errorServer: string
+  onSubmitHandler?: (data: LoginFormType) => void
+  errorServer?: string
 }
 export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
   const { t } = useTranslate()
@@ -54,7 +54,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
 
   const submitData = (data: LoginFormType) => {
     //TODO errors from backend after submit : (1)This email address is not registered. Please register ;
-    onSubmitHandler(data)
+    onSubmitHandler?.(data)
   }
 
   return (
