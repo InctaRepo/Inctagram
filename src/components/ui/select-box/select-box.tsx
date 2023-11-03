@@ -76,7 +76,7 @@ export const SelectBox: FC<SelectProps> = ({
       )}
       <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
         <div>
-          <Typography variant={'regular16'} color="secondary" className={s.value}>
+          <Typography variant={'regular16'} color="primary" className={s.value}>
             {options?.map((el, id) => {
               return <React.Fragment key={id}>{value === el.value && el.image}</React.Fragment>
             })}
