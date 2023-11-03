@@ -83,8 +83,6 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
     return (
       <div className={classNames.root} {...rest}>
         <RDPC
-          onOpen={() => setDatePickerOpen(true)}
-          onClose={() => setDatePickerOpen(false)}
           startDate={startDate}
           endDate={endDate}
           onChange={DatePickerHandler}

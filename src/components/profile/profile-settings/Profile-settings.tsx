@@ -76,6 +76,9 @@ export const ProfileSettings = ({
   }
 
   const changeCountryHandler = (country: string | number) => {
+    if (!country) {
+      return null
+    }
     const cities = countriesList.find((c: { value: string | number }) => c.value === country)
 
     setCities(cities.cities)
@@ -104,8 +107,6 @@ export const ProfileSettings = ({
       avatar: userData?.avatar,
     },
   })
-
-  console.log(userData)
 
   useEffect(() => {
     fetchCountries()
