@@ -37,16 +37,12 @@ export type ModalProps = {
 
 export const EditDescriptionModal: FC<ModalProps> = ({
   showSeparator = true,
-  onAction,
-  onCancel,
   cancelButtonName,
   actionButtonName,
-  title,
   className,
   children,
   isEditModalOpen,
   setIsEditModalOpen,
-  setDeletePostModal,
 }) => {
   const classNames = {
     content: getContentClassName(className),
@@ -72,9 +68,6 @@ export const EditDescriptionModal: FC<ModalProps> = ({
       setIsEditModalOpen(false)
     }
   }
-
-  console.log(isEditDescriptionModalOpen)
-  console.log(isEditModalOpen)
 
   return (
     <>

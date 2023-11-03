@@ -29,11 +29,9 @@ const SignInPage: NextPageWithLayout = () => {
       .then(payload => {
         if (typeof payload.extensions[0]?.message === 'string') {
           setErrorServer(payload.extensions[0]?.message)
-          console.log(payload.extensions[0]?.message)
         }
         if (typeof payload.extensions[0]?.message !== 'string') {
           setErrorServer(payload.extensions[0]?.message[0].message)
-          console.log(payload.extensions[0]?.message[0].message)
         }
       })
   }
