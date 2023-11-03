@@ -11,7 +11,7 @@ const meta = {
 } satisfies Meta<typeof DatePicker>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof DatePicker>
 
 export const Default: Story = {
   render: () => {

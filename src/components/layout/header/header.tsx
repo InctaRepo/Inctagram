@@ -26,23 +26,25 @@ export const Header = () => {
   }
 
   return (
-    <div className={s.container}>
-      <div className={s.content}>
-        <Typography variant="large" className={s.text}>
-          <Link className={s.incta} href={'/auth/sign-in'}>
-            Inсtagram
-          </Link>
-        </Typography>
-        <div className={s.options_container}>
-          <MaskIcon />
-          <div className={s.select}>
-            <SelectBox
-              options={languages}
-              onValueChange={changeLangHandler}
-              defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
-            />
+    <div className={s.containerMain}>
+      <div className={s.container}>
+        <div className={s.content}>
+          <Typography variant="large" className={s.text}>
+            <Link className={s.incta} href={'/auth/sign-in'}>
+              Inсtagram
+            </Link>
+          </Typography>
+          <div className={s.options_container}>
+            <MaskIcon />
+            <div className={s.select}>
+              <SelectBox
+                options={languages}
+                onValueChange={changeLangHandler}
+                defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
+              />
+            </div>
+            {/*<Pagination />*/}
           </div>
-          {/*<Pagination />*/}
         </div>
       </div>
     </div>

@@ -4,11 +4,10 @@
 .container {
   @include flex-block;
 
-  // width: 1280px;
   .main {
-    @include flex-block($align-items: 'start');
+    @include flex-block($align-items: 'unset');
 
-    width: 1280px;
+    min-width: 1280px;
     min-height: calc(660px - $header-height);
   }
 }

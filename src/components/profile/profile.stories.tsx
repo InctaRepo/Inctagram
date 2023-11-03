@@ -24,7 +24,7 @@ const meta = {
 } satisfies Meta<typeof Profile>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Profile>
 
 export const Default: Story = {
   args: {},
