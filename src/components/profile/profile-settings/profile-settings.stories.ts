@@ -8,7 +8,7 @@ const meta = {
 } satisfies Meta<typeof ProfileSettings>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof ProfileSettings>
 
 export const Default: Story = {
   // @ts-ignore

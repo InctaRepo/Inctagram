@@ -12,7 +12,7 @@ const meta = {
 } satisfies Meta<typeof TexField>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof TexField>
 
 export const Default: Story = {
   args: {

@@ -28,7 +28,7 @@ const meta = {
 } satisfies Meta<typeof Typography>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Typography>
 
 export const Large: Story = {
   args: {

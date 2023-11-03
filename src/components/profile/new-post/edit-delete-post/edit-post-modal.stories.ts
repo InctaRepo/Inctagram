@@ -8,8 +8,10 @@ const meta = {
 } satisfies Meta<typeof EditPostModal>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof EditPostModal>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    open: true,
+  },
 }
