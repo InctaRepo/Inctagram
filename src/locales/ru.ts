@@ -174,6 +174,7 @@ export const ru = {
       delete: 'Удалить',
       deletePhoto: 'Удалить фото',
       areYouSure: 'Вы уверены что хотите удалить фото?',
+      changesSaved: 'Ваши изменения сохранены',
 
       profileSettingsErrors: {
         usernameField: {

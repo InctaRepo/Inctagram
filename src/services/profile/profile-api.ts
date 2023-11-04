@@ -23,7 +23,7 @@ export const ProfileAPI = createApi({
         body: patch,
       }),
     }),
-    getProfile: builder.query<BaseResponseType<UserInfoType>, string>({
+    getProfile: builder.query<BaseResponseType<UserInfoType>, string | undefined>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,

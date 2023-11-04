@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 
+import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
 import { RouteNames } from '@/src/common/constants/route-names'
 import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
 import { MenuContainer } from '@/src/components/profile/menu-container'
@@ -23,11 +24,12 @@ const Index = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
-  const [updateProfile] = useUpdateProfileMutation()
-  const [createProfile] = useCreateProfileMutation()
+  const [updateProfile /*, { isSuccess, error }*/] = useUpdateProfileMutation()
+  const [createProfile, { isSuccess, error }] = useCreateProfileMutation()
   const { data: user } = useGetMeQuery()
   const id = user?.data?.userId
   const userNameFromMe = user?.data?.username
+  const { data: profile } = useGetProfileQuery(id)
   const [uploadAvatar] = useUploadAvatarMutation()
 
   const editorRef = useRef<AvatarEditor>(null)
@@ -37,6 +39,8 @@ const Index = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
   const { data } = useGetProfileQuery(id!)
+  const successRes = isSuccess && data?.resultCode === 0
+
   const handleSavePhoto = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
@@ -71,24 +75,49 @@ const Index = () => {
   }
 
   const submit = (data: ProfileSettingFormType) => {
-    createProfile({
-      id: id, //id was taken from the string 30
-      username: data.username,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      country: data.country,
-      city: data.city,
-      dateOfBirth: data.dateOfBirthday,
-      aboutMe: data.aboutMe,
-      avatar: data.avatar,
-    }).then(() => {
-      uploadAvatar(avatar!)
-        .unwrap()
-        .then(() => {
-          setIsModalOpen(false)
-          setSelectedImage(null)
+    profile?.data
+      ? updateProfile({
+          id: id, //id was taken from the line 29
+          username: data.username,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          country: data.country,
+          city: data.city,
+          dateOfBirth: data.dateOfBirthday,
+          aboutMe: data.aboutMe,
+          avatar: data.avatar,
+        }).then(() => {
+          uploadAvatar(avatar!)
+            .unwrap()
+            .then(() => {
+              setIsModalOpen(false)
+              setSelectedImage(null)
+            })
         })
-    })
+      : createProfile({
+          id: id,
+          username: data.username,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          country: data.country,
+          city: data.city,
+          dateOfBirth: data.dateOfBirthday,
+          aboutMe: data.aboutMe,
+          avatar: data.avatar,
+        }).then(() => {
+          uploadAvatar(avatar!)
+            .unwrap()
+            .then(() => {
+              setIsModalOpen(false)
+              setSelectedImage(null)
+            })
+        })
+  }
+
+  const setToastHandler = () => {
+    if (successRes) {
+      useErrorToast(isSuccess, false, true)
+    }
   }
 
   useEffect(() => {
@@ -96,6 +125,12 @@ const Index = () => {
       router.push(RouteNames.SIGN_IN)
     }
   }, [isAuth, router])
+
+  useEffect(() => {
+    if (isSuccess) {
+      setToastHandler()
+    }
+  }, [isSuccess])
 
   return (
     isAuth && (

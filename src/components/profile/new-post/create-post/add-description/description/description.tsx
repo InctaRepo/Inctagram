@@ -12,7 +12,10 @@ import { DescriptionFormType, descriptionSchema } from '@/src/common/schemas/des
 import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
 import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
 import { Typography } from '@/src/components/ui/typography'
+import { useAppSelector } from '@/src/services'
 import { useAddPostMutation } from '@/src/services/posts/post-api'
+import { useGetProfileQuery } from '@/src/services/profile/profile-api'
+import { UserInfoType } from '@/src/services/profile/profile-api-types'
 
 type DescriptionFormTypeProps = {
   onSubmitHandler?: (data: DescriptionFormType) => void
@@ -22,12 +25,15 @@ type DescriptionFormTypeProps = {
   value?: string
   setValue?: (value: string) => void
   addedImages?: ImageType[]
+  userData?: UserInfoType
 }
 
-export const PostDescription = ({ value, setValue }: DescriptionFormTypeProps) => {
+export const PostDescription = ({ value, setValue, userData }: DescriptionFormTypeProps) => {
   const { t } = useTranslate()
   const [addPost] = useAddPostMutation()
+  const { userId } = useAppSelector(state => state.auth.user!)
 
+  const { data } = useGetProfileQuery(userId)
   const {
     control,
     trigger,
@@ -51,11 +57,14 @@ export const PostDescription = ({ value, setValue }: DescriptionFormTypeProps) =
       <div className={s.wrapper}>
         <div className={s.userInfo}>
           <div>
-            <AvatarImage className={s.ava} />
+            {data?.data?.avatar && (
+              <img src={data?.data?.avatar} className={s.ava} alt={'avatar'} />
+            )}
+            {!data?.data?.avatar && <AvatarImage className={s.ava} />}
           </div>
           <div className={s.userName}>
             <Typography variant={'h3'} color="primary">
-              User Name
+              {data?.data?.username}
             </Typography>
           </div>
         </div>

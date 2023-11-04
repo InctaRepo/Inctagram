@@ -177,6 +177,7 @@ export const en: LocaleType = {
       delete: 'Delete',
       deletePhoto: 'Delete Photo',
       areYouSure: 'Are you sure you want to delete the photo?',
+      changesSaved: 'Your settings are saved',
 
       profileSettingsErrors: {
         usernameField: {

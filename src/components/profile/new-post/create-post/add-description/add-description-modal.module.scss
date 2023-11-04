@@ -92,6 +92,12 @@
   outline: none;
 }
 
+.DialogTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .contentBox {
   display: flex;
   flex-direction: row;
@@ -141,11 +147,11 @@
 }
 
 .nextButton {
-  @include wh(82px, 36px);
-
   cursor: pointer;
 
   position: relative;
+
+height: 36px;
 
   color: $color-accent-500;
 
@@ -172,10 +178,9 @@
 }
 
 .next {
-  @include wh(82px, 36px);
-
-  position: relative;
-  left: 440px;
+  position: absolute;
+  right: 24px;
+height: 36px;
 }
 
 .footerBlock {

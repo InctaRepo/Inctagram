@@ -1,4 +1,4 @@
-import { ComponentProps, useState, forwardRef } from 'react'
+import React, { ComponentProps, useState, forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 import 'react-datepicker/dist/react-datepicker.min.css'
@@ -158,6 +158,7 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
 
     return (
       <Label className={s.label} label={label}>
+        <span className={s.star}>*</span>
         <div className={classNames.inputContainer}>
           <input ref={ref} disabled={disabled} {...rest} />
           <div className={classNames.icon}>
