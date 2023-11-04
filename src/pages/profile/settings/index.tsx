@@ -27,7 +27,7 @@ const Index = () => {
   const [createProfile] = useCreateProfileMutation()
   const { data: user } = useGetMeQuery()
   const id = user?.data?.userId
-  const userName = user?.data?.username
+  const userNameFromMe = user?.data?.username
   const [uploadAvatar] = useUploadAvatarMutation()
 
   const editorRef = useRef<AvatarEditor>(null)
@@ -104,6 +104,7 @@ const Index = () => {
           <MenuContainer />
           <div className={s.containerInfo}>
             <ProfileSettings
+              userNameFromMe={userNameFromMe}
               userData={data?.data}
               onSubmitHandler={submit}
               croppedAvatar={croppedAvatar}
