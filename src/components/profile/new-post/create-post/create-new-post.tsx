@@ -5,7 +5,6 @@ import s from './create-new-post.module.scss'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import CreateIcon from '@/src/assets/icons/create-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-// eslint-disable-next-line import/namespace,import/default
 import { LinkMenu } from '@/src/components/profile/links'
 import CroppedImage from '@/src/components/profile/new-post/create-post/cropped-image/cropped-image'
 import CropModal from '@/src/components/profile/new-post/create-post/modal-for-crop/crop-modal'
@@ -37,9 +36,6 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
   const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [image, setImage] = useState<string | undefined>(undefined)
-  const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(1)
-  const [aspectRatio, setAspectRatio] = useState(4 / 3)
   const [addedImages, setAddedImages] = useState<ImageType[]>([])
 
   const handleButtonClick = () => {
