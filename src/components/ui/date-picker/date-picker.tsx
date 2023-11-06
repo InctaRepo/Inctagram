@@ -50,7 +50,6 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
     ...rest
   }) => {
     const isRange = endDate !== undefined
-    const [datePickerOpen, setDatePickerOpen] = useState(false)
 
     const showError = !!errorMessage && errorMessage.length > 0
     const { t } = useTranslate()
