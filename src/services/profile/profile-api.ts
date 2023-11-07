@@ -37,10 +37,9 @@ export const ProfileAPI = createApi({
       }),
     }),
     deleteAvatar: builder.mutation<BaseResponseType, void>({
-      query: body => ({
+      query: () => ({
         url: `users/profile/avatar`,
         method: 'DELETE',
-        body,
       }),
     }),
   }),
