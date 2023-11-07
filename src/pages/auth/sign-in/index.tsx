@@ -7,21 +7,27 @@ import { LoginForm } from '@/src/components/auth/login-form/login-form'
 import { getAuthLayout } from '@/src/components/layout/auth-layout'
 import { NextPageWithLayout } from '@/src/pages/_app'
 import { useAppSelector } from '@/src/services'
-import { useLoginUserMutation } from '@/src/services/auth/auth-api'
+import { useGetMeQuery, useLoginUserMutation } from '@/src/services/auth/auth-api'
 import { LoginArgsType } from '@/src/services/auth/auth-api-types'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
+import { useGetProfileQuery } from '@/src/services/profile/profile-api'
 
 const SignInPage: NextPageWithLayout = () => {
   const [loginUser] = useLoginUserMutation()
   const isAuth = useAppSelector(authIsAuthSelector)
   const router = useRouter()
   const [errorServer, setErrorServer] = useState<string>('')
+  const { data: user } = useGetMeQuery()
+  const id = user?.data?.userId
+  const { currentData } = useGetProfileQuery(id)
 
   useEffect(() => {
-    if (isAuth) {
+    if (!currentData?.data && isAuth) {
+      router.push(RouteNames.PROFILE_SETTINGS)
+    } else if (currentData?.data && isAuth) {
       router.push(RouteNames.MY_PROFILE)
     }
-  }, [isAuth, router])
+  }, [isAuth, router, currentData])
 
   const submit = (data: LoginArgsType) => {
     loginUser(data)

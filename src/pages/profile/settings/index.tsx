@@ -24,8 +24,8 @@ const Index = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
-  const [updateProfile /*, { isSuccess, error }*/] = useUpdateProfileMutation()
-  const [createProfile, { isSuccess, error }] = useCreateProfileMutation()
+  const [updateProfile, { isSuccess: isSuccessUpdate }] = useUpdateProfileMutation()
+  const [createProfile, { isSuccess }] = useCreateProfileMutation()
   const { data: user } = useGetMeQuery()
   const id = user?.data?.userId
   const userNameFromMe = user?.data?.username
@@ -39,7 +39,8 @@ const Index = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
   const { data } = useGetProfileQuery(id!)
-  const successRes = isSuccess && data?.resultCode === 0
+  const successRes =
+    (isSuccess && data?.resultCode === 0) || (isSuccessUpdate && data?.resultCode === 0)
 
   const handleSavePhoto = () => {
     if (editorRef.current) {
@@ -116,7 +117,7 @@ const Index = () => {
 
   const setToastHandler = () => {
     if (successRes) {
-      useErrorToast(isSuccess, false, true)
+      useErrorToast(true, false, true)
     }
   }
 
@@ -127,10 +128,10 @@ const Index = () => {
   }, [isAuth, router])
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isSuccess || isSuccessUpdate) {
       setToastHandler()
     }
-  }, [isSuccess])
+  }, [isSuccess, isSuccessUpdate])
 
   return (
     isAuth && (
