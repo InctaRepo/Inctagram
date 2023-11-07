@@ -177,6 +177,7 @@ export const en: LocaleType = {
       delete: 'Delete',
       deletePhoto: 'Delete Photo',
       areYouSure: 'Are you sure you want to delete the photo?',
+      changesSaved: 'Your settings are saved',
 
       profileSettingsErrors: {
         usernameField: {
@@ -187,13 +188,13 @@ export const en: LocaleType = {
         },
         firstNameField: {
           nonEmpty: 'Enter first name',
-          regex: 'First name can contain only A-Z; -; apostrophe; space',
+          regex: 'First name can contain only A-z; -; apostrophe; space',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },
         lastNameField: {
           nonEmpty: 'Enter last name',
-          regex: 'Last name can contain only A-Z; -; apostrophe; space',
+          regex: 'Last name can contain only A-z; -; apostrophe; space',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },

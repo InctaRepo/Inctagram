@@ -15,10 +15,8 @@ import s from './add-description-modal.module.scss'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
 import { ImageType } from '@/src/components/profile/new-post/create-post/create-new-post'
-import getFilteredImg from '@/src/components/profile/new-post/create-post/edit-photo/filters/Filter'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
-import { useAddPostMutation } from '@/src/services/posts/post-api'
 
 export type ModalProps = {
   image?: string
@@ -93,6 +91,10 @@ const DescriptionModal: FC<ModalProps> = ({
               <button className={s.arrowButton} onClick={handleBackClick}>
                 <ArrowBack />
               </button>
+
+              <DialogTitle className={s.DialogTitle}>
+                <Typography variant={'h1'}>{title}</Typography>
+              </DialogTitle>
               <div className={s.next}>
                 <Button
                   variant="text"
@@ -102,12 +104,8 @@ const DescriptionModal: FC<ModalProps> = ({
                   {t.profile.publish}
                 </Button>
               </div>
-              <DialogTitle className={s.DialogTitle}>
-                <Typography variant={'h1'}>{title}</Typography>
-                <Separator className={classNames.separator} />
-              </DialogTitle>
             </div>
-
+            <Separator className={classNames.separator} />
             <div className={s.contentBox}>{children}</div>
           </DialogContent>
         </DialogPortal>

@@ -12,6 +12,7 @@ import { Button } from '@/src/components/ui/button'
 import { InputTypeFile } from '@/src/components/ui/input-type-file'
 import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
+import { useDeleteAvatarMutation } from '@/src/services/profile/profile-api'
 
 type SettingPhotoModalType = {
   avatar?: string | null
@@ -44,7 +45,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   const [errorMessage, setErrorMessage] = useState('')
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const showError = !!errorMessage && errorMessage.length > 0
-
+  const [deleteAvatar] = useDeleteAvatarMutation()
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -65,19 +66,20 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
   }
 
   // if (!isModalOpen) return null
-  const deleteAvatarHandler = () => {
-    if (setAvatar) {
-      setAvatar(null)
-    }
-    setCroppedAvatar(null)
-  }
 
   const onModalClose = () => {
     setOpenDeleteModal(false)
   }
 
   const discardHandler = () => {
-    setOpenDeleteModal(false)
+    if (setCroppedAvatar) {
+      setCroppedAvatar(null)
+    }
+    deleteAvatar()
+      .unwrap()
+      .then(() => {
+        setOpenDeleteModal(false)
+      })
   }
 
   return (
@@ -95,7 +97,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalType> = ({
             }}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
-            <CloseIcon className={s.deleteAvatarIcon} onClick={deleteAvatarHandler} />
+            <CloseIcon className={s.deleteAvatarIcon} />
           </div>
           <BaseModal
             modalWidth={'sm'}

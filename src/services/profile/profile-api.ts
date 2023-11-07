@@ -23,7 +23,7 @@ export const ProfileAPI = createApi({
         body: patch,
       }),
     }),
-    getProfile: builder.query<BaseResponseType<UserInfoType>, string>({
+    getProfile: builder.query<BaseResponseType<UserInfoType>, string | undefined>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,
@@ -36,6 +36,12 @@ export const ProfileAPI = createApi({
         body: FormData,
       }),
     }),
+    deleteAvatar: builder.mutation<BaseResponseType, void>({
+      query: () => ({
+        url: `users/profile/avatar`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 })
 
@@ -44,4 +50,5 @@ export const {
   useUploadAvatarMutation,
   useGetProfileQuery,
   useCreateProfileMutation,
+  useDeleteAvatarMutation,
 } = ProfileAPI

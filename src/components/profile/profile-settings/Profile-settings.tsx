@@ -39,6 +39,7 @@ type ProfileSettingFormPropsType = {
   croppedAvatar: string | null
   setCroppedAvatar: (croppedAvatar: string | null) => void
   userData?: UserInfoType
+  userNameFromMe: string | undefined
 }
 export const ProfileSettings = ({
   croppedAvatar,
@@ -51,6 +52,7 @@ export const ProfileSettings = ({
   handleSavePhoto,
   onSubmitHandler,
   userData,
+  userNameFromMe,
 }: ProfileSettingFormPropsType) => {
   const [_, setValue] = useState('')
   const [countries, setCountries] = useState<OptionsType[]>([])
@@ -97,7 +99,7 @@ export const ProfileSettings = ({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onChange',
     defaultValues: {
-      username: userData?.username,
+      username: userData ? userData.username : userNameFromMe,
       firstName: userData?.firstName,
       lastName: userData?.lastName,
       dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData.dateOfBirth}`) : new Date(),
