@@ -50,6 +50,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
 
   useEffect(() => {
     setError('password', { type: 'custom', message: errorServer })
+    setError('email', { type: 'custom', message: errorServer })
   }, [errorServer, onSubmitHandler])
 
   const submitData = (data: LoginFormType) => {
