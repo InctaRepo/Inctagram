@@ -9,7 +9,7 @@ export const Favorites = () => {
     <div className={s.container}>
       <MenuContainer />
       <div className={s.containerInfo}>
-        <Typography>FavoritesPage</Typography>
+        <Typography>Favorites Page</Typography>
       </div>
     </div>
   )

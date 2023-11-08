@@ -50,6 +50,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
 
   useEffect(() => {
     setError('password', { type: 'custom', message: errorServer })
+    setError('email', { type: 'custom', message: errorServer })
   }, [errorServer, onSubmitHandler])
 
   const submitData = (data: LoginFormType) => {
@@ -76,7 +77,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
             control={control}
             name="email"
             label={t.auth.email}
-            className={`${s.field} ${errors.email && s.fieldWithError}`}
+            className={`${s.field} ${errors.email && s.fieldWithError && errorServer}`}
             fullWidth
           />
 

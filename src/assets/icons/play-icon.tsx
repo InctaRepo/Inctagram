@@ -1,4 +1,4 @@
-import { SVGProps, Ref, forwardRef, memo } from 'react'
+import { memo, Ref, SVGProps } from 'react'
 
 const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none" ref={ref} {...props}>
@@ -13,6 +13,5 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
     </defs>
   </svg>
 )
-const ForwardRef = forwardRef(SvgComponent)
 
-export const PlayIcon = memo(ForwardRef)
+export const PlayIcon = memo(SvgComponent)

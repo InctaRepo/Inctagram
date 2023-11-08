@@ -3,6 +3,8 @@
 .header {
   display: flex;
   justify-content: space-between;
+
+  width: 720px;
   height: 36px;
   margin-bottom: 20px;
 
@@ -20,6 +22,7 @@
   .info {
     display: flex;
     flex-direction: column;
+    width: 90px;
   }
 }
 

@@ -1,6 +1,6 @@
-import { SVGProps, Ref, forwardRef, memo } from 'react'
+import { memo, Ref, SVGProps } from 'react'
 
-const ChevronUp = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     width={24}
     height={24}
@@ -23,7 +23,6 @@ const ChevronUp = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     </defs>
   </svg>
 )
-const ForwardRef = forwardRef(ChevronUp)
-const Memo = memo(ForwardRef)
+const ChevronUp = memo(SvgComponent)
 
-export default Memo
+export default ChevronUp
