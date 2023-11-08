@@ -9,7 +9,7 @@ export const Home = () => {
     <div className={s.container}>
       <MenuContainer />
       <div className={s.containerInfo}>
-        <Typography>HomePage</Typography>
+        <Typography>Home Page</Typography>
       </div>
     </div>
   )

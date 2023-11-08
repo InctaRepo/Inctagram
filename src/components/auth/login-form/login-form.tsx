@@ -76,7 +76,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
             control={control}
             name="email"
             label={t.auth.email}
-            className={`${s.field} ${errors.email && s.fieldWithError}`}
+            className={`${s.field} ${errors.email && s.fieldWithError && errorServer}`}
             fullWidth
           />
 
