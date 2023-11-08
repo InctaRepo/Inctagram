@@ -134,28 +134,26 @@ const Index = () => {
   }, [isSuccess, isSuccessUpdate])
 
   return (
-    isAuth && (
-      <ProfileLayout>
-        <div className={s.container}>
-          <MenuContainer />
-          <div className={s.containerInfo}>
-            <ProfileSettings
-              userNameFromMe={userNameFromMe}
-              userData={data?.data}
-              onSubmitHandler={submit}
-              croppedAvatar={croppedAvatar}
-              setCroppedAvatar={setCroppedAvatar}
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-              selectedImage={selectedImage}
-              setSelectedImage={setSelectedImage}
-              editorRef={editorRef}
-              handleSavePhoto={handleSavePhoto}
-            />
-          </div>
+    <ProfileLayout>
+      <div className={s.container}>
+        <MenuContainer />
+        <div className={s.containerInfo}>
+          <ProfileSettings
+            userNameFromMe={userNameFromMe}
+            userData={data?.data}
+            onSubmitHandler={submit}
+            croppedAvatar={croppedAvatar}
+            setCroppedAvatar={setCroppedAvatar}
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            selectedImage={selectedImage}
+            setSelectedImage={setSelectedImage}
+            editorRef={editorRef}
+            handleSavePhoto={handleSavePhoto}
+          />
         </div>
-      </ProfileLayout>
-    )
+      </div>
+    </ProfileLayout>
   )
 }
 

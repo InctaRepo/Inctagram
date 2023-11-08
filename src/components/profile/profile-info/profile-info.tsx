@@ -3,20 +3,19 @@ import React from 'react'
 import AvatarImage from '@/src/assets/images/avatar-image'
 import { DataProfile } from '@/src/components/profile/profile-info/data-profile'
 import s from '@/src/components/profile/profile-info/profile-info.module.scss'
-import { useAppSelector } from '@/src/services'
-import { useGetProfileQuery } from '@/src/services/profile/profile-api'
+import { UserInfoType } from '@/src/services/profile/profile-api-types'
 
-export const ProfileInfo = () => {
-  const { userId } = useAppSelector(state => state.auth.user!)
+type DataProfileType = {
+  userData?: UserInfoType
+}
 
-  const { data } = useGetProfileQuery(userId)
-
+export const ProfileInfo = ({ userData }: DataProfileType) => {
   return (
     <div className={s.container}>
-      {data?.data?.avatar && <img src={data?.data?.avatar} className={s.image} alt={'avatar'} />}
-      {!data?.data?.avatar && <AvatarImage className={s.image} />}
+      {userData?.avatar && <img src={userData?.avatar} className={s.image} alt={'avatar'} />}
+      {!userData?.avatar && <AvatarImage className={s.image} />}
       <div className={s.dataProfile}>
-        <DataProfile userData={data?.data} />
+        <DataProfile userData={userData} />
       </div>
     </div>
   )
