@@ -46,7 +46,7 @@ const MyProfilePage: NextPageWithLayout<PropsType> = props => {
     }
   }, [isAuth, router])
 
-  return isAuth && <div></div> /*<Profile userData={data?.data} />*/
+  return isAuth && <Profile /*userData={data?.data}*/ />
 }
 
 MyProfilePage.getLayout = getProfileLayout
