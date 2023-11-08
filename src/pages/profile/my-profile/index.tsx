@@ -33,7 +33,7 @@ type PropsType = {
   name: string
 }
 
-const MyProfilePage: NextPageWithLayout = (props: PropsType) => {
+const MyProfilePage: NextPageWithLayout<PropsType> = props => {
   const { name } = props
   const isAuth = useAppSelector(authIsAuthSelector)
   const router = useRouter()
