@@ -1,6 +1,6 @@
-import { SVGProps, memo } from 'react'
+import { memo, Ref, SVGProps } from 'react'
 
-const MaximizeOutline = memo((props: SVGProps<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_301_4194)">
       <path
@@ -19,6 +19,7 @@ const MaximizeOutline = memo((props: SVGProps<SVGSVGElement>) => (
       </clipPath>
     </defs>
   </svg>
-))
+)
+const MaximizeOutline = memo(SvgComponent)
 
 export default MaximizeOutline
