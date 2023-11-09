@@ -1,20 +1,16 @@
-import { useEffect } from 'react'
-
 import { GetServerSideProps } from 'next'
-import { useRouter } from 'next/router'
 
-import { RouteNames } from '@/src/common/constants/route-names'
 import { getProfileLayout } from '@/src/components/layout/profile-layout'
 import { Profile } from '@/src/components/profile'
 import { NextPageWithLayout } from '@/src/pages/_app'
 import { BaseResponseType, useAppSelector } from '@/src/services'
-import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
-import { ProfileAPI } from '@/src/services/profile/profile-api'
 import { UserInfoType } from '@/src/services/profile/profile-api-types'
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  /* const data = ProfileAPI.endpoints.getProfile
-
+  /*const { data: user } = useGetMeQuery()
+  const id = user?.data?.userId
+const data = await fetch('https://inctagram.space/api/v1/users/profile/${id}')
+const profile = await data.json()
   if (!data) {
     return {
       notFound: true,
@@ -29,24 +25,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
 }
 
 type PropsType = {
-  /* data: BaseResponseType<UserInfoType>*/
+  /* profile: BaseResponseType<UserInfoType>*/
   name: string
 }
 
-const MyProfilePage: NextPageWithLayout<PropsType> = props => {
-  const { name } = props
+const MyProfilePage: NextPageWithLayout = props => {
+  console.log(props)
 
-  console.log(name)
-  const isAuth = useAppSelector(authIsAuthSelector)
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!isAuth) {
-      router.push(RouteNames.SIGN_IN)
-    }
-  }, [isAuth, router])
-
-  return isAuth && <Profile /*userData={data?.data}*/ />
+  return <Profile /*userData={profile?.data}*/ />
 }
 
 MyProfilePage.getLayout = getProfileLayout

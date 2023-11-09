@@ -112,6 +112,9 @@ const Index = () => {
               setIsModalOpen(false)
               setSelectedImage(null)
             })
+            .then(() => {
+              router.push(RouteNames.MY_PROFILE)
+            })
         })
   }
 

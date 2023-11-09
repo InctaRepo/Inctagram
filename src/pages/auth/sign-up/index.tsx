@@ -13,31 +13,8 @@ import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { useRegisterMutation } from '@/src/services/auth/auth-api'
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  /* const data = ProfileAPI.endpoints.getProfile
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }*/
-
-  return {
-    props: {
-      name: 'Elena',
-    },
-  }
-}
-
-type PropsType = {
-  /* data: BaseResponseType<UserInfoType>*/
-  name: string
-}
-
 const SignUpPage = (props: PropsType) => {
   const { t } = useTranslate()
-
-  console.log(props)
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
   const [userRegistration, { isSuccess, data }] = useRegisterMutation()
