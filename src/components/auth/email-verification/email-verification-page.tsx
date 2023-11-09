@@ -1,5 +1,6 @@
 import TimeManagementImage from '@/src/assets/images/time-management-image'
 import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
+import { EmailConfirmedPage } from '@/src/components/auth/email-confirmed-page/email-confirmed-page'
 import { AuthLayout } from '@/src/components/layout/auth-layout'
 
 export const EmailVerificationPage = () => {
@@ -12,7 +13,7 @@ export const EmailVerificationPage = () => {
                       link again"
         nameButton="Resend verification link"
       >
-        {<TimeManagementImage />}
+        {<EmailConfirmedPage />}
       </AuthPage>
     </AuthLayout>
   )
