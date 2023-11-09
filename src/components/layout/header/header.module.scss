@@ -31,6 +31,15 @@
         flex-direction: row;
         gap: 48px;
         padding-right: 76px;
+
+        .button_container {
+          display: flex;
+          gap: 24px;
+
+          .button {
+            padding: 6px 24px;
+          }
+        }
       }
     }
   }
