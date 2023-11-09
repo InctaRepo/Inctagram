@@ -7,6 +7,7 @@ import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
 // import { Pagination } from '@/src/components/layout/pagination'
+import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 import s from 'src/components/layout/header/header.module.scss'
 import { OptionsType, SelectBox } from 'src/components/ui/select-box'
@@ -43,7 +44,14 @@ export const Header = () => {
                 defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
               />
             </div>
-            {/*<Pagination />*/}
+            <div className={s.button_container}>
+              <Button variant="text" className={s.button}>
+                Log in
+              </Button>
+              <Button variant="primary">
+                <Typography variant="h3">Sing up</Typography>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
