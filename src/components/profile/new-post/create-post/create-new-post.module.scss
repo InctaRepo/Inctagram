@@ -39,9 +39,9 @@
   min-height: 228px;
 }
 
-.selectPhoto {
-  margin-top: 36px;
-}
+// .selectPhoto {
+//  margin-top: 36px;
+//}
 
 .save {
   align-self: flex-end;
@@ -49,4 +49,14 @@
 
 .saveBtn {
   padding: 6px 24px;
+}
+
+.linkMenu:hover svg {
+  fill: $color-accent-500;
+  stroke: $color-accent-500;
+}
+
+.linkMenu:disabled svg {
+  fill: $color-dark-100;
+  stroke: $color-dark-100;
 }

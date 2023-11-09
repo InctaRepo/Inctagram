@@ -20,6 +20,10 @@
         text-decoration: none;
       }
 
+      :hover {
+        color: $color-accent-500;
+      }
+
       .text {
         display: block;
         padding: 12px 0 12px 53px;
