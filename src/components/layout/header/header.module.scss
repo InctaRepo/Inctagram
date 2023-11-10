@@ -20,7 +20,12 @@
         text-decoration: none;
       }
 
-      :hover {
+      .incta:focus-visible {
+        border-radius: 2px;
+        outline: 2px solid $color-accent-500;
+      }
+
+      .incta:hover {
         color: $color-accent-500;
       }
 
@@ -36,6 +41,10 @@
         gap: 48px;
         padding-right: 76px;
 
+        .select {
+          width: 163px;
+        }
+
         .button_container {
           display: flex;
           gap: 24px;
@@ -46,9 +55,5 @@
         }
       }
     }
-  }
-
-  .select {
-    width: 163px;
   }
 }

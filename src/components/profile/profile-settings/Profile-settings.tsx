@@ -19,10 +19,10 @@ import {
 import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal'
 import { Button } from '@/src/components/ui/button'
 import {
-  ControlledTextField,
   ControlledDatePick,
   ControlledSelect,
   ControlledTextArea,
+  ControlledTextField,
 } from '@/src/components/ui/controlled'
 import { TabsComponent } from '@/src/components/ui/tabs'
 import { UserInfoType } from '@/src/services/profile/profile-api-types'
@@ -71,6 +71,7 @@ export const ProfileSettings = ({
       cities: el.cities,
     }))
   }
+
   const countriesList = getCountries(countries)
 
   function getCities(arr: any) {

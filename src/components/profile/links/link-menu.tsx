@@ -32,8 +32,8 @@ export const LinkMenu: FC<LinkMenuType> = ({
 
   return (
     <div className={s.container} onClick={handleItemClick}>
-      {children}
       <Link href={`${link}`} className={s.link}>
+        {children}
         <Typography variant="medium14" className={styles.check}>
           {nameLink}
         </Typography>

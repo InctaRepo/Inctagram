@@ -117,14 +117,14 @@ export const RegisterForm = ({ onSubmitHandler }: RegisterFormPropsType) => {
               }
             />
           </div>
-          <Button type={'submit'} fullWidth className={s.registerBtn} disabled={!formState.isValid}>
-            <Typography variant={'h3'}>{t.auth.signUp}</Typography>
+          <Button type="submit" fullWidth className={s.registerBtn} disabled={!formState.isValid}>
+            <Typography variant="bold16">{t.auth.signUp}</Typography>
           </Button>
         </form>
         <Typography variant={'regular16'} className={s.subtitle}>
           {t.auth.haveAccount}
         </Typography>
-        <Button as={'a'} variant={'text'} onClick={() => router.push('/')}>
+        <Button variant="link" color={'link'} onClick={() => router.push('/')}>
           {t.auth.signIn}
         </Button>
       </div>
