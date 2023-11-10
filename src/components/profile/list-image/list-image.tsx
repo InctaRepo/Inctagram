@@ -9,10 +9,8 @@ import { useGetMeQuery } from '@/src/services/auth'
 import { useGetUserPostsQuery } from '@/src/services/posts'
 
 export const ListImage = () => {
-  //const { userId } = useAppSelector(state => state.auth.user!)
-  const { data: user } = useGetMeQuery()
-  const id = user?.data?.userId
-  const { data } = useGetUserPostsQuery(id!)
+  const { userId } = useAppSelector(state => state.auth.user!)
+  const { data } = useGetUserPostsQuery(userId!)
 
   return (
     <div className={s.container}>

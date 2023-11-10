@@ -12,10 +12,8 @@ import { authIsAuthSelector, useGetMeQuery } from '@/src/services/auth'
 import { useGetProfileQuery } from '@/src/services/profile/profile-api'
 
 export const MenuContainer = () => {
-  const { data: user } = useGetMeQuery()
-  const id = user?.data?.userId
-  //const { userId } = useAppSelector(state => state.auth.user!)
-  const { data: profile } = useGetProfileQuery(id)
+  const { userId } = useAppSelector(state => state.auth.user!)
+  const { data: profile } = useGetProfileQuery(userId)
   const [variantIcon, setVariantIcon] = useState<
     'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   >()
