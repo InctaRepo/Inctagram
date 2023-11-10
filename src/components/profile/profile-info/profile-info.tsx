@@ -8,10 +8,8 @@ import { useGetMeQuery } from '@/src/services/auth'
 import { useGetProfileQuery } from '@/src/services/profile/profile-api'
 
 export const ProfileInfo = () => {
-  //const { userId } = useAppSelector(state => state.auth.user!)
-  const { data: user } = useGetMeQuery()
-  const id = user?.data?.userId
-  const { data } = useGetProfileQuery(id)
+  const { userId } = useAppSelector(state => state.auth.user!)
+  const { data } = useGetProfileQuery(userId)
 
   return (
     <div className={s.container}>

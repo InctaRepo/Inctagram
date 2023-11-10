@@ -9,6 +9,7 @@ import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-sch
 import { MenuContainer } from '@/src/components/profile/menu-container'
 import { ProfileSettings } from '@/src/components/profile/profile-settings/Profile-settings'
 import s from '@/src/components/profile/profile.module.scss'
+import { NextPageWithLayout } from '@/src/pages/_app'
 import { useAppSelector } from '@/src/services'
 import { useGetMeQuery } from '@/src/services/auth'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
@@ -18,9 +19,9 @@ import {
   useUploadAvatarMutation,
   useGetProfileQuery,
 } from '@/src/services/profile/profile-api'
-import { ProfileLayout } from 'src/components/layout/profile-layout'
+import { getProfileLayout, ProfileLayout } from 'src/components/layout/profile-layout'
 
-const ProfileSettnigs = () => {
+const SettingsPage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
@@ -163,4 +164,5 @@ const ProfileSettnigs = () => {
   )
 }
 
-export default ProfileSettnigs
+SettingsPage.getLayout = getProfileLayout
+export default SettingsPage
