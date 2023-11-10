@@ -1,0 +1,23 @@
+@import '@/src/styles/mixins';
+@import '@/src/styles/colors';
+
+.table {
+  position: relative;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.thead .tr .th {
+  font-weight: 500;
+  text-align: left;
+}
+
+.tbody .tr:nth-child(even) {
+  background-color: $color-light-100;
+}
+
+.paginationBar {
+  display: flex;
+  justify-content: center;
+  width: 1100px;
+}

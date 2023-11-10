@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 
 import { Typography } from '../../../ui/typography'
 
@@ -14,16 +13,15 @@ import { Header } from '@/src/components/layout/header/header'
 import { Button } from '@/src/components/ui/button'
 
 export const Privacy = () => {
-  const { back, history } = useHistory()
+  const { back } = useHistory()
   const { t } = useTranslate()
-  const router = useRouter()
 
   return (
     <div>
       <Header />
       <div className={s.main}>
         <div className={s.SignUp}>
-          <Button as={'a'} className={s.btn} variant={'text'} onClick={back}>
+          <Button className={s.btn} variant={'text'} onClick={back}>
             <div className={s.arrow}>
               <Image className={s.img} src={ImageArrow} alt="arrow" />
               <Typography variant={'regular14'}> {t.auth.Return}</Typography>
