@@ -1,4 +1,4 @@
-function sum(a, c) {
-  return a + c
+function sum(a, b) {
+  return a + b
 }
 module.exports = sum
