@@ -39,6 +39,14 @@
 
     .favorites {
       padding: 6px 12px;
+
+      .logo {
+        fill: white;
+      }
+
+      .logo:hover {
+        fill: $color-accent-500;
+      }
     }
 
     .favorites:hover svg {

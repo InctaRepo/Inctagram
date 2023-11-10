@@ -38,7 +38,10 @@ export const MenuContainer = () => {
               handleClick={() => handleItemClick('favorites')}
               variantIcon={variantIcon}
             >
-              <SaveIcon color={variantIcon === 'favorites' ? '#397df6' : 'white'} />
+              <SaveIcon
+                fill={variantIcon === 'favorites' ? '#397df6' : 'white'}
+                className={s.logo}
+              />
             </LinkMenu>
           </div>
         )}

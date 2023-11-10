@@ -2,11 +2,13 @@ import { useState } from 'react'
 
 import { useTranslate } from '@/src/assets/hooks'
 import LogoutIcon from '@/src/assets/icons/logout-icon'
+import s from '@/src/components/auth/logout/logout.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { useAppDispatch, useAppSelector } from '@/src/services'
 import { authActions, useLogoutUserMutation } from '@/src/services/auth'
+
 export const Logout = () => {
   const dispatch = useAppDispatch()
   const { user } = useAppSelector(state => state.auth)
@@ -30,7 +32,7 @@ export const Logout = () => {
   return (
     <div>
       <Button variant="link" fullWidth onClick={onClickOpenModal}>
-        <LogoutIcon />
+        <LogoutIcon fill={'white'} className={s.logo} />
         <Typography variant="medium14">{t.profile.logout}</Typography>
       </Button>
       <Modal
