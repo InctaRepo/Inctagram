@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
-import CreateIcon from '@/src/assets/icons/create-icon'
 import HomeIcon from '@/src/assets/icons/home-icon'
 import MessageIcon from '@/src/assets/icons/message-icon'
 import ProfileIcon from '@/src/assets/icons/profile-icon'
@@ -21,7 +20,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
 
   return (
     <div className={s.container}>
-      <div>
+      <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.home}
           link={'home'}
@@ -35,7 +34,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
         <CreatePostModal variantIcon={variantIcon} />
       </div>
 
-      <div>
+      <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.myProfile}
           link={'my-profile'}
@@ -45,7 +44,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
           <ProfileIcon color={variantIcon === 'my-profile' ? '#397df6' : 'white'} />
         </LinkMenu>
       </div>
-      <div>
+      <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.messenger}
           link={'message'}
@@ -55,7 +54,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
           <MessageIcon color={variantIcon === 'message' ? '#397df6' : 'white'} />
         </LinkMenu>
       </div>
-      <div>
+      <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.search}
           link={'search'}

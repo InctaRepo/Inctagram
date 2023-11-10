@@ -116,14 +116,16 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
           />
         </CropModal>
       )}
-      <LinkMenu
-        nameLink={t.profile.createPost}
-        link={'my-profile'}
-        handleClick={handleClick}
-        variantIcon={variantIcon}
-      >
-        <CreateIcon color={variantIcon === 'create' ? '#397df6' : 'white'} />
-      </LinkMenu>
+      <div className={s.linkMenu}>
+        <LinkMenu
+          nameLink={t.profile.createPost}
+          link={''}
+          handleClick={handleClick}
+          variantIcon={variantIcon}
+        >
+          <CreateIcon color={variantIcon === 'create' ? '#397df6' : 'white'} />
+        </LinkMenu>
+      </div>
     </div>
   )
 }

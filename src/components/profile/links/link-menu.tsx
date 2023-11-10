@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import s from '@/src/components/profile/links/link-menu.module.scss'
 import { Typography } from '@/src/components/ui/typography'
+
 type LinkMenuType = {
   nameLink: string
   link?: string
