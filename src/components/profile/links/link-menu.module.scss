@@ -5,7 +5,11 @@
   align-items: center;
 
   .link {
-    padding-left: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    //padding-left: 12px;
     text-decoration: none;
 
     .active {

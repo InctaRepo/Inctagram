@@ -20,10 +20,10 @@
   background-color: $color-dark-500;
 }
 
-.selectPhoto {
-  margin-top: 35px;
-  margin-bottom: 30px;
-}
+// .selectPhoto {
+//  margin-top: 35px;
+//  margin-bottom: 30px;
+// }
 
 .baseModal {
   width: 492px !important;
@@ -49,4 +49,14 @@
 
 .saveBtn {
   padding: 6px 24px;
+}
+
+.linkMenu:hover svg {
+  fill: $color-accent-500;
+  stroke: $color-accent-500;
+}
+
+.linkMenu:disabled svg {
+  fill: $color-dark-100;
+  stroke: $color-dark-100;
 }

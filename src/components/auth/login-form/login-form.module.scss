@@ -20,6 +20,11 @@
 
       margin-bottom: 24px;
 
+      :focus-visible {
+        border-radius: 3px;
+        outline: 2px solid $color-accent-300;
+      }
+
       a {
         line-height: 0;
       }
@@ -49,6 +54,11 @@
 
         width: 100%;
         margin-bottom: 24px;
+
+        :focus-visible {
+          border-radius: 3px;
+          outline: 2px solid $color-accent-300;
+        }
 
         .link {
           text-decoration: none;

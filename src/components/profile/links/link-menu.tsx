@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import s from '@/src/components/profile/links/link-menu.module.scss'
 import { Typography } from '@/src/components/ui/typography'
+
 type LinkMenuType = {
   nameLink: string
   link?: string
@@ -31,8 +32,8 @@ export const LinkMenu: FC<LinkMenuType> = ({
 
   return (
     <div className={s.container} onClick={handleItemClick}>
-      {children}
       <Link href={`${link}`} className={s.link}>
+        {children}
         <Typography variant="medium14" className={styles.check}>
           {nameLink}
         </Typography>
