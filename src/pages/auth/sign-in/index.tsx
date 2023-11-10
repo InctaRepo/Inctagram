@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 
 import { RouteNames } from '@/src/common/constants/route-names'
@@ -13,29 +12,7 @@ import { LoginArgsType } from '@/src/services/auth/auth-api-types'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 import { useGetProfileQuery } from '@/src/services/profile/profile-api'
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  /* const data = ProfileAPI.endpoints.getProfile
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }*/
-
-  return {
-    props: {
-      name: 'Elena',
-    },
-  }
-}
-
-type PropsType = {
-  /* data: BaseResponseType<UserInfoType>*/
-  name: string
-}
-
-const SignInPage: NextPageWithLayout<PropsType> = props => {
-  console.log(props)
+const SignInPage: NextPageWithLayout = () => {
   const [loginUser] = useLoginUserMutation()
   const isAuth = useAppSelector(authIsAuthSelector)
   const router = useRouter()

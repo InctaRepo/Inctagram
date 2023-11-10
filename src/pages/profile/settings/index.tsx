@@ -20,7 +20,7 @@ import {
 } from '@/src/services/profile/profile-api'
 import { ProfileLayout } from 'src/components/layout/profile-layout'
 
-const Index = () => {
+const ProfileSettnigs = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
@@ -94,6 +94,9 @@ const Index = () => {
               setIsModalOpen(false)
               setSelectedImage(null)
             })
+          /*  .then(() => {
+              router.push(RouteNames.MY_PROFILE)
+            })*/
         })
       : createProfile({
           id: id,
@@ -112,9 +115,9 @@ const Index = () => {
               setIsModalOpen(false)
               setSelectedImage(null)
             })
-            .then(() => {
+          /*.then(() => {
               router.push(RouteNames.MY_PROFILE)
-            })
+            })*/
         })
   }
 
@@ -160,4 +163,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default ProfileSettnigs

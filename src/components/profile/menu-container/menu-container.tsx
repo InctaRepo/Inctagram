@@ -8,13 +8,13 @@ import { Logout } from '@/src/components/auth/logout/logout'
 import { LinkMenu } from '@/src/components/profile/links'
 import { BaseMenu } from '@/src/components/profile/menu-container/base-menu'
 import { useAppSelector } from '@/src/services'
-import { useGetMeQuery } from '@/src/services/auth'
+import { authIsAuthSelector, useGetMeQuery } from '@/src/services/auth'
 import { useGetProfileQuery } from '@/src/services/profile/profile-api'
 
 export const MenuContainer = () => {
   const { data: user } = useGetMeQuery()
   const id = user?.data?.userId
-  // const { userId } = useAppSelector(state => state.auth.user!)
+  //const { userId } = useAppSelector(state => state.auth.user!)
   const { data: profile } = useGetProfileQuery(id)
   const [variantIcon, setVariantIcon] = useState<
     'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'

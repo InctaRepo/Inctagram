@@ -2,18 +2,18 @@ import { ListImage } from '@/src/components/profile/list-image'
 import { MenuContainer } from '@/src/components/profile/menu-container'
 import { ProfileInfo } from '@/src/components/profile/profile-info'
 import s from '@/src/components/profile/profile.module.scss'
+import { useAppSelector } from '@/src/services'
+import { authIsAuthSelector } from '@/src/services/auth'
 import { UserInfoType } from '@/src/services/profile/profile-api-types'
 
-type DataProfileType = {
-  userData?: UserInfoType
-}
+export const Profile = () => {
+  const isAuth = useAppSelector(authIsAuthSelector)
 
-export const Profile = ({ userData }: DataProfileType) => {
   return (
     <div className={s.container}>
-      <MenuContainer />
+      {isAuth && <MenuContainer />}
       <div className={s.containerInfo}>
-        <ProfileInfo userData={userData} />
+        <ProfileInfo />
         <ListImage />
       </div>
     </div>
