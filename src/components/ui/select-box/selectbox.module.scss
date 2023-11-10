@@ -35,6 +35,7 @@
 
   background-color: $color-dark-700;
   border: 1px solid $color-dark-100;
+  border-radius: 3px;
   outline: none;
   box-shadow: none;
 
@@ -42,6 +43,7 @@
     color: #8d9094;
     background-color: $color-dark-500;
     border: 2px solid $color-accent-500;
+    border-radius: 3px;
   }
 
   &:hover {
@@ -102,6 +104,7 @@
   &[data-state='checked'] {
     color: $color-accent-500;
     background-color: $color-dark-300;
+    border-radius: 2px;
   }
 }
 

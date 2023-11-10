@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
-// eslint-disable-next-line import/no-named-as-default
 import NProgress from 'nprogress'
 
 export const useLoader = () => {
