@@ -10,7 +10,7 @@ import s from './style.module.scss'
 import { useTranslate } from '@/src/assets/hooks'
 import ImageArrow from '@/src/assets/images/rightArrow.png'
 import { RouteNames } from '@/src/common/constants/route-names'
-import { Header } from '@/src/components/layout/header/header'
+import { Header } from '@/src/components/header/header'
 import { Button } from '@/src/components/ui/button'
 
 export const Terms = () => {

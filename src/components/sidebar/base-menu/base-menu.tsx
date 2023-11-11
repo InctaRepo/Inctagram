@@ -6,8 +6,8 @@ import MessageIcon from '@/src/assets/icons/message-icon'
 import ProfileIcon from '@/src/assets/icons/profile-icon'
 import SearchIcon from '@/src/assets/icons/search-icon'
 import { LinkMenu } from '@/src/components/profile/links'
-import s from '@/src/components/profile/menu-container/base-menu/base-manu.module.scss'
 import { CreatePostModal } from '@/src/components/profile/new-post/create-post/create-new-post'
+import s from '@/src/components/sidebar/base-menu/base-manu.module.scss'
 
 type BaseMenuType = {
   variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'

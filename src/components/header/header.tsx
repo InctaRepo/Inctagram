@@ -7,10 +7,10 @@ import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
 // import { Pagination } from '@/src/components/layout/pagination'
+import s from '@/src/components/header/header.module.scss'
 import { Button } from '@/src/components/ui/button'
+import { OptionsType, SelectBox } from '@/src/components/ui/select-box'
 import { Typography } from '@/src/components/ui/typography'
-import s from 'src/components/layout/header/header.module.scss'
-import { OptionsType, SelectBox } from 'src/components/ui/select-box'
 
 export const Header = () => {
   const { push, pathname, query, asPath, locale } = useRouter()
