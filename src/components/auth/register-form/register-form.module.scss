@@ -20,6 +20,11 @@
 
       margin-bottom: 24px;
 
+      :focus-visible {
+        border-radius: 3px;
+        outline: 2px solid $color-accent-300;
+      }
+
       a {
         line-height: 0;
       }
@@ -49,6 +54,11 @@
       margin-bottom: 12px;
       padding-right: 10px;
 
+      :focus-visible {
+        border-radius: 3px;
+        outline: 2px solid $color-accent-300;
+      }
+
       .termsRow {
         display: inline-flex;
       }
@@ -64,6 +74,11 @@
 
     .subtitle {
       margin-bottom: 6px;
+    }
+
+    &:focus-visible {
+      border-radius: 3px;
+      outline: 2px solid $color-accent-300;
     }
   }
 }

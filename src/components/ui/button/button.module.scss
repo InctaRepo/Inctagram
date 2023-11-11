@@ -22,7 +22,7 @@
   text-decoration: none;
 
   background-color: $bgColor;
-  border-radius: 2px;
+  border-radius: 3px;
 
   transition: 0.3s;
 
@@ -34,6 +34,11 @@
 
   &:focus:not(:disabled) {
     //  outline: 1px solid $color-accent-300;
+  }
+
+  &:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid $color-accent-300;
   }
 
   &.fullWidth {
@@ -69,12 +74,17 @@
   &:hover:not(:disabled) {
     background-color: $color-dark-100;
   }
+
+  &:focus:not(:disabled) {
+    color: $color-accent-700;
+    outline: 2px solid $color-accent-700;
+  }
 }
 
 .outlined {
   @include button($color: $color-accent-500, $bgColor: none);
 
-  outline: 1px solid $color-accent-500;
+  outline: 2px solid $color-accent-500;
 
   &:disabled {
     color: $color-accent-900;
@@ -83,12 +93,12 @@
 
   &:active:not(:disabled) {
     color: $color-accent-700;
-    outline: 1px solid $color-accent-700;
+    outline: 2px solid $color-accent-700;
   }
 
   &:hover:not(:disabled) {
     color: $color-accent-100;
-    outline: 1px solid $color-accent-100;
+    outline: 2px solid $color-accent-100;
   }
 
   &:focus:not(:disabled) {
@@ -101,8 +111,10 @@
   @include button($color: $color-accent-500, $bgColor: none);
 
   padding: 6px 12px;
-  border-radius: 130px;
-  outline: 1px solid transparent;
+
+  //border-radius: 130px;
+  border-radius: 3px;
+  outline: 2px solid transparent;
 
   &:active:not(:disabled) {
     color: $color-accent-700;
@@ -117,7 +129,9 @@
   @include button($color: $color-accent-500, $bgColor: none);
 
   padding: 6px 12px;
-  border-radius: 130px;
+
+  //border-radius: 130px;
+  border-radius: 3px;
 
   // outline: 1px solid transparent;
 
@@ -126,7 +140,7 @@
   }
 
   &:focus {
-    border-radius: 2px;
+    border-radius: 3px;
     outline: 2px solid $color-accent-700;
   }
 
@@ -136,6 +150,11 @@
 
   &:hover:not(:disabled) {
     color: $color-accent-100;
+  }
+
+  &:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid $color-accent-300;
   }
 }
 

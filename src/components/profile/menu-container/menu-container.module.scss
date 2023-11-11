@@ -12,6 +12,23 @@
   width: 240px;
   height: 734px;
 
+  :active {
+    color: $color-accent-500;
+  }
+
+  :hover {
+    color: $color-accent-500;
+  }
+
+  :disabled {
+    color: $color-dark-100;
+  }
+
+  :focus-visible {
+    border-radius: 2px;
+    outline: 2px solid $color-accent-500;
+  }
+
   .containerLinks {
     @include flex-block;
 
@@ -22,11 +39,42 @@
 
     .favorites {
       padding: 6px 12px;
+
+      .logo {
+        fill: white;
+      }
+
+      .logo:hover {
+        fill: $color-accent-500;
+      }
     }
+
+    .favorites:hover svg {
+      fill: $color-accent-500;
+      stroke: $color-accent-500;
+    }
+
+    // .favorites:focus-visible {
+    //  outline: 2px solid $color-accent-500;
+    // }
 
     .logout {
       margin-bottom: 36px;
       margin-left: 5px;
+    }
+
+    .logout:hover svg {
+      fill: $color-accent-500;
+      stroke: $color-accent-500;
+    }
+
+    .logout:disabled svg {
+      fill: $color-dark-100;
+      stroke: $color-dark-100;
+    }
+
+    .logout:focus-visible {
+      outline: 2px solid $color-accent-500;
     }
   }
 }
