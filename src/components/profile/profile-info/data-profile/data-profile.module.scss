@@ -4,9 +4,14 @@
   display: flex;
   justify-content: space-between;
 
-  width: 720px;
+  width: 700px;
   height: 36px;
   margin-bottom: 20px;
+
+  &:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid $color-accent-500;
+  }
 
   /* .button {
     width: 167px;

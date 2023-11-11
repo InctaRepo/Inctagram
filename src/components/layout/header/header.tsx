@@ -29,7 +29,7 @@ export const Header = () => {
       <div className={s.container}>
         <div className={s.content}>
           <Typography variant="large" className={s.text}>
-            <Link className={s.incta} href={'/auth/sign-in'}>
+            <Link className={s.incta} href={'/auth/sign-in'} tabIndex={1}>
               Inсtagram
             </Link>
           </Typography>

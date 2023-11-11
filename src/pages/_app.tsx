@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify'
 import { useLoader } from '@/src/assets/hooks/use-loader'
 import { HistoryProvider } from '@/src/assets/hooks/useHistory'
 import { appIsLoadingSelector } from '@/src/services/app'
-import { store, useAppSelector } from '@/src/services/store'
+import { store, useAppSelector, wrapper } from '@/src/services/store'
 import '@/src/styles/_globals.scss'
 import '@/src/styles/nprogress.scss'
 
@@ -23,11 +23,13 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({ Component, ...rest }: AppPropsWithLayout) {
+  const { store, props } = wrapper.useWrappedStore(rest)
+
   return (
     <HistoryProvider>
       <Provider store={store}>
-        <MyApp Component={Component} {...pageProps} />
+        <MyApp Component={Component} {...props.pageProps} />
       </Provider>
     </HistoryProvider>
   )

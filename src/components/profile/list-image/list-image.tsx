@@ -5,11 +5,11 @@ import Image from 'next/image'
 import image from '@/src/assets/images/img_avatar.png'
 import s from '@/src/components/profile/list-image/list-image.module.scss'
 import { useAppSelector } from '@/src/services'
+import { useGetMeQuery } from '@/src/services/auth'
 import { useGetUserPostsQuery } from '@/src/services/posts'
 
 export const ListImage = () => {
   const { userId } = useAppSelector(state => state.auth.user!)
-
   const { data } = useGetUserPostsQuery(userId!)
 
   return (

@@ -74,7 +74,7 @@ export const SelectBox: FC<SelectProps> = ({
       ) : (
         ''
       )}
-      <Select.Trigger asChild className={s.selectBox} tabIndex={1}>
+      <Select.Trigger asChild className={s.selectBox} tabIndex={0}>
         <div>
           <Typography variant={'regular16'} color="primary" className={s.value}>
             {options?.map((el, id) => {

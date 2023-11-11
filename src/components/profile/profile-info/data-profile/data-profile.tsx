@@ -5,6 +5,8 @@ import s from './data-profile.module.scss'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
+import { useAppSelector } from '@/src/services'
+import { authIsAuthSelector } from '@/src/services/auth'
 import { UserInfoType } from '@/src/services/profile/profile-api-types'
 
 type DataProfileType = {
@@ -12,20 +14,22 @@ type DataProfileType = {
 }
 export const DataProfile = ({ userData }: DataProfileType) => {
   const { push } = useRouter()
-
+  const isAuth = useAppSelector(authIsAuthSelector)
   const { t } = useTranslate()
 
   return (
     <>
       <div className={s.header}>
         <Typography variant="h1">{userData?.username}</Typography>
-        <Button
-          variant={'secondary'}
-          className={s.button}
-          onClick={() => push('/profile/settings')}
-        >
-          <Typography variant={'h3'}>{t.profile.profileSettings}</Typography>
-        </Button>
+        {isAuth && (
+          <Button
+            variant={'secondary'}
+            className={s.button}
+            onClick={() => push('/profile/settings')}
+          >
+            <Typography variant={'h3'}>{t.profile.profileSettings}</Typography>
+          </Button>
+        )}
       </div>
       <div className={s.progressProfile}>
         <div className={s.info}>

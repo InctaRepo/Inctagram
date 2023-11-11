@@ -30,7 +30,7 @@
 
     background-color: transparent;
     border: 1px solid $color-dark-100;
-    border-radius: 2px;
+    border-radius: 3px;
     caret-color: white;
 
     &[type='password'] {
@@ -39,7 +39,7 @@
 
     &:focus {
       border: none;
-      outline: 1px solid $color-accent-500;
+      outline: 2px solid $color-accent-500;
 
       &::placeholder {
         color: $color-light-900;
@@ -102,5 +102,5 @@
 }
 
 .star {
-  color: $color-danger-300
+  color: $color-danger-300;
 }
