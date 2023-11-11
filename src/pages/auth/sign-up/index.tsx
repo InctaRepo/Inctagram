@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import { GetServerSideProps } from 'next'
+
 import s from './sign-up.module.scss'
 
 import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
@@ -11,7 +13,7 @@ import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { useRegisterMutation } from '@/src/services/auth/auth-api'
 
-const SignUpPage = () => {
+const SignUpPage = (props: PropsType) => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)

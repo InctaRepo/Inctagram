@@ -6,7 +6,7 @@ import { RouteNames } from '@/src/common/constants/route-names'
 import { getProfileLayout } from '@/src/components/layout/profile-layout'
 import { Profile } from '@/src/components/profile'
 import { NextPageWithLayout } from '@/src/pages/_app'
-import { useAppSelector } from '@/src/services'
+import { useAppSelector, wrapper } from '@/src/services'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
 
 const MyProfilePage: NextPageWithLayout = () => {

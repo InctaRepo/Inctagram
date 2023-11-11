@@ -1,4 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
+import { HYDRATE } from 'next-redux-wrapper'
 
 import { BaseResponseType } from '@/src/services'
 import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
@@ -7,7 +8,7 @@ import { UserInfoType } from '@/src/services/profile/profile-api-types'
 export const ProfileAPI = createApi({
   reducerPath: 'profileApi',
   baseQuery: baseQueryWithReauth,
-  tagTypes: ['Me'],
+  tagTypes: ['profile'],
   endpoints: builder => ({
     createProfile: builder.mutation<BaseResponseType, UserInfoType & Pick<UserInfoType, 'id'>>({
       query: ({ id, ...patch }) => ({
