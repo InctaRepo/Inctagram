@@ -27,7 +27,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
           handleClick={() => handleClick('home')}
           variantIcon={variantIcon}
         >
-          <HomeIcon fill={variantIcon === 'home' ? '#397df6' : 'white'} className={s.logo} />
+          <HomeIcon fill={variantIcon === 'home' ? '#397df6' : 'current'} className={s.logo} />
         </LinkMenu>
       </div>
       <div>
@@ -42,7 +42,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
           variantIcon={variantIcon}
         >
           <ProfileIcon
-            fill={variantIcon === 'my-profile' ? '#397df6' : 'white'}
+            fill={variantIcon === 'my-profile' ? '#397df6' : 'current'}
             className={s.logo}
           />
         </LinkMenu>
@@ -54,7 +54,10 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
           handleClick={() => handleClick('message')}
           variantIcon={variantIcon}
         >
-          <MessageIcon fill={variantIcon === 'message' ? '#397df6' : 'white'} className={s.logo} />
+          <MessageIcon
+            fill={variantIcon === 'message' ? '#397df6' : 'current'}
+            className={s.logo}
+          />
         </LinkMenu>
       </div>
       <div className={s.linkMenu}>
@@ -64,7 +67,7 @@ export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
           handleClick={() => handleClick('search')}
           variantIcon={variantIcon}
         >
-          <SearchIcon fill={variantIcon === 'search' ? '#397df6' : 'white'} className={s.logo} />
+          <SearchIcon fill={variantIcon === 'search' ? '#397df6' : 'current'} className={s.logo} />
         </LinkMenu>
       </div>
     </div>

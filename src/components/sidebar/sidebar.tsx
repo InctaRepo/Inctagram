@@ -38,7 +38,7 @@ export const Sidebar = () => {
               variantIcon={variantIcon}
             >
               <SaveIcon
-                fill={variantIcon === 'favorites' ? '#397df6' : 'white'}
+                fill={variantIcon === 'favorites' ? '#397df6' : 'current'}
                 className={s.logo}
               />
             </LinkMenu>
