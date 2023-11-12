@@ -1,11 +1,11 @@
-@import 'src/styles/colors';
+@import '../../../styles/colors';
 
 .container {
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  width: 130px;
+  width: 135px;
   margin-top: 72px;
   margin-bottom: 60px;
 }
