@@ -11,8 +11,10 @@ import s from '@/src/components/header/header.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { OptionsType, SelectBox } from '@/src/components/ui/select-box'
 import { Typography } from '@/src/components/ui/typography'
-
-export const Header = () => {
+type HeaderType = {
+  variant?: 'public'
+}
+export const Header = ({ variant }: HeaderType) => {
   const { push, pathname, query, asPath, locale } = useRouter()
   const languages: OptionsType[] = [
     { value: 'English', image: <FlagUKIcon /> },
@@ -44,14 +46,16 @@ export const Header = () => {
                 defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
               />
             </div>
-            <div className={s.button_container}>
-              <Button variant="text" className={s.button}>
-                Log in
-              </Button>
-              <Button variant="primary">
-                <Typography variant="h3">Sing up</Typography>
-              </Button>
-            </div>
+            {variant === 'public' && (
+              <div className={s.button_container}>
+                <Button variant="text" className={s.button}>
+                  Log in
+                </Button>
+                <Button variant="primary">
+                  <Typography variant="h3">Sing up</Typography>
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
