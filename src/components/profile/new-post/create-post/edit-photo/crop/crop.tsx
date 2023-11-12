@@ -14,9 +14,11 @@ import rectangle45 from '@/src/assets/icons/rectangle45.svg'
 type PropsType = {
   setAspectRatio: (aspect: number) => void
   className?: string
+  aspectRatio: number
 }
 
-export const Crop: FC<PropsType> = ({ setAspectRatio }) => {
+export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
+  const [isActive, setIsActive] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const cropRef = useRef() as MutableRefObject<HTMLDivElement>
   const { t } = useTranslate()
@@ -35,24 +37,54 @@ export const Crop: FC<PropsType> = ({ setAspectRatio }) => {
 
   return (
     <div ref={cropRef}>
-      <div onClick={() => setIsOpen(true)} className={s.cropBtn}>
-        <Image src={expandOutline} alt={'crop'} width={24} height={24} className={s.blue} />
+      <div onClick={() => setIsOpen(current => !current)} className={s.cropBtn}>
+        <Image
+          src={expandOutline}
+          alt={'crop'}
+          width={24}
+          height={24}
+          className={isOpen ? s.blueActive : s.blue}
+        />
       </div>
       {isOpen && (
         <div className={s.cropOptions}>
-          <div className={s.cropOption1} onClick={() => setAspectRatio(4 / 3)}>
+          <div
+            className={aspectRatio === 4 / 3 ? s.cropOption1Active : s.cropOption1}
+            onClick={() => {
+              setAspectRatio(4 / 3)
+              setIsActive(current => !current)
+            }}
+          >
             {t.profile.profileSetting.original}
             <Image src={img} alt={'image'} width={24} height={24} />
           </div>
-          <div className={s.cropOption} onClick={() => setAspectRatio(1)}>
+          <div
+            className={aspectRatio === 1 ? s.cropOptionActive : s.cropOption}
+            onClick={() => {
+              setAspectRatio(1)
+              setIsActive(current => !current)
+            }}
+          >
             1:1
             <Image src={rectangle11} alt={'rect11'} width={18} height={18} />
           </div>
-          <div className={s.cropOption} onClick={() => setAspectRatio(4 / 5)}>
+          <div
+            className={aspectRatio === 4 / 5 ? s.cropOptionActive : s.cropOption}
+            onClick={() => {
+              setAspectRatio(4 / 5)
+              setIsActive(current => !current)
+            }}
+          >
             4:5
             <Image src={rectangle45} alt={'rect45'} width={18} height={26} />
           </div>
-          <div className={s.cropOption} onClick={() => setAspectRatio(16 / 9)}>
+          <div
+            className={aspectRatio === 16 / 9 ? s.cropOptionActive : s.cropOption}
+            onClick={() => {
+              setAspectRatio(16 / 9)
+              setIsActive(current => !current)
+            }}
+          >
             16:9
             <Image src={rectangle169} alt={'rect169'} width={26} height={20} />
           </div>

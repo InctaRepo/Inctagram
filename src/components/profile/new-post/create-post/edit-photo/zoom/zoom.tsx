@@ -38,8 +38,14 @@ export const Zoom: FC<PropsType> = ({ className, zoom, setZoom }) => {
 
   return (
     <div ref={zoomRef}>
-      <div onClick={() => setIsOpen(true)} className={s.zoomBtn}>
-        <Image src={maximize} alt={'zoom'} width={24} height={24} className={s.blue} />
+      <div onClick={() => setIsOpen(current => !current)} className={s.zoomBtn}>
+        <Image
+          src={maximize}
+          alt={'zoom'}
+          width={24}
+          height={24}
+          className={isOpen ? s.blueActive : s.blue}
+        />
       </div>
 
       {isOpen && (
