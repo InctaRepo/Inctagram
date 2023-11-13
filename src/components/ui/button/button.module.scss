@@ -32,13 +32,13 @@
     background: $color-accent-900;
   }
 
-  &:focus:not(:disabled) {
-    //  outline: 1px solid $color-accent-300;
-  }
-
   &:focus-visible {
     border-radius: 3px;
     outline: 2px solid $color-accent-300;
+  }
+
+  &:focus:not(:disabled) {
+    // outline: 1px solid $color-accent-300;
   }
 
   &.fullWidth {
@@ -84,6 +84,7 @@
 .outlined {
   @include button($color: $color-accent-500, $bgColor: none);
 
+  padding: 6px 12px;
   outline: 2px solid $color-accent-500;
 
   &:disabled {
@@ -112,7 +113,7 @@
 
   padding: 6px 12px;
 
-  //border-radius: 130px;
+  // border-radius: 130px;
   border-radius: 3px;
   outline: 2px solid transparent;
 
@@ -130,7 +131,7 @@
 
   padding: 6px 12px;
 
-  //border-radius: 130px;
+  // border-radius: 130px;
   border-radius: 3px;
 
   // outline: 1px solid transparent;
@@ -144,17 +145,17 @@
     outline: 2px solid $color-accent-700;
   }
 
+  &:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid $color-accent-300;
+  }
+
   &:active:not(:disabled) {
     color: $color-accent-700;
   }
 
   &:hover:not(:disabled) {
     color: $color-accent-100;
-  }
-
-  &:focus-visible {
-    border-radius: 3px;
-    outline: 2px solid $color-accent-300;
   }
 }
 

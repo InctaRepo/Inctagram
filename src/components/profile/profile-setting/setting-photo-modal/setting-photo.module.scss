@@ -56,7 +56,10 @@
 }
 
 .addBtn {
+  @include wh(155px, 36px);
+
   display: flex;
+  justify-content: center;
   color: $color-accent-500 !important;
 }
 
