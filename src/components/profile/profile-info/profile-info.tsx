@@ -8,7 +8,10 @@ import { useGetProfileQuery } from '@/src/services/profile/profile-api'
 
 export const ProfileInfo = () => {
   const { userId } = useAppSelector(state => state.auth.user!)
-  const { data } = useGetProfileQuery(userId)
+  const { data } = useGetProfileQuery(userId, {
+    refetchOnMountOrArgChange: true,
+    skip: false,
+  })
 
   return (
     <div className={s.container}>

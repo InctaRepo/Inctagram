@@ -1,5 +1,4 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-import { HYDRATE } from 'next-redux-wrapper'
 
 import { BaseResponseType } from '@/src/services'
 import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
@@ -8,6 +7,7 @@ import { UserInfoType } from '@/src/services/profile/profile-api-types'
 export const ProfileAPI = createApi({
   reducerPath: 'profileApi',
   baseQuery: baseQueryWithReauth,
+  keepUnusedDataFor: 5,
   tagTypes: ['profile'],
   endpoints: builder => ({
     createProfile: builder.mutation<BaseResponseType, UserInfoType & Pick<UserInfoType, 'id'>>({
@@ -16,6 +16,7 @@ export const ProfileAPI = createApi({
         url: `users/profile/${id}`,
         body: patch,
       }),
+      // invalidatesTags: ['profile'],
     }),
     updateProfile: builder.mutation<BaseResponseType, UserInfoType & Pick<UserInfoType, 'id'>>({
       query: ({ id, ...patch }) => ({
@@ -23,6 +24,7 @@ export const ProfileAPI = createApi({
         url: `users/profile/${id}`,
         body: patch,
       }),
+      // invalidatesTags: ['profile'],
     }),
     getProfile: builder.query<BaseResponseType<UserInfoType>, string | undefined>({
       query: id => ({
@@ -36,12 +38,14 @@ export const ProfileAPI = createApi({
         method: 'POST',
         body: FormData,
       }),
+      // invalidatesTags: ['profile'],
     }),
     deleteAvatar: builder.mutation<BaseResponseType, void>({
       query: () => ({
         url: `users/profile/avatar`,
         method: 'DELETE',
       }),
+      // invalidatesTags: ['profile'],
     }),
   }),
 })
