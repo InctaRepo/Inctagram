@@ -10,6 +10,7 @@ import img from '@/src/assets/icons/image-ouline.svg'
 import rectangle11 from '@/src/assets/icons/rectangle11.svg'
 import rectangle169 from '@/src/assets/icons/rectangle169.svg'
 import rectangle45 from '@/src/assets/icons/rectangle45.svg'
+import { Typography } from '@/src/components/ui/typography'
 
 type PropsType = {
   setAspectRatio: (aspect: number) => void
@@ -55,8 +56,19 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-            {t.profile.profileSetting.original}
-            <Image src={img} alt={'image'} width={24} height={24} />
+
+            <Typography className={aspectRatio === 4 / 3 ? s.text1Active : s.text1} variant={'h3'}>
+              {' '}
+              {t.profile.profileSetting.original}{' '}
+            </Typography>
+            <Image
+              className={aspectRatio === 4 / 3 ? s.white : s.gray}
+              src={img}
+              alt={'image'}
+              width={24}
+              height={24}
+            />
+
           </div>
           <div
             className={aspectRatio === 1 ? s.cropOptionActive : s.cropOption}
@@ -65,8 +77,19 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-            1:1
-            <Image src={rectangle11} alt={'rect11'} width={18} height={18} />
+
+            <Typography className={aspectRatio === 1 ? s.text1Active : s.text1} variant={'h3'}>
+              {' '}
+              1:1
+            </Typography>
+            <Image
+              className={aspectRatio === 1 ? s.white : s.gray}
+              src={rectangle11}
+              alt={'rect11'}
+              width={18}
+              height={18}
+            />
+
           </div>
           <div
             className={aspectRatio === 4 / 5 ? s.cropOptionActive : s.cropOption}
@@ -75,8 +98,19 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-            4:5
-            <Image src={rectangle45} alt={'rect45'} width={18} height={26} />
+
+            <Typography className={aspectRatio === 4 / 5 ? s.text1Active : s.text1} variant={'h3'}>
+              {' '}
+              4:5{' '}
+            </Typography>
+            <Image
+              className={aspectRatio === 4 / 5 ? s.white : s.gray}
+              src={rectangle45}
+              alt={'rect45'}
+              width={18}
+              height={26}
+            />
+
           </div>
           <div
             className={aspectRatio === 16 / 9 ? s.cropOptionActive : s.cropOption}
@@ -85,8 +119,19 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-            16:9
-            <Image src={rectangle169} alt={'rect169'} width={26} height={20} />
+
+            <Typography className={aspectRatio === 16 / 9 ? s.text1Active : s.text1} variant={'h3'}>
+              {' '}
+              16:9{' '}
+            </Typography>
+            <Image
+              className={aspectRatio === 16 / 9 ? s.white : s.gray}
+              src={rectangle169}
+              alt={'rect169'}
+              width={26}
+              height={20}
+            />
+
           </div>
         </div>
       )}
