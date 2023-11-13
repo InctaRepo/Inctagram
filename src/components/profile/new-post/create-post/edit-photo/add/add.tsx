@@ -51,10 +51,10 @@ export const Add: FC<PropsType> = ({ image, addedImages, setAddedImages, cropped
         <Image
           src={img}
           alt={'add photo'}
-          onClick={() => setIsAddOpen(true)}
+          onClick={() => setIsAddOpen(current => !current)}
           width={24}
           height={24}
-          className={s.blue}
+          className={isAddOpen ? s.blueActive : s.blue}
         />
       </div>
       {isAddOpen && (
