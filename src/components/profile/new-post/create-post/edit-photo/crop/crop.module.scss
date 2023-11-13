@@ -93,9 +93,7 @@
 
   margin: 8px 12px 11px;
 
-  &:hover {
-    color: $color-light-100;
-  }
+
 }
 
 .cropOption1Active {
@@ -109,6 +107,18 @@
 
   margin: 8px 12px 11px;
 
+
+}
+
+.text1 {
+  color: $color-light-900 !important;
+
+  &:hover {
+    color: $color-light-100;
+  }
+}
+
+.text1Active {
   color: $color-light-100;
 }
 
@@ -122,4 +132,12 @@
 
 .blueActive {
   filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.white {
+  filter: brightness(0) invert(1);
+}
+
+.gray {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(90deg);
 }
