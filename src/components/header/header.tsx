@@ -6,11 +6,15 @@ import { useRouter } from 'next/router'
 import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
+// import { Pagination } from '@/src/components/layout/pagination'
+import s from '@/src/components/header/header.module.scss'
+import { Button } from '@/src/components/ui/button'
+import { OptionsType, SelectBox } from '@/src/components/ui/select-box'
 import { Typography } from '@/src/components/ui/typography'
-import s from 'src/components/layout/header/header.module.scss'
-import { OptionsType, SelectBox } from 'src/components/ui/select-box'
-
-export const Header = () => {
+type HeaderType = {
+  variant?: 'public'
+}
+export const Header = ({ variant }: HeaderType) => {
   const { push, pathname, query, asPath, locale } = useRouter()
   const languages: OptionsType[] = [
     { value: 'English', image: <FlagUKIcon /> },
@@ -42,6 +46,16 @@ export const Header = () => {
                 defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
               />
             </div>
+            {variant === 'public' && (
+              <div className={s.button_container}>
+                <Button variant="text" className={s.button}>
+                  Log in
+                </Button>
+                <Button variant="primary">
+                  <Typography variant="h3">Sing up</Typography>
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>

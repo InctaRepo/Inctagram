@@ -9,7 +9,7 @@ import s from './style.module.scss'
 import { useTranslate } from '@/src/assets/hooks'
 import { useHistory } from '@/src/assets/hooks/useHistory'
 import ImageArrow from '@/src/assets/images/rightArrow.png'
-import { Header } from '@/src/components/layout/header/header'
+import { Header } from '@/src/components/header/header'
 import { Button } from '@/src/components/ui/button'
 
 export const Privacy = () => {

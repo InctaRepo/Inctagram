@@ -1,16 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 
 import { useErrorToast } from '@/src/assets/hooks'
-import { RouteNames } from '@/src/common/constants/route-names'
 import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
-import { MenuContainer } from '@/src/components/profile/menu-container'
 import { ProfileSettings } from '@/src/components/profile/profile-settings/Profile-settings'
 import s from '@/src/components/profile/profile.module.scss'
-import { useAppSelector } from '@/src/services'
-import { authIsAuthSelector, useGetMeQuery } from '@/src/services/auth'
+import { Sidebar } from '@/src/components/sidebar'
+import { useGetMeQuery } from '@/src/services/auth'
 import {
   useCreateProfileMutation,
   useGetProfileQuery,
@@ -19,8 +16,6 @@ import {
 } from '@/src/services/profile/profile-api'
 
 export const Settings = () => {
-  const isAuth = useAppSelector(authIsAuthSelector)
-  const router = useRouter()
   const [updateProfile, { isSuccess: isSuccessUpdate }] = useUpdateProfileMutation()
   const [createProfile, { isSuccess }] = useCreateProfileMutation()
   const { data: user } = useGetMeQuery()
@@ -119,12 +114,6 @@ export const Settings = () => {
   }
 
   useEffect(() => {
-    if (!isAuth) {
-      router.push(RouteNames.SIGN_IN)
-    }
-  }, [isAuth, router])
-
-  useEffect(() => {
     if (isSuccess || isSuccessUpdate) {
       setToastHandler()
     }
@@ -132,7 +121,7 @@ export const Settings = () => {
 
   return (
     <div className={s.container}>
-      <MenuContainer />
+      <Sidebar />
       <div className={s.containerInfo}>
         <ProfileSettings
           userNameFromMe={userNameFromMe}

@@ -123,7 +123,7 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalType) => {
           handleClick={handleClick}
           variantIcon={variantIcon}
         >
-          <CreateIcon fill={variantIcon === 'create' ? '#397df6' : 'white'} className={s.logo} />
+          <CreateIcon fill={variantIcon === 'create' ? '#397df6' : 'current'} className={s.logo} />
         </LinkMenu>
       </div>
     </div>
