@@ -124,7 +124,6 @@
 }
 
 .text1Active {
-
   color: $color-light-100;
 }
 
@@ -146,6 +145,6 @@
 }
 
 .gray {
-  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(90deg);
+  filter: invert(0.5) sepia(1) saturate(0) hue-rotate(300deg);
 }
 
