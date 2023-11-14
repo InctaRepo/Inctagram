@@ -59,6 +59,7 @@
   @include wh(155px, 36px);
 
   display: flex;
+  align-items: center;
   justify-content: center;
   color: $color-accent-500 !important;
 }
