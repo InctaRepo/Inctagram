@@ -52,7 +52,13 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
     return (
       <div
         className={className}
-        style={{ ...style, display: 'block', right: 15 }}
+        style={{
+          ...style,
+          display: 'block',
+          right: 15,
+          backgroundColor: '#4c4c4c',
+          borderRadius: 50,
+        }}
         onClick={onClick}
       />
     )
@@ -64,7 +70,14 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
     return (
       <div
         className={className}
-        style={{ ...style, display: 'block', left: 15, zIndex: 1 }}
+        style={{
+          ...style,
+          display: 'block',
+          left: 15,
+          zIndex: 1,
+          backgroundColor: '#4c4c4c',
+          borderRadius: 50,
+        }}
         onClick={onClick}
       />
     )
@@ -114,7 +127,11 @@ const CroppedImage: FC<PropsType> = ({ image, addedImages, setAddedImages }) => 
                   />
                   <div className={s.editAndAdd}>
                     <div className={s.edit}>
-                      <Crop className={s.expand} setAspectRatio={setAspectRatio} />
+                      <Crop
+                        className={s.expand}
+                        setAspectRatio={setAspectRatio}
+                        aspectRatio={aspectRatio}
+                      />
                       <Zoom className={s.maximize} zoom={zoomValue} setZoom={setZoomValue} />
                     </div>
                     <div>
