@@ -56,7 +56,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-
             <Typography className={aspectRatio === 4 / 3 ? s.text1Active : s.text1} variant={'h3'}>
               {' '}
               {t.profile.profileSetting.original}{' '}
@@ -68,7 +67,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               width={24}
               height={24}
             />
-
           </div>
           <div
             className={aspectRatio === 1 ? s.cropOptionActive : s.cropOption}
@@ -77,7 +75,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-
             <Typography className={aspectRatio === 1 ? s.text1Active : s.text1} variant={'h3'}>
               {' '}
               1:1
@@ -89,7 +86,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               width={18}
               height={18}
             />
-
           </div>
           <div
             className={aspectRatio === 4 / 5 ? s.cropOptionActive : s.cropOption}
@@ -98,7 +94,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-
             <Typography className={aspectRatio === 4 / 5 ? s.text1Active : s.text1} variant={'h3'}>
               {' '}
               4:5{' '}
@@ -110,7 +105,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               width={18}
               height={26}
             />
-
           </div>
           <div
             className={aspectRatio === 16 / 9 ? s.cropOptionActive : s.cropOption}
@@ -119,7 +113,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               setIsActive(current => !current)
             }}
           >
-
             <Typography className={aspectRatio === 16 / 9 ? s.text1Active : s.text1} variant={'h3'}>
               {' '}
               16:9{' '}
@@ -131,7 +124,6 @@ export const Crop: FC<PropsType> = ({ setAspectRatio, aspectRatio }) => {
               width={26}
               height={20}
             />
-
           </div>
         </div>
       )}
