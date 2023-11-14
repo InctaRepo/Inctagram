@@ -1,0 +1,54 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+@import 'src/styles/colors';
+
+.container {
+  width: 972px;
+  height: 100vh;
+  margin-top: 24px;
+
+  .register_users {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-bottom: 36px;
+    padding: 12px 24px;
+
+    background-color: $color-dark-500;
+    border: 1px solid $color-dark-300;
+    border-radius: 2px;
+
+    .box_value {
+      display: flex;
+      align-items: center;
+
+      padding: 8px 12px;
+
+      background-color: $color-dark-700;
+      border: 1px solid $color-dark-300;
+      border-radius: 2px;
+
+      .value_posts {
+        padding: 0 6px;
+      }
+
+      .line {
+        display: inline-block;
+
+        width: 1px;
+        height: 30px;
+        margin: 0 3px;
+
+        background-color: $color-dark-300;
+      }
+    }
+  }
+
+  .posts_container {
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

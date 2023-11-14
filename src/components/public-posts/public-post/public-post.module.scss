@@ -1,0 +1,34 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+@import 'src/styles/colors';
+
+.container {
+  @include flex-block($align-items: flex-start);
+
+  width: 234px;
+
+  .image {
+    width: 234px;
+    height: 240px;
+    margin-bottom: 12px;
+  }
+
+  .user_info {
+    @include flex-block($flex-direction: row, $justify-content: flex-start);
+
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 3px;
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+  }
+
+  .time {
+    margin-bottom: 3px;
+    color: $color-light-900;
+  }
+}
