@@ -4,7 +4,7 @@ import { Slider } from '@mui/base/Slider'
 import Image from 'next/image'
 
 import maximize from '@/src/assets/icons/maximize-outline.svg'
-import s from '@/src/components/profile/new-post/create-post/edit-photo/zoom/zoom111.module.scss'
+import s from '@/src/components/profile/new-post/create-post/edit-photo/zoom/Zoom.module.scss'
 
 type Props = {
   className?: string
@@ -12,7 +12,7 @@ type Props = {
   setZoom: (zoom: number) => void
 }
 
-export const Zoom111 = ({ className, zoom, setZoom }: Props) => {
+export const Zoom = ({ className, zoom, setZoom }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const zoomRef = useRef() as MutableRefObject<HTMLDivElement>
 

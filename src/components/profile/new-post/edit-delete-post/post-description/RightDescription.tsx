@@ -11,7 +11,7 @@ import bookmark from '@/src/assets/icons/bookmark-outline.svg'
 import heart from '@/src/assets/icons/heart-outline.svg'
 import plane from '@/src/assets/icons/paper-plane-outline.svg'
 import AvatarImage from '@/src/assets/images/avatar-image'
-import { Buttons111 } from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-delete-buttons/buttons111'
+import { Buttons } from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-delete-buttons/Buttons'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
 import { Typography } from '@/src/components/ui/typography'
@@ -40,7 +40,7 @@ export const RightDescription = ({ defaultValue, isEditModalOpen, setIsEditModal
               </Typography>
             </div>
           </div>
-          <Buttons111 isEditModalOpen={isEditModalOpen} setIsEditModalOpen={setIsEditModalOpen} />
+          <Buttons isEditModalOpen={isEditModalOpen} setIsEditModalOpen={setIsEditModalOpen} />
         </div>
         <Separator className={s.separator} />
         <div className={s.comments}>

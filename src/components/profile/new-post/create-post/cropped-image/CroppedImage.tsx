@@ -12,9 +12,9 @@ import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPo
 import EasyCrop, {
   CropArg,
 } from '@/src/components/profile/new-post/create-post/cropped-image/EasyCrop'
-import { Add111 } from '@/src/components/profile/new-post/create-post/edit-photo/add/add111'
-import { Crop111 } from '@/src/components/profile/new-post/create-post/edit-photo/crop/crop111'
-import { Zoom111 } from '@/src/components/profile/new-post/create-post/edit-photo/zoom/zoom111'
+import { Add } from '@/src/components/profile/new-post/create-post/edit-photo/add/Add'
+import { Cropping } from '@/src/components/profile/new-post/create-post/edit-photo/crop/Cropping'
+import { Zoom } from '@/src/components/profile/new-post/create-post/edit-photo/zoom/Zoom'
 
 // eslint-disable-next-line import/order
 
@@ -124,15 +124,15 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                   />
                   <div className={s.editAndAdd}>
                     <div className={s.edit}>
-                      <Crop111
+                      <Cropping
                         className={s.expand}
                         setAspectRatio={setAspectRatio}
                         aspectRatio={aspectRatio}
                       />
-                      <Zoom111 className={s.maximize} zoom={zoomValue} setZoom={setZoomValue} />
+                      <Zoom className={s.maximize} zoom={zoomValue} setZoom={setZoomValue} />
                     </div>
                     <div>
-                      <Add111
+                      <Add
                         image={croppedImage ? croppedImage : image}
                         addedImages={addedImages}
                         setAddedImages={setAddedImages}

@@ -8,7 +8,7 @@ import img from '@/src/assets/icons/image-ouline.svg'
 import rectangle11 from '@/src/assets/icons/rectangle11.svg'
 import rectangle169 from '@/src/assets/icons/rectangle169.svg'
 import rectangle45 from '@/src/assets/icons/rectangle45.svg'
-import s from '@/src/components/profile/new-post/create-post/edit-photo/crop/crop111.module.scss'
+import s from '@/src/components/profile/new-post/create-post/edit-photo/crop/Cropping.module.scss'
 import { Typography } from '@/src/components/ui/typography'
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
   aspectRatio: number
 }
 
-export const Crop111 = ({ setAspectRatio, aspectRatio }: Props) => {
+export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
   const [isActive, setIsActive] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const cropRef = useRef() as MutableRefObject<HTMLDivElement>

@@ -149,7 +149,7 @@ export const en: LocaleType = {
     favorites: 'Favorites',
     messenger: 'Messenger',
     search: 'Search',
-    addPostPhoto: 'Add111 Photo',
+    addPostPhoto: 'Add Photo',
     selectFromComputer: 'Select from Computer',
     passwordChanged: 'Your password was successfully changed',
     save: 'Save',
@@ -160,7 +160,7 @@ export const en: LocaleType = {
       devices: 'Devices',
       accountManagement: 'Account Management',
       myPayment: 'My payments',
-      addAProfilePhoto: 'Add111 a Profile Photo',
+      addAProfilePhoto: 'Add a Profile Photo',
       save: 'Save',
       userName: 'Username',
       firstName: 'First name',
@@ -211,7 +211,7 @@ export const en: LocaleType = {
       cropping: 'Cropping',
       filters: 'Filters',
       publication: 'Publication',
-      addDescription: 'Add111 publication description',
+      addDescription: 'Add publication description',
     },
     descriptionError: {
       error: 'Max number of characters 500',
@@ -224,7 +224,7 @@ export const en: LocaleType = {
       close: 'Close',
     },
     editPost: {
-      comment: 'Add111 a Comment ...',
+      comment: 'Add a Comment ...',
       edit: 'Edit',
       closePost: 'Close Post',
       question:

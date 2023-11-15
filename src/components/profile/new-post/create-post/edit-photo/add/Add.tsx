@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, MutableRefObject, FC } from 'react'
 
 import ImageToAdd from 'next/image'
 
-import s from './add111.module.scss'
+import s from './Add.module.scss'
 
 import img from '@/src/assets/icons/image-ouline.svg'
 import { PlusCircleOutline } from '@/src/assets/icons/plus-circle-outline'
@@ -16,7 +16,7 @@ type Props = {
   croppedImage?: string
 }
 
-export const Add111 = ({ image, addedImages, setAddedImages, croppedImage }: Props) => {
+export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props) => {
   const [isAddOpen, setIsAddOpen] = useState(false)
   const addRef = useRef() as MutableRefObject<HTMLDivElement>
   const inputRef = useRef<HTMLInputElement>(null)

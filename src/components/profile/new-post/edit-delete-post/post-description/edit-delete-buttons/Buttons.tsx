@@ -2,7 +2,7 @@ import React, { FC, useState, useRef, useEffect, MutableRefObject } from 'react'
 
 import Image from 'next/image'
 
-import s from './buttons111.module.scss'
+import s from './Buttons.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks'
 import dots from '@/src/assets/icons/dots.svg'
@@ -16,7 +16,7 @@ type Props = {
   setIsEditModalOpen?: (isEditModalOpen: boolean) => void
 }
 
-export const Buttons111 = ({ isEditModalOpen, setIsEditModalOpen }: Props) => {
+export const Buttons = ({ isEditModalOpen, setIsEditModalOpen }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const editRef = useRef() as MutableRefObject<HTMLDivElement>
