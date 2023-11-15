@@ -9,7 +9,7 @@ import {
   UpdateResponse,
 } from '@/src/services/posts/postApi.types'
 
-export const PostApi = createApi({
+export const postApi = createApi({
   reducerPath: 'postApi',
   baseQuery: baseQueryWithReauth,
   tagTypes: ['createPost', 'editPost', 'deletePost'],
@@ -52,4 +52,4 @@ export const {
   useUpdatePostMutation,
   useDeletePostMutation,
   useGetUserPostsQuery,
-} = PostApi
+} = postApi

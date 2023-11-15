@@ -4,7 +4,7 @@ import { BaseResponseType } from '@/src/services'
 import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
 import { UserInfo } from '@/src/services/profile/profileApi.types'
 
-export const ProfileApi = createApi({
+export const profileApi = createApi({
   reducerPath: 'profileApi',
   baseQuery: baseQueryWithReauth,
   keepUnusedDataFor: 5,
@@ -56,4 +56,4 @@ export const {
   useGetProfileQuery,
   useCreateProfileMutation,
   useDeleteAvatarMutation,
-} = ProfileApi
+} = profileApi

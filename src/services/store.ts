@@ -6,16 +6,16 @@ import { appReducer } from '@/src/services/app/app-slice'
 import { authApi } from '@/src/services/auth/auth-api'
 import { authReducer } from '@/src/services/auth/auth-slice'
 import { menuReducer } from '@/src/services/menu/menu-slice'
-import { PostApi } from '@/src/services/posts/postApi'
+import { postApi } from '@/src/services/posts/postApi'
 import { postReducer } from '@/src/services/posts/postSlice'
-import { ProfileApi } from '@/src/services/profile/profileApi'
+import { profileApi } from '@/src/services/profile/profileApi'
 import { profileReducer } from '@/src/services/profile/profileSlice'
 import { ProfileSsrApi } from '@/src/services/profile/profileSsrApi'
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
-  [ProfileApi.reducerPath]: ProfileApi.reducer,
-  [PostApi.reducerPath]: PostApi.reducer,
+  [profileApi.reducerPath]: profileApi.reducer,
+  [postApi.reducerPath]: postApi.reducer,
   [ProfileSsrApi.reducerPath]: ProfileSsrApi.reducer,
   auth: authReducer,
   app: appReducer,
@@ -29,8 +29,8 @@ export const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
       .concat([authApi.middleware])
-      .concat([ProfileApi.middleware])
-      .concat([PostApi.middleware])
+      .concat([profileApi.middleware])
+      .concat([postApi.middleware])
       .concat([ProfileSsrApi.middleware]),
 })
 
