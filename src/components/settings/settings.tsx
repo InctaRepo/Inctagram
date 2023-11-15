@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 
 import { useErrorToast } from '@/src/assets/hooks'
-import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
-import { ProfileSettings } from '@/src/components/profile/profile-settings/Profile-settings'
+import { ProfileSettingFormType } from '@/src/common/schemas/profileSettingSchema'
+import { ProfileSettings } from '@/src/components/profile/profile-settings/ProfileSettings'
 import s from '@/src/components/profile/profile.module.scss'
 import { Sidebar } from '@/src/components/sidebar'
 import { useGetMeQuery } from '@/src/services/auth'
@@ -13,7 +13,7 @@ import {
   useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
-} from '@/src/services/profile/profile-api'
+} from '@/src/services/profile/profileApi'
 
 export const Settings = () => {
   const [updateProfile, { isSuccess: isSuccessUpdate }] = useUpdateProfileMutation()

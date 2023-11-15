@@ -10,7 +10,7 @@ import { useAppSelector } from '@/src/services'
 import { useGetMeQuery, useLoginUserMutation } from '@/src/services/auth/auth-api'
 import { LoginArgsType } from '@/src/services/auth/auth-api-types'
 import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
-import { useGetProfileQuery } from '@/src/services/profile/profile-api'
+import { useGetProfileQuery } from '@/src/services/profile/profileApi'
 
 const SignInPage: NextPageWithLayout = () => {
   const [loginUser] = useLoginUserMutation()

@@ -5,4 +5,4 @@ export const RouteNames = {
   NEW_PASSWORD: '/auth/new-password',
   MY_PROFILE: '/profile/my-profile',
   PROFILE_SETTINGS: '/profile/settings',
-}
+} as const
