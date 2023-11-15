@@ -7,7 +7,7 @@ import { Button } from '@/src/components/ui/button'
 import { Typography } from '@/src/components/ui/typography'
 import { useAppSelector } from '@/src/services'
 import { authIsAuthSelector } from '@/src/services/auth'
-import { UserInfoType } from '@/src/services/profile/profile-api-types'
+import { UserInfoType } from '@/src/services/profile/profileApi.types'
 
 type DataProfileType = {
   userData?: UserInfoType

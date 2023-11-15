@@ -6,7 +6,7 @@ import s from '@/src/components/sidebar/sidebar.module.scss'
 import { useAppDispatch, useAppSelector } from '@/src/services'
 import { menuSelector } from '@/src/services/menu/menu-selectors'
 import { menuActions } from '@/src/services/menu/menu-slice'
-import { useGetProfileQuery } from '@/src/services/profile/profile-api'
+import { useGetProfileQuery } from '@/src/services/profile/profileApi'
 import { BaseMenu } from 'src/components/sidebar/base-menu'
 
 export const Sidebar = () => {

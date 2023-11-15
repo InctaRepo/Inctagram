@@ -6,7 +6,7 @@ import s from './create-new-password.module.scss'
 
 import { useTranslate } from '@/src/assets/hooks'
 import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
-import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schema'
+import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatchSchema'
 import { CreateNewPassword } from '@/src/components/auth/create-new-password/CreateNewPassword'
 import { Header } from '@/src/components/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'

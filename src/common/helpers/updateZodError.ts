@@ -1,9 +1,9 @@
 import { LoginFormType } from '@/src/common/schemas/create-login-schema'
-import { PasswodsMatchFormType } from '@/src/common/schemas/passwordsMatch-schema'
-import { ProfileSettingFormType } from '@/src/common/schemas/profile-setting-schema'
-import { RegisterFormType } from '@/src/common/schemas/register-schema'
+import { PasswordsMatchForm } from '@/src/common/schemas/passwordsMatchSchema'
+import { ProfileSettingForm } from '@/src/common/schemas/profileSettingSchema'
+import { RegisterForm } from '@/src/common/schemas/registerSchema'
 
-type FormType = LoginFormType | RegisterFormType | ProfileSettingFormType | PasswodsMatchFormType
+type FormType = LoginFormType | RegisterForm | ProfileSettingForm | PasswordsMatchForm
 // add your form manual type
 
 export type FormFields = keyof FormType

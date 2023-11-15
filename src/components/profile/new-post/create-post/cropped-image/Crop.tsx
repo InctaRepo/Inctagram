@@ -1,4 +1,4 @@
-import { CropArgType } from '@/src/components/profile/new-post/create-post/cropped-image/easy-crop'
+import { CropArg } from '@/src/components/profile/new-post/create-post/cropped-image/EasyCrop'
 
 export const createImage = (url: string | null): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
@@ -28,12 +28,9 @@ export function rotateSize(width: number, height: number, rotation: number) {
   }
 }
 
-/**
- * This function was adapted from the one in the ReadMe of https://github.com/DominicTobias/react-image-crop
- */
 export default async function getCroppedImg(
   imageSrc: string,
-  pixelCrop: CropArgType,
+  pixelCrop: CropArg,
   rotation = 0,
   flip = { horizontal: false, vertical: false }
 ): Promise<string | undefined> {
