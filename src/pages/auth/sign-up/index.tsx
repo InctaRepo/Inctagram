@@ -4,14 +4,14 @@ import s from './sign-up.module.scss'
 
 import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
 import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { RegisterFormType } from '@/src/common/schemas/register-schema'
-import { RegisterForm } from '@/src/components/auth/register-form'
+import { RegisterForm } from '@/src/common/schemas/registerSchema'
+import { Register } from '@/src/components/auth/register-form'
 import { Header } from '@/src/components/header/header'
 import { Modal } from '@/src/components/ui/modals/BaseModal'
 import { Typography } from '@/src/components/ui/typography'
 import { useRegisterMutation } from '@/src/services/auth/auth-api'
 
-// const SignUpPage = (props: PropsType) => {
+// const SignUpPage = (props: Props) => {
 const SignUpPage = () => {
   const { t } = useTranslate()
 
@@ -39,11 +39,8 @@ const SignUpPage = () => {
       }
     }
   }, [isSuccess, data])
-  //TODO refactor error handling to global
 
-  // END : for error handling manual , need refactor =================================================
-
-  const submit = (data: RegisterFormType) => {
+  const submit = (data: RegisterForm) => {
     userRegistration(data)
   }
 
@@ -58,7 +55,7 @@ const SignUpPage = () => {
     <div className={s.container}>
       {!emailSentModal && <Header />}
       <div className={s.main}>
-        <RegisterForm onSubmitHandler={submit} />
+        <Register onSubmitHandler={submit} />
         <Modal
           modalWidth={'sm'}
           title={t.auth.emailSent}

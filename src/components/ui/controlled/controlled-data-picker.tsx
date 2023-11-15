@@ -1,6 +1,6 @@
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
 
-import { DatePicker, DatePickerProps } from '@/src/components/ui/date-picker/date-picker'
+import { DatePicker, DatePickerProps } from '@/src/components/ui/date-picker/DatePicker'
 
 export type ControlledDataPickerProps<T extends FieldValues> = UseControllerProps<T> &
   Omit<DatePickerProps, 'ref' | 'startDate' | 'setStartDate'>

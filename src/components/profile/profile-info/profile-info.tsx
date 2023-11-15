@@ -4,7 +4,7 @@ import AvatarImage from '@/src/assets/images/avatar-image'
 import { DataProfile } from '@/src/components/profile/profile-info/data-profile'
 import s from '@/src/components/profile/profile-info/profile-info.module.scss'
 import { useAppSelector } from '@/src/services'
-import { useGetProfileQuery } from '@/src/services/profile/profile-api'
+import { useGetProfileQuery } from '@/src/services/profile/profileApi'
 
 export const ProfileInfo = () => {
   const { userId } = useAppSelector(state => state.auth.user!)

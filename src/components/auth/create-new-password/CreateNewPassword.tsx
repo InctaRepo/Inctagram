@@ -7,20 +7,17 @@ import { useForm } from 'react-hook-form'
 
 import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
-import {
-  PasswodsMatchFormType,
-  passwordsMatchSchema,
-} from '@/src/common/schemas/passwordsMatch-schema'
+import { PasswordsMatchForm, passwordsMatchSchema } from '@/src/common/schemas/passwordsMatchSchema'
 import s from '@/src/components/auth/create-new-password/createNewPassword.module.scss'
 import { Button } from '@/src/components/ui/button'
 import { ControlledTextField } from '@/src/components/ui/controlled'
 import { Typography } from '@/src/components/ui/typography'
 
-type CreateNewPasswordPropsType = {
-  onSubmitHandler: (data: PasswodsMatchFormType) => void
+type CreateNewPasswordProps = {
+  onSubmitHandler: (data: PasswordsMatchForm) => void
 }
 
-export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsType) => {
+export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordProps) => {
   const { t } = useTranslate()
   const router = useRouter()
 
@@ -30,7 +27,7 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
     formState,
     trigger,
     formState: { touchedFields, errors },
-  } = useForm<PasswodsMatchFormType>({
+  } = useForm<PasswordsMatchForm>({
     resolver: zodResolver(passwordsMatchSchema(t)),
     mode: 'onTouched',
     defaultValues: {
@@ -43,10 +40,9 @@ export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordPropsTyp
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
-    // TODO:  it works ! but need to replace this handler (not a good one)
   }, [t])
 
-  const onSubmit = handleSubmit((data: PasswodsMatchFormType) => {
+  const onSubmit = handleSubmit((data: PasswordsMatchForm) => {
     onSubmitHandler(data)
   })
 
