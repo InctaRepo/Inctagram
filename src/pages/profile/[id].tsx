@@ -1,8 +1,8 @@
-import { getProfileLayout } from '@/src/components/layout/profile-layout'
-import { Profile } from '@/src/components/profile'
-import { NextPageWithLayout } from '@/src/pages/_app'
-import { wrapper } from '@/src/services'
-import { getProfileSSR, getRunningQueriesThunk } from '@/src/services/profile/profileSsrApi'
+import { wrapper } from '@/src/store'
+import { getProfileLayout } from 'src/widgets/layout/profileLayout'
+import { Profile } from '@/src/features/profile'
+import { getProfileSSR, getRunningQueriesThunk } from '@/src/features/profile/service/profileSsrApi'
+import { NextPageWithLayout } from '@/src/shared/service/types'
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.params?.id

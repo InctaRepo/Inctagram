@@ -1,11 +1,8 @@
-import React, { FC, useEffect } from 'react'
-
 import ImageToAdd from 'next/image'
-
-import s from './AddedImages.module.scss'
-
+import React, { useEffect } from 'react'
 import { CloseIcon } from '@/src/assets/icons/close-icon'
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
+import { Image } from '../../../CreateNewPost'
+import s from '../addedImages/AddedImages.module.scss'
 
 type Props = {
   addedImages: Image[]

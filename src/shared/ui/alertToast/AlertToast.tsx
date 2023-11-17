@@ -1,7 +1,6 @@
 import { clsx } from 'clsx'
 import { toast } from 'react-toastify'
-
-import s from './alert-toast.module.scss'
+import s from './alertToast.module.scss'
 
 export const AlertToast = (error: boolean, text: string) => {
   // const err = useAppSelector(appErrorSelector)

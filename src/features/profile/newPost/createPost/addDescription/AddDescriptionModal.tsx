@@ -1,5 +1,3 @@
-import React, { ComponentProps, FC, ReactNode, useState } from 'react'
-
 import {
   Dialog,
   DialogContent,
@@ -9,14 +7,13 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
-
-import s from './AddDescriptionModal.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
+import React, { ComponentProps, ReactNode } from 'react'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
-import { Button } from '@/src/components/ui/button'
-import { Typography } from '@/src/components/ui/typography'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
+import { Image } from '../CreateNewPost'
+import s from './addDescriptionModal.module.scss'
 
 export type ModalProps = {
   image?: string
@@ -37,13 +34,17 @@ export type ModalProps = {
   className?: string
   setOpenSureModal: (openSureModal: boolean) => void
   addedImages: Image[]
-  setAddedImages: (addedImages: Awaited<{ image: string }>[]) => void
+  setAddedImages: (
+    addedImages: Awaited<{
+      image: string
+    }>[]
+  ) => void
   sendFilteredImg: (activeFilter: string) => void
   isDescriptionModalOpen: boolean
   setIsDescriptionModalOpen: (isDescriptionModalOpen: boolean) => void
 } & ComponentProps<'div'>
 
-const DescriptionModal = ({
+export const AddDescriptionModal = ({
   activeFilter,
   setIsFiltersModalOpen,
   showSeparator = true,
@@ -117,5 +118,3 @@ const DescriptionModal = ({
 function getContentClassName(className?: string) {
   return clsx(className, s.DialogContent)
 }
-
-export default DescriptionModal
