@@ -1,11 +1,9 @@
-import React, { FC } from 'react'
-
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
-
-import s from '@/src/components/auth/auth-page/AuthPage.module.scss'
-import { Button } from '@/src/components/ui/button'
-import { Typography } from '@/src/components/ui/typography/typography'
+import React, { FC } from 'react'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography/Typography'
+import s from './authPage.module.scss'
 
 type AuthPageType = {
   title: string

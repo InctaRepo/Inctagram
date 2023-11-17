@@ -1,21 +1,22 @@
 import React, { FC } from 'react'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import HomeIcon from '@/src/assets/icons/home-icon'
 import MessageIcon from '@/src/assets/icons/message-icon'
 import ProfileIcon from '@/src/assets/icons/profile-icon'
 import SearchIcon from '@/src/assets/icons/search-icon'
-import { LinkMenu } from '@/src/components/profile/links'
-import { CreatePostModal } from '@/src/components/profile/new-post/create-post/CreateNewPost'
-import s from '@/src/components/sidebar/base-menu/base-manu.module.scss'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { CreatePostModal } from '@/src/features/profile/newPost/createPost/CreateNewPost'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { LinkMenu } from 'src/features/profile/linkMenu'
+import { useTranslate } from '../../../hooks'
+import s from './baseMenu.module.scss'
 
-type BaseMenuType = {
+type Props = {
   variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   handleClick: (
     variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
   ) => void
 }
-export const BaseMenu: FC<BaseMenuType> = ({ variantIcon, handleClick }) => {
+export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
   const { t } = useTranslate()
 
   return (

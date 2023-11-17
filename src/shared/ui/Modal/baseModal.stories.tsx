@@ -1,19 +1,17 @@
-import { useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { Button } from '@/src/components/ui/button'
-import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
+import { useState } from 'react'
+import { Button } from '../button'
+import { Typography } from '../typography'
+import { Modal } from './Modal'
 
 const meta = {
   title: 'Components/Modal',
-  component: BaseModal,
+  component: Modal,
   tags: ['autodocs'],
-} satisfies Meta<typeof BaseModal>
+} satisfies Meta<typeof Modal>
 
 export default meta
-type Story = StoryObj<typeof BaseModal>
+type Story = StoryObj<typeof Modal>
 
 export const DefaultModal: Story = {
   render: args => {
@@ -25,11 +23,11 @@ export const DefaultModal: Story = {
     return (
       <>
         <Button onClick={() => setOpen(true)}>Modal</Button>
-        <BaseModal {...args} title={'Default Modal'} open={open} onClose={handler}>
+        <Modal {...args} title={'Default Modal'} open={open} onClose={handler}>
           <Typography variant={'regular16'}>
             We have sent a link to confirm your email to epam@epam.com
           </Typography>
-        </BaseModal>
+        </Modal>
       </>
     )
   },
@@ -45,7 +43,7 @@ export const ModalWithSaveButton: Story = {
     return (
       <>
         <Button onClick={() => setOpen(true)}>Modal</Button>
-        <BaseModal
+        <Modal
           {...args}
           title={'With One Button'}
           open={open}
@@ -55,7 +53,7 @@ export const ModalWithSaveButton: Story = {
           <Typography variant={'regular16'}>
             We have sent a link to confirm your email to epam@epam.com
           </Typography>
-        </BaseModal>
+        </Modal>
       </>
     )
   },
