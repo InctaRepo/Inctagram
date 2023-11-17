@@ -1,13 +1,13 @@
 import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
-import { authApi } from '@/src/services/auth/auth-api'
-import { authActions } from '@/src/services/auth/auth-slice'
-import { baseUrl } from '@/src/services/base-api'
-// Create a new mutex
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { authApi } from '@/src/features/auth/authService/authApi'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { authActions } from '@/src/features/auth/authService/authSlice'
+import { BASE_URL } from '../const/const'
 
 const baseQuery = fetchBaseQuery({
-  baseUrl,
+  baseUrl: BASE_URL,
   credentials: 'include',
   prepareHeaders: headers => {
     const access = localStorage.getItem('access')
@@ -20,7 +20,7 @@ const baseQuery = fetchBaseQuery({
   },
 })
 
-export const baseQueryWithReauth: BaseQueryFn<
+export const baseQueryWithReAuth: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError

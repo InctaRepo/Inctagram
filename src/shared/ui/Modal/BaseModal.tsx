@@ -1,5 +1,3 @@
-import { ComponentPropsWithoutRef, FC, ReactNode } from 'react'
-
 import {
   Dialog,
   DialogContent,
@@ -9,13 +7,11 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
-import dynamic from 'next/dynamic'
-
+import { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { CloseIcon } from '@/src/assets/icons/close-icon'
-import { Button } from '@/src/components/ui/button'
-import { AppLoader } from '@/src/components/ui/loader'
-import s from '@/src/components/ui/modals/BaseModal/base-modal.module.scss'
-import { Typography } from '@/src/components/ui/typography'
+import { Button } from '../button'
+import { Typography } from '../typography'
+import s from './baseModal.module.scss'
 
 export type ModalSize = 'sm' | 'md' | 'lg'
 
@@ -33,7 +29,7 @@ export type ModalProps = {
   className?: string
 } & ComponentPropsWithoutRef<'div'>
 
-const BaseModal: FC<ModalProps> = ({
+const BaseModal = ({
   showSeparator = true,
   onClose,
   onAction,
@@ -46,7 +42,7 @@ const BaseModal: FC<ModalProps> = ({
   className,
   children,
   ...rest
-}) => {
+}: ModalProps) => {
   const classNames = {
     content: getContentClassName(modalWidth, className),
     separator: clsx(s.separator, !showSeparator && s.separatorHide),
@@ -117,7 +113,3 @@ function getSizeClassName(size: ModalSize) {
 }
 
 export default BaseModal // do not export this , instead use dynamic import "Modal" for js bundle reduce
-export const Modal = dynamic(() => import('@/src/components/ui/modals/BaseModal/BaseModal'), {
-  loading: () => <AppLoader />,
-  ssr: false,
-})

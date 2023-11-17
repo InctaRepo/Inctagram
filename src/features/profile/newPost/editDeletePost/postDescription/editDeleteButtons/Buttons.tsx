@@ -1,15 +1,12 @@
-import React, { FC, useState, useRef, useEffect, MutableRefObject } from 'react'
-
 import Image from 'next/image'
-
-import s from './Buttons.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks'
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import dots from '@/src/assets/icons/dots.svg'
-import { PostDescription } from '@/src/components/profile/new-post/create-post/add-description/description/description111'
-import { EditDescriptionModal } from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-description/EditDescriptionModal'
-import { PostImages } from '@/src/components/profile/new-post/edit-delete-post/post-photos/PostPhotos'
-import { DeleteModal } from '@/src/components/profile/new-post/edit-delete-post/small-modals/DeleteModal'
+import { useTranslate } from '@/src/shared/hooks'
+import { PostDescription } from '../../../createPost/addDescription/postDescription/PostDescription'
+import { PostImages } from '../../../editDeletePost/postPhotos/PostPhotos'
+import { DeleteModal } from '../../smallModals/DeleteModal'
+import s from '../editDeleteButtons/Buttons.module.scss'
+import { EditDescriptionModal } from '../editDescription/EditDescriptionModal'
 
 type Props = {
   isEditModalOpen?: boolean

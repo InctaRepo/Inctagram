@@ -1,4 +1,4 @@
-export type BaseResponseType<D = {}> = {
+export type BaseResponse<D = {}> = {
   extensions: {
     key: string
     message: string | Message[]
