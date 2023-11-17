@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react'
-
-import s from './CreateNewPost.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import CreateIcon from '@/src/assets/icons/create-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-import { LinkMenu } from '@/src/components/profile/links'
-import CroppedImage from '@/src/components/profile/new-post/create-post/cropped-image/CroppedImage'
-import CropModal from '@/src/components/profile/new-post/create-post/modal-for-crop/CropModal'
-import { Button } from '@/src/components/ui/button'
-import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { LinkMenu } from '@/src/features/profile/linkMenu'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Button } from '@/src/shared/ui/button'
+import { Modal } from '@/src/shared/ui/Modal'
+import { Typography } from '@/src/shared/ui/typography'
+import CroppedImage from '../createPost/croppedImage/CroppedImage'
+import CropModal from '../createPost/modalForCrop/CropModal'
+import s from './CreateNewPost.module.scss'
 
 export type SettingPhotoModalProps = {
   variantIcon?:
@@ -71,7 +70,7 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalProps) => {
   return (
     <div className={s.container}>
       {!addedImages.length && isBaseModalOpen ? (
-        <BaseModal
+        <Modal
           className={s.baseModal}
           modalWidth={'md'}
           open={isBaseModalOpen}
@@ -94,7 +93,7 @@ export const CreatePostModal = ({ variantIcon }: SettingPhotoModalProps) => {
               style={{ display: 'none' }}
             />
           </div>
-        </BaseModal>
+        </Modal>
       ) : (
         <CropModal
           image={image}

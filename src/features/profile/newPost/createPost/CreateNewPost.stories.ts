@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { CreatePostModal } from '@/src/components/profile/new-post/create-post/CreateNewPost'
+import { CreatePostModal } from './CreateNewPost'
 
 const meta = {
   title: 'pages/create-post',

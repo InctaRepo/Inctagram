@@ -1,23 +1,21 @@
-import React, { useEffect } from 'react'
-
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
-import { PasswordsMatchForm, passwordsMatchSchema } from '@/src/common/schemas/passwordsMatchSchema'
-import s from '@/src/components/auth/create-new-password/createNewPassword.module.scss'
-import { Button } from '@/src/components/ui/button'
-import { ControlledTextField } from '@/src/components/ui/controlled'
-import { Typography } from '@/src/components/ui/typography'
+import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { PasswordsMatchForm, passwordsMatchSchema } from '@/src/shared/schemas/passwordsMatchSchema'
+import { Button } from '@/src/shared/ui/button'
+import { ControlledTextField } from '@/src/shared/ui/controlled'
+import { Typography } from '@/src/shared/ui/typography'
+import s from './createNewPasswordForm.module.scss'
 
 type CreateNewPasswordProps = {
   onSubmitHandler: (data: PasswordsMatchForm) => void
 }
 
-export const CreateNewPassword = ({ onSubmitHandler }: CreateNewPasswordProps) => {
+export const CreateNewPasswordForm = ({ onSubmitHandler }: CreateNewPasswordProps) => {
   const { t } = useTranslate()
   const router = useRouter()
 
