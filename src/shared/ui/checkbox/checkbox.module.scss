@@ -1,0 +1,105 @@
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+@import 'src/styles/mixins';
+
+.wrapper {
+  width: 100%;
+}
+
+.error {
+  position: absolute;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  cursor: pointer;
+
+  position: relative;
+
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  color: $color-light-100;
+
+  &.disabled {
+    color: $color-dark-100;
+  }
+}
+
+.buttonWrapper {
+  all: unset;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px;
+
+  background-color: inherit;
+  border-radius: 50%;
+
+  &.disabled {
+    cursor: default;
+  }
+
+  &:focus {
+    background-color: $color-dark-500;
+  }
+
+  &:active:not(.disabled) {
+    background-color: $color-dark-100;
+  }
+
+  &:hover:not(.disabled),
+  &:hover.root:not([data-state='checked'], .disabled) {
+    background-color: $color-dark-100;
+  }
+}
+
+.checkbox {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+
+  background-color: transparent;
+  border: 2px solid $color-light-500;
+  border-radius: 3px;
+
+  transition: 0.2s ease-in-out;
+
+  &.disabled {
+    cursor: initial;
+    border: 2px solid $color-dark-100;
+  }
+}
+
+.checked {
+  background-color: $color-light-100;
+  border: 2px solid $color-light-100;
+
+  &.disabled {
+    background-color: $color-dark-100;
+    border: 2px solid $color-dark-100;
+  }
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

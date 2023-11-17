@@ -1,8 +1,7 @@
 import React from 'react'
-
-import { Page404 } from '@/src/components/404'
-import { getProfileLayout } from '@/src/components/layout/profile-layout'
-import { NextPageWithLayout } from '@/src/pages/_app'
+import { getProfileLayout } from 'src/widgets/layout/profileLayout'
+import { Page404 } from 'src/features/page404'
+import { NextPageWithLayout } from '@/src/shared/service/types'
 
 const Custom404: NextPageWithLayout = () => {
   return <Page404 />

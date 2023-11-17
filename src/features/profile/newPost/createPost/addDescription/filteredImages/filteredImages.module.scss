@@ -1,0 +1,17 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.imgContainer {
+  @include wh(490px, 457px);
+}
+
+.carousel {
+  @include wh(490px, 467px);
+
+  position: relative;
+}

@@ -1,0 +1,10 @@
+@import '../../../styles/mixins';
+@import '../../../styles/colors';
+
+.logo {
+  fill: white;
+}
+
+.logo:hover {
+  fill: $color-accent-500;
+}

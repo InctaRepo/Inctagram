@@ -1,0 +1,132 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.profile {
+  width: 972px;
+  height: auto;
+}
+
+.tabsMenu {
+  width: 972px;
+}
+
+.content {
+  @include flex-block(flex, row);
+
+  justify-content: flex-start;
+  width: 972px;
+  margin-bottom: 24px;
+}
+
+.ellipse {
+  @include wh(192px, 192px);
+
+  cursor: pointer;
+  margin-top: 18px;
+  background-color: $color-dark-300;
+  border-radius: 50%;
+}
+
+.image {
+  cursor: pointer;
+  margin: -115px 30px 96px 72px;
+}
+
+.calendar {
+  cursor: pointer;
+  position: relative;
+  bottom: 245px;
+  left: 750px;
+}
+
+.addBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.photoContent {
+  align-self: start;
+}
+
+.photo {
+  justify-content: center;
+}
+
+.saveBtn {
+  display: flex;
+  align-self: end;
+  justify-content: flex-end;
+
+  height: 36px;
+  margin-top: 24px;
+}
+
+.editForm {
+  @include wh(775px, 573px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-left: 40px;
+}
+
+.field {
+  @include wh(740px, 60px);
+
+  top: 240px;
+  left: 476px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.fieldSelect {
+  @include wh(740px, 60px);
+
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+.select {
+  @include wh(340px, 60px);
+}
+
+.date {
+  text-align: left;
+}
+
+.textArea {
+  @include wh(740px, 132px);
+
+  top: 576px;
+  left: 476px;
+  margin-bottom: 23px;
+
+  textarea {
+    height: 132px;
+  }
+}
+
+.grayLine {
+  width: 100%;
+  height: 1px;
+  margin-top: -23px;
+  background: $color-dark-300;
+}
+
+.grayLineError {
+  width: 100%;
+  height: 1px;
+  background: $color-dark-300;
+}

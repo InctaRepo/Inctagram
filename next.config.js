@@ -31,6 +31,16 @@ const nextConfig = {
     locales: ['en', 'ru'],
     defaultLocale: 'ru',
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'inctagram-pirates.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
