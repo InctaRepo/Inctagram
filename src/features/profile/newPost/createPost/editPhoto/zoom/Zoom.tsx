@@ -1,10 +1,7 @@
-import React, { ChangeEvent, FC, MutableRefObject, useEffect, useRef, useState } from 'react'
-
-import { Slider } from '@mui/base/Slider'
 import Image from 'next/image'
-
+import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from 'react'
 import maximize from '@/src/assets/icons/maximize-outline.svg'
-import s from '@/src/components/profile/new-post/create-post/edit-photo/zoom/Zoom.module.scss'
+import s from '../zoom/Zoom.module.scss'
 
 type Props = {
   className?: string
