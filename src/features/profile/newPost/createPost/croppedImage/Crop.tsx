@@ -1,4 +1,4 @@
-import { CropArg } from '@/src/components/profile/new-post/create-post/cropped-image/EasyCrop'
+import { CropArg } from '../croppedImage/EasyCrop'
 
 export const createImage = (url: string | null): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {

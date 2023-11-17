@@ -1,5 +1,3 @@
-import React, { ComponentProps, ReactNode, useState, useRef } from 'react'
-
 import {
   Dialog,
   DialogContent,
@@ -9,16 +7,15 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
-
-import s from './CropModal.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
+import React, { ComponentProps, ReactNode, useRef, useState } from 'react'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-import { AreYouSureModal } from '@/src/components/profile/new-post/create-post/are-you-sure/AreYouSureModal'
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
-import FiltersModal from '@/src/components/profile/new-post/create-post/edit-photo/filters/FiltersModal'
-import SelectedImages111 from '@/src/components/profile/new-post/create-post/edit-photo/filters/selected-images/selectedImages111'
-import { Typography } from '@/src/components/ui/typography'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Typography } from '@/src/shared/ui/typography'
+import SelectedImages from '../../createPost/editPhoto/filters/selected-images/selectedImages'
+import { AreYouSureModal } from '../areYouSure/AreYouSureModal'
+import { Image } from '../CreateNewPost'
+import FiltersModal from '../editPhoto/filters/FiltersModal'
+import s from '../modalForCrop/CropModal.module.scss'
 
 export type ModalProps = {
   image?: string
@@ -112,7 +109,7 @@ const CropModal = ({
                     openSureModal={openSureModal}
                     setOpenSureModal={setOpenSureModal}
                   >
-                    <SelectedImages111
+                    <SelectedImages
                       image={image}
                       addedImages={addedImages}
                       setActiveFilter={setActiveFilter}

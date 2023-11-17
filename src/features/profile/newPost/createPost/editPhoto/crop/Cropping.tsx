@@ -1,15 +1,13 @@
-import React, { FC, useState, useRef, useEffect, MutableRefObject } from 'react'
-
 import Image from 'next/image'
-
-import { useTranslate } from '@/src/assets/hooks'
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import expandOutline from '@/src/assets/icons/expand-outline.svg'
 import img from '@/src/assets/icons/image-ouline.svg'
 import rectangle11 from '@/src/assets/icons/rectangle11.svg'
 import rectangle169 from '@/src/assets/icons/rectangle169.svg'
 import rectangle45 from '@/src/assets/icons/rectangle45.svg'
-import s from '@/src/components/profile/new-post/create-post/edit-photo/crop/Cropping.module.scss'
-import { Typography } from '@/src/components/ui/typography'
+import { useTranslate } from '@/src/shared/hooks'
+import { Typography } from '@/src/shared/ui/typography'
+import s from '../crop/Cropping.module.scss'
 
 type Props = {
   setAspectRatio: (aspect: number) => void

@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from 'react'
-
 import Slider from 'react-slick'
-
-import getCroppedImg from './Crop'
-import s from './CropedImage.module.scss'
-
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
-import EasyCrop, {
-  CropArg,
-} from '@/src/components/profile/new-post/create-post/cropped-image/EasyCrop'
-import { Add } from '@/src/components/profile/new-post/create-post/edit-photo/add/Add'
-import { Cropping } from '@/src/components/profile/new-post/create-post/edit-photo/crop/Cropping'
-import { Zoom } from '@/src/components/profile/new-post/create-post/edit-photo/zoom/Zoom'
-
-// eslint-disable-next-line import/order
+import { Image } from '../CreateNewPost'
+import getCroppedImg from '../croppedImage/Crop'
+import s from '../croppedImage/CropedImage.module.scss'
+import EasyCrop, { CropArg } from '../croppedImage/EasyCrop'
+import { Add } from '../editPhoto/add/Add'
+import { Cropping } from '../editPhoto/crop/Cropping'
+import { Zoom } from '../editPhoto/zoom/Zoom'
 
 type Props = {
   image?: string

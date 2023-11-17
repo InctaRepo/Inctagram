@@ -1,18 +1,18 @@
 import { useRouter } from 'next/router'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { authIsAuthSelector } from '@/src/features/auth/authService'
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { useAppSelector } from '@/src/shared/hooks'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
+import { UserInfo } from '../../service/profileApiTypes'
+import s from './dataProfile.module.scss'
 
-import s from './data-profile.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { Button } from '@/src/components/ui/button'
-import { Typography } from '@/src/components/ui/typography'
-import { useAppSelector } from '@/src/services'
-import { authIsAuthSelector } from '@/src/services/auth'
-import { UserInfoType } from '@/src/services/profile/profileApi.types'
-
-type DataProfileType = {
-  userData?: UserInfoType
+type Props = {
+  userData?: UserInfo
 }
-export const DataProfile = ({ userData }: DataProfileType) => {
+export const DataProfile = ({ userData }: Props) => {
   const { push } = useRouter()
   const isAuth = useAppSelector(authIsAuthSelector)
   const { t } = useTranslate()
@@ -25,7 +25,7 @@ export const DataProfile = ({ userData }: DataProfileType) => {
           <Button
             variant={'secondary'}
             className={s.button}
-            onClick={() => push('/profile/settings')}
+            onClick={() => push(RouteNames.PROFILE_SETTINGS)}
           >
             <Typography variant={'h3'}>{t.profile.profileSettings}</Typography>
           </Button>
