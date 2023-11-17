@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useErrorToast } from '@/src/shared/hooks/useErrorToast'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { RegisterForm } from '@/src/shared/schemas/registerSchema'
+import { Modal } from 'src/shared/ui/Modal'
+import { Typography } from 'src/shared/ui/typography'
+import { useRegisterMutation } from '../service/signUp'
+import { Register } from './register'
+import s from './signUp.module.scss'
 
-import s from './sign-up.module.scss'
-
-import { useErrorToast } from '@/src/assets/hooks/use-error-toast'
-import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { RegisterForm } from '@/src/common/schemas/registerSchema'
-import { Register } from '@/src/components/auth/register-form'
-import { Header } from '@/src/components/header/header'
-import { Modal } from '@/src/components/ui/modals/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
-import { useRegisterMutation } from '@/src/services/auth/auth-api'
-
-// const SignUpPage = (props: Props) => {
-const SignUpPage = () => {
+export const SignUp = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
@@ -53,7 +49,7 @@ const SignUpPage = () => {
 
   return (
     <div className={s.container}>
-      {!emailSentModal && <Header />}
+      {!emailSentModal}
       <div className={s.main}>
         <Register onSubmitHandler={submit} />
         <Modal
@@ -72,5 +68,3 @@ const SignUpPage = () => {
     </div>
   )
 }
-
-export default SignUpPage

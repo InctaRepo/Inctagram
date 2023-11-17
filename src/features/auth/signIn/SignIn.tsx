@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react'
-
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
+//TODO
+import { useAppSelector } from '@/src/shared/hooks'
+import { NextPageWithLayout } from '@/src/shared/service/types'
+import { RouteNames } from 'src/shared/const/routeNames'
+import {
+  authIsAuthSelector,
+  LoginArgsType,
+  useGetMeQuery,
+  useLoginUserMutation,
+} from '../authService'
+import { LoginForm } from './loginForm/LoginForm'
 
-import { RouteNames } from '@/src/common/constants/route-names'
-import { LoginForm } from '@/src/components/auth/login-form/login-form'
-import { getAuthLayout } from '@/src/components/layout/auth-layout'
-import { NextPageWithLayout } from '@/src/pages/_app'
-import { useAppSelector } from '@/src/services'
-import { useGetMeQuery, useLoginUserMutation } from '@/src/services/auth/auth-api'
-import { LoginArgsType } from '@/src/services/auth/auth-api-types'
-import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
-import { useGetProfileQuery } from '@/src/services/profile/profileApi'
-
-const SignInPage: NextPageWithLayout = () => {
+export const SignIn: NextPageWithLayout = () => {
   const [loginUser] = useLoginUserMutation()
   const isAuth = useAppSelector(authIsAuthSelector)
   const router = useRouter()
@@ -44,6 +46,3 @@ const SignInPage: NextPageWithLayout = () => {
 
   return <LoginForm onSubmitHandler={submit} errorServer={errorServer} />
 }
-
-SignInPage.getLayout = getAuthLayout
-export default SignInPage
