@@ -1,23 +1,25 @@
-import React, { useEffect } from 'react'
-
 import { zodResolver } from '@hookform/resolvers/zod'
+import ImageAva from 'next/image'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-
-import s from './description.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks'
 import AvatarImage from '@/src/assets/images/avatar-image'
-import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
-import { DescriptionForm, descriptionSchema } from '@/src/common/schemas/descriptionSchema'
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
-import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
-import { Typography } from '@/src/components/ui/typography'
-import { useAppSelector } from '@/src/services'
-import { useAddPostMutation } from '@/src/services/posts/postApi'
-import { useGetProfileQuery } from '@/src/services/profile/profileApi'
-import { UserInfo } from '@/src/services/profile/profileApi.types'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { authUserSelector } from '@/src/features/auth/authService'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useAddPostMutation } from '@/src/features/posts'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
+import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
+import { useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { DescriptionForm, descriptionSchema } from '@/src/shared/schemas/descriptionSchema'
+import { ControlledTextArea } from '@/src/shared/ui/controlled/ControlledTextArea'
+import { Typography } from '@/src/shared/ui/typography'
+import { Image } from '../../CreateNewPost'
+import s from './postDescription.module.scss'
 
-type DescriptionFormProps = {
+type Props = {
   onSubmitHandler?: (data: DescriptionForm) => void
   defaultValue?: string | number
   isEditModalOpen?: boolean
@@ -28,12 +30,12 @@ type DescriptionFormProps = {
   userData?: UserInfo
 }
 
-export const PostDescription = ({ value, setValue, userData }: DescriptionFormProps) => {
+export const PostDescription = ({ value, setValue, userData }: Props) => {
   const { t } = useTranslate()
   const [addPost] = useAddPostMutation()
-  const { userId } = useAppSelector(state => state.auth.user!)
+  const user = useAppSelector(authUserSelector)
 
-  const { data } = useGetProfileQuery(userId)
+  const { data } = useGetProfileQuery(user?.userId)
   const {
     control,
     trigger,
@@ -58,7 +60,13 @@ export const PostDescription = ({ value, setValue, userData }: DescriptionFormPr
         <div className={s.userInfo}>
           <div>
             {data?.data?.avatar && (
-              <img src={data?.data?.avatar} className={s.ava} alt={'avatar'} />
+              <ImageAva
+                width={36}
+                height={36}
+                src={data?.data?.avatar}
+                className={s.ava}
+                alt={'avatar'}
+              />
             )}
             {!data?.data?.avatar && <AvatarImage className={s.ava} />}
           </div>

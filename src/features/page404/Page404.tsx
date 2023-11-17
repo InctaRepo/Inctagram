@@ -1,7 +1,6 @@
 import React from 'react'
-
-import s from '@/src/components/404/404.module.scss'
-import { Typography } from '@/src/components/ui/typography'
+import { Typography } from '@/src/shared/ui/typography'
+import s from './page404.module.scss'
 
 export const Page404 = () => {
   return (

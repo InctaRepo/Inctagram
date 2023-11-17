@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Button } from '@/src/shared/ui/button/Button'
+import { Modal } from '@/src/shared/ui/Modal'
+import { Typography } from '@/src/shared/ui/typography/Typography'
+import { usePasswordRecoveryMutation } from '../authService/authApi'
+import { PasswordRecoveryType } from '../authService/authApiTypes'
+import { ForgotPassword } from './forgotPassword/ForgotPassword'
+import s from './forgotPassword/forgotPassword.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { ForgotPassword } from '@/src/components/auth/forgot-password/ForgotPassword'
-import s from '@/src/components/auth/forgot-password/forgotPassword.module.scss'
-import { AuthLayout } from '@/src/components/layout/auth-layout'
-import { Button } from '@/src/components/ui/button/button'
-import { Modal } from '@/src/components/ui/modals/BaseModal'
-import { Typography } from '@/src/components/ui/typography/typography'
-import { usePasswordRecoveryMutation } from '@/src/services/auth/auth-api'
-import { PasswordRecoveryType } from '@/src/services/auth/auth-api-types'
-
-const PasswordRecovery = () => {
+export const PasswordRecovery = () => {
   const [passwordRecovery] = usePasswordRecoveryMutation()
   const { t } = useTranslate()
   const [email, setEmail] = useState('')
@@ -25,7 +23,7 @@ const PasswordRecovery = () => {
   }
 
   return (
-    <AuthLayout>
+    <>
       <ForgotPassword onSubmitHandler={submit} modalHandler={modalHandler} />
       <Modal
         className={s.modal}
@@ -43,8 +41,6 @@ const PasswordRecovery = () => {
           </Button>
         </div>
       </Modal>
-    </AuthLayout>
+    </>
   )
 }
-
-export default PasswordRecovery

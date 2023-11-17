@@ -1,6 +1,5 @@
 import { z } from 'zod'
-
-import { LocaleType } from '@/src/locales/en'
+import { LocaleType } from 'public/locales/en'
 
 export function passwordsMatchSchema(t: LocaleType) {
   return z

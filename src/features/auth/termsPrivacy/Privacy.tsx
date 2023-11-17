@@ -1,16 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-
-import { Typography } from '../../../ui/typography'
-
-import s from './style.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks'
-import { useHistory } from '@/src/assets/hooks/useHistory'
 import ImageArrow from '@/src/assets/images/rightArrow.png'
-import { Header } from '@/src/components/header/header'
-import { Button } from '@/src/components/ui/button'
+import { Header } from '@/src/shared/header/ui/Header'
+import { useTranslate } from '@/src/shared/hooks'
+import { useHistory } from '@/src/shared/hooks/useHistory'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from 'src/shared/ui/typography'
+import s from './style.module.scss'
 
 export const Privacy = () => {
   const { back } = useHistory()

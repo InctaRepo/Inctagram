@@ -1,16 +1,15 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-
-import { BaseResponseType } from '@/src/services'
-import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
-import { UserInfo } from '@/src/services/profile/profileApi.types'
+import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
+import { BaseResponse } from '@/src/shared/api/baseResponse'
+import { UserInfo } from '../../profile/service/profileApiTypes'
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
-  baseQuery: baseQueryWithReauth,
+  baseQuery: baseQueryWithReAuth,
   keepUnusedDataFor: 5,
   tagTypes: ['profile'],
   endpoints: builder => ({
-    createProfile: builder.mutation<BaseResponseType, UserInfo & Pick<UserInfo, 'id'>>({
+    createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'id'>>({
       query: ({ id, ...patch }) => ({
         method: 'POST',
         url: `users/profile/${id}`,
@@ -18,7 +17,7 @@ export const profileApi = createApi({
       }),
       // invalidatesTags: ['profile'],
     }),
-    updateProfile: builder.mutation<BaseResponseType, UserInfo & Pick<UserInfo, 'id'>>({
+    updateProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'id'>>({
       query: ({ id, ...patch }) => ({
         method: 'PUT',
         url: `users/profile/${id}`,
@@ -26,13 +25,13 @@ export const profileApi = createApi({
       }),
       // invalidatesTags: ['profile'],
     }),
-    getProfile: builder.query<BaseResponseType<UserInfo>, string | undefined>({
+    getProfile: builder.query<BaseResponse<UserInfo>, string | undefined>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,
       }),
     }),
-    uploadAvatar: builder.mutation<BaseResponseType, FormData>({
+    uploadAvatar: builder.mutation<BaseResponse, FormData>({
       query: FormData => ({
         url: `users/profile/avatar/upload`,
         method: 'POST',
@@ -40,7 +39,7 @@ export const profileApi = createApi({
       }),
       // invalidatesTags: ['profile'],
     }),
-    deleteAvatar: builder.mutation<BaseResponseType, void>({
+    deleteAvatar: builder.mutation<BaseResponse, void>({
       query: () => ({
         url: `users/profile/avatar`,
         method: 'DELETE',

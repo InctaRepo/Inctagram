@@ -1,20 +1,14 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-
-import { BaseResponseType } from '@/src/services'
-import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
-import {
-  GetUserPostsRequest,
-  GetUserPostsResponse,
-  UpdatePost,
-  UpdateResponse,
-} from '@/src/services/posts/postApi.types'
+import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
+import { BaseResponse } from '@/src/shared/api/baseResponse'
+import { GetUserPostsResponse, UpdatePost, UpdateResponse } from '../posts/postApiTypes'
 
 export const postApi = createApi({
   reducerPath: 'postApi',
-  baseQuery: baseQueryWithReauth,
+  baseQuery: baseQueryWithReAuth,
   tagTypes: ['createPost', 'editPost', 'deletePost'],
   endpoints: builder => ({
-    addPost: builder.mutation<BaseResponseType, FormData>({
+    addPost: builder.mutation<BaseResponse, FormData>({
       query: body => ({
         method: 'POST',
         url: `posts/create`,
@@ -30,14 +24,14 @@ export const postApi = createApi({
       }),
       invalidatesTags: ['editPost'],
     }),
-    deletePost: builder.mutation<BaseResponseType, string>({
+    deletePost: builder.mutation<BaseResponse, string>({
       query: postId => ({
         url: `posts/${postId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['deletePost'],
     }),
-    getUserPosts: builder.query<BaseResponseType<GetUserPostsResponse>, string>({
+    getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string>({
       query: userId => ({
         url: `posts/${userId}`,
         method: 'GET',

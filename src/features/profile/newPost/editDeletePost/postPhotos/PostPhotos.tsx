@@ -1,11 +1,8 @@
 import React from 'react'
-
 import Slider from 'react-slick'
-
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-
-import s from './PostPhotos.module.scss'
+import s from '../postPhotos/PostPhotos.module.scss'
 
 type Props = {
   //postImages: Image[]
@@ -65,5 +62,3 @@ export const PostImages = () => {
     </>
   )
 }
-
-export default PostImages
