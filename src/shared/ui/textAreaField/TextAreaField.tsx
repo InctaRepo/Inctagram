@@ -1,11 +1,8 @@
-import { ComponentProps, ElementType } from 'react'
-
 import clsx from 'clsx'
+import { ComponentProps, ElementType } from 'react'
 import { FieldError } from 'react-hook-form'
-
-import s from './text-area.module.scss'
-
-import { Typography } from '@/src/components/ui/typography'
+import { Typography } from '../typography'
+import s from './textAreaField.module.scss'
 
 export type TTextAreaProps<T extends ElementType = 'textarea'> = {
   as?: T

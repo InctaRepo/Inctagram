@@ -1,23 +1,22 @@
-import React, { ReactNode, useState } from 'react'
-
 import * as Tabs from '@radix-ui/react-tabs'
 import clsx from 'clsx'
+import React, { ReactNode, useState } from 'react'
+import s from './tabsComponent.module.scss'
 
-import s from './tabs-component.module.scss'
 type TabProps = {
   label: string
   value: string
   children?: ReactNode
 }
 
-type TabsProps = {
+type Props = {
   tabs: TabProps[]
   defaultValue?: string
   onChange?: (value: string) => void
   disabled?: boolean
 }
 
-export const TabsComponent = ({ defaultValue, disabled, onChange, tabs }: TabsProps) => {
+export const TabsComponent = ({ defaultValue, disabled, onChange, tabs }: Props) => {
   const [activeTab, setActiveTab] = useState(defaultValue || tabs[0].value)
 
   const handleTabChange = (value: string) => {

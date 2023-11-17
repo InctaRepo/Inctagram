@@ -2,16 +2,13 @@
 
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-
-import { Typography } from '../../../ui/typography'
-
-import s from './style.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks'
 import ImageArrow from '@/src/assets/images/rightArrow.png'
-import { RouteNames } from '@/src/common/constants/route-names'
-import { Header } from '@/src/components/header/header'
-import { Button } from '@/src/components/ui/button'
+import { Header } from '@/src/shared/header/ui/Header'
+import { useTranslate } from '@/src/shared/hooks'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
+import { RouteNames } from 'src/shared/const/routeNames'
+import s from './style.module.scss'
 
 export const Terms = () => {
   const { t } = useTranslate()

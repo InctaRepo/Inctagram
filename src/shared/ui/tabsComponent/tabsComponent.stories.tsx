@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Button } from '../button'
 import { Checkbox } from '../checkbox'
-
-import { TabsComponent } from '@/src/components/ui/tabs/tabs-component'
+import { TabsComponent } from './TabsComponent'
 
 const meta: Meta<typeof TabsComponent> = {
   title: 'Components/Tabs',

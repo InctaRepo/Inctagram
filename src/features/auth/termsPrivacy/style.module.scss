@@ -1,5 +1,5 @@
-@import '@/src/styles/mixins';
-@import '@/src/styles/colors';
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
 
 .main {
   display: flex;
@@ -34,7 +34,7 @@
   position: relative;
   z-index: -9999;
   bottom: 30px;
-  font-weight: 400px;
+  font-weight: 400;
   list-style: none;
 }
 

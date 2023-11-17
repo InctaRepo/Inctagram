@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react'
-
 import s from './typography.module.scss'
 
 export type TypographyProps<T extends ElementType = 'p'> = {

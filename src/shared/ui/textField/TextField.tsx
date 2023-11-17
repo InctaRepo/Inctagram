@@ -1,9 +1,8 @@
 import React, { ComponentProps } from 'react'
+import { InputMain } from './inputMain'
+import s from './textField.module.scss'
 
-import { InputMain } from '@/src/components/ui/text-field/input-main/input-main'
-import s from '@/src/components/ui/text-field/text-field.module.scss'
-
-export type TextFieldPropsType = {
+export type TextFieldProps = {
   errorMessage?: string
   label?: string
   fullWidth?: boolean
@@ -13,14 +12,14 @@ export type TextFieldPropsType = {
   isRequired?: boolean
 } & ComponentProps<'input'>
 
-export const TexField: React.FC<TextFieldPropsType> = ({
+export const TextField = ({
   value,
   errorMessage,
   className,
   fullWidth,
   isRequired,
   ...restProps
-}) => {
+}: TextFieldProps) => {
   return (
     <div className={`${className} ${fullWidth ? s.fullWidth : ''}`}>
       <InputMain
