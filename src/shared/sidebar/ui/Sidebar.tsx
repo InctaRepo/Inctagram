@@ -1,22 +1,23 @@
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import SaveIcon from '@/src/assets/icons/save-icon'
-import { Logout } from '@/src/components/auth/logout/logout'
-import { LinkMenu } from '@/src/components/profile/links'
-import s from '@/src/components/sidebar/sidebar.module.scss'
-import { useAppDispatch, useAppSelector } from '@/src/services'
-import { menuSelector } from '@/src/services/menu/menu-selectors'
-import { menuActions } from '@/src/services/menu/menu-slice'
-import { useGetProfileQuery } from '@/src/services/profile/profileApi'
-import { BaseMenu } from 'src/components/sidebar/base-menu'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Logout } from '@/src/features/auth/logout/Logout'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { authUserSelector } from 'src/features/auth/authService'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { LinkMenu } from 'src/features/profile/linkMenu'
+import { useAppDispatch, useAppSelector, useTranslate } from '../../hooks'
+import { sidebarVariantIconSelector } from '../model/selectors/sidebarVariantIconSelector'
+import { menuActions } from '../model/slice/menuSlice'
+import { BaseMenu } from './baseMenu'
+import s from './sidebar.module.scss'
 
 export const Sidebar = () => {
-  const { userId } = useAppSelector(state => state.auth.user!)
+  const user = useAppSelector(authUserSelector)
   const dispatch = useAppDispatch()
-  const variantIcon = useAppSelector(menuSelector)
-  const { data: profile } = useGetProfileQuery(userId)
-  // const [variantIcon, setVariantIcon] = useState<
-  //   'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
-  // >()
+  const variantIcon = useAppSelector(sidebarVariantIconSelector)
+  const { data: profile } = useGetProfileQuery(user?.userId)
   const { t } = useTranslate()
 
   const handleItemClick = (
