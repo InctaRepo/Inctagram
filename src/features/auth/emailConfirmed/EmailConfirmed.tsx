@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react'
-
 import { useRouter } from 'next/router'
-
+import React, { useEffect } from 'react'
 import ConfirmedImage from '@/src/assets/images/email-confirmed-image'
-import { AuthPage } from '@/src/components/auth/auth-page/AuthPage'
-import { AuthLayout } from '@/src/components/layout/auth-layout'
-import { AppLoader } from '@/src/components/ui/loader'
-import { NextPageWithLayout } from '@/src/pages/_app'
-import { useRegConfirmMutation } from '@/src/services/auth'
+import { AppLoader } from '@/src/shared/ui/appLoader'
+import { AuthPage } from '../authPage/AuthPage'
+import { useRegConfirmMutation } from '../authService'
 
-export const EmailConfirmedPage: NextPageWithLayout = () => {
+export const EmailConfirmed = () => {
   const router = useRouter()
   const { emailCode } = router.query // get email confirm code from URL
 
@@ -22,7 +18,7 @@ export const EmailConfirmedPage: NextPageWithLayout = () => {
   }, [emailCode])
 
   return (
-    <AuthLayout>
+    <>
       {isSuccess && data?.resultCode === 0 ? (
         <AuthPage
           title="Congratulations!"
@@ -36,6 +32,6 @@ export const EmailConfirmedPage: NextPageWithLayout = () => {
         <AppLoader />
         // TODO global loader on waiting response and global error handling
       )}
-    </AuthLayout>
+    </>
   )
 }

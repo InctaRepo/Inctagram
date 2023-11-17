@@ -1,13 +1,12 @@
-import React, { FC } from 'react'
-
 import Image from 'next/image'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
+import React from 'react'
 import trash from '@/src/assets/icons/trash.svg'
-import s from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-description/EditDescriptionModal.module.scss'
-import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
-import { useDeletePostMutation } from '@/src/services/posts/postApi'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useDeletePostMutation } from '@/src/features/posts/postApi'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Modal } from '@/src/shared/ui/Modal'
+import { Typography } from '@/src/shared/ui/typography'
+import s from '../postDescription/editDescription/EditDescriptionModal.module.scss'
 
 export type ModalProps = {
   openDeleteModal: boolean
@@ -40,7 +39,7 @@ export const DeleteModal = ({
         <Typography variant={'regular14'}>{t.profile.profileSetting.delete}</Typography>
       </div>
       <div hidden={!openDeleteModal}>
-        <BaseModal
+        <Modal
           id={'deleteModal'}
           modalWidth={'sm'}
           title={t.profile.deletePost.delete}
@@ -52,7 +51,7 @@ export const DeleteModal = ({
           onAction={discardHandler}
         >
           <Typography variant={'h3'}>{t.profile.deletePost.areYouSure}</Typography>
-        </BaseModal>
+        </Modal>
       </div>
     </>
   )

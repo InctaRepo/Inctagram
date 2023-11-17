@@ -1,5 +1,3 @@
-import React, { ComponentProps, ReactNode, useState } from 'react'
-
 import {
   Dialog,
   DialogContent,
@@ -10,15 +8,14 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 import Image from 'next/image'
-
-import s from './EditDescriptionModal.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
+import React, { ComponentProps, ReactNode, useState } from 'react'
 import edit from '@/src/assets/icons/edit.svg'
-import { PostDescription } from '@/src/components/profile/new-post/create-post/add-description/description/description111'
-import { PostImages } from '@/src/components/profile/new-post/edit-delete-post/post-photos/PostPhotos'
-import { AreYouSureDescriptionModal } from '@/src/components/profile/new-post/edit-delete-post/small-modals/AreYouSureDescriptionModal'
-import { Typography } from '@/src/components/ui/typography'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Typography } from '@/src/shared/ui/typography'
+import { PostDescription } from '../../../createPost/addDescription/postDescription/PostDescription'
+import s from '../../postDescription/editDescription/EditDescriptionModal.module.scss'
+import { PostImages } from '../../postPhotos/PostPhotos'
+import { AreYouSureDescriptionModal } from '../../smallModals/AreYouSureDescriptionModal'
 
 export type ModalProps = {
   onClose?: () => void

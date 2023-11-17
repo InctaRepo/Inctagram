@@ -1,24 +1,23 @@
-import React, { ComponentProps, useState, forwardRef } from 'react'
-
 import { clsx } from 'clsx'
-import 'react-datepicker/dist/react-datepicker.min.css'
 // eslint-disable-next-line import/no-duplicates
 import { format } from 'date-fns'
-// eslint-disable-next-line import/no-duplicates
+// eslint-disable-next-line
 import { enGB, ru } from 'date-fns/locale'
 import { useRouter } from 'next/router'
-import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
+import { ComponentProps, forwardRef } from 'react'
 import * as RDP from 'react-datepicker'
+import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
-
-import { useTranslate } from '@/src/assets/hooks'
 import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
 import KeyboardArrowLeft from '@/src/assets/icons/key-board-arrow-left'
 import KeyboardArrowRight from '@/src/assets/icons/key-board-arrow-right'
-import s from '@/src/components/ui/date-picker/DatePicker.module.scss'
-import { Label } from '@/src/components/ui/label/label'
-import textFieldStyles from '@/src/components/ui/text-field/text-field.module.scss'
-import { Typography } from '@/src/components/ui/typography'
+import { RouteNames } from '../../const/routeNames'
+import { useTranslate } from '../../hooks'
+import { Label } from '../label'
+import textFieldStyles from '../textField/textField.module.scss'
+import { Typography } from '../typography'
+import s from './DatePicker.module.scss'
+import 'react-datepicker/dist/react-datepicker.min.css'
 
 export type DatePickerProps = {
   disabled?: boolean
@@ -129,7 +128,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
                   color="error"
                   variant="small"
                   as="a"
-                  onClick={() => router.replace('/auth/privacy-policy')}
+                  onClick={() => router.replace(RouteNames.PRIVACY_POLICY)}
                 >
                   {t.auth.privacyAndTermsPages.titleOfPrivacyPolicy}
                 </Typography>

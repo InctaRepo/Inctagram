@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { EditPostModal } from '@/src/components/profile/new-post/edit-delete-post/EditPostModal'
+import { EditPostModal } from './EditPostModal'
 
 const meta = {
   title: 'pages/edit-post',

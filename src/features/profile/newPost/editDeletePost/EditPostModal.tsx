@@ -1,20 +1,11 @@
-import React, { ComponentProps, ReactNode, useState } from 'react'
-
-import {
-  Dialog,
-  DialogContent,
-  DialogOverlay,
-  DialogPortal,
-  DialogTitle,
-} from '@radix-ui/react-dialog'
+import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
 import { clsx } from 'clsx'
-
+import React, { ComponentProps, ReactNode, useState } from 'react'
+import { useTranslate } from '@/src/shared/hooks'
+import { AddDescriptionModal } from '../createPost/addDescription/AddDescriptionModal'
+import { RightDescription } from '../editDeletePost/postDescription/RightDescription'
+import { PostImages } from '../editDeletePost/postPhotos/PostPhotos'
 import s from './EditPostModal.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks'
-import DescriptionModal from '@/src/components/profile/new-post/create-post/add-description/AddDescriptionModal'
-import { RightDescription } from '@/src/components/profile/new-post/edit-delete-post/post-description/RightDescription'
-import { PostImages } from '@/src/components/profile/new-post/edit-delete-post/post-photos/PostPhotos'
 
 export type ModalProps = {
   open: boolean
@@ -80,4 +71,4 @@ function getContentClassName(className?: string) {
   return clsx(className, s.DialogContent)
 }
 
-export default DescriptionModal
+export default AddDescriptionModal
