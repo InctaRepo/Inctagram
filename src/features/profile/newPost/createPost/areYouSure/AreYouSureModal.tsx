@@ -1,8 +1,7 @@
-import React, { FC } from 'react'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
-import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
+import React from 'react'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Modal } from '@/src/shared/ui/Modal'
+import { Typography } from '@/src/shared/ui/typography'
 
 export type ModalProps = {
   openSureModal: boolean
@@ -34,7 +33,7 @@ export const AreYouSureModal = ({
 
   return (
     <div hidden={!openSureModal}>
-      <BaseModal
+      <Modal
         id={'areYouSureModal'}
         modalWidth={'sm'}
         title={t.profile.areYouSure.close}
@@ -46,7 +45,7 @@ export const AreYouSureModal = ({
         onAction={discardHandler}
       >
         <Typography variant={'h3'}>{t.profile.areYouSure.areYouSure}</Typography>
-      </BaseModal>
+      </Modal>
     </div>
   )
 }

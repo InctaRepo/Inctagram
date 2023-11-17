@@ -1,24 +1,22 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-
-import { BaseResponseType } from '@/src/services'
-import { appActions } from '@/src/services/app'
+import { appActions } from '@/src/shared/app'
+import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
+import { BaseResponse } from '@/src/shared/api/baseResponse'
 import {
   AccessType,
   LoginArgsType,
   NewPasswordArgsType,
   PasswordRecoveryType,
-  RegisterArgsType,
   UserType,
-} from '@/src/services/auth/auth-api-types'
-import { authActions } from '@/src/services/auth/auth-slice'
-import { baseQueryWithReauth } from '@/src/services/base-query-with-reauth'
+} from './authApiTypes'
+import { authActions } from './authSlice'
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: baseQueryWithReauth,
+  baseQuery: baseQueryWithReAuth,
   tagTypes: ['Me'],
   endpoints: builder => ({
-    getMe: builder.query<BaseResponseType<UserType>, void>({
+    getMe: builder.query<BaseResponse<UserType>, void>({
       query: () => 'auth/me',
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
@@ -37,7 +35,7 @@ export const authApi = createApi({
       providesTags: ['Me'],
       extraOptions: { maxRetries: false },
     }),
-    loginUser: builder.mutation<BaseResponseType<AccessType>, LoginArgsType>({
+    loginUser: builder.mutation<BaseResponse<AccessType>, LoginArgsType>({
       query: data => ({
         method: 'POST',
         url: 'auth/login',
@@ -58,7 +56,7 @@ export const authApi = createApi({
         }
       },
     }),
-    logoutUser: builder.mutation<BaseResponseType<AccessType>, void>({
+    logoutUser: builder.mutation<BaseResponse<AccessType>, void>({
       query: () => ({
         method: 'POST',
         url: 'auth/logout',
@@ -75,28 +73,33 @@ export const authApi = createApi({
         }
       },
     }),
-    register: builder.mutation<BaseResponseType<{ email: string }>, RegisterArgsType>({
-      query: data => ({
-        method: 'POST',
-        url: 'auth/signup',
-        body: data,
-      }),
-    }),
-    createNewPassword: builder.mutation<BaseResponseType, NewPasswordArgsType>({
+    // register: builder.mutation<BaseResponseType<{ email: string }>, RegisterArgsType>({
+    //   query: data => ({
+    //     method: 'POST',
+    //     url: 'auth/signup',
+    //     body: data,
+    //   }),
+    // }),
+    createNewPassword: builder.mutation<BaseResponse, NewPasswordArgsType>({
       query: data => ({
         method: 'POST',
         url: 'auth/new-password',
         body: data,
       }),
     }),
-    passwordRecovery: builder.mutation<BaseResponseType, PasswordRecoveryType>({
+    passwordRecovery: builder.mutation<BaseResponse, PasswordRecoveryType>({
       query: data => ({
         method: 'POST',
         url: 'auth/password-recovery',
         body: data,
       }),
     }),
-    regConfirm: builder.mutation<BaseResponseType<AccessType>, { code: string }>({
+    regConfirm: builder.mutation<
+      BaseResponse<AccessType>,
+      {
+        code: string
+      }
+    >({
       query: data => ({
         method: 'POST',
         url: 'auth/registration-confirmation',
@@ -106,7 +109,6 @@ export const authApi = createApi({
   }),
 })
 export const {
-  useRegisterMutation,
   useLoginUserMutation,
   usePasswordRecoveryMutation,
   useCreateNewPasswordMutation,

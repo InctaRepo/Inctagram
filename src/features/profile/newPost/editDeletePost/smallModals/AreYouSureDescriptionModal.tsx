@@ -1,10 +1,9 @@
 import React from 'react'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { CloseIconOutline } from '@/src/assets/icons/close-outline'
-import s from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-description/EditDescriptionModal.module.scss'
-import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Modal } from '@/src/shared/ui/Modal'
+import { Typography } from '@/src/shared/ui/typography'
+import s from '../../editDeletePost/postDescription/editDescription/EditDescriptionModal.module.scss'
 
 type ModalProps = {
   openSureDescriptionModal: boolean
@@ -34,7 +33,7 @@ export const AreYouSureDescriptionModal = ({
         <CloseIconOutline />
       </div>
       <div hidden={!openSureDescriptionModal}>
-        <BaseModal
+        <Modal
           id={'areYouSureDescriptionModal'}
           modalWidth={'sm'}
           title={t.profile.editPost.closePost}
@@ -46,7 +45,7 @@ export const AreYouSureDescriptionModal = ({
           onAction={discardHandler}
         >
           <Typography variant={'h3'}>{t.profile.editPost.question}</Typography>
-        </BaseModal>
+        </Modal>
       </div>
     </>
   )
