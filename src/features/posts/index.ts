@@ -1,3 +1,3 @@
 export * from './postApi'
-export * from './postApi.types'
+export * from './postApiTypes'
 export * from './postSlice'
