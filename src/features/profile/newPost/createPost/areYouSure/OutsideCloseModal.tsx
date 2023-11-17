@@ -1,6 +1,4 @@
-import { Dispatch, FC, MutableRefObject, ReactNode, useRef } from 'react'
-
-import useOutsideCloseModal from '@/src/assets/hooks/use-outside-close-modal'
+import { Dispatch, MutableRefObject, ReactNode, useRef } from 'react'
 
 interface IOutsideCloseModalProps {
   setState: Dispatch<boolean>
@@ -19,7 +17,7 @@ const OutsideCloseModal = ({
 }: IOutsideCloseModalProps) => {
   const wrapperRef = useRef(null)
 
-  useOutsideCloseModal(setState, wrapperRef, areYouSureRef, openSureModal)
+  // useOutsideCloseModal(setState, wrapperRef, areYouSureRef, openSureModal)
 
   return (
     <div className={addClass} ref={wrapperRef}>

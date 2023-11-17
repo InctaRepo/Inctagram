@@ -1,17 +1,15 @@
 import { useState } from 'react'
-
-import { useTranslate } from '@/src/assets/hooks'
 import LogoutIcon from '@/src/assets/icons/logout-icon'
-import s from '@/src/components/auth/logout/logout.module.scss'
-import { Button } from '@/src/components/ui/button'
-import { Modal } from '@/src/components/ui/modals/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
-import { useAppDispatch, useAppSelector } from '@/src/services'
-import { authActions, useLogoutUserMutation } from '@/src/services/auth'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { Button } from '@/src/shared/ui/button'
+import { Modal } from '@/src/shared/ui/Modal'
+import { Typography } from '@/src/shared/ui/typography'
+import { authActions, authUserSelector, useLogoutUserMutation } from '../authService'
+import s from './logout.module.scss'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
-  const { user } = useAppSelector(state => state.auth)
+  const user = useAppSelector(authUserSelector)
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [logoutUser] = useLogoutUserMutation()
 

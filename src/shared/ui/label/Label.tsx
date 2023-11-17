@@ -1,15 +1,13 @@
-import { ComponentPropsWithoutRef, FC, ReactNode } from 'react'
-
 import * as LabelRadixUI from '@radix-ui/react-label'
 import { clsx } from 'clsx'
-
+import { ComponentPropsWithoutRef, ReactNode } from 'react'
 import s from './label.module.scss'
 
-type LabelProps = {
+type Props = {
   label?: ReactNode
 } & ComponentPropsWithoutRef<'label'>
 
-export const Label: FC<LabelProps> = ({ label, children, className, ...rest }) => {
+export const Label = ({ label, children, className, ...rest }: Props) => {
   const classNames = {
     label: clsx(s.label, className),
   }

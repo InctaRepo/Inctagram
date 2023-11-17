@@ -1,22 +1,19 @@
-import React, { FC, useEffect } from 'react'
-
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import React, { FC, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-
-import { Button } from '../../ui/button'
-import { ControlledTextField } from '../../ui/controlled'
-import { Typography } from '../../ui/typography'
-
-import s from './login-form.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import GithubIcon from '@/src/assets/icons/github-icon'
 import GoogleIcon from '@/src/assets/icons/google-icon'
-import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
-import { createLoginSchema, LoginFormType } from '@/src/common/schemas/create-login-schema'
-import { Card } from '@/src/components/ui/card-temporary'
+import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { createLoginSchema, LoginFormType } from '@/src/shared/schemas/create-login-schema'
+import { Card } from '@/src/shared/ui/card'
+import { RouteNames } from 'src/shared/const/routeNames'
+import { Button } from 'src/shared/ui/button'
+import { ControlledTextField } from 'src/shared/ui/controlled'
+import { Typography } from 'src/shared/ui/typography'
+import s from './loginForm.module.scss'
 
 type LoginType = {
   onSubmitHandler?: (data: LoginFormType) => void
@@ -102,7 +99,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
         </form>
 
         <Typography variant="regular16">{t.auth.dontHaveAccount}</Typography>
-        <Button variant="link" color={'link'} onClick={() => router.push('/auth/sign-up')}>
+        <Button variant="link" color={'link'} onClick={() => router.push(RouteNames.SIGN_UP)}>
           {t.auth.signUp}
         </Button>
       </div>
