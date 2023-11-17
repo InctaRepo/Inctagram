@@ -1,12 +1,9 @@
-import React, { FC, ReactElement, ReactNode, useState } from 'react'
-
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import * as Select from '@radix-ui/react-select'
-
-import styles from './SelectBox.module.scss'
-
+import React, { ReactElement, ReactNode, useState } from 'react'
 import ChevronDown from '@/src/assets/icons/chevron-down'
-import { Typography } from '@/src/components/ui/typography'
+import { Typography } from '../typography'
+import styles from './SelectBox.module.scss'
 
 export type SelectProps = {
   onBlur?: () => void
@@ -29,7 +26,7 @@ export type Options = {
   cities?: string
 }
 
-export const SelectBox: FC<SelectProps> = ({
+export const SelectBox = ({
   defaultValue,
   options,
   onValueChange,
@@ -38,7 +35,7 @@ export const SelectBox: FC<SelectProps> = ({
   placeholder,
   label,
   onChange,
-}) => {
+}: SelectProps) => {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
   const s = {

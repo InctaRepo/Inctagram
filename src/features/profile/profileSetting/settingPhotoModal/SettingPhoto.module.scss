@@ -1,5 +1,5 @@
-@import '@/src/styles/mixins';
-@import '@/src/styles/colors';
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
 
 @mixin wh($w, $h) {
   width: $w;
@@ -59,6 +59,7 @@
   @include wh(155px, 36px);
 
   display: flex;
+  align-items: center;
   justify-content: center;
   color: $color-accent-500 !important;
 }

@@ -1,21 +1,13 @@
-import React, { FC, useEffect, useState } from 'react'
-
+import ImageWithFilter from 'next/image'
+import React, { FC } from 'react'
 import Slider from 'react-slick'
-
 import airBalloon from '@/src/assets/images/air-balloon.jpg'
-import settings from '@/src/components/profile/new-post/create-post/cropped-image/CroppedImage'
-
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-// eslint-disable-next-line import/order
-import s from './SelectedImages.module.scss'
-
-// eslint-disable-next-line import/order
-import ImageWithFilter from 'next/image'
-import { filters } from '@/src/components/profile/new-post/create-post/edit-photo/filters/Filters'
-// eslint-disable-next-line import/order
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
-import { Typography } from '@/src/components/ui/typography'
+import { Typography } from '@/src/shared/ui/typography'
+import { Image } from '../../../CreateNewPost'
+import { filters } from '../Filters'
+import s from '../selected-images/SelectedImages.module.scss'
 
 type Props = {
   addedImages: Image[]
@@ -25,7 +17,7 @@ type Props = {
   setAddedImages: (addedImages: Image[]) => void
 }
 
-const SelectedImages111: FC<Props> = ({
+const SelectedImages: FC<Props> = ({
   image,
   addedImages,
   activeFilter,
@@ -149,4 +141,4 @@ const SelectedImages111: FC<Props> = ({
   )
 }
 
-export default SelectedImages111
+export default SelectedImages

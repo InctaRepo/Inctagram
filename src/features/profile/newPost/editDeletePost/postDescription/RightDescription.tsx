@@ -1,20 +1,17 @@
-import React, { FC } from 'react'
-
 import { Separator } from '@radix-ui/react-separator'
 import Image from 'next/image'
+import React from 'react'
 import { useForm } from 'react-hook-form'
-
-import s from './RightDescription.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks'
 import bookmark from '@/src/assets/icons/bookmark-outline.svg'
 import heart from '@/src/assets/icons/heart-outline.svg'
 import plane from '@/src/assets/icons/paper-plane-outline.svg'
 import AvatarImage from '@/src/assets/images/avatar-image'
-import { Buttons } from '@/src/components/profile/new-post/edit-delete-post/post-description/edit-delete-buttons/Buttons'
-import { Button } from '@/src/components/ui/button'
-import { ControlledTextArea } from '@/src/components/ui/controlled/controlled-text-area'
-import { Typography } from '@/src/components/ui/typography'
+import { useTranslate } from '@/src/shared/hooks'
+import { Button } from '@/src/shared/ui/button'
+import { ControlledTextArea } from '@/src/shared/ui/controlled/ControlledTextArea'
+import { Typography } from '@/src/shared/ui/typography'
+import { Buttons } from '../../editDeletePost/postDescription/editDeleteButtons/Buttons'
+import s from '../../editDeletePost/postDescription/RightDescription.module.scss'
 
 type Props = {
   defaultValue?: string | number
