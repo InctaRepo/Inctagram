@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react'
-
 import clsx from 'clsx'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 import { FieldValues, UseControllerProps } from 'react-hook-form'
-
-import s from './recaptcha.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import Privacy from '@/src/assets/icons/recaptcha.svg'
 import Checked from '@/src/assets/icons/recaptchaChecked.svg'
-import { ForgotFormType } from '@/src/components/auth/forgot-password/ForgotPassword'
-import { Card } from 'src/components/ui/card-temporary'
+import { useTranslate } from '../../hooks'
+import { Card } from '../card'
+import s from './recaptcha.module.scss'
 
 export type RecaptchaProps = {
   primary?: boolean
@@ -20,7 +16,10 @@ export type RecaptchaProps = {
   error?: string | undefined
   onChange?: (val: boolean) => void
 }
-
+export type ForgotForm = {
+  email: string
+  recaptcha: boolean
+}
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
   Omit<RecaptchaProps, 'value'>
 
@@ -35,7 +34,7 @@ export const Recaptcha = <T extends FieldValues>({
   error,
   expired,
   onChange,
-}: Props<ForgotFormType>) => {
+}: Props<ForgotForm>) => {
   const [mode, setMode] = useState(CSSMod.primary)
   const { t } = useTranslate()
   const router = useRouter()

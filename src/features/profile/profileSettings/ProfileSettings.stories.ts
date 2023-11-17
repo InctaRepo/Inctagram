@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { ProfileSettings } from '@/src/components/profile/profile-settings/ProfileSettings'
+import { ProfileSettings } from './ProfileSettings'
 
 const meta = {
   title: 'pages/profile-settings',

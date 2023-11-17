@@ -1,12 +1,9 @@
-import { PropsWithChildren, ReactElement } from 'react'
-
 import { NextPage } from 'next'
+import { PropsWithChildren, ReactElement } from 'react'
+import { Header } from '@/src/shared/header/ui/Header'
+import s from './publicPostLayout.module.scss'
 
-import s from './public-post-layout.module.scss'
-
-import { Header } from '@/src/components/header/header'
-
-export const PublicPostLayout: NextPage<PropsWithChildren> = ({ children }) => {
+const PublicPostLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (
     <div className={s.container}>
       <Header variant="public" />
@@ -14,6 +11,7 @@ export const PublicPostLayout: NextPage<PropsWithChildren> = ({ children }) => {
     </div>
   )
 }
+
 export const getPublicPostLayout = (page: ReactElement) => (
   <PublicPostLayout>{page}</PublicPostLayout>
 )

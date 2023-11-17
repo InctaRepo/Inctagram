@@ -1,32 +1,29 @@
-import React, { useEffect, useState } from 'react'
-
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { default as Axios } from 'axios'
 import { parseISO } from 'date-fns'
+import React, { useEffect, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
-
-import s from './ProfileSettings.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
+import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import {
   createProfileSettingSchema,
   ProfileSettingForm,
-} from '@/src/common/schemas/profileSettingSchema'
-import { SettingPhotoModal } from '@/src/components/profile/profile-setting/setting-photo-modal'
-import { Button } from '@/src/components/ui/button'
+} from '@/src/shared/schemas/profileSettingSchema'
+import { Button } from '@/src/shared/ui/button'
 import {
-  ControlledDatePick,
+  ControlledDatePicker,
   ControlledSelect,
   ControlledTextArea,
   ControlledTextField,
-} from '@/src/components/ui/controlled'
-import { TabsComponent } from '@/src/components/ui/tabs'
-import { UserInfo } from '@/src/services/profile/profileApi.types'
-import { Options } from 'src/components/ui/select-box'
+} from '@/src/shared/ui/controlled'
+import { Options } from '@/src/shared/ui/selectBox'
+import { TabsComponent } from '@/src/shared/ui/tabsComponent'
+import { SettingPhotoModal } from '../profileSetting/settingPhotoModal'
+import { UserInfo } from '../service/profileApiTypes'
+import s from './ProfileSettings.module.scss'
 
 type ProfileSettingFormProps = {
   onSubmitHandler: (data: ProfileSettingForm) => void
@@ -194,7 +191,7 @@ export const ProfileSettings = ({
                 isRequired
               />
               <div className={s.datePicker}>
-                <ControlledDatePick
+                <ControlledDatePicker
                   control={control}
                   className={s.date}
                   label={t.profile.profileSetting.dateOfBirthday}

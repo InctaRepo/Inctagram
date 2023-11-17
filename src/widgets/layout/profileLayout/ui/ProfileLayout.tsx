@@ -1,12 +1,9 @@
-import { PropsWithChildren, ReactElement } from 'react'
-
 import { NextPage } from 'next'
+import { PropsWithChildren, ReactElement } from 'react'
+import { Header } from 'src/shared/header'
+import s from './profileLayout.module.scss'
 
-import s from './profile-layout.module.scss'
-
-import { Header } from '@/src/components/header/header'
-
-export const ProfileLayout: NextPage<PropsWithChildren> = ({ children }) => {
+const ProfileLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (
     <div className={s.container}>
       <Header />
@@ -14,4 +11,5 @@ export const ProfileLayout: NextPage<PropsWithChildren> = ({ children }) => {
     </div>
   )
 }
+
 export const getProfileLayout = (page: ReactElement) => <ProfileLayout>{page}</ProfileLayout>

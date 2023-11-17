@@ -1,8 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { HYDRATE } from 'next-redux-wrapper'
-
-import { BaseResponseType } from '@/src/services'
-import { UserInfoType } from '@/src/services/profile/profileApi.types'
+import { BaseResponse } from '@/src/shared/api/baseResponse'
+import { UserInfo } from '../../profile/service/profileApiTypes'
 
 export const ProfileSsrApi = createApi({
   reducerPath: 'profileSSRAPI',
@@ -14,7 +13,7 @@ export const ProfileSsrApi = createApi({
   },
   tagTypes: ['profileSSR'],
   endpoints: builder => ({
-    getProfileSSR: builder.query<BaseResponseType<UserInfoType>, string | undefined>({
+    getProfileSSR: builder.query<BaseResponse<UserInfo>, string | undefined>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,
