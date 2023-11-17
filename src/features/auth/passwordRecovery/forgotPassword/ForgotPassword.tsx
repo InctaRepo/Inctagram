@@ -1,29 +1,23 @@
-import React, { FC, useEffect, useState } from 'react'
-
 import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
+import React, { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-
+import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { passwordRecoverySchema } from '@/src/shared/schemas/password-recovery-schema'
+import { Button } from '@/src/shared/ui/button/Button'
+import { Card } from '@/src/shared/ui/card'
+import { ControlledTextField } from '@/src/shared/ui/controlled'
+import { ControlledRecaptcha } from '@/src/shared/ui/controlled/ControlledRecaptcha'
+import { ForgotForm } from '@/src/shared/ui/recaptcha'
+import { Typography } from '@/src/shared/ui/typography/Typography'
+import { PasswordRecoveryType } from '../../authService'
 import s from './forgotPassword.module.scss'
 
-import { useTranslate } from '@/src/assets/hooks/use-translate'
-import { FormFields, triggerZodFieldError } from '@/src/common/helpers/updateZodError'
-import { passwordRecoverySchema } from '@/src/common/schemas/password-recovery-schema'
-import { Button } from '@/src/components/ui/button/button'
-import { Card } from '@/src/components/ui/card-temporary'
-import { ControlledTextField } from '@/src/components/ui/controlled'
-import { ControlledRecaptcha } from '@/src/components/ui/controlled/controlled-recaptcha'
-import { Typography } from '@/src/components/ui/typography/typography'
-import { PasswordRecoveryType } from '@/src/services/auth/auth-api-types'
-
-type PropsType = {
+type Props = {
   onSubmitHandler: (data: PasswordRecoveryType) => void
   modalHandler: () => void
-}
-export type ForgotFormType = {
-  email: string
-  recaptcha: boolean
 }
 
 // css variator
@@ -32,7 +26,7 @@ const CSSMod = {
   secondary: 'secondary',
 }
 
-export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler }) => {
+export const ForgotPassword: FC<Props> = ({ onSubmitHandler, modalHandler }) => {
   const [mode, setMode] = useState(CSSMod.primary)
   const { t } = useTranslate()
   const router = useRouter()
@@ -41,7 +35,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
     handleSubmit,
     trigger,
     formState: { touchedFields, errors },
-  } = useForm<ForgotFormType>({
+  } = useForm<ForgotForm>({
     resolver: zodResolver(passwordRecoverySchema(t)),
     mode: 'onTouched',
     defaultValues: {
@@ -55,7 +49,7 @@ export const ForgotPassword: FC<PropsType> = ({ onSubmitHandler, modalHandler })
     triggerZodFieldError(Object.keys(touchedFields) as FormFields[], trigger)
   }, [t])
 
-  const submitData = (data: ForgotFormType) => {
+  const submitData = (data: ForgotForm) => {
     setMode(CSSMod.secondary)
     if (data && data.recaptcha) {
       // @ts-ignore

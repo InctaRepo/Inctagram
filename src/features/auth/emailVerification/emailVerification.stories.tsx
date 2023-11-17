@@ -1,13 +1,12 @@
 import type { StoryObj } from '@storybook/react'
 import { Meta } from '@storybook/react'
 import { Provider } from 'react-redux'
-
-import { EmailVerificationPage } from '@/src/components/auth/email-verification/email-verification-page'
-import { store } from '@/src/services'
+import { store } from '@/src/store'
+import { EmailVerification } from './EmailVerification'
 
 const meta = {
   title: 'pages/EmailVerification',
-  component: EmailVerificationPage,
+  component: EmailVerification,
   decorators: [
     Story => (
       <Provider store={store}>
@@ -22,7 +21,7 @@ const meta = {
       url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=335-6767&mode=design&t=YRhdR3HjVBVklJmy-0',
     },
   },
-} satisfies Meta<typeof EmailVerificationPage>
+} satisfies Meta<typeof EmailVerification>
 
 export default meta
 type Story = StoryObj<typeof meta>

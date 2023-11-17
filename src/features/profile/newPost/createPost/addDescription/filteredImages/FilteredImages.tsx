@@ -1,22 +1,17 @@
+import ImageWithFilter from 'next/image'
 import React, { FC } from 'react'
-
-import Slider from 'react-slick'
-
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import s from './ImagesWithFilters.module.scss'
-
-// eslint-disable-next-line import/order
-import ImageWithFilter from 'next/image'
-
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
+import Slider from 'react-slick'
+import { Image } from '../../CreateNewPost'
+import s from '../filteredImages/filteredImages.module.scss'
 
 type PropsType = {
   addedImages: Image[]
   activeFilter: string
 }
 
-const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => {
+export const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => {
   const settings = {
     dots: true,
     swipe: false,
@@ -76,5 +71,3 @@ const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => {
     </>
   )
 }
-
-export default FilteredImages

@@ -1,22 +1,21 @@
-import React from 'react'
-
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import React from 'react'
 import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
-// import { Pagination } from '@/src/components/layout/pagination'
-import s from '@/src/components/header/header.module.scss'
-import { Button } from '@/src/components/ui/button'
-import { OptionsType, SelectBox } from '@/src/components/ui/select-box'
-import { Typography } from '@/src/components/ui/typography'
+import { RouteNames } from '../../const/routeNames'
+import { Button } from '../../ui/button'
+import { Options, SelectBox } from '../../ui/selectBox'
+import { Typography } from '../../ui/typography'
+import s from './header.module.scss'
+
 type HeaderType = {
   variant?: 'public'
 }
 export const Header = ({ variant }: HeaderType) => {
   const { push, pathname, query, asPath, locale } = useRouter()
-  const languages: OptionsType[] = [
+  const languages: Options[] = [
     { value: 'English', image: <FlagUKIcon /> },
     { value: 'Russian', image: <FlagRussiaIcon /> },
   ]
@@ -33,7 +32,7 @@ export const Header = ({ variant }: HeaderType) => {
       <div className={s.container}>
         <div className={s.content}>
           <Typography variant="large" className={s.text}>
-            <Link className={s.incta} href={'/auth/sign-in'} tabIndex={1}>
+            <Link className={s.incta} href={RouteNames.SIGN_IN} tabIndex={1}>
               Inсtagram
             </Link>
           </Typography>

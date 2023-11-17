@@ -1,5 +1,3 @@
-import React, { ComponentProps, ReactNode, useState } from 'react'
-
 import {
   Dialog,
   DialogContent,
@@ -9,19 +7,20 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
-
-import s from './FiltersModal.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
+import React, { ComponentProps, ReactNode, useState } from 'react'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-import DescriptionModal from '@/src/components/profile/new-post/create-post/add-description/AddDescriptionModal'
-import { PostDescription } from '@/src/components/profile/new-post/create-post/add-description/description/description111'
-import FilteredImages from '@/src/components/profile/new-post/create-post/add-description/images-with-filters/imagesWithFilters'
-import { Image } from '@/src/components/profile/new-post/create-post/CreateNewPost'
-import getFilteredImg from '@/src/components/profile/new-post/create-post/edit-photo/filters/Filter'
-import { Button } from '@/src/components/ui/button'
-import { Typography } from '@/src/components/ui/typography'
-import { useAddPostMutation } from '@/src/services/posts/postApi'
+//TODO
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useAddPostMutation } from '@/src/features/posts'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
+import { AddDescriptionModal } from '../../addDescription/AddDescriptionModal'
+import { FilteredImages } from '../../addDescription/filteredImages/FilteredImages'
+import { PostDescription } from '../../addDescription/postDescription/PostDescription'
+import { Image } from '../../CreateNewPost'
+import getFilteredImg from '../filters/Filter'
+import s from './FiltersModal.module.scss'
 
 export type ModalProps = {
   image?: string
@@ -143,7 +142,7 @@ const FiltersModal = ({
                 <ArrowBack />
               </button>
               <div className={s.next}>
-                <DescriptionModal
+                <AddDescriptionModal
                   image={image}
                   addedImages={addedImages}
                   setAddedImages={setAddedImages}
@@ -162,7 +161,7 @@ const FiltersModal = ({
                 >
                   <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
                   <PostDescription value={value} setValue={setValue} addedImages={addedImages} />
-                </DescriptionModal>
+                </AddDescriptionModal>
               </div>
 
               <DialogTitle className={s.DialogTitle}>

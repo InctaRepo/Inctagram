@@ -1,4 +1,4 @@
-import { ru } from '@/src/locales/ru'
+import {ru} from 'public/locales/ru'
 
 export const en: LocaleType = {
   auth: {
@@ -100,7 +100,7 @@ export const en: LocaleType = {
       
       `,
     },
-
+//
     // error fields block start =======================================================
     authErrors: {
       usernameField: {

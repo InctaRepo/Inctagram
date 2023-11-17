@@ -1,0 +1,1 @@
+const NameEntites = 1
