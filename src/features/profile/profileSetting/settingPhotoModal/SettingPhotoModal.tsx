@@ -1,18 +1,16 @@
-import React, { ChangeEvent, FC, useState } from 'react'
-
 import Slider from '@mui/material/Slider'
+import Image from 'next/image'
+import React, { FC, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
-
-import s from './SettingPhoto.module.scss'
-
-import { useTranslate } from '@/src/assets/hooks/use-translate'
 import { CloseIcon } from '@/src/assets/icons/close-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-import { Button } from '@/src/components/ui/button'
-import { InputTypeFile } from '@/src/components/ui/input-type-file'
-import BaseModal from '@/src/components/ui/modals/BaseModal/BaseModal'
-import { Typography } from '@/src/components/ui/typography'
-import { useDeleteAvatarMutation } from '@/src/services/profile/profileApi'
+import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { Button } from '@/src/shared/ui/button'
+import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
+import { Modal } from '@/src/shared/ui/Modal'
+import { Typography } from '@/src/shared/ui/typography'
+import { useDeleteAvatarMutation } from '../../service/profileApi'
+import s from '../settingPhotoModal/SettingPhoto.module.scss'
 
 type SettingPhotoModalProps = {
   avatar?: string | null
@@ -86,7 +84,9 @@ export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
     <div className={s.container}>
       {avatar && (
         <>
-          <img
+          <Image
+            width={196}
+            height={196}
             src={croppedAvatar ? croppedAvatar : avatar}
             alt="ava"
             style={{
@@ -99,7 +99,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
           <div onClick={() => setOpenDeleteModal(true)}>
             <CloseIcon className={s.deleteAvatarIcon} />
           </div>
-          <BaseModal
+          <Modal
             modalWidth={'sm'}
             open={openDeleteModal}
             onClose={onModalClose}
@@ -110,7 +110,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
             onAction={discardHandler}
           >
             <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
-          </BaseModal>
+          </Modal>
         </>
       )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
@@ -119,7 +119,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
         </Typography>
       </Button>
       {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
-      <BaseModal
+      <Modal
         className={s.baseModal}
         modalWidth={'md'}
         open={isModalOpen}
@@ -184,7 +184,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
             <InputTypeFile setSelectedImage={setSelectedImage} setErrorMessage={setErrorMessage} />
           )}
         </div>
-      </BaseModal>
+      </Modal>
     </div>
   )
 }
