@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react'
-
 import { useRouter } from 'next/router'
-
-import { RouteNames } from '@/src/common/constants/route-names'
-import { Favorites } from '@/src/components/favorites/favorites'
-import { getProfileLayout } from '@/src/components/layout/profile-layout'
-import { NextPageWithLayout } from '@/src/pages/_app'
-import { useAppSelector } from '@/src/services'
-import { authIsAuthSelector } from '@/src/services/auth'
+import React, { useEffect } from 'react'
+import { getProfileLayout } from 'src/widgets/layout/profileLayout'
+import { Favorites } from '@/src/features/favorites/favorites'
+import { authIsAuthSelector } from 'src/features/auth/authService'
+import { useAppSelector } from '@/src/shared/hooks'
+import { NextPageWithLayout } from '@/src/shared/service/types'
+import { RouteNames } from 'src/shared/const/routeNames'
 
 const FavoritesPage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)

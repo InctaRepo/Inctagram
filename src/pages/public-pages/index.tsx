@@ -1,5 +1,5 @@
-import { getPublicPostLayout } from '@/src/components/layout/public-post-layout'
-import { PublicPosts } from '@/src/components/public-posts'
+import { getPublicPostLayout } from 'src/widgets/layout/publicPostLayout'
+import { PublicPosts } from 'src/features/publicPosts'
 
 const PublicPagePosts = () => {
   return <PublicPosts />

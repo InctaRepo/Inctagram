@@ -1,13 +1,11 @@
-import { useEffect } from 'react'
-
 import { useRouter } from 'next/router'
-
-import { RouteNames } from '@/src/common/constants/route-names'
-import { getProfileLayout } from '@/src/components/layout/profile-layout'
-import { Profile } from '@/src/components/profile'
-import { NextPageWithLayout } from '@/src/pages/_app'
-import { useAppSelector, wrapper } from '@/src/services'
-import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
+import { useEffect } from 'react'
+import { getProfileLayout } from 'src/widgets/layout/profileLayout'
+import { authIsAuthSelector } from '@/src/features/auth/authService/authSelectors'
+import { Profile } from '@/src/features/profile'
+import { useAppSelector } from '@/src/shared/hooks'
+import { NextPageWithLayout } from '@/src/shared/service/types'
+import { RouteNames } from 'src/shared/const/routeNames'
 
 const MyProfilePage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)

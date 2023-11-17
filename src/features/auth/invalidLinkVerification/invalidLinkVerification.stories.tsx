@@ -1,13 +1,12 @@
 import type { StoryObj } from '@storybook/react'
 import { Meta } from '@storybook/react'
 import { Provider } from 'react-redux'
-
-import { InvalidLinkVerificationPage } from '@/src/components/auth/invalid-link-verification/invalid-link-verification-page'
-import { store } from '@/src/services'
+import { store } from '@/src/store'
+import { InvalidLinkVerification } from './InvalidLinkVerification'
 
 const meta = {
   title: 'pages/InvalidLinkVerification',
-  component: InvalidLinkVerificationPage,
+  component: InvalidLinkVerification,
   decorators: [
     Story => (
       <Provider store={store}>
@@ -22,10 +21,10 @@ const meta = {
       url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=335-6767&mode=design&t=YRhdR3HjVBVklJmy-0',
     },
   },
-} satisfies Meta<typeof InvalidLinkVerificationPage>
+} satisfies Meta<typeof InvalidLinkVerification>
 
 export default meta
-type Story = StoryObj<typeof InvalidLinkVerificationPage>
+type Story = StoryObj<typeof InvalidLinkVerification>
 
 export const Primary: Story = {
   args: {
