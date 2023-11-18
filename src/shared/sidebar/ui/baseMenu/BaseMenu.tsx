@@ -7,13 +7,14 @@ import SearchIcon from '@/src/assets/icons/search-icon'
 import { CreatePostModal } from '@/src/features/profile/newPost/createPost/CreateNewPost'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { LinkMenu } from 'src/features/profile/linkMenu'
+import { RouteNames } from '../../../const/routeNames'
 import { useTranslate } from '../../../hooks'
 import s from './baseMenu.module.scss'
-
+//TODO props
 type Props = {
-  variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
+  variantIcon?: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
   handleClick: (
-    variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
+    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
   ) => void
 }
 export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
@@ -38,12 +39,12 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.myProfile}
-          link={'my-profile'}
-          handleClick={() => handleClick('my-profile')}
+          link={RouteNames.PROFILE}
+          handleClick={() => handleClick('profile')}
           variantIcon={variantIcon}
         >
           <ProfileIcon
-            fill={variantIcon === 'my-profile' ? '#397df6' : 'current'}
+            fill={variantIcon === 'profile' ? '#397df6' : 'current'}
             className={s.logo}
           />
         </LinkMenu>

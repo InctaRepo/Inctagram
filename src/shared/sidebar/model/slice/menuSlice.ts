@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export type MenuState = {
-  variantIcon: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
+  variantIcon: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
 }
 
-const initialState: MenuState = { variantIcon: 'my-profile' }
+const initialState: MenuState = { variantIcon: 'profile' }
 
 const slice = createSlice({
   initialState,
@@ -14,7 +14,7 @@ const slice = createSlice({
     setVariantIcon: (
       state,
       action: PayloadAction<
-        'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
+        'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
       >
     ) => {
       state.variantIcon = action.payload

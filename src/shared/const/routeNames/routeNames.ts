@@ -4,7 +4,7 @@ export const RouteNames = {
   PASSWORD_RECOVERY: '/auth/passwordRecovery',
   CREATE_NEW_PASSWORD: '/auth/createNewPassword',
   NEW_PASSWORD: '/auth/new-password',
-  MY_PROFILE: '/profile/my-profile',
+  PROFILE: '/profile',
   PROFILE_SETTINGS: '/profile/settings',
   PRIVACY_POLICY: '/auth/privacyPolicy',
   TERMS_OF_USE: '/auth/termsOfUse',

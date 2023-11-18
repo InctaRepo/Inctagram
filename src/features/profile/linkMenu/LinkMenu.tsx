@@ -8,9 +8,9 @@ type Props = {
   nameLink: string
   link?: string
   children: ReactNode
-  variantIcon?: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
+  variantIcon?: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
   handleClick: (
-    variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites' | null
+    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites' | null
   ) => void
 }
 export const LinkMenu: FC<Props> = ({ children, variantIcon, handleClick, nameLink, link }) => {

@@ -21,7 +21,7 @@ export const Sidebar = () => {
   const { t } = useTranslate()
 
   const handleItemClick = (
-    variant: 'home' | 'search' | 'my-profile' | 'create' | 'message' | 'logout' | 'favorites'
+    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
   ) => {
     dispatch(menuActions.setVariantIcon(variant))
   }
