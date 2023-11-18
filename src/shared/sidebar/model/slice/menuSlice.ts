@@ -1,22 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export type MenuState = {
-  variantIcon: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
+type MenuState = {
+  variantIcon: string | null
 }
 
-const initialState: MenuState = { variantIcon: 'profile' }
+const initialState: MenuState = { variantIcon: null }
 
 const slice = createSlice({
   initialState,
 
   name: 'menu',
   reducers: {
-    setVariantIcon: (
-      state,
-      action: PayloadAction<
-        'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
-      >
-    ) => {
+    setVariantIcon: (state, action: PayloadAction<string>) => {
       state.variantIcon = action.payload
     },
   },

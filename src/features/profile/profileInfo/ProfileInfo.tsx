@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import AvatarImage from '@/src/assets/images/avatar-image'
+import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { authUserSelector } from '@/src/features/auth/authService'
 import { useAppSelector } from '@/src/shared/hooks'
@@ -22,11 +22,18 @@ export const ProfileInfo = () => {
           width={204}
           height={204}
           src={data?.data?.avatar}
-          className={s.image}
+          className={s.avatar}
           alt={'avatar'}
         />
       )}
-      {!data?.data?.avatar && <AvatarImage className={s.image} />}
+      {data?.data?.avatar === null && (
+        <div className={s.photo}>
+          <div className={s.ellipse}></div>
+          <div className={s.image}>
+            <ImgOutline />
+          </div>
+        </div>
+      )}
       <div className={s.dataProfile}>
         <DataProfile userData={data?.data} />
       </div>

@@ -144,6 +144,7 @@ export const ru = {
     aboutYourself: 'Расскажите о себе',
     profileSettings: 'Настройки профиля',
     favorites: 'Избранное',
+    statistics: 'Cтатистика',
     messenger: 'Сообщения',
     search: 'Поиск',
     addPostPhoto: 'Добавить фото',

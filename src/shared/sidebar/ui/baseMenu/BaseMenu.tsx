@@ -8,14 +8,13 @@ import { CreatePostModal } from '@/src/features/profile/newPost/createPost/Creat
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { LinkMenu } from 'src/features/profile/linkMenu'
 import { RouteNames } from '../../../const/routeNames'
+import { variantIconLink } from '../../../const/variantIconLink'
 import { useTranslate } from '../../../hooks'
 import s from './baseMenu.module.scss'
-//TODO props
+
 type Props = {
-  variantIcon?: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
-  handleClick: (
-    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
-  ) => void
+  variantIcon: variantIconLink
+  handleClick: (variant: string) => void
 }
 export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
   const { t } = useTranslate()
@@ -25,11 +24,14 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.home}
-          link={'home'}
-          handleClick={() => handleClick('home')}
+          link={`${RouteNames.HOME}`}
+          handleClick={() => handleClick(`${RouteNames.HOME}`.slice(1))}
           variantIcon={variantIcon}
         >
-          <HomeIcon fill={variantIcon === 'home' ? '#397df6' : 'current'} className={s.logo} />
+          <HomeIcon
+            fill={variantIcon === `${RouteNames.HOME}`.slice(1) ? '#397df6' : 'current'}
+            className={s.logo}
+          />
         </LinkMenu>
       </div>
       <div>
@@ -40,11 +42,11 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
         <LinkMenu
           nameLink={t.profile.myProfile}
           link={RouteNames.PROFILE}
-          handleClick={() => handleClick('profile')}
+          handleClick={() => handleClick(`${RouteNames.PROFILE}`.slice(1))}
           variantIcon={variantIcon}
         >
           <ProfileIcon
-            fill={variantIcon === 'profile' ? '#397df6' : 'current'}
+            fill={variantIcon === `${RouteNames.PROFILE}`.slice(1) ? '#397df6' : 'current'}
             className={s.logo}
           />
         </LinkMenu>
@@ -52,12 +54,12 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.messenger}
-          link={'message'}
-          handleClick={() => handleClick('message')}
+          link={`${RouteNames.MESSAGE}`}
+          handleClick={() => handleClick(`${RouteNames.MESSAGE}`.slice(1))}
           variantIcon={variantIcon}
         >
           <MessageIcon
-            fill={variantIcon === 'message' ? '#397df6' : 'current'}
+            fill={variantIcon === `${RouteNames.MESSAGE}`.slice(1) ? '#397df6' : 'current'}
             className={s.logo}
           />
         </LinkMenu>
@@ -65,11 +67,14 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.search}
-          link={'search'}
-          handleClick={() => handleClick('search')}
+          link={`${RouteNames.SEARCH}`}
+          handleClick={() => handleClick(`${RouteNames.SEARCH}`.slice(1))}
           variantIcon={variantIcon}
         >
-          <SearchIcon fill={variantIcon === 'search' ? '#397df6' : 'current'} className={s.logo} />
+          <SearchIcon
+            fill={variantIcon === `${RouteNames.SEARCH}`.slice(1) ? '#397df6' : 'current'}
+            className={s.logo}
+          />
         </LinkMenu>
       </div>
     </div>
