@@ -13,7 +13,7 @@ const Home: NextPageWithLayout = () => {
 
   useEffect(() => {
     if (isAuth) {
-      router.push(RouteNames.MY_PROFILE)
+      router.push(RouteNames.PROFILE)
     } else {
       router.push(RouteNames.SIGN_IN)
     }

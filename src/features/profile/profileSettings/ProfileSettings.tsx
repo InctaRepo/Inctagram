@@ -143,7 +143,7 @@ export const ProfileSettings = ({
         </div>
         <div className={s.content}>
           <div className={s.photoContent}>
-            {!croppedAvatar && !userData?.avatar && (
+            {!croppedAvatar && userData?.avatar === null && (
               <div className={s.photo}>
                 <div className={s.ellipse}></div>
                 <div className={s.image}>

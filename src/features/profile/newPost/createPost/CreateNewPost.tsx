@@ -15,7 +15,7 @@ export type SettingPhotoModalProps = {
   variantIcon?:
     | 'search'
     | 'home'
-    | 'my-profile'
+    | 'profile'
     | 'create'
     | 'message'
     | 'logout'

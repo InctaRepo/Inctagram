@@ -87,7 +87,7 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
             fullWidth
           />
           <div className={s.wrapLinkForgotPass}>
-            <Link href={'/auth/forgot-password'} className={s.link}>
+            <Link href={RouteNames.PASSWORD_RECOVERY} className={s.link}>
               <Typography variant="medium14" className={s.linkForgotPass}>
                 {t.auth.forgotPassword}
               </Typography>
