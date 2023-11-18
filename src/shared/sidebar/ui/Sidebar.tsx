@@ -7,6 +7,7 @@ import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 import { authUserSelector } from 'src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { LinkMenu } from 'src/features/profile/linkMenu'
+import { RouteNames } from '../../const/routeNames'
 import { useAppDispatch, useAppSelector, useTranslate } from '../../hooks'
 import { sidebarVariantIconSelector } from '../model/selectors/sidebarVariantIconSelector'
 import { menuActions } from '../model/slice/menuSlice'
@@ -20,9 +21,7 @@ export const Sidebar = () => {
   const { data: profile } = useGetProfileQuery(user?.userId)
   const { t } = useTranslate()
 
-  const handleItemClick = (
-    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
-  ) => {
+  const handleItemClick = (variant: string) => {
     dispatch(menuActions.setVariantIcon(variant))
   }
 
@@ -31,18 +30,33 @@ export const Sidebar = () => {
       {profile?.data && <BaseMenu variantIcon={variantIcon} handleClick={handleItemClick} />}
       <div className={s.containerLinks}>
         {profile?.data && (
-          <div className={s.favorites}>
-            <LinkMenu
-              nameLink={t.profile.favorites}
-              link={'favorites'}
-              handleClick={() => handleItemClick('favorites')}
-              variantIcon={variantIcon}
-            >
-              <SaveIcon
-                fill={variantIcon === 'favorites' ? '#397df6' : 'current'}
-                className={s.logo}
-              />
-            </LinkMenu>
+          <div className={s.favStat}>
+            <div className={s.favorites}>
+              <LinkMenu
+                nameLink={t.profile.favorites}
+                link={`${RouteNames.FAVORITES}`}
+                handleClick={() => handleItemClick(`${RouteNames.FAVORITES}`.slice(1))}
+                variantIcon={variantIcon}
+              >
+                <SaveIcon
+                  fill={variantIcon === `${RouteNames.FAVORITES}`.slice(1) ? '#397df6' : 'current'}
+                  className={s.logo}
+                />
+              </LinkMenu>
+            </div>
+            <div className={s.favorites}>
+              <LinkMenu
+                nameLink={t.profile.statistics}
+                link={`${RouteNames.STATISTICS}`}
+                handleClick={() => handleItemClick(`${RouteNames.STATISTICS}`.slice(1))}
+                variantIcon={variantIcon}
+              >
+                <SaveIcon
+                  fill={variantIcon === `${RouteNames.STATISTICS}`.slice(1) ? '#397df6' : 'current'}
+                  className={s.logo}
+                />
+              </LinkMenu>
+            </div>
           </div>
         )}
 

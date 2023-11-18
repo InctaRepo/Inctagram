@@ -3,6 +3,7 @@ import CreateIcon from '@/src/assets/icons/create-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { LinkMenu } from '@/src/features/profile/linkMenu'
+import { variantIconLink } from '@/src/shared/const/variantIconLink'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'
 import { Modal } from '@/src/shared/ui/Modal'
@@ -11,16 +12,8 @@ import CroppedImage from '../createPost/croppedImage/CroppedImage'
 import CropModal from '../createPost/modalForCrop/CropModal'
 import s from './CreateNewPost.module.scss'
 
-export type SettingPhotoModalProps = {
-  variantIcon?:
-    | 'search'
-    | 'home'
-    | 'profile'
-    | 'create'
-    | 'message'
-    | 'logout'
-    | 'favorites'
-    | undefined
+type Props = {
+  variantIcon: variantIconLink
 }
 
 export type Image = {
@@ -29,7 +22,7 @@ export type Image = {
   croppedImage?: string
 }
 
-export const CreatePostModal = ({ variantIcon }: SettingPhotoModalProps) => {
+export const CreatePostModal = ({ variantIcon }: Props) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)

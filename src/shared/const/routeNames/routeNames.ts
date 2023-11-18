@@ -8,4 +8,9 @@ export const RouteNames = {
   PROFILE_SETTINGS: '/profile/settings',
   PRIVACY_POLICY: '/auth/privacyPolicy',
   TERMS_OF_USE: '/auth/termsOfUse',
+  FAVORITES: '/favorites',
+  MESSAGE: '/message',
+  HOME: '/home',
+  SEARCH: '/search',
+  STATISTICS: '/statistics',
 } as const

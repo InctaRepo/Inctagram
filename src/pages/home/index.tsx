@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import { getProfileLayout } from 'src/widgets/layout/profileLayout'
-import { authIsAuthSelector } from 'src/features/auth/authService'
-import { Search } from 'src/features/search'
+import { getProfileLayout } from '@/src/widgets/layout/profileLayout'
+import { authIsAuthSelector } from '@/src/features/auth/authService'
+import { Home } from '@/src/features/home'
+import { RouteNames } from '@/src/shared/const/routeNames'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/types'
-import { RouteNames } from 'src/shared/const/routeNames'
 
-const SearchPage: NextPageWithLayout = () => {
+const HomePage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   const router = useRouter()
@@ -18,8 +18,8 @@ const SearchPage: NextPageWithLayout = () => {
     }
   }, [isAuth, router])
 
-  return isAuth && <Search />
+  return isAuth && <Home />
 }
 
-SearchPage.getLayout = getProfileLayout
-export default SearchPage
+HomePage.getLayout = getProfileLayout
+export default HomePage

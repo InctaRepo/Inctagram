@@ -1,6 +1,6 @@
 import Slider from '@mui/material/Slider'
 import Image from 'next/image'
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 import { CloseIcon } from '@/src/assets/icons/close-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
@@ -12,7 +12,7 @@ import { Typography } from '@/src/shared/ui/typography'
 import { useDeleteAvatarMutation } from '../../service/profileApi'
 import s from '../settingPhotoModal/SettingPhoto.module.scss'
 
-type SettingPhotoModalProps = {
+type Props = {
   avatar?: string | null
   setAvatar?: (avatar: string | null) => void
   isModalOpen: boolean
@@ -25,7 +25,7 @@ type SettingPhotoModalProps = {
   setCroppedAvatar: (croppedAvatar: string | null) => void
 }
 
-export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
+export const SettingPhotoModal = ({
   avatar,
   setAvatar,
   croppedAvatar,
@@ -36,7 +36,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
   setSelectedImage,
   editorRef,
   handleSavePhoto,
-}) => {
+}: Props) => {
   const { t } = useTranslate()
   const [slideValue, setSlideValue] = useState(10)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
@@ -89,6 +89,7 @@ export const SettingPhotoModal: FC<SettingPhotoModalProps> = ({
             height={196}
             src={croppedAvatar ? croppedAvatar : avatar}
             alt="ava"
+            className={s.ava}
             style={{
               borderRadius: '50%',
               width: 196,

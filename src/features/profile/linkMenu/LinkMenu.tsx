@@ -1,6 +1,7 @@
 import { clsx } from 'clsx'
 import Link from 'next/link'
 import React, { FC, ReactNode } from 'react'
+import { variantIconLink } from '@/src/shared/const/variantIconLink'
 import { Typography } from '@/src/shared/ui/typography'
 import s from './linkMenu.module.scss'
 
@@ -8,18 +9,16 @@ type Props = {
   nameLink: string
   link?: string
   children: ReactNode
-  variantIcon?: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites'
-  handleClick: (
-    variant: 'home' | 'search' | 'profile' | 'create' | 'message' | 'logout' | 'favorites' | null
-  ) => void
+  variantIcon: variantIconLink
+  handleClick: (variant: variantIconLink) => void
 }
 export const LinkMenu: FC<Props> = ({ children, variantIcon, handleClick, nameLink, link }) => {
   const handleItemClick = () => {
-    handleClick(variantIcon!)
+    handleClick(variantIcon)
   }
   const styles = {
     // check: clsx(router.pathname == link ? s.active : ''),
-    check: clsx(link === variantIcon && s.active),
+    check: clsx(link === '/' + variantIcon && s.active),
   }
 
   return (

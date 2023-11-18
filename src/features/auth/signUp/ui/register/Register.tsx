@@ -15,11 +15,11 @@ import { ControlledCheckbox, ControlledTextField } from 'src/shared/ui/controlle
 import { Typography } from 'src/shared/ui/typography'
 import s from './register.module.scss'
 
-type RegisterFormProps = {
+type Props = {
   onSubmitHandler: (data: RegisterForm) => void
 }
 
-export const Register = ({ onSubmitHandler }: RegisterFormProps) => {
+export const Register = ({ onSubmitHandler }: Props) => {
   const { t } = useTranslate()
 
   const router = useRouter()
