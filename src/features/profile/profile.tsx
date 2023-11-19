@@ -6,14 +6,18 @@ import { ListImage } from '../profile/listImage'
 import { ProfileInfo } from '../profile/profileInfo'
 import s from './profile.module.scss'
 
-export const Profile = () => {
+type Props = {
+  id: string | string[] | undefined
+}
+
+export const Profile = ({ id }: Props) => {
   const isAuth = useAppSelector(authIsAuthSelector)
 
   return (
     <div className={s.container}>
       {isAuth && <Sidebar />}
       <div className={s.containerInfo}>
-        <ProfileInfo />
+        <ProfileInfo id={id} />
         <ListImage />
       </div>
     </div>

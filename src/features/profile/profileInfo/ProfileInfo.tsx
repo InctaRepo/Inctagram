@@ -8,7 +8,10 @@ import { DataProfile } from '../profileInfo/dataProfile'
 import { useGetProfileQuery } from '../service/profileApi'
 import s from './profileInfo.module.scss'
 
-export const ProfileInfo = () => {
+type Props = {
+  id: string | string[] | undefined
+}
+export const ProfileInfo = ({ id }: Props) => {
   const user = useAppSelector(authUserSelector)
   const { data } = useGetProfileQuery(user?.userId, {
     refetchOnMountOrArgChange: true,
