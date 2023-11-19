@@ -1,0 +1,43 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  display: flex;
+  width: 300px;
+}
+
+.img {
+  position: relative;
+
+  right: 15px;
+}
+
+.SignUp {
+  max-width: 10%;
+  position: relative;
+  top: 34px;
+  left: 90px;
+}
+
+.btn {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Text {
+  padding: 100px;
+  position: relative;
+  z-index: -9999;
+  bottom: 30px;
+  font-weight: 400;
+  list-style: none;
+}
+
+.title {
+  @include flex-block($justify-content: center);
+}

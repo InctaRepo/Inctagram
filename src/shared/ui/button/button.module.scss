@@ -1,0 +1,166 @@
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+@mixin button($color: $color-light-100, $bgColor: $color-accent-500) {
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 10px;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 0.375rem 1.5rem;
+
+  font-size: $font-size-m;
+  font-weight: $font-weight-bold;
+  line-height: 24px;
+  color: $color;
+  text-decoration: none;
+
+  background-color: $bgColor;
+  border-radius: 3px;
+
+  transition: 0.3s;
+
+  &:disabled {
+    cursor: default;
+    color: $color-light-900;
+    background: $color-accent-900;
+  }
+
+  &:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid $color-accent-300;
+  }
+
+  &:focus:not(:disabled) {
+    // outline: 1px solid $color-accent-300;
+  }
+
+  &.fullWidth {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.primary {
+  @include button;
+
+  &:active:not(:disabled) {
+    background-color: $color-accent-700;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-300;
+  }
+}
+
+.secondary {
+  @include button($bgColor: $color-dark-300);
+
+  &:disabled {
+    color: $color-light-900;
+    background: $color-dark-500;
+  }
+
+  &:active:not(:disabled) {
+    background-color: #212121;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $color-dark-100;
+  }
+
+  &:focus:not(:disabled) {
+    color: $color-accent-700;
+    outline: 2px solid $color-accent-700;
+  }
+}
+
+.outlined {
+  @include button($color: $color-accent-500, $bgColor: none);
+
+  padding: 6px 12px;
+  outline: 2px solid $color-accent-500;
+
+  &:disabled {
+    color: $color-accent-900;
+    outline: 2px solid $color-accent-900;
+  }
+
+  &:active:not(:disabled) {
+    color: $color-accent-700;
+    outline: 2px solid $color-accent-700;
+  }
+
+  &:hover:not(:disabled) {
+    color: $color-accent-100;
+    outline: 2px solid $color-accent-100;
+  }
+
+  &:focus:not(:disabled) {
+    color: $color-accent-700;
+    outline: 2px solid $color-accent-700;
+  }
+}
+
+.link {
+  @include button($color: $color-accent-500, $bgColor: none);
+
+  padding: 6px 12px;
+
+  // border-radius: 130px;
+  border-radius: 3px;
+  outline: 2px solid transparent;
+
+  &:active:not(:disabled) {
+    color: $color-accent-700;
+  }
+
+  &:hover:not(:disabled) {
+    color: $color-accent-100;
+  }
+}
+
+.text {
+  @include button($color: $color-accent-500, $bgColor: none);
+
+  padding: 6px 12px;
+
+  // border-radius: 130px;
+  border-radius: 3px;
+
+  // outline: 1px solid transparent;
+
+  &:disabled {
+    color: $color-accent-900;
+  }
+
+  &:focus {
+    border-radius: 3px;
+    outline: 2px solid $color-accent-700;
+  }
+
+  &:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid $color-accent-300;
+  }
+
+  &:active:not(:disabled) {
+    color: $color-accent-700;
+  }
+
+  &:hover:not(:disabled) {
+    color: $color-accent-100;
+  }
+}
+
+.internation {
+  @include button($color: $color-light-100, $bgColor: $color-dark-300);
+
+  padding: 6px 12px;
+}

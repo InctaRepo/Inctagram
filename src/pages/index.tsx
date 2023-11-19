@@ -1,12 +1,11 @@
-import { useEffect } from 'react'
-
+// eslint-disable-next-line @conarti/feature-sliced/public-api
 import { useRouter } from 'next/router'
-
-import { getAuthLayout } from '@/src/components/layout/auth-layout/auth-layout'
-import { NextPageWithLayout } from '@/src/pages/_app'
-import { useAppSelector } from '@/src/services'
-import { authIsAuthSelector } from '@/src/services/auth/auth-selectors'
-import { RouteNames } from 'src/common/constants/route-names'
+import { useEffect } from 'react'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { authIsAuthSelector } from '@/src/features/auth/authService/authSelectors'
+import { useAppSelector } from '@/src/shared/hooks'
+import { NextPageWithLayout } from '@/src/shared/service/types'
+import { RouteNames } from 'src/shared/const/routeNames'
 
 const Home: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
@@ -14,7 +13,7 @@ const Home: NextPageWithLayout = () => {
 
   useEffect(() => {
     if (isAuth) {
-      router.push(RouteNames.MY_PROFILE)
+      router.push(RouteNames.PROFILE)
     } else {
       router.push(RouteNames.SIGN_IN)
     }

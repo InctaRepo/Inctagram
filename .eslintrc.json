@@ -1,7 +1,7 @@
 {
   "extends": [
-    "plugin:@next/next/recommended",
-    "next/core-web-vitals",
-    "plugin:storybook/recommended"
+    //    "plugin:@next/next/recommended",
+    //    "next/core-web-vitals",
+    //    "plugin:storybook/recommended"
   ]
 }

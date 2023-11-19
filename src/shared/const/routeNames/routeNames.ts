@@ -1,0 +1,16 @@
+export const RouteNames = {
+  SIGN_IN: '/auth/signIn',
+  SIGN_UP: '/auth/signUp',
+  PASSWORD_RECOVERY: '/auth/passwordRecovery',
+  CREATE_NEW_PASSWORD: '/auth/createNewPassword',
+  NEW_PASSWORD: '/auth/new-password',
+  PROFILE: '/profile',
+  PROFILE_SETTINGS: '/profile/settings',
+  PRIVACY_POLICY: '/auth/privacyPolicy',
+  TERMS_OF_USE: '/auth/termsOfUse',
+  FAVORITES: '/favorites',
+  MESSAGE: '/message',
+  HOME: '/home',
+  SEARCH: '/search',
+  STATISTICS: '/statistics',
+} as const
