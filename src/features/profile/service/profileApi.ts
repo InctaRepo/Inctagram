@@ -25,7 +25,7 @@ export const profileApi = createApi({
       }),
       // invalidatesTags: ['profile'],
     }),
-    getProfile: builder.query<BaseResponse<UserInfo>, string | undefined>({
+    getProfile: builder.query<BaseResponse<UserInfo>, string | string[] | undefined>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,

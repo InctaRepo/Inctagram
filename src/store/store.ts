@@ -7,7 +7,6 @@ import { postApi } from '@/src/features/posts/postApi'
 import { postReducer } from '@/src/features/posts/postSlice'
 import { profileApi } from '@/src/features/profile/service/profileApi'
 import { profileReducer } from '@/src/features/profile/service/profileSlice'
-import { ProfileSsrApi } from '@/src/features/profile/service/profileSsrApi'
 import { baseApi } from '@/src/shared/api/baseApi'
 import { menuReducer } from '@/src/shared/sidebar/model/slice/menuSlice'
 
@@ -16,7 +15,6 @@ const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [profileApi.reducerPath]: profileApi.reducer,
   [postApi.reducerPath]: postApi.reducer,
-  [ProfileSsrApi.reducerPath]: ProfileSsrApi.reducer,
   auth: authReducer,
   app: appReducer,
   profile: profileReducer,
@@ -31,7 +29,6 @@ export const store = configureStore({
       .concat([baseApi.middleware])
       .concat([authApi.middleware])
       .concat([profileApi.middleware])
-      .concat([postApi.middleware])
-      .concat([ProfileSsrApi.middleware]),
+      .concat([postApi.middleware]),
 })
 setupListeners(store.dispatch)
