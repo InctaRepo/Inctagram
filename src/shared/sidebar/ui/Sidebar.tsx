@@ -1,4 +1,3 @@
-import SaveIcon from '@/src/assets/icons/save-icon'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Logout } from '@/src/features/auth/logout/Logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -7,6 +6,8 @@ import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 import { authUserSelector } from 'src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { LinkMenu } from 'src/features/profile/linkMenu'
+import { FavoritesIcon } from '../../assets/icons/FavoritesIcon'
+import { StatisticsIcon } from '../../assets/icons/StatisticsIcon'
 import { RouteNames } from '../../const/routeNames'
 import { useAppDispatch, useAppSelector, useTranslate } from '../../hooks'
 import { sidebarVariantIconSelector } from '../model/selectors/sidebarVariantIconSelector'
@@ -38,7 +39,7 @@ export const Sidebar = () => {
                 handleClick={() => handleItemClick(`${RouteNames.FAVORITES}`.slice(1))}
                 variantIcon={variantIcon}
               >
-                <SaveIcon
+                <FavoritesIcon
                   fill={variantIcon === `${RouteNames.FAVORITES}`.slice(1) ? '#397df6' : 'current'}
                   className={s.logo}
                 />
@@ -51,7 +52,7 @@ export const Sidebar = () => {
                 handleClick={() => handleItemClick(`${RouteNames.STATISTICS}`.slice(1))}
                 variantIcon={variantIcon}
               >
-                <SaveIcon
+                <StatisticsIcon
                   fill={variantIcon === `${RouteNames.STATISTICS}`.slice(1) ? '#397df6' : 'current'}
                   className={s.logo}
                 />

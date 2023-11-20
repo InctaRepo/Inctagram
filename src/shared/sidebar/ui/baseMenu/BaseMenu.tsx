@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import HomeIcon from '@/src/assets/icons/home-icon'
-import MessageIcon from '@/src/assets/icons/message-icon'
-import ProfileIcon from '@/src/assets/icons/profile-icon'
-import SearchIcon from '@/src/assets/icons/search-icon'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { CreatePostModal } from '@/src/features/profile/newPost/createPost/CreateNewPost'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { LinkMenu } from 'src/features/profile/linkMenu'
+import { HomeIcon } from '../../../assets/icons/HomeIcon'
+import { MessageIcon } from '../../../assets/icons/MessageIcon'
+import { ProfileIcon } from '../../../assets/icons/ProfileIcon'
+import { SearchIcon } from '../../../assets/icons/SearchIcon'
 import { RouteNames } from '../../../const/routeNames'
 import { variantIconLink } from '../../../const/variantIconLink'
 import { useTranslate } from '../../../hooks'
