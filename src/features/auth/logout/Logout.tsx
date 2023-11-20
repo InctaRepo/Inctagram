@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import LogoutIcon from '@/src/assets/icons/logout-icon'
+import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { Modal } from '@/src/shared/ui/Modal'
@@ -30,7 +30,7 @@ export const Logout = () => {
   return (
     <div>
       <Button variant="link" fullWidth onClick={onClickOpenModal}>
-        <LogoutIcon fill={'white'} className={s.logo} />
+        <LogoutIcon fill={'current'} className={s.logo} />
         <Typography variant="medium14">{t.profile.logout}</Typography>
       </Button>
       <Modal

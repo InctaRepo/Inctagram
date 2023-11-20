@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ComponentProps, useState } from 'react'
 import EyeIcon from '@/src/assets/icons/eye-icon'
 import EyeOffIcon from '@/src/assets/icons/eye-off-icon'
-import SearchIcon from '@/src/assets/icons/search-icon'
+import { SearchIcon } from '../../../assets/icons/SearchIcon'
 import { Typography } from '../../typography'
 import s from './input-main.module.scss'
 
