@@ -29,7 +29,7 @@ export function createSignUpSchema(t: LocaleType) {
         )
         .min(6, t.auth.authErrors.password.min)
         .max(20, t.auth.authErrors.password.max),
-      passwordConfirm: z.string().nonempty(t.auth.authErrors.passwordConfirm),
+      passwordConfirm: z.string().trim().nonempty(t.auth.authErrors.passwordConfirm),
     })
     .refine(data => data.password == data.passwordConfirm, {
       message: t.auth.authErrors.refine,

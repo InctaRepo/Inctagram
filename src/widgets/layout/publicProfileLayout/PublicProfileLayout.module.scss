@@ -1,0 +1,13 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.container {
+  @include flex-block;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: calc(660px - $header-height);
+  }
+}

@@ -10,6 +10,9 @@ const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   credentials: 'include',
   prepareHeaders: headers => {
+    if (typeof window === 'undefined') {
+      return headers
+    }
     const access = localStorage.getItem('access')
 
     if (access) {
@@ -20,7 +23,7 @@ const baseQuery = fetchBaseQuery({
   },
 })
 
-export const baseQueryWithReAuth: BaseQueryFn<
+export const baseQueryWithReauth: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError
