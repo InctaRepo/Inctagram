@@ -1,7 +1,9 @@
+import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetMeQuery } from '@/src/features/auth/authService'
+import { RouteNames } from '@/src/shared/const/routeNames'
 import { useErrorToast } from '@/src/shared/hooks'
 import { ProfileSettingForm } from '@/src/shared/schemas/profileSettingSchema'
 import { Sidebar } from '@/src/shared/sidebar'
@@ -15,6 +17,7 @@ import {
 } from '../service/profileApi'
 
 export const Settings = () => {
+  const { push } = useRouter()
   const [updateProfile, { isSuccess: isSuccessUpdate }] = useUpdateProfileMutation()
   const [createProfile, { isSuccess }] = useCreateProfileMutation()
   const { data: user } = useGetMeQuery()
@@ -78,14 +81,18 @@ export const Settings = () => {
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
           avatar: data.avatar,
-        }).then(() => {
-          uploadAvatar(avatar!)
-            .unwrap()
-            .then(() => {
-              setIsModalOpen(false)
-              setSelectedImage(null)
-            })
         })
+          .then(() => {
+            uploadAvatar(avatar!)
+              .unwrap()
+              .then(() => {
+                setIsModalOpen(false)
+                setSelectedImage(null)
+              })
+          })
+          .then(() => {
+            push(RouteNames.PROFILE)
+          })
       : createProfile({
           id: id,
           username: data.username,
@@ -96,14 +103,18 @@ export const Settings = () => {
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
           avatar: data.avatar,
-        }).then(() => {
-          uploadAvatar(avatar!)
-            .unwrap()
-            .then(() => {
-              setIsModalOpen(false)
-              setSelectedImage(null)
-            })
         })
+          .then(() => {
+            uploadAvatar(avatar!)
+              .unwrap()
+              .then(() => {
+                setIsModalOpen(false)
+                setSelectedImage(null)
+              })
+          })
+          .then(() => {
+            push(RouteNames.PROFILE)
+          })
   }
 
   const setToastHandler = () => {

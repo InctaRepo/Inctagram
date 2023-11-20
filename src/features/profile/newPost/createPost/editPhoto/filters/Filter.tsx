@@ -15,11 +15,11 @@ function getRadianAngle(degreeValue: number) {
 }
 
 function rotateSize(width: number, height: number, rotation: number): Size {
-  const rotRad = getRadianAngle(rotation)
+  const rad = getRadianAngle(rotation)
 
   return {
-    width: Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
-    height: Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height),
+    width: Math.abs(Math.cos(rad) * width) + Math.abs(Math.sin(rad) * height),
+    height: Math.abs(Math.sin(rad) * width) + Math.abs(Math.cos(rad) * height),
   }
 }
 
@@ -37,7 +37,7 @@ export default async function getFilteredImg(
     return null
   }
 
-  const rotRad = getRadianAngle(rotation)
+  const rot = getRadianAngle(rotation)
 
   const { width: bBoxWidth, height: bBoxHeight } = rotateSize(image.width, image.height, rotation)
 
@@ -45,7 +45,7 @@ export default async function getFilteredImg(
   canvas.height = bBoxHeight
 
   ctx.translate(bBoxWidth / 2, bBoxHeight / 2)
-  ctx.rotate(rotRad)
+  ctx.rotate(rot)
   ctx.scale(flip.horizontal ? -1 : 1, flip.vertical ? -1 : 1)
   ctx.translate(-image.width / 2, -image.height / 2)
 
@@ -54,13 +54,13 @@ export default async function getFilteredImg(
 
   //return canvas.toDataURL('image/jpeg')
   // As a blob
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     canvas.toBlob(blob => {
       if (!blob) {
         return null
       }
 
-      return resolve(URL.createObjectURL(blob))
+      return resolve(blob)
     })
   })
 }

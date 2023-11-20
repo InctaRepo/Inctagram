@@ -2,15 +2,15 @@ import Image from 'next/image'
 import React from 'react'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authUserSelector } from '@/src/features/auth/authService'
-import { useAppSelector } from '@/src/shared/hooks'
 import { DataProfile } from '../profileInfo/dataProfile'
 import { useGetProfileQuery } from '../service/profileApi'
 import s from './profileInfo.module.scss'
 
-export const ProfileInfo = () => {
-  const user = useAppSelector(authUserSelector)
-  const { data } = useGetProfileQuery(user?.userId, {
+type Props = {
+  id: string | string[] | undefined
+}
+export const ProfileInfo = ({ id }: Props) => {
+  const { data } = useGetProfileQuery(id, {
     refetchOnMountOrArgChange: true,
     skip: false,
   })
