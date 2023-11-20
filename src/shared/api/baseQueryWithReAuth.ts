@@ -23,7 +23,7 @@ const baseQuery = fetchBaseQuery({
   },
 })
 
-export const baseQueryWithReauth: BaseQueryFn<
+export const baseQueryWithReAuth: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError

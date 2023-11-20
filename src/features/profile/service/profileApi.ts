@@ -1,11 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-import { baseQueryWithReauth } from '@/src/shared/api/baseQueryWithReAuth'
+import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
 import { BaseResponse } from '@/src/shared/api/baseResponse'
 import { UserInfo } from '../../profile/service/profileApiTypes'
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
-  baseQuery: baseQueryWithReauth,
+  baseQuery: baseQueryWithReAuth,
   keepUnusedDataFor: 5,
   tagTypes: ['profile'],
   endpoints: builder => ({
