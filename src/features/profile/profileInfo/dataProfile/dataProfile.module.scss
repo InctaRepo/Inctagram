@@ -12,18 +12,16 @@
     border-radius: 2px;
     outline: 2px solid $color-accent-500;
   }
-
-  /* .button {
-    width: 167px;
-  } */
 }
 
 .progressProfile {
   display: flex;
-  gap: 100px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-  max-width: 680px;
-  height: 48px;
+  width: 100%;
+  max-width: 390px;
+  min-height: 48px;
   margin-bottom: 23px;
 
   .info {
