@@ -1,7 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import ImageArrow from '@/src/assets/images/rightArrow.png'
+import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
 import { Header } from '@/src/shared/header/ui/Header'
 import { useTranslate } from '@/src/shared/hooks'
 import { useHistory } from '@/src/shared/hooks/useHistory'
@@ -14,13 +13,15 @@ export const Privacy = () => {
   const { t } = useTranslate()
 
   return (
-    <div>
+    <div className={s.terms}>
       <Header />
       <div className={s.main}>
         <div className={s.SignUp}>
           <Button as={'a'} className={s.btn} variant={'text'} onClick={back}>
             <div className={s.arrow}>
-              <Image className={s.img} src={ImageArrow} alt="arrow" />
+              <div className={s.img}>
+                <ArrowLeftIcon />
+              </div>
               <Typography variant={'regular14'}> {t.auth.Return}</Typography>
             </div>
           </Button>

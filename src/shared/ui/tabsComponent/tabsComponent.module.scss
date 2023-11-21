@@ -5,18 +5,20 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 972px;
+  width: 100%;
   margin-bottom: 24px;
 
   .tabs_list {
     display: flex;
+    flex-wrap: wrap;
 
     .trigger {
       @include typography($fs: $font-size-m, $lh: $line-height-m, $fw: $font-weight-medium);
 
       cursor: pointer;
 
-      width: 243px;
+      width: 100%;
+      max-width: 234px;
       height: 36px;
       padding: 0 20px;
 

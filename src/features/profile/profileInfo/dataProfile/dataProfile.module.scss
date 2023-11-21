@@ -1,10 +1,10 @@
-@import '../../../../styles/colors';
+@import 'src/styles/colors';
 
 .header {
   display: flex;
   justify-content: space-between;
 
-  width: 700px;
+  max-width: 680px;
   height: 36px;
   margin-bottom: 20px;
 
@@ -21,6 +21,8 @@
 .progressProfile {
   display: flex;
   gap: 100px;
+
+  max-width: 680px;
   height: 48px;
   margin-bottom: 23px;
 

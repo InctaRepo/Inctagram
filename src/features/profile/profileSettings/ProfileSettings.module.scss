@@ -7,20 +7,45 @@
 }
 
 .profile {
-  width: 972px;
-  height: auto;
-}
+  width: 100%;
+  max-width: 972px;
 
-.tabsMenu {
-  width: 972px;
-}
+  // height: auto;
 
-.content {
-  @include flex-block(flex, row);
+  .tabsMenu {
+    // width: 972px;
+    width: 100%;
+    max-width: 972px;
+  }
 
-  justify-content: flex-start;
-  width: 972px;
-  margin-bottom: 24px;
+  .content {
+    @include flex-block(flex, row);
+
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 972px;
+    margin-bottom: 24px;
+
+    .photoContent {
+      align-self: start;
+      max-width: 300px;
+      min-height: 300px;
+    }
+
+    .editForm {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      width: 100%;
+      max-width: 740px;
+      min-height: 573px;
+      padding-left: 40px;
+    }
+  }
 }
 
 .ellipse {
@@ -49,10 +74,6 @@
   justify-content: center;
 }
 
-.photoContent {
-  align-self: start;
-}
-
 .photo {
   justify-content: center;
 }
@@ -66,40 +87,35 @@
   margin-top: 24px;
 }
 
-.editForm {
-  @include wh(775px, 573px);
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  padding-left: 40px;
-}
-
 .field {
-  @include wh(740px, 60px);
-
   top: 240px;
   left: 476px;
+
+  width: 100%;
+  max-width: 700px;
+  height: 60px;
   margin-bottom: 24px;
+
   text-align: left;
 }
 
 .fieldSelect {
-  @include wh(740px, 60px);
-
   position: relative;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
+  width: 100%;
+  max-width: 700px;
+  height: 60px;
   margin-bottom: 24px;
 }
 
 .select {
-  @include wh(340px, 60px);
+  width: 100%;
+  max-width: 335px;
+  height: 60px;
 }
 
 .date {
@@ -107,10 +123,12 @@
 }
 
 .textArea {
-  @include wh(740px, 132px);
-
   top: 576px;
   left: 476px;
+
+  width: 100%;
+  max-width: 700px;
+  height: 132px;
   margin-bottom: 23px;
 
   textarea {
@@ -119,9 +137,9 @@
 }
 
 .grayLine {
-  width: 100%;
+  width: 99%;
   height: 1px;
-  margin-top: -23px;
+  margin-top: -82px;
   background: $color-dark-300;
 }
 

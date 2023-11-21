@@ -4,10 +4,13 @@
 .container {
   @include flex-block;
 
-  .main {
-    @include flex-block($align-items: 'unset');
+  width: 100%;
 
-    min-width: 1280px;
+  .main {
+    @include flex-block;
+
+    width: 100%;
+    max-width: 1280px;
     min-height: calc(660px - $header-height);
   }
 }

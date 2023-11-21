@@ -1,8 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import ImageArrow from '@/src/assets/images/rightArrow.png'
+import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
 import { Header } from '@/src/shared/header/ui/Header'
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
@@ -15,7 +14,7 @@ export const Terms = () => {
   const router = useRouter()
 
   return (
-    <div>
+    <div className={s.terms}>
       <Header />
       <div className={s.main}>
         <div className={s.SignUp}>
@@ -26,7 +25,10 @@ export const Terms = () => {
             onClick={() => router.push(RouteNames.SIGN_IN)}
           >
             <div className={s.arrow}>
-              <Image className={s.img} src={ImageArrow} alt="arrow" />
+              {/*<Image className={s.img} src={ImageArrow} alt="arrow" />*/}
+              <div className={s.img}>
+                <ArrowLeftIcon />
+              </div>
               <Typography variant={'regular14'}> {t.auth.BackToSignUp}</Typography>
             </div>
           </Button>
