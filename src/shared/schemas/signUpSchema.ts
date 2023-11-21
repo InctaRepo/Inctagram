@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { LocaleType } from 'public/locales/en'
 
-export function createRegisterSchema(t: LocaleType) {
+export function createSignUpSchema(t: LocaleType) {
   return z
     .object({
       username: z
@@ -29,7 +29,7 @@ export function createRegisterSchema(t: LocaleType) {
         )
         .min(6, t.auth.authErrors.password.min)
         .max(20, t.auth.authErrors.password.max),
-      passwordConfirm: z.string().nonempty(t.auth.authErrors.passwordConfirm),
+      passwordConfirm: z.string().trim().nonempty(t.auth.authErrors.passwordConfirm),
     })
     .refine(data => data.password == data.passwordConfirm, {
       message: t.auth.authErrors.refine,
@@ -50,7 +50,7 @@ export function createRegisterSchema(t: LocaleType) {
     )
 }
 
-export type RegisterForm = {
+export type SignUpFormSchema = {
   username: string
   email: string
   password: string

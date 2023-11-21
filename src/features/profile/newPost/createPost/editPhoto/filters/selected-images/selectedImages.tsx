@@ -1,7 +1,7 @@
 import ImageWithFilter from 'next/image'
 import React, { FC } from 'react'
 import Slider from 'react-slick'
-import airBalloon from '@/src/assets/images/air-balloon.jpg'
+import airBalloon from 'public/images/airBalloonImage.jpg'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Typography } from '@/src/shared/ui/typography'

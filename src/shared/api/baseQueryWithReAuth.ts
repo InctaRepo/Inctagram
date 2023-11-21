@@ -10,6 +10,9 @@ const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   credentials: 'include',
   prepareHeaders: headers => {
+    if (typeof window === 'undefined') {
+      return headers
+    }
     const access = localStorage.getItem('access')
 
     if (access) {

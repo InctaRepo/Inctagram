@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useErrorToast } from '@/src/shared/hooks/useErrorToast'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
-import { RegisterForm } from '@/src/shared/schemas/registerSchema'
+import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
 import { Modal } from 'src/shared/ui/Modal'
 import { Typography } from 'src/shared/ui/typography'
-import { useRegisterMutation } from '../service/signUp'
-import { Register } from './register'
+import { useSignUpMutation } from '../service/signUp'
 import s from './signUp.module.scss'
+import { SingUpForm } from './singUpForm'
 
 export const SignUp = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-  const [userRegistration, { isSuccess, data }] = useRegisterMutation()
+  const [userRegistration, { isSuccess, data }] = useSignUpMutation()
   // START : for error handling manual , need refactor =================================================
   const successRes = isSuccess && data?.resultCode === 0
   const errorRes = isSuccess && data?.resultCode !== 0
@@ -36,7 +36,7 @@ export const SignUp = () => {
     }
   }, [isSuccess, data])
 
-  const submit = (data: RegisterForm) => {
+  const submit = (data: SignUpFormSchema) => {
     userRegistration(data)
   }
 
@@ -51,7 +51,7 @@ export const SignUp = () => {
     <div className={s.container}>
       {!emailSentModal}
       <div className={s.main}>
-        <Register onSubmitHandler={submit} />
+        <SingUpForm onSubmitHandler={submit} />
         <Modal
           modalWidth={'sm'}
           title={t.auth.emailSent}

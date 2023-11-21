@@ -32,9 +32,8 @@
   .containerLinks {
     @include flex-block;
 
-    align-content: start;
+    place-content: flex-start space-between;
     align-items: flex-start;
-    justify-content: space-between;
 
     width: 155px;
     height: 100%;

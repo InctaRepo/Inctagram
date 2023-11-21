@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { getProfileLayout } from '@/src/widgets/layout/profileLayout'
+import { useGetMeQuery } from '@/src/features/auth/authService'
 import { authIsAuthSelector } from '@/src/features/auth/authService/authSelectors'
 import { Profile } from '@/src/features/profile'
 import { RouteNames } from '@/src/shared/const/routeNames'
@@ -9,6 +10,8 @@ import { NextPageWithLayout } from '@/src/shared/service/types'
 
 const ProfilePage: NextPageWithLayout = () => {
   const isAuth = useAppSelector(authIsAuthSelector)
+  const { data: user } = useGetMeQuery()
+  const id = user?.data?.userId
 
   const router = useRouter()
 
@@ -18,7 +21,7 @@ const ProfilePage: NextPageWithLayout = () => {
     }
   }, [isAuth, router])
 
-  return isAuth && <Profile />
+  return isAuth && <Profile id={id} />
 }
 
 ProfilePage.getLayout = getProfileLayout
