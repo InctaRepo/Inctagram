@@ -91,19 +91,18 @@
     }
   }
 }
-
 .calendar {
   width: 300px;
   padding: 16px 24px;
 
-  font-family: inherit;
-  font-size: $font-size-m;
-  line-height: $line-height-m;
+  font-family: inherit !important;
+  font-size: $font-size-m !important;
+  line-height: $line-height-m !important;
   color: $color-light-100;
 
-  background-color: $color-dark-500;
-  border-color: $color-dark-300;
-  border-radius: 2px;
+  background-color: $color-dark-500 !important;
+  border-color: $color-dark-300 !important;
+  border-radius: 2px !important;
 }
 
 .icon {
