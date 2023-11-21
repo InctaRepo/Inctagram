@@ -3,23 +3,23 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import GithubIcon from '@/src/assets/icons/github-icon'
-import GoogleIcon from '@/src/assets/icons/google-icon'
+import GithubIcon from 'public/icon/gitHubIcon.svg'
+import GoogleIcon from 'public/icon/googleIcon.svg'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
-import { createRegisterSchema, RegisterForm } from '@/src/shared/schemas/registerSchema'
 import { RouteNames } from 'src/shared/const/routeNames'
+import { createSignUpSchema, SignUpFormSchema } from 'src/shared/schemas/signUpSchema'
 import { Button } from 'src/shared/ui/button'
 import { Card } from 'src/shared/ui/card'
 import { ControlledCheckbox, ControlledTextField } from 'src/shared/ui/controlled'
 import { Typography } from 'src/shared/ui/typography'
-import s from './register.module.scss'
+import s from './singUpForm.module.scss'
 
 type Props = {
-  onSubmitHandler: (data: RegisterForm) => void
+  onSubmitHandler: (data: SignUpFormSchema) => void
 }
 
-export const Register = ({ onSubmitHandler }: Props) => {
+export const SingUpForm = ({ onSubmitHandler }: Props) => {
   const { t } = useTranslate()
 
   const router = useRouter()
@@ -30,8 +30,8 @@ export const Register = ({ onSubmitHandler }: Props) => {
     formState,
     trigger,
     formState: { touchedFields, errors },
-  } = useForm<RegisterForm>({
-    resolver: zodResolver(createRegisterSchema(t)),
+  } = useForm<SignUpFormSchema>({
+    resolver: zodResolver(createSignUpSchema(t)),
     mode: 'onTouched',
     defaultValues: {
       username: '',
@@ -48,7 +48,7 @@ export const Register = ({ onSubmitHandler }: Props) => {
     triggerZodFieldError(touchedFieldNames, trigger)
   }, [t])
 
-  const onSubmit = handleSubmit((data: RegisterForm) => {
+  const onSubmit = handleSubmit((data: SignUpFormSchema) => {
     onSubmitHandler(data)
   })
 

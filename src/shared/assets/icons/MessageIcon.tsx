@@ -1,6 +1,6 @@
 import { memo, SVGProps } from 'react'
 
-const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
+export const MessageIcon = memo((props: SVGProps<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"
@@ -34,8 +34,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
       </g>
     </g>
   </svg>
-)
-
-const MessageIcon = memo(SvgComponent)
-
-export default MessageIcon
+))

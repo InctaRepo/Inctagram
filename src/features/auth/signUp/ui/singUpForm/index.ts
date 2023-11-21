@@ -1,0 +1,1 @@
+export { SingUpForm } from './SingUpForm'

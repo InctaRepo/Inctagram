@@ -1,10 +1,3 @@
-export type RegisterArgsType = {
-  username: string
-  email: string
-  password: string
-  passwordConfirm: string
-}
-
 export type NewPasswordArgsType = {
   newPassword: string
   recoveryCode: string
