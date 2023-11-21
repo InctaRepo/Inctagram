@@ -1,11 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-import { baseQueryWithReauth } from '@/src/shared/api/baseQueryWithReAuth'
+import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
 import { BaseResponse } from '@/src/shared/api/baseResponse'
 import { GetUserPostsResponse, UpdatePost, UpdateResponse } from '../posts/postApiTypes'
 
 export const postApi = createApi({
   reducerPath: 'postApi',
-  baseQuery: baseQueryWithReauth,
+  baseQuery: baseQueryWithReAuth,
   tagTypes: ['createPost', 'editPost', 'deletePost'],
   endpoints: builder => ({
     addPost: builder.mutation<BaseResponse, FormData>({
