@@ -123,123 +123,118 @@ export const ProfileSettings = ({
   }
 
   return (
-    <>
-      <div className={s.profile}>
-        <div className={s.tabsMenu}>
-          <TabsComponent
-            tabs={[
-              {
-                label: `${t.profile.profileSetting.generalInformation}`,
-                value: 'settings',
-              },
-              { label: `${t.profile.profileSetting.devices}`, value: 'devices' },
-              {
-                label: `${t.profile.profileSetting.accountManagement}`,
-                value: 'account-management',
-              },
-              { label: `${t.profile.profileSetting.myPayment}`, value: 'my-payment' },
-            ]}
-          />
-        </div>
-        <div className={s.content}>
-          <div className={s.photoContent}>
-            {!croppedAvatar && userData?.avatar === null && (
-              <div className={s.photo}>
-                <div className={s.ellipse}></div>
-                <div className={s.image}>
-                  <ImgOutline />
-                </div>
+    <div className={s.profile}>
+      <div className={s.tabsMenu}>
+        <TabsComponent
+          tabs={[
+            {
+              label: `${t.profile.profileSetting.generalInformation}`,
+              value: 'settings',
+            },
+            { label: `${t.profile.profileSetting.devices}`, value: 'devices' },
+            {
+              label: `${t.profile.profileSetting.accountManagement}`,
+              value: 'account-management',
+            },
+            { label: `${t.profile.profileSetting.myPayment}`, value: 'my-payment' },
+          ]}
+        />
+      </div>
+      <div className={s.content}>
+        <div className={s.photoContent}>
+          {!croppedAvatar && userData?.avatar === null && (
+            <div className={s.photo}>
+              <div className={s.ellipse}></div>
+              <div className={s.image}>
+                <ImgOutline />
               </div>
-            )}
-            <div className={s.addBtn}>
-              <SettingPhotoModal
-                avatar={userData?.avatar}
-                croppedAvatar={croppedAvatar}
-                setCroppedAvatar={setCroppedAvatar}
-                isModalOpen={isModalOpen}
-                setIsModalOpen={setIsModalOpen}
-                selectedImage={selectedImage}
-                setSelectedImage={setSelectedImage}
-                editorRef={editorRef}
-                handleSavePhoto={handleSavePhoto}
+            </div>
+          )}
+          <div className={s.addBtn}>
+            <SettingPhotoModal
+              avatar={userData?.avatar}
+              croppedAvatar={croppedAvatar}
+              setCroppedAvatar={setCroppedAvatar}
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+              selectedImage={selectedImage}
+              setSelectedImage={setSelectedImage}
+              editorRef={editorRef}
+              handleSavePhoto={handleSavePhoto}
+            />
+          </div>
+        </div>
+        <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
+          <DevTool control={control} />
+          <ControlledTextField
+            control={control}
+            name={'username'}
+            label={t.profile.profileSetting.userName}
+            className={s.field}
+            isRequired
+          />
+          <ControlledTextField
+            control={control}
+            name={'firstName'}
+            label={t.profile.profileSetting.firstName}
+            className={s.field}
+            isRequired
+          />
+          <ControlledTextField
+            control={control}
+            name={'lastName'}
+            label={t.profile.profileSetting.lastName}
+            className={s.field}
+            isRequired
+          />
+          <div className={s.datePicker}>
+            <ControlledDatePicker
+              control={control}
+              className={s.date}
+              label={t.profile.profileSetting.dateOfBirthday}
+              name={'dateOfBirthday'}
+              errorMessage={errors.dateOfBirthday?.message}
+            />
+          </div>
+
+          <div className={s.fieldSelect}>
+            <div className={s.select}>
+              <ControlledSelect
+                control={control}
+                name="country"
+                options={countriesList}
+                label={t.profile.profileSetting.selectYourCountry}
+                onValueChange={changeCountryHandler}
+                defaultValue={t.profile.profileSetting.country}
+              />
+            </div>
+            <div className={s.select}>
+              <ControlledSelect
+                control={control}
+                name="city"
+                options={cities}
+                label={t.profile.profileSetting.selectYourCity}
+                defaultValue={t.profile.profileSetting.city}
               />
             </div>
           </div>
+          <ControlledTextArea
+            control={control}
+            className={s.textArea}
+            setValue={setValue}
+            name={'aboutMe'}
+            fullWidth={true}
+            label={t.profile.profileSetting.aboutMe}
+          />
 
-          <div>
-            <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
-              <DevTool control={control} />
-              <ControlledTextField
-                control={control}
-                name={'username'}
-                label={t.profile.profileSetting.userName}
-                className={s.field}
-                isRequired
-              />
-              <ControlledTextField
-                control={control}
-                name={'firstName'}
-                label={t.profile.profileSetting.firstName}
-                className={s.field}
-                isRequired
-              />
-              <ControlledTextField
-                control={control}
-                name={'lastName'}
-                label={t.profile.profileSetting.lastName}
-                className={s.field}
-                isRequired
-              />
-              <div className={s.datePicker}>
-                <ControlledDatePicker
-                  control={control}
-                  className={s.date}
-                  label={t.profile.profileSetting.dateOfBirthday}
-                  name={'dateOfBirthday'}
-                  errorMessage={errors.dateOfBirthday?.message}
-                />
-              </div>
-
-              <div className={s.fieldSelect}>
-                <div className={s.select}>
-                  <ControlledSelect
-                    control={control}
-                    name="country"
-                    options={countriesList}
-                    label={t.profile.profileSetting.selectYourCountry}
-                    onValueChange={changeCountryHandler}
-                    defaultValue={t.profile.profileSetting.country}
-                  />
-                </div>
-                <div className={s.select}>
-                  <ControlledSelect
-                    control={control}
-                    name="city"
-                    options={cities}
-                    label={t.profile.profileSetting.selectYourCity}
-                    defaultValue={t.profile.profileSetting.city}
-                  />
-                </div>
-              </div>
-              <ControlledTextArea
-                control={control}
-                className={s.textArea}
-                setValue={setValue}
-                name={'aboutMe'}
-                fullWidth={true}
-                label={t.profile.profileSetting.aboutMe}
-              />
-
-              <div className={s.saveBtn}>
-                <Button type="submit" fullWidth variant="primary">
-                  {t.profile.profileSetting.saveChanges}
-                </Button>
-              </div>
-            </form>
+          <div className={s.saveBtn}>
+            <Button type="submit" fullWidth variant="primary">
+              {t.profile.profileSetting.saveChanges}
+            </Button>
           </div>
-        </div>
-        <div className={`${s.grayLine} ${errors.dateOfBirthday && s.grayLineError}`} />
+        </form>
       </div>
-    </>
+      <div className={`${s.grayLine} ${errors.dateOfBirthday && s.grayLineError}`} />
+    </div>
   )
 }
