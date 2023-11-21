@@ -1,74 +1,66 @@
 import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
 import { clsx } from 'clsx'
+import Image from 'next/image'
 import React, { ComponentProps, ReactNode, useState } from 'react'
-import { useTranslate } from '@/src/shared/hooks'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices,import/order
+import { authUserSelector } from '@/src/features/auth/authService'
+
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Images } from '@/src/features/posts/postApiTypes'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { PostImages } from '@/src/features/profile/newPost/editDeletePost/postImages/PostImages'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,import/namespace
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
+import { useAppSelector } from '@/src/shared/hooks'
 import { AddDescriptionModal } from '../createPost/addDescription/AddDescriptionModal'
 import { RightDescription } from '../editDeletePost/postDescription/RightDescription'
-import { PostImages } from '../editDeletePost/postPhotos/PostPhotos'
 import s from './EditPostModal.module.scss'
+// eslint-disable-next-line import/namespace
+import { EditModal } from './ui/EditModal'
 
 export type ModalProps = {
-  open: boolean
-  onClose?: () => void
-  onAction?: () => void
-  onCancel?: () => void
-  showSeparator?: boolean
-  children?: ReactNode
-  className?: string
-  cancelButtonName?: string // if no props , visibility = hidden
-  actionButtonName?: string
-  setDeletePostModal: (openSureModal: boolean) => void
+  description?: string
+  createdAt: Date
+  userData: UserInfo
+  images: Images[]
+  id: string
+  modalWidth: string
 } & ComponentProps<'div'>
 
-export const EditPostModal = ({
-  open,
-  onClose,
-  onAction,
-  onCancel,
-  showSeparator,
-  cancelButtonName,
-  actionButtonName,
-  setDeletePostModal,
-  children,
-  className,
-}: ModalProps) => {
-  const classNames = {
-    content: getContentClassName(className),
-    separator: clsx(s.separator, !showSeparator && s.separatorHide),
-    wrapper: clsx(s.wrapper),
-    actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
-    cancelButton: clsx(
-      s.widePaddingButton,
-      !cancelButtonName && s.cancelButtonHide,
-      s.actionButton
-    ),
-  }
-  const [isEditModalOpen, setIsEditModalOpen] = useState(true)
+export const EditPostModal = ({ description, createdAt, userData, images, id }: ModalProps) => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [openSureDescriptionModal, setOpenSureDescriptionModal] = useState(false)
+  const user = useAppSelector(authUserSelector)
 
-  const { t } = useTranslate()
+  const buttonClickHandler = () => {
+    setIsEditModalOpen(false)
+  }
 
   return (
-    <Dialog open={isEditModalOpen} onOpenChange={open => !open && setDeletePostModal(true)}>
-      <DialogPortal>
-        <DialogOverlay className={s.DialogOverlay} />
-        <DialogContent className={classNames.content}>
-          <div className={classNames.wrapper}>
-            <PostImages />
-            <RightDescription
-              isEditModalOpen={isEditModalOpen}
-              setIsEditModalOpen={setIsEditModalOpen}
-            />
-          </div>
-
-          <div className={s.contentBox}>{children}</div>
-        </DialogContent>
-      </DialogPortal>
-    </Dialog>
+    <>
+      <Image
+        src={images[0].url}
+        width={234}
+        height={228}
+        alt={'post'}
+        onClick={() => setIsEditModalOpen(true)}
+      />
+      <EditModal modalWidth={'edit'} open={isEditModalOpen} onClose={buttonClickHandler}>
+        <div className={s.wrapper}>
+          <PostImages images={images} id={id} />
+          <RightDescription
+            images={images}
+            id={id}
+            description={description}
+            createdAt={createdAt}
+            userName={user.username}
+            userData={userData}
+            isEditModalOpen={isEditModalOpen}
+            setIsEditModalOpen={setIsEditModalOpen}
+          />
+        </div>
+      </EditModal>
+    </>
   )
 }
-
-function getContentClassName(className?: string) {
-  return clsx(className, s.DialogContent)
-}
-
-export default AddDescriptionModal

@@ -9,12 +9,14 @@ import { Typography } from '@/src/shared/ui/typography'
 import s from '../postDescription/editDescription/EditDescriptionModal.module.scss'
 
 export type ModalProps = {
+  id: string
   openDeleteModal: boolean
   setOpenDeleteModal: (openDeleteModal: boolean) => void
   setIsEditModalOpen?: (isEditModalOpen: boolean) => void
 }
 
 export const DeleteModal = ({
+  id,
   openDeleteModal,
   setOpenDeleteModal,
   setIsEditModalOpen,
@@ -26,10 +28,14 @@ export const DeleteModal = ({
   }
 
   const discardHandler = () => {
-    setOpenDeleteModal(false)
-    if (setIsEditModalOpen) {
-      setIsEditModalOpen(false)
-    }
+    deletePost(id)
+      .unwrap()
+      .then(() => {
+        setOpenDeleteModal(false)
+        if (setIsEditModalOpen) {
+          setIsEditModalOpen(false)
+        }
+      })
   }
 
   return (

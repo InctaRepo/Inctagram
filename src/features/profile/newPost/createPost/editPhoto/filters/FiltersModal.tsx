@@ -9,9 +9,8 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 import React, { ComponentProps, ReactNode, useState } from 'react'
 import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-//TODO
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useAddPostMutation } from '@/src/features/posts'
+import { useAddPostMutation } from '@/src/features/posts/postApi'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'
 import { Typography } from '@/src/shared/ui/typography'

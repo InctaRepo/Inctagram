@@ -1,120 +1,98 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogOverlay,
-  DialogPortal,
-  DialogTitle,
-} from '@radix-ui/react-dialog'
+import { DialogTitle } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
-import { clsx } from 'clsx'
 import Image from 'next/image'
-import React, { ComponentProps, ReactNode, useState } from 'react'
+import React, { ComponentProps, useState } from 'react'
 import edit from '@/src/assets/icons/edit.svg'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Images } from '@/src/features/posts'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { PostImages } from '@/src/features/profile/newPost/editDeletePost/postImages/PostImages'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Typography } from '@/src/shared/ui/typography'
-import { PostDescription } from '../../../createPost/addDescription/postDescription/PostDescription'
 import s from '../../postDescription/editDescription/EditDescriptionModal.module.scss'
-import { PostImages } from '../../postPhotos/PostPhotos'
 import { AreYouSureDescriptionModal } from '../../smallModals/AreYouSureDescriptionModal'
+import { EditModal } from '../../ui/EditModal'
+import { RightDescription } from '../RightDescription'
 
 export type ModalProps = {
-  onClose?: () => void
-  onAction?: () => void
-  onCancel?: () => void
-  cancelButtonName?: string // if no props , visibility = hidden
-  actionButtonName?: string // if no props , visibility = hidden
-  showSeparator?: boolean // if no props with false , visibility = visible
-  title?: string
-  children?: ReactNode
-  className?: string
+  userName: string
+  description?: string
+  createdAt: Date
+  userData: UserInfo
+  images: Images[]
+  id: string
+  modalWidth?: string
   isEditModalOpen?: boolean
-  setIsEditModalOpen?: (isEditModalOpen: boolean) => void
-  setDeletePostModal?: (openSureModal: boolean) => void
+  setIsEditModalOpen: (isEditModalOpen: boolean) => void
 } & ComponentProps<'div'>
 
 export const EditDescriptionModal = ({
-  showSeparator = true,
-  cancelButtonName,
-  actionButtonName,
-  className,
-  children,
+  userName,
+  description,
+  createdAt,
+  userData,
+  images,
+  id,
   isEditModalOpen,
   setIsEditModalOpen,
 }: ModalProps) => {
-  const classNames = {
-    content: getContentClassName(className),
-    separator: clsx(s.separator, !showSeparator && s.separatorHide),
-    actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
-    cancelButton: clsx(
-      s.widePaddingButton,
-      !cancelButtonName && s.cancelButtonHide,
-      s.actionButton
-    ),
-  }
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [openSureDescriptionModal, setOpenSureDescriptionModal] = useState<boolean>(false)
 
   const { t } = useTranslate()
 
-  const handlePublish = () => {
-    if (setIsEditDescriptionModalOpen) {
-      setIsEditDescriptionModalOpen(true)
-    }
+  const openEditHandler = () => {
+    setIsEditDescriptionModalOpen(true)
+    setIsEditModalOpen(false)
+  }
+  //  onOpenChange={open => !open && setOpenSureDescriptionModal(true)}
 
-    if (setIsEditModalOpen) {
-      setIsEditModalOpen(false)
-    }
+  const buttonClickHandler = () => {
+    setIsEditDescriptionModalOpen(false)
   }
 
   return (
     <>
-      <div className={s.editOption1} onClick={handlePublish}>
+      <div className={s.editOption1} onClick={openEditHandler}>
         <Image src={edit} alt={'edit'} width={24} height={24} />
         <Typography variant={'regular14'}>{t.profile.profileSetting.edit}</Typography>
       </div>
-      <Dialog
-        open={isEditDescriptionModalOpen}
-        onOpenChange={open => !open && setOpenSureDescriptionModal(true)}
-      >
-        <DialogPortal>
-          <DialogOverlay className={s.DialogOverlay} />
-          <DialogContent className={classNames.content}>
-            <div className={s.titleWrapper}>
-              <div className={s.next}>
-                <DialogTitle className={s.DialogTitle}>
-                  <Typography variant={'h1'}>{t.profile.editPost.edit}</Typography>
-                  <Separator className={classNames.separator} />
-                </DialogTitle>
-              </div>
-              <div>
-                <AreYouSureDescriptionModal
-                  openSureDescriptionModal={openSureDescriptionModal}
-                  setOpenSureDescriptionModal={setOpenSureDescriptionModal}
-                  setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
-                />
-              </div>
-            </div>
-            <div className={s.wrapper}>
-              <PostImages />
-              <PostDescription />
-            </div>
-            <div>
-              <AreYouSureDescriptionModal
-                openSureDescriptionModal={openSureDescriptionModal}
-                setOpenSureDescriptionModal={setOpenSureDescriptionModal}
-                setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
-              />
-            </div>
-            <div className={s.contentBox}>{children}</div>
-          </DialogContent>
-        </DialogPortal>
-      </Dialog>
+      <EditModal modalWidth={'edit'} open={isEditDescriptionModalOpen} onClose={buttonClickHandler}>
+        <div className={s.wrapper}>
+          <DialogTitle className={s.DialogTitle}>
+            <Typography variant={'h1'}>{t.profile.editPost.edit}</Typography>
+            <Separator className={s.separator} />
+          </DialogTitle>
+          <div>
+            <AreYouSureDescriptionModal
+              openSureDescriptionModal={openSureDescriptionModal}
+              setOpenSureDescriptionModal={setOpenSureDescriptionModal}
+              setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
+            />
+          </div>
+
+          <div className={s.wrapper}>
+            <PostImages images={images} id={id} />
+            <RightDescription
+              description={description}
+              createdAt={createdAt}
+              userName={userName}
+              userData={userData}
+              isEditModalOpen={isEditModalOpen}
+              setIsEditModalOpen={setIsEditModalOpen}
+            />
+          </div>
+          <div>
+            <AreYouSureDescriptionModal
+              openSureDescriptionModal={openSureDescriptionModal}
+              setOpenSureDescriptionModal={setOpenSureDescriptionModal}
+              setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
+            />
+          </div>
+        </div>
+      </EditModal>
     </>
   )
 }
-
-function getContentClassName(className?: string) {
-  return clsx(className, s.DialogContent)
-}
-
-export default EditDescriptionModal

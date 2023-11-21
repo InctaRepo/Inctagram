@@ -28,6 +28,7 @@ type Props = {
   setValue?: (value: string) => void
   addedImages?: Image[]
   userData?: UserInfo
+  description?: string
 }
 
 export const PostDescription = ({ value, setValue, userData }: Props) => {

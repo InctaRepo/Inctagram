@@ -11,8 +11,10 @@ export type UpdatePost = {
 export type UpdateResponse = {
   description: string
 }
-type Images = {
+export type Images = {
+  size: number
   url: string
+  variant: string
 }
 
 export type GetUserPostsRequest = {
@@ -22,7 +24,7 @@ export type GetUserPostsRequest = {
 }
 
 export type CreatePostResponse = {
-  createdAt: string
+  createdAt: Date
   description: string
   id: string
   images: Images[]
