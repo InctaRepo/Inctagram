@@ -82,8 +82,6 @@ export const PostDescription = ({
     })
   }
 
-  console.log(value)
-
   return (
     <>
       <div className={s.wrapper}>

@@ -90,7 +90,6 @@ export const Buttons = ({
       {isEditDescriptionModalOpen && (
         <div className={s.editOptions}>
           <EditDescriptionModal
-            openSureDescriptionModal={openSureDescriptionModal}
             setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
             isEditDescriptionModalOpen={isEditDescriptionModalOpen}
             images={images}

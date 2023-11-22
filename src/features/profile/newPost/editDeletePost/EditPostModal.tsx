@@ -20,7 +20,7 @@ import s from './EditPostModal.module.scss'
 import { EditModal } from './ui/EditModal'
 
 export type ModalProps = {
-  openSureDescriptionModal: boolean
+  openSureDescriptionModal?: boolean
   isDescription?: boolean
   description?: string
   createdAt: Date
@@ -58,7 +58,7 @@ export const EditPostModal = ({
         onClick={() => setIsEditModalOpen(true)}
       />
       <EditModal
-        openSureDescriptionModal={openSureDescriptionModal}
+        openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
         modalWidth={'edit'}
         open={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
@@ -68,7 +68,7 @@ export const EditPostModal = ({
         <div className={s.wrapper}>
           <PostImages images={images} id={id} />
           <RightDescription
-            openSureDescriptionModal={openSureDescriptionModal}
+            openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
             setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
             isEditDescriptionModalOpen={isEditDescriptionModalOpen}
             images={images}
