@@ -36,18 +36,21 @@ const RDPC = (((RDP.default as any).default as any) ||
   (RDP as any)) as typeof RDP.default
 
 export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
-  ({
-    className,
-    disabled,
-    endDate,
-    errorMessage,
-    label,
-    placeholder,
-    setEndDate,
-    setStartDate,
-    startDate,
-    ...rest
-  }) => {
+  (
+    {
+      className,
+      disabled,
+      endDate,
+      errorMessage,
+      label,
+      placeholder,
+      setEndDate,
+      setStartDate,
+      startDate,
+      ...rest
+    },
+    ref
+  ) => {
     const isRange = endDate !== undefined
 
     const showError = !!errorMessage && errorMessage.length > 0

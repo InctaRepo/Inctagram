@@ -1,5 +1,5 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Logout } from '@/src/features/auth/logout/Logout'
+import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices

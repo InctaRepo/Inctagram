@@ -24,11 +24,26 @@
   display: flex;
 
   width: 300px;
+
+  fill: white;
+}
+
+.arrow:hover {
+  color: #cc1439;
+}
+
+.logo {
+  fill: white;
+}
+
+.logo:hover {
+  fill: $color-accent-500;
 }
 
 .img {
   position: relative;
-  right: 15px;
+  top: 4px;
+  fill: white;
 }
 
 .SignUp {
@@ -41,6 +56,18 @@
 .btn {
   color: inherit;
   text-decoration: none;
+}
+
+.btn:hover {
+  color: $color-accent-500;
+}
+
+.textReturn {
+  text-decoration: none;
+}
+
+.textReturn:hover {
+  color: $color-accent-500;
 }
 
 .Text {

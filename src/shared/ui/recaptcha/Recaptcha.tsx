@@ -1,10 +1,10 @@
 import clsx from 'clsx'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { FieldValues, UseControllerProps } from 'react-hook-form'
-import Privacy from '@/src/assets/icons/recaptcha.svg'
-import Checked from '@/src/assets/icons/recaptchaChecked.svg'
+import Privacy from 'public/icon/recaptcha.svg'
+import RecaptchaChecked from 'public/icon/recaptchaChecked.svg'
+import { RouteNames } from '../../const/routeNames'
 import { useTranslate } from '../../hooks'
 import { Card } from '../card'
 import s from './recaptcha.module.scss'
@@ -82,16 +82,15 @@ export const Recaptcha = <T extends FieldValues>({
             <div />
             <div />
           </div>
-          <Image src={Checked} className={classNames.checked} alt="checked" />
+          <RecaptchaChecked className={classNames.checked} alt="checked" />
           <label>{t.auth.authErrors.recaptcha.notARobot}</label>
         </div>
         <div className={s.privacy}>
-          <Image
-            src={Privacy}
+          <Privacy
             width="46"
             height="57"
             alt="privacy"
-            onClick={() => router.push('/auth/terms-of-use')}
+            onClick={() => router.push(RouteNames.TERMS_OF_USE)}
           />
         </div>
       </Card>
