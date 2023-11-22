@@ -8,9 +8,9 @@ import { Images } from '@/src/features/posts'
 import Image from 'next/image'
 import s from './PostImages.module.scss'
 
-type Props = { images: Images[]; id: string }
+type Props = { images: Images[]; id: string; isDescription?: boolean }
 
-export const PostImages = ({ images, id }: Props) => {
+export const PostImages = ({ images, id, isDescription }: Props) => {
   const settings = {
     dots: true,
     swipe: false,
@@ -53,7 +53,7 @@ export const PostImages = ({ images, id }: Props) => {
       <div className={s.imgContainer}>
         <Slider {...settings}>
           {images.map((el, idx) => (
-            <div key={idx} className={s.carousel}>
+            <div key={idx} className={isDescription ? s.carouselDescription : s.carousel}>
               <Image alt={'img'} src={el.url} width={490} height={562} />
             </div>
           ))}

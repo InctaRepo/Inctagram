@@ -20,17 +20,28 @@ import s from './EditPostModal.module.scss'
 import { EditModal } from './ui/EditModal'
 
 export type ModalProps = {
+  openSureDescriptionModal: boolean
+  isDescription?: boolean
   description?: string
   createdAt: Date
-  userData: UserInfo
+  userData?: UserInfo
   images: Images[]
   id: string
   modalWidth: string
 } & ComponentProps<'div'>
 
-export const EditPostModal = ({ description, createdAt, userData, images, id }: ModalProps) => {
+export const EditPostModal = ({
+  openSureDescriptionModal,
+  description,
+  createdAt,
+  userData,
+  images,
+  id,
+  isDescription,
+}: ModalProps) => {
+  const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
+
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const [openSureDescriptionModal, setOpenSureDescriptionModal] = useState(false)
   const user = useAppSelector(authUserSelector)
 
   const buttonClickHandler = () => {
@@ -40,16 +51,26 @@ export const EditPostModal = ({ description, createdAt, userData, images, id }: 
   return (
     <>
       <Image
-        src={images[0].url}
+        src={images[0]?.url ? images[0].url : ''}
         width={234}
         height={228}
         alt={'post'}
         onClick={() => setIsEditModalOpen(true)}
       />
-      <EditModal modalWidth={'edit'} open={isEditModalOpen} onClose={buttonClickHandler}>
+      <EditModal
+        openSureDescriptionModal={openSureDescriptionModal}
+        modalWidth={'edit'}
+        open={isEditModalOpen}
+        setIsEditModalOpen={setIsEditModalOpen}
+        onClose={buttonClickHandler}
+        isDescription={!isEditDescriptionModalOpen}
+      >
         <div className={s.wrapper}>
           <PostImages images={images} id={id} />
           <RightDescription
+            openSureDescriptionModal={openSureDescriptionModal}
+            setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
+            isEditDescriptionModalOpen={isEditDescriptionModalOpen}
             images={images}
             id={id}
             description={description}

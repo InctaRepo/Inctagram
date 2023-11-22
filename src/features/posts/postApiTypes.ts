@@ -4,8 +4,8 @@ export type Post = {
 } | null
 
 export type UpdatePost = {
-  body: Post
-  postId: string
+  description: string | undefined
+  postId: string | undefined
 }
 
 export type UpdateResponse = {

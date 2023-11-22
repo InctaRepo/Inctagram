@@ -9,11 +9,15 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 import React, { ComponentPropsWithoutRef, ReactNode, useState } from 'react'
 import { CloseIcon } from '@/src/assets/icons/close-icon'
+import { CloseIconOutline } from '@/src/assets/icons/close-outline'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { AreYouSureDescriptionModal } from '@/src/features/profile/newPost/editDeletePost/smallModals/AreYouSureDescriptionModal'
 import s from './EditModal.module.scss'
 
 export type ModalSize = 'edit'
 
 export type ModalProps = {
+  setIsEditModalOpen: (open: boolean) => void
   open?: boolean
   onClose?: () => void
   onAction?: () => void
@@ -25,9 +29,18 @@ export type ModalProps = {
   cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string
   setDeletePostModal?: (openSureModal: boolean) => void
+  isDescription?: boolean
+  setIsEditDescriptionModalOpen?: (isEditDescriptionModalOpen: boolean) => void
+  openSureDescriptionModal: boolean
+  setOpenSureDescriptionModal?: (openSureDescriptionModal: boolean) => void
 } & ComponentPropsWithoutRef<'div'>
 
 export const EditModal = ({
+  openSureDescriptionModal,
+  setOpenSureDescriptionModal,
+  setIsEditModalOpen,
+  setIsEditDescriptionModalOpen,
+  isDescription,
   showSeparator = true,
   onClose,
   onAction,
@@ -52,9 +65,6 @@ export const EditModal = ({
       <s className="actionButton"></s>
     ),
   }
-  const [isModalOpen, setIsModalOpen] = useState(true)
-
-  const [openSureModal, setOpenSureModal] = useState<boolean>(false)
 
   function onCloseHandler() {
     onClose?.()
@@ -62,20 +72,34 @@ export const EditModal = ({
 
   return (
     <>
-      {isModalOpen && (
-        <Dialog open={open} onOpenChange={open => !open && setOpenSureModal(true)}>
-          <DialogPortal>
-            <DialogOverlay className={s.DialogOverlay} />
+      <Dialog
+        open={open}
+        onOpenChange={open =>
+          !open && setOpenSureDescriptionModal && setOpenSureDescriptionModal(true)
+        }
+      >
+        <DialogPortal>
+          <DialogOverlay className={s.DialogOverlay} />
 
-            <DialogContent className={classNames.content} {...rest}>
-              <button onClick={onCloseHandler} className={s.IconButton}>
-                <CloseIcon />
-              </button>
-              <div className={s.contentBox}>{children}</div>
-            </DialogContent>
-          </DialogPortal>
-        </Dialog>
-      )}
+          <DialogContent className={classNames.content} {...rest}>
+            {!isDescription ? (
+              <div className={s.IconButtonNone}></div>
+            ) : (
+              <div onClick={onCloseHandler} className={s.IconButton}>
+                <CloseIconOutline />
+              </div>
+            )}
+
+            <div className={s.contentBox}>{children}</div>
+          </DialogContent>
+          <AreYouSureDescriptionModal
+            setIsEditModalOpen={setIsEditModalOpen}
+            setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
+            openSureDescriptionModal={openSureDescriptionModal}
+            setOpenSureDescriptionModal={setOpenSureDescriptionModal}
+          />
+        </DialogPortal>
+      </Dialog>
     </>
   )
 }

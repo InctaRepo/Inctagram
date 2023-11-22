@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import expandOutline from '@/src/assets/icons/expand-outline.svg'
-import img from '@/src/assets/icons/image-ouline.svg'
-import rectangle11 from '@/src/assets/icons/rectangle11.svg'
-import rectangle169 from '@/src/assets/icons/rectangle169.svg'
-import rectangle45 from '@/src/assets/icons/rectangle45.svg'
+import ExpandOutline from '@/src/assets/icons/expand-outline.svg'
+import Img from '@/src/assets/icons/image-ouline.svg'
+import Rectangle11 from '@/src/assets/icons/rectangle11.svg'
+import Rectangle169 from '@/src/assets/icons/rectangle169.svg'
+import Rectangle45 from '@/src/assets/icons/rectangle45.svg'
 import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'
 import s from '../crop/Cropping.module.scss'
@@ -36,8 +36,7 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
   return (
     <div ref={cropRef}>
       <div onClick={() => setIsOpen(current => !current)} className={s.cropBtn}>
-        <Image
-          src={expandOutline}
+        <ExpandOutline
           alt={'crop'}
           width={24}
           height={24}
@@ -57,9 +56,8 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               {' '}
               {t.profile.profileSetting.original}{' '}
             </Typography>
-            <Image
+            <Img
               className={aspectRatio === 4 / 3 ? s.white : s.gray}
-              src={img}
               alt={'image'}
               width={24}
               height={24}
@@ -76,9 +74,8 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               {' '}
               1:1
             </Typography>
-            <Image
+            <Rectangle11
               className={aspectRatio === 1 ? s.white : s.gray}
-              src={rectangle11}
               alt={'rect11'}
               width={18}
               height={18}
@@ -95,9 +92,8 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               {' '}
               4:5{' '}
             </Typography>
-            <Image
+            <Rectangle45
               className={aspectRatio === 4 / 5 ? s.white : s.gray}
-              src={rectangle45}
               alt={'rect45'}
               width={18}
               height={26}
@@ -114,9 +110,8 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               {' '}
               16:9{' '}
             </Typography>
-            <Image
+            <Rectangle169
               className={aspectRatio === 16 / 9 ? s.white : s.gray}
-              src={rectangle169}
               alt={'rect169'}
               width={26}
               height={20}

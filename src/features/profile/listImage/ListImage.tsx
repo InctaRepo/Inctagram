@@ -12,7 +12,7 @@ import { authUserSelector } from '../../auth/authService'
 import s from './listImage.module.scss'
 
 type Props = {
-  userData: UserInfo
+  userData?: UserInfo
 }
 
 export const ListImage = ({ userData }: Props) => {

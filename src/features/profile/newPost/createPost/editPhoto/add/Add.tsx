@@ -1,6 +1,6 @@
 import ImageToAdd from 'next/image'
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import img from '@/src/assets/icons/image-ouline.svg'
+import Img from '@/src/assets/icons/image-ouline.svg'
 import { PlusCircleOutline } from '@/src/assets/icons/plus-circle-outline'
 import { Image } from '../../CreateNewPost'
 import { AddedImages } from '../../editPhoto/add/addedImages/AddedImages'
@@ -45,8 +45,7 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
   return (
     <div ref={addRef} className={s.wrapper}>
       <div className={s.addBtn}>
-        <ImageToAdd
-          src={img}
+        <Img
           alt={'add photo'}
           onClick={() => setIsAddOpen(current => !current)}
           width={24}

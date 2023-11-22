@@ -15,3 +15,9 @@
 
   position: relative;
 }
+
+.carouselDescription {
+  @include wh(490px, 504px);
+
+  position: relative;
+}

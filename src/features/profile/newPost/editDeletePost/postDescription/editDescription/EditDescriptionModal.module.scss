@@ -27,46 +27,6 @@
   visibility: hidden;
 }
 
-.DialogOverlay {
-  position: fixed;
-  inset: 0;
-
-  opacity: 0.6;
-  background-color: $color-dark-900;
-
-  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.DialogContent {
-  @include wh(972px, 564px);
-
-  position: fixed;
-  z-index: 100;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  background-color: $color-dark-300;
-  border: 1px solid $color-dark-100;
-  border-radius: 2px;
-
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.DialogContent:focus {
-  outline: none;
-}
-
-.contentBox {
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  margin-bottom: 18px;
-}
-
 .titleWrapper {
   @include flex-block($flex-direction: row, $justify-content: center);
 
@@ -74,6 +34,11 @@
 }
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapperContent {
   display: flex;
   flex-direction: row;
 }
@@ -97,12 +62,18 @@
 
   margin: 1px 12px 11px;
 
-  &:hover {
-    color: $color-light-100;
-  }
+    &:hover{
+      filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+    }
 }
 
 .DialogTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+justify-content: space-between;
+
+  height: 59px;
   margin-left: 24px;
 }
 
@@ -110,3 +81,12 @@
   cursor: pointer;
   margin-right: 24px;
 }
+
+.closeIcon {
+  cursor: pointer;
+}
+
+.image {
+  @include wh(490px, 503px)
+}
+

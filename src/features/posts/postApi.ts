@@ -16,11 +16,11 @@ export const postApi = createApi({
       }),
       invalidatesTags: ['createPost'],
     }),
-    updatePost: builder.mutation<UpdateResponse, UpdatePost>({
-      query: ({ body, postId }) => ({
+    updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
+      query: ({ postId, ...patch }) => ({
         method: 'PUT',
         url: `posts/${postId}`,
-        body,
+        body: patch,
       }),
       invalidatesTags: ['editPost'],
     }),

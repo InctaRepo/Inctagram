@@ -7,12 +7,14 @@
 }
 
 .wrapper {
-  @include wh(481px, 263px);
+  @include wh(481px, 490px);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  margin-top: 24px;
 }
 
 .userInfo {
@@ -48,4 +50,17 @@
   display: flex;
   justify-content: flex-end;
   width: 433px;
+}
+
+.btn {
+  @include wh(135px, 36px);
+
+  align-self: flex-end;
+  margin-right: 24px;
+  margin-bottom: 34px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
 }

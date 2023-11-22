@@ -155,3 +155,7 @@
     transform: scale(1.5);
   }
 }
+
+.IconButtonNone {
+  @include wh(24px, 24px);
+}

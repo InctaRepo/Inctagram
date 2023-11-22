@@ -2,9 +2,9 @@ import { Separator } from '@radix-ui/react-separator'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import bookmark from '@/src/assets/icons/bookmark-outline.svg'
-import heart from '@/src/assets/icons/heart-outline.svg'
-import plane from '@/src/assets/icons/paper-plane-outline.svg'
+import Bookmark from '@/src/assets/icons/bookmark-outline.svg'
+import Heart from '@/src/assets/icons/heart-outline.svg'
+import Plane from '@/src/assets/icons/paper-plane-outline.svg'
 import redHeart from '@/src/assets/icons/red-heart-outline.svg'
 import AvatarImage from '@/src/assets/images/avatar-image'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
@@ -20,17 +20,23 @@ import s from '../../editDeletePost/postDescription/RightDescription.module.scss
 import { fakeComments } from './fakeComments'
 
 type Props = {
+  openSureDescriptionModal: boolean
+  setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
+  isEditDescriptionModalOpen: boolean
   description?: string
   createdAt: Date
-  userData: UserInfo
+  userData?: UserInfo
   userName: string
   isEditModalOpen?: boolean
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
-  images?: Images[]
-  id?: string
+  images: Images[]
+  id: string
 }
 
 export const RightDescription = ({
+  openSureDescriptionModal,
+  setIsEditDescriptionModalOpen,
+  isEditDescriptionModalOpen,
   description,
   createdAt,
   userData,
@@ -60,7 +66,11 @@ export const RightDescription = ({
         <div className={s.title}>
           <div className={s.userHead}>
             <div className={s.userAvaHead}>
-              <Image src={userData.avatar} width={36} height={36} alt={'ava'} className={s.ava} />
+              {userData ? (
+                <Image src={userData.avatar} width={36} height={36} alt={'ava'} className={s.ava} />
+              ) : (
+                <AvatarImage className={s.ava} />
+              )}
             </div>
             <div className={s.userNameHead}>
               <Typography variant={'h3'} color="primary">
@@ -69,6 +79,9 @@ export const RightDescription = ({
             </div>
           </div>
           <Buttons
+            openSureDescriptionModal={openSureDescriptionModal}
+            setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
+            isEditDescriptionModalOpen={isEditDescriptionModalOpen}
             images={images}
             id={id}
             isEditModalOpen={isEditModalOpen}
@@ -83,7 +96,11 @@ export const RightDescription = ({
         <div className={s.comments}>
           <div className={s.user}>
             <div>
-              <Image src={userData.avatar} width={36} height={36} alt={'ava'} className={s.ava} />
+              {userData ? (
+                <Image src={userData.avatar} width={36} height={36} alt={'ava'} className={s.ava} />
+              ) : (
+                <AvatarImage className={s.ava} />
+              )}
             </div>
             <div className={s.userName}>
               <Typography variant={'h3'} color="primary">
@@ -111,8 +128,7 @@ export const RightDescription = ({
                   </div>
                   {el.comment}
                 </Typography>
-                <Image
-                  src={isLikeActive ? redHeart : heart}
+                <Heart
                   alt={'heart'}
                   width={16}
                   height={16}
@@ -130,17 +146,11 @@ export const RightDescription = ({
         <div className={s.likesArea}>
           <div className={s.iconsArea}>
             <div className={s.heartPlane}>
-              <Image src={heart} alt={'heart'} width={24} height={24} className={s.icon} />
-              <Image src={plane} alt={'plane'} width={24} height={24} className={s.icon} />
+              <Heart alt={'heart'} width={24} height={24} className={s.icon} />
+              <Plane alt={'plane'} width={24} height={24} className={s.icon} />
             </div>
             <div className={s.bookmark}>
-              <Image
-                src={bookmark}
-                alt={'bookmark'}
-                width={24}
-                height={24}
-                className={s.bookmark}
-              />
+              <Bookmark alt={'bookmark'} width={24} height={24} className={s.bookmark} />
             </div>
           </div>
           <div className={s.likesCounter}>
