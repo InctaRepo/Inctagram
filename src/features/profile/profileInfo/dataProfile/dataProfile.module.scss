@@ -1,10 +1,10 @@
-@import '../../../../styles/colors';
+@import 'src/styles/colors';
 
 .header {
   display: flex;
   justify-content: space-between;
 
-  width: 700px;
+  max-width: 680px;
   height: 36px;
   margin-bottom: 20px;
 
@@ -12,16 +12,16 @@
     border-radius: 2px;
     outline: 2px solid $color-accent-500;
   }
-
-  /* .button {
-    width: 167px;
-  } */
 }
 
 .progressProfile {
   display: flex;
-  gap: 100px;
-  height: 48px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 390px;
+  min-height: 48px;
   margin-bottom: 23px;
 
   .info {

@@ -5,15 +5,17 @@
   @include flex-block($flex-direction: row);
 
   width: 100%;
+  height: 60px;
   border-bottom: 1px solid $color-dark-300;
 
   .container {
-    min-width: 1280px;
+    width: 100%;
 
     .content {
       @include flex-block($flex-direction: row, $justify-content: space-between);
 
       width: 100%;
+      max-width: 1280px;
       margin: 0 auto;
 
       .incta {
