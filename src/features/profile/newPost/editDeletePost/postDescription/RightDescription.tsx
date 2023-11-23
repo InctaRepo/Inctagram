@@ -2,11 +2,11 @@ import { Separator } from '@radix-ui/react-separator'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import Bookmark from '@/src/assets/icons/bookmark-outline.svg'
-import Heart from '@/src/assets/icons/heart-outline.svg'
-import Plane from '@/src/assets/icons/paper-plane-outline.svg'
-import redHeart from '@/src/assets/icons/red-heart-outline.svg'
+//import redHeart from 'public/icon/redHeart.svg' //I will use it when comment will be ready
 import AvatarImage from '@/src/assets/images/avatar-image'
+import Bookmark from 'public/icon/bookmark.svg'
+import Heart from 'public/icon/heart.svg'
+import Plane from 'public/icon/plane.svg'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/postApiTypes'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative

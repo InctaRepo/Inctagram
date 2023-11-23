@@ -1,8 +1,6 @@
 import { DialogTitle } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
-import Image from 'next/image'
 import React, { ComponentProps, useState } from 'react'
-import Edit from '@/src/assets/icons/edit.svg'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
@@ -12,7 +10,6 @@ import { PostImages } from '@/src/features/profile/newPost/editDeletePost/postIm
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
-import { Button } from '@/src/shared/ui/button'
 import { Typography } from '@/src/shared/ui/typography'
 import s from '../../postDescription/editDescription/EditDescriptionModal.module.scss'
 import { AreYouSureDescriptionModal } from '../../smallModals/AreYouSureDescriptionModal'
@@ -21,7 +18,6 @@ import { EditModal } from '../../ui/EditModal'
 export type ModalProps = {
   setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
   isEditDescriptionModalOpen: boolean
-
   userName: string
   description?: string
   createdAt: Date
@@ -37,15 +33,9 @@ export type ModalProps = {
 export const EditDescriptionModal = ({
   setIsEditDescriptionModalOpen,
   isEditDescriptionModalOpen,
-
-  isDescription,
-  userName,
   description,
-  createdAt,
-  userData,
   images,
   id,
-  isEditModalOpen,
   setIsEditModalOpen,
 }: ModalProps) => {
   const [openSureDescriptionModal, setOpenSureDescriptionModal] = useState<boolean>(false)
