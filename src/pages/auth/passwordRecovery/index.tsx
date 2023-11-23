@@ -1,5 +1,5 @@
 import { getAuthLayout } from 'src/widgets/layout/authLayout'
-import { PasswordRecovery } from '@/src/features/auth/passwordRecovery/PassvordRecovery'
+import { PasswordRecovery } from '@/src/features/auth/passwordRecovery/ui/PasswordRecovery'
 
 const PasswordRecoveryPage = () => {
   return <PasswordRecovery />
