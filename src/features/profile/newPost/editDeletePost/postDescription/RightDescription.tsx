@@ -2,7 +2,7 @@ import { Separator } from '@radix-ui/react-separator'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-//import redHeart from 'public/icon/redHeart.svg' //I will use it when comment will be ready
+//import redHeart from 'public/icon/redHeart.svg' //I will use it when users comments  will be ready
 import AvatarImage from '@/src/assets/images/avatar-image'
 import Bookmark from 'public/icon/bookmark.svg'
 import Heart from 'public/icon/heart.svg'
