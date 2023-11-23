@@ -4,15 +4,10 @@
 
 .container {
   @include flex-block;
-
   position: sticky;
   top: 0;
-
   justify-content: space-between;
-
   width: 240px;
-
-  // height: 634px;
   min-height: calc(660px - $header-height);
 
   :active {
@@ -56,10 +51,6 @@
       fill: $color-accent-500;
       stroke: $color-accent-500;
     }
-
-    // .favorites:focus-visible {
-    //  outline: 2px solid $color-accent-500;
-    // }
 
     .logout {
       margin-bottom: 36px;

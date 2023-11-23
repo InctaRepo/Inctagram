@@ -1,36 +1,30 @@
 'use client'
 
-import { useRouter } from 'next/router'
+import React from 'react'
 import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
 import { Header } from '@/src/shared/header/ui/Header'
 import { useTranslate } from '@/src/shared/hooks'
+import { useHistory } from '@/src/shared/hooks/useHistory'
 import { Button } from '@/src/shared/ui/button'
 import { Typography } from '@/src/shared/ui/typography'
-import { RouteNames } from 'src/shared/const/routeNames'
 import s from './style.module.scss'
 
 export const Terms = () => {
   const { t } = useTranslate()
-  const router = useRouter()
+  const { back } = useHistory()
 
   return (
     <div className={s.terms}>
       <Header />
       <div className={s.main}>
         <div className={s.SignUp}>
-          <Button
-            as={'a'}
-            className={s.btn}
-            variant={'text'}
-            onClick={() => router.push(RouteNames.SIGN_IN)}
-          >
-            <div className={s.arrow}>
-              {/*<Image className={s.img} src={ImageArrow} alt="arrow" />*/}
-              <div className={s.img}>
-                <ArrowLeftIcon />
-              </div>
-              <Typography variant={'regular14'}> {t.auth.BackToSignUp}</Typography>
+          <Button as={'a'} className={s.btn} variant={'text'} onClick={back}>
+            <div className={s.img}>
+              <ArrowLeftIcon className={s.logo} />
             </div>
+            <Typography variant={'regular14'} className={s.textReturn}>
+              {t.auth.Return}
+            </Typography>
           </Button>
         </div>
         <div className={s.Text}>

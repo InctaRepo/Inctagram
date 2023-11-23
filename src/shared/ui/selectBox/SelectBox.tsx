@@ -1,7 +1,7 @@
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import * as Select from '@radix-ui/react-select'
 import React, { ReactElement, ReactNode, useState } from 'react'
-import ChevronDown from '@/src/assets/icons/chevron-down'
+import ChevronDown from 'public/icon/chevronDownIcon.svg'
 import { Typography } from '../typography'
 import styles from './SelectBox.module.scss'
 
