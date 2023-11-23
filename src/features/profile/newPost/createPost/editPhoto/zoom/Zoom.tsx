@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from 'react'
-import maximize from '@/src/assets/icons/maximize-outline.svg'
+import Maximize from '@/src/assets/icons/maximize-outline.svg'
 import s from '../zoom/Zoom.module.scss'
 
 type Props = {
@@ -34,13 +34,7 @@ export const Zoom = ({ className, zoom, setZoom }: Props) => {
   return (
     <div ref={zoomRef}>
       <div onClick={() => setIsOpen(current => !current)} className={s.zoomBtn}>
-        <Image
-          src={maximize}
-          alt={'zoom'}
-          width={24}
-          height={24}
-          className={isOpen ? s.blueActive : s.blue}
-        />
+        <Maximize alt={'zoom'} width={24} height={24} className={isOpen ? s.blueActive : s.blue} />
       </div>
 
       {isOpen && (

@@ -72,7 +72,7 @@ export const Settings = () => {
   const submit = (data: ProfileSettingForm) => {
     profile?.data
       ? updateProfile({
-          id: id, //id was taken from the line 29
+          userId: id, //id was taken from the line 29
           username: data.username,
           firstName: data.firstName,
           lastName: data.lastName,
@@ -94,7 +94,7 @@ export const Settings = () => {
             push(RouteNames.PROFILE)
           })
       : createProfile({
-          id: id,
+          userId: id,
           username: data.username,
           firstName: data.firstName,
           lastName: data.lastName,

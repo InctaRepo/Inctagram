@@ -6,6 +6,10 @@
   height: $h;
 }
 
+.edit {
+  width: 972px;;
+}
+
 .separator[data-orientation='horizontal'] {
   position: absolute;
   top: 59px;
@@ -53,6 +57,9 @@
 }
 
 .contentBox {
+  position: relative;
+  top: -24px;
+
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -130,4 +137,25 @@
   gap: 12px;
 }
 
+.IconButton {
+  @include wh(24px, 24px);
 
+  cursor: pointer;
+
+  position: relative;
+  top: -30px;
+  left: 980px;
+
+  color: white;
+
+  background-color: transparent;
+
+
+  svg {
+    transform: scale(1.5);
+  }
+}
+
+.IconButtonNone {
+  @include wh(24px, 24px);
+}

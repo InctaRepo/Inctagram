@@ -232,6 +232,7 @@ export const en: LocaleType = {
                 'Do you really want to close the edition of the publication? If you close changes won`t be saved',
             yes: 'Yes',
             no: 'No',
+            save: 'Save changes',
         },
         deletePost: {
             delete: 'Delete Post',

@@ -2,13 +2,15 @@ import React from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import s from '../postPhotos/PostPhotos.module.scss'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Images } from '@/src/features/posts'
+// eslint-disable-next-line import/order
+import Image from 'next/image'
+import s from './PostImages.module.scss'
 
-type Props = {
-  //postImages: Image[]
-}
+type Props = { images: Images[]; id: string; isDescription?: boolean }
 
-export const PostImages = () => {
+export const PostImages = ({ images, id, isDescription }: Props) => {
   const settings = {
     dots: true,
     swipe: false,
@@ -50,13 +52,11 @@ export const PostImages = () => {
     <>
       <div className={s.imgContainer}>
         <Slider {...settings}>
-          {/*{postImages.map((el: any, idx: any) => {
-            return (
-              <div key={idx} className={s.carousel}>
-                <Image alt={'img'} src={el.image} width={490} height={562} />
-              </div>
-            )
-          })}*/}
+          {images.map((el, idx) => (
+            <div key={idx} className={isDescription ? s.carouselDescription : s.carousel}>
+              <Image alt={'img'} src={el.url} width={490} height={562} />
+            </div>
+          ))}
         </Slider>
       </div>
     </>

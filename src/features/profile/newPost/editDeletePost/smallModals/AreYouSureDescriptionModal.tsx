@@ -7,29 +7,44 @@ import s from '../../editDeletePost/postDescription/editDescription/EditDescript
 
 type ModalProps = {
   openSureDescriptionModal: boolean
-
-  setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
-  setOpenSureDescriptionModal: (openSureDescriptionModal: boolean) => void
+  setIsEditModalOpen?: (isEditModalOpen: boolean) => void
+  setIsEditDescriptionModalOpen?: (isEditDescriptionModalOpen: boolean) => void
+  setOpenSureDescriptionModal?: (openSureDescriptionModal: boolean) => void
 }
 
 export const AreYouSureDescriptionModal = ({
+  setIsEditModalOpen,
   openSureDescriptionModal,
   setOpenSureDescriptionModal,
   setIsEditDescriptionModalOpen,
 }: ModalProps) => {
   const { t } = useTranslate()
   const onModalClose = () => {
-    setOpenSureDescriptionModal(false)
+    if (setOpenSureDescriptionModal) {
+      setOpenSureDescriptionModal(false)
+    }
+  }
+  const clickHandler = () => {
+    if (setOpenSureDescriptionModal) {
+      setOpenSureDescriptionModal(true)
+    }
   }
 
   const discardHandler = () => {
-    setOpenSureDescriptionModal(false)
-    setIsEditDescriptionModalOpen(false)
+    if (setIsEditModalOpen) {
+      setIsEditModalOpen(false)
+    }
+    if (setOpenSureDescriptionModal) {
+      setOpenSureDescriptionModal(false)
+    }
+    if (setIsEditDescriptionModalOpen) {
+      setIsEditDescriptionModalOpen(false)
+    }
   }
 
   return (
     <>
-      <div className={s.close} onClick={() => setOpenSureDescriptionModal(true)}>
+      <div className={s.close} onClick={clickHandler}>
         <CloseIconOutline />
       </div>
       <div hidden={!openSureDescriptionModal}>
