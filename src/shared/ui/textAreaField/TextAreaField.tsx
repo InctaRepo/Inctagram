@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ComponentProps, ElementType } from 'react'
+import React, { ComponentProps, ElementType } from 'react'
 import { FieldError } from 'react-hook-form'
 import { Typography } from '../typography'
 import s from './textAreaField.module.scss'
