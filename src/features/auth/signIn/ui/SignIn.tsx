@@ -6,8 +6,7 @@ import { RouteNames } from '@/src/shared/const/routeNames'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/types'
 import { getIsAuth, useGetMeQuery } from '../../../auth/authService'
-import { SingInParams } from '../model/types/types'
-import { useSignInMutation } from '../service/signIn'
+import { SingInParams, useSignInMutation } from '../authByEmail'
 import { LoginForm } from './loginForm'
 
 export const SignIn: NextPageWithLayout = () => {
