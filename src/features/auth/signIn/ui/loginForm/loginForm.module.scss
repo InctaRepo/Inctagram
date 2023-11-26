@@ -1,0 +1,73 @@
+@import '../../../../../styles/mixins';
+@import '../../../../../styles/colors';
+
+.card {
+  width: 100%;
+  max-width: 378px;
+  padding: 1.44rem 1.5rem 1.5rem;
+
+  .content {
+    @include flex-block;
+
+    width: 100%;
+
+    .title {
+      margin-bottom: 13px;
+    }
+
+    .oauthWrap {
+      @include flex-block($flex-direction: row, $gap: 60px);
+
+      margin-bottom: 24px;
+
+      :focus-visible {
+        border-radius: 3px;
+        outline: 2px solid $color-accent-300;
+      }
+
+      a {
+        line-height: 0;
+      }
+    }
+
+    .form {
+      width: 100%;
+
+      .field {
+        margin-bottom: 24px;
+      }
+
+      .passField {
+        margin-bottom: 36px;
+      }
+
+      .fieldWithError {
+        margin-bottom: 0 !important;
+      }
+
+      .singIn {
+        margin-bottom: 18px;
+      }
+
+      .wrapLinkForgotPass {
+        @include flex-block(flex, row, flex-end);
+
+        width: 100%;
+        margin-bottom: 24px;
+
+        :focus-visible {
+          border-radius: 3px;
+          outline: 2px solid $color-accent-300;
+        }
+
+        .link {
+          text-decoration: none;
+
+          .linkForgotPass {
+            color: $color-light-900;
+          }
+        }
+      }
+    }
+  }
+}

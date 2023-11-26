@@ -107,6 +107,8 @@
 }
 
 .wrapper {
+  @include wh(972px, 564px);
+
   display: flex;
   flex-direction: row;
 }
@@ -120,3 +122,12 @@
 
   margin: 8px 12px 11px;
 }
+
+.container {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+

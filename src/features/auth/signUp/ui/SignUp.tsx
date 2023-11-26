@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react'
 import { useErrorToast } from '@/src/shared/hooks/useErrorToast'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
+import { NextPageWithLayout } from '@/src/shared/service/types'
 import { Modal } from 'src/shared/ui/Modal'
 import { Typography } from 'src/shared/ui/typography'
 import { useSignUpMutation } from '../service/signUp'
 import s from './signUp.module.scss'
 import { SingUpForm } from './singUpForm'
 
-export const SignUp = () => {
+export const SignUp: NextPageWithLayout = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)

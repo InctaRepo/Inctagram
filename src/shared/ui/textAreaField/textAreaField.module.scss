@@ -56,6 +56,24 @@
   letter-spacing: 0.5px;
 }
 
+.textAreaComment {
+  resize: none;
+
+  padding: 6px 12px 0;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #8d9094;
+  letter-spacing: 0.5px;
+
+  background-color: #4c4c4c;
+  border-top: 1px solid #4c4c4c;
+  border-radius: 1px;
+  outline: none;
+}
+
 .error {
   color: $color-light-100;
   border: 1px solid $color-danger-500;
