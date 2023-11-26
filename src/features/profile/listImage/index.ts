@@ -1,1 +1,1 @@
-export { ListImage } from './ListImage'
+export { ListImage } from './ui/ListImage'

@@ -53,7 +53,7 @@ export function createProfileSettingSchema(t: LocaleType) {
       .max(200, t.profile.profileSetting.profileSettingsErrors.aboutMeError)
       /* .regex(
         /^[0-9- _A-Za-zА-Яа-я\s\S]+$/,
-        t.profile.profileSetting.profileSettingsErrors.aboutMeError
+        t.profile.settingPhoto.profileSettingsErrors.aboutMeError
       )*/
       .optional(),
   })

@@ -1,1 +1,1 @@
-export * from './DataProfile'
+export * from './ui/DataProfile'
