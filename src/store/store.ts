@@ -7,7 +7,7 @@ import { postApi } from '@/src/features/posts/postApi'
 import { postReducer } from '@/src/features/posts/postSlice'
 import { profileApi } from '@/src/features/profile/service/profileApi'
 import { profileReducer } from '@/src/features/profile/service/profileSlice'
-import { baseApi } from '@/src/shared/api/baseApi'
+import { baseApi } from '@/src/shared/api'
 import { menuReducer } from '@/src/shared/sidebar/model/slice/menuSlice'
 
 const rootReducer = combineReducers({

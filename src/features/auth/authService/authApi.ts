@@ -1,7 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { appActions } from '@/src/shared/app'
-import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
-import { BaseResponse } from '@/src/shared/api/baseResponse'
+import { baseQueryWithReAuth, BaseResponse } from '@/src/shared/api'
 import { UserType } from './authApiTypes'
 import { setIsAuth, setUser } from './authSlice'
 

@@ -1,5 +1,4 @@
-import { baseApi } from '@/src/shared/api/baseApi'
-import { BaseResponse } from '@/src/shared/api/baseResponse'
+import { baseApi, BaseResponse } from '@/src/shared/api'
 import { AccessType } from '../../../auth/authService'
 
 export const logout = baseApi.injectEndpoints({
