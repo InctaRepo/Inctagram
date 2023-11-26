@@ -3,7 +3,7 @@ import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authUserSelector } from 'src/features/auth/authService'
+import { getAuthUser } from 'src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { LinkMenu } from 'src/features/profile/linkMenu'
 import { FavoritesIcon } from '../../assets/icons/FavoritesIcon'
@@ -16,7 +16,7 @@ import { BaseMenu } from './baseMenu'
 import s from './sidebar.module.scss'
 
 export const Sidebar = () => {
-  const user = useAppSelector(authUserSelector)
+  const user = useAppSelector(getAuthUser)
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
   const { data: profile } = useGetProfileQuery(user?.userId)

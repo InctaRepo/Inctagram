@@ -4,5 +4,6 @@
 //  */
 import { AppRootState } from '@/src/store'
 
-export const authIsAuthSelector = (state: AppRootState) => state.auth.isAuth
-export const authUserSelector = (state: AppRootState) => state.auth.user
+export const getIsAuth = (state: AppRootState) => state.auth.isAuth
+export const getAuthUser = (state: AppRootState) => state.auth.user
+export const getAuthEmail = (state: AppRootState) => state.auth.user.email

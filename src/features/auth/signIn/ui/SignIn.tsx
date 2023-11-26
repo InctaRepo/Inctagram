@@ -5,14 +5,14 @@ import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/types'
-import { authIsAuthSelector, useGetMeQuery } from '../../../auth/authService'
+import { getIsAuth, useGetMeQuery } from '../../../auth/authService'
 import { SingInParams } from '../model/types/types'
 import { useSignInMutation } from '../service/signIn'
 import { LoginForm } from './loginForm'
 
 export const SignIn: NextPageWithLayout = () => {
   const [loginUser] = useSignInMutation()
-  const isAuth = useAppSelector(authIsAuthSelector)
+  const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
   const [errorServer, setErrorServer] = useState<string>('')
   const { data: user } = useGetMeQuery()

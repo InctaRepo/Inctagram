@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import AvatarImage from '@/src/assets/images/avatar-image'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authUserSelector } from '@/src/features/auth/authService'
+import { getAuthUser } from '@/src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useAddPostMutation, useUpdatePostMutation } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -49,7 +49,7 @@ export const PostDescription = ({
   const { t } = useTranslate()
   const [addPost] = useAddPostMutation()
   const [updatePost, { isSuccess: isSuccessUpdate }] = useUpdatePostMutation()
-  const user = useAppSelector(authUserSelector)
+  const user = useAppSelector(getAuthUser)
   const postId = id
 
   const { data } = useGetProfileQuery(user?.userId)

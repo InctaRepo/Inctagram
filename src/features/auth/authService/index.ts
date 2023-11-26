@@ -1,4 +1,4 @@
-export * from './authApiTypes'
-export * from './authApi'
-export { authUserSelector, authIsAuthSelector } from './authSelectors'
-export * from './authSlice'
+export type { UserType, AccessType } from './authApiTypes'
+export { useGetMeQuery, authApi } from './authApi'
+export { getAuthUser, getIsAuth, getAuthEmail } from './authSelectors'
+export { authReducer, setLogout, setIsAuth, setUser } from './authSlice'

@@ -8,7 +8,7 @@ import { EditPostModal } from '@/src/features/profile/newPost/editDeletePost/Edi
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { useAppSelector } from '@/src/shared/hooks'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authUserSelector } from '../../auth/authService'
+import { getAuthUser } from '../../auth/authService'
 import s from './listImage.module.scss'
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
 }
 
 export const ListImage = ({ userData }: Props) => {
-  const user = useAppSelector(authUserSelector)
+  const user = useAppSelector(getAuthUser)
   const { data } = useGetUserPostsQuery(user?.userId!)
 
   return (

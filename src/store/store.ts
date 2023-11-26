@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { appReducer } from '@/src/shared/app/appSlice'
-import { authApi } from '@/src/features/auth/authService/authApi'
+import { authApi } from '@/src/features/auth/authService'
 import { authReducer } from '@/src/features/auth/authService/authSlice'
 import { postApi } from '@/src/features/posts/postApi'
 import { postReducer } from '@/src/features/posts/postSlice'

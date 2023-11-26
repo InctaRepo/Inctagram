@@ -27,6 +27,5 @@ export const signIn = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: false,
 })
 export const { useSignInMutation } = signIn

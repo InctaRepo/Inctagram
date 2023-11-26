@@ -3,7 +3,7 @@ import { clsx } from 'clsx'
 import Image from 'next/image'
 import React, { ComponentProps, ReactNode, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,import/order
-import { authUserSelector } from '@/src/features/auth/authService'
+import { getAuthUser } from '@/src/features/auth/authService'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/postApiTypes'
@@ -42,7 +42,7 @@ export const EditPostModal = ({
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const user = useAppSelector(authUserSelector)
+  const user = useAppSelector(getAuthUser)
 
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
