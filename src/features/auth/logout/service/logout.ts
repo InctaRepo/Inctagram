@@ -13,7 +13,7 @@ export const logout = baseApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled
 
-          if (data?.resultCode === 0) {
+          if (data?.resultCode === 3) {
             localStorage.removeItem('access')
           }
         } catch (e) {
@@ -22,6 +22,6 @@ export const logout = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: false,
+  overrideExisting: true,
 })
 export const { useLogoutMutation } = logout
