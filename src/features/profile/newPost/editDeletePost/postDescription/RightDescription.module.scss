@@ -65,7 +65,7 @@
   align-items: flex-start;
 }
 
-.time{
+.time {
   position: relative;
   left: 72px;
 }
@@ -87,7 +87,7 @@
   margin-left: -10px;
 }
 
-.lastAvaLikes{
+.lastAvaLikes {
   @include wh(24px, 24px);
 
   margin-right: 12px;
@@ -96,13 +96,12 @@
 
 .userName {
   @include wh(90px, 24px);
-
 }
 
 .userNameHead {
   @include wh(90px, 24px);
 
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .comments {
@@ -161,7 +160,7 @@ margin-bottom: 20px;
 .red {
   cursor: pointer;
   margin-top: 10px;
-filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(339deg) brightness(84%) contrast(117%)
+  filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(339deg) brightness(84%) contrast(117%);
 }
 
 .bookmark {
