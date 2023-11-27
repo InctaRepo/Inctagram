@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { CreatePostModal } from '@/src/features/profile/newPost/createPost/CreateNewPost'
+import { CreatePostModal } from '@/src/features/posts/createPost/CreateNewPost'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { LinkMenu } from 'src/features/profile/linkMenu'
+import { LinkMenu } from '@/src/features/profile/linkMenu'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { HomeIcon } from '../../../assets/icons/HomeIcon'
 import { MessageIcon } from '../../../assets/icons/MessageIcon'
 import { ProfileIcon } from '../../../assets/icons/ProfileIcon'

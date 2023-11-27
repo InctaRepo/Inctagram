@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Provider } from 'react-redux'
 import { store } from '@/src/store'
-import { Profile } from '../profile'
+import { Profile } from './index'
 
 const meta = {
   title: 'pages/profile',
