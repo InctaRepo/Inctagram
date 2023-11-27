@@ -1,8 +1,7 @@
-import Image from 'next/image'
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import Dots from '@/src/assets/icons/dots.svg'
+import Dots from 'public/icon/dots.svg'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import Edit from '@/src/assets/icons/edit.svg'
+import Edit from 'public/icon/edit.svg'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/postApiTypes'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
@@ -31,7 +30,6 @@ type Props = {
 }
 
 export const Buttons = ({
-  openSureDescriptionModal,
   setIsEditDescriptionModalOpen,
   isEditDescriptionModalOpen,
   isEditModalOpen,
@@ -47,8 +45,6 @@ export const Buttons = ({
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const editRef = useRef() as MutableRefObject<HTMLDivElement>
   const { t } = useTranslate()
-
-  const [isEdit, setIsEdit] = useState(false)
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
