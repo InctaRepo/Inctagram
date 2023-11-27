@@ -22,9 +22,9 @@ export const ControlledTextArea = <T extends FieldValues>({
     <TextAreaField
       variant={variant}
       validationError={error}
+      onChange={onChange}
       {...fieldProps}
       {...rest}
-      onChange={onChange}
     />
   )
 }
