@@ -4,7 +4,6 @@ import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { DataProfile } from '../profileInfo/dataProfile'
-import { useGetProfileQuery } from '../service/profileApi'
 import s from './profileInfo.module.scss'
 
 type Props = {
@@ -23,7 +22,7 @@ export const ProfileInfo = ({ userData, id }: Props) => {
           alt={'avatar'}
         />
       )}
-      {userData?.avatar === null && (
+      {!userData?.avatar && userData?.avatar === null && (
         <div className={s.photo}>
           <div className={s.ellipse}></div>
           <div className={s.image}>
