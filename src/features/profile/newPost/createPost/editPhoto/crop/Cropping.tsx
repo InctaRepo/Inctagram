@@ -1,10 +1,9 @@
-import Image from 'next/image'
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import ExpandOutline from '@/src/assets/icons/expand-outline.svg'
-import Img from '@/src/assets/icons/image-ouline.svg'
-import Rectangle11 from '@/src/assets/icons/rectangle11.svg'
-import Rectangle169 from '@/src/assets/icons/rectangle169.svg'
-import Rectangle45 from '@/src/assets/icons/rectangle45.svg'
+import Crop from 'public/icon/crop.svg'
+import Img from 'public/icon/image.svg'
+import Rectangle11 from 'public/icon/rectangle11.svg'
+import Rectangle169 from 'public/icon/rectangle169.svg'
+import Rectangle45 from 'public/icon/rectangle45.svg'
 import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'
 import s from '../crop/Cropping.module.scss'
@@ -16,7 +15,7 @@ type Props = {
 }
 
 export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
-  const [isActive, setIsActive] = useState(false)
+  const [, setIsActive] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const cropRef = useRef() as MutableRefObject<HTMLDivElement>
   const { t } = useTranslate()
@@ -36,12 +35,7 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
   return (
     <div ref={cropRef}>
       <div onClick={() => setIsOpen(current => !current)} className={s.cropBtn}>
-        <ExpandOutline
-          alt={'crop'}
-          width={24}
-          height={24}
-          className={isOpen ? s.blueActive : s.blue}
-        />
+        <Crop alt={'crop'} width={24} height={24} className={isOpen ? s.blueActive : s.blue} />
       </div>
       {isOpen && (
         <div className={s.cropOptions}>

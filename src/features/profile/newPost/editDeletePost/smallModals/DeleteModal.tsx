@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import React from 'react'
-import Trash from '@/src/assets/icons/trash.svg'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import Delete from 'public/icon/deletePost.svg'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useDeletePostMutation } from '@/src/features/posts/postApi'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
@@ -41,7 +41,7 @@ export const DeleteModal = ({
   return (
     <>
       <div className={s.editOption} onClick={() => setOpenDeleteModal(true)}>
-        <Trash alt={'edit'} width={24} height={24} />
+        <Delete alt={'delete post'} width={24} height={24} />
         <Typography variant={'regular14'}>{t.profile.profileSetting.delete}</Typography>
       </div>
       <div hidden={!openDeleteModal}>
