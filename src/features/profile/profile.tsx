@@ -4,9 +4,9 @@ import { authIsAuthSelector } from '@/src/features/auth/authService'
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 import { useAppSelector } from '@/src/shared/hooks'
 import { Sidebar } from '@/src/shared/sidebar'
-import { ListImage } from '../profile/listImage'
-import { ProfileInfo } from '../profile/profileInfo'
+import { ListImage } from './listImage'
 import s from './profile.module.scss'
+import { ProfileInfo } from './profileInfo'
 
 type Props = {
   id: string | string[] | undefined
