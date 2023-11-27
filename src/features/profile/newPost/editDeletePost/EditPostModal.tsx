@@ -1,20 +1,13 @@
-import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
-import { clsx } from 'clsx'
 import Image from 'next/image'
-import React, { ComponentProps, ReactNode, useState } from 'react'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices,import/order
+import React, { ComponentProps, useState } from 'react'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { getAuthUser } from '@/src/features/auth/authService'
-
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/postApiTypes'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { PostImages } from '@/src/features/profile/newPost/editDeletePost/postImages/PostImages'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,import/namespace
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { useAppSelector } from '@/src/shared/hooks'
-import { AddDescriptionModal } from '../createPost/addDescription/AddDescriptionModal'
+import { UserInfo } from '../../service/profileApiTypes'
 import { RightDescription } from '../editDeletePost/postDescription/RightDescription'
+import { PostImages } from '../editDeletePost/postImages/PostImages'
 import s from './EditPostModal.module.scss'
 // eslint-disable-next-line import/namespace
 import { EditModal } from './ui/EditModal'

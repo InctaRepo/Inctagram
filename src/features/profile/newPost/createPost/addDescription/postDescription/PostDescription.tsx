@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { de } from 'date-fns/locale'
 import ImageAva from 'next/image'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'

@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
-import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { DataProfile } from '../profileInfo/dataProfile'
+import { UserInfo } from '../service/profileApiTypes'
 import s from './profileInfo.module.scss'
 
 type Props = {

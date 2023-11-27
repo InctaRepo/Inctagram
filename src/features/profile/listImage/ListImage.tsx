@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetUserPostsQuery } from '@/src/features/posts/postApi'
