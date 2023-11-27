@@ -114,6 +114,14 @@ export const SettingPhotoModal = ({
           </Modal>
         </>
       )}
+      {!avatar && (
+        <div className={s.photo}>
+          <div className={s.ellipse}></div>
+          <div className={s.image}>
+            <ImgOutline />
+          </div>
+        </div>
+      )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
         <Typography variant={'h3'} className={s.addBtn}>
           {t.profile.profileSetting.addAProfilePhoto}

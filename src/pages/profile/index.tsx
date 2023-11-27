@@ -21,7 +21,7 @@ const ProfilePage: NextPageWithLayout = () => {
     }
   }, [isAuth, router])
 
-  return isAuth && <Profile id={id} />
+  return isAuth && <Profile id={id!} />
 }
 
 ProfilePage.getLayout = getProfileLayout

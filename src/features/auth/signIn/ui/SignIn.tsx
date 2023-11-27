@@ -1,11 +1,10 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/types'
-import { getIsAuth, useGetMeQuery } from '../../../auth/authService'
+import { getIsAuth } from '../../../auth/authService'
 import { SingInParams, useSignInMutation } from '../authByEmail'
 import { LoginForm } from './loginForm'
 
@@ -14,17 +13,12 @@ export const SignIn: NextPageWithLayout = () => {
   const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
   const [errorServer, setErrorServer] = useState<string>('')
-  const { data: user } = useGetMeQuery()
-  const id = user?.data?.userId
-  const { currentData } = useGetProfileQuery(id)
 
   useEffect(() => {
-    if (!currentData?.data && isAuth) {
-      router.push(RouteNames.PROFILE_SETTINGS)
-    } else if (currentData?.data && isAuth) {
+    if (isAuth) {
       router.push(RouteNames.PROFILE)
     }
-  }, [isAuth, router, currentData])
+  }, [isAuth, router])
 
   const submit = (data: SingInParams) => {
     loginUser(data)
