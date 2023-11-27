@@ -12,7 +12,6 @@ import { menuReducer } from '@/src/shared/sidebar/model/slice/menuSlice'
 
 const rootReducer = combineReducers({
   [baseApi.reducerPath]: baseApi.reducer,
-  [authApi.reducerPath]: authApi.reducer,
   [profileApi.reducerPath]: profileApi.reducer,
   [postApi.reducerPath]: postApi.reducer,
   auth: authReducer,
