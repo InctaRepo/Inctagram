@@ -1,9 +1,8 @@
-import { baseApi } from '@/src/shared/api/baseApi'
-import { BaseResponse } from '@/src/shared/api/baseResponse'
-import { AccessType, authApi } from '../../authService'
-import { SingInParams } from '../model/types/types'
+import { baseApi, BaseResponse } from '@/src/shared/api'
+import { AccessType, authApi } from '../../../authService'
+import { SingInParams } from '../index'
 
-export const signIn = baseApi.injectEndpoints({
+export const authByEmail = baseApi.injectEndpoints({
   endpoints: build => ({
     signIn: build.mutation<BaseResponse<AccessType>, SingInParams>({
       query: data => ({
@@ -27,6 +26,5 @@ export const signIn = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: false,
 })
-export const { useSignInMutation } = signIn
+export const { useSignInMutation } = authByEmail

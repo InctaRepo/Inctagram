@@ -1,4 +1,3 @@
-import AvatarImage from '@/src/assets/images/avatar-image'
 export const fakeComments = [
   {
     id: '1',

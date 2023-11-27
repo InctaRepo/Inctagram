@@ -4,21 +4,20 @@ import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks
 import { Button } from '@/src/shared/ui/button'
 import { Modal } from '@/src/shared/ui/Modal'
 import { Typography } from '@/src/shared/ui/typography'
-import { authActions, authUserSelector } from '../../../auth/authService'
+import { getAuthEmail, setLogout } from '../../../auth/authService'
 import { useLogoutMutation } from '../service/logout'
 import s from './logout.module.scss'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
-  const user = useAppSelector(authUserSelector)
+  const email = useAppSelector(getAuthEmail)
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [logoutUser] = useLogoutMutation()
 
   const { t } = useTranslate()
   const logoutHandler = async () => {
     logoutUser()
-    // TODO when CORS will be fixed ( query for logout + use useAppDispatch)
-    dispatch(authActions.logout())
+    dispatch(setLogout())
     setOpenModal(false)
   }
   const onModalClose = () => {
@@ -44,7 +43,7 @@ export const Logout = () => {
         onCancel={onModalClose}
         onAction={logoutHandler}
       >
-        <Typography variant={'regular16'}>{t.profile.confirmLogout(user?.email!)}</Typography>
+        <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
       </Modal>
     </div>
   )

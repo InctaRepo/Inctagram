@@ -6,7 +6,7 @@ export type BaseResponse<D = {}> = {
   data: D
   resultCode: number
 }
-export type Message = {
+type Message = {
   message: string
   field: string
 }

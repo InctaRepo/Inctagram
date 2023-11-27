@@ -143,7 +143,7 @@ export const ProfileSettings = ({
       </div>
       <div className={s.content}>
         <div className={s.photoContent}>
-          {!croppedAvatar && userData?.avatar === null && (
+          {!croppedAvatar && !userData?.avatar && userData?.avatar === null && (
             <div className={s.photo}>
               <div className={s.ellipse}></div>
               <div className={s.image}>
@@ -153,7 +153,13 @@ export const ProfileSettings = ({
           )}
           <div className={s.addBtn}>
             <SettingPhotoModal
-              avatar={userData?.avatar}
+              avatar={
+                userData?.avatar.endsWith(
+                  'https://inctagram-pirates.s3.eu-central-1.amazonaws.com/user-avatars/null'
+                )
+                  ? null
+                  : userData?.avatar!
+              }
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}
               isModalOpen={isModalOpen}

@@ -1,5 +1,4 @@
-import { baseApi } from '@/src/shared/api/baseApi'
-import { BaseResponse } from '@/src/shared/api/baseResponse'
+import { baseApi, BaseResponse } from '@/src/shared/api'
 import { AccessType } from '../../../auth/authService'
 
 export const logout = baseApi.injectEndpoints({
@@ -13,7 +12,7 @@ export const logout = baseApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled
 
-          if (data?.resultCode === 0) {
+          if (data) {
             localStorage.removeItem('access')
           }
         } catch (e) {
@@ -22,6 +21,6 @@ export const logout = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: false,
+  overrideExisting: true,
 })
 export const { useLogoutMutation } = logout
