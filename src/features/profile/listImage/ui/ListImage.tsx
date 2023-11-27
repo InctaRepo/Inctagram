@@ -18,6 +18,7 @@ type Props = {
 
 export const ListImage = ({ userData }: Props) => {
   const user = useAppSelector(authUserSelector)
+
   const { data } = useGetUserPostsQuery(user?.userId!)
 
   return (

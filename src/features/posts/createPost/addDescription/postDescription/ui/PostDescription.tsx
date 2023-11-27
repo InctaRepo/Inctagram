@@ -51,6 +51,7 @@ export const PostDescription = ({
 }: Props) => {
   const { t } = useTranslate()
   const [addPost] = useAddPostMutation()
+
   const [updatePost, { isSuccess: isSuccessUpdate }] = useUpdatePostMutation()
   const user = useAppSelector(authUserSelector)
   const postId = id
@@ -85,6 +86,7 @@ export const PostDescription = ({
           setIsEditModalOpen(false)
         }
       }
+      // getUserPosts(user.id)
     })
   }
 
