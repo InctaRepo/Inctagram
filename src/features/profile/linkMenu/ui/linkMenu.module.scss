@@ -1,0 +1,20 @@
+@import '../../../../styles/colors';
+
+.container {
+  display: flex;
+  align-items: center;
+
+  .link {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    //padding-left: 12px;
+    text-decoration: none;
+
+    .active {
+      font-weight: 700;
+      color: $color-accent-500;
+    }
+  }
+}
