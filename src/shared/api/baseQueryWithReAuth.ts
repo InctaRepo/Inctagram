@@ -1,20 +1,24 @@
 import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { AppRootState } from '@/src/store'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { authApi, setLogout } from '@/src/features/auth/authService'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { BASE_URL } from '../const/const'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   credentials: 'include',
-  prepareHeaders: headers => {
+  prepareHeaders: (headers, { getState }) => {
     if (typeof window === 'undefined') {
       return headers
     }
-    const access = localStorage.getItem('access')
+    const accessToken = (getState() as AppRootState).signIn.accessToken
+    // const access = localStorage.getItem('access')
 
-    if (access) {
-      headers.set('Authorization', `Bearer ${access}`)
+    if (accessToken) {
+      headers.set('Authorization', `Bearer ${accessToken}`)
     }
 
     return headers
@@ -40,7 +44,8 @@ export const baseQueryWithReAuth: BaseQueryFn<
     const refresh = refreshResult.data as { data: { accessToken: string }; resultCode: number }
 
     if (refresh.resultCode === 0) {
-      localStorage.setItem('access', refresh.data.accessToken)
+      localStorage.setItem('accessToken', refresh.data.accessToken)
+      // api.dispatch(setToken(refresh.data as { accessToken: string }))
       api.dispatch(authApi.endpoints.getMe.initiate())
       result = await baseQuery(args, api, extraOptions)
     } else {
