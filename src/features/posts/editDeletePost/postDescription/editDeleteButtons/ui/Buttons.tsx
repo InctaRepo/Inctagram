@@ -65,7 +65,7 @@ export const Buttons = ({
 
   return (
     <div ref={editRef}>
-      <div onClick={() => setIsOpen(true)} className={s.editBtn}>
+      <div onClick={() => setIsOpen(!isOpen)} className={s.editBtn}>
         <Dots alt={'dots'} width={24} height={24} className={isOpen ? s.blueDots : s.blue} />
       </div>
       {isOpen && (

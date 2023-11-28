@@ -33,6 +33,7 @@
   @include wh(137px, 85px);
 
   position: absolute;
+z-index: 100;
 
   display: flex;
   flex-direction: column;

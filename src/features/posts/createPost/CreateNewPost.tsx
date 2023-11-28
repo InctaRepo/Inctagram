@@ -20,6 +20,7 @@ export type Image = {
   image?: string
   id?: string
   croppedImage?: string
+  fileName?: string
 }
 
 export const CreatePostModal = ({ variantIcon }: Props) => {
@@ -46,6 +47,7 @@ export const CreatePostModal = ({ variantIcon }: Props) => {
       {
         id: (addedImages.length + 1).toString(),
         image: URL.createObjectURL(e.target.files[0]),
+        fileName: e.target.files[0].name,
       },
     ])
     setIsBaseModalOpen(false)
