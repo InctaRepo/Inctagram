@@ -37,6 +37,7 @@ export type ModalProps = {
   setAddedImages: (
     addedImages: Awaited<{
       image: string
+      fileName: string
     }>[]
   ) => void
   sendFilteredImg: (activeFilter: string) => void
