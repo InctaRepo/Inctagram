@@ -7,7 +7,7 @@ import { Image } from '../../../CreateNewPost'
 import s from './filteredImages.module.scss'
 
 type Props = {
-  addedImages: Image[]
+  addedImages: any
   activeFilter: string
 }
 
@@ -53,7 +53,7 @@ export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
     <>
       <div className={s.imgContainer}>
         <Slider {...settings}>
-          {addedImages.map((el, idx) => {
+          {addedImages.map((el: any, idx: any) => {
             return (
               <div key={idx} className={s.carousel}>
                 <ImageWithFilter

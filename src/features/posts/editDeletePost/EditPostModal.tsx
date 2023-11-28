@@ -4,6 +4,8 @@ import React, { ComponentProps, useState } from 'react'
 import { getAuthUser } from '@/src/features/auth/authService'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
+import { useGetUserPostQuery } from '@/src/features/posts'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/PostImages'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { Images } from '@/src/features/posts/service/postApiTypes'
@@ -26,6 +28,7 @@ export type ModalProps = {
   images: Images[]
   id: string
   modalWidth: string
+  callBack: (value: string) => void
 } & ComponentProps<'div'>
 
 export const EditPostModal = ({
@@ -35,6 +38,7 @@ export const EditPostModal = ({
   userData,
   images,
   id,
+  callBack,
   isDescription,
 }: ModalProps) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
@@ -45,9 +49,12 @@ export const EditPostModal = ({
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
   }
+  const onClickHandler = () => {
+    callBack(id)
+  }
 
   return (
-    <>
+    <div onClick={onClickHandler}>
       <Image
         src={images[0]?.url ? images[0].url : ''}
         width={234}
@@ -80,6 +87,6 @@ export const EditPostModal = ({
           />
         </div>
       </EditModal>
-    </>
+    </div>
   )
 }

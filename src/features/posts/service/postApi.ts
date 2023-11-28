@@ -1,6 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { baseQueryWithReAuth, BaseResponse } from '@/src/shared/api'
-import { GetUserPostsResponse, UpdatePost, UpdateResponse } from './postApiTypes'
+import {
+  GetUserPostResponse,
+  GetUserPostsResponse,
+  UpdatePost,
+  UpdateResponse,
+} from './postApiTypes'
 
 export const postApi = createApi({
   reducerPath: 'postApi',
@@ -37,6 +42,12 @@ export const postApi = createApi({
       }),
       providesTags: ['deletePost', 'createPost'],
     }),
+    getUserPost: builder.query<BaseResponse<GetUserPostResponse>, string | null>({
+      query: postId => ({
+        url: `posts/post/${postId}`,
+        method: 'GET',
+      }),
+    }),
   }),
 })
 
@@ -45,4 +56,5 @@ export const {
   useUpdatePostMutation,
   useDeletePostMutation,
   useGetUserPostsQuery,
+  useGetUserPostQuery,
 } = postApi
