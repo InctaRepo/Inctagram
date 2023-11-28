@@ -1,14 +1,6 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogOverlay,
-  DialogPortal,
-  DialogTitle,
-} from '@radix-ui/react-dialog'
-import { Separator } from '@radix-ui/react-separator'
+import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
 import { clsx } from 'clsx'
-import React, { ComponentPropsWithoutRef, ReactNode, useState } from 'react'
-import { CloseIcon } from '@/src/assets/icons/close-icon'
+import React, { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { CloseIconOutline } from '@/src/assets/icons/close-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { AreYouSureDescriptionModal } from '@/src/features/posts/editDeletePost/smallModals/ui/AreYouSureDescriptionModal'

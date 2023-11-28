@@ -46,7 +46,8 @@
 
   opacity: 0.8;
   background-color: $color-dark-500;
-  border-radius: 2px;
+  border: 1px solid #4C4C4C;
+  border-radius: 2px
 }
 
 .editOption1 {
@@ -69,6 +70,10 @@
   &:hover {
     filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
   }
+}
+
+.blueDots {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
 }
 
 .wrapper {

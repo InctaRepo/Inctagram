@@ -13,7 +13,7 @@ import { useDeleteAvatarMutation } from '../../service/profileApi'
 import s from './SettingPhoto.module.scss'
 
 type Props = {
-  avatar?: string | null
+  avatar: string | null
   setAvatar?: (avatar: string | null) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
@@ -82,7 +82,7 @@ export const SettingPhotoModal = ({
 
   return (
     <div className={s.container}>
-      {avatar && (
+      {avatar !== null && (
         <>
           <Image
             width={196}
@@ -113,6 +113,14 @@ export const SettingPhotoModal = ({
             <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
           </Modal>
         </>
+      )}
+      {avatar === null && (
+        <div className={s.photo}>
+          <div className={s.ellipse}></div>
+          <div className={s.image}>
+            <ImgOutline />
+          </div>
+        </div>
       )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
         <Typography variant={'h3'} className={s.addBtn}>

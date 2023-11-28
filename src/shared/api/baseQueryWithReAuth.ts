@@ -1,9 +1,7 @@
 import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authApi } from '@/src/features/auth/authService/authApi'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authActions } from '@/src/features/auth/authService/authSlice'
+import { authApi, setLogout } from '@/src/features/auth/authService'
 import { BASE_URL } from '../const/const'
 
 const baseQuery = fetchBaseQuery({
@@ -16,7 +14,7 @@ const baseQuery = fetchBaseQuery({
     const access = localStorage.getItem('access')
 
     if (access) {
-      headers.set('Authorization', `Bearer ${access}`) // set the Authorization header
+      headers.set('Authorization', `Bearer ${access}`)
     }
 
     return headers
@@ -29,24 +27,24 @@ export const baseQueryWithReAuth: BaseQueryFn<
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions)
+  const resultData = result.data as { resultCode: number }
+  const isLoginEndpoint = result.meta?.request.url.endsWith('auth/signIn')
+  const error401 = resultData.resultCode === 3
 
-  //@ts-ignore
-  if (args.url !== 'auth/logout' && result.data.resultCode === 3) {
+  if (!isLoginEndpoint && error401) {
     const refreshResult = await baseQuery(
       { url: 'auth/refresh-token', method: 'POST' },
       api,
       extraOptions
     )
+    const refresh = refreshResult.data as { data: { accessToken: string }; resultCode: number }
 
-    //@ts-ignore
-    if (refreshResult.data.resultCode === 0) {
-      //@ts-ignore
-      localStorage.setItem('access', refreshResult.data.data.accessToken)
+    if (refresh.resultCode === 0) {
+      localStorage.setItem('access', refresh.data.accessToken)
       api.dispatch(authApi.endpoints.getMe.initiate())
-      // Retry the initial query
       result = await baseQuery(args, api, extraOptions)
     } else {
-      api.dispatch(authActions.logout())
+      api.dispatch(setLogout())
     }
   }
 

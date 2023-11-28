@@ -192,8 +192,7 @@ const CustomHeaderWrapper = (locale: Locale) => {
           <button className={classNames.button} type="button" onClick={decreaseMonth}>
             <KeyboardArrowLeft />
           </button>
-
-          <button className={classNames.button} onClick={increaseMonth}>
+          <button className={classNames.button} type="button" onClick={increaseMonth}>
             <KeyboardArrowRight />
           </button>
         </div>

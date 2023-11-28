@@ -1,3 +1,4 @@
+import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Separator } from '@radix-ui/react-separator'
 import Image from 'next/image'
 import React, { useState } from 'react'
@@ -93,55 +94,76 @@ export const RightDescription = ({
           />
         </div>
         <Separator className={s.separator} />
-        <div className={s.comments}>
-          <div className={s.user}>
-            <div>
-              {userData ? (
-                <Image src={userData.avatar} width={36} height={36} alt={'ava'} className={s.ava} />
-              ) : (
-                <AvatarImage className={s.ava} />
-              )}
-            </div>
-            <div className={s.userName}>
-              <Typography variant={'h3'} color="primary">
-                {userName}
-              </Typography>
-            </div>
-            <Typography variant={'regular14'}>{description}</Typography>
-          </div>
-          <Typography variant={'small'} color={'secondary'} className={s.time}>
-            {' '}
-            2 hours ago
-          </Typography>
-
-          {fakeComments.map((el, index) => (
-            <div className={s.usersComment} key={el.id}>
-              <div className={s.commentsArea}>
-                <div className={s.userCommet}>
-                  <AvatarImage className={s.ava} />
+        <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
+          <ScrollArea.Viewport className={s.scrollAreaViewport}>
+            <div className={s.comments}>
+              <div className={s.user}>
+                <div>
+                  {userData ? (
+                    <Image
+                      src={userData.avatar}
+                      width={36}
+                      height={36}
+                      alt={'ava'}
+                      className={s.ava}
+                    />
+                  ) : (
+                    <AvatarImage className={s.ava} />
+                  )}
                 </div>
-                <Typography variant={'regular14'} className={s.oneComment}>
-                  <div className={s.userName}>
-                    <Typography variant={'h3'} color="primary">
-                      {el.userName + index}
+                <div style={{ display: 'inline-block' }}>
+                  <div className={s.userName} style={{ display: 'inline' }}>
+                    <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
+                      {userName}
                     </Typography>
                   </div>
-                  {el.comment}
-                </Typography>
-                <Heart
-                  alt={'heart'}
-                  width={16}
-                  height={16}
-                  className={isLikeActive ? s.red : s.iconForComment}
-                  onClick={handleLike}
-                />
+                  <Typography variant={'regular14'} style={{ display: 'inline' }}>
+                    {description}
+                  </Typography>
+                </div>
               </div>
               <Typography variant={'small'} color={'secondary'} className={s.time}>
-                {el.grayText}
+                {' '}
+                2 hours ago
               </Typography>
+
+              {fakeComments.map((el, index) => (
+                <div className={s.usersComment} key={el.id}>
+                  <div className={s.commentsArea}>
+                    <div className={s.userCommet}>
+                      <AvatarImage className={s.ava} />
+                    </div>
+                    <Typography variant={'regular14'} className={s.oneComment}>
+                      <div style={{ display: 'inline-block' }}>
+                        <div className={s.userName} style={{ display: 'inline' }}>
+                          <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
+                            {el.userName + index}
+                          </Typography>
+                        </div>
+                        <Typography variant={'regular14'} style={{ display: 'inline' }}>
+                          {el.comment}
+                        </Typography>
+                      </div>
+                    </Typography>
+                    <Heart
+                      alt={'heart'}
+                      width={16}
+                      height={16}
+                      className={isLikeActive ? s.red : s.iconForComment}
+                      onClick={handleLike}
+                    />
+                  </div>
+                  <Typography variant={'small'} color={'secondary'} className={s.time}>
+                    {el.grayText}
+                  </Typography>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </ScrollArea.Viewport>
+          <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation="vertical">
+            <ScrollArea.Thumb className={s.scrollAreaThumb} />
+          </ScrollArea.Scrollbar>
+        </ScrollArea.Root>
         <Separator className={s.separator} />
         <div className={s.likesArea}>
           <div className={s.iconsArea}>
