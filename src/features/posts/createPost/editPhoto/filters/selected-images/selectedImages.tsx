@@ -10,7 +10,7 @@ import { filters } from '../Filters'
 import s from '../selected-images/SelectedImages.module.scss'
 
 type Props = {
-  addedImages: any
+  addedImages: Image[]
   activeFilter: string
   setActiveFilter: (activeFilter: string) => void
   image?: string
@@ -103,13 +103,13 @@ const SelectedImages: FC<Props> = ({
     <>
       <div className={s.imgContainer}>
         <Slider {...settings}>
-          {addedImages.map((el: any, idx: any) => {
+          {addedImages.map((el, idx) => {
             return (
               <div key={idx} className={s.carousel}>
                 <ImageWithFilter
                   alt={'img'}
                   style={{ filter: activeFilter }}
-                  src={el.image}
+                  src={el.image ? el.image : ''}
                   width={490}
                   height={503}
                 />

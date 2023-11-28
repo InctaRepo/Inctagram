@@ -42,7 +42,6 @@ export const EditPostModal = ({
   isDescription,
 }: ModalProps) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
-
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const user = useAppSelector(getAuthUser)
 

@@ -23,7 +23,6 @@ export const ListImage = ({ userData }: Props) => {
   const { data } = useGetUserPostsQuery(user?.userId!)
   const { data: post } = useGetUserPostQuery(currentId)
 
-  console.log(post?.data?.description)
   const getCurrentPostId = useCallback((id: string | null) => {
     setCurrentId(id)
   }, [])
