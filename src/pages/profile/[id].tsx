@@ -24,6 +24,7 @@ const MyProfilePage: NextPageWithLayout = () => {
   const id = router.query.id
 
   return <Profile id={id} />
+  // return <Profile post={post} />
 }
 
 MyProfilePage.getLayout = getPublicProfileLayout
