@@ -1,16 +1,14 @@
-@import '../../../styles/mixins';
-@import '../../../styles/colors';
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/variables';
 
 .container {
   @include flex-block;
-
   position: sticky;
   top: 0;
-
   justify-content: space-between;
-
   width: 240px;
-  height: 734px;
+  min-height: calc(660px - $header-height);
 
   :active {
     color: $color-accent-500;
@@ -34,7 +32,6 @@
 
     place-content: flex-start space-between;
     align-items: flex-start;
-
     width: 155px;
     height: 100%;
 
@@ -54,10 +51,6 @@
       fill: $color-accent-500;
       stroke: $color-accent-500;
     }
-
-    // .favorites:focus-visible {
-    //  outline: 2px solid $color-accent-500;
-    // }
 
     .logout {
       margin-bottom: 36px;

@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ComponentProps, ElementType } from 'react'
+import React, { ComponentProps, ElementType } from 'react'
 import { FieldError } from 'react-hook-form'
 import { Typography } from '../typography'
 import s from './textAreaField.module.scss'
@@ -16,6 +16,7 @@ export type TTextAreaProps<T extends ElementType = 'textarea'> = {
   maxLength?: number
   onChange?: (s: string) => void
   setValue?: (value: string) => void
+  variant?: string
 } & ComponentProps<T>
 
 export const TextAreaField = <T extends ElementType = 'textarea'>(
@@ -23,6 +24,7 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
 ) => {
   const {
     as: Component = 'textarea',
+    variant,
     label,
     fullWidth,
     className,
@@ -44,6 +46,7 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
       (errorMessage || validationError) && s.error,
       fullWidth && s.fullWidth
     ),
+    textAreaComment: clsx(className, s.textAreaComment),
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -58,7 +61,7 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
       </Typography>
       <textarea
         placeholder={placeholder}
-        className={classNames.textArea}
+        className={variant === 'comment' ? classNames.textAreaComment : classNames.textArea}
         disabled={disabled}
         onChange={handleChange}
         maxLength={maxLength}

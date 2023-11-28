@@ -1,7 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
-import { BaseResponse } from '@/src/shared/api/baseResponse'
-import { UserInfo } from '../../profile/service/profileApiTypes'
+import { baseQueryWithReAuth, BaseResponse } from '@/src/shared/api'
+import { UserInfo } from './profileApiTypes'
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
@@ -9,18 +8,18 @@ export const profileApi = createApi({
   keepUnusedDataFor: 5,
   tagTypes: ['profile'],
   endpoints: builder => ({
-    createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'id'>>({
-      query: ({ id, ...patch }) => ({
+    createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
+      query: ({ userId, ...patch }) => ({
         method: 'POST',
-        url: `users/profile/${id}`,
+        url: `users/profile/${userId}`,
         body: patch,
       }),
       // invalidatesTags: ['profile'],
     }),
-    updateProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'id'>>({
-      query: ({ id, ...patch }) => ({
+    updateProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
+      query: ({ userId, ...patch }) => ({
         method: 'PUT',
-        url: `users/profile/${id}`,
+        url: `users/profile/${userId}`,
         body: patch,
       }),
       // invalidatesTags: ['profile'],

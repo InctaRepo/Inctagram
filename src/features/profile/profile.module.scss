@@ -1,18 +1,23 @@
-@import '../../styles/colors';
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
 
 .container {
   display: flex;
   justify-content: flex-start;
+
   width: 100%;
+  max-width: 1280px;
   height: 100%;
 
   .containerInfo {
-    max-width: 980px;
+    width: 100%;
+    max-width: 1030px;
     padding: 35px 16px 0 20px;
     border-left: 1px solid $color-dark-300;
   }
 
   .containerInfoPublic {
+    width: 100%;
     max-width: 980px;
     padding: 35px 16px 0 20px;
   }

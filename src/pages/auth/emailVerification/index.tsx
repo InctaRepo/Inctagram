@@ -1,5 +1,5 @@
 import { getAuthLayout } from 'src/widgets/layout/authLayout'
-import { EmailVerification } from '@/src/features/auth/emailVerification/EmailVerification'
+import { EmailVerification } from '@/src/features/auth/emailVerification/ui/EmailVerification'
 
 const EmailVerificationPage = () => {
   return <EmailVerification />
