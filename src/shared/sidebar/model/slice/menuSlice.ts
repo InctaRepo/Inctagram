@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type MenuState = {
+export type MenuState = {
   variantIcon: string | null
 }
 

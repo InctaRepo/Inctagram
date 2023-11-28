@@ -40,3 +40,7 @@ export type GetUserPostsResponse = {
   pagesCount: number
   totalCount: number
 }
+
+export type PostState = {
+  post: Post | null
+}

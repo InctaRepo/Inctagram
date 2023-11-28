@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Post } from './postApiTypes'
-
-type PostState = {
-  post: Post | null
-}
+import { Post, PostState } from './postApiTypes'
 
 const initialState: PostState = {
   post: null,

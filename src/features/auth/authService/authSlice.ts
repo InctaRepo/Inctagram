@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { UserType } from '../authService/authApiTypes'
-
-type AuthState = {
-  user: UserType | null
-  isAuth: boolean
-}
+import { AuthState, UserType } from '../authService/authApiTypes'
 
 const initialState: AuthState = {
   user: null,
