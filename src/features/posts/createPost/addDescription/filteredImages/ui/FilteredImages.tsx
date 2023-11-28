@@ -6,12 +6,12 @@ import Slider from 'react-slick'
 import { Image } from '../../../CreateNewPost'
 import s from './filteredImages.module.scss'
 
-type PropsType = {
+type Props = {
   addedImages: Image[]
   activeFilter: string
 }
 
-export const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => {
+export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
   const settings = {
     dots: true,
     swipe: false,
