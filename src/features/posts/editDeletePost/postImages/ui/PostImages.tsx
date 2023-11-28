@@ -8,7 +8,7 @@ import { Images } from '@/src/features/posts/service/postApiTypes'
 import Image from 'next/image'
 import s from './PostImages.module.scss'
 
-type Props = { images: Images[]; id: string; isDescription?: boolean }
+type Props = { images: any; id: string; isDescription?: boolean }
 
 export const PostImages = ({ images, id, isDescription }: Props) => {
   const settings = {
@@ -52,7 +52,7 @@ export const PostImages = ({ images, id, isDescription }: Props) => {
     <>
       <div className={s.imgContainer}>
         <Slider {...settings}>
-          {images.map((el, idx) => (
+          {images.map((el: any, idx: any) => (
             <div key={idx} className={isDescription ? s.carouselDescription : s.carousel}>
               <Image alt={'img'} src={el.url} width={490} height={562} />
             </div>
