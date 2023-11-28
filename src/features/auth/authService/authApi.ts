@@ -1,9 +1,8 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { appActions } from '@/src/shared/app'
-import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
-import { BaseResponse } from '@/src/shared/api/baseResponse'
+import { baseQueryWithReAuth, BaseResponse } from '@/src/shared/api'
 import { UserType } from './authApiTypes'
-import { authActions } from './authSlice'
+import { setIsAuth, setUser } from './authSlice'
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -17,8 +16,8 @@ export const authApi = createApi({
           const { data } = await queryFulfilled
 
           if (data.resultCode === 0) {
-            dispatch(authActions.setIsAuth(true))
-            dispatch(authActions.setUser(data.data))
+            dispatch(setIsAuth(true))
+            dispatch(setUser(data.data))
           }
         } catch (e) {
           console.error(e)

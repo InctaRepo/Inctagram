@@ -1,20 +1,16 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { de } from 'date-fns/locale'
 import ImageAva from 'next/image'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import AvatarImage from '@/src/assets/images/avatar-image'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authUserSelector } from '@/src/features/auth/authService'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
-import { useAddPostMutation, useUpdatePostMutation } from '@/src/features/posts/service/postApi'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { getAuthUser } from '@/src/features/auth/authService'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { useAddPostMutation, useUpdatePostMutation } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { DescriptionForm, descriptionSchema } from '@/src/shared/schemas/descriptionSchema'
@@ -53,7 +49,7 @@ export const PostDescription = ({
   const [addPost] = useAddPostMutation()
 
   const [updatePost, { isSuccess: isSuccessUpdate }] = useUpdatePostMutation()
-  const user = useAppSelector(authUserSelector)
+  const user = useAppSelector(getAuthUser)
   const postId = id
 
   const { data } = useGetProfileQuery(user?.userId)

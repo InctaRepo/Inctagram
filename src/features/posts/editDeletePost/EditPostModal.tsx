@@ -1,9 +1,7 @@
-import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
-import { clsx } from 'clsx'
 import Image from 'next/image'
-import React, { ComponentProps, ReactNode, useState } from 'react'
+import React, { ComponentProps, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,import/order
-import { authUserSelector } from '@/src/features/auth/authService'
+import { getAuthUser } from '@/src/features/auth/authService'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
 import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/PostImages'
@@ -14,7 +12,6 @@ import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,import/namespace
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { useAppSelector } from '@/src/shared/hooks'
-import { AddDescriptionModal } from '../createPost/addDescription/ui/AddDescriptionModal'
 import s from './EditPostModal.module.scss'
 import { RightDescription } from './postDescription/ui/RightDescription'
 // eslint-disable-next-line import/namespace
@@ -43,7 +40,7 @@ export const EditPostModal = ({
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const user = useAppSelector(authUserSelector)
+  const user = useAppSelector(getAuthUser)
 
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)

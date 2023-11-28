@@ -11,6 +11,23 @@
 
   position: relative;
 
+  .photo {
+    justify-content: center;
+
+    .ellipse {
+      @include wh(192px, 192px);
+
+      cursor: pointer;
+      margin-top: 18px;
+      background-color: $color-dark-300;
+      border-radius: 50%;
+    }
+
+    .image {
+      cursor: pointer;
+      margin: -115px 30px 96px 72px;
+    }
+  }
   .ava {
     display: flex;
 

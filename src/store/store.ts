@@ -1,13 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { appReducer } from '@/src/shared/app/appSlice'
-import { authApi } from '@/src/features/auth/authService/authApi'
+import { authApi } from '@/src/features/auth/authService'
 import { authReducer } from '@/src/features/auth/authService/authSlice'
 import { postApi } from '@/src/features/posts/service/postApi'
 import { postReducer } from '@/src/features/posts/service/postSlice'
 import { profileApi } from '@/src/features/profile/service/profileApi'
 import { profileReducer } from '@/src/features/profile/service/profileSlice'
-import { baseApi } from '@/src/shared/api/baseApi'
+import { baseApi } from '@/src/shared/api'
 import { menuReducer } from '@/src/shared/sidebar/model/slice/menuSlice'
 
 const rootReducer = combineReducers({

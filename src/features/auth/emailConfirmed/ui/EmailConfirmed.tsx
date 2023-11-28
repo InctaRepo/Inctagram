@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import ConfirmedImage from 'public/icon/emailComfirmedIcon.svg'
+import { RouteNames } from '@/src/shared/const/routeNames'
 import { AppLoader } from '@/src/shared/ui/appLoader'
 import { AuthPage } from '../../authPage'
 import { useEmailConfirmedMutation } from '../service/emailConfirmed'
@@ -24,7 +25,7 @@ export const EmailConfirmed = () => {
           title="Congratulations!"
           text="Your email has been confirmed"
           nameButton="Sign In"
-          linkPath={'/auth/sign-in'}
+          linkPath={RouteNames.SIGN_IN}
         >
           <ConfirmedImage />
         </AuthPage>
