@@ -10,7 +10,7 @@ import { filters } from '../Filters'
 import s from '../selected-images/SelectedImages.module.scss'
 
 type Props = {
-  addedImages: Image[]
+  addedImages: any
   activeFilter: string
   setActiveFilter: (activeFilter: string) => void
   image?: string
