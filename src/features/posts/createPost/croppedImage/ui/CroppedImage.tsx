@@ -13,7 +13,7 @@ import EasyCrop, { CropArg } from './EasyCrop'
 type Props = {
   image?: string
   setImage: (image: string | undefined) => void
-  addedImages: Image[]
+  addedImages: any
   setAddedImages: (addedImages: Image[]) => void
 }
 
@@ -100,7 +100,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
       <div className={s.container}>
         <div className={s.cropContainer}>
           <Slider {...settings}>
-            {addedImages.map((el, idx) => {
+            {addedImages.map((el: any, idx: any) => {
               return (
                 <div key={idx} className={s.carousel} onClick={() => setIndex(idx)}>
                   <EasyCrop
