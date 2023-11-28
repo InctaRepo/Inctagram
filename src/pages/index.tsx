@@ -2,13 +2,13 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { getAuthLayout } from '@/src/widgets/layout/authLayout'
-import { authIsAuthSelector } from '@/src/features/auth/authService/authSelectors'
+import { getIsAuth } from '@/src/features/auth/authService/authSelectors'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/types'
 import { RouteNames } from 'src/shared/const/routeNames'
 
 const Home: NextPageWithLayout = () => {
-  const isAuth = useAppSelector(authIsAuthSelector)
+  const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
 
   useEffect(() => {

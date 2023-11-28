@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authIsAuthSelector } from '@/src/features/auth/authService'
+import { getIsAuth } from '@/src/features/auth/authService'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { useAppSelector } from '@/src/shared/hooks'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
@@ -14,7 +14,7 @@ type Props = {
 }
 export const DataProfile = ({ userData }: Props) => {
   const { push } = useRouter()
-  const isAuth = useAppSelector(authIsAuthSelector)
+  const isAuth = useAppSelector(getIsAuth)
   const { t } = useTranslate()
 
   return (
