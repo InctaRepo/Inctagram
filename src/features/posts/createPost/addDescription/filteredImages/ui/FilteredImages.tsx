@@ -53,19 +53,17 @@ export const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => 
     <>
       <div className={s.imgContainer}>
         <Slider {...settings}>
-          {addedImages.map((el: any, idx: any) => {
-            return (
-              <div key={idx} className={s.carousel}>
-                <ImageWithFilter
-                  alt={'img'}
-                  src={el.image}
-                  width={490}
-                  height={503}
-                  style={{ filter: activeFilter }}
-                />
-              </div>
-            )
-          })}
+          {addedImages.map((el, idx: number) => (
+            <div key={idx} className={s.carousel}>
+              <ImageWithFilter
+                alt={'img'}
+                src={el.image!}
+                width={490}
+                height={503}
+                style={{ filter: activeFilter }}
+              />
+            </div>
+          ))}
         </Slider>
       </div>
     </>
