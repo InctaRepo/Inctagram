@@ -1,5 +1,5 @@
 import { baseApi, BaseResponse } from '@/src/shared/api'
-import { AccessType, authApi } from '../../../authService'
+import { AccessType } from '../../../authService'
 import { setToken } from '../../index'
 import { SingInParams } from '../index'
 
@@ -11,14 +11,13 @@ export const authByEmail = baseApi.injectEndpoints({
         url: 'auth/login',
         body: data,
       }),
+      invalidatesTags: ['Me'],
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
 
           if (data.resultCode === 0) {
             dispatch(setToken(data.data))
-            dispatch(authApi.util.invalidateTags(['Me']))
-            await dispatch(authApi.endpoints.getMe.initiate())
           }
         } catch (e) {
           console.error(e)

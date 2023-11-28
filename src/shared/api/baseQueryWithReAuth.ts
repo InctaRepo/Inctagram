@@ -3,7 +3,7 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { AppRootState } from '@/src/store'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { authApi, setLogout } from '@/src/features/auth/authService'
+import { setLogout } from '@/src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { BASE_URL } from '../const/const'
 
@@ -15,7 +15,6 @@ const baseQuery = fetchBaseQuery({
       return headers
     }
     const accessToken = (getState() as AppRootState).signIn.accessToken
-    // const access = localStorage.getItem('access')
 
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
@@ -45,8 +44,6 @@ export const baseQueryWithReAuth: BaseQueryFn<
 
     if (refresh.resultCode === 0) {
       localStorage.setItem('accessToken', refresh.data.accessToken)
-      // api.dispatch(setToken(refresh.data as { accessToken: string }))
-      api.dispatch(authApi.endpoints.getMe.initiate())
       result = await baseQuery(args, api, extraOptions)
     } else {
       api.dispatch(setLogout())
