@@ -16,8 +16,11 @@ type Props = {
   data?: BaseResponse<UserInfo>
 }
 
-export const Profile = ({ id, data }: Props) => {
+export const Profile = ({ id }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
+  const { data } = useGetProfileQuery(id, {
+    refetchOnMountOrArgChange: true,
+  })
 
   return (
     <div className={s.container}>

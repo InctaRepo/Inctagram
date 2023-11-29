@@ -26,16 +26,8 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
 const MyProfilePage: NextPageWithLayout = () => {
   const router = useRouter()
   const id = router.query.id
-  const { data } = useGetProfileQuery(
-    id /*, {
-    refetchOnMountOrArgChange: true,
-    skip: false,
-  }*/
-  )
 
-  console.log(data)
-
-  return <Profile id={id} data={data} />
+  return <Profile id={id} />
 }
 
 MyProfilePage.getLayout = getPublicProfileLayout
