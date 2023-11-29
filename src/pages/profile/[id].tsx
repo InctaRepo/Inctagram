@@ -1,6 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
 import { wrapper } from '@/src/store/wrapper'
 import { getPublicProfileLayout } from '@/src/widgets/layout/publicProfileLayout/PublicProfileLayout'
+import { getUserPosts } from '@/src/features/posts'
 import { Profile } from '@/src/features/profile/profile'
 import {
   getProfile,
@@ -14,6 +15,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
 
   if (typeof id === 'string') {
     store.dispatch(getProfile.initiate(id))
+    store.dispatch(getUserPosts.initiate(id))
   }
 
   await Promise.all(store.dispatch(getRunningQueriesThunk()))

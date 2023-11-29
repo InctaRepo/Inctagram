@@ -1,5 +1,4 @@
-import { createApi } from '@reduxjs/toolkit/query/react'
-import { baseQueryWithReAuth, BaseResponse } from '@/src/shared/api'
+import { baseApi, BaseResponse } from '@/src/shared/api'
 import {
   GetUserPostResponse,
   GetUserPostsResponse,
@@ -7,10 +6,7 @@ import {
   UpdateResponse,
 } from './postApiTypes'
 
-export const postApi = createApi({
-  reducerPath: 'postApi',
-  baseQuery: baseQueryWithReAuth,
-  tagTypes: ['POST'],
+export const postApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     addPost: builder.mutation<BaseResponse, FormData>({
       query: body => ({
@@ -18,7 +14,7 @@ export const postApi = createApi({
         url: `posts/create`,
         body,
       }),
-      invalidatesTags: ['POST'],
+      invalidatesTags: ['Post'],
     }),
     updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
       query: ({ postId, ...patch }) => ({
@@ -33,9 +29,9 @@ export const postApi = createApi({
         url: `posts/${postId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['POST'],
+      invalidatesTags: ['Post'],
     }),
-    getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string>({
+    getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string | string[] | undefined>({
       query: userId => ({
         url: `posts/${userId}`,
         method: 'GET',
@@ -58,4 +54,7 @@ export const {
   useDeletePostMutation,
   useGetUserPostsQuery,
   useGetUserPostQuery,
+  util: { getRunningQueriesThunk },
 } = postApi
+
+export const { getUserPosts } = postApi.endpoints

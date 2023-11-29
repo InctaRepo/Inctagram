@@ -1,8 +1,11 @@
 .container {
+  cursor: pointer;
+
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  cursor: pointer;
+
+  width: 972px;
 }
 
 .image {

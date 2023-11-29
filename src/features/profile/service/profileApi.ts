@@ -1,5 +1,4 @@
-import { createApi } from '@reduxjs/toolkit/query/react'
-import { baseQueryWithReAuth, BaseResponse, baseApi } from '@/src/shared/api'
+import { BaseResponse, baseApi } from '@/src/shared/api'
 import { UserInfo } from './profileApiTypes'
 
 export const profileApi = baseApi.injectEndpoints({
