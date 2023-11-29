@@ -2,6 +2,9 @@
 import { getIsAuth } from '@/src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
+import { BaseResponse } from '@/src/shared/api'
 import { useAppSelector } from '@/src/shared/hooks'
 import { Sidebar } from '@/src/shared/sidebar'
 import { ListImage } from './listImage'
@@ -10,14 +13,11 @@ import { ProfileInfo } from './profileInfo'
 
 type Props = {
   id: string | string[] | undefined
+  data?: BaseResponse<UserInfo>
 }
 
-export const Profile = ({ id }: Props) => {
+export const Profile = ({ id, data }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
-  const { data } = useGetProfileQuery(id, {
-    refetchOnMountOrArgChange: true,
-    skip: false,
-  })
 
   return (
     <div className={s.container}>
