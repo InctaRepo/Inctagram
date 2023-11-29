@@ -17,6 +17,7 @@ export const Privacy = () => {
       <Header />
       <div className={s.main}>
         <div className={s.SignUp}>
+
           <Button as={'a'} className={s.btn} variant={'text'} onClick={back}>
             <div className={s.img}>
               <ArrowLeftIcon className={s.logo} />
