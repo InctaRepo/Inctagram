@@ -9,6 +9,7 @@ export const logout = baseApi.injectEndpoints({
         method: 'POST',
         url: 'auth/logout',
       }),
+      invalidatesTags: ['Me'],
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           // const { data } = await queryFulfilled

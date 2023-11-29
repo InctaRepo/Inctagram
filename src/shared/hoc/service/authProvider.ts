@@ -14,10 +14,12 @@ export const authApi = baseApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled
 
+          if (data) {
+            dispatch(setAuthMeData({ authMeData: data.data }))
+          }
           if (data.resultCode === 0) {
             dispatch(setAuthMeData({ authMeData: data.data }))
             dispatch(setIsAuth(true))
-            // dispatch(setUser(data.data))
           }
         } catch (e) {
           console.error(e)
