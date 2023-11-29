@@ -1,6 +1,7 @@
 export const RouteNames = {
   SIGN_IN: '/auth/signIn',
   SIGN_UP: '/auth/signUp',
+  AUTH: '/auth',
   PASSWORD_RECOVERY: '/auth/passwordRecovery',
   CREATE_NEW_PASSWORD: '/auth/createNewPassword',
   NEW_PASSWORD: '/auth/new-password',

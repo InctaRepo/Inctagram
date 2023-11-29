@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetMeQuery } from '@/src/features/auth/authService'
 import { RouteNames } from '@/src/shared/const/routeNames'
+import { useGetMeQuery } from '@/src/shared/hoc/service/authProvider'
 import { useErrorToast } from '@/src/shared/hooks'
 import { ProfileSettingForm } from '@/src/shared/schemas/profileSettingSchema'
 import { Sidebar } from '@/src/shared/sidebar'

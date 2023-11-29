@@ -2,13 +2,13 @@ import React from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import { getAuthUser } from '@/src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetUserPostsQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { EditPostModal } from '@/src/features/posts/editDeletePost/EditPostModal'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
+import { getUserId } from '@/src/shared/hoc/model/selectors/getUserId/getUserId'
 import { useAppSelector } from '@/src/shared/hooks'
 import s from './listImage.module.scss'
 
@@ -17,8 +17,8 @@ type Props = {
 }
 
 export const ListImage = ({ userData }: Props) => {
-  const user = useAppSelector(getAuthUser)
-  const { data } = useGetUserPostsQuery(user?.userId!)
+  const userId = useAppSelector(getUserId)
+  const { data } = useGetUserPostsQuery(userId)
 
   return (
     <div className={s.container}>

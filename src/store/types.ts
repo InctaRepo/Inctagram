@@ -7,6 +7,7 @@ import { postApi, PostState } from '@/src/features/posts'
 import { profileApi } from '@/src/features/profile/service/profileApi'
 import { ProfileState } from '@/src/features/profile/service/profileApiTypes'
 import { baseApi } from '@/src/shared/api'
+import { AuthMeSchema } from '@/src/shared/hoc/model/types/AuthMeSchema'
 import { MenuState } from '@/src/shared/sidebar/model/slice/menuSlice'
 
 export type AppDispatch = typeof store.dispatch
@@ -17,6 +18,7 @@ export type StateSchema = {
   [profileApi.reducerPath]: ReturnType<typeof profileApi.reducer>
   [postApi.reducerPath]: ReturnType<typeof postApi.reducer>
   auth: AuthState
+  authMe: AuthMeSchema
   signIn: SignInSchema
   app: AppSchema
   profile: ProfileState

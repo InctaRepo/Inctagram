@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 import { RouteNames } from '@/src/shared/const/routeNames'
+import { useGetMeQuery } from '@/src/shared/hoc/service/authProvider'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/types'
-import { getIsAuth, useGetMeQuery } from '../../../auth/authService'
+import { getIsAuth } from '../../../auth/authService'
 import { SingInParams, useSignInMutation } from '../authByEmail'
 import { LoginForm } from './loginForm'
 
