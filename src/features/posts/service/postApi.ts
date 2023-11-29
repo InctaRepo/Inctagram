@@ -1,11 +1,16 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { baseQueryWithReAuth, BaseResponse } from '@/src/shared/api'
-import { GetUserPostsResponse, UpdatePost, UpdateResponse } from './postApiTypes'
+import {
+  GetUserPostResponse,
+  GetUserPostsResponse,
+  UpdatePost,
+  UpdateResponse,
+} from './postApiTypes'
 
 export const postApi = createApi({
   reducerPath: 'postApi',
   baseQuery: baseQueryWithReAuth,
-  tagTypes: ['createPost', 'editPost', 'deletePost'],
+  tagTypes: ['POST'],
   endpoints: builder => ({
     addPost: builder.mutation<BaseResponse, FormData>({
       query: body => ({
@@ -13,7 +18,7 @@ export const postApi = createApi({
         url: `posts/create`,
         body,
       }),
-      invalidatesTags: ['createPost'],
+      invalidatesTags: ['POST'],
     }),
     updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
       query: ({ postId, ...patch }) => ({
@@ -21,21 +26,28 @@ export const postApi = createApi({
         url: `posts/${postId}`,
         body: patch,
       }),
-      invalidatesTags: ['editPost'],
+      invalidatesTags: ['POST'],
     }),
     deletePost: builder.mutation<BaseResponse, string>({
       query: postId => ({
         url: `posts/${postId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['deletePost'],
+      invalidatesTags: ['POST'],
     }),
     getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string>({
       query: userId => ({
         url: `posts/${userId}`,
         method: 'GET',
       }),
-      providesTags: ['deletePost', 'createPost'],
+      providesTags: ['POST'],
+    }),
+    getUserPost: builder.query<BaseResponse<GetUserPostResponse>, string | null>({
+      query: postId => ({
+        url: `posts/post/${postId}`,
+        method: 'GET',
+      }),
+      providesTags: ['POST'],
     }),
   }),
 })
@@ -45,4 +57,5 @@ export const {
   useUpdatePostMutation,
   useDeletePostMutation,
   useGetUserPostsQuery,
+  useGetUserPostQuery,
 } = postApi

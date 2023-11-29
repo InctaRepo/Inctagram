@@ -44,3 +44,11 @@ export type GetUserPostsResponse = {
 export type PostState = {
   post: Post | null
 }
+
+export type GetUserPostResponse = {
+  createdAt: Date
+  description: string
+  id: string
+  images: Images[]
+  userId: string
+}

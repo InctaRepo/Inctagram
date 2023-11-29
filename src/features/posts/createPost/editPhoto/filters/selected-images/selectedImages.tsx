@@ -103,13 +103,13 @@ const SelectedImages: FC<Props> = ({
     <>
       <div className={s.imgContainer}>
         <Slider {...settings}>
-          {addedImages.map((el: any, idx: any) => {
+          {addedImages.map((el, idx) => {
             return (
               <div key={idx} className={s.carousel}>
                 <ImageWithFilter
                   alt={'img'}
                   style={{ filter: activeFilter }}
-                  src={el.image}
+                  src={el.image ? el.image : ''}
                   width={490}
                   height={503}
                 />

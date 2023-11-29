@@ -63,6 +63,8 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+
+  width: 426px;
 }
 
 .time{
@@ -106,7 +108,7 @@ margin-bottom: 20px;
 }
 
 .comments {
-  @include wh(480px, 336px);
+  @include wh(475px, 336px);
 }
 
 .likesArea {
@@ -180,11 +182,13 @@ filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(339deg) brightness(84
 .usersComment {
   display: flex;
   flex-direction: column;
+  width: 475px;
   padding-top: 12px;
 }
 
 .oneComment {
-  width: 365px;
+  display: flex;
+  width: 100%;
   margin-top: -7px;
 }
 
@@ -247,4 +251,68 @@ filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(339deg) brightness(84
 
 .userAvaHead {
   padding-bottom: 12px;
+}
+
+.scrollAreaRoot {
+  --scrollbar-size: 10px;
+
+  overflow: hidden;
+  height: var(--radix-select-content-available-height);
+  border-radius: 4px;
+}
+
+.scrollAreaViewport {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.scrollAreaScrollbar {
+  /* disable browser handling of all panning and zooming gestures on touch devices */
+  touch-action: none;
+
+  /* ensures no selection */
+  user-select: none;
+
+  display: flex;
+
+  padding: 2px;
+
+  background: #8d9094;
+
+  transition: background 160ms ease-out;
+
+  &:hover {
+    background: $color-dark-100;
+  }
+
+  &[data-orientation='vertical'] {
+    width: var(--scrollbar-size);
+  }
+
+  &[data-orientation='horizontal'] {
+    flex-direction: column;
+    height: var(--scrollbar-size);
+  }
+}
+
+.scrollAreaThumb {
+  position: relative;
+  flex: 1;
+  background: $color-light-100;
+  border-radius: 10px;
+}
+
+.ScrollAreaThumb::before {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  min-width: 44px;
+  height: 100%;
+  min-height: 44px;
 }
