@@ -22,7 +22,6 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
 
   const isAuthPage = authMeData || asPath.startsWith(RouteNames.AUTH)
 
-  console.log(error, isAuthPage, '11111')
   if (!isAuthPage && error) {
     push(RouteNames.SIGN_IN)
 

@@ -21,9 +21,5 @@ const authSlice = createSlice({
   },
 })
 
-//
-// export const authReducer = slice.reducer
-//
-// export const authActions = slice.actions
 export const { reducer: authReducer } = authSlice
 export const { setLogout, setIsAuth, setUser } = authSlice.actions
