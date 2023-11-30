@@ -6,12 +6,12 @@ import Slider from 'react-slick'
 import { Image } from '../../../CreateNewPost'
 import s from './filteredImages.module.scss'
 
-type PropsType = {
+type Props = {
   addedImages: Image[]
   activeFilter: string
 }
 
-export const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => {
+export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
   const settings = {
     dots: true,
     swipe: false,
@@ -53,17 +53,19 @@ export const FilteredImages: FC<PropsType> = ({ addedImages, activeFilter }) => 
     <>
       <div className={s.imgContainer}>
         <Slider {...settings}>
-          {addedImages.map((el, idx: number) => (
-            <div key={idx} className={s.carousel}>
-              <ImageWithFilter
-                alt={'img'}
-                src={el.image!}
-                width={490}
-                height={503}
-                style={{ filter: activeFilter }}
-              />
-            </div>
-          ))}
+          {addedImages.map((el, idx) => {
+            return (
+              <div key={idx} className={s.carousel}>
+                <ImageWithFilter
+                  alt={'img'}
+                  src={el.image ? el.image : ''}
+                  width={490}
+                  height={503}
+                  style={{ filter: activeFilter }}
+                />
+              </div>
+            )
+          })}
         </Slider>
       </div>
     </>

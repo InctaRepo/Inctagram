@@ -40,3 +40,11 @@ export type GetUserPostsResponse = {
   pagesCount: number
   totalCount: number
 }
+
+export type GetUserPostResponse = {
+  createdAt: Date
+  description: string
+  id: string
+  images: Images[]
+  userId: string
+}
