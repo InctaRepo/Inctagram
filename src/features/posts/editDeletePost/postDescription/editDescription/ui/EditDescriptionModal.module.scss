@@ -62,16 +62,16 @@
 
   margin: 1px 12px 11px;
 
-    &:hover{
-      filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
-    }
+  &:hover {
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+  }
 }
 
 .DialogTitle {
   display: flex;
   flex-direction: row;
   align-items: center;
-justify-content: space-between;
+  justify-content: space-between;
 
   height: 59px;
   margin-left: 24px;
@@ -87,6 +87,5 @@ justify-content: space-between;
 }
 
 .image {
-  @include wh(490px, 503px)
+  @include wh(490px, 503px);
 }
-
