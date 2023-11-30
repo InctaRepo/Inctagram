@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import ImageAva from 'next/image'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import AvatarImage from '@/src/assets/images/avatar-image'
+import AvatarImage from 'public/icon/avatarIcon.svg'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { useAddPostMutation, useUpdatePostMutation } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices

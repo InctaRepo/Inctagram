@@ -67,5 +67,5 @@ export type ProfileSettingForm = {
   country: string
   city: string
   aboutMe: string
-  avatar?: string
+  avatar: string
 }

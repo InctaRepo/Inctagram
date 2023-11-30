@@ -7,7 +7,7 @@ export interface UserInfo {
   city: string
   dateOfBirth: Date
   aboutMe: string
-  avatar?: string
+  avatar: string
 }
 
 export type Avatar = {
