@@ -1,12 +1,14 @@
 import { NextPage } from 'next'
 import { PropsWithChildren, ReactElement } from 'react'
 import { appIsInitializedSelector } from '@/src/shared/app'
+import { useGetMeQuery } from '@/src/features/auth/authService'
 import { Header } from '@/src/shared/header/ui/Header'
 import { useAppSelector } from '@/src/shared/hooks'
 import { AppLoader } from 'src/shared/ui/appLoader'
 import s from './authLayout.module.scss'
 
 const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
+  const {} = useGetMeQuery()
   const isInitialized = useAppSelector(appIsInitializedSelector)
 
   return (
