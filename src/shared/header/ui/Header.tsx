@@ -1,12 +1,10 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
 import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
-import MaskIcon from '@/src/assets/icons/mask-icon'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { useTranslate } from '@/src/shared/hooks'
+import OutlineBellIcon from 'public/icon/outlineBellIcon.svg'
 import { RouteNames } from '../../const/routeNames'
+import { useTranslate } from '../../hooks'
 import { Button } from '../../ui/button'
 import { Options, SelectBox } from '../../ui/selectBox'
 import { Typography } from '../../ui/typography'
@@ -40,7 +38,7 @@ export const Header = ({ variant }: HeaderType) => {
             </Link>
           </Typography>
           <div className={s.options_container}>
-            <MaskIcon />
+            <OutlineBellIcon />
             <div className={s.select}>
               <SelectBox
                 options={languages}

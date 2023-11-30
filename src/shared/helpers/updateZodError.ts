@@ -1,4 +1,4 @@
-import { LoginFormType } from '../schemas/create-login-schema'
+import { LoginFormType } from '../schemas/createLoginSchema'
 import { PasswordsMatchForm } from '../schemas/passwordsMatchSchema'
 import { ProfileSettingForm } from '../schemas/profileSettingSchema'
 import { SignUpFormSchema } from '../schemas/signUpSchema'

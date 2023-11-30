@@ -1,5 +1,9 @@
 export const ru = {
   // object = feature
+    locale: {
+        english: 'English',
+        russian: 'Russian'
+    },
   auth: {
     BackToSignUp: 'Вернуться на страницу регистрации',
     signIn: 'Войти',
