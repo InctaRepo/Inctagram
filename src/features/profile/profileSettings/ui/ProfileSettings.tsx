@@ -26,7 +26,7 @@ import { TabsComponent } from '@/src/shared/ui/tabsComponent'
 import { UserInfo } from '../../service/profileApiTypes'
 import s from './ProfileSettings.module.scss'
 
-type ProfileSettingFormProps = {
+type Props = {
   onSubmitHandler: (data: ProfileSettingForm) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
@@ -51,7 +51,7 @@ export const ProfileSettings = ({
   onSubmitHandler,
   userData,
   userNameFromMe,
-}: ProfileSettingFormProps) => {
+}: Props) => {
   const [_, setValue] = useState('')
   const [cities, setCities] = useState<Options[]>([])
   const { t } = useTranslate()
@@ -142,13 +142,7 @@ export const ProfileSettings = ({
           )}
           <div className={s.addBtn}>
             <SettingPhotoModal
-              avatar={
-                userData?.avatar.endsWith(
-                  'https://inctagram-pirates.s3.eu-central-1.amazonaws.com/user-avatars/null'
-                )
-                  ? null
-                  : userData?.avatar!
-              }
+              avatar={userData?.avatar.endsWith('/null') ? null : userData?.avatar!}
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}
               isModalOpen={isModalOpen}
