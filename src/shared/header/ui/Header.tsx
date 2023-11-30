@@ -4,6 +4,8 @@ import React from 'react'
 import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
 import MaskIcon from '@/src/assets/icons/mask-icon'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { useTranslate } from '@/src/shared/hooks'
 import { RouteNames } from '../../const/routeNames'
 import { Button } from '../../ui/button'
 import { Options, SelectBox } from '../../ui/selectBox'
@@ -15,6 +17,7 @@ type HeaderType = {
 }
 export const Header = ({ variant }: HeaderType) => {
   const { push, pathname, query, asPath, locale } = useRouter()
+  const { t } = useTranslate()
   const languages: Options[] = [
     { value: 'English', image: <FlagUKIcon /> },
     { value: 'Russian', image: <FlagRussiaIcon /> },
@@ -47,11 +50,11 @@ export const Header = ({ variant }: HeaderType) => {
             </div>
             {variant === 'public' && (
               <div className={s.button_container}>
-                <Button variant="text" className={s.button}>
-                  Log in
+                <Button variant="link" color={'link'} onClick={() => push('/')}>
+                  {t.auth.signIn}
                 </Button>
-                <Button variant="primary">
-                  <Typography variant="h3">Sing up</Typography>
+                <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>
+                  {t.auth.signUp}
                 </Button>
               </div>
             )}

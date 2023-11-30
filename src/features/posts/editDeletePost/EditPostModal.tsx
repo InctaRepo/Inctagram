@@ -11,7 +11,6 @@ import { getUsername } from '@/src/shared/hoc/model/selectors/getUsername/getUse
 import { useAppSelector } from '@/src/shared/hooks'
 import s from './EditPostModal.module.scss'
 import { RightDescription } from './postDescription/ui/RightDescription'
-// eslint-disable-next-line import/namespace
 import { EditModal } from './ui/EditModal'
 
 export type ModalProps = {
@@ -55,6 +54,7 @@ export const EditPostModal = ({
         height={228}
         alt={'post'}
         onClick={() => setIsEditModalOpen(true)}
+        priority={true}
       />
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}

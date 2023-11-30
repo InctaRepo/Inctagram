@@ -49,6 +49,7 @@ export const ProfileInfo = ({ userData, id }: Props) => {
             src={userData?.avatar}
             className={s.avatar}
             alt={'avatar'}
+            priority={true}
           />
         )}
       <div className={s.dataProfile}>
