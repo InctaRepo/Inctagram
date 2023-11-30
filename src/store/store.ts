@@ -4,9 +4,7 @@ import { StateSchema } from '@/src/store/types'
 import { appReducer } from '@/src/shared/app/appSlice'
 import { authReducer } from '@/src/features/auth/authService/authSlice'
 import { signInReducer } from '@/src/features/auth/signIn'
-import { postApi } from '@/src/features/posts/service/postApi'
 import { postReducer } from '@/src/features/posts/service/postSlice'
-import { profileApi } from '@/src/features/profile/service/profileApi'
 import { profileReducer } from '@/src/features/profile/service/profileSlice'
 import { baseApi } from '@/src/shared/api'
 import { authMeReducer } from '@/src/shared/hoc/model/slice/authMeSlice'
@@ -15,8 +13,6 @@ import { menuReducer } from '@/src/shared/sidebar/model/slice/menuSlice'
 
 const rootReducer: ReducersMapObject<StateSchema> = {
   [baseApi.reducerPath]: baseApi.reducer,
-  [profileApi.reducerPath]: profileApi.reducer,
-  [postApi.reducerPath]: postApi.reducer,
   auth: authReducer,
   authMe: authMeReducer,
   signIn: signInReducer,
@@ -28,12 +24,7 @@ const rootReducer: ReducersMapObject<StateSchema> = {
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware()
-      .concat([baseApi.middleware])
-      // .concat([authApi.middleware])
-      .concat([profileApi.middleware])
-      .concat([postApi.middleware]),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat([baseApi.middleware]),
   preloadedState: loadState(),
 })
 setupListeners(store.dispatch)

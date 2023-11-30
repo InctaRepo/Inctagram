@@ -6,10 +6,12 @@ import { useForm } from 'react-hook-form'
 //import redHeart from 'public/icon/redHeart.svg' //I will use it when users comments  will be ready
 import AvatarImage from '@/src/assets/images/avatar-image'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
+import { getIsAuth } from '@/src/features/auth/authService'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { Images } from '@/src/features/posts/service/postApiTypes'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
-import { useTranslate } from '@/src/shared/hooks'
+import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { ControlledTextArea } from '@/src/shared/ui/controlled/ControlledTextArea'
 import { Typography } from '@/src/shared/ui/typography'
@@ -50,7 +52,7 @@ export const RightDescription = ({
   const { t } = useTranslate()
   const { control } = useForm()
   const [isLikeActive, setIsLikeActive] = useState(false)
-
+  const isAuth = useAppSelector(getIsAuth)
   const dateOfPost = new Date(createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
     day: '2-digit',
@@ -79,19 +81,21 @@ export const RightDescription = ({
               </Typography>
             </div>
           </div>
-          <Buttons
-            openSureDescriptionModal={openSureDescriptionModal}
-            setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
-            isEditDescriptionModalOpen={isEditDescriptionModalOpen}
-            images={images}
-            id={id}
-            isEditModalOpen={isEditModalOpen}
-            setIsEditModalOpen={setIsEditModalOpen}
-            description={description}
-            createdAt={createdAt}
-            userName={userName}
-            userData={userData}
-          />
+          {isAuth && (
+            <Buttons
+              openSureDescriptionModal={openSureDescriptionModal}
+              setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
+              isEditDescriptionModalOpen={isEditDescriptionModalOpen}
+              images={images}
+              id={id}
+              isEditModalOpen={isEditModalOpen}
+              setIsEditModalOpen={setIsEditModalOpen}
+              description={description}
+              createdAt={createdAt}
+              userName={userName}
+              userData={userData}
+            />
+          )}
         </div>
         <Separator className={s.separator} />
         <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
@@ -111,15 +115,17 @@ export const RightDescription = ({
                     <AvatarImage className={s.ava} />
                   )}
                 </div>
-                <div style={{ display: 'inline-block' }}>
-                  <div className={s.userName} style={{ display: 'inline' }}>
-                    <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
-                      {userName}
+                <div className={s.postDescription}>
+                  <div style={{ display: 'inline-block' }}>
+                    <div className={s.userName} style={{ display: 'inline', marginRight: 5 }}>
+                      <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
+                        {userName}
+                      </Typography>
+                    </div>
+                    <Typography variant={'regular14'} style={{ display: 'inline' }}>
+                      {description}
                     </Typography>
                   </div>
-                  <Typography variant={'regular14'} style={{ display: 'inline' }}>
-                    {description}
-                  </Typography>
                 </div>
               </div>
               <Typography variant={'small'} color={'secondary'} className={s.time}>
@@ -133,9 +139,9 @@ export const RightDescription = ({
                     <div className={s.userCommet}>
                       <AvatarImage className={s.ava} />
                     </div>
-                    <Typography variant={'regular14'} className={s.oneComment}>
+                    <div className={s.oneComment}>
                       <div style={{ display: 'inline-block' }}>
-                        <div className={s.userName} style={{ display: 'inline' }}>
+                        <div className={s.userName} style={{ display: 'inline', marginRight: 5 }}>
                           <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
                             {el.userName + index}
                           </Typography>
@@ -144,7 +150,7 @@ export const RightDescription = ({
                           {el.comment}
                         </Typography>
                       </div>
-                    </Typography>
+                    </div>
                     <Heart
                       alt={'heart'}
                       width={16}
@@ -204,21 +210,24 @@ export const RightDescription = ({
         </div>
         <Separator className={s.separator} />
 
-        <div className={s.addComment}>
-          <div className={s.textarea}>
-            <ControlledTextArea
-              variant="comment"
-              control={control}
-              className={s.comment}
-              name={'addComment'}
-              placeholder={t.profile.editPost.comment}
-              fullWidth={true}
-            />
+        {isAuth && (
+          <div className={s.addComment}>
+            <div className={s.textarea}>
+              <ControlledTextArea
+                variant="comment"
+                control={control}
+                className={s.comment}
+                name={'addComment'}
+                placeholder={t.profile.editPost.comment}
+                fullWidth={true}
+              />
+            </div>
+
+            <Button variant="text" className={s.publishButton}>
+              {t.profile.publish}
+            </Button>
           </div>
-          <Button variant="text" className={s.publishButton}>
-            {t.profile.publish}
-          </Button>
-        </div>
+        )}
       </div>
     </>
   )

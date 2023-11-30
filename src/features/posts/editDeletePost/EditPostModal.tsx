@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React, { ComponentProps, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
-import { useGetUserPostQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/PostImages'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
@@ -75,7 +74,7 @@ export const EditPostModal = ({
             id={id}
             description={description}
             createdAt={createdAt}
-            userName={username}
+            userName={username ? username : ''}
             userData={userData}
             isEditModalOpen={isEditModalOpen}
             setIsEditModalOpen={setIsEditModalOpen}

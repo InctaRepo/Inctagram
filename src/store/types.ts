@@ -3,8 +3,7 @@ import { makeStore, store } from '@/src/store'
 import { AppSchema } from '@/src/shared/app'
 import { AuthState } from '@/src/features/auth/authService'
 import { SignInSchema } from '@/src/features/auth/signIn'
-import { postApi, PostState } from '@/src/features/posts'
-import { profileApi } from '@/src/features/profile/service/profileApi'
+import { PostState } from '@/src/features/posts'
 import { ProfileState } from '@/src/features/profile/service/profileApiTypes'
 import { baseApi } from '@/src/shared/api'
 import { AuthMeSchema } from '@/src/shared/hoc/model/types/AuthMeSchema'
@@ -15,8 +14,6 @@ export type AppRootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof makeStore>
 export type StateSchema = {
   [baseApi.reducerPath]: ReturnType<typeof baseApi.reducer>
-  [profileApi.reducerPath]: ReturnType<typeof profileApi.reducer>
-  [postApi.reducerPath]: ReturnType<typeof postApi.reducer>
   auth: AuthState
   authMe: AuthMeSchema
   signIn: SignInSchema

@@ -1,12 +1,7 @@
-import { createApi } from '@reduxjs/toolkit/query/react'
-import { baseQueryWithReAuth, BaseResponse } from '@/src/shared/api'
+import { baseApi, BaseResponse } from '@/src/shared/api'
 import { UserInfo } from './profileApiTypes'
 
-export const profileApi = createApi({
-  reducerPath: 'profileApi',
-  baseQuery: baseQueryWithReAuth,
-  keepUnusedDataFor: 5,
-  tagTypes: ['profile'],
+export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
       query: ({ userId, ...patch }) => ({
@@ -14,7 +9,7 @@ export const profileApi = createApi({
         url: `users/profile/${userId}`,
         body: patch,
       }),
-      // invalidatesTags: ['profile'],
+      invalidatesTags: ['Profile'],
     }),
     updateProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
       query: ({ userId, ...patch }) => ({
@@ -22,13 +17,14 @@ export const profileApi = createApi({
         url: `users/profile/${userId}`,
         body: patch,
       }),
-      // invalidatesTags: ['profile'],
+      invalidatesTags: ['Profile'],
     }),
     getProfile: builder.query<BaseResponse<UserInfo>, string | string[] | undefined>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,
       }),
+      providesTags: ['Profile'],
     }),
     uploadAvatar: builder.mutation<BaseResponse, FormData>({
       query: FormData => ({
@@ -36,14 +32,14 @@ export const profileApi = createApi({
         method: 'POST',
         body: FormData,
       }),
-      // invalidatesTags: ['profile'],
+      invalidatesTags: ['Profile'],
     }),
     deleteAvatar: builder.mutation<BaseResponse, void>({
       query: () => ({
         url: `users/profile/avatar`,
         method: 'DELETE',
       }),
-      // invalidatesTags: ['profile'],
+      invalidatesTags: ['Profile'],
     }),
   }),
 })
