@@ -98,7 +98,7 @@ export const ProfileSettings = ({
       country: userData?.country,
       city: userData?.city,
       aboutMe: userData?.aboutMe,
-      avatar: userData?.avatar,
+      avatar: userData?.avatar || '',
     },
   })
 
