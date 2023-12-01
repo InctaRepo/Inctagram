@@ -3,21 +3,19 @@ import { Separator } from '@radix-ui/react-separator'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-//import redHeart from 'public/icon/redHeart.svg' //I will use it when users comments  will be ready
 import AvatarImage from 'public/icon/avatarIcon.svg'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
+import Bookmark from 'public/icon/bookmark.svg'
+import Heart from 'public/icon/heart.svg'
+import Plane from 'public/icon/plane.svg'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { getIsAuth } from '@/src/features/auth/authService'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { Images } from '@/src/features/posts/service/postApiTypes'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { ControlledTextArea } from '@/src/shared/ui/controlled/ControlledTextArea'
 import { Typography } from '@/src/shared/ui/typography'
-import Bookmark from '../../../../../../public/icon/bookmark.svg'
-import Heart from '../../../../../../public/icon/heart.svg'
-import Plane from '../../../../../../public/icon/plane.svg'
+import { Images } from '../../../../posts'
 import { Buttons } from '../editDeleteButtons/ui/Buttons'
 import { fakeComments } from './fakeComments'
 import s from './RightDescription.module.scss'
