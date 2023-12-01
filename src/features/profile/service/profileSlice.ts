@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Avatar, UserInfo } from './profileApiTypes'
-
-type ProfileState = {
-  ava: Avatar | null
-  info: UserInfo | null
-}
+import { Avatar, ProfileState, UserInfo } from './profileApiTypes'
 
 const initialState: ProfileState = {
   ava: null,

@@ -1,4 +1,4 @@
-import { BaseResponse, baseApi } from '@/src/shared/api'
+import { baseApi, BaseResponse } from '@/src/shared/api'
 import { UserInfo } from './profileApiTypes'
 
 export const profileApi = baseApi.injectEndpoints({

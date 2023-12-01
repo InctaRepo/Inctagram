@@ -1,6 +1,10 @@
 import {ru} from 'public/locales/ru'
 
 export const en: LocaleType = {
+    locale: {
+        english: 'Английский',
+        russian: 'Русский'
+    },
     auth: {
         BackToSignUp: 'Back to Sign Up',
         signIn: 'Sign In',

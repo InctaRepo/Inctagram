@@ -13,3 +13,7 @@ export interface UserInfo {
 export type Avatar = {
   url: string
 }
+export type ProfileState = {
+  ava: Avatar | null
+  info: UserInfo | null
+}

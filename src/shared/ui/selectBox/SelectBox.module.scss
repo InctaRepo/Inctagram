@@ -111,7 +111,7 @@
 .scrollAreaRoot {
   --scrollbar-size: 10px;
 
-  overflow: hidden;
+  overflow-y: hidden;
   height: var(--radix-select-content-available-height);
   border-radius: 4px;
 }
