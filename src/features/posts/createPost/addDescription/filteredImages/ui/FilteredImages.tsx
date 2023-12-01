@@ -49,8 +49,6 @@ export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
     )
   }
 
-  console.log(addedImages)
-
   return (
     <>
       <div className={s.imgContainer}>
