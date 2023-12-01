@@ -10,7 +10,8 @@ import { ProfileIcon } from '../../../assets/icons/ProfileIcon'
 import { SearchIcon } from '../../../assets/icons/SearchIcon'
 import { RouteNames } from '../../../const/routeNames'
 import { variantIconLink } from '../../../const/variantIconLink'
-import { useTranslate } from '../../../hooks'
+import { getUserId } from '../../../hoc/model/selectors/getUserId/getUserId'
+import { useAppSelector, useTranslate } from '../../../hooks'
 import s from './baseMenu.module.scss'
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
 }
 export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
   const { t } = useTranslate()
+  const userId = useAppSelector(getUserId)
 
   return (
     <div className={s.container}>
@@ -42,7 +44,7 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.myProfile}
-          link={RouteNames.PROFILE}
+          link={RouteNames.PROFILE + `/` + userId}
           handleClick={() => handleClick(`${RouteNames.PROFILE}`.slice(1))}
           variantIcon={variantIcon}
         >
