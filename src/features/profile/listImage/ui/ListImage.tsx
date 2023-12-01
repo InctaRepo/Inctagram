@@ -2,9 +2,8 @@ import React, { useCallback, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import { getAuthUser } from '@/src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetUserPostQuery, useGetUserPostsQuery } from '@/src/features/posts'
+import { useGetUserPostsQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { EditPostModal } from '@/src/features/posts/editDeletePost/EditPostModal'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
@@ -18,8 +17,10 @@ type Props = {
 
 export const ListImage = ({ userData, id }: Props) => {
   const [currentId, setCurrentId] = useState<null | string>(null)
+  // const user = useAppSelector(getAuthUser)
 
   const { data } = useGetUserPostsQuery(id)
+  // const { data: post } = useGetUserPostQuery(currentId)
 
   const getCurrentPostId = useCallback((id: string | null) => {
     setCurrentId(id)

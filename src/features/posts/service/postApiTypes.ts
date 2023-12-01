@@ -41,6 +41,10 @@ export type GetUserPostsResponse = {
   totalCount: number
 }
 
+export type PostState = {
+  post: Post | null
+}
+
 export type GetUserPostResponse = {
   createdAt: Date
   description: string

@@ -8,15 +8,15 @@ import { useEmailConfirmedMutation } from '../service/emailConfirmed'
 
 export const EmailConfirmed = () => {
   const router = useRouter()
-  const { emailCode } = router.query
+  const { code } = router.query // get email confirm code from URL
 
   const [regConfirm, { data, isSuccess }] = useEmailConfirmedMutation()
 
   useEffect(() => {
-    if (emailCode) {
-      regConfirm({ code: emailCode as string })
+    if (code) {
+      regConfirm({ code: code as string })
     }
-  }, [emailCode])
+  }, [code])
 
   return (
     <>

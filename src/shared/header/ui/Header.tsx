@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
 import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
 import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
-import MaskIcon from '@/src/assets/icons/mask-icon'
+import OutlineBellIcon from 'public/icon/outlineBellIcon.svg'
 import { RouteNames } from '../../const/routeNames'
+import { useTranslate } from '../../hooks'
 import { Button } from '../../ui/button'
 import { Options, SelectBox } from '../../ui/selectBox'
 import { Typography } from '../../ui/typography'
@@ -15,6 +15,7 @@ type HeaderType = {
 }
 export const Header = ({ variant }: HeaderType) => {
   const { push, pathname, query, asPath, locale } = useRouter()
+  const { t } = useTranslate()
   const languages: Options[] = [
     { value: 'English', image: <FlagUKIcon /> },
     { value: 'Russian', image: <FlagRussiaIcon /> },
@@ -37,7 +38,7 @@ export const Header = ({ variant }: HeaderType) => {
             </Link>
           </Typography>
           <div className={s.options_container}>
-            <MaskIcon />
+            <OutlineBellIcon />
             <div className={s.select}>
               <SelectBox
                 options={languages}
@@ -47,11 +48,11 @@ export const Header = ({ variant }: HeaderType) => {
             </div>
             {variant === 'public' && (
               <div className={s.button_container}>
-                <Button variant="text" className={s.button}>
-                  Log in
+                <Button variant="link" color={'link'} onClick={() => push('/')}>
+                  {t.auth.signIn}
                 </Button>
-                <Button variant="primary">
-                  <Typography variant="h3">Sing up</Typography>
+                <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>
+                  {t.auth.signUp}
                 </Button>
               </div>
             )}

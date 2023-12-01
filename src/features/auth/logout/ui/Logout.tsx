@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
+import { getUserEmail } from '@/src/shared/hoc/model/selectors/getUserEmail/getUserEmail'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { Modal } from '@/src/shared/ui/Modal'
 import { Typography } from '@/src/shared/ui/typography'
-import { getAuthEmail, setLogout } from '../../../auth/authService'
+import { setLogout } from '../../../auth/authService'
 import { useLogoutMutation } from '../service/logout'
 import s from './logout.module.scss'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
-  const email = useAppSelector(getAuthEmail)
+  const email = useAppSelector(getUserEmail)
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [logoutUser] = useLogoutMutation()
 

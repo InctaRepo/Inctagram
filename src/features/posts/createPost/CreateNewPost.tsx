@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
-import CreateIcon from '@/src/assets/icons/create-icon'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { LinkMenu } from '@/src/features/profile/linkMenu'
+import CreateIcon from '@/src/shared/assets/icons/CreateIcon'
 import { variantIconLink } from '@/src/shared/const/variantIconLink'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'

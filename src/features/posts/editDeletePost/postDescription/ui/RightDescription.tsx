@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 //import redHeart from 'public/icon/redHeart.svg' //I will use it when users comments  will be ready
-import AvatarImage from '@/src/assets/images/avatar-image'
+import AvatarImage from 'public/icon/avatarIcon.svg'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { getIsAuth } from '@/src/features/auth/authService'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
