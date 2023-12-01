@@ -49,24 +49,26 @@ export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
     )
   }
 
+  console.log(addedImages)
+
   return (
     <>
       <div className={s.imgContainer}>
-        <Slider {...settings}>
-          {addedImages.map((el, idx) => {
-            return (
-              <div key={idx} className={s.carousel}>
-                <ImageWithFilter
-                  alt={'img'}
-                  src={el.image ? el.image : ''}
-                  width={490}
-                  height={503}
-                  style={{ filter: activeFilter }}
-                />
-              </div>
-            )
-          })}
-        </Slider>
+        {/*<Slider {...settings}>*/}
+        {addedImages.map((el, idx) => {
+          return (
+            <div key={idx} className={s.carousel}>
+              <ImageWithFilter
+                alt={'img'}
+                src={el.image ? el.image : ''}
+                width={490}
+                height={503}
+                style={{ filter: activeFilter }}
+              />
+            </div>
+          )
+        })}
+        {/*</Slider>*/}
       </div>
     </>
   )
