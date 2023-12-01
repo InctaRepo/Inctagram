@@ -26,7 +26,5 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat([baseApi.middleware]).concat([authApi.middleware]),
-  /*.concat([profileApi.middleware])
-      .concat([postApi.middleware]),*/
 })
 setupListeners(store.dispatch)
