@@ -1,22 +1,11 @@
 import Image from 'next/image'
 import React, { ComponentProps, useState } from 'react'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices,import/order
-import { getAuthUser } from '@/src/features/auth/authService'
-
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
-import { useGetUserPostQuery } from '@/src/features/posts'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/PostImages'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { Images } from '@/src/features/posts/service/postApiTypes'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,import/namespace
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { useAppSelector } from '@/src/shared/hooks'
+import { Images } from '../../posts'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { UserInfo } from '../../profile/service/profileApiTypes'
+import { PostImages } from '../editDeletePost/postImages/ui/PostImages'
 import s from './EditPostModal.module.scss'
 import { RightDescription } from './postDescription/ui/RightDescription'
-// eslint-disable-next-line import/namespace
 import { EditModal } from './ui/EditModal'
 
 export type ModalProps = {
@@ -43,7 +32,7 @@ export const EditPostModal = ({
 }: ModalProps) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const user = useAppSelector(getAuthUser)
+  // const user = useAppSelector(getAuthUser)
 
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
