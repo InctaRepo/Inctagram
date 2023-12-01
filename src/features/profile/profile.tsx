@@ -18,9 +18,7 @@ type Props = {
 
 export const Profile = ({ id }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
-  const { data } = useGetProfileQuery(id, {
-    refetchOnMountOrArgChange: true,
-  })
+  const { data } = useGetProfileQuery(id)
 
   return (
     <div className={s.container}>

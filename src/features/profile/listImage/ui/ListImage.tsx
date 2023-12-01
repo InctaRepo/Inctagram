@@ -3,6 +3,9 @@ import React, { useCallback, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useSelector } from 'react-redux'
+import { StateSchema } from '@/src/store'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetUserPostsQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { EditPostModal } from '@/src/features/posts/editDeletePost/EditPostModal'
