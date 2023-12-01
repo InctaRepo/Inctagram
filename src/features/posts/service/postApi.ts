@@ -36,14 +36,14 @@ export const postApi = baseApi.injectEndpoints({
         url: `posts/${userId}`,
         method: 'GET',
       }),
-      providesTags: ['POST'],
+      providesTags: ['Post'],
     }),
     getUserPost: builder.query<BaseResponse<GetUserPostResponse>, string | null>({
       query: postId => ({
         url: `posts/post/${postId}`,
         method: 'GET',
       }),
-      providesTags: ['POST'],
+      providesTags: ['Post'],
     }),
   }),
 })

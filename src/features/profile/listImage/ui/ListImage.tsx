@@ -9,7 +9,6 @@ import { useGetUserPostQuery, useGetUserPostsQuery } from '@/src/features/posts'
 import { EditPostModal } from '@/src/features/posts/editDeletePost/EditPostModal'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
-import { useAppSelector } from '@/src/shared/hooks'
 import s from './listImage.module.scss'
 
 type Props = {
@@ -19,10 +18,8 @@ type Props = {
 
 export const ListImage = ({ userData, id }: Props) => {
   const [currentId, setCurrentId] = useState<null | string>(null)
-  const user = useAppSelector(getAuthUser)
 
   const { data } = useGetUserPostsQuery(id)
-  // const { data: post } = useGetUserPostQuery(currentId)
 
   const getCurrentPostId = useCallback((id: string | null) => {
     setCurrentId(id)

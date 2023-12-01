@@ -54,13 +54,16 @@ export const EditPostModal = ({
 
   return (
     <div onClick={onClickHandler}>
-      <Image
-        src={images[0]?.url ? images[0].url : ''}
-        width={234}
-        height={228}
-        alt={'post'}
-        onClick={() => setIsEditModalOpen(true)}
-      />
+      {images[0]?.url && (
+        <Image
+          src={images[0].url}
+          width={234}
+          height={228}
+          alt={'post'}
+          onClick={() => setIsEditModalOpen(true)}
+        />
+      )}
+
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
         modalWidth={'edit'}
