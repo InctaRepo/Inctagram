@@ -14,7 +14,7 @@ export const postApi = baseApi.injectEndpoints({
         url: `posts/create`,
         body,
       }),
-      invalidatesTags: ['Post'],
+      invalidatesTags: ['Post', 'Profile'],
     }),
     updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
       query: ({ postId, ...patch }) => ({
@@ -22,28 +22,28 @@ export const postApi = baseApi.injectEndpoints({
         url: `posts/${postId}`,
         body: patch,
       }),
-      invalidatesTags: ['POST'],
+      invalidatesTags: ['Post'],
     }),
     deletePost: builder.mutation<BaseResponse, string>({
       query: postId => ({
         url: `posts/${postId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Post'],
+      invalidatesTags: ['Post', 'Profile'],
     }),
     getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string | string[] | undefined>({
       query: userId => ({
         url: `posts/${userId}`,
         method: 'GET',
       }),
-      providesTags: ['POST'],
+      providesTags: ['Post'],
     }),
     getUserPost: builder.query<BaseResponse<GetUserPostResponse>, string | null>({
       query: postId => ({
         url: `posts/post/${postId}`,
         method: 'GET',
       }),
-      providesTags: ['POST'],
+      providesTags: ['Post'],
     }),
   }),
 })

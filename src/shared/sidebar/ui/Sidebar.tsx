@@ -5,11 +5,10 @@ import { LinkMenu } from '@/src/features/profile/linkMenu'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { getAuthUser } from 'src/features/auth/authService'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { FavoritesIcon } from '../../assets/icons/FavoritesIcon'
 import { StatisticsIcon } from '../../assets/icons/StatisticsIcon'
 import { RouteNames } from '../../const/routeNames'
+import { getUserId } from '../../hoc/model/selectors/getUserId/getUserId'
 import { useAppDispatch, useAppSelector, useTranslate } from '../../hooks'
 import { sidebarVariantIconSelector } from '../model/selectors/sidebarVariantIconSelector'
 import { menuActions } from '../model/slice/menuSlice'
@@ -17,10 +16,10 @@ import { BaseMenu } from './baseMenu'
 import s from './sidebar.module.scss'
 
 export const Sidebar = () => {
-  const user = useAppSelector(getAuthUser)
+  const userId = useAppSelector(getUserId)
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
-  const { data: profile } = useGetProfileQuery(user?.userId)
+  const { data: profile } = useGetProfileQuery(userId)
   const { t } = useTranslate()
 
   const handleItemClick = (variant: string) => {

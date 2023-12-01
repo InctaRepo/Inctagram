@@ -1,6 +1,5 @@
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { default as Axios } from 'axios'
 import { parseISO } from 'date-fns'
 import React, { useEffect, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
@@ -8,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { SettingPhotoModal } from '@/src/features/profile/settingPhoto'
+import { Countries } from '@/src/shared/countries/countries'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import {
@@ -26,7 +26,7 @@ import { TabsComponent } from '@/src/shared/ui/tabsComponent'
 import { UserInfo } from '../../service/profileApiTypes'
 import s from './ProfileSettings.module.scss'
 
-type ProfileSettingFormProps = {
+type Props = {
   onSubmitHandler: (data: ProfileSettingForm) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
@@ -51,17 +51,10 @@ export const ProfileSettings = ({
   onSubmitHandler,
   userData,
   userNameFromMe,
-}: ProfileSettingFormProps) => {
+}: Props) => {
   const [_, setValue] = useState('')
-  const [countries, setCountries] = useState<Options[]>([])
   const [cities, setCities] = useState<Options[]>([])
   const { t } = useTranslate()
-
-  const fetchCountries = async () => {
-    let country = await Axios.get('https://countriesnow.space/api/v0.1/countries')
-
-    setCountries(country.data.data)
-  }
 
   function getCountries(arr: any) {
     return arr.map((el: { country: string; cities: string }) => ({
@@ -70,7 +63,7 @@ export const ProfileSettings = ({
     }))
   }
 
-  const countriesList = getCountries(countries)
+  const countriesList = getCountries(Countries.data)
 
   function getCities(arr: any) {
     return arr.map((el: string) => ({ value: el }))
@@ -105,13 +98,9 @@ export const ProfileSettings = ({
       country: userData?.country,
       city: userData?.city,
       aboutMe: userData?.aboutMe,
-      avatar: userData?.avatar,
+      avatar: userData?.avatar || '',
     },
   })
-
-  useEffect(() => {
-    fetchCountries()
-  }, [])
 
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
@@ -153,13 +142,7 @@ export const ProfileSettings = ({
           )}
           <div className={s.addBtn}>
             <SettingPhotoModal
-              avatar={
-                userData?.avatar.endsWith(
-                  'https://inctagram-pirates.s3.eu-central-1.amazonaws.com/user-avatars/null'
-                )
-                  ? null
-                  : userData?.avatar!
-              }
+              avatar={userData?.avatar.endsWith('/null') ? null : userData?.avatar!}
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}
               isModalOpen={isModalOpen}

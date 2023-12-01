@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetMeQuery } from '@/src/features/auth/authService'
 import { RouteNames } from '@/src/shared/const/routeNames'
+import { useGetMeQuery } from '@/src/shared/hoc/service/authProvider'
 import { useErrorToast } from '@/src/shared/hooks'
 import { ProfileSettingForm } from '@/src/shared/schemas/profileSettingSchema'
 import { Sidebar } from '@/src/shared/sidebar'
@@ -23,7 +22,9 @@ export const Settings = () => {
   const { data: user } = useGetMeQuery()
   const id = user?.data?.userId
   const userNameFromMe = user?.data?.username
-  const { data: profile } = useGetProfileQuery(id)
+  const { data: profile } = useGetProfileQuery(id, {
+    refetchOnMountOrArgChange: true,
+  })
   const [uploadAvatar] = useUploadAvatarMutation()
 
   const editorRef = useRef<AvatarEditor>(null)
@@ -31,10 +32,8 @@ export const Settings = () => {
   const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
-
-  const { data } = useGetProfileQuery(id!)
   const successRes =
-    (isSuccess && data?.resultCode === 0) || (isSuccessUpdate && data?.resultCode === 0)
+    (isSuccess && profile?.resultCode === 0) || (isSuccessUpdate && profile?.resultCode === 0)
 
   const handleSavePhoto = () => {
     if (editorRef.current) {
@@ -53,6 +52,7 @@ export const Settings = () => {
 
           setIsModalOpen(false)
           setSelectedImage(null)
+          uploadAvatar(formData)
         }
       })
     }
@@ -135,7 +135,7 @@ export const Settings = () => {
       <div className={s.containerInfo}>
         <ProfileSettings
           userNameFromMe={userNameFromMe}
-          userData={data?.data}
+          userData={profile?.data}
           onSubmitHandler={submit}
           croppedAvatar={croppedAvatar}
           setCroppedAvatar={setCroppedAvatar}
