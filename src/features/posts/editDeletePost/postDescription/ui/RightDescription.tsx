@@ -29,7 +29,7 @@ type Props = {
   description?: string
   createdAt: Date
   userData?: UserInfo
-  userName: string
+  userName?: string
   isEditModalOpen?: boolean
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
   images: Images[]

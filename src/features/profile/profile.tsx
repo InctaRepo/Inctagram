@@ -26,8 +26,8 @@ export const Profile = ({ id }: Props) => {
     <div className={s.container}>
       {isAuth && <Sidebar />}
       <div className={isAuth ? s.containerInfo : s.containerInfoPublic}>
-        <ProfileInfo id={id} userData={data?.data} />
-        <ListImage id={id} userData={data?.data} />
+        <ProfileInfo userData={data?.data} />
+        <ListImage userData={data?.data} />
       </div>
     </div>
   )

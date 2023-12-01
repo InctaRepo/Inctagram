@@ -7,10 +7,9 @@ import { DataProfile } from '../dataProfile'
 import s from './profileInfo.module.scss'
 
 type Props = {
-  id: string | string[] | undefined
   userData?: UserInfo
 }
-export const ProfileInfo = ({ userData, id }: Props) => {
+export const ProfileInfo = ({ userData }: Props) => {
   return (
     <div className={s.container}>
       {userData?.avatar.endsWith(

@@ -12,14 +12,13 @@ import s from './listImage.module.scss'
 
 type Props = {
   userData?: UserInfo
-  id: string | string[] | undefined
 }
 
-export const ListImage = ({ userData, id }: Props) => {
+export const ListImage = ({ userData }: Props) => {
   const [currentId, setCurrentId] = useState<null | string>(null)
   // const user = useAppSelector(getAuthUser)
 
-  const { data } = useGetUserPostsQuery(id)
+  const { data } = useGetUserPostsQuery(userData?.userId)
   // const { data: post } = useGetUserPostQuery(currentId)
 
   const getCurrentPostId = useCallback((id: string | null) => {
