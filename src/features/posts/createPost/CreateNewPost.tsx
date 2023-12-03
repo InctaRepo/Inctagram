@@ -3,6 +3,7 @@ import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { LinkMenu } from '@/src/features/profile/linkMenu'
 import CreateIcon from '@/src/shared/assets/icons/CreateIcon'
+import { RouteNames } from '@/src/shared/const/routeNames'
 import { variantIconLink } from '@/src/shared/const/variantIconLink'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'
@@ -14,6 +15,7 @@ import CropModal from './modalForCrop/ui/CropModal'
 
 type Props = {
   variantIcon: variantIconLink
+  id: string
 }
 
 export type Image = {
@@ -23,7 +25,7 @@ export type Image = {
   fileName?: string
 }
 
-export const CreatePostModal = ({ variantIcon }: Props) => {
+export const CreatePostModal = ({ variantIcon, id }: Props) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)
@@ -64,7 +66,7 @@ export const CreatePostModal = ({ variantIcon }: Props) => {
 
   return (
     <div className={s.container}>
-      {!addedImages.length && isBaseModalOpen ? (
+      {isBaseModalOpen ? (
         <Modal
           className={s.baseModal}
           modalWidth={'md'}
@@ -113,7 +115,7 @@ export const CreatePostModal = ({ variantIcon }: Props) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.createPost}
-          link={''}
+          link={RouteNames.PROFILE + `/` + id}
           handleClick={handleClick}
           variantIcon={variantIcon}
         >

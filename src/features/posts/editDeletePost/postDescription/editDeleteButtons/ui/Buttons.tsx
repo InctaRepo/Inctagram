@@ -27,7 +27,7 @@ type Props = {
   description?: string
   createdAt: Date
   userData?: UserInfo
-  userName: string
+  userName?: string
 }
 
 export const Buttons = ({

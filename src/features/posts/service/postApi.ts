@@ -22,7 +22,7 @@ export const postApi = baseApi.injectEndpoints({
         url: `posts/${postId}`,
         body: patch,
       }),
-      invalidatesTags: ['Post'],
+      invalidatesTags: ['Post', 'Profile'],
     }),
     deletePost: builder.mutation<BaseResponse, string>({
       query: postId => ({

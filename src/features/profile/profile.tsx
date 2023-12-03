@@ -18,16 +18,14 @@ type Props = {
 
 export const Profile = ({ id }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
-  const { data } = useGetProfileQuery(id, {
-    refetchOnMountOrArgChange: true,
-  })
+  const { data } = useGetProfileQuery(id)
 
   return (
     <div className={s.container}>
       {isAuth && <Sidebar />}
       <div className={isAuth ? s.containerInfo : s.containerInfoPublic}>
-        <ProfileInfo id={id} userData={data?.data} />
-        <ListImage id={id} userData={data?.data} />
+        <ProfileInfo userData={data?.data} />
+        <ListImage userData={data?.data} />
       </div>
     </div>
   )

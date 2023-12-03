@@ -20,7 +20,7 @@ import s from './EditDescriptionModal.module.scss'
 export type ModalProps = {
   setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
   isEditDescriptionModalOpen: boolean
-  userName: string
+  userName?: string
   description?: string
   createdAt: Date
   userData?: UserInfo
