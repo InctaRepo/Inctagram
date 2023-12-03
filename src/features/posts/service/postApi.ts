@@ -24,7 +24,7 @@ export const postApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Post', 'Profile'],
     }),
-    deletePost: builder.mutation<BaseResponse, string>({
+    deletePost: builder.mutation<BaseResponse, string | string[] | undefined>({
       query: postId => ({
         url: `posts/${postId}`,
         method: 'DELETE',
@@ -57,4 +57,4 @@ export const {
   util: { getRunningQueriesThunk },
 } = postApi
 
-export const { getUserPosts } = postApi.endpoints
+export const { getUserPosts, getUserPost } = postApi.endpoints

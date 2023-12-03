@@ -18,21 +18,14 @@ type Props = {
 }
 
 export const ListImage = ({ userData }: Props) => {
-  const [currentId, setCurrentId] = useState<null | string>(null)
   // const user = useAppSelector(getAuthUser)
 
   const { data } = useGetUserPostsQuery(userData?.userId)
-  // const { data: post } = useGetUserPostQuery(currentId)
-
-  const getCurrentPostId = useCallback((id: string | null) => {
-    setCurrentId(id)
-  }, [])
 
   return (
     <div className={s.container}>
       {data?.data?.items.map((el, index) => (
         <EditPostModal
-          callBack={getCurrentPostId}
           modalWidth={'edit'}
           description={el.description}
           key={index}

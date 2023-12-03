@@ -97,6 +97,8 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
     }
   }
 
+  console.log(addedImages)
+
   return (
     <>
       <div className={s.container}>

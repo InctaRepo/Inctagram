@@ -22,10 +22,10 @@ export type ModalProps = {
   isEditDescriptionModalOpen: boolean
   userName?: string
   description?: string
-  createdAt: Date
+  createdAt?: Date
   userData?: UserInfo
-  images: Images[]
-  id: string
+  images?: Images[]
+  id: string | string[] | undefined
   modalWidth?: string
   isDescription?: boolean
   isEditModalOpen?: boolean
