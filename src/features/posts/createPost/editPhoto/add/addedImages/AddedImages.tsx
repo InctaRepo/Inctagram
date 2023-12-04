@@ -29,35 +29,31 @@ export const AddedImages = ({ addedImages, setAddedImages, croppedImage, image }
       {addedImages.length <= 1
         ? addedImages.map((el, idx) => {
             return (
-              <>
-                <div key={idx} className={s.addedPhoto}>
-                  <ImageToAdd
-                    className={s.oneImage}
-                    src={String(el.image)}
-                    alt={'photos'}
-                    height={82}
-                    width={80}
-                  />
-                </div>
-              </>
+              <div key={idx} className={s.addedPhoto}>
+                <ImageToAdd
+                  className={s.oneImage}
+                  src={String(el.image)}
+                  alt={'photos'}
+                  height={82}
+                  width={80}
+                />
+              </div>
             )
           })
         : imagesToShow.map((el, i) => {
             return (
-              <>
-                <div key={i} className={s.addedPhoto}>
-                  <div className={s.closeIcon} onClick={() => onDeleteImage(i)}>
-                    <CloseIcon className={s.close} />
-                  </div>
-                  <ImageToAdd
-                    className={s.image}
-                    src={String(el.image)}
-                    alt={'photos'}
-                    height={82}
-                    width={80}
-                  />
+              <div key={i} className={s.addedPhoto}>
+                <div className={s.closeIcon} onClick={() => onDeleteImage(i)}>
+                  <CloseIcon className={s.close} />
                 </div>
-              </>
+                <ImageToAdd
+                  className={s.image}
+                  src={String(el.image)}
+                  alt={'photos'}
+                  height={82}
+                  width={80}
+                />
+              </div>
             )
           })}
     </div>

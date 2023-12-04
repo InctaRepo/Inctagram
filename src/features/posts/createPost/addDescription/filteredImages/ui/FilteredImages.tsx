@@ -58,7 +58,7 @@ export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
               <div key={idx} className={s.carousel}>
                 <ImageWithFilter
                   alt={'img'}
-                  src={el.image ? el.image : ''}
+                  src={el.image!}
                   width={490}
                   height={503}
                   style={{ filter: activeFilter }}
