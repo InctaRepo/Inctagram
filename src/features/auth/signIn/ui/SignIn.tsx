@@ -23,7 +23,7 @@ export const SignIn: NextPageWithLayout = () => {
     if (!currentData?.data && isAuth) {
       router.push(RouteNames.PROFILE_SETTINGS)
     } else if (currentData?.data && isAuth) {
-      router.push(RouteNames.PROFILE)
+      router.push(RouteNames.PROFILE + `/` + id)
     }
   }, [isAuth, router, currentData])
 

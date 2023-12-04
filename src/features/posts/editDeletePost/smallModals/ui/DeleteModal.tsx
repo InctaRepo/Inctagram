@@ -9,7 +9,7 @@ import Delete from '../../../../../../public/icon/deletePost.svg'
 import s from '../../postDescription/editDescription/ui/EditDescriptionModal.module.scss'
 
 export type ModalProps = {
-  id: string
+  id: string | string[] | undefined
   openDeleteModal: boolean
   setOpenDeleteModal: (openDeleteModal: boolean) => void
   setIsEditModalOpen?: (isEditModalOpen: boolean) => void

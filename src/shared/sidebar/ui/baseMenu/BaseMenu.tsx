@@ -38,7 +38,7 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
         </LinkMenu>
       </div>
       <div>
-        <CreatePostModal variantIcon={variantIcon} />
+        <CreatePostModal variantIcon={variantIcon} id={userId} />
       </div>
 
       <div className={s.linkMenu}>

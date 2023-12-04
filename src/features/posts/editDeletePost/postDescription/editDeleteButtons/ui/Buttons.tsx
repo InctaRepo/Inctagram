@@ -22,12 +22,12 @@ type Props = {
   isEditDescriptionModalOpen: boolean
   isEditModalOpen?: boolean
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
-  images: Images[]
-  id: string
+  images?: Images[]
+  id?: string | (string[] & string) | undefined
   description?: string
-  createdAt: Date
+  createdAt?: Date
   userData?: UserInfo
-  userName: string
+  userName?: string
 }
 
 export const Buttons = ({
@@ -63,6 +63,7 @@ export const Buttons = ({
     setIsEditDescriptionModalOpen(true)
   }
 
+  // @ts-ignore
   return (
     <div ref={editRef}>
       <div onClick={() => setIsOpen(!isOpen)} className={s.editBtn}>
