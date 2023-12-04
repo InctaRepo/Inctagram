@@ -26,8 +26,6 @@ const MyPost = () => {
 
   // @ts-ignore
   return <EditPostModal id={id} />
-  //import editM... id={id}
-  // return <Profile post={post} />
 }
 
 //http://localhost:3000/post/1f1a86b9-b4c5-4772-b7b7-ada137b973ef
