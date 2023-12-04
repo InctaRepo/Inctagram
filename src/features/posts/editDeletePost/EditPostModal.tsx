@@ -44,10 +44,14 @@ export const EditPostModal = ({
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const user = useAppSelector(getAuthUser)
+  // const { data: post } = useGetUserPostQuery('1f1a86b9-b4c5-4772-b7b7-ada137b973ef')
+  //
+  // console.log(post, 'gfhf')
 
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
   }
+
   const onClickHandler = () => {
     callBack(id)
   }

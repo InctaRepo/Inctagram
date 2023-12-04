@@ -22,11 +22,14 @@ export const ListImage = ({ userData, id }: Props) => {
   const user = useAppSelector(getAuthUser)
 
   const { data } = useGetUserPostsQuery(id)
-  // const { data: post } = useGetUserPostQuery(currentId)
+  const { data: post } = useGetUserPostQuery(currentId)
 
+  // console.log(currentId)
   const getCurrentPostId = useCallback((id: string | null) => {
     setCurrentId(id)
   }, [])
+
+  console.log(currentId, 'gfhf')
 
   return (
     <div className={s.container}>

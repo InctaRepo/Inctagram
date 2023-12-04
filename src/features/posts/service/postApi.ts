@@ -58,3 +58,4 @@ export const {
 } = postApi
 
 export const { getUserPosts } = postApi.endpoints
+export const { getUserPost } = postApi.endpoints
