@@ -78,7 +78,7 @@ export const PostDescription = ({
       if (setIsEditDescriptionModalOpen) {
         setIsEditDescriptionModalOpen(false)
         if (setIsEditModalOpen) {
-          setIsEditModalOpen(false)
+          setIsEditModalOpen(true)
         }
       }
       // getUserPosts(user.id)

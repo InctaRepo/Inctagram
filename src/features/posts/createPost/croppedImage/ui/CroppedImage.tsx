@@ -85,8 +85,10 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
         {
           const croppedImage = await getCroppedImg(image, croppedAreaPixels)
 
-          setCroppedImage(croppedImage as string)
-
+          if (!croppedImage) {
+            return null
+          }
+          setCroppedImage(croppedImage)
           addedImages[index] = { image: croppedImage }
         }
       } catch (e) {
@@ -94,6 +96,8 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
       }
     }
   }
+
+  console.log(addedImages)
 
   return (
     <>
