@@ -1,8 +1,6 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { LinkMenu } from '@/src/features/profile/linkMenu'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { FavoritesIcon } from '../../assets/icons/FavoritesIcon'
@@ -10,6 +8,7 @@ import { StatisticsIcon } from '../../assets/icons/StatisticsIcon'
 import { RouteNames } from '../../const/routeNames'
 import { getUserId } from '../../hoc/model/selectors/getUserId/getUserId'
 import { useAppDispatch, useAppSelector, useTranslate } from '../../hooks'
+import { LinkMenu } from '../../ui/linkMenu'
 import { sidebarVariantIconSelector } from '../model/selectors/sidebarVariantIconSelector'
 import { menuActions } from '../model/slice/menuSlice'
 import { BaseMenu } from './baseMenu'
@@ -61,7 +60,7 @@ export const Sidebar = () => {
           </div>
         )}
 
-        <div className={s.logout}>
+        <div>
           <Logout />
         </div>
       </div>

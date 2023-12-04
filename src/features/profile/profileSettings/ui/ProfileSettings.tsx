@@ -5,8 +5,6 @@ import React, { useEffect, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { SettingPhotoModal } from '@/src/features/profile/settingPhoto'
 import { Countries } from '@/src/shared/countries/countries'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
@@ -24,6 +22,7 @@ import {
 import { Options } from '@/src/shared/ui/selectBox'
 import { TabsComponent } from '@/src/shared/ui/tabsComponent'
 import { UserInfo } from '../../service/profileApiTypes'
+import { SettingPhotoModal } from '../../settingPhoto'
 import s from './ProfileSettings.module.scss'
 
 type Props = {
