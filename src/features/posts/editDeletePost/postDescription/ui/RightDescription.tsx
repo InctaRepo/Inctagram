@@ -25,13 +25,13 @@ type Props = {
   setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
   isEditDescriptionModalOpen: boolean
   description?: string
-  createdAt: Date
+  createdAt?: Date
   userData?: UserInfo
   userName?: string
   isEditModalOpen?: boolean
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
-  images: Images[]
-  id: string
+  images?: Images[]
+  id?: string | (string[] & string) | undefined
 }
 
 export const RightDescription = ({
@@ -51,7 +51,7 @@ export const RightDescription = ({
   const { control } = useForm()
   const [isLikeActive, setIsLikeActive] = useState(false)
   const isAuth = useAppSelector(getIsAuth)
-  const dateOfPost = new Date(createdAt).toLocaleDateString('en-US', {
+  const dateOfPost = new Date(createdAt ? createdAt : '').toLocaleDateString('en-US', {
     year: 'numeric',
     day: '2-digit',
     month: 'long',

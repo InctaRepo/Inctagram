@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, ChangeEvent } from 'react'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { LinkMenu } from '@/src/features/profile/linkMenu'
@@ -43,17 +43,17 @@ export const CreatePostModal = ({ variantIcon, id }: Props) => {
     setIsModalOpen(false)
   }
 
-  const handleImageUpload = async (e: any) => {
-    // setImage(URL.createObjectURL(e.target.files[0]))
-    setAddedImages([
-      {
-        id: (addedImages.length + 1).toString(),
-        image: URL.createObjectURL(e.target.files[0]),
-        fileName: e.target.files[0].name,
-      },
-    ])
-    setIsBaseModalOpen(false)
-    setIsModalOpen(true)
+  const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length) {
+      setAddedImages([
+        {
+          image: URL.createObjectURL(e.target.files[0]),
+          fileName: e.target.files[0].name,
+        },
+      ])
+      setIsBaseModalOpen(false)
+      setIsModalOpen(true)
+    }
   }
 
   const handleClick = () => {
@@ -84,7 +84,6 @@ export const CreatePostModal = ({ variantIcon, id }: Props) => {
             <input
               type="file"
               ref={inputRef}
-              name="cover"
               onChange={handleImageUpload}
               accept="image/png, image/jpeg, image/jpg"
               style={{ display: 'none' }}
