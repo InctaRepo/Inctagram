@@ -30,9 +30,13 @@ export const Logout = () => {
 
   return (
     <div>
-      <Button variant="link" fullWidth onClick={onClickOpenModal}>
-        <LogoutIcon fill={'current'} className={s.logo} />
-        <Typography variant="medium14">{t.profile.logout}</Typography>
+      <Button variant="link" fullWidth onClick={onClickOpenModal} className={s.btn}>
+        <Typography variant="medium14" className={s.text}>
+          <div className={s.div1}>
+            <LogoutIcon fill={'current'} />
+          </div>
+          <div className={s.div2}>{t.profile.logout}</div>
+        </Typography>
       </Button>
       <Modal
         modalWidth={'md'}
