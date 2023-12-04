@@ -9,7 +9,7 @@ import Heart from 'public/icon/heart.svg'
 import Plane from 'public/icon/plane.svg'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { getIsAuth } from '@/src/features/auth/authService'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
 import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
