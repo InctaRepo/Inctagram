@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
-import React, { FC, memo, ReactNode } from 'react'
+import React, { FC, memo, ReactNode, useEffect } from 'react'
 import { RouteNames } from '../../const/routeNames'
-import { getAuthMeData } from '../../hoc/model/selectors/getAuthMeData/getAuthMeData'
 import { useGetMeQuery } from '../../hoc/service/authProvider'
 import { useAppSelector } from '../../hooks'
 import { LoaderLogo } from '../../ui/loaderLogo/LoaderLogo'
+import { getUserId } from '../model/selectors/getUserId/getUserId'
 
 interface AuthProviderProps {
   children: ReactNode
@@ -12,7 +12,7 @@ interface AuthProviderProps {
 
 export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
   const { push, asPath } = useRouter()
-  const authMeData = useAppSelector(getAuthMeData)?.email
+  const authMeData = useAppSelector(getUserId)
 
   // const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath === PATH.ERROR_PAGE
   const skipAuthMe = asPath.startsWith(RouteNames.AUTH)
@@ -20,13 +20,23 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
     skip: skipAuthMe,
   })
 
-  const isAuthPage = authMeData || asPath.startsWith(RouteNames.AUTH)
+  const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH)
+  const router = useRouter()
 
-  if (!isAuthPage && error) {
-    push(RouteNames.SIGN_IN)
+  console.log(authMeData, isAuthPage)
 
-    return <></>
-  }
+  // if (!isAuthPage) {
+  //   push(RouteNames.SIGN_IN)
+  //   console.log('1')
+  //
+  //   return <></>
+  // }
+  useEffect(() => {
+    if (!isAuthPage) {
+      router.push(RouteNames.SIGN_IN)
+      console.log('1')
+    }
+  }, [isAuthPage, router])
 
   return (
     <>
