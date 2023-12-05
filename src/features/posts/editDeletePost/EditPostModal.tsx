@@ -28,7 +28,7 @@ export type ModalProps = {
   images?: Images[]
   id?: string | (string[] & string) | undefined
   modalWidth?: string
-  callBack: (id: string | null) => void
+  callBack?: (id: string | null) => void
   variant?: 'single post'
 } & ComponentProps<'div'>
 
