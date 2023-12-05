@@ -23,8 +23,6 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
   const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH)
   const router = useRouter()
 
-  console.log(authMeData, isAuthPage)
-
   // if (!isAuthPage) {
   //   push(RouteNames.SIGN_IN)
   //   console.log('1')
@@ -34,7 +32,6 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
   useEffect(() => {
     if (!isAuthPage) {
       router.push(RouteNames.SIGN_IN)
-      console.log('1')
     }
   }, [isAuthPage, router])
 
