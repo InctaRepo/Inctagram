@@ -14,4 +14,5 @@ export const RouteNames = {
   HOME: '/home',
   SEARCH: '/search',
   STATISTICS: '/statistics',
+  POSTS: '/posts',
 } as const
