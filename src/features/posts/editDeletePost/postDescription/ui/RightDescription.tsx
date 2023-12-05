@@ -61,8 +61,6 @@ export const RightDescription = ({
     //setIsLikeActive(current => !current)
   }
 
-  console.log()
-
   return (
     <>
       <div className={s.wrapper}>

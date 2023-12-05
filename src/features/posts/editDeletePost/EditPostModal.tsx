@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React, { ComponentProps, useState } from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
@@ -11,6 +12,7 @@ import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/Po
 import { Images } from '@/src/features/posts/service/postApiTypes'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
+import { RouteNames } from '@/src/shared/const/routeNames'
 import { getUsername } from '@/src/shared/hoc/model/selectors/getUsername/getUsername'
 import { useAppSelector } from '@/src/shared/hooks'
 import s from './EditPostModal.module.scss'
@@ -42,9 +44,15 @@ export const EditPostModal = ({
   const username = useAppSelector(getUsername)
   const isAuth = useAppSelector(getIsAuth)
   const { data: post } = useGetUserPostQuery('6ec102f6-8df9-4b71-bd83-f90e16b396d6')
-
+  const userId = userData?.userId
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
+    window.history.pushState(null, 'post by user', `/profile/${userId}`)
+  }
+
+  const openClickHandler = (e: any) => {
+    setIsEditModalOpen(true)
+    window.history.pushState(null, 'post by user', `/profile/${userId}/post/${id}`)
   }
 
   return (
@@ -55,7 +63,7 @@ export const EditPostModal = ({
           width={234}
           height={228}
           alt={'post'}
-          onClick={() => setIsEditModalOpen(true)}
+          onClick={openClickHandler}
           priority={true}
         />
       )}
