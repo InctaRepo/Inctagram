@@ -1,6 +1,4 @@
-// eslint-disable-next-line import/order
-import Link from 'next/link'
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
@@ -13,11 +11,8 @@ import { useGetUserPostsQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { EditPostModal } from '@/src/features/posts/editDeletePost/EditPostModal'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { LinkMenu } from '@/src/features/profile/linkMenu'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
-import { RouteNames } from '@/src/shared/const/routeNames'
-import { useTranslate } from '@/src/shared/hooks'
 import s from './listImage.module.scss'
 
 type Props = {
