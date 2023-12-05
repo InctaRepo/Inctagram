@@ -1,14 +1,13 @@
-import React, { useRef, useState, ChangeEvent } from 'react'
+import React, { ChangeEvent, useRef, useState } from 'react'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import { LinkMenu } from '@/src/features/profile/linkMenu'
 import CreateIcon from '@/src/shared/assets/icons/CreateIcon'
-import { RouteNames } from '@/src/shared/const/routeNames'
 import { variantIconLink } from '@/src/shared/const/variantIconLink'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'
 import { Modal } from '@/src/shared/ui/Modal'
 import { Typography } from '@/src/shared/ui/typography'
+import { LinkMenu } from 'src/shared/ui/linkMenu'
 import s from './CreateNewPost.module.scss'
 import CroppedImage from './croppedImage/ui/CroppedImage'
 import CropModal from './modalForCrop/ui/CropModal'
@@ -114,7 +113,7 @@ export const CreatePostModal = ({ variantIcon, id }: Props) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.createPost}
-          link={RouteNames.PROFILE + `/` + id}
+          link={''}
           handleClick={handleClick}
           variantIcon={variantIcon}
         >
