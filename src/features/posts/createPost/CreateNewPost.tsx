@@ -2,6 +2,7 @@ import React, { ChangeEvent, useRef, useState } from 'react'
 import { ImgOutline } from '@/src/assets/icons/image-outline'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import CreateIcon from '@/src/shared/assets/icons/CreateIcon'
+import { RouteNames } from '@/src/shared/const/routeNames'
 import { variantIconLink } from '@/src/shared/const/variantIconLink'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'
@@ -113,7 +114,7 @@ export const CreatePostModal = ({ variantIcon, id }: Props) => {
       <div className={s.linkMenu}>
         <LinkMenu
           nameLink={t.profile.createPost}
-          link={''}
+          link={RouteNames.PROFILE + `/` + id}
           handleClick={handleClick}
           variantIcon={variantIcon}
         >
