@@ -28,6 +28,7 @@ export type ModalProps = {
   images?: Images[]
   id?: string | (string[] & string) | undefined
   modalWidth?: string
+  callBack: (id: string | null) => void
   variant?: 'single post'
 } & ComponentProps<'div'>
 
@@ -39,6 +40,7 @@ export const EditPostModal = ({
   images,
   id,
   isDescription,
+  callBack,
   variant,
 }: ModalProps) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
@@ -71,7 +73,7 @@ export const EditPostModal = ({
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
         modalWidth={'edit'}
-        open={isAuth ? isEditModalOpen : true}
+        open={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
         onClose={buttonClickHandler}
         isDescription={!isEditDescriptionModalOpen}
