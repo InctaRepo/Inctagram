@@ -28,6 +28,8 @@ export type ModalProps = {
   images?: Images[]
   id?: string | (string[] & string) | undefined
   modalWidth?: string
+  callBack?: (id: string | null) => void
+  variant?: 'single post'
 } & ComponentProps<'div'>
 
 export const EditPostModal = ({
@@ -38,12 +40,14 @@ export const EditPostModal = ({
   images,
   id,
   isDescription,
+  callBack,
+  variant,
 }: ModalProps) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const username = useAppSelector(getUsername)
   const isAuth = useAppSelector(getIsAuth)
-  const { data: post } = useGetUserPostQuery('6ec102f6-8df9-4b71-bd83-f90e16b396d6')
+  // const { data: post } = useGetUserPostQuery('6ec102f6-8df9-4b71-bd83-f90e16b396d6')
   const userId = userData?.userId
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
@@ -57,34 +61,33 @@ export const EditPostModal = ({
 
   return (
     <div>
-      {isAuth && (
-        <Image
-          src={images ? images[0].url : ''}
-          width={234}
-          height={228}
-          alt={'post'}
-          onClick={openClickHandler}
-          priority={true}
-        />
-      )}
+      <Image
+        src={images ? images[0].url : ''}
+        width={234}
+        height={228}
+        alt={'post'}
+        onClick={openClickHandler}
+        priority={true}
+      />
+
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
         modalWidth={'edit'}
-        open={isAuth ? isEditModalOpen : true}
+        open={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
         onClose={buttonClickHandler}
         isDescription={!isEditDescriptionModalOpen}
       >
         <div className={s.wrapper}>
-          <PostImages images={images ? images : post?.data.images} id={id} />
+          <PostImages images={images} id={id} />
           <RightDescription
             openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
             setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
             isEditDescriptionModalOpen={isEditDescriptionModalOpen}
-            images={images ? images : post?.data.images}
+            images={images}
             id={id}
-            description={description ? description : post?.data.description}
-            createdAt={createdAt ? createdAt : post?.data.createdAt}
+            description={description}
+            createdAt={createdAt}
             userName={userData?.username}
             userData={userData}
             isEditModalOpen={isEditModalOpen}

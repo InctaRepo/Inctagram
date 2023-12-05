@@ -9,10 +9,9 @@ import { NextPageWithLayout } from '@/src/shared/service/types'
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.query?.id
 
-  /*if (typeof id === 'string') {*/
-  store.dispatch(getUserPost.initiate('6ec102f6-8df9-4b71-bd83-f90e16b396d6'))
-  /*}*/
-  await Promise.all(store.dispatch(getRunningQueriesThunk()))
+  if (typeof id === 'string')
+    store.dispatch(getUserPost.initiate('6ec102f6-8df9-4b71-bd83-f90e16b396d6'))
+  !(await Promise.all(store.dispatch(getRunningQueriesThunk())))
 
   return {
     props: {},
@@ -23,7 +22,7 @@ const MyProfilePage: NextPageWithLayout = () => {
   const router = useRouter()
   const id = router.query.id
 
-  return <EditPostModal />
+  return <EditPostModal variant="single post" />
 }
 
 MyProfilePage.getLayout = getPublicProfileLayout
