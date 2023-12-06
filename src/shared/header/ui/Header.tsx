@@ -30,7 +30,6 @@ export const Header = ({ variant }: HeaderType) => {
 
   return (
     <div className={s.containerMain}>
-      <h1>done</h1>
       <div className={s.container}>
         <div className={s.content}>
           <Typography variant="large" className={s.text}>
