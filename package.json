@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "vercele",
+    "build": "vercel",
     "build:production": "pnpm build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
