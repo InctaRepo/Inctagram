@@ -1,5 +1,7 @@
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
+import { RouteNames } from '@/src/shared/const/routeNames'
 import { getUserEmail } from '@/src/shared/hoc/model/selectors/getUserEmail/getUserEmail'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
@@ -11,6 +13,7 @@ import s from './logout.module.scss'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
+  const router = useRouter()
   const email = useAppSelector(getUserEmail)
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [logoutUser] = useLogoutMutation()
@@ -19,6 +22,7 @@ export const Logout = () => {
   const logoutHandler = async () => {
     logoutUser()
     dispatch(setLogout())
+    router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
   }
   const onModalClose = () => {

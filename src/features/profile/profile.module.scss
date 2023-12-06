@@ -12,13 +12,16 @@
   .containerInfo {
     width: 100%;
     max-width: 1030px;
+    height: min-content;
     padding: 35px 16px 0 20px;
+
     border-left: 1px solid $color-dark-300;
   }
 
   .containerInfoPublic {
-    width: 972px;
-    max-width: 980px;
+    width: 100%;
+    max-width: 1030px;
+    height: min-content;
     padding: 35px 16px 0 20px;
   }
 }

@@ -1,7 +1,6 @@
 import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import type { AppProps } from 'next/app'
-import { AuthProvider } from '@/src/shared/hoc/ui/AuthProvider'
 import { HistoryProvider } from '@/src/shared/hooks/useHistory'
 import { useLoader } from '@/src/shared/hooks/useLoader'
 import { NextPageWithLayout } from '@/src/shared/service/types'
@@ -33,7 +32,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <ProgressBar>
-      <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
+      {/*<AuthProvider>*/}
+      {getLayout(<Component {...pageProps} />)}
+      {/*</AuthProvider>*/}
       <ToastContainer
         position="bottom-left"
         autoClose={4000}
