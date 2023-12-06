@@ -1,6 +1,6 @@
 export type variantIconLink =
   | 'home'
-  | 'create'
+  | 'create-post'
   | 'profile'
   | 'message'
   | 'favorites'
