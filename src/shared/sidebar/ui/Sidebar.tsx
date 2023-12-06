@@ -30,7 +30,7 @@ export const Sidebar = () => {
       {profile?.data && <BaseMenu />}
       <div className={s.containerLinks}>
         {profile?.data && (
-          <div className={s.favStat}>
+          <div>
             <div className={s.favorites}>
               <LinkMenu
                 nameLink={t.profile.favorites}

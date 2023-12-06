@@ -11,7 +11,7 @@ const menuSlice = createSlice({
 
   name: 'menu',
   reducers: {
-    setVariantIcon: (state, action: PayloadAction<string>) => {
+    setVariantIcon: (state, action: PayloadAction<string | null>) => {
       state.variantIcon = action.payload
     },
   },

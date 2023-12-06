@@ -34,6 +34,7 @@ export const Logout = ({ variantIcon, handleClick }: Props) => {
   }
   const onModalClose = () => {
     setOpenModal(false)
+    dispatch(setVariantIcon(null))
   }
   const onClickOpenModal = () => {
     setOpenModal(true)

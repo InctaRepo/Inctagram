@@ -3,7 +3,10 @@
 .link {
   display: flex;
   align-items: center;
-  width: 140px;
+
+  width: 100%;
+  min-width: 140px;
+
   text-decoration: none;
 
   :hover {

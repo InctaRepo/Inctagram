@@ -34,10 +34,12 @@ export const CreatePostModal = () => {
     setIsBaseModalOpen(false)
     setImage(undefined)
     setIsModalOpen(false)
+    dispatch(setVariantIcon(null))
   }
   const cancelButtonClick = () => {
     setIsBaseModalOpen(false)
     setIsModalOpen(false)
+    dispatch(setVariantIcon(null))
   }
 
   const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
