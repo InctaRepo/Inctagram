@@ -61,7 +61,7 @@ export const Sidebar = () => {
         )}
 
         <div>
-          <Logout variantIcon={variantIcon} handleClick={handleItemClick} />
+          <Logout />
         </div>
       </div>
     </div>

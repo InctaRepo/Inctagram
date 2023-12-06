@@ -3,9 +3,9 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { variantIconLink } from '@/src/shared/const/variantIconLink'
 import { getUserEmail } from '@/src/shared/hoc/model/selectors/getUserEmail/getUserEmail'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { sidebarVariantIconSelector } from '@/src/shared/sidebar/model/selectors/sidebarVariantIconSelector'
 import { setVariantIcon } from '@/src/shared/sidebar/model/slice/menuSlice'
 import { Button } from '@/src/shared/ui/button'
 import { Modal } from '@/src/shared/ui/Modal'
@@ -14,13 +14,10 @@ import { setLogout } from '../../../auth/authService'
 import { useLogoutMutation } from '../service/logout'
 import s from './logout.module.scss'
 
-type Props = {
-  variantIcon: variantIconLink
-  handleClick: (variant: string) => void
-}
-export const Logout = ({ variantIcon, handleClick }: Props) => {
+export const Logout = () => {
   const dispatch = useAppDispatch()
   const router = useRouter()
+  const variantIcon = useAppSelector(sidebarVariantIconSelector)
   const email = useAppSelector(getUserEmail)
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [logoutUser] = useLogoutMutation()
