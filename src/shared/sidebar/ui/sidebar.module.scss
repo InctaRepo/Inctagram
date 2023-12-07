@@ -10,7 +10,8 @@
 
   justify-content: space-between;
 
-  width: 240px;
+  width: 100%;
+  max-width: 240px;
   min-height: calc(660px - $header-height);
 
   :active {
@@ -38,7 +39,7 @@
     height: 100%;
 
     .favorites {
-      padding: 6px 12px;
+      padding: 6px 0;
 
       .logo {
         fill: white;
