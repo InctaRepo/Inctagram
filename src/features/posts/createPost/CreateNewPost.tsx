@@ -48,13 +48,16 @@ export const CreatePostModal = ({ variantIcon, id }: Props) => {
       setAddedImages([
         {
           image: URL.createObjectURL(e.target.files[0]),
-          //fileName: e.target.files[0].name,
+          fileName: e.target.files[0].name,
         },
       ])
       setIsBaseModalOpen(false)
       setIsModalOpen(true)
+      console.log(e.target.files[0].name)
     }
   }
+
+  console.log(addedImages)
 
   const handleClick = () => {
     setIsBaseModalOpen(true)

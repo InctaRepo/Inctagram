@@ -105,10 +105,9 @@ const FiltersModal = ({
         if (!filteredImage) {
           return null
         }
-        // const file = new File([filteredImage], el.fileName ? el.fileName : '', {
-        //   type: 'image/jpeg',
-        // })
-        const file = new File([filteredImage], 'photo', { type: 'image/jpeg' })
+        const file = new File([filteredImage], el.fileName ? el.fileName : '', {
+          type: 'image/jpeg',
+        })
 
         formData.append('images', file)
 

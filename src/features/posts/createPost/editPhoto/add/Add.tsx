@@ -38,7 +38,10 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
   }
 
   const handleImageUpload = async (e: any) => {
-    setAddedImages([...addedImages, { image: URL.createObjectURL(e.target.files[0]) }])
+    setAddedImages([
+      ...addedImages,
+      { image: URL.createObjectURL(e.target.files[0]), fileName: e.target.files[0].name },
+    ])
   }
 
   return (
