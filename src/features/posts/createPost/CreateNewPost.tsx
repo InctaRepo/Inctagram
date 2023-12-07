@@ -47,7 +47,7 @@ export const CreatePostModal = () => {
       setAddedImages([
         {
           image: URL.createObjectURL(e.target.files[0]),
-          //fileName: e.target.files[0].name,
+          fileName: e.target.files[0].name,
         },
       ])
       setIsBaseModalOpen(false)
