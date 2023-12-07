@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { CreatePostModal } from '@/src/features/posts/createPost/CreateNewPost'
 import { HomeIcon } from '../../../assets/icons/HomeIcon'
@@ -6,19 +6,21 @@ import { MessageIcon } from '../../../assets/icons/MessageIcon'
 import { ProfileIcon } from '../../../assets/icons/ProfileIcon'
 import { SearchIcon } from '../../../assets/icons/SearchIcon'
 import { RouteNames } from '../../../const/routeNames'
-import { variantIconLink } from '../../../const/variantIconLink'
 import { getUserId } from '../../../hoc/model/selectors/getUserId/getUserId'
-import { useAppSelector, useTranslate } from '../../../hooks'
+import { useAppDispatch, useAppSelector, useTranslate } from '../../../hooks'
 import { LinkMenu } from '../../../ui/linkMenu'
+import { sidebarVariantIconSelector } from '../../model/selectors/sidebarVariantIconSelector'
+import { setVariantIcon } from '../../model/slice/menuSlice'
 import s from './baseMenu.module.scss'
 
-type Props = {
-  variantIcon: variantIconLink
-  handleClick: (variant: string) => void
-}
-export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
+export const BaseMenu = () => {
   const { t } = useTranslate()
   const userId = useAppSelector(getUserId)
+  const dispatch = useAppDispatch()
+  const variantIcon = useAppSelector(sidebarVariantIconSelector)
+  const handleClick = (variant: string) => {
+    dispatch(setVariantIcon(variant))
+  }
 
   return (
     <div className={s.container}>
@@ -36,7 +38,7 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
         </LinkMenu>
       </div>
       <div>
-        <CreatePostModal variantIcon={variantIcon} id={userId} />
+        <CreatePostModal />
       </div>
       <div className={s.linkMenu}>
         <LinkMenu

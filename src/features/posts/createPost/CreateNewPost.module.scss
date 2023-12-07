@@ -7,7 +7,6 @@
 }
 
 .photoContainer {
-  // margin-top: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,11 +18,6 @@
 
   background-color: $color-dark-500;
 }
-
-// .selectPhoto {
-//  margin-top: 35px;
-//  margin-bottom: 30px;
-// }
 
 .baseModal {
   width: 492px !important;
@@ -51,6 +45,12 @@
   padding: 6px 24px;
 }
 
+.linkMenu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .linkMenu:hover svg {
   fill: $color-accent-500;
   stroke: $color-accent-500;
@@ -67,4 +67,27 @@
 
 .logo:hover {
   fill: $color-accent-500;
+}
+
+.active {
+  font-weight: 700;
+  color: $color-accent-500;
+}
+
+.btn {
+  display: flex;
+  padding: 0;
+  fill: white;
+
+  :hover {
+    font-weight: 700;
+    fill: $color-accent-500;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }

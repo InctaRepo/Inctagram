@@ -10,7 +10,7 @@ import { getUserId } from '../../hoc/model/selectors/getUserId/getUserId'
 import { useAppDispatch, useAppSelector, useTranslate } from '../../hooks'
 import { LinkMenu } from '../../ui/linkMenu'
 import { sidebarVariantIconSelector } from '../model/selectors/sidebarVariantIconSelector'
-import { menuActions } from '../model/slice/menuSlice'
+import { setVariantIcon } from '../model/slice/menuSlice'
 import { BaseMenu } from './baseMenu'
 import s from './sidebar.module.scss'
 
@@ -22,15 +22,15 @@ export const Sidebar = () => {
   const { t } = useTranslate()
 
   const handleItemClick = (variant: string) => {
-    dispatch(menuActions.setVariantIcon(variant))
+    dispatch(setVariantIcon(variant))
   }
 
   return (
     <div className={s.container}>
-      {profile?.data && <BaseMenu variantIcon={variantIcon} handleClick={handleItemClick} />}
+      {profile?.data && <BaseMenu />}
       <div className={s.containerLinks}>
         {profile?.data && (
-          <div className={s.favStat}>
+          <div>
             <div className={s.favorites}>
               <LinkMenu
                 nameLink={t.profile.favorites}

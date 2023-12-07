@@ -1,20 +1,34 @@
-@import '../../../styles/colors';
+@import 'src/styles/colors';
 
-.container {
+.link {
   display: flex;
   align-items: center;
 
-  .link {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+  width: 100%;
+  min-width: 140px;
 
-    //padding-left: 12px;
-    text-decoration: none;
+  text-decoration: none;
 
-    .active {
-      font-weight: 700;
-      color: $color-accent-500;
-    }
+  :hover {
+    font-weight: 700;
+    fill: $color-accent-500;
+  }
+}
+
+.typography {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+
+  :hover {
+    font-weight: 700;
+    fill: $color-accent-500;
+  }
+
+  .active {
+    font-weight: 700;
+    color: $color-accent-500;
+    stroke: $color-accent-500;
   }
 }

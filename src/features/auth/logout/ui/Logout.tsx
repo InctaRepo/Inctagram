@@ -1,9 +1,12 @@
+import { clsx } from 'clsx'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { getUserEmail } from '@/src/shared/hoc/model/selectors/getUserEmail/getUserEmail'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { sidebarVariantIconSelector } from '@/src/shared/sidebar/model/selectors/sidebarVariantIconSelector'
+import { setVariantIcon } from '@/src/shared/sidebar/model/slice/menuSlice'
 import { Button } from '@/src/shared/ui/button'
 import { Modal } from '@/src/shared/ui/Modal'
 import { Typography } from '@/src/shared/ui/typography'
@@ -14,6 +17,7 @@ import s from './logout.module.scss'
 export const Logout = () => {
   const dispatch = useAppDispatch()
   const router = useRouter()
+  const variantIcon = useAppSelector(sidebarVariantIconSelector)
   const email = useAppSelector(getUserEmail)
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [logoutUser] = useLogoutMutation()
@@ -27,21 +31,31 @@ export const Logout = () => {
   }
   const onModalClose = () => {
     setOpenModal(false)
+    dispatch(setVariantIcon(null))
   }
   const onClickOpenModal = () => {
     setOpenModal(true)
+    dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1)))
+  }
+  const styles = {
+    check: clsx(`${RouteNames.LOGOUT}`.startsWith('/' + variantIcon) && s.active),
   }
 
   return (
     <div>
-      <Button variant="link" fullWidth onClick={onClickOpenModal} className={s.btn}>
-        <Typography variant="medium14" className={s.text}>
-          <div className={s.div1}>
-            <LogoutIcon fill={'current'} />
-          </div>
-          <div className={s.div2}>{t.profile.logout}</div>
-        </Typography>
-      </Button>
+      <div className={s.linkMenu}>
+        <Button variant="link" onClick={onClickOpenModal} className={s.btn}>
+          <Typography variant="medium14" className={s.text}>
+            <div>
+              <LogoutIcon
+                fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
+                className={s.logo}
+              />
+            </div>
+            <div className={styles.check}>{t.profile.logout}</div>
+          </Typography>
+        </Button>
+      </div>
       <Modal
         modalWidth={'md'}
         title={t.profile.logout}

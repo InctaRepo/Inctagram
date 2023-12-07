@@ -2,6 +2,7 @@ export const RouteNames = {
   SIGN_IN: '/auth/sign-in',
   SIGN_UP: '/auth/sign-up',
   AUTH: '/auth',
+  LOGOUT: '/logout',
   PASSWORD_RECOVERY: '/auth/password-recovery',
   CREATE_NEW_PASSWORD: '/auth/create-new-password',
   NEW_PASSWORD: '/auth/new-password',
@@ -15,4 +16,5 @@ export const RouteNames = {
   SEARCH: '/search',
   STATISTICS: '/statistics',
   POSTS: '/posts',
+  CREATE_POST: '/create-post',
 } as const
