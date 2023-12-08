@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import React, { ComponentProps, useState } from 'react'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices,import/order
+import { getAuthUser } from '@/src/features/auth/authService'
+
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import { getIsAuth } from '@/src/features/auth/authService'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { useGetUserPostQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/PostImages'
@@ -12,24 +11,24 @@ import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/Po
 import { Images } from '@/src/features/posts/service/postApiTypes'
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
-import { RouteNames } from '@/src/shared/const/routeNames'
-import { getUsername } from '@/src/shared/hoc/model/selectors/getUsername/getUsername'
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,import/namespace
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { useAppSelector } from '@/src/shared/hooks'
 import s from './EditPostModal.module.scss'
 import { RightDescription } from './postDescription/ui/RightDescription'
+// eslint-disable-next-line import/namespace
 import { EditModal } from './ui/EditModal'
 
 export type ModalProps = {
   openSureDescriptionModal?: boolean
   isDescription?: boolean
   description?: string
-  createdAt?: Date
+  createdAt: Date
   userData?: UserInfo
-  images?: Images[]
-  id?: string | (string[] & string) | undefined
-  modalWidth?: string
-  callBack?: (id: string | null) => void
-  variant?: 'single post'
+  images: Images[]
+  id: string
+  modalWidth: string
+  callBack: (value: string) => void
 } & ComponentProps<'div'>
 
 export const EditPostModal = ({
@@ -39,37 +38,33 @@ export const EditPostModal = ({
   userData,
   images,
   id,
-  isDescription,
   callBack,
-  variant,
+  isDescription,
 }: ModalProps) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const username = useAppSelector(getUsername)
-  const isAuth = useAppSelector(getIsAuth)
-  // const { data: post } = useGetUserPostQuery('6ec102f6-8df9-4b71-bd83-f90e16b396d6')
-  const userId = userData?.userId
+  const user = useAppSelector(getAuthUser)
+  // const { data: post } = useGetUserPostQuery('1f1a86b9-b4c5-4772-b7b7-ada137b973ef')
+  //
+  // console.log(post, 'gfhf')
+
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
-    window.history.pushState(null, 'post by user', `/profile/${userId}`)
   }
 
-  const openClickHandler = (e: any) => {
-    setIsEditModalOpen(true)
-    window.history.pushState(null, 'post by user', `/profile/${userId}/post/${id}`)
+  const onClickHandler = () => {
+    callBack(id)
   }
 
   return (
-    <div>
+    <div onClick={onClickHandler}>
       <Image
-        src={images ? images[0].url : ''}
+        src={images[0]?.url ? images[0].url : ''}
         width={234}
         height={228}
         alt={'post'}
-        onClick={openClickHandler}
-        priority={true}
+        onClick={() => setIsEditModalOpen(true)}
       />
-
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
         modalWidth={'edit'}
@@ -88,7 +83,7 @@ export const EditPostModal = ({
             id={id}
             description={description}
             createdAt={createdAt}
-            userName={userData?.username}
+            userName={userData ? userData.username : ''}
             userData={userData}
             isEditModalOpen={isEditModalOpen}
             setIsEditModalOpen={setIsEditModalOpen}

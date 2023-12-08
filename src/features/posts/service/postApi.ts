@@ -14,7 +14,7 @@ export const postApi = baseApi.injectEndpoints({
         url: `posts/create`,
         body,
       }),
-      invalidatesTags: ['Post', 'Profile'],
+      invalidatesTags: ['Post'],
     }),
     updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
       query: ({ postId, ...patch }) => ({
@@ -22,28 +22,28 @@ export const postApi = baseApi.injectEndpoints({
         url: `posts/${postId}`,
         body: patch,
       }),
-      invalidatesTags: ['Post', 'Profile'],
+      invalidatesTags: ['POST'],
     }),
-    deletePost: builder.mutation<BaseResponse, string | string[] | undefined>({
+    deletePost: builder.mutation<BaseResponse, string>({
       query: postId => ({
         url: `posts/${postId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Post', 'Profile'],
+      invalidatesTags: ['Post'],
     }),
     getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string | string[] | undefined>({
       query: userId => ({
         url: `posts/${userId}`,
         method: 'GET',
       }),
-      providesTags: ['Post'],
+      providesTags: ['POST'],
     }),
     getUserPost: builder.query<BaseResponse<GetUserPostResponse>, string | null>({
       query: postId => ({
         url: `posts/post/${postId}`,
         method: 'GET',
       }),
-      providesTags: ['Post'],
+      providesTags: ['POST'],
     }),
   }),
 })
@@ -57,4 +57,5 @@ export const {
   util: { getRunningQueriesThunk },
 } = postApi
 
-export const { getUserPosts, getUserPost } = postApi.endpoints
+export const { getUserPosts } = postApi.endpoints
+export const { getUserPost } = postApi.endpoints
