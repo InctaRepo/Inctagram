@@ -1,21 +1,18 @@
+import React, { ComponentProps, useState } from 'react'
+
 import { DialogTitle } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
-import React, { ComponentProps, useState } from 'react'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
+
+import { PostImages } from '@/src/entities/post/postImages'
+import { AreYouSureDescriptionModal } from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal'
+import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal'
 import { Images } from '@/src/features/posts'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
+import { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription'
+import s from '@/src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-// eslint-disable-next-line import/order,@conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices,import/no-unresolved
-import { PostImages } from '@/src/features/posts/editDeletePost/postImages/ui/PostImages'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { UserInfo } from '@/src/features/profileSettings/service'
+import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'
-import { AreYouSureDescriptionModal } from '../../../smallModals/ui/AreYouSureDescriptionModal'
-import { EditModal } from '../../../ui/EditModal'
-import s from './EditDescriptionModal.module.scss'
 
 export type ModalProps = {
   setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void

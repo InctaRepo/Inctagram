@@ -1,9 +1,12 @@
+import React, { FC, ReactNode } from 'react'
+
 import { clsx } from 'clsx'
 import Link from 'next/link'
-import React, { FC, ReactNode } from 'react'
-import { variantIconLink } from '../../const/variantIconLink'
-import { Typography } from '../typography'
+
 import s from './linkMenu.module.scss'
+
+import { variantIconLink } from '@/src/shared/const/variantIconLink'
+import { Typography } from '@/src/shared/ui/typography'
 
 type Props = {
   nameLink: string

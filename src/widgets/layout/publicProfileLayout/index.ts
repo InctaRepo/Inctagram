@@ -1,1 +1,1 @@
-export * from './PublicProfileLayout'
+export { getPublicProfileLayout } from './ui/PublicProfileLayout'

@@ -1,15 +1,18 @@
+import React, { useEffect } from 'react'
+
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+
+import s from './createNewPasswordForm.module.scss'
+
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { useTranslate } from '@/src/shared/hooks'
 import { PasswordsMatchForm, passwordsMatchSchema } from '@/src/shared/schemas/passwordsMatchSchema'
 import { Button } from '@/src/shared/ui/button'
 import { ControlledTextField } from '@/src/shared/ui/controlled'
 import { Typography } from '@/src/shared/ui/typography'
-import s from './createNewPasswordForm.module.scss'
 
 type CreateNewPasswordProps = {
   onSubmitHandler: (data: PasswordsMatchForm) => void

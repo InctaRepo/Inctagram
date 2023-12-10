@@ -1,10 +1,13 @@
-import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import ConfirmedImage from 'public/icon/emailComfirmedIcon.svg'
-import { RouteNames } from '@/src/shared/const/routeNames'
-import { AppLoader } from '@/src/shared/ui/appLoader'
+
+import { useRouter } from 'next/router'
+
 import { AuthPage } from '../../authPage'
 import { useEmailConfirmedMutation } from '../service/emailConfirmed'
+
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { AppLoader } from '@/src/shared/ui/appLoader'
+import ConfirmedImage from 'public/icon/emailComfirmedIcon.svg'
 
 export const EmailConfirmed = () => {
   const router = useRouter()

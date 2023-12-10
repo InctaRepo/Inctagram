@@ -1,0 +1,23 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.imgContainer {
+  @include wh(490px, 564px);
+}
+
+.carousel {
+  @include wh(490px, 562px);
+
+  position: relative;
+}
+
+.carouselDescription {
+  @include wh(490px, 504px);
+
+  position: relative;
+}

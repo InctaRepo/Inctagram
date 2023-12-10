@@ -1,4 +1,5 @@
 import { z } from 'zod'
+
 import { LocaleType } from 'public/locales/en'
 
 export function passwordsMatchSchema(t: LocaleType) {
@@ -9,7 +10,7 @@ export function passwordsMatchSchema(t: LocaleType) {
         .trim()
         .nonempty(t.auth.authErrors.password.nonEmpty)
         .regex(
-          /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}〜])[a-zA-Z\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}〜]+$/,
+          /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!"#$%&'()*+,-./:;<=>?@\\[\]^_`{|}〜])[a-zA-Z\d!"#$%&'()*+,-./:;<=>?@\\[\]^_`{|}〜]+$/,
           t.auth.authErrors.password.regex
         )
         .min(6, t.auth.authErrors.password.min)

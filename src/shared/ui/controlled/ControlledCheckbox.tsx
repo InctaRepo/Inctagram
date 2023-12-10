@@ -1,5 +1,6 @@
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
-import { Checkbox, CheckboxPropsType } from '../checkbox'
+
+import { Checkbox, CheckboxPropsType } from '@/src/shared/ui/checkbox'
 
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
   Omit<CheckboxPropsType, 'onChange' | 'checked'>

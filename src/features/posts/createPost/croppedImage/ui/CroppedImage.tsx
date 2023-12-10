@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
+
 import Slider from 'react-slick'
+
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Image } from '../../CreateNewPost'
 import { Add } from '../../editPhoto/add/Add'
 import { Cropping } from '../../editPhoto/crop/Cropping'
 import { Zoom } from '../../editPhoto/zoom/Zoom'
+
 import getCroppedImg from './Crop'
 import s from './CropedImage.module.scss'
 import EasyCrop, { CropArg } from './EasyCrop'

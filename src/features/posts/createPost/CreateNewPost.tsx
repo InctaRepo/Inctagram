@@ -1,18 +1,19 @@
-import { clsx } from 'clsx'
 import React, { ChangeEvent, useRef, useState } from 'react'
-import { ImgOutline } from '@/src/assets/icons/image-outline'
+
+import { clsx } from 'clsx'
+
+import CroppedImage from './croppedImage/ui/CroppedImage'
+
+import { CropModal } from '@/src/features/posts/createPost/cropModal'
 import CreateIcon from '@/src/shared/assets/icons/CreateIcon'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { useAppDispatch, useAppSelector } from '@/src/shared/hooks'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
-import { sidebarVariantIconSelector } from '@/src/shared/sidebar/model/selectors/sidebarVariantIconSelector'
-import { setVariantIcon } from '@/src/shared/sidebar/model/slice/menuSlice'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'
-import { Modal } from '@/src/shared/ui/Modal'
 import { Typography } from '@/src/shared/ui/typography'
-import s from './CreateNewPost.module.scss'
-import CroppedImage from './croppedImage/ui/CroppedImage'
-import CropModal from './modalForCrop/ui/CropModal'
+import ImgOutline from 'public/icon/imgOutlineIcon.svg'
+import s from 'src/features/posts/createPost/createNewPost.module.scss'
+import { Modal } from 'src/shared/ui/modal'
 
 export type Image = {
   image?: string
@@ -21,7 +22,7 @@ export type Image = {
   fileName?: string
 }
 
-export const CreatePostModal = () => {
+export const CreateNewPost = () => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)

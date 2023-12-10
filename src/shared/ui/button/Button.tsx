@@ -1,4 +1,5 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
+
 import s from './button.module.scss'
 
 type Props<T extends ElementType = 'button'> = {

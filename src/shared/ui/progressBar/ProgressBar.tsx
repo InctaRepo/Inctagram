@@ -1,9 +1,12 @@
+import { PropsWithChildren, useEffect } from 'react'
+
 import { NextPage } from 'next'
 import NProgress from 'nprogress'
-import { PropsWithChildren, useEffect } from 'react'
-import { appIsLoadingSelector } from '../../app'
-import { useAppSelector } from '../../hooks'
+
 import s from './progressBar.module.scss'
+
+import { appIsLoadingSelector } from '@/src/shared/app'
+import { useAppSelector } from '@/src/shared/hooks'
 
 export const ProgressBar: NextPage<PropsWithChildren> = ({ children }) => {
   const isLoading = useAppSelector(appIsLoadingSelector)

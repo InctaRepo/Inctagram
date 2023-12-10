@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react'
+
 import { MergerAccounts } from './MergerAccounts'
 
 const meta = {

@@ -1,7 +1,10 @@
-import { NextPage } from 'next'
 import { PropsWithChildren, ReactElement } from 'react'
-import { Header } from 'src/shared/header'
+
+import { NextPage } from 'next'
+
 import s from './profileLayout.module.scss'
+
+import { Header } from '@/src/shared/header'
 
 const ProfileLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (

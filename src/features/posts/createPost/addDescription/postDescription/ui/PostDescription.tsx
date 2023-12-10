@@ -1,23 +1,25 @@
+import React, { useEffect } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import ImageAva from 'next/image'
-import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import AvatarImage from 'public/icon/avatarIcon.svg'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { useAddPostMutation, useUpdatePostMutation } from '@/src/features/posts'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative,@conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profile/service/profileApiTypes'
+
+import s from './postDescription.module.scss'
+
+import { useUpdatePostMutation } from '@/src/features/posts/createPost/addDescription/postDescription/service/updatePost'
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useGetProfileQuery } from '@/src/features/profile/service'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { UserInfo } from '@/src/features/profileSettings/service'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { getUserId } from '@/src/shared/hoc/model/selectors/getUserId/getUserId'
+import { getUserId } from '@/src/shared/hoc'
 import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { DescriptionForm, descriptionSchema } from '@/src/shared/schemas/descriptionSchema'
 import { Button } from '@/src/shared/ui/button'
-import { ControlledTextArea } from '@/src/shared/ui/controlled/ControlledTextArea'
+import { ControlledTextArea } from '@/src/shared/ui/controlled'
 import { Typography } from '@/src/shared/ui/typography'
-import { Image } from '../../../CreateNewPost'
-import s from './postDescription.module.scss'
+import AvatarImage from 'public/icon/avatarIcon.svg'
 
 type Props = {
   id?: string
@@ -45,7 +47,7 @@ export const PostDescription = ({
   setIsEditModalOpen,
 }: Props) => {
   const { t } = useTranslate()
-  const [addPost] = useAddPostMutation()
+  // const [addPost] = useAddPostMutation()
 
   const [updatePost, { isSuccess: isSuccessUpdate }] = useUpdatePostMutation()
   const userId = useAppSelector(getUserId)

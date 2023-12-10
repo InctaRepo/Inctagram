@@ -1,6 +1,8 @@
 import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from 'react'
-import ZoomIcon from 'public/icon/zoomIcon.svg'
+
 import s from '../zoom/Zoom.module.scss'
+
+import ZoomIcon from 'public/icon/zoomIcon.svg'
 
 type Props = {
   className?: string

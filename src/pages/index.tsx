@@ -1,11 +1,13 @@
 // eslint-disable-next-line @conarti/feature-sliced/public-api
-import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
-import { getIsAuth } from '@/src/features/auth/authService/authSelectors'
+
+import { useRouter } from 'next/router'
+
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
-import { NextPageWithLayout } from '@/src/shared/service/types'
-import { RouteNames } from 'src/shared/const/routeNames'
+import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const Home: NextPageWithLayout = () => {
   const isAuth = useAppSelector(getIsAuth)

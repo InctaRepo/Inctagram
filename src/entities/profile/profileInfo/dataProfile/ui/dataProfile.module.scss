@@ -1,0 +1,39 @@
+@import '../../../../../styles/mixins';
+@import '../../../../../styles/colors';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 680px;
+  height: 36px;
+  margin-bottom: 20px;
+
+  &:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid $color-accent-500;
+  }
+}
+
+.progressProfile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 390px;
+  min-height: 48px;
+  margin-bottom: 23px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+  }
+}
+
+.text {
+  height: 73px;
+  color: $color-accent-500;
+  text-decoration-color: $color-accent-500;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import s from './appLoader.module.scss'
 
 export const AppLoader = () => {

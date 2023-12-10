@@ -217,16 +217,14 @@ export const en: LocaleType = {
             filters: 'Filters',
             publication: 'Publication',
             addDescription: 'Add publication description',
-        },
-        descriptionError: {
-            error: 'Max number of characters 500',
-        },
-        areYouSure: {
             areYouSure:
                 'Do you really want to close the creation of a publication? If you close everything will be deleted',
             discard: 'Discard',
             saveDraft: 'Safe draft',
             close: 'Close',
+        },
+        descriptionError: {
+            error: 'Max number of characters 500',
         },
         editPost: {
             comment: 'Add a Comment ...',

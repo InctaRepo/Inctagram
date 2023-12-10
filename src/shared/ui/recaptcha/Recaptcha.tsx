@@ -1,13 +1,16 @@
+import React, { useEffect, useState } from 'react'
+
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
 import { FieldValues, UseControllerProps } from 'react-hook-form'
+
+import s from './recaptcha.module.scss'
+
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { useTranslate } from '@/src/shared/hooks'
+import { Card } from '@/src/shared/ui/card'
 import Privacy from 'public/icon/recaptcha.svg'
 import RecaptchaChecked from 'public/icon/recaptchaChecked.svg'
-import { RouteNames } from '../../const/routeNames'
-import { useTranslate } from '../../hooks'
-import { Card } from '../card'
-import s from './recaptcha.module.scss'
 
 export type RecaptchaProps = {
   primary?: boolean

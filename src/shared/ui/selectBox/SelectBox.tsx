@@ -1,9 +1,12 @@
+import React, { ReactElement, ReactNode, useState } from 'react'
+
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import * as Select from '@radix-ui/react-select'
-import React, { ReactElement, ReactNode, useState } from 'react'
-import ChevronDown from 'public/icon/chevronDownIcon.svg'
-import { Typography } from '../typography'
+
 import styles from './SelectBox.module.scss'
+
+import { Typography } from '@/src/shared/ui/typography'
+import ChevronDown from 'public/icon/chevronDownIcon.svg'
 
 export type SelectProps = {
   onBlur?: () => void

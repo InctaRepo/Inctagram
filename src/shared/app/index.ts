@@ -1,2 +1,3 @@
 export { appIsLoadingSelector, appIsInitializedSelector } from './appSelectors'
-export * from './appSlice'
+export { appReducer, setAppInitialized } from './appSlice'
+export type { AppSchema } from './appSlice'

@@ -1,13 +1,14 @@
 import { rootReducer } from '@reduxjs/toolkit/src/tests/injectableCombineReducers.example'
-import { makeStore, store } from '@/src/store'
-import { AppSchema } from '@/src/shared/app'
+
 import { AuthState } from '@/src/features/auth/authService'
 import { SignInSchema } from '@/src/features/auth/signIn'
 import { PostState } from '@/src/features/posts'
-import { ProfileState } from '@/src/features/profile/service/profileApiTypes'
+import { ProfileState } from '@/src/features/profileSettings/service'
 import { baseApi } from '@/src/shared/api'
-import { AuthMeSchema } from '@/src/shared/hoc/model/types/AuthMeSchema'
-import { MenuState } from '@/src/shared/sidebar/model/slice/menuSlice'
+import { AppSchema } from '@/src/shared/app'
+import { AuthMeSchema } from '@/src/shared/hoc'
+import { MenuState } from '@/src/shared/sidebar'
+import { makeStore, store } from '@/src/store'
 
 export type AppDispatch = typeof store.dispatch
 export type AppRootState = ReturnType<typeof rootReducer>

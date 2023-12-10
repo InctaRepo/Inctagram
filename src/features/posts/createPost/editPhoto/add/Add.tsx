@@ -1,9 +1,11 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import AddImage from 'public/icon/image.svg'
-import PlusCircleOutline from 'public/icon/plusCircleOutlineIcon.svg'
+
 import { Image } from '../../CreateNewPost'
 import { AddedImages } from '../../editPhoto/add/addedImages/AddedImages'
 import s from '../add/Add.module.scss'
+
+import AddImage from 'public/icon/image.svg'
+import PlusCircleOutline from 'public/icon/plusCircleOutlineIcon.svg'
 
 type Props = {
   addedImages: Image[]

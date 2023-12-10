@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+
 import { SingUpForm } from './SingUpForm'
 
 const meta = {

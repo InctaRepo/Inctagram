@@ -1,12 +1,14 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
+
+import s from '../crop/Cropping.module.scss'
+
+import { useTranslate } from '@/src/shared/hooks'
+import { Typography } from '@/src/shared/ui/typography'
 import Crop from 'public/icon/crop.svg'
 import Img from 'public/icon/image.svg'
 import Rectangle11 from 'public/icon/rectangle11.svg'
 import Rectangle169 from 'public/icon/rectangle169.svg'
 import Rectangle45 from 'public/icon/rectangle45.svg'
-import { useTranslate } from '@/src/shared/hooks'
-import { Typography } from '@/src/shared/ui/typography'
-import s from '../crop/Cropping.module.scss'
 
 type Props = {
   setAspectRatio: (aspect: number) => void

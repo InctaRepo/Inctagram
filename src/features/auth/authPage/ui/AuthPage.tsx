@@ -1,9 +1,12 @@
+import React from 'react'
+
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
-import React from 'react'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography/Typography'
+
 import s from './authPage.module.scss'
+
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
 
 type Props = {
   title: string
