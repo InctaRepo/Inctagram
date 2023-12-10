@@ -49,7 +49,7 @@ export const ShowPostModal = ({
     window.history.pushState(null, 'post by user', `/profile/${userId}`)
   }
 
-  const openClickHandler = (e: any) => {
+  const openClickHandler = () => {
     setIsEditModalOpen(true)
     window.history.pushState(null, 'post by user', `/profile/${userId}/post/${id}`)
   }

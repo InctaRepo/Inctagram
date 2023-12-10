@@ -14,12 +14,11 @@ export const logout = baseApi.injectEndpoints({
       //TODO
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
-          // const { data } = await queryFulfilled
+          const { data } = await queryFulfilled
 
-          // if (data) {
-          // localStorage.removeItem('accessToken')
-          dispatch(clearToken())
-          // }
+          if (data.resultCode === 0) {
+            dispatch(clearToken())
+          }
         } catch (e) {
           console.error(e)
         }
