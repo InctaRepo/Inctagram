@@ -1,8 +1,6 @@
 export { postReducer } from './postSlice'
 export {
-  useDeletePostMutation,
   useAddPostMutation,
-  useUpdatePostMutation,
   getUserPost,
   getUserPosts,
   useGetUserPostQuery,

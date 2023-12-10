@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useDeletePostMutation } from '@/src/features/posts/service'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { useDeletePostMutation } from '@/src/features/posts/editDeletePost/postDeleteModal/service/deletePost'
+import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'
 import Delete from 'public/icon/deletePost.svg'
 import s from 'src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'

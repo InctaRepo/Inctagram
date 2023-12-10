@@ -13,6 +13,8 @@ import getCroppedImg from './Crop'
 import s from './CropedImage.module.scss'
 import EasyCrop, { CropArg } from './EasyCrop'
 
+import { useTranslate } from '@/src/shared/hooks'
+
 type Props = {
   image?: string
   setImage: (image: string | undefined) => void
@@ -27,7 +29,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
   const [aspectRatio, setAspectRatio] = useState(4 / 3)
   const [croppedImage, setCroppedImage] = useState<string | undefined>(undefined)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArg | null>(null)
-
+  const { t } = useTranslate()
   const settings = {
     dots: true,
     swipe: false,
@@ -142,7 +144,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                     color="primary"
                     className={s.button}
                   >
-                    Show Result
+                    {t.profile.addNewPost.showResult}
                   </button>
                 </div>
               )

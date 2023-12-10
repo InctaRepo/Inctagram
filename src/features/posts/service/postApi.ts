@@ -12,13 +12,6 @@ const postApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Post', 'Profile'],
     }),
-    deletePost: builder.mutation<BaseResponse, string | string[] | undefined>({
-      query: postId => ({
-        url: `posts/${postId}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: ['Post', 'Profile'],
-    }),
     getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string | string[] | undefined>({
       query: userId => ({
         url: `posts/${userId}`,
@@ -38,7 +31,6 @@ const postApi = baseApi.injectEndpoints({
 
 export const {
   useAddPostMutation,
-  useDeletePostMutation,
   useGetUserPostsQuery,
   useGetUserPostQuery,
   util: { getRunningQueriesThunk },

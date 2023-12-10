@@ -1,6 +1,11 @@
 @import 'src/styles/mixins';
 @import 'src/styles/colors';
 
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
 .container {
   position: relative;
   background-color: var(--dark-300);
@@ -83,6 +88,15 @@
     font-weight: 700;
     fill: $color-accent-500;
   }
+}
+
+.btnSelect {
+  @include wh(235px, 36px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-accent-500 !important;
 }
 
 .text {

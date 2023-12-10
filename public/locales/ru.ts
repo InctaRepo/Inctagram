@@ -210,6 +210,7 @@ export const ru = {
       },
     },
     addNewPost: {
+      showResult: 'Показать результат',
       cropping: 'Редактирование',
       filters: 'Фильтры',
       publication: 'Публикация',
@@ -221,7 +222,7 @@ export const ru = {
       close: 'Закрыть',
     },
       descriptionError: {
-          error: 'Максимальное колличество знаков 200',
+        error: 'Максимальное количество знаков 200',
       },
     editPost: {
       comment: 'Добавить комментарий ...',

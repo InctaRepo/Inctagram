@@ -213,6 +213,7 @@ export const en: LocaleType = {
             },
         },
         addNewPost: {
+            showResult: 'Show Result',
             cropping: 'Cropping',
             filters: 'Filters',
             publication: 'Publication',

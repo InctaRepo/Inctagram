@@ -82,7 +82,7 @@ export const CreateNewPost = () => {
             <ImgOutline />
           </div>
           <div className={s.selectPhoto}>
-            <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
+            <Button variant={'primary'} onClick={selectFileHandler} className={s.btnSelect}>
               <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
             </Button>
             <input

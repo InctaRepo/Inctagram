@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service'
+import { getProfile, useGetProfileQuery } from '@/src/features/profile/service'
 import {
   useCreateProfileMutation,
   useUpdateProfileMutation,
@@ -13,25 +13,25 @@ import {
 import { Settings } from '@/src/features/profileSettings/settings'
 import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { useGetMeQuery } from '@/src/shared/hoc'
-import { useErrorToast } from '@/src/shared/hooks'
+import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
+import { getUserId, getUsername } from '@/src/shared/hoc'
+import { useAppDispatch, useAppSelector, useErrorToast } from '@/src/shared/hooks'
 import { ProfileSettingSchema } from '@/src/shared/schemas/profileSettingSchema'
 import { Sidebar } from '@/src/shared/sidebar'
 
 export const ProfileSettings = () => {
   const { push } = useRouter()
+  const dispatch = useAppDispatch()
   const [updateProfile, { isSuccess: isSuccessUpdate }] = useUpdateProfileMutation()
   const [createProfile, { isSuccess }] = useCreateProfileMutation()
-  const { data: user } = useGetMeQuery()
-  const id = user?.data?.userId
-  const userNameFromMe = user?.data?.username
-  const { data: profile } = useGetProfileQuery(id, {
+  const userId = useAppSelector(getUserId)
+  const userName = useAppSelector(getUsername)
+  const { data: profile } = useGetProfileQuery(userId, {
     refetchOnMountOrArgChange: true,
   })
   const [uploadAvatar] = useUploadAvatarMutation()
 
   const editorRef = useRef<AvatarEditor>(null)
-  const [avatar, setAvatar] = useState<FormData | null>(null)
   const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
@@ -51,8 +51,6 @@ export const ProfileSettings = () => {
           convertFileToBase64(file, (file64: string) => {
             setCroppedAvatar(file64)
           })
-          setAvatar(formData)
-
           setIsModalOpen(false)
           setSelectedImage(null)
           uploadAvatar(formData)
@@ -61,21 +59,10 @@ export const ProfileSettings = () => {
     }
   }
 
-  const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
-    const reader = new FileReader()
-
-    reader.onloadend = () => {
-      const file64 = reader.result as string
-
-      callBack(file64)
-    }
-    reader.readAsDataURL(file)
-  }
-
   const submit = (data: ProfileSettingSchema) => {
     profile?.data
       ? updateProfile({
-          userId: id, //id was taken from the line 29
+          userId: userId, //id was taken from the line 29
           username: data.username,
           firstName: data.firstName,
           lastName: data.lastName,
@@ -83,21 +70,19 @@ export const ProfileSettings = () => {
           city: data.city,
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
-          avatar: data.avatar,
+          // avatar: data.avatar,
         })
           .then(() => {
-            uploadAvatar(avatar!)
-              .unwrap()
-              .then(() => {
-                setIsModalOpen(false)
-                setSelectedImage(null)
-              })
+            setIsModalOpen(false)
+            setSelectedImage(null)
           })
+
           .then(() => {
-            push(RouteNames.PROFILE)
+            dispatch(getProfile.initiate(userId))
+            push(RouteNames.PROFILE + '/' + userId)
           })
       : createProfile({
-          userId: id,
+          userId: userId,
           username: data.username,
           firstName: data.firstName,
           lastName: data.lastName,
@@ -105,18 +90,15 @@ export const ProfileSettings = () => {
           city: data.city,
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
-          avatar: data.avatar,
+          // avatar: data.avatar,
         })
           .then(() => {
-            uploadAvatar(avatar!)
-              .unwrap()
-              .then(() => {
-                setIsModalOpen(false)
-                setSelectedImage(null)
-              })
+            setIsModalOpen(false)
+            setSelectedImage(null)
           })
           .then(() => {
-            push(RouteNames.PROFILE)
+            dispatch(getProfile.initiate(userId))
+            push(RouteNames.PROFILE + '/' + userId)
           })
   }
 
@@ -137,7 +119,7 @@ export const ProfileSettings = () => {
       <Sidebar />
       <div className={s.containerInfo}>
         <Settings
-          userNameFromMe={userNameFromMe}
+          userNameFromMe={userName}
           userData={profile?.data}
           onSubmitHandler={submit}
           croppedAvatar={croppedAvatar}
