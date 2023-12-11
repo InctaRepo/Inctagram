@@ -6,7 +6,7 @@ export type AppSchema = {
   isInitialized: boolean
 }
 
-const slice = createSlice({
+const appSlice = createSlice({
   name: 'app',
   initialState: {
     isLoading: false,
@@ -61,5 +61,5 @@ const slice = createSlice({
   },
 })
 
-export const appReducer = slice.reducer
-export const appActions = slice.actions
+export const { reducer: appReducer } = appSlice
+export const { setIsLoading, setAppInitialized } = appSlice.actions

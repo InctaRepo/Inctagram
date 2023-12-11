@@ -1,33 +1,14 @@
-import { baseApi, BaseResponse } from '@/src/shared/api'
-import {
-  GetUserPostResponse,
-  GetUserPostsResponse,
-  UpdatePost,
-  UpdateResponse,
-} from './postApiTypes'
+import { GetUserPostResponse, GetUserPostsResponse } from './postApiTypes'
 
-export const postApi = baseApi.injectEndpoints({
+import { baseApi, BaseResponse } from '@/src/shared/api'
+
+const postApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     addPost: builder.mutation<BaseResponse, FormData>({
       query: body => ({
         method: 'POST',
         url: `posts/create`,
         body,
-      }),
-      invalidatesTags: ['Post', 'Profile'],
-    }),
-    updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
-      query: ({ postId, ...patch }) => ({
-        method: 'PUT',
-        url: `posts/${postId}`,
-        body: patch,
-      }),
-      invalidatesTags: ['Post', 'Profile'],
-    }),
-    deletePost: builder.mutation<BaseResponse, string | string[] | undefined>({
-      query: postId => ({
-        url: `posts/${postId}`,
-        method: 'DELETE',
       }),
       invalidatesTags: ['Post', 'Profile'],
     }),
@@ -50,8 +31,6 @@ export const postApi = baseApi.injectEndpoints({
 
 export const {
   useAddPostMutation,
-  useUpdatePostMutation,
-  useDeletePostMutation,
   useGetUserPostsQuery,
   useGetUserPostQuery,
   util: { getRunningQueriesThunk },

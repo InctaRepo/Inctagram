@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react'
+
 import { Card } from './index'
 
 const meta = {

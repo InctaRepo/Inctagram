@@ -1,14 +1,18 @@
-import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+
+import { useRouter } from 'next/router'
+
+import { useCreateNewPasswordMutation } from '../service/CreateNewPassword'
+import s from '../ui/createNewPassword.module.scss'
+
+import { CreateNewPasswordForm } from './createNewPasswordForm'
+
 import { Header } from '@/src/shared/header'
 import { useErrorToast, useTranslate } from '@/src/shared/hooks'
 import { PasswordsMatchForm } from '@/src/shared/schemas/passwordsMatchSchema'
-import { NextPageWithLayout } from '@/src/shared/service/types'
-import { Modal } from '@/src/shared/ui/Modal'
+import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 import { Typography } from '@/src/shared/ui/typography'
-import { useCreateNewPasswordMutation } from '../service/CreateNewPassword'
-import s from '../ui/createNewPassword.module.scss'
-import { CreateNewPasswordForm } from './createNewPasswordForm'
+import { Modal } from 'src/shared/ui/modal'
 
 export const CreateNewPassword: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)

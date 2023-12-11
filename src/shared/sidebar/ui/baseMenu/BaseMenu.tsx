@@ -1,17 +1,18 @@
 import React from 'react'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { CreatePostModal } from '@/src/features/posts/createPost/CreateNewPost'
-import { HomeIcon } from '../../../assets/icons/HomeIcon'
-import { MessageIcon } from '../../../assets/icons/MessageIcon'
-import { ProfileIcon } from '../../../assets/icons/ProfileIcon'
-import { SearchIcon } from '../../../assets/icons/SearchIcon'
-import { RouteNames } from '../../../const/routeNames'
-import { getUserId } from '../../../hoc/model/selectors/getUserId/getUserId'
-import { useAppDispatch, useAppSelector, useTranslate } from '../../../hooks'
-import { LinkMenu } from '../../../ui/linkMenu'
-import { sidebarVariantIconSelector } from '../../model/selectors/sidebarVariantIconSelector'
-import { setVariantIcon } from '../../model/slice/menuSlice'
+
 import s from './baseMenu.module.scss'
+
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { CreateNewPost } from '@/src/features/posts/createPost'
+import { HomeIcon } from '@/src/shared/assets/icons/HomeIcon'
+import { MessageIcon } from '@/src/shared/assets/icons/MessageIcon'
+import { ProfileIcon } from '@/src/shared/assets/icons/ProfileIcon'
+import { SearchIcon } from '@/src/shared/assets/icons/SearchIcon'
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { getUserId } from '@/src/shared/hoc'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
+import { LinkMenu } from '@/src/shared/ui/linkMenu'
 
 export const BaseMenu = () => {
   const { t } = useTranslate()
@@ -38,7 +39,7 @@ export const BaseMenu = () => {
         </LinkMenu>
       </div>
       <div>
-        <CreatePostModal />
+        <CreateNewPost />
       </div>
       <div className={s.linkMenu}>
         <LinkMenu

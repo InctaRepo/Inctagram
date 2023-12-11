@@ -1,18 +1,12 @@
-import { LoginFormType } from '../schemas/createLoginSchema'
-import { PasswordsMatchForm } from '../schemas/passwordsMatchSchema'
-import { ProfileSettingForm } from '../schemas/profileSettingSchema'
-import { SignUpFormSchema } from '../schemas/signUpSchema'
+import { LoginFormType } from '@/src/shared/schemas/createLoginSchema'
+import { PasswordsMatchForm } from '@/src/shared/schemas/passwordsMatchSchema'
+import { ProfileSettingSchema } from '@/src/shared/schemas/profileSettingSchema'
+import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
 
-type FormType = LoginFormType | SignUpFormSchema | ProfileSettingForm | PasswordsMatchForm
-// add your form manual type
+type FormType = LoginFormType | SignUpFormSchema | ProfileSettingSchema | PasswordsMatchForm
 
 export type FormFields = keyof FormType
 
-/**
- * reset error messages from zod on touched by user fields (trigger validation)
- * @param touchedFieldNames names from touched fields in react hook form
- * @param trigger trigger func from react hook form
- */
 export const triggerZodFieldError = (
   touchedFieldNames: FormFields[],
   trigger: (name?: FormFields | FormFields[]) => Promise<boolean>

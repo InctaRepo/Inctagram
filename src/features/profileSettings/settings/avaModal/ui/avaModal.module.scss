@@ -1,0 +1,132 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.container {
+  @include wh(196px, 36px);
+
+  position: relative;
+
+  .photo {
+    justify-content: center;
+
+    .ellipse {
+      @include wh(192px, 192px);
+
+      cursor: pointer;
+      margin-top: 18px;
+      background-color: $color-dark-300;
+      border-radius: 50%;
+    }
+
+    .image {
+      cursor: pointer;
+      margin: -115px 30px 96px 72px;
+    }
+  }
+
+  .ava {
+    display: flex;
+
+    width: 204px;
+    height: 100%;
+    min-height: 200px;
+
+    background-color: $color-dark-300;
+    border-radius: 50%;
+  }
+}
+
+.photoContainer {
+  // margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $color-dark-500;
+}
+
+.emptyPhotoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+  margin-top: 50px;
+}
+
+.errorPhotoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+  margin-top: 14px;
+}
+
+.selectPhoto {
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+.save {
+  align-self: flex-end;
+}
+
+.saveBtn {
+  padding: 6px 24px;
+}
+
+.addBtn {
+  @include wh(155px, 36px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-accent-500 !important;
+}
+
+.photoBtn {
+  @include wh(198px, 36px);
+
+  justify-content: center;
+}
+
+.baseModal {
+  width: 492px !important;
+  height: 564px;
+}
+
+.error {
+  @include wh(444px, 36px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $color-danger-900;
+  border: 1px solid $color-danger-500;
+}
+
+.deleteAvatarIcon {
+  cursor: pointer;
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+  margin-top: -210px;
+  margin-left: 155px;
+  padding: 0;
+
+  background-color: $color-danger-500;
+  border: 1px solid $color-dark-900;
+  border-radius: 50%;
+}

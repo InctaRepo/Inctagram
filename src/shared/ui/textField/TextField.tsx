@@ -1,6 +1,8 @@
 import React, { ComponentProps } from 'react'
-import { InputMain } from './inputMain'
+
 import s from './textField.module.scss'
+
+import { InputMain } from '@/src/shared/ui/textField/inputMain'
 
 export type TextFieldProps = {
   errorMessage?: string

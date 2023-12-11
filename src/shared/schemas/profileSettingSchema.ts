@@ -1,4 +1,5 @@
 import { z } from 'zod'
+
 import { LocaleType } from 'public/locales/en'
 
 export function createProfileSettingSchema(t: LocaleType) {
@@ -59,7 +60,7 @@ export function createProfileSettingSchema(t: LocaleType) {
   })
 }
 
-export type ProfileSettingForm = {
+export type ProfileSettingSchema = {
   username: string
   firstName: string
   lastName: string

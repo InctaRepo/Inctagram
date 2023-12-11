@@ -1,7 +1,10 @@
-import { NextPage } from 'next'
 import { PropsWithChildren, ReactElement } from 'react'
-import { Header } from '@/src/shared/header/ui/Header'
+
+import { NextPage } from 'next'
+
 import s from './publicPostLayout.module.scss'
+
+import { Header } from '@/src/shared/header'
 
 const PublicPostLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (

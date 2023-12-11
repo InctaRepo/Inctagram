@@ -1,6 +1,8 @@
+import React, { ReactNode, useState } from 'react'
+
 import * as Tabs from '@radix-ui/react-tabs'
 import clsx from 'clsx'
-import React, { ReactNode, useState } from 'react'
+
 import s from './tabsComponent.module.scss'
 
 type TabProps = {

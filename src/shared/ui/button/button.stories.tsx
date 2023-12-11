@@ -1,6 +1,7 @@
 import type { StoryObj } from '@storybook/react'
-import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
-import { Button } from './Button'
+
+import { Button } from '@/src/shared/ui/button'
+import FlagRussiaIcon from 'public/icon/flagRussiaIcon.svg'
 
 const meta = {
   title: 'Components/Button',

@@ -1,8 +1,10 @@
 import type { StoryObj } from '@storybook/react'
 import { Meta } from '@storybook/react'
 import { Provider } from 'react-redux'
-import { store } from '@/src/store'
+
 import { EmailConfirmed } from '../ui/EmailConfirmed'
+
+import { store } from '@/src/store'
 
 const meta = {
   title: 'pages/emailConfirmed',

@@ -1,5 +1,5 @@
-import { getAuthLayout } from 'src/widgets/layout/authLayout'
-import { MergerAccounts } from '@/src/features/auth/mergerAccounts/ui/MergerAccounts'
+import { MergerAccounts } from '@/src/features/auth/mergerAccounts'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const MergerAccountsPage = () => {
   return <MergerAccounts />
