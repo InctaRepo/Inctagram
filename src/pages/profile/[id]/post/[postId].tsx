@@ -1,7 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 
 import { getRunningQueriesThunk, getUserPost, getUserPosts } from '@/src/features/posts'
-//TODO EditPostModal
 import { Profile } from '@/src/features/profile'
 import { getProfile } from '@/src/features/profile/service'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'

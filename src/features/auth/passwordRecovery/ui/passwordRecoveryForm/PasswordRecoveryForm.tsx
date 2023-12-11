@@ -47,7 +47,6 @@ export const PasswordRecoveryForm = ({ onSubmitHandler, modalHandler }: Props) =
   })
 
   useEffect(() => {
-    // TODO custom hook with useTranslate ?
     triggerZodFieldError(Object.keys(touchedFields) as FormFields[], trigger)
   }, [t])
 

@@ -45,7 +45,6 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
-    // TODO:  it works ! but need to replace this handler (not a good one)
   }, [t])
 
   useEffect(() => {
@@ -54,7 +53,6 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
   }, [errorServer, onSubmitHandler])
 
   const submitData = (data: LoginFormType) => {
-    //TODO errors from backend after submit : (1)This email address is not registered. Please register ;
     onSubmitHandler?.(data)
   }
 
