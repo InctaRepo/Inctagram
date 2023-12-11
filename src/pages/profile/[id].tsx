@@ -11,6 +11,7 @@ import { NextPageWithLayout } from '@/src/shared/service/types'
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.query?.id
 
+  console.log(context.query?.id, 'jefe')
   if (typeof id === 'string') {
     store.dispatch(getProfile.initiate(id))
     store.dispatch(getUserPosts.initiate(id))
