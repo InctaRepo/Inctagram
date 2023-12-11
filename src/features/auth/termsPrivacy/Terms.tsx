@@ -1,13 +1,14 @@
 'use client'
 
 import React from 'react'
-import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
+
+import s from './style.module.scss'
+
 import { Header } from '@/src/shared/header/ui/Header'
-import { useTranslate } from '@/src/shared/hooks'
-import { useHistory } from '@/src/shared/hooks/useHistory'
+import { useHistory, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { Typography } from '@/src/shared/ui/typography'
-import s from './style.module.scss'
+import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
 
 export const Terms = () => {
   const { t } = useTranslate()

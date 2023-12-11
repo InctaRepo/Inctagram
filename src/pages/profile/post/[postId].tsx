@@ -1,17 +1,18 @@
 import { useRouter } from 'next/dist/client/router'
-import { wrapper } from '@/src/store/wrapper'
-import { getPublicProfileLayout } from '@/src/widgets/layout/publicProfileLayout/PublicProfileLayout'
-import { getUserPost, getRunningQueriesThunk } from '@/src/features/posts'
-import { EditPostModal } from '@/src/features/posts/editDeletePost/EditPostModal'
-import { NextPageWithLayout } from '@/src/shared/service/types'
+
+import { ShowPostModal } from '@/src/entities/post/showPostModal/ShowPostModal'
+import { getRunningQueriesThunk, getUserPost } from '@/src/features/posts'
+//TODO EditPostModal
+import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { wrapper } from '@/src/store'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 //http://localhost:3000/post/6ec102f6-8df9-4b71-bd83-f90e16b396d6
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
-  const id = context.query?.id
+  const id = context.query?.id as string
 
-  if (typeof id === 'string')
-    store.dispatch(getUserPost.initiate('6ec102f6-8df9-4b71-bd83-f90e16b396d6'))
-  !(await Promise.all(store.dispatch(getRunningQueriesThunk())))
+  store.dispatch(getUserPost.initiate(id))
+  await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
   return {
     props: {},
@@ -20,10 +21,10 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
 
 const MyProfilePage: NextPageWithLayout = () => {
   const router = useRouter()
-  const id = router.query.id
+  const id = router.query.id as string
 
-  return <EditPostModal variant="single post" />
+  return <ShowPostModal variant="single post" id={id} />
 }
 
-MyProfilePage.getLayout = getPublicProfileLayout
+MyProfilePage.getLayout = getAuthLayout
 export default MyProfilePage

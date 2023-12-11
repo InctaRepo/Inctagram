@@ -1,18 +1,17 @@
+import s from './sidebar.module.scss'
+
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { FavoritesIcon } from '../../assets/icons/FavoritesIcon'
-import { StatisticsIcon } from '../../assets/icons/StatisticsIcon'
-import { RouteNames } from '../../const/routeNames'
-import { getUserId } from '../../hoc/model/selectors/getUserId/getUserId'
-import { useAppDispatch, useAppSelector, useTranslate } from '../../hooks'
-import { LinkMenu } from '../../ui/linkMenu'
-import { sidebarVariantIconSelector } from '../model/selectors/sidebarVariantIconSelector'
-import { setVariantIcon } from '../model/slice/menuSlice'
-import { BaseMenu } from './baseMenu'
-import s from './sidebar.module.scss'
+import { useGetProfileQuery } from '@/src/features/profile/service'
+import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
+import { StatisticsIcon } from '@/src/shared/assets/icons/StatisticsIcon'
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { getUserId } from '@/src/shared/hoc'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
+import { BaseMenu } from '@/src/shared/sidebar/ui/baseMenu'
+import { LinkMenu } from '@/src/shared/ui/linkMenu'
 
 export const Sidebar = () => {
   const userId = useAppSelector(getUserId)

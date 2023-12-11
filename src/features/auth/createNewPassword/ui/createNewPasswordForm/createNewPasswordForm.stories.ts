@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { CreateNewPasswordForm } from './CreateNewPasswordForm'
 
 const meta = {

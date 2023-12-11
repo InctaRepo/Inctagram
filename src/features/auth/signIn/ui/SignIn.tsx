@@ -1,14 +1,18 @@
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+
+import { useRouter } from 'next/router'
+
+import { SingInParams, useSignInMutation } from '../authByEmail'
+
+import { LoginForm } from './loginForm'
+
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service/profileApi'
+import { useGetProfileQuery } from '@/src/features/profile/service'
 import { RouteNames } from '@/src/shared/const/routeNames'
+import { getIsAuth } from '@/src/shared/hoc'
 import { useGetMeQuery } from '@/src/shared/hoc/service/authProvider'
 import { useAppSelector } from '@/src/shared/hooks'
-import { NextPageWithLayout } from '@/src/shared/service/types'
-import { getIsAuth } from '../../../auth/authService'
-import { SingInParams, useSignInMutation } from '../authByEmail'
-import { LoginForm } from './loginForm'
+import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 
 export const SignIn: NextPageWithLayout = () => {
   const [loginUser, { isLoading, isSuccess }] = useSignInMutation()

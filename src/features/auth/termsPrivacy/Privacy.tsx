@@ -1,12 +1,12 @@
 'use client'
 
-import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
-import { Header } from '@/src/shared/header/ui/Header'
-import { useTranslate } from '@/src/shared/hooks'
-import { useHistory } from '@/src/shared/hooks/useHistory'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from 'src/shared/ui/typography'
 import s from './style.module.scss'
+
+import { Header } from '@/src/shared/header/ui/Header'
+import { useHistory, useTranslate } from '@/src/shared/hooks'
+import { Button } from '@/src/shared/ui/button'
+import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
+import { Typography } from 'src/shared/ui/typography'
 
 export const Privacy = () => {
   const { back } = useHistory()
@@ -21,7 +21,7 @@ export const Privacy = () => {
             <div className={s.img}>
               <ArrowLeftIcon className={s.logo} />
             </div>
-            <Typography variant={'regular14'} className={s.textReturn}>
+            <Typography variant="regular14" className={s.textReturn}>
               {t.auth.Return}
             </Typography>
           </Button>

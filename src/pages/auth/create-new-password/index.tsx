@@ -1,6 +1,7 @@
 import React from 'react'
+
+import { CreateNewPassword } from '@/src/features/auth/createNewPassword'
 import { getAuthLayout } from '@/src/widgets/layout/authLayout'
-import { CreateNewPassword } from '@/src/features/auth/createNewPassword/ui/CreateNewPassword'
 
 const CreateNewPasswordPage = () => {
   return <CreateNewPassword />

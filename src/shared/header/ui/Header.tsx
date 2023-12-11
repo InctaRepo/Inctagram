@@ -1,14 +1,16 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import FlagRussiaIcon from '@/src/assets/icons/flag-russia-icon'
-import FlagUKIcon from '@/src/assets/icons/flag-UK-icon'
-import OutlineBellIcon from 'public/icon/outlineBellIcon.svg'
-import { RouteNames } from '../../const/routeNames'
-import { useAppSelector, useTranslate } from '../../hooks'
-import { Button } from '../../ui/button'
-import { Options, SelectBox } from '../../ui/selectBox'
-import { Typography } from '../../ui/typography'
+
 import s from './header.module.scss'
+
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { useTranslate } from '@/src/shared/hooks'
+import { Button } from '@/src/shared/ui/button'
+import { Options, SelectBox } from '@/src/shared/ui/selectBox'
+import { Typography } from '@/src/shared/ui/typography'
+import FlagRussiaIcon from 'public/icon/flagRussiaIcon.svg'
+import FlagUKIcon from 'public/icon/flagUKIcon.svg'
+import OutlineBellIcon from 'public/icon/outlineBellIcon.svg'
 
 type HeaderType = {
   variant?: 'public'

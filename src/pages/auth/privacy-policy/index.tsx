@@ -1,4 +1,4 @@
-import { Privacy } from 'src/features/auth/termsPrivacy'
+import { Privacy } from '@/src/features/auth/termsPrivacy'
 
 const PrivacyPolicy = () => <Privacy />
 

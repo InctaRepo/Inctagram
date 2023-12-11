@@ -1,10 +1,10 @@
-import { getPublicPostLayout } from 'src/widgets/layout/publicPostLayout'
-import { PublicPosts } from 'src/features/publicPosts'
+import { PublicPosts } from '@/src/features/publicPosts'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const PublicPagePosts = () => {
   return <PublicPosts />
 }
 
-PublicPagePosts.getLayout = getPublicPostLayout
+PublicPagePosts.getLayout = getAuthLayout
 
 export default PublicPagePosts

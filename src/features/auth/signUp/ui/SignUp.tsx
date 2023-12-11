@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
+
+import { useSignUpMutation } from '../service/signUp'
+
+import s from './signUp.module.scss'
+import { SingUpForm } from './singUpForm'
+
 import { useErrorToast } from '@/src/shared/hooks/useErrorToast'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
-import { NextPageWithLayout } from '@/src/shared/service/types'
-import { Modal } from 'src/shared/ui/Modal'
+import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { Modal } from 'src/shared/ui/modal'
 import { Typography } from 'src/shared/ui/typography'
-import { useSignUpMutation } from '../service/signUp'
-import s from './signUp.module.scss'
-import { SingUpForm } from './singUpForm'
 
 export const SignUp: NextPageWithLayout = () => {
   const { t } = useTranslate()

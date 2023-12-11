@@ -1,10 +1,11 @@
-import { useRouter } from 'next/router'
 import React, { FC, memo, ReactNode, useEffect } from 'react'
-import { RouteNames } from '../../const/routeNames'
-import { useGetMeQuery } from '../../hoc/service/authProvider'
-import { useAppSelector } from '../../hooks'
-import { LoaderLogo } from '../../ui/loaderLogo/LoaderLogo'
-import { getUserId } from '../model/selectors/getUserId/getUserId'
+
+import { useRouter } from 'next/router'
+
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { getUserId, useGetMeQuery } from '@/src/shared/hoc'
+import { useAppSelector } from '@/src/shared/hooks'
+import { LoaderLogo } from '@/src/shared/ui/loaderLogo'
 
 interface AuthProviderProps {
   children: ReactNode

@@ -1,5 +1,6 @@
-import { baseApi, BaseResponse } from '@/src/shared/api'
 import { AccessType } from '../../authService'
+
+import { baseApi, BaseResponse } from '@/src/shared/api'
 
 export const emailConfirmed = baseApi.injectEndpoints({
   endpoints: build => ({

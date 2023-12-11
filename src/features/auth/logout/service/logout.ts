@@ -1,6 +1,7 @@
-import { baseApi, BaseResponse } from '@/src/shared/api'
 import { AccessType } from '../../../auth/authService'
 import { clearToken } from '../../signIn'
+
+import { baseApi, BaseResponse } from '@/src/shared/api'
 
 export const logout = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -10,14 +11,14 @@ export const logout = baseApi.injectEndpoints({
         url: 'auth/logout',
       }),
       invalidatesTags: ['Me'],
+      //TODO
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
-          // const { data } = await queryFulfilled
+          const { data } = await queryFulfilled
 
-          // if (data) {
-          // localStorage.removeItem('accessToken')
-          dispatch(clearToken())
-          // }
+          if (data.resultCode === 0) {
+            dispatch(clearToken())
+          }
         } catch (e) {
           console.error(e)
         }

@@ -1,8 +1,10 @@
 import React, { ChangeEvent, useRef } from 'react'
-import { useTranslate } from '../../hooks'
-import { Button } from '../button'
-import { Typography } from '../typography'
+
 import s from './inputTypeFile.module.scss'
+
+import { useTranslate } from '@/src/shared/hooks'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
 
 type InputTypeFileProps = {
   setSelectedImage: (image: File) => void

@@ -1,22 +1,26 @@
+import { ComponentProps, forwardRef } from 'react'
+
 import { clsx } from 'clsx'
 // eslint-disable-next-line import/no-duplicates
 import { format } from 'date-fns'
-// eslint-disable-next-line
+// eslint-disable-next-line import/no-duplicates
 import { enGB, ru } from 'date-fns/locale'
 import { useRouter } from 'next/router'
-import { ComponentProps, forwardRef } from 'react'
 import * as RDP from 'react-datepicker'
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
-import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
-import KeyboardArrowLeft from '@/src/assets/icons/key-board-arrow-left'
-import KeyboardArrowRight from '@/src/assets/icons/key-board-arrow-right'
-import { RouteNames } from '../../const/routeNames'
-import { useTranslate } from '../../hooks'
-import { Label } from '../label'
+
 import textFieldStyles from '../textField/textField.module.scss'
-import { Typography } from '../typography'
+
 import s from './DatePicker.module.scss'
+
+import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { useTranslate } from '@/src/shared/hooks'
+import { Label } from '@/src/shared/ui/label'
+import { Typography } from '@/src/shared/ui/typography'
+import KeyboardArrowLeft from 'public/icon/chevronLeftIcon.svg'
+import KeyboardArrowRight from 'public/icon/chevronRightIcon.svg'
 import 'react-datepicker/dist/react-datepicker.min.css'
 
 export type DatePickerProps = {

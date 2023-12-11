@@ -1,4 +1,5 @@
 import { z } from 'zod'
+
 import { LocaleType } from 'public/locales/en'
 
 export const passwordRecoverySchema = (t: LocaleType) => {

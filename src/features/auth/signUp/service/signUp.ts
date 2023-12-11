@@ -1,5 +1,6 @@
-import { baseApi, BaseResponse } from '@/src/shared/api'
 import { SignUpParams } from '../model/types/types'
+
+import { baseApi, BaseResponse } from '@/src/shared/api'
 
 export const signUp = baseApi.injectEndpoints({
   endpoints: build => ({

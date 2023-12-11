@@ -1,19 +1,21 @@
+import React, { useEffect, useState } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+
+import s from './passwordRecoveryForm.module.scss'
+
+import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/model/types/passwordRecoveryParams'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { useTranslate } from '@/src/shared/hooks'
 import { passwordRecoverySchema } from '@/src/shared/schemas/passwordRecoverySchema'
 import { Button } from '@/src/shared/ui/button/Button'
 import { Card } from '@/src/shared/ui/card'
-import { ControlledTextField } from '@/src/shared/ui/controlled'
-import { ControlledRecaptcha } from '@/src/shared/ui/controlled/ControlledRecaptcha'
+import { ControlledRecaptcha, ControlledTextField } from '@/src/shared/ui/controlled'
 import { ForgotForm } from '@/src/shared/ui/recaptcha'
-import { Typography } from '@/src/shared/ui/typography/Typography'
-import { PasswordRecoveryParams } from '../../model/types/types'
-import s from './passwordRecoveryForm.module.scss'
+import { Typography } from '@/src/shared/ui/typography'
 
 type Props = {
   onSubmitHandler: (data: PasswordRecoveryParams) => void

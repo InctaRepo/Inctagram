@@ -1,4 +1,4 @@
-import { Terms } from 'src/features/auth/termsPrivacy'
+import { Terms } from '@/src/features/auth/termsPrivacy'
 
 const TermsOfUse = () => {
   return (

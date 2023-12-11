@@ -1,5 +1,6 @@
-import MergerIcon from 'public/icon/mergerIcon.svg'
 import { AuthPage } from '../../authPage'
+
+import MergerIcon from 'public/icon/mergerIcon.svg'
 
 export const MergerAccounts = () => {
   return (
