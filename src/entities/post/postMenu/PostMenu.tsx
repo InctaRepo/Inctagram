@@ -100,7 +100,7 @@ export const PostMenu = ({
             setIsEditModalOpen={setIsEditModalOpen}
           >
             <div className={s.wrapper}>
-              <PostImages images={images} id={id} />
+              <PostImages images={images} />
               <PostDescription description={description} />
             </div>
           </EditDescriptionModal>
