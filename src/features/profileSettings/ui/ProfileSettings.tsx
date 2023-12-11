@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { getProfile, useGetProfileQuery } from '@/src/features/profile/service'
+import { useGetProfileQuery } from '@/src/features/profile/service'
 import {
   useCreateProfileMutation,
   useUpdateProfileMutation,
@@ -26,9 +26,7 @@ export const ProfileSettings = () => {
   const [createProfile, { isSuccess }] = useCreateProfileMutation()
   const userId = useAppSelector(getUserId)
   const userName = useAppSelector(getUsername)
-  const { data: profile } = useGetProfileQuery(userId, {
-    refetchOnMountOrArgChange: true,
-  })
+  const { data: profile } = useGetProfileQuery(userId)
   const [uploadAvatar] = useUploadAvatarMutation()
 
   const editorRef = useRef<AvatarEditor>(null)
@@ -78,7 +76,7 @@ export const ProfileSettings = () => {
           })
 
           .then(() => {
-            dispatch(getProfile.initiate(userId))
+            // dispatch(getProfile.initiate(userId))
             push(RouteNames.PROFILE + '/' + userId)
           })
       : createProfile({
@@ -97,7 +95,7 @@ export const ProfileSettings = () => {
             setSelectedImage(null)
           })
           .then(() => {
-            dispatch(getProfile.initiate(userId))
+            // dispatch(getProfile.initiate(userId))
             push(RouteNames.PROFILE + '/' + userId)
           })
   }
