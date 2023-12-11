@@ -11,9 +11,9 @@ import { SliderSettings } from '@/src/entities/post/sliderSettings'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/service'
 
-type Props = { images?: Images[]; id: string | string[] | undefined; isDescription?: boolean }
+type Props = { images?: Images[]; isDescription?: boolean }
 
-export const PostImages = ({ images, id, isDescription }: Props) => {
+export const PostImages = ({ images, isDescription }: Props) => {
   return (
     <>
       <div className={s.imgContainer}>
