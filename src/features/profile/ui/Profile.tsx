@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { ProfileInfo } from '@/src/entities/profile/profileInfo'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Posts } from '@/src/features/posts'
@@ -11,13 +13,19 @@ import { Sidebar } from '@/src/shared/sidebar'
 import s from 'src/features/profile/ui/profile.module.scss'
 
 type Props = {
-  id: string | string[] | undefined
+  id: string
   data?: BaseResponse<UserInfo>
 }
 
 export const Profile = ({ id }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
-  const { data } = useGetProfileQuery(id)
+  const { data, refetch } = useGetProfileQuery(id)
+
+  useEffect(() => {
+    if (isAuth) {
+      refetch()
+    }
+  }, [isAuth])
 
   return (
     <div className={s.container}>

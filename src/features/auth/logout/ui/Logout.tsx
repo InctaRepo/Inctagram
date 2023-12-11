@@ -10,7 +10,8 @@ import s from './logout.module.scss'
 
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { getUserEmail } from '@/src/shared/hoc/model/selectors/getUserEmail/getUserEmail'
+import { getUserEmail } from '@/src/shared/hoc'
+import { setAuthMeData } from '@/src/shared/hoc/model/slice/authMeSlice'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'
@@ -29,6 +30,7 @@ export const Logout = () => {
   const logoutHandler = async () => {
     logoutUser()
     dispatch(setLogout())
+    dispatch(setAuthMeData({ authMeData: { userId: '', username: '', email: '' } }))
     router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
   }
