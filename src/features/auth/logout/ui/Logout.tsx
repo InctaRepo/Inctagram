@@ -3,15 +3,14 @@ import { useState } from 'react'
 import { clsx } from 'clsx'
 import { useRouter } from 'next/router'
 
-import { setLogout } from '../../../auth/authService'
 import { useLogoutMutation } from '../service/logout'
 
 import s from './logout.module.scss'
 
+import { setLogout } from '@/src/features/auth/authService'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { getUserEmail } from '@/src/shared/hoc'
-import { setAuthMeData } from '@/src/shared/hoc/model/slice/authMeSlice'
+import { getUserEmail, setAuthMeData } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'

@@ -9,8 +9,7 @@ import { LoginForm } from './loginForm'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { getIsAuth } from '@/src/shared/hoc'
-import { useGetMeQuery } from '@/src/shared/hoc/service/authProvider'
+import { getIsAuth, useGetMeQuery } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 

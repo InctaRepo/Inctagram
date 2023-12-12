@@ -3,7 +3,7 @@ import { setToken } from '@/src/features/auth/signIn'
 import { SingInParams } from '@/src/features/auth/signIn/authByEmail'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 
-export const authByEmail = baseApi.injectEndpoints({
+const authByEmail = baseApi.injectEndpoints({
   endpoints: build => ({
     signIn: build.mutation<BaseResponse<AccessType>, SingInParams>({
       query: data => ({
@@ -26,4 +26,5 @@ export const authByEmail = baseApi.injectEndpoints({
     }),
   }),
 })
+
 export const { useSignInMutation } = authByEmail

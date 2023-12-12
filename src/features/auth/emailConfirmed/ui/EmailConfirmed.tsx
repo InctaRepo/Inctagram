@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { AuthPage } from '../../authPage'
 import { useEmailConfirmedMutation } from '../service/emailConfirmed'
 
+import { AuthPage } from '@/src/entities/auth/authPage'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { AppLoader } from '@/src/shared/ui/appLoader'
 import ConfirmedImage from 'public/icon/emailComfirmedIcon.svg'
