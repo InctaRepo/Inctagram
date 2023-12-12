@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
+import Link from 'next/link'
 
 import CroppedImage from './croppedImage/ui/CroppedImage'
 
@@ -117,14 +118,12 @@ export const CreateNewPost = () => {
       )}
       <div className={s.linkMenu}>
         <Button variant="link" onClick={handleClick} className={s.btn}>
+          <CreateIcon
+            fill={variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'}
+            className={s.logo}
+          />
           <Typography variant="medium14" className={s.text}>
-            <div>
-              <CreateIcon
-                fill={variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'}
-                className={s.logo}
-              />
-            </div>
-            <div className={styles.check}>{t.profile.createPost}</div>
+            {t.profile.createPost}
           </Typography>
         </Button>
       </div>

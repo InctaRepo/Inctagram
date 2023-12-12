@@ -32,11 +32,11 @@
   .ava {
     display: flex;
 
-    width: 204px;
-    height: 100%;
+    width: 196px;
+    height: 196px;
     min-height: 200px;
+    margin-bottom: 20px;
 
-    // TODO background-color: red; delete
     background-color: $color-dark-300;
     border-radius: 50%;
   }
@@ -118,16 +118,7 @@
 
 .deleteAvatarIcon {
   cursor: pointer;
-
   position: absolute;
-
-  width: 18px;
-  height: 18px;
-  margin-top: -210px;
-  margin-left: 155px;
-  padding: 0;
-
-  background-color: $color-danger-500;
-  border: 1px solid $color-dark-900;
-  border-radius: 50%;
+  top: 8px;
+  right: 20px;
 }

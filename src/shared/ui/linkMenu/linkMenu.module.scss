@@ -1,34 +1,24 @@
 @import 'src/styles/colors';
 
-.link {
+.container {
   display: flex;
-  align-items: center;
-
   width: 100%;
   min-width: 140px;
-
-  text-decoration: none;
-
-  :hover {
-    font-weight: 700;
-    fill: $color-accent-500;
-  }
 }
 
-.typography {
+.link {
   display: flex;
-  flex-direction: row;
   gap: 12px;
   align-items: center;
+  text-decoration: none;
+}
 
-  :hover {
-    font-weight: 700;
-    fill: $color-accent-500;
-  }
+.link:hover svg {
+  fill: $color-accent-500;
+  stroke: $color-accent-500;
+}
 
-  .active {
-    font-weight: 700;
-    color: $color-accent-500;
-    stroke: $color-accent-500;
-  }
+.link:hover p {
+  font-weight: 700;
+  color: $color-accent-500;
 }

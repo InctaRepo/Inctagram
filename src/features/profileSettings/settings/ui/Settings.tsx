@@ -137,9 +137,7 @@ export const Settings = ({
           {!croppedAvatar && !userData?.avatar && userData?.avatar === null && (
             <div className={s.photo}>
               <div className={s.ellipse}></div>
-              <div className={s.image}>
-                <ImgOutline />
-              </div>
+              <ImgOutline className={s.image} />
             </div>
           )}
           <div className={s.addBtn}>

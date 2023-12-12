@@ -12,7 +12,7 @@ import { Button } from '@/src/shared/ui/button'
 import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import CloseIcon from 'public/icon/closeIcon.svg'
+import DeleteIcon from 'public/icon/deleteAvaIcon.svg'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
 
 type Props = {
@@ -30,7 +30,6 @@ type Props = {
 
 export const AvaModal = ({
   avatar,
-  setAvatar,
   croppedAvatar,
   setCroppedAvatar,
   isModalOpen,
@@ -66,8 +65,6 @@ export const AvaModal = ({
     setSlideValue(value as number)
   }
 
-  // if (!isModalOpen) return null
-
   const onModalClose = () => {
     setOpenDeleteModal(false)
   }
@@ -87,21 +84,13 @@ export const AvaModal = ({
     <div className={s.container}>
       {avatar !== null && (
         <>
-          <Image
-            width={196}
-            height={196}
-            src={croppedAvatar ? croppedAvatar : avatar}
-            alt="ava"
-            className={s.ava}
-            style={{
-              borderRadius: '50%',
-              width: 196,
-              height: 196,
-              marginBottom: 20,
-            }}
-          />
+          {avatar && <Image width={196} height={196} src={avatar} alt="ava" className={s.ava} />}
+          {croppedAvatar && (
+            <Image width={196} height={196} src={croppedAvatar} alt="ava" className={s.ava} />
+          )}
+
           <div onClick={() => setOpenDeleteModal(true)}>
-            <CloseIcon className={s.deleteAvatarIcon} />
+            <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
             modalWidth={'sm'}
