@@ -76,7 +76,7 @@ export const EditDescriptionModal = ({
 
           <div className={s.wrapperContent}>
             <div className={s.image}>
-              <PostImages images={images} id={id} isDescription={true} />
+              <PostImages images={images} isDescription={true} />
             </div>
             <PostDescription
               value={value}

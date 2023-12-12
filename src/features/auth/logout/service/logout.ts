@@ -11,7 +11,6 @@ export const logout = baseApi.injectEndpoints({
         url: 'auth/logout',
       }),
       invalidatesTags: ['Me'],
-      //TODO
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled

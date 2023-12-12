@@ -5,8 +5,6 @@ import { ProfileInfo } from '@/src/entities/profile/profileInfo'
 import { Posts } from '@/src/features/posts'
 import { useGetProfileQuery } from '@/src/features/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
-import { BaseResponse } from '@/src/shared/api'
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
 import { Sidebar } from '@/src/shared/sidebar'
@@ -14,10 +12,11 @@ import s from 'src/features/profile/ui/profile.module.scss'
 
 type Props = {
   id: string
-  data?: BaseResponse<UserInfo>
+  variant?: string
+  postId?: string
 }
 
-export const Profile = ({ id }: Props) => {
+export const Profile = ({ id, postId, variant }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const { data, refetch } = useGetProfileQuery(id)
 
@@ -32,7 +31,7 @@ export const Profile = ({ id }: Props) => {
       {isAuth && <Sidebar />}
       <div className={isAuth ? s.containerInfo : s.containerInfoPublic}>
         <ProfileInfo userData={data?.data} />
-        <Posts userData={data?.data} />
+        <Posts userData={data?.data} postId={postId} variant={variant} />
       </div>
     </div>
   )
