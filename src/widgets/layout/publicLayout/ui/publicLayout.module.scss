@@ -2,6 +2,8 @@
 @import 'src/styles/variables';
 
 .container {
+  @include flex-block;
+
   .main {
     @include flex-block($justify-content: 'unset');
 
@@ -9,9 +11,11 @@
     height: calc(100vh - $header-height);
     padding-top: 24px;
   }
-}
 
-.widePaddingButton {
-  padding-right: 36px;
-  padding-left: 36px;
+  // .main {
+  //  display: flex;
+  //  flex-direction: column;
+  //  gap: 0;
+  //  min-height: calc(660px - $header-height);
+  // }
 }

@@ -1,5 +1,4 @@
-import { SignUpParams } from '../model/types/types'
-
+import { SignUpParams } from '@/src/features/auth/signUp/service/types/signUpParams'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 
 export const signUp = baseApi.injectEndpoints({
