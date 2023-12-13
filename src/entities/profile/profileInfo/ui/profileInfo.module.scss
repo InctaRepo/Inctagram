@@ -1,5 +1,5 @@
-@import '../../../../styles/mixins';
-@import '../../../../styles/colors';
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
 
 @mixin wh($w, $h) {
   width: $w;
@@ -32,6 +32,16 @@
       cursor: pointer;
       margin: -115px 30px 96px 72px;
     }
+  }
+
+  .ava {
+    width: 100%;
+    max-width: 204px;
+    height: 100%;
+    max-height: 204px;
+    margin-right: 12px;
+
+    border-radius: 50%;
   }
 
   .avatar {

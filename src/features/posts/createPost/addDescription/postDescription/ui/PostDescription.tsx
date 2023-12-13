@@ -100,6 +100,7 @@ export const PostDescription = ({
                   src={data?.data?.avatar}
                   className={s.ava}
                   alt={'avatar'}
+                  priority={true}
                 />
               )}
               {!data?.data?.avatar && <AvatarImage className={s.ava} />}
