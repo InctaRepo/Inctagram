@@ -9,10 +9,10 @@ import { LoginForm } from './loginForm'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { getIsAuth } from '@/src/shared/hoc'
-import { useGetMeQuery } from '@/src/shared/hoc/service/authProvider'
+import { getIsAuth, useGetMeQuery } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { Loader } from '@/src/shared/ui/loader'
 
 export const SignIn: NextPageWithLayout = () => {
   const [loginUser, { isLoading, isSuccess }] = useSignInMutation()
@@ -30,13 +30,12 @@ export const SignIn: NextPageWithLayout = () => {
       router.push(RouteNames.PROFILE + `/` + id)
     }
   }, [isAuth, router, currentData])
-
   // if (isSuccess) {
   //   router.push(RouteNames.PROFILE)
   //
   //   return <></>
   // }
-  // if (isLoading) return <Loader />
+  if (isLoading) return <Loader />
   const submit = (data: SingInParams) => {
     loginUser(data)
       .unwrap()

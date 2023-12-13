@@ -7,11 +7,11 @@ import { useForm } from 'react-hook-form'
 
 import s from './passwordRecoveryForm.module.scss'
 
-import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/model/types/passwordRecoveryParams'
+import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks'
 import { passwordRecoverySchema } from '@/src/shared/schemas/passwordRecoverySchema'
-import { Button } from '@/src/shared/ui/button/Button'
+import { Button } from '@/src/shared/ui/button'
 import { Card } from '@/src/shared/ui/card'
 import { ControlledRecaptcha, ControlledTextField } from '@/src/shared/ui/controlled'
 import { ForgotForm } from '@/src/shared/ui/recaptcha'

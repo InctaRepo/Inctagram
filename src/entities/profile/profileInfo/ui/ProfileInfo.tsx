@@ -16,16 +16,6 @@ type Props = {
 export const ProfileInfo = ({ userData }: Props) => {
   return (
     <div className={s.container}>
-      {userData?.avatar.endsWith(
-        'https://inctagram-pirates.s3.eu-central-1.amazonaws.com/user-avatars/null'
-      ) && (
-        <div className={s.photo}>
-          <div className={s.ellipse}></div>
-          <div className={s.image}>
-            <ImgOutline />
-          </div>
-        </div>
-      )}
       {!userData?.avatar && (
         <div className={s.photo}>
           <div className={s.ellipse}></div>
@@ -34,27 +24,16 @@ export const ProfileInfo = ({ userData }: Props) => {
           </div>
         </div>
       )}
-      {userData?.avatar === null && (
-        <div className={s.photo}>
-          <div className={s.ellipse}></div>
-          <div className={s.image}>
-            <ImgOutline />
-          </div>
-        </div>
+      {userData?.avatar && (
+        <Image
+          width={204}
+          height={204}
+          src={userData?.avatar}
+          className={s.avatar}
+          alt={'avatar'}
+          priority={true}
+        />
       )}
-      {!userData?.avatar.endsWith(
-        'https://inctagram-pirates.s3.eu-central-1.amazonaws.com/user-avatars/null'
-      ) &&
-        userData?.avatar && (
-          <Image
-            width={204}
-            height={204}
-            src={userData?.avatar}
-            className={s.avatar}
-            alt={'avatar'}
-            priority={true}
-          />
-        )}
       <div className={s.dataProfile}>
         <DataProfile userData={userData} />
       </div>

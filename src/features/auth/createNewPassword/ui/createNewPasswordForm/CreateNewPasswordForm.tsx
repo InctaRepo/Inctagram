@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
 import s from './createNewPasswordForm.module.scss'
@@ -20,7 +19,6 @@ type CreateNewPasswordProps = {
 
 export const CreateNewPasswordForm = ({ onSubmitHandler }: CreateNewPasswordProps) => {
   const { t } = useTranslate()
-  const router = useRouter()
 
   const {
     control,

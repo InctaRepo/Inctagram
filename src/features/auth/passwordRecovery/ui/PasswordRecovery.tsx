@@ -5,11 +5,11 @@ import { usePasswordRecoveryMutation } from '../service/passwordRecovery'
 import { PasswordRecoveryForm } from './passwordRecoveryForm'
 import s from './passwordRecoveryForm/passwordRecoveryForm.module.scss'
 
-import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/model/types/passwordRecoveryParams'
+import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button/Button'
+import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import { Modal } from 'src/shared/ui/modal'
 
 export const PasswordRecovery = () => {
   const [passwordRecovery] = usePasswordRecoveryMutation()
