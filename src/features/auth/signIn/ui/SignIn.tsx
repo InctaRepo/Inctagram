@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { useRouter } from 'next/router'
 
@@ -23,18 +23,18 @@ export const SignIn: NextPageWithLayout = () => {
   const id = user?.data?.userId
   const { currentData } = useGetProfileQuery(id)
 
-  useEffect(() => {
-    if (!currentData?.data && isAuth) {
-      router.push(RouteNames.PROFILE_SETTINGS)
-    } else if (currentData?.data && isAuth) {
-      router.push(RouteNames.PROFILE + `/` + id)
-    }
-  }, [isAuth, router, currentData])
-  // if (isSuccess) {
-  //   router.push(RouteNames.PROFILE)
-  //
-  //   return <></>
-  // }
+  // useEffect(() => {
+  //   if (!currentData?.data && isAuth) {
+  //     router.push(RouteNames.PROFILE_SETTINGS)
+  //   } else if (currentData?.data && isAuth) {
+  //     router.push(RouteNames.PROFILE + `/` + id)
+  //   }
+  // }, [isAuth, router, currentData])
+  if (isSuccess) {
+    router.push(RouteNames.PROFILE + `/` + id)
+
+    return <></>
+  }
   if (isLoading) return <Loader />
   const submit = (data: SingInParams) => {
     loginUser(data)

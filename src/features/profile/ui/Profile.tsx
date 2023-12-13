@@ -34,7 +34,7 @@ export const Profile = ({ id, postId, variant }: Props) => {
     }
   }, [isAuth])
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (!data?.data && isAuth) {
       router.push(RouteNames.PROFILE_SETTINGS)
     }
@@ -42,7 +42,7 @@ export const Profile = ({ id, postId, variant }: Props) => {
   if (isLoading)
     return (
       <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
-    )
+    )*/
 
   return (
     <div className={s.container}>
