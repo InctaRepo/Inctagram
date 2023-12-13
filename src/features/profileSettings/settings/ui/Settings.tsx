@@ -4,9 +4,8 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { parseISO } from 'date-fns'
 import AvatarEditor from 'react-avatar-editor'
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form' // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
 import { AvaModal } from '@/src/features/profileSettings/settings/avaModal'
 import s from '@/src/features/profileSettings/settings/ui/settings.module.scss'
@@ -134,7 +133,7 @@ export const Settings = ({
       </div>
       <div className={s.content}>
         <div className={s.photoContent}>
-          {!croppedAvatar && !userData?.avatar && userData?.avatar === null && (
+          {!croppedAvatar && userData?.avatar === null && (
             <div className={s.photo}>
               <div className={s.ellipse}></div>
               <div className={s.image}>
@@ -144,7 +143,7 @@ export const Settings = ({
           )}
           <div className={s.addBtn}>
             <AvaModal
-              avatar={userData?.avatar.endsWith('/null') ? null : userData?.avatar!}
+              avatar={userData?.avatar!}
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}
               isModalOpen={isModalOpen}

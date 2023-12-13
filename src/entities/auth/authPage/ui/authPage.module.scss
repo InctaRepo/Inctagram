@@ -1,5 +1,5 @@
-@import '../../../../styles/mixins';
-@import '../../../../styles/typography';
+@import 'src/styles/mixins';
+@import 'src/styles/typography';
 
 .container {
   @include flex-block;
