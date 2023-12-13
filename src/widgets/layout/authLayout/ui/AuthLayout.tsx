@@ -11,7 +11,7 @@ import { Header } from '@/src/shared/header'
 import { AuthProvider, getUserId } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
 
-const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
+export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   const userId = useAppSelector(getUserId)
   const { asPath } = useRouter()
   const isAuthPath = asPath.startsWith(RouteNames.AUTH)
@@ -43,3 +43,4 @@ export const getAuthLayout = (page: ReactElement) => {
     </>
   )
 }
+export const getPublicLayout = (page: ReactElement) => <AuthLayout>{page}</AuthLayout>
