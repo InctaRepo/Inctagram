@@ -1,1 +1,1 @@
-export { getAuthLayout } from './ui/AuthLayout'
+export { getAuthLayout, getPublicLayout } from './ui/AuthLayout'

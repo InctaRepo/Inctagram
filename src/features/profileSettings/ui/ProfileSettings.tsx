@@ -14,28 +14,36 @@ import { Settings } from '@/src/features/profileSettings/settings'
 import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
-import { getUserId, getUsername } from '@/src/shared/hoc'
+import { getIsAuth, getUserId, getUsername } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useErrorToast } from '@/src/shared/hooks'
 import { ProfileSettingSchema } from '@/src/shared/schemas/profileSettingSchema'
 import { Sidebar } from '@/src/shared/sidebar'
+import { Loader } from '@/src/shared/ui/loader'
 
 export const ProfileSettings = () => {
   const { push } = useRouter()
+  const router = useRouter()
   const dispatch = useAppDispatch()
   const [updateProfile, { isSuccess: isSuccessUpdate }] = useUpdateProfileMutation()
-  const [createProfile, { isSuccess }] = useCreateProfileMutation()
+  const [createProfile, { isSuccess: isSuccessCreate }] = useCreateProfileMutation()
   const userId = useAppSelector(getUserId)
   const userName = useAppSelector(getUsername)
-  const { data: profile } = useGetProfileQuery(userId)
+  const { data: profile, isSuccess: isSuccessProfile, isLoading } = useGetProfileQuery(userId)
   const [uploadAvatar] = useUploadAvatarMutation()
-
+  const isAuth = useAppSelector(getIsAuth)
   const editorRef = useRef<AvatarEditor>(null)
   const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const successRes =
-    (isSuccess && profile?.resultCode === 0) || (isSuccessUpdate && profile?.resultCode === 0)
+    (isSuccessCreate && profile?.resultCode === 0) || (isSuccessUpdate && profile?.resultCode === 0)
+  const [avatar, setAvatar] = useState<FormData | null>(null)
 
+  // useEffect(() => {
+  //   if (profile?.data?.firstName !== undefined && isAuth) {
+  //     router.push(RouteNames.PROFILE + `/` + userId)
+  //   }
+  // }, [isAuth, router, profile])
   const handleSavePhoto = () => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas()
@@ -49,9 +57,10 @@ export const ProfileSettings = () => {
           convertFileToBase64(file, (file64: string) => {
             setCroppedAvatar(file64)
           })
+          setAvatar(formData)
           setIsModalOpen(false)
           setSelectedImage(null)
-          uploadAvatar(formData)
+          // uploadAvatar(formData)
         }
       })
     }
@@ -68,13 +77,16 @@ export const ProfileSettings = () => {
           city: data.city,
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
-          // avatar: data.avatar,
+          avatar: data.avatar,
         })
           .then(() => {
-            setIsModalOpen(false)
-            setSelectedImage(null)
+            uploadAvatar(avatar!)
+              .unwrap()
+              .then(() => {
+                setIsModalOpen(false)
+                setSelectedImage(null)
+              })
           })
-
           .then(() => {
             // dispatch(getProfile.initiate(userId))
             push(RouteNames.PROFILE + '/' + userId)
@@ -88,11 +100,15 @@ export const ProfileSettings = () => {
           city: data.city,
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
-          // avatar: data.avatar,
+          avatar: data.avatar,
         })
           .then(() => {
-            setIsModalOpen(false)
-            setSelectedImage(null)
+            uploadAvatar(avatar!)
+              .unwrap()
+              .then(() => {
+                setIsModalOpen(false)
+                setSelectedImage(null)
+              })
           })
           .then(() => {
             // dispatch(getProfile.initiate(userId))
@@ -107,10 +123,17 @@ export const ProfileSettings = () => {
   }
 
   useEffect(() => {
-    if (isSuccess || isSuccessUpdate) {
+    if (isSuccessCreate || isSuccessUpdate) {
       setToastHandler()
     }
-  }, [isSuccess, isSuccessUpdate])
+  }, [isSuccessCreate, isSuccessUpdate])
+  // useEffect(() => {
+  //   if (isSuccessProfile && profile?.data?.firstName !== undefined && isAuth) {
+  //     router.push(RouteNames.PROFILE + `/` + userId)
+  //   }
+  // }, [isSuccessProfile])
+
+  if (isLoading) return <Loader />
 
   return (
     <div className={s.container}>
