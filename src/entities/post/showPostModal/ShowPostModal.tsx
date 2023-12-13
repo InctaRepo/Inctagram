@@ -28,7 +28,7 @@ type Props = {
   callBack?: (id: string | null) => void
   variant?: string
   postId?: string
-  postData?: GetUserPostResponse
+  postData: GetUserPostResponse
 } & ComponentProps<'div'>
 
 export const ShowPostModal = ({

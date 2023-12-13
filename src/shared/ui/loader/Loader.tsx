@@ -1,9 +1,11 @@
-import s from './loader.module.scss'
+import { UseInfiniteScroll } from '@/src/shared/hooks/ useInfiniteScroll'
 
-export const Loader = () => {
-  return (
-    <div className={s.Loader}>
-      <span className={s.loader}></span>
-    </div>
-  )
+type LoaderProps = Pick<UseInfiniteScroll, 'isLoading' | 'loadMoreCallback' | 'isLastPage'>
+
+export const Loader = ({ isLoading, isLastPage, loadMoreCallback }: LoaderProps) => {
+  if (isLoading) return <p>Loading...</p>
+
+  if (isLastPage) return <p>End of content</p>
+
+  return <div ref={loadMoreCallback}>load more callback</div>
 }
