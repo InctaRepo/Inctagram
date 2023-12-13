@@ -29,20 +29,16 @@ export const Profile = ({ id, postId, variant }: Props) => {
     useInfiniteScroll(postData)
 
   useEffect(() => {
-    if (isAuth) {
+    if (data?.resultCode !== 5 && isAuth) {
       refetch()
     }
   }, [isAuth])
-
-  /*useEffect(() => {
-    if (!data?.data && isAuth) {
+  useEffect(() => {
+    if (isSuccess && data?.resultCode === 5 && isAuth) {
       router.push(RouteNames.PROFILE_SETTINGS)
     }
-  }, [isAuth, router, data])
-  if (isLoading)
-    return (
-      <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
-    )*/
+  }, [isAuth, router, data, isSuccess])
+  if (isLoading) return <Loader />
 
   return (
     <div className={s.container}>
