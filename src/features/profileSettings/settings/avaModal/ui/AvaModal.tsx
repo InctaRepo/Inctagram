@@ -10,6 +10,7 @@ import { useDeleteAvatarMutation } from '@/src/features/profileSettings/settings
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
+import { Loader } from '@/src/shared/ui/loader'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import CloseIcon from 'public/icon/closeIcon.svg'
@@ -46,7 +47,7 @@ export const AvaModal = ({
   const [errorMessage, setErrorMessage] = useState('')
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const showError = !!errorMessage && errorMessage.length > 0
-  const [deleteAvatar] = useDeleteAvatarMutation()
+  const [deleteAvatar, { isLoading }] = useDeleteAvatarMutation()
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -83,9 +84,11 @@ export const AvaModal = ({
       })
   }
 
+  if (isLoading) return <Loader />
+
   return (
     <div className={s.container}>
-      {avatar !== null && (
+      {croppedAvatar && avatar !== null && (
         <>
           <Image
             width={196}
@@ -117,14 +120,78 @@ export const AvaModal = ({
           </Modal>
         </>
       )}
-      {/*{avatar === null && (*/}
-      {/*  <div className={s.photo}>*/}
-      {/*    <div className={s.ellipse}></div>*/}
-      {/*    <div className={s.image}>*/}
-      {/*      <ImgOutline />*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*)}*/}
+      {croppedAvatar && !avatar && (
+        <>
+          <Image
+            width={196}
+            height={196}
+            src={croppedAvatar ? croppedAvatar : avatar}
+            alt="ava"
+            className={s.ava}
+            style={{
+              borderRadius: '50%',
+              width: 196,
+              height: 196,
+              marginBottom: 20,
+            }}
+          />
+          <div onClick={() => setOpenDeleteModal(true)}>
+            <CloseIcon className={s.deleteAvatarIcon} />
+          </div>
+          <Modal
+            modalWidth={'sm'}
+            open={openDeleteModal}
+            onClose={onModalClose}
+            title={t.profile.profileSetting.deletePhoto}
+            cancelButtonName={t.profile.editPost.no}
+            actionButtonName={t.profile.editPost.yes}
+            onCancel={onModalClose}
+            onAction={discardHandler}
+          >
+            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+          </Modal>
+        </>
+      )}
+      {!croppedAvatar && avatar! && (
+        <>
+          <Image
+            width={196}
+            height={196}
+            src={croppedAvatar ? croppedAvatar : avatar}
+            alt="ava"
+            className={s.ava}
+            style={{
+              borderRadius: '50%',
+              width: 196,
+              height: 196,
+              marginBottom: 20,
+            }}
+          />
+          <div onClick={() => setOpenDeleteModal(true)}>
+            <CloseIcon className={s.deleteAvatarIcon} />
+          </div>
+          <Modal
+            modalWidth={'sm'}
+            open={openDeleteModal}
+            onClose={onModalClose}
+            title={t.profile.profileSetting.deletePhoto}
+            cancelButtonName={t.profile.editPost.no}
+            actionButtonName={t.profile.editPost.yes}
+            onCancel={onModalClose}
+            onAction={discardHandler}
+          >
+            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+          </Modal>
+        </>
+      )}
+      {!croppedAvatar && (avatar === null || !avatar) && (
+        <div className={s.photo}>
+          <div className={s.ellipse}></div>
+          <div className={s.image}>
+            <ImgOutline />
+          </div>
+        </div>
+      )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
         <Typography variant={'h3'} className={s.addBtn}>
           {t.profile.profileSetting.addAProfilePhoto}

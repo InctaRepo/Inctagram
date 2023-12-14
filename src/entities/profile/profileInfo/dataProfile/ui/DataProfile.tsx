@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { useRouter } from 'next/router'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
