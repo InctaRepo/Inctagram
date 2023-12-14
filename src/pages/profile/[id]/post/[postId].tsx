@@ -5,7 +5,8 @@ import { Profile } from '@/src/features/profile'
 import { getProfile } from '@/src/features/profile/service'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 import { wrapper } from '@/src/store'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { getPublicLayout } from '@/src/widgets/layout/authLayout'
+
 //http://localhost:3000/profile/d8d525f5-8d47-46f2-8b27-d7488ea9e40e/post/f5fefcf3-0d41-49a0-9afe-babaf0342a4c
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
@@ -31,5 +32,5 @@ const MyPostPage: NextPageWithLayout = () => {
   return <Profile id={id} variant="single post" postId={postId} />
 }
 
-MyPostPage.getLayout = getAuthLayout
+MyPostPage.getLayout = getPublicLayout
 export default MyPostPage

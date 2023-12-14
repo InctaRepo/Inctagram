@@ -16,7 +16,7 @@ import CloseIcon from 'public/icon/closeIcon.svg'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
 
 type Props = {
-  avatar: string | null
+  avatar: string
   setAvatar?: (avatar: string | null) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
@@ -117,14 +117,14 @@ export const AvaModal = ({
           </Modal>
         </>
       )}
-      {avatar === null && (
-        <div className={s.photo}>
-          <div className={s.ellipse}></div>
-          <div className={s.image}>
-            <ImgOutline />
-          </div>
-        </div>
-      )}
+      {/*{avatar === null && (*/}
+      {/*  <div className={s.photo}>*/}
+      {/*    <div className={s.ellipse}></div>*/}
+      {/*    <div className={s.image}>*/}
+      {/*      <ImgOutline />*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*)}*/}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
         <Typography variant={'h3'} className={s.addBtn}>
           {t.profile.profileSetting.addAProfilePhoto}
