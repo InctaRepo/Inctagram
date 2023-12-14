@@ -25,25 +25,3 @@ export default function App({ Component, ...rest }: AppPropsWithLayout) {
     </HistoryProvider>
   )
 }
-
-// function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-//   useLoader()
-//   const getLayout = Component.getLayout ?? (page => page)
-//
-//   return (
-//     <>{getLayout(<Component {...pageProps} />)}</>
-//     // <ProgressBar>
-//     //     {/*<AuthProvider>*/}
-//     //     {getLayout(<Component {...pageProps} />)}
-//     //     {/*</AuthProvider>*/}
-//     //     <ToastContainer
-//     //         position="bottom-left"
-//     //         autoClose={4000}
-//     //         closeOnClick
-//     //         draggable
-//     //         pauseOnFocusLoss={false}
-//     //         pauseOnHover={false}
-//     //     />
-//     // </ProgressBar>
-//   )
-// }

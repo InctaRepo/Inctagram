@@ -7,35 +7,25 @@ import { SingInParams, useSignInMutation } from '../authByEmail'
 import { LoginForm } from './loginForm'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service'
 import { RouteNames } from '@/src/shared/const/routeNames'
-import { getIsAuth, useGetMeQuery } from '@/src/shared/hoc'
-import { useAppSelector } from '@/src/shared/hooks'
+import { useGetMeQuery } from '@/src/shared/hoc'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 import { Loader } from '@/src/shared/ui/loader'
 
 export const SignIn: NextPageWithLayout = () => {
   const [loginUser, { isLoading, isSuccess }] = useSignInMutation()
-  const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
   const [errorServer, setErrorServer] = useState<string>('')
-  const { data: user } = useGetMeQuery()
-  const id = user?.data?.userId
-  const { currentData } = useGetProfileQuery(id)
+  const { data: user, isLoading: isLoadingMe, isSuccess: isSuccessMe } = useGetMeQuery()
+  const userId = user?.data?.userId!
 
-  // useEffect(() => {
-  //   if (!currentData?.data && isAuth) {
-  //     router.push(RouteNames.PROFILE_SETTINGS)
-  //   } else if (currentData?.data && isAuth) {
-  //     router.push(RouteNames.PROFILE + `/` + id)
-  //   }
-  // }, [isAuth, router, currentData])
-  if (isSuccess) {
-    router.push(RouteNames.PROFILE + `/` + id)
+  if (isSuccess && isSuccessMe && userId) {
+    router.push(RouteNames.PROFILE + `/` + userId)
 
-    return <></>
+    return <Loader />
   }
   if (isLoading) return <Loader />
+  if (isLoadingMe) return <Loader />
   const submit = (data: SingInParams) => {
     loginUser(data)
       .unwrap()

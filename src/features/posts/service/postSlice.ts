@@ -17,6 +17,7 @@ const slice = createSlice({
   },
 })
 
+//TODO Он нам нужен?
 export const postReducer = slice.reducer
 
 export const postActions = slice.actions

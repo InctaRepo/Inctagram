@@ -22,18 +22,21 @@ type Props = {
 export const Profile = ({ id, postId, variant }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
-  const { data, refetch, isLoading, isSuccess } = useGetProfileQuery(id)
+  const { data, refetch, isLoading, isSuccess } = useGetProfileQuery(id, {
+    refetchOnMountOrArgChange: true,
+  })
 
   useEffect(() => {
-    if (data?.resultCode !== 5 && isAuth) {
+    if (data?.resultCode === 0) {
       refetch()
     }
-  }, [isAuth])
-  useEffect(() => {
-    if (isSuccess && data?.resultCode === 5 && isAuth) {
-      router.push(RouteNames.PROFILE_SETTINGS)
-    }
-  }, [isAuth, router, data, isSuccess])
+  }, [])
+
+  if (isSuccess && data?.resultCode === 5 && isAuth) {
+    router.push(RouteNames.PROFILE_SETTINGS)
+
+    return <Loader />
+  }
   if (isLoading) return <Loader />
 
   return (
@@ -46,3 +49,4 @@ export const Profile = ({ id, postId, variant }: Props) => {
     </div>
   )
 }
+//TODO нужен ли variant?
