@@ -132,23 +132,6 @@ export const Settings = ({
       </div>
       <div className={s.content}>
         <div className={s.photoContent}>
-          {/*{!croppedAvatar && userData?.avatar === null && (*/}
-          {/*  <div className={s.photo}>*/}
-          {/*    <div className={s.ellipse}></div>*/}
-          {/*    <div className={s.image}>*/}
-          {/*      <ImgOutline />*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*)}*/}
-          {/*{userData?.avatar === null && (*/}
-          {/*  <div className={s.photo}>*/}
-          {/*    <div className={s.ellipse}></div>*/}
-          {/*    <div className={s.image}>*/}
-          {/*      <ImgOutline />*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*)}*/}
-          {/*{croppedAvatar && userData?.avatar !== null && (*/}
           <div className={s.addBtn}>
             <AvaModal
               avatar={userData?.avatar!}
@@ -162,7 +145,6 @@ export const Settings = ({
               handleSavePhoto={handleSavePhoto}
             />
           </div>
-          {/*)}*/}
         </div>
 
         <form onSubmit={handleSubmit(submitData)} className={s.editForm}>

@@ -15,14 +15,13 @@ import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
 import { getUserId, getUsername } from '@/src/shared/hoc'
-import { useAppDispatch, useAppSelector, useErrorToast } from '@/src/shared/hooks'
+import { useAppSelector, useErrorToast } from '@/src/shared/hooks'
 import { ProfileSettingSchema } from '@/src/shared/schemas/profileSettingSchema'
 import { Sidebar } from '@/src/shared/sidebar'
 import { Loader } from '@/src/shared/ui/loader'
 
 export const ProfileSettings = () => {
   const { push } = useRouter()
-  const dispatch = useAppDispatch()
   const [updateProfile, { isSuccess: isSuccessUpdate, isLoading: isLoadingUpdate }] =
     useUpdateProfileMutation()
   const [createProfile, { isSuccess: isSuccessCreate, isLoading: isLoadingCreate }] =
@@ -56,7 +55,6 @@ export const ProfileSettings = () => {
           setAvatar(formData)
           setIsModalOpen(false)
           setSelectedImage(null)
-          // uploadAvatar(formData)
         }
       })
     }
@@ -65,30 +63,6 @@ export const ProfileSettings = () => {
   const submit = (data: ProfileSettingSchema) => {
     profile?.data
       ? updateProfile({
-          userId: userId, //id was taken from the line 29
-          username: data.username,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          country: data.country,
-          city: data.city,
-          dateOfBirth: data.dateOfBirthday,
-          aboutMe: data.aboutMe,
-          avatar: data.avatar,
-        }).then(() => {
-          uploadAvatar(avatar!)
-            .unwrap()
-            .then(() => {
-              setIsModalOpen(false)
-              setSelectedImage(null)
-            })
-        })
-      : // .then(() => {
-        //   if (isSuccessAvatar) {
-        //     dispatch(getProfile.initiate(userId))
-        //     push(RouteNames.PROFILE + '/' + userId)
-        //   }
-        // })
-        createProfile({
           userId: userId,
           username: data.username,
           firstName: data.firstName,
@@ -106,12 +80,24 @@ export const ProfileSettings = () => {
               setSelectedImage(null)
             })
         })
-    // .then(() => {
-    //   if (isSuccessAvatar) {
-    //     dispatch(getProfile.initiate(userId))
-    //     push(RouteNames.PROFILE + '/' + userId)
-    //   }
-    // })
+      : createProfile({
+          userId: userId,
+          username: data.username,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          country: data.country,
+          city: data.city,
+          dateOfBirth: data.dateOfBirthday,
+          aboutMe: data.aboutMe,
+          avatar: data.avatar,
+        }).then(() => {
+          uploadAvatar(avatar!)
+            .unwrap()
+            .then(() => {
+              setIsModalOpen(false)
+              setSelectedImage(null)
+            })
+        })
   }
 
   const setToastHandler = () => {
@@ -120,22 +106,14 @@ export const ProfileSettings = () => {
     }
   }
 
-  // useEffect(() => {
-  //   if (isSuccessCreate || isSuccessUpdate) {
-  //     setToastHandler()
-  //   }
-  // }, [isSuccessCreate, isSuccessUpdate])
   useEffect(() => {
     if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar)) {
       setToastHandler()
-      // dispatch(getProfile.initiate(userId))
       push(RouteNames.PROFILE + '/' + userId)
     }
   }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar])
 
-  // if (!isSuccessProfile) return <Loader />
   if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) return <Loader />
-  // if (isLoading) return <Loader />
   if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar))
     return <Loader />
 

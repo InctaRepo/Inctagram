@@ -2,7 +2,7 @@
 import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const Home = () => {
-  return <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>Home</div>
+  return <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}></div>
 }
 
 Home.getLayout = getAuthLayout
