@@ -13,8 +13,8 @@ import { useAppSelector } from '@/src/shared/hooks'
 
 export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   const userId = useAppSelector(getUserId)
-  const { asPath } = useRouter()
-  const isAuthPath = asPath.startsWith(RouteNames.AUTH)
+  const { asPath, pathname } = useRouter()
+  const isAuthPath = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
 
   return (
     <div className={s.container}>

@@ -12,10 +12,10 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
-  const { push, asPath } = useRouter()
+  const { asPath, pathname } = useRouter()
 
   // const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath === PATH.ERROR_PAGE
-  const skipAuthMe = asPath.startsWith(RouteNames.AUTH)
+  const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
   const { isLoading, error } = useGetMeQuery(undefined, {
     skip: skipAuthMe,
   })
@@ -23,12 +23,6 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
   const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH)
   const router = useRouter()
 
-  // if (!isAuthPage) {
-  //   push(RouteNames.SIGN_IN)
-  //   console.log('1')
-  //
-  //   return <></>
-  // }
   useEffect(() => {
     if (!isAuthPage) {
       router.push(RouteNames.SIGN_IN)

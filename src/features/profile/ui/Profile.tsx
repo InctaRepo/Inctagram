@@ -29,11 +29,12 @@ export const Profile = ({ id, postId, variant }: Props) => {
       refetch()
     }
   }, [isAuth])
-  useEffect(() => {
-    if (isSuccess && data?.resultCode === 5 && isAuth) {
-      router.push(RouteNames.PROFILE_SETTINGS)
-    }
-  }, [isAuth, router, data, isSuccess])
+
+  if (isSuccess && data?.resultCode === 5 && isAuth) {
+    router.push(RouteNames.PROFILE_SETTINGS)
+
+    return <Loader />
+  }
   if (isLoading) return <Loader />
 
   return (
@@ -46,3 +47,4 @@ export const Profile = ({ id, postId, variant }: Props) => {
     </div>
   )
 }
+//TODO нужен ли variant?
