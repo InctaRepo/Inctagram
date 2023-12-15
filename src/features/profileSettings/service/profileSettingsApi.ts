@@ -9,7 +9,7 @@ const profileSettingsApi = baseApi.injectEndpoints({
         url: `users/profile/${userId}`,
         body: patch,
       }),
-      // invalidatesTags: ['Profile'],
+      invalidatesTags: ['Profile'],
     }),
     updateProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
       query: ({ userId, ...patch }) => ({
@@ -17,7 +17,7 @@ const profileSettingsApi = baseApi.injectEndpoints({
         url: `users/profile/${userId}`,
         body: patch,
       }),
-      // invalidatesTags: ['Profile'],
+      invalidatesTags: ['Profile'],
     }),
     uploadAvatar: builder.mutation<BaseResponse, FormData>({
       query: FormData => ({
@@ -25,7 +25,7 @@ const profileSettingsApi = baseApi.injectEndpoints({
         method: 'POST',
         body: FormData,
       }),
-      // invalidatesTags: ['Profile'],
+      invalidatesTags: ['Profile'],
     }),
   }),
 })

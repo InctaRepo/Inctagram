@@ -22,9 +22,7 @@ type Props = {
 export const Profile = ({ id, postId, variant }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
-  const { data, refetch, isLoading, isSuccess } = useGetProfileQuery(id, {
-    refetchOnMountOrArgChange: true,
-  })
+  const { data, refetch, isLoading, isSuccess } = useGetProfileQuery(id)
 
   useEffect(() => {
     if (data?.resultCode === 0) {

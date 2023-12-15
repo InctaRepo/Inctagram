@@ -21,10 +21,9 @@ export const ProfileInfo = ({ userData }: Props) => {
         <ImageAva
           width={204}
           height={204}
-          src={userData?.avatar}
+          src={userData?.avatar + '?nocache=' + Math.random()}
           className={s.avatar}
           alt={'avatar'}
-          priority={true}
         />
       )}
       <div className={s.dataProfile}>

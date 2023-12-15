@@ -32,9 +32,10 @@
   .ava {
     display: flex;
 
-    width: 204px;
+    width: 196px;
     height: 100%;
-    min-height: 200px;
+    min-height: 196px;
+    margin-bottom: 20px;
 
     background-color: $color-dark-300;
     border-radius: 50%;
