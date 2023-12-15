@@ -25,7 +25,6 @@ import {
 } from '@/src/shared/ui/controlled'
 import { Options } from '@/src/shared/ui/selectBox'
 import { TabsComponent } from '@/src/shared/ui/tabsComponent'
-import ImgOutline from 'public/icon/imgOutlineIcon.svg'
 
 type Props = {
   onSubmitHandler: (data: ProfileSettingSchema) => void
@@ -133,14 +132,6 @@ export const Settings = ({
       </div>
       <div className={s.content}>
         <div className={s.photoContent}>
-          {!croppedAvatar && userData?.avatar === null && (
-            <div className={s.photo}>
-              <div className={s.ellipse}></div>
-              <div className={s.image}>
-                <ImgOutline />
-              </div>
-            </div>
-          )}
           <div className={s.addBtn}>
             <AvaModal
               avatar={userData?.avatar!}
@@ -155,6 +146,7 @@ export const Settings = ({
             />
           </div>
         </div>
+
         <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
           <DevTool control={control} />
           <ControlledTextField

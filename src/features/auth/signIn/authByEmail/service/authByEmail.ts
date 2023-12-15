@@ -11,7 +11,7 @@ const authByEmail = baseApi.injectEndpoints({
         url: 'auth/login',
         body: data,
       }),
-      invalidatesTags: ['Me'],
+      invalidatesTags: ['Me', 'Profile'],
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled

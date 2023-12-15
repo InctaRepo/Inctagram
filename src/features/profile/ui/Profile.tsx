@@ -64,3 +64,4 @@ export const Profile = ({ id, postId, variant }: Props) => {
     </div>
   )
 }
+//TODO нужен ли variant?

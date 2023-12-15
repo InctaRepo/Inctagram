@@ -2,12 +2,12 @@ import React from 'react'
 
 import s from './page404.module.scss'
 
-import { Typography } from '@/src/shared/ui/typography'
+import Error404 from 'public/icon/404.svg'
 
 export const Page404 = () => {
   return (
     <div className={s.container}>
-      <Typography>404 - Page Not Found</Typography>
+      <Error404 alt={'404'} className={s.error404}></Error404>
     </div>
   )
 }
