@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { ProfileInfo } from '@/src/entities/profile/profileInfo'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Posts, useGetUserPostQuery, useGetUserPostsQuery } from '@/src/features/posts'
+import { Posts, useGetUserPostsQuery } from '@/src/features/posts'
 import { useGetProfileQuery } from '@/src/features/profile/service'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { getIsAuth } from '@/src/shared/hoc'
