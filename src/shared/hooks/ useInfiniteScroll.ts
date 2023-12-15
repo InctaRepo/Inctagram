@@ -7,21 +7,21 @@ import axios from 'axios'
 import { useRouter } from 'next/dist/client/router'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { GetUserPostResponse } from '@/src/features/posts'
+import { GetUserPostResponse, GetUserPostsResponse } from '@/src/features/posts'
 
 export interface UseInfiniteScroll {
   isLoading: boolean
   loadMoreCallback: (el: HTMLDivElement) => void
   hasDynamicPosts: boolean
-  dynamicPosts: GetUserPostResponse[]
+  dynamicPosts: GetUserPostsResponse[]
   isLastPage: boolean
 }
 
-export const useInfiniteScroll = (posts: GetUserPostResponse[]): UseInfiniteScroll => {
+export const useInfiniteScroll = (posts: GetUserPostsResponse[]): UseInfiniteScroll => {
   const [isLoading, setIsLoading] = useState(false)
   const [page, setPage] = useState(1)
   const [hasDynamicPosts, setHasDynamicPosts] = useState(false)
-  const [dynamicPosts, setDynamicPosts] = useState<GetUserPostResponse[]>(posts)
+  const [dynamicPosts, setDynamicPosts] = useState<GetUserPostsResponse[]>(posts)
   const [isLastPage, setIsLastPage] = useState(false)
   const router = useRouter()
   const userId = router.query.id as string
@@ -39,19 +39,24 @@ export const useInfiniteScroll = (posts: GetUserPostResponse[]): UseInfiniteScro
 
         // this timeout debounces the intersection events
         loadMoreTimeoutRef.current = setTimeout(() => {
-          axios.get(`https://inctagram.space/api/v1/posts/${userId}/${page}`).then(resp => {
-            setPage(page + 1)
-            const newPosts = resp?.data['posts']
+          axios
+            .get<{ data: GetUserPostsResponse }>(
+              `https://inctagram.space/api/v1/posts/${userId}?sortDirection=asc`
+            )
+            .then(resp => {
+              setPage(page + 1)
+              const newPosts = resp?.data.data.items
 
-            if (newPosts?.length) {
-              const newDynamicPosts = [...dynamicPosts, ...newPosts]
+              console.log(resp)
+              if (newPosts?.length) {
+                const newDynamicPosts = [...dynamicPosts, ...newPosts]
 
-              setDynamicPosts(newDynamicPosts)
-              setIsLastPage(newDynamicPosts?.length === resp?.data['total'])
-              setHasDynamicPosts(true)
-              setIsLoading(false)
-            }
-          })
+                setDynamicPosts(newDynamicPosts)
+                setIsLastPage(newDynamicPosts?.length === resp?.data.data.pagesCount)
+                setHasDynamicPosts(true)
+                setIsLoading(false)
+              }
+            })
         }, 500)
       }
     },

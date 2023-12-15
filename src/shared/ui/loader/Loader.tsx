@@ -9,5 +9,5 @@ export const Loader = ({ isLoading, isLastPage, loadMoreCallback }: LoaderProps)
 
   if (isLastPage) return <p>End of content</p>
 
-  return <div ref={loadMoreCallback}>load more callback</div>
+  return <div ref={loadMoreCallback}>load </div>
 }

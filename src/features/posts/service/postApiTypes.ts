@@ -34,7 +34,7 @@ export type CreatePostResponse = {
 export type GetPostResponse = CreatePostResponse
 
 export type GetUserPostsResponse = {
-  items: CreatePostResponse[]
+  items: GetUserPostResponse[]
   page: number
   pageSize: number
   pagesCount: number

@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react'
 import { ShowPostModal } from '@/src/entities/post/showPostModal'
 import {
   GetUserPostResponse,
+  GetUserPostsResponse,
   useGetUserPostQuery,
   useGetUserPostsQuery,
 } from '@/src/features/posts'
@@ -16,22 +17,21 @@ type Props = Pick<UseInfiniteScroll, 'isLoading' | 'loadMoreCallback' | 'isLastP
   userData?: UserInfo
   variant?: string
   postId?: string
-  postData: GetUserPostResponse
+  posts?: GetUserPostResponse[]
 }
 
 export const Posts = ({
   userData,
   postId,
   variant,
-  postData,
+  posts,
   isLoading,
   loadMoreCallback,
   isLastPage,
 }: Props) => {
   const [currentId, setCurrentId] = useState<null | string>(null)
-  // const user = useAppSelector(getAuthUser)
 
-  const { data } = useGetUserPostsQuery(userData?.userId)
+  // const user = useAppSelector(getAuthUser)
 
   const getCurrentPostId = useCallback((id: string | null) => {
     setCurrentId(id)
@@ -39,7 +39,7 @@ export const Posts = ({
 
   return (
     <div className={s.container}>
-      {data?.data?.items.map((el, index) => (
+      {posts?.map((el, index) => (
         <ShowPostModal
           callBack={getCurrentPostId}
           modalWidth={'edit'}
@@ -51,7 +51,6 @@ export const Posts = ({
           userData={userData}
           postId={postId}
           variant={variant}
-          postData={postData}
         />
       ))}
       <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />

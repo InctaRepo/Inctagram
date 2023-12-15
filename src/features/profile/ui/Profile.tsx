@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { ProfileInfo } from '@/src/entities/profile/profileInfo'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Posts, useGetUserPostQuery } from '@/src/features/posts'
+import { Posts, useGetUserPostQuery, useGetUserPostsQuery } from '@/src/features/posts'
 import { useGetProfileQuery } from '@/src/features/profile/service'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { getIsAuth } from '@/src/shared/hoc'
@@ -22,23 +22,29 @@ type Props = {
 export const Profile = ({ id, postId, variant }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
-  const { data, refetch } = useGetProfileQuery(id)
+  const { data, refetch, isSuccess } = useGetProfileQuery(id)
 
-  const { data: postData } = useGetUserPostQuery(postId!)
+  const { data: posts } = useGetUserPostsQuery(data?.data?.userId)
+
   const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
-    useInfiniteScroll(postData)
+    useInfiniteScroll(posts?.data?.items)
 
+  console.log(posts)
   useEffect(() => {
     if (data?.resultCode !== 5 && isAuth) {
       refetch()
     }
   }, [isAuth])
-  useEffect(() => {
+  /* useEffect(() => {
     if (isSuccess && data?.resultCode === 5 && isAuth) {
       router.push(RouteNames.PROFILE_SETTINGS)
     }
   }, [isAuth, router, data, isSuccess])
-  if (isLoading) return <Loader />
+  if (isLoading)
+    return (
+      <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
+    )*/
+  // console.log(posts?.data.items)
 
   return (
     <div className={s.container}>
@@ -49,7 +55,7 @@ export const Profile = ({ id, postId, variant }: Props) => {
           userData={data?.data}
           postId={postId}
           variant={variant}
-          postData={hasDynamicPosts ? dynamicPosts : postData?.data}
+          posts={hasDynamicPosts ? dynamicPosts : posts?.data.items}
           isLoading={isLoading}
           loadMoreCallback={loadMoreCallback}
           isLastPage={isLastPage}
