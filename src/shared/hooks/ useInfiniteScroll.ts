@@ -10,18 +10,18 @@ import { useRouter } from 'next/dist/client/router'
 import { GetUserPostResponse, GetUserPostsResponse } from '@/src/features/posts'
 
 export interface UseInfiniteScroll {
-  isLoading: boolean
-  loadMoreCallback: (el: HTMLDivElement) => void
-  hasDynamicPosts: boolean
-  dynamicPosts: GetUserPostsResponse[]
-  isLastPage: boolean
+  isLoading?: boolean
+  loadMoreCallback?: (el: HTMLDivElement) => void
+  hasDynamicPosts?: boolean
+  dynamicPosts?: GetUserPostResponse[]
+  isLastPage?: boolean
 }
 
-export const useInfiniteScroll = (posts: GetUserPostsResponse[]): UseInfiniteScroll => {
+export const useInfiniteScroll = (posts: GetUserPostResponse[]): UseInfiniteScroll => {
   const [isLoading, setIsLoading] = useState(false)
   const [page, setPage] = useState(1)
   const [hasDynamicPosts, setHasDynamicPosts] = useState(false)
-  const [dynamicPosts, setDynamicPosts] = useState<GetUserPostsResponse[]>(posts)
+  const [dynamicPosts, setDynamicPosts] = useState<GetUserPostResponse[]>(posts)
   const [isLastPage, setIsLastPage] = useState(false)
   const router = useRouter()
   const userId = router.query.id as string
@@ -47,7 +47,6 @@ export const useInfiniteScroll = (posts: GetUserPostsResponse[]): UseInfiniteScr
               setPage(page + 1)
               const newPosts = resp?.data.data.items
 
-              console.log(resp)
               if (newPosts?.length) {
                 const newDynamicPosts = [...dynamicPosts, ...newPosts]
 

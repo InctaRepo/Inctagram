@@ -24,27 +24,26 @@ export const Profile = ({ id, postId, variant }: Props) => {
   const router = useRouter()
   const { data, refetch, isSuccess } = useGetProfileQuery(id)
 
-  const { data: posts } = useGetUserPostsQuery(data?.data?.userId)
+  const { data: posts } = useGetUserPostsQuery(data?.data.userId)
 
+  if (!posts) {
+    return null
+  }
   const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
-    useInfiniteScroll(posts?.data?.items)
+    useInfiniteScroll(posts.data.items)
 
-  console.log(posts)
   useEffect(() => {
-    if (data?.resultCode !== 5 && isAuth) {
+    if (data?.resultCode === 0) {
       refetch()
     }
-  }, [isAuth])
-  /* useEffect(() => {
-    if (isSuccess && data?.resultCode === 5 && isAuth) {
-      router.push(RouteNames.PROFILE_SETTINGS)
-    }
-  }, [isAuth, router, data, isSuccess])
-  if (isLoading)
-    return (
-      <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
-    )*/
-  // console.log(posts?.data.items)
+  }, [])
+
+  /*if (isSuccess && data?.resultCode === 5 && isAuth) {
+    router.push(RouteNames.PROFILE_SETTINGS)
+
+    return <Loader />
+  }
+  if (isLoading) return <Loader />*/
 
   return (
     <div className={s.container}>
