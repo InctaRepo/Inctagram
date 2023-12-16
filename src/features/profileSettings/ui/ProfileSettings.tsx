@@ -72,14 +72,16 @@ export const ProfileSettings = () => {
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
           avatar: data.avatar,
-        }).then(() => {
-          uploadAvatar(avatar!)
-            .unwrap()
-            .then(() => {
-              setIsModalOpen(false)
-              setSelectedImage(null)
-            })
         })
+          .then(() => {
+            if (avatar !== null) {
+              uploadAvatar(avatar!)
+            }
+          })
+          .then(() => {
+            setIsModalOpen(false)
+            setSelectedImage(null)
+          })
       : createProfile({
           userId: userId,
           username: data.username,
@@ -90,14 +92,16 @@ export const ProfileSettings = () => {
           dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
           avatar: data.avatar,
-        }).then(() => {
-          uploadAvatar(avatar!)
-            .unwrap()
-            .then(() => {
-              setIsModalOpen(false)
-              setSelectedImage(null)
-            })
         })
+          .then(() => {
+            if (avatar !== null) {
+              uploadAvatar(avatar!)
+            }
+          })
+          .then(() => {
+            setIsModalOpen(false)
+            setSelectedImage(null)
+          })
   }
 
   const setToastHandler = () => {

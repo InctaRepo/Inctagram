@@ -93,15 +93,9 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar}
+            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
             alt="ava"
             className={s.ava}
-            style={{
-              borderRadius: '50%',
-              width: 196,
-              height: 196,
-              marginBottom: 20,
-            }}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <CloseIcon className={s.deleteAvatarIcon} />
@@ -125,15 +119,9 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar}
+            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
             alt="ava"
             className={s.ava}
-            style={{
-              borderRadius: '50%',
-              width: 196,
-              height: 196,
-              marginBottom: 20,
-            }}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <CloseIcon className={s.deleteAvatarIcon} />
@@ -157,15 +145,9 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar}
+            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
             alt="ava"
             className={s.ava}
-            style={{
-              borderRadius: '50%',
-              width: 196,
-              height: 196,
-              marginBottom: 20,
-            }}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <CloseIcon className={s.deleteAvatarIcon} />

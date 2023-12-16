@@ -7,7 +7,7 @@ import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal
 import { RightDescription } from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription'
 import s from '@/src/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { GetUserPostResponse, useGetUserPostQuery } from '@/src/features/posts'
+import { useGetUserPostQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -67,7 +67,7 @@ export const ShowPostModal = ({
   }, [])
 
   return (
-    <div>
+    <div className={s.container}>
       <Image
         src={images[0].url}
         width={234}

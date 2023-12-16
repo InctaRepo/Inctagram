@@ -12,9 +12,19 @@ const postApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Post', 'Profile'],
     }),
-    getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string | string[] | undefined>({
-      query: userId => ({
-        url: `posts/${userId}`,
+    getUserPosts: builder.query<
+      BaseResponse<GetUserPostsResponse>,
+      {
+        userId: string
+        sortDirection?: string
+        pageNumber?: number
+        pageSize?: number
+      }
+    >({
+      query: arg => ({
+        url: `posts/${arg.userId}?sortDirection=${arg.sortDirection || 'asc'}&pageNumber=${
+          arg.pageNumber || 1
+        }&pageSize=${arg.pageSize || 10}`,
         method: 'GET',
       }),
       providesTags: ['Post'],

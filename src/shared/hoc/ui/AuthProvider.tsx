@@ -18,11 +18,12 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
     skip: skipAuthMe,
   })
   const authMeData = useAppSelector(getUserId)
-  const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH)
+  const isAuthPage =
+    !!authMeData || asPath.startsWith(RouteNames.AUTH) || asPath.startsWith(RouteNames.PROFILE)
   const router = useRouter()
 
   useEffect(() => {
-    if (!isAuthPage) {
+    if (!isAuthPage || (asPath.endsWith(RouteNames.PROFILE_SETTINGS) && !authMeData)) {
       router.push(RouteNames.SIGN_IN)
     }
   }, [isAuthPage, router])
