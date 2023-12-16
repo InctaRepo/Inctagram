@@ -15,7 +15,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
 
   store.dispatch(getUserPost.initiate(postId))
   store.dispatch(getProfile.initiate(id))
-  store.dispatch(getUserPosts.initiate(id))
+  store.dispatch(getUserPosts.initiate({ userId: id }))
   await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
   return {
@@ -28,7 +28,6 @@ const MyPostPage: NextPageWithLayout = () => {
   const id = router.query.id as string
   const postId = router.query.postId as string
 
-  // return <ShowPostModal variant="single post" id={id} />
   return <Profile id={id} variant="single post" postId={postId} />
 }
 

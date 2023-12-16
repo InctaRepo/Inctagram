@@ -12,7 +12,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
   const id = context.query?.id as string
 
   store.dispatch(getProfile.initiate(id))
-  store.dispatch(getUserPosts.initiate(id))
+  store.dispatch(getUserPosts.initiate({ userId: id }))
   await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
   return {

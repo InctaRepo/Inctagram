@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 
 import { ShowPostModal } from '@/src/entities/post/showPostModal'
 import { useGetUserPostsQuery } from '@/src/features/posts'
@@ -12,16 +12,19 @@ type Props = {
   userData?: UserInfo
   variant?: string
   postId?: string
-  userId?: string
+  userId: string
 }
 
-export const Posts = ({ userData, postId, userId, variant }: Props) => {
+export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
   const [currentId, setCurrentId] = useState<null | string>(null)
   //TODO это нам нужно?
-  const { data: posts, isLoading: isLoadingPosts, isSuccess } = useGetUserPostsQuery(userId)
-
+  const {
+    data: posts,
+    isLoading: isLoadingPosts,
+    isSuccess,
+  } = useGetUserPostsQuery({ userId: userId })
   const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
-    useInfiniteScroll(posts?.data?.items!)
+    useInfiniteScroll(posts?.data?.items!, userId)
 
   const getCurrentPostId = useCallback((id: string | null) => {
     setCurrentId(id)
@@ -62,8 +65,12 @@ export const Posts = ({ userData, postId, userId, variant }: Props) => {
           />
         ))}
       {isSuccess && (
-        <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
+        <Loader
+          isLoading={isLoading}
+          isLastPage={hasDynamicPosts}
+          loadMoreCallback={loadMoreCallback}
+        />
       )}
     </div>
   )
-}
+})
