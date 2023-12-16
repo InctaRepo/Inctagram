@@ -21,11 +21,7 @@ export const useInfiniteScroll = (
   const [dynamicPosts, setDynamicPosts] = useState<GetUserPostResponse[]>(posts)
   const [isLastPage, setIsLastPage] = useState(false)
 
-  const {
-    data,
-    isLoading: isLoadingPosts,
-    isSuccess,
-  } = useGetUserPostsQuery({
+  const { data, isSuccess } = useGetUserPostsQuery({
     userId: userId!,
     pageNumber: page,
   })
