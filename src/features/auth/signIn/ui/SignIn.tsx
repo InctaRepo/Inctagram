@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
 
@@ -13,17 +13,17 @@ import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 import { Loader } from '@/src/shared/ui/loader'
 
 export const SignIn: NextPageWithLayout = () => {
-  const [loginUser, { isLoading, isSuccess }] = useSignInMutation()
+  const [loginUser, { isLoading, isSuccess, isUninitialized }] = useSignInMutation()
   const router = useRouter()
   const [errorServer, setErrorServer] = useState<string>('')
   const { data: user, isLoading: isLoadingMe, isSuccess: isSuccessMe } = useGetMeQuery()
   const userId = user?.data?.userId!
 
-  if (isSuccess && isSuccessMe && userId) {
-    router.push(RouteNames.PROFILE + `/` + userId)
-
-    return <Loader />
-  }
+  useEffect(() => {
+    if (isSuccess && isSuccessMe && userId) {
+      router.push(RouteNames.PROFILE + `/` + userId)
+    }
+  }, [isSuccess, isSuccessMe, userId])
   if (isLoading) return <Loader />
   if (isLoadingMe) return <Loader />
   const submit = (data: SingInParams) => {

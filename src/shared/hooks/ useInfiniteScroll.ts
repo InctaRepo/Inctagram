@@ -17,18 +17,32 @@ export interface UseInfiniteScroll {
   isLastPage?: boolean
 }
 
-export const useInfiniteScroll = (posts: GetUserPostResponse[]): UseInfiniteScroll => {
+export const useInfiniteScroll = (
+  posts: GetUserPostResponse[],
+  userId: string
+): UseInfiniteScroll => {
   const [isLoading, setIsLoading] = useState(false)
   const [page, setPage] = useState(2)
   const [hasDynamicPosts, setHasDynamicPosts] = useState(false)
   const [dynamicPosts, setDynamicPosts] = useState<GetUserPostResponse[]>(posts)
   const [isLastPage, setIsLastPage] = useState(false)
-  const router = useRouter()
-  const userId = router.query.id as string
+
+  const { data, isSuccess } = useGetUserPostsQuery({
+    userId: userId!,
+    pageNumber: page,
+  })
+
   const observerRef = useRef<IntersectionObserver>()
   const loadMoreTimeout: NodeJS.Timeout = setTimeout(() => null, 500)
   const loadMoreTimeoutRef = useRef<NodeJS.Timeout>(loadMoreTimeout)
+  let newPosts = null
 
+  useEffect(() => {
+    newPosts = data?.data.items
+    if (newPosts?.length === data?.data.totalCount) {
+      setIsLastPage(false)
+    }
+  }, [data, isSuccess, page])
   const handleObserver = useCallback(
     (entries: any[]) => {
       const target = entries[0]
@@ -39,27 +53,25 @@ export const useInfiniteScroll = (posts: GetUserPostResponse[]): UseInfiniteScro
 
         // this timeout debounces the intersection events
         loadMoreTimeoutRef.current = setTimeout(() => {
-          axios
-            .get<{ data: GetUserPostsResponse }>(
-              `https://inctagram.space/api/v1/posts/${userId}?pageNumber=${page}`
-            )
-            .then(resp => {
-              setPage(page + 1)
-              const newPosts = resp?.data.data.items
+          if (page < data?.data.pagesCount!) {
+            setPage(page + 1)
+          }
 
-              if (newPosts?.length) {
-                const newDynamicPosts = [...dynamicPosts, ...newPosts]
+          if (newPosts?.length < data?.data.totalCount!) {
+            const newDynamicPosts = [...dynamicPosts, ...newPosts!]
 
-                setDynamicPosts(newDynamicPosts)
-                setIsLastPage(newDynamicPosts?.length === resp?.data.data.pagesCount)
-                setHasDynamicPosts(true)
-                setIsLoading(false)
-              }
-            })
+            setDynamicPosts(newDynamicPosts)
+            setIsLastPage(newDynamicPosts?.length >= data?.data.totalCount!)
+            setHasDynamicPosts(true)
+            setIsLoading(false)
+          }
+          setIsLastPage(false)
+          setIsLoading(false)
         }, 500)
       }
+      setIsLoading(false)
     },
-    [loadMoreTimeoutRef, setIsLoading, page, dynamicPosts]
+    [loadMoreTimeoutRef, setIsLoading, page, dynamicPosts, isSuccess, newPosts]
   )
 
   const loadMoreCallback = useCallback(

@@ -1,6 +1,6 @@
 import { baseApi, BaseResponse } from '@/src/shared/api'
 
-export const deleteAvatar = baseApi.injectEndpoints({
+const deleteAvatar = baseApi.injectEndpoints({
   endpoints: builder => ({
     deleteAvatar: builder.mutation<BaseResponse, void>({
       query: () => ({

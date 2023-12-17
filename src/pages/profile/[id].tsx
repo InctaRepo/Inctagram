@@ -5,14 +5,14 @@ import { Profile } from '@/src/features/profile'
 import { getProfile, getRunningQueriesThunk } from '@/src/features/profile/service'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 import { wrapper } from '@/src/store/wrapper'
-import { getPublicLayout } from '@/src/widgets/layout/authLayout'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 //http://localhost:3000/profile/10a07b79-1bd3-4438-b21d-3a1c17c24cbb i need it for testing queries
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.query?.id as string
 
   store.dispatch(getProfile.initiate(id))
-  store.dispatch(getUserPosts.initiate(id))
+  store.dispatch(getUserPosts.initiate({ userId: id }))
   await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
   return {
@@ -27,5 +27,5 @@ const MyProfilePage: NextPageWithLayout = () => {
   return <Profile id={id} />
 }
 
-MyProfilePage.getLayout = getPublicLayout
+MyProfilePage.getLayout = getAuthLayout
 export default MyProfilePage
