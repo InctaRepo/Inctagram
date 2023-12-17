@@ -1,13 +1,12 @@
-import { useCallback, useRef, useState } from 'react'
-
-// eslint-disable-next-line import/order
-import axios from 'axios'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useRouter } from 'next/dist/client/router'
-
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { GetUserPostResponse, GetUserPostsResponse } from '@/src/features/posts'
+import {
+  GetUserPostResponse,
+  GetUserPostsResponse,
+  useGetUserPostsQuery,
+  // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+} from '@/src/features/posts'
 
 export interface UseInfiniteScroll {
   isLoading?: boolean
