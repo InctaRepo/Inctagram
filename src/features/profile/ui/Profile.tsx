@@ -22,7 +22,7 @@ type Props = {
 export const Profile = ({ id, postId, variant }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
-  const { data, refetch, isSuccess } = useGetProfileQuery(id)
+  const { data, isSuccess } = useGetProfileQuery(id)
 
   const { data: posts } = useGetUserPostsQuery(data?.data.userId)
 
@@ -32,11 +32,11 @@ export const Profile = ({ id, postId, variant }: Props) => {
   const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
     useInfiniteScroll(posts.data.items)
 
-  useEffect(() => {
-    if (data?.resultCode === 0) {
-      refetch()
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (data?.resultCode === 0) {
+  //     refetch()
+  //   }
+  // }, [])
 
   /*if (isSuccess && data?.resultCode === 5 && isAuth) {
     router.push(RouteNames.PROFILE_SETTINGS)

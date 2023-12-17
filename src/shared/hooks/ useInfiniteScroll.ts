@@ -19,7 +19,7 @@ export interface UseInfiniteScroll {
 
 export const useInfiniteScroll = (posts: GetUserPostResponse[]): UseInfiniteScroll => {
   const [isLoading, setIsLoading] = useState(false)
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(2)
   const [hasDynamicPosts, setHasDynamicPosts] = useState(false)
   const [dynamicPosts, setDynamicPosts] = useState<GetUserPostResponse[]>(posts)
   const [isLastPage, setIsLastPage] = useState(false)
@@ -41,7 +41,7 @@ export const useInfiniteScroll = (posts: GetUserPostResponse[]): UseInfiniteScro
         loadMoreTimeoutRef.current = setTimeout(() => {
           axios
             .get<{ data: GetUserPostsResponse }>(
-              `https://inctagram.space/api/v1/posts/${userId}?sortDirection=asc`
+              `https://inctagram.space/api/v1/posts/${userId}?pageNumber=${page}`
             )
             .then(resp => {
               setPage(page + 1)

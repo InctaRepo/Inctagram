@@ -51,6 +51,7 @@ export const Posts = ({
           userData={userData}
           postId={postId}
           variant={variant}
+          posts={posts}
         />
       ))}
       <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
