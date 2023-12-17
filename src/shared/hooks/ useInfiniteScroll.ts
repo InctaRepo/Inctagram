@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { GetUserPostResponse, useGetUserPostsQuery } from '@/src/features/posts'
+import {
+  GetUserPostResponse,
+  GetUserPostsResponse,
+  useGetUserPostsQuery,
+  // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+} from '@/src/features/posts'
 
 export interface UseInfiniteScroll {
   isLoading?: boolean
