@@ -61,7 +61,7 @@ export const ShowPostModal = ({
   }
 
   useEffect(() => {
-    if (variant === 'single post') {
+    if (variant === 'single post' && id === postId) {
       openClickHandler()
     }
   }, [])
