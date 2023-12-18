@@ -1,4 +1,9 @@
-import { GetUserPostResponse, GetUserPostsResponse } from './postApiTypes'
+import {
+  GetUserPostResponse,
+  GetUserPostsResponse,
+  UpdatePost,
+  UpdateResponse,
+} from './postApiTypes'
 
 import { baseApi, BaseResponse } from '@/src/shared/api'
 
@@ -22,7 +27,7 @@ const postApi = baseApi.injectEndpoints({
       }
     >({
       query: arg => ({
-        url: `posts/${arg.userId}?sortDirection=${arg.sortDirection || 'asc'}&pageNumber=${
+        url: `posts/${arg.userId}?sortDirection=${arg.sortDirection || 'desc'}&pageNumber=${
           arg.pageNumber || 1
         }&pageSize=${arg.pageSize || 10}`,
         method: 'GET',
@@ -36,6 +41,14 @@ const postApi = baseApi.injectEndpoints({
       }),
       providesTags: ['Post'],
     }),
+    updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
+      query: ({ postId, ...patch }) => ({
+        method: 'PUT',
+        url: `posts/${postId}`,
+        body: patch,
+      }),
+      invalidatesTags: ['Post', 'Profile'],
+    }),
   }),
 })
 
@@ -43,6 +56,7 @@ export const {
   useAddPostMutation,
   useGetUserPostsQuery,
   useGetUserPostQuery,
+  useUpdatePostMutation,
   util: { getRunningQueriesThunk },
 } = postApi
 
