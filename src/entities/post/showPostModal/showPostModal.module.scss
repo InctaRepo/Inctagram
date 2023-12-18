@@ -107,10 +107,12 @@
 }
 
 .wrapper {
-  @include wh(972px, 564px);
+  @include wh(100%, 100%);
 
   display: flex;
   flex-direction: row;
+  max-width: 972px;
+  max-height: 564px;
 }
 
 .editOption1 {
@@ -128,4 +130,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.postImage {
+  // width: 100%;
+  max-width: 234px;
+
+  // height: 100%;
+  max-height: 228px;
+}
+
+s.postImage2 {
+  width: auto;
+
+  // width: 100%;
+
+  height: auto;
+
+  // height: 100%;
 }

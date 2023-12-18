@@ -68,14 +68,20 @@ export const ShowPostModal = ({
 
   return (
     <div className={s.container}>
-      <Image
-        src={images[0].url}
-        width={234}
-        height={228}
-        alt={'post'}
-        onClick={openClickHandler}
-        priority={true}
-      />
+      <div className={s.postImage}>
+        <Image
+          src={images[0].url}
+          width={640}
+          height={640}
+          alt={'post'}
+          onClick={openClickHandler}
+          priority={true}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+      </div>
 
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}

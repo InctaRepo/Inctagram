@@ -1,5 +1,5 @@
-@import '../../../../styles/mixins';
-@import '../../../../styles/colors';
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
 
 @mixin wh($w, $h) {
   width: $w;
@@ -7,17 +7,24 @@
 }
 
 .imgContainer {
-  @include wh(490px, 564px);
+  @include wh(100%, 100%);
+
+  min-width: 490px;
+  max-height: 564px;
 }
 
 .carousel {
-  @include wh(490px, 562px);
+  @include wh(100%, 100%);
 
   position: relative;
+  min-width: 490px;
+  max-height: 562px;
 }
 
 .carouselDescription {
-  @include wh(490px, 504px);
+  @include wh(100%, 100%);
 
   position: relative;
+  min-width: 490px;
+  max-height: 504px;
 }
