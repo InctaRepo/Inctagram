@@ -4,9 +4,8 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { parseISO } from 'date-fns'
 import AvatarEditor from 'react-avatar-editor'
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form' // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
 import { AvaModal } from '@/src/features/profileSettings/settings/avaModal'
 import s from '@/src/features/profileSettings/settings/ui/settings.module.scss'
@@ -26,7 +25,6 @@ import {
 } from '@/src/shared/ui/controlled'
 import { Options } from '@/src/shared/ui/selectBox'
 import { TabsComponent } from '@/src/shared/ui/tabsComponent'
-import ImgOutline from 'public/icon/imgOutlineIcon.svg'
 
 type Props = {
   onSubmitHandler: (data: ProfileSettingSchema) => void
@@ -134,15 +132,12 @@ export const Settings = ({
       </div>
       <div className={s.content}>
         <div className={s.photoContent}>
-          {!croppedAvatar && !userData?.avatar && userData?.avatar === null && (
-            <div className={s.photo}>
-              <div className={s.ellipse}></div>
-              <ImgOutline className={s.image} />
-            </div>
-          )}
+
+          
+         
           <div className={s.addBtn}>
             <AvaModal
-              avatar={userData?.avatar.endsWith('/null') ? null : userData?.avatar!}
+              avatar={userData?.avatar!}
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}
               isModalOpen={isModalOpen}
@@ -154,6 +149,7 @@ export const Settings = ({
             />
           </div>
         </div>
+
         <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
           <DevTool control={control} />
           <ControlledTextField

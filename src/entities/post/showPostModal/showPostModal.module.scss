@@ -109,6 +109,7 @@
 .wrapper {
   @include wh(972px, 564px);
 
+  position: relative;
   display: flex;
   flex-direction: row;
 }
@@ -129,3 +130,5 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+
+

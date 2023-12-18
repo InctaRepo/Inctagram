@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic'
 
-import { AppLoader } from '@/src/shared/ui/appLoader'
+import { Loader } from '@/src/shared/ui/loader'
 
 export const Modal = dynamic(() => import('./BaseModal'), {
-  loading: () => <AppLoader />,
+  loading: () => <Loader />,
   ssr: false,
 })

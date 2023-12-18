@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Separator } from '@radix-ui/react-separator'
-import Image from 'next/image'
+import ImageAva from 'next/image'
 import { useForm } from 'react-hook-form'
 
 import { PostMenu } from '@/src/entities/post/postMenu'
@@ -69,8 +69,14 @@ export const RightDescription = ({
         <div className={s.title}>
           <div className={s.userHead}>
             <div className={s.userAvaHead}>
-              {userData ? (
-                <Image src={userData.avatar} width={36} height={36} alt={'ava'} className={s.ava} />
+              {userData?.avatar !== null ? (
+                <ImageAva
+                  src={userData?.avatar!}
+                  width={36}
+                  height={36}
+                  alt={'ava'}
+                  className={s.ava}
+                />
               ) : (
                 <AvatarImage className={s.ava} />
               )}
@@ -103,9 +109,9 @@ export const RightDescription = ({
             <div className={s.comments}>
               <div className={s.user}>
                 <div>
-                  {userData ? (
-                    <Image
-                      src={userData.avatar}
+                  {userData?.avatar !== null ? (
+                    <ImageAva
+                      src={userData?.avatar!}
                       width={36}
                       height={36}
                       alt={'ava'}

@@ -12,26 +12,18 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
-  const { push, asPath } = useRouter()
-  const authMeData = useAppSelector(getUserId)
-
-  // const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath === PATH.ERROR_PAGE
-  const skipAuthMe = asPath.startsWith(RouteNames.AUTH)
-  const { isLoading, error } = useGetMeQuery(undefined, {
+  const { asPath } = useRouter()
+  const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
+  const { isLoading } = useGetMeQuery(undefined, {
     skip: skipAuthMe,
   })
-
-  const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH)
+  const authMeData = useAppSelector(getUserId)
+  const isAuthPage =
+    !!authMeData || asPath.startsWith(RouteNames.AUTH) || asPath.startsWith(RouteNames.PROFILE)
   const router = useRouter()
 
-  // if (!isAuthPage) {
-  //   push(RouteNames.SIGN_IN)
-  //   console.log('1')
-  //
-  //   return <></>
-  // }
   useEffect(() => {
-    if (!isAuthPage) {
+    if (!isAuthPage || (asPath.endsWith(RouteNames.PROFILE_SETTINGS) && !authMeData)) {
       router.push(RouteNames.SIGN_IN)
     }
   }, [isAuthPage, router])

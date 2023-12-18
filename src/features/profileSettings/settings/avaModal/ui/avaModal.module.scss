@@ -33,8 +33,10 @@
     display: flex;
 
     width: 196px;
-    height: 196px;
-    min-height: 200px;
+
+    height: 100%;
+    min-height: 196px;
+
     margin-bottom: 20px;
 
     background-color: $color-dark-300;

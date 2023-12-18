@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "turbo dev": "turbo dev",
     "build": "next build",
+    "turbo build": "turbo type-check build",
     "build:production": "pnpm build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
@@ -96,6 +98,7 @@
     "husky": "^8.0.3",
     "sass": "^1.69.5",
     "storybook": "7.6.4",
-    "stylelint": "^15.11.0"
+    "stylelint": "^15.11.0",
+    "turbo": "^1.11.1"
   }
 }

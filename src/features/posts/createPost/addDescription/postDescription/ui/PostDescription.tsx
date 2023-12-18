@@ -6,8 +6,8 @@ import { useForm } from 'react-hook-form'
 
 import s from './postDescription.module.scss'
 
-import { useUpdatePostMutation } from '@/src/features/posts/createPost/addDescription/postDescription/service/updatePost'
 import { Image } from '@/src/features/posts/createPost/CreateNewPost'
+import { useUpdatePostMutation } from '@/src/features/posts/service/postApi'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -100,6 +100,7 @@ export const PostDescription = ({
                   src={data?.data?.avatar}
                   className={s.ava}
                   alt={'avatar'}
+                  priority={true}
                 />
               )}
               {!data?.data?.avatar && <AvatarImage className={s.ava} />}

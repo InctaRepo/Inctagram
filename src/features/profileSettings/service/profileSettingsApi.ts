@@ -3,10 +3,7 @@ import { baseApi, BaseResponse } from '@/src/shared/api'
 
 const profileSettingsApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    createProfile: builder.mutation<
-      BaseResponse,
-      Omit<UserInfo, 'avatar'> & Pick<UserInfo, 'userId'>
-    >({
+    createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
       query: ({ userId, ...patch }) => ({
         method: 'POST',
         url: `users/profile/${userId}`,
@@ -14,10 +11,7 @@ const profileSettingsApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Profile'],
     }),
-    updateProfile: builder.mutation<
-      BaseResponse,
-      Omit<UserInfo, 'avatar'> & Pick<UserInfo, 'userId'>
-    >({
+    updateProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
       query: ({ userId, ...patch }) => ({
         method: 'PUT',
         url: `users/profile/${userId}`,

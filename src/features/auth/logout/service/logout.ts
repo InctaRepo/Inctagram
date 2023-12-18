@@ -1,9 +1,8 @@
-import { AccessType } from '../../../auth/authService'
-import { clearToken } from '../../signIn'
-
+import { AccessType } from '@/src/features/auth/authService'
+import { clearToken } from '@/src/features/auth/signIn'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 
-export const logout = baseApi.injectEndpoints({
+const logout = baseApi.injectEndpoints({
   endpoints: build => ({
     logout: build.mutation<BaseResponse<AccessType>, void>({
       query: () => ({
@@ -26,4 +25,5 @@ export const logout = baseApi.injectEndpoints({
   }),
   overrideExisting: true,
 })
+
 export const { useLogoutMutation } = logout

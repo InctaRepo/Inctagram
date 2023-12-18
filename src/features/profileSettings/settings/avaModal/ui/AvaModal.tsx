@@ -10,13 +10,14 @@ import { useDeleteAvatarMutation } from '@/src/features/profileSettings/settings
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
+import { Loader } from '@/src/shared/ui/loader'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import DeleteIcon from 'public/icon/deleteAvaIcon.svg'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
 
 type Props = {
-  avatar: string | null
+  avatar: string
   setAvatar?: (avatar: string | null) => void
   isModalOpen: boolean
   setIsModalOpen: (isModalOpen: boolean) => void
@@ -45,7 +46,7 @@ export const AvaModal = ({
   const [errorMessage, setErrorMessage] = useState('')
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const showError = !!errorMessage && errorMessage.length > 0
-  const [deleteAvatar] = useDeleteAvatarMutation()
+  const [deleteAvatar, { isLoading }] = useDeleteAvatarMutation()
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -80,15 +81,72 @@ export const AvaModal = ({
       })
   }
 
+  if (isLoading) return <Loader />
+
   return (
     <div className={s.container}>
-      {avatar !== null && (
+      {croppedAvatar && avatar !== null && (
         <>
-          {avatar && <Image width={196} height={196} src={avatar} alt="ava" className={s.ava} />}
-          {croppedAvatar && (
-            <Image width={196} height={196} src={croppedAvatar} alt="ava" className={s.ava} />
-          )}
+          <Image
+            width={196}
+            height={196}
+            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            alt="ava"
+            className={s.ava}
+          />
+          <div onClick={() => setOpenDeleteModal(true)}>
+            <CloseIcon className={s.deleteAvatarIcon} />
+          </div>
+          <Modal
+            modalWidth={'sm'}
+            open={openDeleteModal}
+            onClose={onModalClose}
+            title={t.profile.profileSetting.deletePhoto}
+            cancelButtonName={t.profile.editPost.no}
+            actionButtonName={t.profile.editPost.yes}
+            onCancel={onModalClose}
+            onAction={discardHandler}
+          >
+            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+          </Modal>
+        </>
+      )}
+      {croppedAvatar && !avatar && (
+        <>
+          <Image
+            width={196}
+            height={196}
+            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            alt="ava"
+            className={s.ava}
+          />
+          <div onClick={() => setOpenDeleteModal(true)}>
+            <CloseIcon className={s.deleteAvatarIcon} />
+          </div>
+          <Modal
+            modalWidth={'sm'}
+            open={openDeleteModal}
+            onClose={onModalClose}
+            title={t.profile.profileSetting.deletePhoto}
+            cancelButtonName={t.profile.editPost.no}
+            actionButtonName={t.profile.editPost.yes}
+            onCancel={onModalClose}
+            onAction={discardHandler}
+          >
+            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+          </Modal>
+        </>
+      )}
+      {!croppedAvatar && avatar! && (
+        <>
 
+          <Image
+            width={196}
+            height={196}
+            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            alt="ava"
+            className={s.ava}
+          />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
@@ -106,7 +164,7 @@ export const AvaModal = ({
           </Modal>
         </>
       )}
-      {avatar === null && (
+      {!croppedAvatar && (avatar === null || !avatar) && (
         <div className={s.photo}>
           <div className={s.ellipse}></div>
           <div className={s.image}>
