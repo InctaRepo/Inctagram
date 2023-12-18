@@ -13,6 +13,7 @@ import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
 import { Loader } from '@/src/shared/ui/loader'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
+import CloseIcon from 'public/icon/closeIcon.svg'
 import DeleteIcon from 'public/icon/deleteAvaIcon.svg'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
 
@@ -139,7 +140,6 @@ export const AvaModal = ({
       )}
       {!croppedAvatar && avatar! && (
         <>
-
           <Image
             width={196}
             height={196}
