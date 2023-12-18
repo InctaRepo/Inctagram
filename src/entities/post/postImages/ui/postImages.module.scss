@@ -14,7 +14,7 @@
 }
 
 .carousel {
-  @include wh(100%, 100%);
+  @include wh(auto, auto);
 
   position: relative;
   min-width: 490px;
@@ -22,7 +22,7 @@
 }
 
 .carouselDescription {
-  @include wh(100%, 100%);
+  @include wh(auto, auto);
 
   position: relative;
   min-width: 490px;

@@ -8,7 +8,7 @@ import s from 'src/features/posts/editDeletePost/postDescription/editDescription
 import { Modal } from 'src/shared/ui/modal'
 
 export type ModalProps = {
-  id: string | string[] | undefined
+  id: string
   openDeleteModal: boolean
   setOpenDeleteModal: (openDeleteModal: boolean) => void
   setIsEditModalOpen?: (isEditModalOpen: boolean) => void
