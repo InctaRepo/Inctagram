@@ -13,6 +13,10 @@ import { getPublicLayout } from '@/src/widgets/layout/authLayout'
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const postId = context.query?.postId as string
+
+  // initiate: Это метод, предоставляемый RTK Query для запуска процесса загрузки данных. В данном случае он используется для запроса конкретного поста пользователя.
+  console.log(postId, 'jj')
+
   const id = context.query?.id as string
 
   store.dispatch(getUserPost.initiate(postId))
