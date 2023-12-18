@@ -67,7 +67,7 @@ export const BaseMenu = () => {
           />
         </LinkMenu>
       </div>
-      <div className={s.linkMenu}>
+      <div>
         <LinkMenu
           nameLink={t.profile.search}
           link={`${RouteNames.SEARCH}`}

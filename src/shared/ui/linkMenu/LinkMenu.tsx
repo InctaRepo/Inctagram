@@ -20,15 +20,15 @@ export const LinkMenu: FC<Props> = ({ children, variantIcon, handleClick, nameLi
     handleClick(variantIcon)
   }
   const styles = {
-    check: clsx(link?.startsWith('/' + variantIcon) && s.active),
+    check: clsx(s.container, link?.startsWith('/' + variantIcon) && s.active),
   }
 
   return (
     <div className={styles.check} onClick={handleItemClick}>
       <Link href={`${link}`} className={s.link}>
+        {children}
         <Typography variant="medium14" className={s.typography}>
-          <div className={styles.check}>{children}</div>
-          <div className={styles.check}>{nameLink}</div>
+          {nameLink}
         </Typography>
       </Link>
     </div>

@@ -94,7 +94,10 @@ export const SelectBox = ({
           {options.length > 2 ? (
             <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
               <Select.Viewport asChild>
-                <ScrollArea.Viewport className={s.scrollAreaViewport}>
+                <ScrollArea.Viewport
+                  className={s.scrollAreaViewport}
+                  style={{ overflowY: undefined }}
+                >
                   {options?.map((el, idx) => (
                     <Select.Item value={el.value.toString()} key={idx} className={s.line}>
                       {el.image}
