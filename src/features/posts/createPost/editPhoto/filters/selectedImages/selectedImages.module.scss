@@ -13,7 +13,10 @@
 
 .carousel {
   position: relative;
-  width: 490px;
+  display: flex;
+  align-items: center;
+
+  // width: 490px;
   height: 467px;
 }
 

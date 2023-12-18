@@ -7,7 +7,12 @@ type LoaderProps = Pick<UseInfiniteScroll, 'isLoading' | 'loadMoreCallback' | 'i
 export const Loader = ({ isLoading, isLastPage, loadMoreCallback }: LoaderProps) => {
   if (isLoading) return <span className={s.loader}></span>
 
-  if (isLastPage) return <p>End of content</p>
+  if (isLastPage)
+    return (
+      <div ref={loadMoreCallback}>
+        <p>End of content</p>
+      </div>
+    )
 
   return (
     <div ref={loadMoreCallback}>

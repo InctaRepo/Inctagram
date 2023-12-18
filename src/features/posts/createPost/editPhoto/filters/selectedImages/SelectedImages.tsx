@@ -75,7 +75,11 @@ export const SelectedImages = ({
               <div key={idx} className={s.carousel}>
                 <ImageWithFilter
                   alt={'img'}
-                  style={{ filter: activeFilter }}
+                  style={{
+                    filter: activeFilter,
+                    width: '100%',
+                    height: 'auto',
+                  }}
                   src={el.image ? el.image : ''}
                   width={490}
                   height={503}
@@ -94,7 +98,9 @@ export const SelectedImages = ({
                 alt={'image-with-filter'}
                 width={108}
                 height={108}
-                style={{ filter: el.filter }}
+                style={{
+                  filter: el.filter,
+                }}
                 className={s.image}
               />
               <div className={s.filterName}>
