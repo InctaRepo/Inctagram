@@ -24,7 +24,7 @@ type Props = {
   isEditModalOpen?: boolean
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
   images?: Images[]
-  id?: string | (string[] & string) | undefined
+  id: string
   description?: string
   createdAt?: Date
   userData?: UserInfo
