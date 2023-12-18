@@ -132,6 +132,9 @@ export const Settings = ({
       </div>
       <div className={s.content}>
         <div className={s.photoContent}>
+
+          
+         
           <div className={s.addBtn}>
             <AvaModal
               avatar={userData?.avatar!}
