@@ -28,7 +28,7 @@ export const ProfileSettings = () => {
     useCreateProfileMutation()
   const userId = useAppSelector(getUserId)
   const userName = useAppSelector(getUsername)
-  const { data: profile, isSuccess: isSuccessProfile, isLoading } = useGetProfileQuery(userId)
+  const { data: profile, isLoading } = useGetProfileQuery(userId)
   const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =
     useUploadAvatarMutation()
   const editorRef = useRef<AvatarEditor>(null)
