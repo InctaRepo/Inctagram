@@ -15,7 +15,7 @@ const postApi = baseApi.injectEndpoints({
         url: `posts/create`,
         body,
       }),
-      invalidatesTags: ['Post', 'Profile'],
+      invalidatesTags: ['Posts', 'Profile'],
     }),
     getUserPosts: builder.query<
       BaseResponse<GetUserPostsResponse>,
@@ -32,7 +32,7 @@ const postApi = baseApi.injectEndpoints({
         }&pageSize=${arg.pageSize || 10}`,
         method: 'GET',
       }),
-      providesTags: ['Post'],
+      providesTags: ['Posts'],
     }),
     getUserPost: builder.query<BaseResponse<GetUserPostResponse>, string | null>({
       query: postId => ({
@@ -47,7 +47,7 @@ const postApi = baseApi.injectEndpoints({
         url: `posts/${postId}`,
         body: patch,
       }),
-      invalidatesTags: ['Post', 'Profile'],
+      invalidatesTags: ['Post', 'Posts', 'Profile'],
     }),
   }),
 })

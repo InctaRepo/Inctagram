@@ -12,8 +12,7 @@ import { useGetUserPostQuery } from '@/src/features/posts'
 import { Images } from '@/src/features/posts/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
-import { getIsAuth } from '@/src/shared/hoc'
-import { getUsername } from '@/src/shared/hoc/model/selectors/getUsername/getUsername'
+import { getIsAuth, getUsername } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
 
 type Props = {
@@ -68,14 +67,20 @@ export const ShowPostModal = ({
 
   return (
     <div className={s.container}>
-      <Image
-        src={images[0].url}
-        width={234}
-        height={228}
-        alt={'post'}
-        onClick={openClickHandler}
-        priority={true}
-      />
+      <div className={s.postImage}>
+        <Image
+          src={images[0].url + '?nocache=' + Math.random()}
+          width={640}
+          height={640}
+          alt={'post'}
+          onClick={openClickHandler}
+          priority={true}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+      </div>
 
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}

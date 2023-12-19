@@ -7,8 +7,8 @@ import Delete from 'public/icon/deletePost.svg'
 import s from 'src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
 import { Modal } from 'src/shared/ui/modal'
 
-export type ModalProps = {
-  id: string | string[] | undefined
+type Props = {
+  id: string
   openDeleteModal: boolean
   setOpenDeleteModal: (openDeleteModal: boolean) => void
   setIsEditModalOpen?: (isEditModalOpen: boolean) => void
@@ -19,7 +19,7 @@ export const PostDeleteModal = ({
   openDeleteModal,
   setOpenDeleteModal,
   setIsEditModalOpen,
-}: ModalProps) => {
+}: Props) => {
   const { t } = useTranslate()
   const [deletePost] = useDeletePostMutation()
   const onModalClose = () => {

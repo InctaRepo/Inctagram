@@ -22,12 +22,18 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
     data: posts,
     isLoading: isLoadingPosts,
     isSuccess,
+    refetch,
   } = useGetUserPostsQuery({ userId: userId })
   const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts } = useInfiniteScroll(
     posts?.data?.items!,
     userId
   )
 
+  // useEffect(() => {
+  //   if (posts?.resultCode === 0) {
+  //     refetch()
+  //   }
+  // }, [])
   const getCurrentPostId = useCallback((id: string | null) => {
     setCurrentId(id)
   }, [])

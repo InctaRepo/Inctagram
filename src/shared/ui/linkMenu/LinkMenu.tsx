@@ -26,9 +26,9 @@ export const LinkMenu: FC<Props> = ({ children, variantIcon, handleClick, nameLi
   return (
     <div className={styles.check} onClick={handleItemClick}>
       <Link href={`${link}`} className={s.link}>
-        {children}
-        <Typography variant="medium14" className={s.typography}>
-          {nameLink}
+        <Typography variant="medium14" className={s.typography} as={'p'}>
+          <p className={styles.check}>{children}</p>
+          <p className={styles.check}>{nameLink}</p>
         </Typography>
       </Link>
     </div>

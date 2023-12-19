@@ -20,7 +20,16 @@ export const PostImages = ({ images, isDescription }: Props) => {
         <Slider {...SliderSettings}>
           {images?.map((el, idx) => (
             <div key={idx} className={isDescription ? s.carouselDescription : s.carousel}>
-              <Image alt={'img'} src={el.url} width={490} height={562} />
+              <Image
+                alt={'img'}
+                src={el.url}
+                width={490}
+                height={562}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}
+              />
             </div>
           ))}
         </Slider>

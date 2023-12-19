@@ -29,7 +29,11 @@ export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
                   src={el.image!}
                   width={490}
                   height={503}
-                  style={{ filter: activeFilter }}
+                  style={{
+                    filter: activeFilter,
+                    width: '100%',
+                    height: 'auto',
+                  }}
                 />
               </div>
             )
