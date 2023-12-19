@@ -115,7 +115,7 @@ export const ProfileSettings = () => {
       setToastHandler()
       push(RouteNames.PROFILE + '/' + userId)
     }
-  }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar])
+  }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar, avatar])
 
   if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) return <Loader />
   if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar))
