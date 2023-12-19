@@ -20,7 +20,7 @@ export const LinkMenu: FC<Props> = ({ children, variantIcon, handleClick, nameLi
     handleClick(variantIcon)
   }
   const styles = {
-    check: clsx(link?.startsWith('/' + variantIcon) && s.active),
+    check: clsx(s.container, link?.startsWith('/' + variantIcon) && s.active),
   }
 
   return (

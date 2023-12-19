@@ -14,6 +14,7 @@ import { Loader } from '@/src/shared/ui/loader'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import CloseIcon from 'public/icon/closeIcon.svg'
+import DeleteIcon from 'public/icon/deleteAvaIcon.svg'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
 
 type Props = {
@@ -31,7 +32,6 @@ type Props = {
 
 export const AvaModal = ({
   avatar,
-  setAvatar,
   croppedAvatar,
   setCroppedAvatar,
   isModalOpen,
@@ -66,8 +66,6 @@ export const AvaModal = ({
   const handleSliderChange = (e: Event, value: number | number[]) => {
     setSlideValue(value as number)
   }
-
-  // if (!isModalOpen) return null
 
   const onModalClose = () => {
     setOpenDeleteModal(false)
@@ -150,7 +148,7 @@ export const AvaModal = ({
             className={s.ava}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
-            <CloseIcon className={s.deleteAvatarIcon} />
+            <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
             modalWidth={'sm'}

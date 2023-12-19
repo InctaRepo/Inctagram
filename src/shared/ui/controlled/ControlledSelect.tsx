@@ -14,7 +14,7 @@ export const ControlledSelect = <T extends FieldValues>({
   ...rest
 }: ControlledSelectProps<T>) => {
   const {
-    field: { value, onBlur, onChange, ...restField },
+    field: { value, onBlur, onChange, ref, ...restField },
     fieldState: { error },
   } = useController({
     name,
