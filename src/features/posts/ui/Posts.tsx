@@ -72,13 +72,11 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
             variant={variant}
           />
         ))}
-      {isSuccess && (
-        <Loader
-          isLoading={isLoading}
-          isLastPage={hasDynamicPosts}
-          loadMoreCallback={loadMoreCallback}
-        />
-      )}
+      {/*<Loader*/}
+      {/*  isLoading={isLoading}*/}
+      {/*  isLastPage={hasDynamicPosts}*/}
+      {/*  loadMoreCallback={loadMoreCallback}*/}
+      {/*/>*/}
     </div>
   )
 })
