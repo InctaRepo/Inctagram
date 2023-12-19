@@ -28,7 +28,7 @@ export const ProfileSettings = () => {
     useCreateProfileMutation()
   const userId = useAppSelector(getUserId)
   const userName = useAppSelector(getUsername)
-  const { data: profile, isSuccess: isSuccessProfile, isLoading } = useGetProfileQuery(userId)
+  const { data: profile, isLoading } = useGetProfileQuery(userId)
   const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =
     useUploadAvatarMutation()
   const editorRef = useRef<AvatarEditor>(null)
@@ -115,7 +115,7 @@ export const ProfileSettings = () => {
       setToastHandler()
       push(RouteNames.PROFILE + '/' + userId)
     }
-  }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar])
+  }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar, avatar])
 
   if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) return <Loader />
   if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar))

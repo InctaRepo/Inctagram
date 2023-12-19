@@ -10,7 +10,6 @@ import { useDeleteAvatarMutation } from '@/src/features/profileSettings/settings
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
-import { Loader } from '@/src/shared/ui/loader'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import CloseIcon from 'public/icon/closeIcon.svg'
@@ -47,7 +46,7 @@ export const AvaModal = ({
   const [errorMessage, setErrorMessage] = useState('')
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const showError = !!errorMessage && errorMessage.length > 0
-  const [deleteAvatar, { isLoading }] = useDeleteAvatarMutation()
+  const [deleteAvatar] = useDeleteAvatarMutation()
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -81,8 +80,6 @@ export const AvaModal = ({
         setOpenDeleteModal(false)
       })
   }
-
-  if (isLoading) return <Loader />
 
   return (
     <div className={s.container}>
