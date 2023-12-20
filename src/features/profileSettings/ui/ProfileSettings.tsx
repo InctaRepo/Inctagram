@@ -120,6 +120,7 @@ export const ProfileSettings = () => {
   if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) return <Loader />
   if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar))
     return <Loader />
+  console.log()
 
   return (
     <div className={s.container}>
