@@ -32,6 +32,7 @@ export const Profile = ({ id, postId, variant }: Props) => {
   }, [])
   if (isSuccess && data?.resultCode === 5 && isAuth) {
     router.push(RouteNames.PROFILE_SETTINGS)
+    console.log()
 
     return <Loader />
   }
