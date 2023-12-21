@@ -10,7 +10,7 @@ export const Home = () => {
     <div className={s.container}>
       <Sidebar />
       <div className={s.containerInfo}>
-        <Typography>Home Page</Typography>
+        <Typography>Home Page hello</Typography>
       </div>
     </div>
   )
