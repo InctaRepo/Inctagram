@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import { DatePicker } from './DatePicker'
+
+import type { Meta, StoryObj } from '@storybook/react'
+
+import { DatePicker } from '@/src/shared/ui/datePicker'
 
 const meta = {
   title: 'Components/DataPicker',

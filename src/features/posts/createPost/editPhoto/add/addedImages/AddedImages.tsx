@@ -1,8 +1,11 @@
-import ImageToAdd from 'next/image'
 import React, { useEffect } from 'react'
-import { CloseIcon } from '@/src/assets/icons/close-icon'
+
+import ImageToAdd from 'next/image'
+
 import { Image } from '../../../CreateNewPost'
 import s from '../addedImages/AddedImages.module.scss'
+
+import CloseIcon from 'public/icon/closeIcon.svg'
 
 type Props = {
   addedImages: Image[]

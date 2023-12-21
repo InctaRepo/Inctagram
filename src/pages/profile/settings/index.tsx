@@ -1,25 +1,23 @@
-import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
-import { getProfileLayout } from '@/src/widgets/layout/profileLayout'
-import { getIsAuth } from '@/src/features/auth/authService'
-import { Settings } from '@/src/features/profile/settings'
-import { RouteNames } from '@/src/shared/const/routeNames'
-import { useAppSelector } from '@/src/shared/hooks'
-import { NextPageWithLayout } from '@/src/shared/service/types'
+import React from 'react'
+
+import { ProfileSettings } from '@/src/features/profileSettings'
+import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const SettingsPage: NextPageWithLayout = () => {
-  const isAuth = useAppSelector(getIsAuth)
-
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!isAuth) {
-      router.push(RouteNames.SIGN_IN)
-    }
-  }, [isAuth, router])
-
-  return isAuth && <Settings />
+  // const isAuth = useAppSelector(getIsAuth)
+  //
+  // const router = useRouter()
+  //
+  // useEffect(() => {
+  //   if (!isAuth) {
+  //     router.push(RouteNames.SIGN_IN)
+  //   }
+  // }, [isAuth, router])
+  //
+  // return isAuth && <ProfileSettings />
+  return <ProfileSettings />
 }
 
-SettingsPage.getLayout = getProfileLayout
+SettingsPage.getLayout = getAuthLayout
 export default SettingsPage

@@ -1,9 +1,12 @@
+import React, { ReactElement, ReactNode, useState } from 'react'
+
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import * as Select from '@radix-ui/react-select'
-import React, { ReactElement, ReactNode, useState } from 'react'
-import ChevronDown from 'public/icon/chevronDownIcon.svg'
-import { Typography } from '../typography'
+
 import styles from './SelectBox.module.scss'
+
+import { Typography } from '@/src/shared/ui/typography'
+import ChevronDown from 'public/icon/chevronDownIcon.svg'
 
 export type SelectProps = {
   onBlur?: () => void
@@ -91,7 +94,10 @@ export const SelectBox = ({
           {options.length > 2 ? (
             <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
               <Select.Viewport asChild>
-                <ScrollArea.Viewport className={s.scrollAreaViewport}>
+                <ScrollArea.Viewport
+                  className={s.scrollAreaViewport}
+                  style={{ overflowY: undefined }}
+                >
                   {options?.map((el, idx) => (
                     <Select.Item value={el.value.toString()} key={idx} className={s.line}>
                       {el.image}

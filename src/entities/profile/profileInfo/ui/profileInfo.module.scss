@@ -1,0 +1,65 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 39px;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 53px;
+
+  .photo {
+    justify-content: center;
+
+    .ellipse {
+      @include wh(192px, 192px);
+
+      cursor: pointer;
+      margin-top: 18px;
+      background-color: $color-dark-300;
+      border-radius: 50%;
+    }
+
+    .image {
+      cursor: pointer;
+      margin: -115px 30px 96px 72px;
+    }
+  }
+
+  .ava {
+    width: 100%;
+    max-width: 204px;
+    height: 100%;
+    max-height: 204px;
+    margin-right: 12px;
+
+    border-radius: 50%;
+  }
+
+  .avatar {
+    display: flex;
+    place-items: center center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 204px;
+    height: 100%;
+    max-height: 204px;
+
+    background-color: $color-dark-300;
+    border-radius: 50%;
+  }
+
+  .dataProfile {
+    width: 74%;
+    max-width: 680px;
+  }
+}

@@ -1,5 +1,7 @@
-import { clsx } from 'clsx'
 import { ComponentPropsWithoutRef, ReactNode } from 'react'
+
+import { clsx } from 'clsx'
+
 import s from './card.module.scss'
 
 type Props = {

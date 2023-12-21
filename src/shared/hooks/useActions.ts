@@ -1,11 +1,13 @@
+import { useMemo } from 'react'
+
 import {
   ActionCreator,
   ActionCreatorsMapObject,
   AsyncThunk,
   bindActionCreators,
 } from '@reduxjs/toolkit'
-import { useMemo } from 'react'
-import { useAppDispatch } from '../hooks'
+
+import { useAppDispatch } from '@/src/shared/hooks'
 
 /**
  * Данная функция useActions является React-хуком, который принимает объект actions с функциями-создателями действий (action creators)

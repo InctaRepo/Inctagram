@@ -1,5 +1,5 @@
+import { AuthPage } from '@/src/entities/auth/authPage'
 import EmailConfirmed from 'public/icon/emailComfirmedIcon.svg'
-import { AuthPage } from '../../authPage'
 
 export const EmailVerification = () => {
   return (

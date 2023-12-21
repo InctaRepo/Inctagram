@@ -1,8 +1,9 @@
 import React from 'react'
+
+import s from './message.module.scss'
+
 import { Sidebar } from '@/src/shared/sidebar'
 import { Typography } from '@/src/shared/ui/typography'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import s from '../profile/profile.module.scss'
 
 export const Message = () => {
   return (

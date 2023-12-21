@@ -1,24 +1,27 @@
-import React, { FC } from 'react'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { CreatePostModal } from '@/src/features/posts/createPost/CreateNewPost'
-import { HomeIcon } from '../../../assets/icons/HomeIcon'
-import { MessageIcon } from '../../../assets/icons/MessageIcon'
-import { ProfileIcon } from '../../../assets/icons/ProfileIcon'
-import { SearchIcon } from '../../../assets/icons/SearchIcon'
-import { RouteNames } from '../../../const/routeNames'
-import { variantIconLink } from '../../../const/variantIconLink'
-import { getUserId } from '../../../hoc/model/selectors/getUserId/getUserId'
-import { useAppSelector, useTranslate } from '../../../hooks'
-import { LinkMenu } from '../../../ui/linkMenu'
+import React from 'react'
+
 import s from './baseMenu.module.scss'
 
-type Props = {
-  variantIcon: variantIconLink
-  handleClick: (variant: string) => void
-}
-export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { CreateNewPost } from '@/src/features/posts/createPost'
+import { HomeIcon } from '@/src/shared/assets/icons/HomeIcon'
+import { MessageIcon } from '@/src/shared/assets/icons/MessageIcon'
+import { ProfileIcon } from '@/src/shared/assets/icons/ProfileIcon'
+import { SearchIcon } from '@/src/shared/assets/icons/SearchIcon'
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { getUserId } from '@/src/shared/hoc'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
+import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
+import { LinkMenu } from '@/src/shared/ui/linkMenu'
+
+export const BaseMenu = () => {
   const { t } = useTranslate()
   const userId = useAppSelector(getUserId)
+  const dispatch = useAppDispatch()
+  const variantIcon = useAppSelector(sidebarVariantIconSelector)
+  const handleClick = (variant: string) => {
+    dispatch(setVariantIcon(variant))
+  }
 
   return (
     <div className={s.container}>
@@ -36,7 +39,7 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
         </LinkMenu>
       </div>
       <div>
-        <CreatePostModal variantIcon={variantIcon} id={userId} />
+        <CreateNewPost />
       </div>
       <div className={s.linkMenu}>
         <LinkMenu
@@ -64,7 +67,7 @@ export const BaseMenu: FC<Props> = ({ variantIcon, handleClick }) => {
           />
         </LinkMenu>
       </div>
-      <div className={s.linkMenu}>
+      <div>
         <LinkMenu
           nameLink={t.profile.search}
           link={`${RouteNames.SEARCH}`}

@@ -1,9 +1,11 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import AddImage from 'public/icon/image.svg'
-import PlusCircleOutline from 'public/icon/plusCircleOutlineIcon.svg'
+
 import { Image } from '../../CreateNewPost'
 import { AddedImages } from '../../editPhoto/add/addedImages/AddedImages'
 import s from '../add/Add.module.scss'
+
+import AddImage from 'public/icon/image.svg'
+import PlusCircleOutline from 'public/icon/plusCircleOutlineIcon.svg'
 
 type Props = {
   addedImages: Image[]
@@ -38,7 +40,10 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
   }
 
   const handleImageUpload = async (e: any) => {
-    setAddedImages([...addedImages, { image: URL.createObjectURL(e.target.files[0]) }])
+    setAddedImages([
+      ...addedImages,
+      { image: URL.createObjectURL(e.target.files[0]), fileName: e.target.files[0].name },
+    ])
   }
 
   return (

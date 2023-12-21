@@ -1,5 +1,5 @@
-import { getAuthLayout } from 'src/widgets/layout/authLayout'
-import { InvalidLinkVerification } from '@/src/features/auth/invalidLinkVerification/ui/InvalidLinkVerification'
+import { InvalidLinkVerification } from '@/src/features/auth/invalidLinkVerification'
+import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const InvalidLinkVerificationPage = () => {
   return <InvalidLinkVerification />

@@ -1,8 +1,8 @@
+import { AccessType } from '@/src/features/auth/authService'
+import { clearToken } from '@/src/features/auth/signIn'
 import { baseApi, BaseResponse } from '@/src/shared/api'
-import { AccessType } from '../../../auth/authService'
-import { clearToken } from '../../signIn'
 
-export const logout = baseApi.injectEndpoints({
+const logout = baseApi.injectEndpoints({
   endpoints: build => ({
     logout: build.mutation<BaseResponse<AccessType>, void>({
       query: () => ({
@@ -12,12 +12,11 @@ export const logout = baseApi.injectEndpoints({
       invalidatesTags: ['Me'],
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
-          // const { data } = await queryFulfilled
+          const { data } = await queryFulfilled
 
-          // if (data) {
-          // localStorage.removeItem('accessToken')
-          dispatch(clearToken())
-          // }
+          if (data.resultCode === 0) {
+            dispatch(clearToken())
+          }
         } catch (e) {
           console.error(e)
         }
@@ -26,4 +25,5 @@ export const logout = baseApi.injectEndpoints({
   }),
   overrideExisting: true,
 })
+
 export const { useLogoutMutation } = logout

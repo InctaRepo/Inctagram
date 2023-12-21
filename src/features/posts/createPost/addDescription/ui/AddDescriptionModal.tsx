@@ -1,3 +1,5 @@
+import React, { ComponentProps, ReactNode } from 'react'
+
 import {
   Dialog,
   DialogContent,
@@ -7,13 +9,15 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
-import React, { ComponentProps, ReactNode } from 'react'
-import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
+
+import { Image } from '../../CreateNewPost'
+
+import s from './addDescriptionModal.module.scss'
+
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'
 import { Typography } from '@/src/shared/ui/typography'
-import { Image } from '../../CreateNewPost'
-import s from './addDescriptionModal.module.scss'
+import ArrowBackIcon from 'public/icon/arrowBackIcon.svg'
 
 export type ModalProps = {
   image?: string
@@ -91,7 +95,7 @@ export const AddDescriptionModal = ({
           <DialogContent className={classNames.content}>
             <div className={s.titleWrapper}>
               <button className={s.arrowButton} onClick={handleBackClick}>
-                <ArrowBack />
+                <ArrowBackIcon />
               </button>
 
               <DialogTitle className={s.DialogTitle}>

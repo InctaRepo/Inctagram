@@ -1,15 +1,16 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { StateSchema } from '@/src/store/types'
-import { appReducer } from '@/src/shared/app/appSlice'
-import { authReducer } from '@/src/features/auth/authService/authSlice'
+
+import { authReducer } from '@/src/features/auth/authService'
 import { signInReducer } from '@/src/features/auth/signIn'
-import { postReducer } from '@/src/features/posts/service/postSlice'
-import { profileReducer } from '@/src/features/profile/service/profileSlice'
+import { postReducer } from '@/src/features/posts/service'
+import { profileReducer } from '@/src/features/profile/service'
 import { baseApi } from '@/src/shared/api'
-import { authMeReducer } from '@/src/shared/hoc/model/slice/authMeSlice'
-import { loadState, saveState } from '@/src/shared/lib/localStorage/localStorage'
-import { menuReducer } from '@/src/shared/sidebar/model/slice/menuSlice'
+import { appReducer } from '@/src/shared/app'
+import { authMeReducer } from '@/src/shared/hoc'
+import { loadState, saveState } from '@/src/shared/lib/localStorage'
+import { menuReducer } from '@/src/shared/sidebar'
+import { StateSchema } from '@/src/store/types'
 
 const rootReducer: ReducersMapObject<StateSchema> = {
   [baseApi.reducerPath]: baseApi.reducer,

@@ -111,7 +111,7 @@
 .scrollAreaRoot {
   --scrollbar-size: 10px;
 
-  overflow-y: hidden;
+  overflow: hidden;
   height: var(--radix-select-content-available-height);
   border-radius: 4px;
 }
@@ -123,10 +123,7 @@
 }
 
 .scrollAreaScrollbar {
-  /* disable browser handling of all panning and zooming gestures on touch devices */
   touch-action: none;
-
-  /* ensures no selection */
   user-select: none;
 
   display: flex;
@@ -158,7 +155,7 @@
   border-radius: 10px;
 }
 
-.ScrollAreaThumb::before {
+.scrollAreaThumb::before {
   content: '';
 
   position: absolute;

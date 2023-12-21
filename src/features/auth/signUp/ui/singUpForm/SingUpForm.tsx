@@ -1,19 +1,22 @@
+import { useEffect } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+
+import s from './singUpForm.module.scss'
+
+import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
+import { useTranslate } from '@/src/shared/hooks'
 import GithubIcon from 'public/icon/gitHubIcon.svg'
 import GoogleIcon from 'public/icon/googleIcon.svg'
-import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { RouteNames } from 'src/shared/const/routeNames'
 import { createSignUpSchema, SignUpFormSchema } from 'src/shared/schemas/signUpSchema'
 import { Button } from 'src/shared/ui/button'
 import { Card } from 'src/shared/ui/card'
 import { ControlledCheckbox, ControlledTextField } from 'src/shared/ui/controlled'
 import { Typography } from 'src/shared/ui/typography'
-import s from './singUpForm.module.scss'
 
 type Props = {
   onSubmitHandler: (data: SignUpFormSchema) => void

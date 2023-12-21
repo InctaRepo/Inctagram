@@ -6,17 +6,17 @@ export type MenuState = {
 
 const initialState: MenuState = { variantIcon: null }
 
-const slice = createSlice({
+const menuSlice = createSlice({
   initialState,
 
   name: 'menu',
   reducers: {
-    setVariantIcon: (state, action: PayloadAction<string>) => {
+    setVariantIcon: (state, action: PayloadAction<string | null>) => {
       state.variantIcon = action.payload
     },
   },
 })
 
-export const menuReducer = slice.reducer
+export const { reducer: menuReducer } = menuSlice
 
-export const menuActions = slice.actions
+export const { setVariantIcon } = menuSlice.actions

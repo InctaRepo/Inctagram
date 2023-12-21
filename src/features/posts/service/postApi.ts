@@ -1,4 +1,3 @@
-import { baseApi, BaseResponse } from '@/src/shared/api'
 import {
   GetUserPostResponse,
   GetUserPostsResponse,
@@ -6,7 +5,9 @@ import {
   UpdateResponse,
 } from './postApiTypes'
 
-export const postApi = baseApi.injectEndpoints({
+import { baseApi, BaseResponse } from '@/src/shared/api'
+
+const postApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     addPost: builder.mutation<BaseResponse, FormData>({
       query: body => ({
@@ -14,29 +15,24 @@ export const postApi = baseApi.injectEndpoints({
         url: `posts/create`,
         body,
       }),
-      invalidatesTags: ['Post', 'Profile'],
+      invalidatesTags: ['Posts', 'Profile'],
     }),
-    updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
-      query: ({ postId, ...patch }) => ({
-        method: 'PUT',
-        url: `posts/${postId}`,
-        body: patch,
-      }),
-      invalidatesTags: ['Post', 'Profile'],
-    }),
-    deletePost: builder.mutation<BaseResponse, string | string[] | undefined>({
-      query: postId => ({
-        url: `posts/${postId}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: ['Post', 'Profile'],
-    }),
-    getUserPosts: builder.query<BaseResponse<GetUserPostsResponse>, string | string[] | undefined>({
-      query: userId => ({
-        url: `posts/${userId}`,
+    getUserPosts: builder.query<
+      BaseResponse<GetUserPostsResponse>,
+      {
+        userId: string
+        sortDirection?: string
+        pageNumber?: number
+        pageSize?: number
+      }
+    >({
+      query: arg => ({
+        url: `posts/${arg.userId}?sortDirection=${arg.sortDirection || 'desc'}&pageNumber=${
+          arg.pageNumber || 1
+        }&pageSize=${arg.pageSize || 10}`,
         method: 'GET',
       }),
-      providesTags: ['Post'],
+      providesTags: ['Posts'],
     }),
     getUserPost: builder.query<BaseResponse<GetUserPostResponse>, string | null>({
       query: postId => ({
@@ -45,15 +41,22 @@ export const postApi = baseApi.injectEndpoints({
       }),
       providesTags: ['Post'],
     }),
+    updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
+      query: ({ postId, ...patch }) => ({
+        method: 'PUT',
+        url: `posts/${postId}`,
+        body: patch,
+      }),
+      invalidatesTags: ['Post', 'Posts', 'Profile'],
+    }),
   }),
 })
 
 export const {
   useAddPostMutation,
-  useUpdatePostMutation,
-  useDeletePostMutation,
   useGetUserPostsQuery,
   useGetUserPostQuery,
+  useUpdatePostMutation,
   util: { getRunningQueriesThunk },
 } = postApi
 

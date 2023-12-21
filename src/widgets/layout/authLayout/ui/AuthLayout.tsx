@@ -1,16 +1,20 @@
+import { PropsWithChildren, ReactElement } from 'react'
+
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { PropsWithChildren, ReactElement } from 'react'
-import { RouteNames } from '@/src/shared/const/routeNames'
-import { Header } from '@/src/shared/header/ui/Header'
-import { getUserId } from '@/src/shared/hoc/model/selectors/getUserId/getUserId'
-import { useAppSelector } from '@/src/shared/hooks'
+import { ToastContainer } from 'react-toastify'
+
 import s from './authLayout.module.scss'
 
-const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { Header } from '@/src/shared/header'
+import { AuthProvider, getUserId } from '@/src/shared/hoc'
+import { useAppSelector } from '@/src/shared/hooks'
+
+export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   const userId = useAppSelector(getUserId)
   const { asPath } = useRouter()
-  const isAuthPath = asPath.startsWith(RouteNames.AUTH)
+  const isAuthPath = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
 
   return (
     <div className={s.container}>
@@ -22,4 +26,21 @@ const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   )
 }
 
-export const getAuthLayout = (page: ReactElement) => <AuthLayout>{page}</AuthLayout>
+export const getAuthLayout = (page: ReactElement) => {
+  return (
+    <>
+      <AuthProvider>
+        <AuthLayout>{page}</AuthLayout>
+      </AuthProvider>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={4000}
+        closeOnClick
+        draggable
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+      />
+    </>
+  )
+}
+export const getPublicLayout = (page: ReactElement) => <AuthLayout>{page}</AuthLayout>

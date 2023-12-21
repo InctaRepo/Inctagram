@@ -1,19 +1,22 @@
+import React, { FC, useEffect } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FC, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import GithubIcon from 'public/icon/gitHubIcon.svg'
-import GoogleIcon from 'public/icon/googleIcon.svg'
+
+import s from './loginForm.module.scss'
+
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
+import { useTranslate } from '@/src/shared/hooks'
 import { createLoginSchema, LoginFormType } from '@/src/shared/schemas/createLoginSchema'
 import { Button } from '@/src/shared/ui/button'
 import { Card } from '@/src/shared/ui/card'
 import { ControlledTextField } from '@/src/shared/ui/controlled'
 import { Typography } from '@/src/shared/ui/typography'
-import s from './loginForm.module.scss'
+import GithubIcon from 'public/icon/gitHubIcon.svg'
+import GoogleIcon from 'public/icon/googleIcon.svg'
 
 type LoginType = {
   onSubmitHandler?: (data: LoginFormType) => void
@@ -42,7 +45,6 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
-    // TODO:  it works ! but need to replace this handler (not a good one)
   }, [t])
 
   useEffect(() => {
@@ -51,7 +53,6 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
   }, [errorServer, onSubmitHandler])
 
   const submitData = (data: LoginFormType) => {
-    //TODO errors from backend after submit : (1)This email address is not registered. Please register ;
     onSubmitHandler?.(data)
   }
 

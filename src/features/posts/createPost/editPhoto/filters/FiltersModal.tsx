@@ -1,3 +1,5 @@
+import React, { ComponentProps, ReactNode, useState } from 'react'
+
 import {
   Dialog,
   DialogContent,
@@ -7,19 +9,20 @@ import {
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
-import React, { ComponentProps, ReactNode, useState } from 'react'
-import { ArrowBack } from '@/src/assets/icons/arrow-back-icon'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices,@conarti/feature-sliced/absolute-relative
-import { useAddPostMutation } from '@/src/features/posts/service/postApi'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography'
+
 import { FilteredImages } from '../../addDescription/filteredImages/ui/FilteredImages'
 import { PostDescription } from '../../addDescription/postDescription/ui/PostDescription'
 import { AddDescriptionModal } from '../../addDescription/ui/AddDescriptionModal'
 import { Image } from '../../CreateNewPost'
-import getFilteredImg from '../filters/Filter'
+
 import s from './FiltersModal.module.scss'
+
+import { useAddPostMutation } from '@/src/features/posts/service'
+import { filteredImg } from '@/src/shared/helpers/filteredImg'
+import { useTranslate } from '@/src/shared/hooks'
+import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
+import ArrowBackIcon from 'public/icon/arrowBackIcon.svg'
 
 export type ModalProps = {
   image?: string
@@ -100,15 +103,14 @@ const FiltersModal = ({
   const sendFilteredImg = async (activeFilter: string) => {
     const updatedImages = await Promise.all(
       addedImages.map(async (el, idx) => {
-        const filteredImage = await getFilteredImg(el.image, activeFilter)
+        const filteredImage = await filteredImg(el.image, activeFilter)
 
         if (!filteredImage) {
           return null
         }
-        // const file = new File([filteredImage], el.fileName ? el.fileName : '', {
-        //   type: 'image/jpeg',
-        // })
-        const file = new File([filteredImage], 'photo', { type: 'image/jpeg' })
+        const file = new File([filteredImage], el.fileName ? el.fileName : '', {
+          type: 'image/jpeg',
+        })
 
         formData.append('images', file)
 
@@ -142,7 +144,7 @@ const FiltersModal = ({
           <DialogContent className={classNames.content}>
             <div className={s.titleWrapper}>
               <button className={s.arrowButton} onClick={onBackHandler}>
-                <ArrowBack />
+                <ArrowBackIcon />
               </button>
               <div className={s.next}>
                 <AddDescriptionModal

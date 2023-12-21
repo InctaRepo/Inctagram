@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Recaptcha } from './Recaptcha'
 
 const meta: Meta<typeof Recaptcha> = {

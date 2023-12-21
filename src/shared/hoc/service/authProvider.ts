@@ -1,9 +1,10 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { setIsAuth } from '@/src/features/auth/authService'
-import { baseApi, BaseResponse } from '../../api'
-import { appActions } from '../../app'
-import { setAuthMeData } from '../model/slice/authMeSlice'
-import { AuthMeResponse } from './AuthMeResponse'
+import { baseApi, BaseResponse } from '@/src/shared/api'
+import { setAppInitialized } from '@/src/shared/app'
+import { setAuthMeData } from '@/src/shared/hoc/model/slice/authMeSlice'
+import { AuthMeResponse } from '@/src/shared/hoc/service/AuthMeResponse'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -24,7 +25,7 @@ export const authApi = baseApi.injectEndpoints({
         } catch (e) {
           console.error(e)
         } finally {
-          dispatch(appActions.setAppInitialized({ isInitialized: true }))
+          dispatch(setAppInitialized({ isInitialized: true }))
         }
       },
     }),

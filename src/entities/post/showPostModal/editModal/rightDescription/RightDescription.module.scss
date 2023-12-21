@@ -1,0 +1,326 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.wrapper {
+  @include wh(100%, 100%);
+
+  display: flex;
+  flex-direction: column;
+  min-width: 564px;
+  max-height: 481px;
+}
+
+.separator[data-orientation='horizontal'] {
+  top: 59px;
+  left: 0;
+
+  width: 480px;
+  height: 1px;
+
+  background-color: $color-dark-100;
+}
+
+.separatorHide {
+  visibility: hidden;
+}
+
+.title {
+  @include wh(480px, 59px);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.userHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-left: 24px;
+  padding-top: 24px;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  margin-left: 24px;
+  padding-top: 24px;
+}
+
+.userComment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 24px;
+}
+
+.commentsArea {
+  position: relative;
+  left: 24px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  width: 426px;
+}
+
+.time {
+  position: relative;
+  left: 72px;
+}
+
+.ava {
+  @include wh(36px, 36px);
+
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.firstAvaLikes {
+  @include wh(24px, 24px);
+}
+
+.avaLikes {
+  @include wh(24px, 24px);
+
+  margin-left: -10px;
+}
+
+.lastAvaLikes {
+  @include wh(24px, 24px);
+
+  margin-right: 12px;
+  margin-left: -10px;
+}
+
+.userName {
+  @include wh(90px, 24px);
+}
+
+.userNameHead {
+  @include wh(90px, 24px);
+
+  margin-bottom: 20px;
+}
+
+.comments {
+  @include wh(475px, 336px);
+}
+
+.likesArea {
+  @include wh(480px, 107px);
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+}
+
+.likes {
+  display: flex;
+  flex-direction: row;
+}
+
+.iconsArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.likesCounter {
+  position: relative;
+  left: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 14px;
+}
+
+.boldText {
+  position: relative;
+  left: 5px;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 24px;
+}
+
+.iconForComment {
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.red {
+  cursor: pointer;
+  margin-top: 10px;
+  filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(339deg) brightness(84%) contrast(117%);
+}
+
+.bookmark {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.addComment {
+  @include wh(480px, 59px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.usersComment {
+  display: flex;
+  flex-direction: column;
+  width: 475px;
+  padding-top: 12px;
+}
+
+.oneComment {
+  display: flex;
+  width: 100%;
+  margin-top: -7px;
+}
+
+.textarea {
+  @include wh(375px, 55px);
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+
+  width: 100%;
+
+  background-color: $color-dark-300 !important;
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+
+  &:hover {
+    outline: 0;
+    outline-offset: 0;
+  }
+
+  &:focus-within {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+.publishButton {
+  cursor: pointer;
+
+  position: relative;
+
+  height: 36px;
+
+  color: $color-accent-500;
+
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    color: $color-accent-100;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+  &:focus-within {
+    color: $color-accent-100;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+  &:active {
+    color: $color-accent-100;
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+.userAvaHead {
+  padding-bottom: 12px;
+}
+
+.scrollAreaRoot {
+  --scrollbar-size: 10px;
+
+  overflow: hidden;
+  height: var(--radix-select-content-available-height);
+  border-radius: 4px;
+}
+
+.scrollAreaViewport {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.scrollAreaScrollbar {
+  /* disable browser handling of all panning and zooming gestures on touch devices */
+  touch-action: none;
+
+  /* ensures no selection */
+  user-select: none;
+
+  display: flex;
+
+  padding: 2px;
+
+  background: #8d9094;
+
+  transition: background 160ms ease-out;
+
+  &:hover {
+    background: $color-dark-100;
+  }
+
+  &[data-orientation='vertical'] {
+    width: var(--scrollbar-size);
+  }
+
+  &[data-orientation='horizontal'] {
+    flex-direction: column;
+    height: var(--scrollbar-size);
+  }
+}
+
+.scrollAreaThumb {
+  position: relative;
+  flex: 1;
+  background: $color-light-100;
+  border-radius: 10px;
+}
+
+.ScrollAreaThumb::before {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  min-width: 44px;
+  height: 100%;
+  min-height: 44px;
+}
+
+.postDescription {
+  width: 345px;
+}

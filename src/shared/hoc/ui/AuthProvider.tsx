@@ -1,40 +1,30 @@
-import { useRouter } from 'next/router'
 import React, { FC, memo, ReactNode, useEffect } from 'react'
-import { RouteNames } from '../../const/routeNames'
-import { useGetMeQuery } from '../../hoc/service/authProvider'
-import { useAppSelector } from '../../hooks'
-import { LoaderLogo } from '../../ui/loaderLogo/LoaderLogo'
-import { getUserId } from '../model/selectors/getUserId/getUserId'
+
+import { useRouter } from 'next/router'
+
+import { RouteNames } from '@/src/shared/const/routeNames'
+import { getUserId, useGetMeQuery } from '@/src/shared/hoc'
+import { useAppSelector } from '@/src/shared/hooks'
+import { LoaderLogo } from '@/src/shared/ui/loaderLogo'
 
 interface AuthProviderProps {
   children: ReactNode
 }
 
 export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
-  const { push, asPath } = useRouter()
-  const authMeData = useAppSelector(getUserId)
-
-  // const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath === PATH.ERROR_PAGE
-  const skipAuthMe = asPath.startsWith(RouteNames.AUTH)
-  const { isLoading, error } = useGetMeQuery(undefined, {
+  const { asPath } = useRouter()
+  const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
+  const { isLoading } = useGetMeQuery(undefined, {
     skip: skipAuthMe,
   })
-
-  const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH)
+  const authMeData = useAppSelector(getUserId)
+  const isAuthPage =
+    !!authMeData || asPath.startsWith(RouteNames.AUTH) || asPath.startsWith(RouteNames.PROFILE)
   const router = useRouter()
 
-  console.log(authMeData, isAuthPage)
-
-  // if (!isAuthPage) {
-  //   push(RouteNames.SIGN_IN)
-  //   console.log('1')
-  //
-  //   return <></>
-  // }
   useEffect(() => {
-    if (!isAuthPage) {
+    if (!isAuthPage || (asPath.endsWith(RouteNames.PROFILE_SETTINGS) && !authMeData)) {
       router.push(RouteNames.SIGN_IN)
-      console.log('1')
     }
   }, [isAuthPage, router])
 

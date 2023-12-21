@@ -1,7 +1,7 @@
+import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
 import { baseApi, BaseResponse } from '@/src/shared/api'
-import { PasswordRecoveryParams } from '../model/types/types'
 
-export const passwordRecovery = baseApi.injectEndpoints({
+const passwordRecovery = baseApi.injectEndpoints({
   endpoints: build => ({
     passwordRecovery: build.mutation<BaseResponse<{ email: string }>, PasswordRecoveryParams>({
       query: data => ({
@@ -13,4 +13,5 @@ export const passwordRecovery = baseApi.injectEndpoints({
   }),
   overrideExisting: false,
 })
+
 export const { usePasswordRecoveryMutation } = passwordRecovery

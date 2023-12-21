@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react'
-import { useErrorToast } from '@/src/shared/hooks/useErrorToast'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
-import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
-import { NextPageWithLayout } from '@/src/shared/service/types'
-import { Modal } from 'src/shared/ui/Modal'
-import { Typography } from 'src/shared/ui/typography'
+
 import { useSignUpMutation } from '../service/signUp'
+
 import s from './signUp.module.scss'
 import { SingUpForm } from './singUpForm'
+
+import { useErrorToast, useTranslate } from '@/src/shared/hooks'
+import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
+import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { Loader } from '@/src/shared/ui/loader'
+import { Modal } from 'src/shared/ui/modal'
+import { Typography } from 'src/shared/ui/typography'
 
 export const SignUp: NextPageWithLayout = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-  const [userRegistration, { isSuccess, data }] = useSignUpMutation()
+  const [userRegistration, { isLoading, isSuccess, data }] = useSignUpMutation()
   // START : for error handling manual , need refactor =================================================
   const successRes = isSuccess && data?.resultCode === 0
   const errorRes = isSuccess && data?.resultCode !== 0
@@ -47,6 +50,8 @@ export const SignUp: NextPageWithLayout = () => {
   const onSaveModalAction = () => {
     setEmailSentModal(false)
   }
+
+  if (isLoading) return <Loader />
 
   return (
     <div className={s.container}>

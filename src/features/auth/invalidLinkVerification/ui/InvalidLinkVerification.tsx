@@ -1,5 +1,5 @@
+import { AuthPage } from '@/src/entities/auth/authPage'
 import TimeManagementImage from 'public/icon/timeMenegmentIcon.svg'
-import { AuthPage } from '../../authPage'
 
 export const InvalidLinkVerification = () => {
   return (
