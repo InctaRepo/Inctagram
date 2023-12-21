@@ -35,7 +35,7 @@ export const Header = ({ variant }: HeaderType) => {
       <div className={s.container}>
         <div className={s.content}>
           <Typography variant="large" className={s.text}>
-            <Link className={s.incta} href={RouteNames.SIGN_IN} tabIndex={1}>
+            <Link className={s.incta} href={RouteNames.HOME} tabIndex={1}>
               Inсtagram
             </Link>
           </Typography>
