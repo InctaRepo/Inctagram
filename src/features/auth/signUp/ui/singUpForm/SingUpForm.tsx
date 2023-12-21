@@ -36,6 +36,7 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
   } = useForm<SignUpFormSchema>({
     resolver: zodResolver(createSignUpSchema(t)),
     mode: 'onTouched',
+    reValidateMode: 'onSubmit',
     defaultValues: {
       username: '',
       email: '',

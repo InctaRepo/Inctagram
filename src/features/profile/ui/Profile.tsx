@@ -6,6 +6,7 @@ import { ProfileInfo } from '@/src/entities/profile/profileInfo'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Posts } from '@/src/features/posts'
 import { useGetProfileQuery } from '@/src/features/profile/service'
+import { resultCode } from '@/src/shared/const/resultCode'
 import { RouteNames } from '@/src/shared/const/routeNames'
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
@@ -26,11 +27,11 @@ export const Profile = ({ id, postId, variant }: Props) => {
   const { data, refetch, isSuccess, isLoading } = useGetProfileQuery(id)
 
   useEffect(() => {
-    if (data?.resultCode === 0) {
+    if (data?.resultCode === resultCode.OK) {
       refetch()
     }
   }, [])
-  if (isSuccess && data?.resultCode === 5 && isAuth) {
+  if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     router.push(RouteNames.PROFILE_SETTINGS)
 
     return <Loader />

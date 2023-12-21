@@ -2,6 +2,7 @@ import { AccessType } from '@/src/features/auth/authService'
 import { setToken } from '@/src/features/auth/signIn'
 import { SingInParams } from '@/src/features/auth/signIn/authByEmail'
 import { baseApi, BaseResponse } from '@/src/shared/api'
+import { resultCode } from '@/src/shared/const/resultCode'
 
 const authByEmail = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -16,7 +17,7 @@ const authByEmail = baseApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled
 
-          if (data.resultCode === 0) {
+          if (data.resultCode === resultCode.OK) {
             dispatch(setToken(data.data))
           }
         } catch (e) {

@@ -5,6 +5,7 @@ import { useSignUpMutation } from '../service/signUp'
 import s from './signUp.module.scss'
 import { SingUpForm } from './singUpForm'
 
+import { resultCode } from '@/src/shared/const/resultCode'
 import { useErrorToast, useTranslate } from '@/src/shared/hooks'
 import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
@@ -17,9 +18,8 @@ export const SignUp: NextPageWithLayout = () => {
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
   const [userRegistration, { isLoading, isSuccess, data }] = useSignUpMutation()
-  // START : for error handling manual , need refactor =================================================
-  const successRes = isSuccess && data?.resultCode === 0
-  const errorRes = isSuccess && data?.resultCode !== 0
+  const successRes = isSuccess && data?.resultCode === resultCode.OK
+  const errorRes = isSuccess && data?.resultCode !== resultCode.OK
   const error = data?.extensions && data.extensions.length > 0 && data.extensions[0].message
 
   const setToastHandler = () => {

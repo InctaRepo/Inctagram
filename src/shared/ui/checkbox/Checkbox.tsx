@@ -6,7 +6,7 @@ import clsx from 'clsx'
 
 import s from './checkbox.module.scss'
 
-import CheckIcon from '@/src/shared/assets/icons/CheckIcon'
+import { CheckIcon } from '@/src/shared/assets/icons/CheckIcon'
 import { Typography } from '@/src/shared/ui/typography'
 
 export type CheckboxPropsType = {
