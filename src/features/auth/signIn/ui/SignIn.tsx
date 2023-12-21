@@ -39,7 +39,5 @@ export const SignIn: NextPageWithLayout = () => {
       })
   }
 
-  console.log()
-
   return <LoginForm onSubmitHandler={submit} errorServer={errorServer} />
 }
