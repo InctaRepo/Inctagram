@@ -29,6 +29,7 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
     userId
   )
 
+  console.log()
   // useEffect(() => {
   //   if (posts?.resultCode === 0) {
   //     refetch()
