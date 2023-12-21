@@ -1,0 +1,107 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.container {
+  position: relative;
+  background-color: var(--dark-300);
+}
+
+.photoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+  margin-top: 50px;
+
+  background-color: $color-dark-500;
+}
+
+.baseModal {
+  width: 492px !important;
+  height: 564px;
+}
+
+.emptyPhotoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 222px;
+  min-height: 228px;
+}
+
+.selectPhoto {
+  margin-top: 36px;
+}
+
+.save {
+  align-self: flex-end;
+}
+
+.saveBtn {
+  padding: 6px 24px;
+}
+
+.linkMenu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo {
+  fill: white;
+}
+
+.logo:hover {
+  fill: $color-accent-500;
+}
+
+.active {
+  font-weight: 700;
+  color: $color-accent-500;
+}
+
+.btn {
+  display: flex;
+  padding: 0;
+  fill: white;
+}
+
+.btn:disabled svg {
+  fill: $color-dark-100;
+  stroke: $color-dark-100;
+}
+
+.btn:hover svg {
+  fill: $color-accent-500;
+  stroke: $color-accent-500;
+}
+
+.btn:hover p {
+  font-weight: 700;
+  color: $color-accent-500;
+}
+
+.btnSelect {
+  @include wh(235px, 36px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-accent-500 !important;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}

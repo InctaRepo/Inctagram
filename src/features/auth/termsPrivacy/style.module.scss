@@ -1,0 +1,87 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+.terms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+
+  width: 100%;
+  max-width: 1280px;
+}
+
+.arrow {
+  position: relative;
+  z-index: -9998;
+  bottom: 10px;
+
+  display: flex;
+
+  width: 300px;
+
+  fill: white;
+}
+
+.arrow:hover {
+  color: #cc1439;
+}
+
+.logo {
+  fill: white;
+}
+
+.logo:hover {
+  fill: $color-accent-500;
+}
+
+.img {
+  position: relative;
+  top: 4px;
+  fill: white;
+}
+
+.SignUp {
+  position: relative;
+  top: 34px;
+  left: 52px;
+  max-width: 10%;
+}
+
+.btn {
+  color: inherit;
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: $color-accent-500;
+}
+
+.textReturn {
+  text-decoration: none;
+}
+
+.textReturn:hover {
+  color: $color-accent-500;
+}
+
+.Text {
+  position: relative;
+  z-index: -9999;
+  bottom: 30px;
+
+  width: 100%;
+  padding: 100px;
+
+  font-weight: 400;
+  list-style: none;
+}
+
+.title {
+  @include flex-block($justify-content: center);
+}

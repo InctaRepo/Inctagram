@@ -1,0 +1,49 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+.btn {
+  display: flex;
+  padding: 0;
+  fill: white;
+
+  :hover {
+    font-weight: 700;
+    fill: $color-accent-500;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .logo {
+    fill: white;
+  }
+
+  .logo:hover {
+    fill: $color-accent-500;
+  }
+}
+
+.linkMenu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.linkMenu:hover svg {
+  fill: $color-accent-500;
+  stroke: $color-accent-500;
+}
+
+.linkMenu:disabled svg {
+  fill: $color-dark-100;
+  stroke: $color-dark-100;
+}
+
+.active {
+  font-weight: 700;
+  color: $color-accent-500;
+}

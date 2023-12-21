@@ -1,0 +1,150 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.profile {
+  width: 100%;
+  max-width: 972px;
+
+  // height: auto;
+
+  .tabsMenu {
+    // width: 972px;
+    width: 100%;
+    max-width: 972px;
+  }
+
+  .content {
+    @include flex-block(flex, row);
+
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 972px;
+    margin-bottom: 24px;
+
+    .photoContent {
+      align-self: start;
+      max-width: 300px;
+      min-height: 300px;
+    }
+
+    .editForm {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      width: 100%;
+      max-width: 740px;
+      min-height: 573px;
+      padding-left: 40px;
+    }
+  }
+}
+
+.ellipse {
+  @include wh(192px, 192px);
+
+  cursor: pointer;
+  margin-top: 18px;
+  background-color: $color-dark-300;
+  border-radius: 50%;
+}
+
+.image {
+  cursor: pointer;
+  margin: -115px 30px 96px 72px;
+}
+
+.calendar {
+  cursor: pointer;
+  position: relative;
+  bottom: 245px;
+  left: 750px;
+}
+
+.addBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.photo {
+  justify-content: center;
+}
+
+.saveBtn {
+  display: flex;
+  align-self: end;
+  justify-content: flex-end;
+
+  height: 36px;
+  margin-top: 24px;
+}
+
+.field {
+  top: 240px;
+  left: 476px;
+
+  width: 100%;
+  max-width: 700px;
+  height: 60px;
+  margin-bottom: 24px;
+
+  text-align: left;
+}
+
+.fieldSelect {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 700px;
+  height: 60px;
+  margin-bottom: 24px;
+}
+
+.select {
+  width: 100%;
+  max-width: 335px;
+  height: 60px;
+}
+
+.date {
+  text-align: left;
+}
+
+.textArea {
+  top: 576px;
+  left: 476px;
+
+  width: 100%;
+  max-width: 700px;
+  height: 132px;
+  margin-bottom: 23px;
+
+  textarea {
+    height: 132px;
+  }
+}
+
+.grayLine {
+  width: 99%;
+  height: 1px;
+  margin-top: -82px;
+  background: $color-dark-300;
+}
+
+.grayLineError {
+  width: 100%;
+  height: 1px;
+  background: $color-dark-300;
+}

@@ -1,4 +1,4 @@
-import { SVGProps, Ref, forwardRef, memo, useState, useEffect } from 'react'
+import { memo, Ref, SVGProps, useEffect, useState } from 'react'
 
 type Direction = 'asc' | 'desc'
 
@@ -26,7 +26,7 @@ const SvgComponent = (props: Props, ref: Ref<SVGSVGElement>) => {
       ref={ref}
       {...props}
       onClick={handleClick}
-      style={{ transform: direction === 'desc' ? 'rotate(180deg)' : undefined }}
+      style={{ transform: direction === 'desc' ? 'rotate(270deg)' : undefined }}
     >
       <g clipPath="url(#a)">
         <path
@@ -43,6 +43,6 @@ const SvgComponent = (props: Props, ref: Ref<SVGSVGElement>) => {
   )
 }
 
-const ForwardRef = forwardRef(SvgComponent)
+const ArrowIcon = memo(SvgComponent)
 
-export const ArrowIcon = memo(ForwardRef)
+export default ArrowIcon

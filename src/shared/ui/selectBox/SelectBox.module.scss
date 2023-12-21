@@ -1,0 +1,170 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.label {
+  height: 24px;
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.selectIcon {
+  color: $color-light-100;
+  transition: 0.2s ease-in-out;
+}
+
+.selectBox {
+  cursor: pointer;
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 36px;
+  padding-left: 10px;
+
+  line-height: $line-height-m;
+  text-align: left;
+  letter-spacing: 0;
+
+  background-color: $color-dark-700;
+  border: 1px solid $color-dark-100;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: none;
+
+  &:focus {
+    color: #8d9094;
+    background-color: $color-dark-500;
+    border: 2px solid $color-accent-500;
+    border-radius: 3px;
+  }
+
+  &:hover {
+    color: $color-dark-100;
+    background-color: $color-dark-500;
+    border: 1px solid $color-dark-100;
+  }
+
+  &[data-state='open'] {
+    & .selectIcon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover:not([data-disabled]) {
+    cursor: initial;
+    background-color: $color-dark-500;
+  }
+
+  &[data-disabled] {
+    cursor: initial;
+    color: #8d9094;
+    background-color: $color-dark-500;
+    border: 2px solid #8d9094;
+  }
+}
+
+.selectContent {
+  width: var(--radix-select-trigger-width);
+  background-color: $color-dark-500;
+  border: 1px solid $color-dark-100;
+}
+
+.value {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.line {
+  cursor: pointer;
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  padding: 6px 12px;
+
+  line-height: $line-height-m;
+  letter-spacing: 0;
+
+  outline: none;
+
+  transition: 0.2s ease-out;
+
+  &:hover,
+  &:focus-visible,
+  &[data-state='checked'] {
+    color: $color-accent-500;
+    background-color: $color-dark-300;
+    border-radius: 2px;
+  }
+}
+
+.scrollAreaRoot {
+  --scrollbar-size: 10px;
+
+  overflow: hidden;
+  height: var(--radix-select-content-available-height);
+  border-radius: 4px;
+}
+
+.scrollAreaViewport {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.scrollAreaScrollbar {
+  touch-action: none;
+  user-select: none;
+
+  display: flex;
+
+  padding: 2px;
+
+  background: #8d9094;
+
+  transition: background 160ms ease-out;
+
+  &:hover {
+    background: $color-dark-100;
+  }
+
+  &[data-orientation='vertical'] {
+    width: var(--scrollbar-size);
+  }
+
+  &[data-orientation='horizontal'] {
+    flex-direction: column;
+    height: var(--scrollbar-size);
+  }
+}
+
+.scrollAreaThumb {
+  position: relative;
+  flex: 1;
+  background: $color-light-100;
+  border-radius: 10px;
+}
+
+.scrollAreaThumb::before {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  min-width: 44px;
+  height: 100%;
+  min-height: 44px;
+}

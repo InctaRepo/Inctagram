@@ -1,0 +1,96 @@
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { GetUserPostResponse, useGetUserPostsQuery } from '@/src/features/posts'
+
+export interface UseInfiniteScroll {
+  isLoading?: boolean
+  loadMoreCallback?: (el: HTMLDivElement) => void
+  hasDynamicPosts?: boolean
+  dynamicPosts?: GetUserPostResponse[]
+  isLastPage?: boolean
+}
+
+export const useInfiniteScroll = (
+  posts: GetUserPostResponse[],
+  userId: string
+): UseInfiniteScroll => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [page, setPage] = useState(2)
+  const [hasDynamicPosts, setHasDynamicPosts] = useState(false)
+  const [dynamicPosts, setDynamicPosts] = useState<GetUserPostResponse[]>(posts)
+  const [isLastPage, setIsLastPage] = useState(false)
+
+  const { data, isSuccess } = useGetUserPostsQuery({
+    userId: userId!,
+    pageNumber: page,
+  })
+
+  const observerRef = useRef<IntersectionObserver>()
+  const loadMoreTimeout: NodeJS.Timeout = setTimeout(() => null, 500)
+  const loadMoreTimeoutRef = useRef<NodeJS.Timeout>(loadMoreTimeout)
+  let newPosts = null
+
+  useEffect(() => {
+    newPosts = data?.data.items
+    if (newPosts?.length === data?.data.totalCount) {
+      setIsLastPage(false)
+    }
+  }, [data, isSuccess, page])
+  const handleObserver = useCallback(
+    (entries: any[]) => {
+      const target = entries[0]
+
+      if (target.isIntersecting) {
+        setIsLoading(true)
+        clearTimeout(loadMoreTimeoutRef.current)
+
+        // this timeout debounces the intersection events
+        loadMoreTimeoutRef.current = setTimeout(() => {
+          if (page < data?.data.pagesCount!) {
+            setPage(page + 1)
+          }
+
+          if (newPosts?.length < data?.data.totalCount!) {
+            const newDynamicPosts = [...dynamicPosts, ...newPosts!]
+
+            setDynamicPosts(newDynamicPosts)
+            setIsLastPage(newDynamicPosts?.length >= data?.data.totalCount!)
+            setHasDynamicPosts(true)
+            setIsLoading(false)
+          }
+          setIsLastPage(false)
+          setIsLoading(false)
+        }, 500)
+      }
+      setIsLoading(false)
+    },
+    [loadMoreTimeoutRef, setIsLoading, page, dynamicPosts, isSuccess, newPosts]
+  )
+
+  const loadMoreCallback = useCallback(
+    (el: HTMLDivElement) => {
+      if (isLoading) return
+      if (observerRef.current) observerRef.current.disconnect()
+
+      const option: IntersectionObserverInit = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 1.0,
+      }
+
+      observerRef.current = new IntersectionObserver(handleObserver, option)
+
+      if (el) observerRef.current.observe(el)
+    },
+    [handleObserver, isLoading]
+  )
+
+  return {
+    isLoading,
+    loadMoreCallback,
+    hasDynamicPosts,
+    dynamicPosts,
+    isLastPage,
+  }
+}

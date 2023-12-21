@@ -1,0 +1,14 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.container {
+  @include flex-block;
+
+  .main {
+    @include flex-block($justify-content: 'unset');
+
+    width: 100%;
+    height: calc(100vh - $header-height);
+    padding-top: 24px;
+  }
+}

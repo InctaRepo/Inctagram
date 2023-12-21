@@ -1,8 +1,9 @@
-import { LoginForm } from '@/src/components/auth/login-form/login-form'
-import { NextPageWithLayout } from '@/src/pages/_app'
+import { SignIn } from '@/src/features/auth/signIn'
+import { getAuthLayout } from 'src/widgets/layout/authLayout'
 
-const SignInPage: NextPageWithLayout = () => {
-  return <LoginForm />
+const SignInPage = () => {
+  return <SignIn />
 }
 
+SignInPage.getLayout = getAuthLayout
 export default SignInPage

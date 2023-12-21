@@ -1,0 +1,59 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.zoomBtn {
+  @include wh(36px, 36px);
+
+  cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $color-light-700;
+
+  opacity: 0.8;
+  background-color: $color-dark-500;
+  border-radius: 2px;
+}
+
+.slider {
+  @include wh(124px, 36px);
+
+  cursor: pointer;
+
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: -74px;
+
+  opacity: 0.8;
+  background-color: $color-dark-500;
+  border-radius: 2px;
+}
+
+.range {
+  @include wh(100px, 12px);
+}
+
+.blue {
+  filter: brightness(0) invert(1);
+
+  &:hover {
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+  }
+}
+
+.blueActive {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}

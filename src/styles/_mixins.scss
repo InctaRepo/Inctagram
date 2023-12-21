@@ -1,4 +1,4 @@
-@import 'typography';
+@import 'src/styles/typography';
 
 @mixin flex-block(
   $display: flex,
@@ -15,12 +15,10 @@
 }
 
 @mixin typography($fs: $font-size-s, $lh: $line-height-m, $fw: $font-weight-regular) {
-  // TODO : added property 9.08 for modals
   margin: 0;
   padding: 0;
 
   font-size: $fs;
   font-weight: $fw;
   line-height: $lh;
-  text-align: justify;
 }

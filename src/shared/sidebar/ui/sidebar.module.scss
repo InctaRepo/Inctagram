@@ -1,0 +1,58 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.container {
+  @include flex-block;
+
+  position: sticky;
+  top: 0;
+
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 240px;
+  min-height: calc(660px - $header-height);
+
+  :active {
+    color: $color-accent-500;
+  }
+
+  :hover {
+    color: $color-accent-500;
+  }
+
+  :disabled {
+    color: $color-dark-100;
+  }
+
+  :focus-visible {
+    border-radius: 2px;
+    outline: 2px solid $color-accent-500;
+  }
+
+  .containerLinks {
+    @include flex-block;
+
+    place-content: flex-start space-between;
+    align-items: flex-start;
+    height: 100%;
+
+    .favorites {
+      padding: 6px 0;
+
+      .logo {
+        fill: white;
+      }
+
+      .logo:hover {
+        fill: $color-accent-500;
+      }
+    }
+
+    .favorites:hover svg {
+      fill: $color-accent-500;
+      stroke: $color-accent-500;
+    }
+  }
+}

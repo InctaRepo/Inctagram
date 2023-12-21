@@ -1,0 +1,159 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+$dark-gray: #9d9d9d; // checkbox :hover bcg color
+$light-gray: #b7b7b7; // checkbox border color
+$preloader: #4d8df4; // preloader color
+$margin-right: 13px; // distance between changeable block and label "im not a robot" * very important crutch
+
+.hidden {
+  display: none;
+}
+
+.recaptcha {
+  @include flex-block($flex-direction: row, $justify-content: space-between);
+
+  width: 300px;
+  height: 79px;
+  padding: 0 18px 0 19px;
+  border-radius: 1px;
+
+  .agreement {
+    @include flex-block($flex-direction: row, $align-items: center);
+
+    position: relative;
+
+    .expiredMessage {
+      @include typography($fs: 10px, $lh: 12px, $fw: 400);
+
+      position: absolute;
+      top: -24px;
+      left: -3px;
+
+      width: 190px;
+
+      font-family: Roboto, sans-serif;
+      color: $color-danger-500;
+    }
+
+    .customCheckbox {
+      width: 20px;
+      height: 20px;
+      margin-right: $margin-right;
+
+      background-color: $color-light-100;
+      border: 1px solid $light-gray;
+      border-radius: 1px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $dark-gray;
+        transition-delay: 0.1s;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    label {
+      width: 78px;
+      font-size: 12px;
+      color: $color-light-100;
+    }
+
+    .checked {
+      margin: 0 10px 0 -2px;
+    }
+  }
+
+  .privacy {
+    @include flex-block($align-items: center);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.primary {
+  padding: 8px 7px;
+}
+
+.error {
+  width: 314px;
+  margin-bottom: 10px;
+  padding: 7px 6px 5px;
+  border: 1px solid $color-danger-500;
+
+  .errorText {
+    display: block;
+
+    margin: 0;
+
+    font-family: Roboto, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: $color-danger-500;
+  }
+}
+
+.expired {
+  padding: 8px 7px;
+}
+
+.error-text {
+  display: none;
+}
+
+// preloader
+.ldsRing {
+  position: relative;
+
+  display: inline-block;
+  align-items: center;
+
+  width: 20px;
+  height: 20px;
+  margin-right: $margin-right;
+
+  div {
+    position: absolute;
+
+    display: block;
+
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+
+    border: 3px solid $preloader;
+    border-color: $preloader transparent transparent transparent;
+    border-radius: 50%;
+
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+    &:nth-child(1) {
+      animation-delay: -1.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -1.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -1.15s;
+    }
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

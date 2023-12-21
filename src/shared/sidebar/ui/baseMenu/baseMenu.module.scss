@@ -1,0 +1,23 @@
+@import 'src/styles/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  margin-top: 72px;
+  margin-bottom: 60px;
+}
+//
+//.linkMenu:disabled svg {
+//  fill: $color-dark-100;
+//  stroke: $color-dark-100;
+//}
+
+.logo {
+  fill: white;
+}
+
+//.logo:hover {
+//  fill: $color-accent-500;
+//}
