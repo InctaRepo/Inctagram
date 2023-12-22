@@ -17,8 +17,6 @@ const baseQuery = fetchBaseQuery({
     }
     const accessToken = (getState() as AppRootState).signIn.accessToken
 
-    console.log(accessToken, 'accessToken1')
-
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
     }
@@ -37,7 +35,6 @@ export const baseQueryWithReAuth: BaseQueryFn<
   const isLoginEndpoint = result.meta?.request.url.endsWith('auth/signIn')
   const error401 = resultData.resultCode === resultCode.UNAUTHORIZED
 
-  console.log()
   if (!isLoginEndpoint && error401) {
     const refreshResult = await baseQuery(
       { url: 'auth/refresh-token', method: 'POST' },

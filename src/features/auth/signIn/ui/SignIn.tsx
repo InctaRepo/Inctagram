@@ -13,7 +13,7 @@ import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 import { Loader } from '@/src/shared/ui/loader'
 
 export const SignIn: NextPageWithLayout = () => {
-  const [loginUser, { isLoading, isSuccess, isUninitialized }] = useSignInMutation()
+  const [loginUser, { isLoading, isSuccess }] = useSignInMutation()
   const router = useRouter()
   const [errorServer, setErrorServer] = useState<string>('')
   const { data: user, isLoading: isLoadingMe, isSuccess: isSuccessMe } = useGetMeQuery()
