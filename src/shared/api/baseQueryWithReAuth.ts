@@ -47,12 +47,10 @@ export const baseQueryWithReAuth: BaseQueryFn<
     const refresh = refreshResult.data as { data: { accessToken: string }; resultCode: number }
 
     if (refresh.resultCode === resultCode.OK) {
-      // api.dispatch(setToken({ accessToken: refresh.data.accessToken }))
       localStorage.setItem(
         'accessToken',
         `{ signIn: { accessToken: ${refresh.data.accessToken} } }`
       )
-      console.log(refresh.data.accessToken)
       result = await baseQuery(args, api, extraOptions)
     } else {
       api.dispatch(setLogout())
