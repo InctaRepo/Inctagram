@@ -3,6 +3,7 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { setLogout } from '@/src/features/auth/authService'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { BASE_URL } from '@/src/shared/const/const'
 import { resultCode } from '@/src/shared/const/resultCode'
 import { AppRootState } from '@/src/store'
@@ -15,6 +16,8 @@ const baseQuery = fetchBaseQuery({
       return headers
     }
     const accessToken = (getState() as AppRootState).signIn.accessToken
+
+    console.log(accessToken, 'accessToken1')
 
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
@@ -34,6 +37,7 @@ export const baseQueryWithReAuth: BaseQueryFn<
   const isLoginEndpoint = result.meta?.request.url.endsWith('auth/signIn')
   const error401 = resultData.resultCode === resultCode.UNAUTHORIZED
 
+  console.log()
   if (!isLoginEndpoint && error401) {
     const refreshResult = await baseQuery(
       { url: 'auth/refresh-token', method: 'POST' },
@@ -43,7 +47,12 @@ export const baseQueryWithReAuth: BaseQueryFn<
     const refresh = refreshResult.data as { data: { accessToken: string }; resultCode: number }
 
     if (refresh.resultCode === resultCode.OK) {
-      localStorage.setItem('accessToken', refresh.data.accessToken)
+      // api.dispatch(setToken({ accessToken: refresh.data.accessToken }))
+      localStorage.setItem(
+        'accessToken',
+        `{ signIn: { accessToken: ${refresh.data.accessToken} } }`
+      )
+      console.log(refresh.data.accessToken)
       result = await baseQuery(args, api, extraOptions)
     } else {
       api.dispatch(setLogout())
