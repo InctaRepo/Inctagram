@@ -24,18 +24,23 @@ type Props = {
 export const Profile = ({ id, postId, variant }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const router = useRouter()
-  const { data, refetch, isSuccess, isLoading } = useGetProfileQuery(id)
+  const { data, refetch, isSuccess, isLoading, isFetching } = useGetProfileQuery(id)
 
   useEffect(() => {
     if (data?.resultCode === resultCode.OK) {
       refetch()
     }
   }, [])
+  // if (isSuccess && data?.resultCode === resultCode.OK && isAuth) {
+  //   router.push(RouteNames.HOME)
+  // }
   if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     router.push(RouteNames.PROFILE_SETTINGS)
 
     return <Loader />
   }
+  // if (isLoading || !isFetching) return <Loader />
+  // if (isLoading && isSuccess) return <Loader />
   if (isLoading) return <Loader />
 
   return (
