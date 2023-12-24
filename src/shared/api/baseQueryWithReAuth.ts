@@ -3,6 +3,7 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { setLogout } from '@/src/features/auth/authService'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { BASE_URL } from '@/src/shared/const/const'
 import { resultCode } from '@/src/shared/const/resultCode'
 import { AppRootState } from '@/src/store'
@@ -43,7 +44,10 @@ export const baseQueryWithReAuth: BaseQueryFn<
     const refresh = refreshResult.data as { data: { accessToken: string }; resultCode: number }
 
     if (refresh.resultCode === resultCode.OK) {
-      localStorage.setItem('accessToken', refresh.data.accessToken)
+      localStorage.setItem(
+        'accessToken',
+        `{ signIn: { accessToken: ${refresh.data.accessToken} } }`
+      )
       result = await baseQuery(args, api, extraOptions)
     } else {
       api.dispatch(setLogout())

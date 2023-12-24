@@ -12,9 +12,9 @@ import { Button } from '@/src/shared/ui/button'
 import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import CloseIcon from 'public/icon/closeIcon.svg'
 import DeleteIcon from 'public/icon/deleteAvaIcon.svg'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
+import DefaultAva from 'public/images/avatarIcon.jpg'
 
 type Props = {
   avatar: string
@@ -47,6 +47,7 @@ export const AvaModal = ({
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const showError = !!errorMessage && errorMessage.length > 0
   const [deleteAvatar] = useDeleteAvatarMutation()
+  const [isAvaBroken, setIsAvaBroken] = useState(false)
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -80,6 +81,10 @@ export const AvaModal = ({
         setOpenDeleteModal(false)
       })
   }
+  const errorHandler = () => {
+    setIsAvaBroken(true)
+  }
+  const avaWithError = isAvaBroken ? DefaultAva : avatar
 
   return (
     <div className={s.container}>
@@ -88,12 +93,13 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
             alt="ava"
             className={s.ava}
+            onError={errorHandler}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
-            <CloseIcon className={s.deleteAvatarIcon} />
+            <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
             modalWidth={'sm'}
@@ -114,12 +120,13 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
             alt="ava"
             className={s.ava}
+            onError={errorHandler}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
-            <CloseIcon className={s.deleteAvatarIcon} />
+            <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
             modalWidth={'sm'}
@@ -140,9 +147,10 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
             alt="ava"
             className={s.ava}
+            onError={errorHandler}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
@@ -174,7 +182,6 @@ export const AvaModal = ({
           {t.profile.profileSetting.addAProfilePhoto}
         </Typography>
       </Button>
-      {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
       <Modal
         className={s.baseModal}
         modalWidth={'md'}
