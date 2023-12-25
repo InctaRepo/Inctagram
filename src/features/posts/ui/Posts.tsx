@@ -24,10 +24,8 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
     isSuccess,
     refetch,
   } = useGetUserPostsQuery({ userId: userId })
-  const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts } = useInfiniteScroll(
-    posts?.data?.items!,
-    userId
-  )
+  const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
+    useInfiniteScroll(posts?.data?.items!, userId)
 
   // useEffect(() => {
   //   if (posts?.resultCode === 0) {
@@ -72,11 +70,7 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
             variant={variant}
           />
         ))}
-      {/*<Loader*/}
-      {/*  isLoading={isLoading}*/}
-      {/*  isLastPage={hasDynamicPosts}*/}
-      {/*  loadMoreCallback={loadMoreCallback}*/}
-      {/*/>*/}
+      <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
     </div>
   )
 })
