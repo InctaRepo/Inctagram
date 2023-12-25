@@ -41,7 +41,6 @@ export const useInfiniteScroll = (
     if (dynamicPosts?.length > data?.data.totalCount!) {
       setIsLastPage(false)
       setPage(1)
-      console.log('111111111111')
     }
   }, [data?.data?.totalCount!])
   useEffect(() => {
@@ -50,8 +49,6 @@ export const useInfiniteScroll = (
         .unwrap()
         .then(payload => {
           if (payload) {
-            console.log(payload, 'payload')
-            // newPosts = payload?.data?.items!
             setDynamicPosts(payload?.data?.items!)
           }
         })

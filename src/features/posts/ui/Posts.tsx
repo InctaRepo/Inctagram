@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react'
+import React, { memo } from 'react'
 
 import { ShowPostModal } from '@/src/entities/post/showPostModal'
 import { useGetUserPostsQuery } from '@/src/features/posts'
@@ -16,13 +16,13 @@ type Props = {
 }
 
 export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
-  const [currentId, setCurrentId] = useState<null | string>(null)
-  //TODO это нам нужно?
+  // const [currentId, setCurrentId] = useState<null | string>(null)
+  // //TODO это нам нужно?
   const {
     data: posts,
     isLoading: isLoadingPosts,
-    isSuccess,
-    refetch,
+    // isSuccess,
+    // refetch,
   } = useGetUserPostsQuery({ userId: userId })
   const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
     useInfiniteScroll(posts?.data?.items!, userId)
@@ -32,9 +32,9 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
   //     refetch()
   //   }
   // }, [])
-  const getCurrentPostId = useCallback((id: string | null) => {
-    setCurrentId(id)
-  }, [])
+  // const getCurrentPostId = useCallback((id: string | null) => {
+  //   setCurrentId(id)
+  // }, [])
 
   if (isLoadingPosts) return <Loader />
 
@@ -43,7 +43,7 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
       {hasDynamicPosts &&
         dynamicPosts?.map((el, index) => (
           <ShowPostModal
-            callBack={getCurrentPostId}
+            // callBack={getCurrentPostId}
             modalWidth={'edit'}
             description={el.description}
             key={index}
@@ -58,7 +58,7 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
       {!hasDynamicPosts &&
         posts?.data?.items.map((el, index) => (
           <ShowPostModal
-            callBack={getCurrentPostId}
+            // callBack={getCurrentPostId}
             modalWidth={'edit'}
             description={el.description}
             key={index}
