@@ -43,7 +43,6 @@ export const AreYouSureDescriptionModal = ({
     }
   }
 
-  //TODO <CloseIconOutline />
   return (
     <>
       <div className={s.close} onClick={clickHandler}>

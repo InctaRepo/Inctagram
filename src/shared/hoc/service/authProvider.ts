@@ -2,11 +2,11 @@
 import { setIsAuth } from '@/src/features/auth/authService'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 import { setAppInitialized } from '@/src/shared/app'
+import { resultCode } from '@/src/shared/const/resultCode'
 import { setAuthMeData } from '@/src/shared/hoc/model/slice/authMeSlice'
 import { AuthMeResponse } from '@/src/shared/hoc/service/AuthMeResponse'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 
-export const authApi = baseApi.injectEndpoints({
+const authApi = baseApi.injectEndpoints({
   endpoints: build => ({
     getMe: build.query<BaseResponse<AuthMeResponse>, void>({
       query: () => 'auth/me',
@@ -18,7 +18,7 @@ export const authApi = baseApi.injectEndpoints({
           if (data) {
             dispatch(setAuthMeData({ authMeData: data.data }))
           }
-          if (data.resultCode === 0) {
+          if (data.resultCode === resultCode.OK) {
             dispatch(setAuthMeData({ authMeData: data.data }))
             dispatch(setIsAuth(true))
           }

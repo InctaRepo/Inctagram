@@ -42,21 +42,19 @@ export const Logout = () => {
     dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1)))
   }
   const styles = {
-    check: clsx(`${RouteNames.LOGOUT}`.startsWith('/' + variantIcon) && s.active),
+    check: clsx(s.linkMenu, `${RouteNames.LOGOUT}`.startsWith('/' + variantIcon) && s.active),
   }
 
   return (
     <div>
-      <div className={s.linkMenu}>
+      <div className={styles.check}>
         <Button variant="link" onClick={onClickOpenModal} className={s.btn}>
-          <Typography variant="medium14" className={s.text}>
-            <div>
-              <LogoutIcon
-                fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
-                className={s.logo}
-              />
-            </div>
-            <div className={styles.check}>{t.profile.logout}</div>
+          <LogoutIcon
+            fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
+            className={s.logo}
+          />
+          <Typography variant="medium14" className={s.text + styles.check}>
+            {t.profile.logout}
           </Typography>
         </Button>
       </div>
