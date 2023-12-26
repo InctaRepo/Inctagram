@@ -20,8 +20,11 @@ export const SignIn: NextPageWithLayout = () => {
   const userId = user?.data?.userId!
 
   useEffect(() => {
+    // if (isSuccess && isSuccessMe && userId) {
+    //   router.push(RouteNames.PROFILE + `/` + userId)
+    // }
     if (isSuccess && isSuccessMe && userId) {
-      router.push(RouteNames.PROFILE + `/` + userId)
+      router.push(RouteNames.HOME)
     }
   }, [isSuccess, isSuccessMe, userId])
   if (isLoading || isSuccess) return <Loader />

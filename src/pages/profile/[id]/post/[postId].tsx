@@ -30,7 +30,7 @@ const MyPostPage: NextPageWithLayout = () => {
   const postId = router.query.postId as string
   const userId = useAppSelector(getUserId)
 
-  if (!userId) {
+  if (!userId && postId !== undefined) {
     return <Profile id={id} variant="single post" postId={postId} />
   }
   if (userId) {
