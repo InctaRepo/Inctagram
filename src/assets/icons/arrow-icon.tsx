@@ -1,4 +1,4 @@
-import { memo, Ref, SVGProps, useEffect, useState } from 'react'
+import { forwardRef, memo, Ref, SVGProps, useEffect, useState } from 'react'
 
 type Direction = 'asc' | 'desc'
 
@@ -6,7 +6,7 @@ interface Props extends SVGProps<SVGSVGElement> {
   direction?: Direction
 }
 
-const SvgComponent = (props: Props, ref: Ref<SVGSVGElement>) => {
+const SvgComponent = forwardRef((props: Props, ref: Ref<SVGSVGElement>) => {
   const [direction, setDirection] = useState<Direction | undefined>(props.direction)
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const SvgComponent = (props: Props, ref: Ref<SVGSVGElement>) => {
       </defs>
     </svg>
   )
-}
+})
 
 const ArrowIcon = memo(SvgComponent)
 
