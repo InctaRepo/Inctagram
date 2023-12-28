@@ -10,9 +10,8 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import s from './baseModal.module.scss'
-
 import { Button } from '@/src/shared/ui/button'
+import s from '@/src/shared/ui/modal/baseModal.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
 import CloseIcon from 'public/icon/closeIcon.svg'
 

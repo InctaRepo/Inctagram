@@ -1,7 +1,7 @@
 import { AccessType } from '@/src/features/auth/authService'
 import { clearToken } from '@/src/features/auth/signIn'
 import { baseApi, BaseResponse } from '@/src/shared/api'
-import { resultCode } from '@/src/shared/const/resultCode'
+import { resultCode } from '@/src/shared/const'
 
 const logout = baseApi.injectEndpoints({
   endpoints: build => ({

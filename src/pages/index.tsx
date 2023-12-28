@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { getPublicLayout } from '@/src/widgets/layout/authLayout'
 
 const Main = () => {

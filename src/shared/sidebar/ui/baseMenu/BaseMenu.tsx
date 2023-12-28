@@ -1,17 +1,16 @@
 import React from 'react'
 
-import s from './baseMenu.module.scss'
-
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { CreateNewPost } from '@/src/features/posts/createPost'
 import { HomeIcon } from '@/src/shared/assets/icons/HomeIcon'
 import { MessageIcon } from '@/src/shared/assets/icons/MessageIcon'
 import { ProfileIcon } from '@/src/shared/assets/icons/ProfileIcon'
 import { SearchIcon } from '@/src/shared/assets/icons/SearchIcon'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { getUserId } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
+import s from '@/src/shared/sidebar/ui/baseMenu/baseMenu.module.scss'
 import { LinkMenu } from '@/src/shared/ui/linkMenu'
 
 export const BaseMenu = () => {

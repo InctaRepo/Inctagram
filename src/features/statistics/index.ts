@@ -1,1 +1,1 @@
-export { Statistics } from './Statistics'
+export { Statistics } from '@/src/features/statistics/Statistics'

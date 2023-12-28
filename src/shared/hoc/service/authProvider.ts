@@ -2,8 +2,8 @@
 import { setIsAuth } from '@/src/features/auth/authService'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 import { setAppInitialized } from '@/src/shared/app'
-import { resultCode } from '@/src/shared/const/resultCode'
-import { setAuthMeData } from '@/src/shared/hoc/model/slice/authMeSlice'
+import { resultCode } from '@/src/shared/const'
+import { setAuthMeData } from '@/src/shared/hoc'
 import { AuthMeResponse } from '@/src/shared/hoc/service/AuthMeResponse'
 
 const authApi = baseApi.injectEndpoints({
@@ -15,13 +15,13 @@ const authApi = baseApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled
 
-          if (data) {
-            dispatch(setAuthMeData({ authMeData: data.data }))
-          }
-          if (data.resultCode === resultCode.OK) {
+          if (data?.resultCode === resultCode.OK) {
             dispatch(setAuthMeData({ authMeData: data.data }))
             dispatch(setIsAuth(true))
           }
+          // if (data?.resultCode === resultCode.UNAUTHORIZED) {
+          //   dispatch(setIsAuth(false))
+          // }
         } catch (e) {
           console.error(e)
         } finally {
@@ -30,7 +30,7 @@ const authApi = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: true,
+  overrideExisting: false,
 })
 
 export const { useGetMeQuery } = authApi

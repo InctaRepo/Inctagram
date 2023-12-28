@@ -1,20 +1,18 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
-import Link from 'next/link'
 
-import CroppedImage from './croppedImage/ui/CroppedImage'
-
+import s from '@/src/features/posts/createPost/createNewPost.module.scss'
 import { CropModal } from '@/src/features/posts/createPost/cropModal'
-import CreateIcon from '@/src/shared/assets/icons/CreateIcon'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import CroppedImage from '@/src/features/posts/createPost/croppedImage/ui/CroppedImage'
+import { CreateIcon } from '@/src/shared/assets/icons/CreateIcon'
+import { RouteNames } from '@/src/shared/const'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'
+import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
-import s from 'src/features/posts/createPost/createNewPost.module.scss'
-import { Modal } from 'src/shared/ui/modal'
 
 export type Image = {
   image?: string

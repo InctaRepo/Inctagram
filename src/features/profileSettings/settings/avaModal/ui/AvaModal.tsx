@@ -4,9 +4,8 @@ import Slider from '@mui/material/Slider'
 import Image from 'next/image'
 import AvatarEditor from 'react-avatar-editor'
 
-import s from './avaModal.module.scss'
-
 import { useDeleteAvatarMutation } from '@/src/features/profileSettings/settings/avaModal/service/deleteAvatar'
+import s from '@/src/features/profileSettings/settings/avaModal/ui/avaModal.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'

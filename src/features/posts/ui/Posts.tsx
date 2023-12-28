@@ -5,8 +5,8 @@ import { useGetUserPostsQuery } from '@/src/features/posts'
 import s from '@/src/features/posts/ui/posts.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
-import { useInfiniteScroll } from '@/src/shared/hooks/ useInfiniteScroll'
-import { Loader } from '@/src/shared/ui/loader/Loader'
+import { UseInfiniteScroll } from '@/src/shared/hooks'
+import { Loader } from '@/src/shared/ui/loader'
 
 type Props = {
   userData?: UserInfo
@@ -24,7 +24,7 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
     isSuccess,
     refetch,
   } = useGetUserPostsQuery({ userId: userId })
-  const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts } = useInfiniteScroll(
+  const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts } = UseInfiniteScroll(
     posts?.data?.items!,
     userId
   )

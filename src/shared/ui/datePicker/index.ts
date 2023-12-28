@@ -1,2 +1,2 @@
-export { DatePicker } from './DatePicker'
-export type { DatePickerProps } from './DatePicker'
+export { DatePicker } from '@/src/shared/ui/datePicker/DatePicker'
+export type { DatePickerProps } from '@/src/shared/ui/datePicker/DatePicker'

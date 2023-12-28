@@ -3,9 +3,8 @@ import React, { FC, ReactNode } from 'react'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 
-import s from './linkMenu.module.scss'
-
-import { variantIconLink } from '@/src/shared/const/variantIconLink'
+import { variantIconLink } from '@/src/shared/const'
+import s from '@/src/shared/ui/linkMenu/linkMenu.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
 
 type Props = {

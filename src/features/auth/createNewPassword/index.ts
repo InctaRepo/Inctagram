@@ -1,1 +1,1 @@
-export { CreateNewPassword } from './ui/CreateNewPassword'
+export { CreateNewPassword } from '@/src/features/auth/createNewPassword/ui/CreateNewPassword'

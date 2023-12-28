@@ -1,2 +1,6 @@
-export { profileReducer } from './profileSlice'
-export { useGetProfileQuery, getProfile, getRunningQueriesThunk } from './profileApi'
+export { profileReducer } from '@/src/features/profile/service/profileSlice'
+export {
+  useGetProfileQuery,
+  getProfile,
+  getRunningQueriesThunk,
+} from '@/src/features/profile/service/profileApi'

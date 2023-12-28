@@ -12,7 +12,7 @@ import {
 } from '@/src/features/profileSettings/service'
 import { Settings } from '@/src/features/profileSettings/settings'
 import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
 import { getUserId, getUsername } from '@/src/shared/hoc'
 import { useAppSelector, useErrorToast } from '@/src/shared/hooks'

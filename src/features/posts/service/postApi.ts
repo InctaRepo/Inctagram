@@ -3,8 +3,7 @@ import {
   GetUserPostsResponse,
   UpdatePost,
   UpdateResponse,
-} from './postApiTypes'
-
+} from '@/src/features/posts/service/postApiTypes'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 
 const postApi = baseApi.injectEndpoints({

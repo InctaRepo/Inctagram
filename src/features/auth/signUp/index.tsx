@@ -1,1 +1,1 @@
-export { SignUp } from './ui/SignUp'
+export { SignUp } from '@/src/features/auth/signUp/ui/SignUp'

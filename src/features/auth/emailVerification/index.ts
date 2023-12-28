@@ -1,1 +1,1 @@
-export { EmailVerification } from './ui/EmailVerification'
+export { EmailVerification } from '@/src/features/auth/emailVerification/ui/EmailVerification'

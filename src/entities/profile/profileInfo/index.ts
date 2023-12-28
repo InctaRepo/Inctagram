@@ -1,1 +1,1 @@
-export { ProfileInfo } from './ui/ProfileInfo'
+export { ProfileInfo } from '@/src/entities/profile/profileInfo/ui/ProfileInfo'

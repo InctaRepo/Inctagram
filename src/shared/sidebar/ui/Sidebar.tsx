@@ -1,16 +1,15 @@
-import s from './sidebar.module.scss'
-
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service'
 import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
 import { StatisticsIcon } from '@/src/shared/assets/icons/StatisticsIcon'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { getUserId } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { BaseMenu } from '@/src/shared/sidebar/ui/baseMenu'
+import s from '@/src/shared/sidebar/ui/sidebar.module.scss'
 import { LinkMenu } from '@/src/shared/ui/linkMenu'
 
 export const Sidebar = () => {

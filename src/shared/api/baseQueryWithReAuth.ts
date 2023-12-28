@@ -3,9 +3,7 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { setLogout } from '@/src/features/auth/authService'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { BASE_URL } from '@/src/shared/const/const'
-import { resultCode } from '@/src/shared/const/resultCode'
+import { BASE_URL, resultCode, RouteNames } from '@/src/shared/const'
 import { AppRootState } from '@/src/store'
 
 const baseQuery = fetchBaseQuery({
@@ -31,9 +29,9 @@ export const baseQueryWithReAuth: BaseQueryFn<
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions)
-  const resultData = result.data as { resultCode: number }
-  const isLoginEndpoint = result.meta?.request.url.endsWith('auth/signIn')
-  const error401 = resultData.resultCode === resultCode.UNAUTHORIZED
+  const resultData = result?.data as { resultCode: number }
+  const isLoginEndpoint = result?.meta?.request.url.endsWith(RouteNames.SIGN_IN)
+  const error401 = resultData?.resultCode === resultCode.UNAUTHORIZED
 
   if (!isLoginEndpoint && error401) {
     const refreshResult = await baseQuery(

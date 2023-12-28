@@ -1,1 +1,1 @@
-export { SingUpForm } from './SingUpForm'
+export { SingUpForm } from '@/src/features/auth/signUp/ui/singUpForm/SingUpForm'

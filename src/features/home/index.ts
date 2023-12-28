@@ -1,1 +1,1 @@
-export { Home } from './home'
+export { Home } from '@/src/features/home/Home'

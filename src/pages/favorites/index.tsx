@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { Favorites } from '@/src/features/favorites/favorites'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { Favorites } from '@/src/features/favorites/Favorites'
+import { RouteNames } from '@/src/shared/const'
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'

@@ -5,18 +5,17 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import s from './singUpForm.module.scss'
-
+import s from '@/src/features/auth/signUp/ui/singUpForm/singUpForm.module.scss'
+import { RouteNames } from '@/src/shared/const'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks'
+import { createSignUpSchema, SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
+import { Button } from '@/src/shared/ui/button'
+import { Card } from '@/src/shared/ui/card'
+import { ControlledCheckbox, ControlledTextField } from '@/src/shared/ui/controlled'
+import { Typography } from '@/src/shared/ui/typography'
 import GithubIcon from 'public/icon/gitHubIcon.svg'
 import GoogleIcon from 'public/icon/googleIcon.svg'
-import { RouteNames } from 'src/shared/const/routeNames'
-import { createSignUpSchema, SignUpFormSchema } from 'src/shared/schemas/signUpSchema'
-import { Button } from 'src/shared/ui/button'
-import { Card } from 'src/shared/ui/card'
-import { ControlledCheckbox, ControlledTextField } from 'src/shared/ui/controlled'
-import { Typography } from 'src/shared/ui/typography'
 
 type Props = {
   onSubmitHandler: (data: SignUpFormSchema) => void

@@ -4,8 +4,8 @@ import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/re
 import { clsx } from 'clsx'
 
 import { AreYouSureDescriptionModal } from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal/AreYouSureDescriptionModal'
+import s from '@/src/entities/post/showPostModal/editModal/editModal.module.scss'
 import CloseIcon from 'public/icon/closeIcon.svg'
-import s from 'src/entities/post/showPostModal/editModal/editModal.module.scss'
 
 export type ModalSize = 'edit'
 

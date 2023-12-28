@@ -1,6 +1,6 @@
-import { SVGProps, memo } from 'react'
+import { memo, SVGProps } from 'react'
 
-export const CalendarOutline = (props: SVGProps<SVGSVGElement>) => (
+export const CalendarOutline = memo((props: SVGProps<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"
@@ -29,7 +29,7 @@ export const CalendarOutline = (props: SVGProps<SVGSVGElement>) => (
       </clipPath>
     </defs>
   </svg>
-)
+))
 const Icon = memo(CalendarOutline)
 
 export default Icon

@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 
 import ImageAva from 'next/image'
 
-import { DataProfile } from '../dataProfile'
-
-import s from './profileInfo.module.scss'
-
+import { DataProfile } from '@/src/entities/profile/profileInfo/dataProfile'
+import s from '@/src/entities/profile/profileInfo/ui/profileInfo.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
 import AvatarImage from 'public/icon/avatarIcon.svg'

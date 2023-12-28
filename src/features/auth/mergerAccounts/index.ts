@@ -1,1 +1,1 @@
-export { MergerAccounts } from './ui/MergerAccounts'
+export { MergerAccounts } from '@/src/features/auth/mergerAccounts/ui/MergerAccounts'

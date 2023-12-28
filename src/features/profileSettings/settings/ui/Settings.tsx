@@ -4,7 +4,7 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { parseISO } from 'date-fns'
 import AvatarEditor from 'react-avatar-editor'
-import { useForm } from 'react-hook-form' // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useForm } from 'react-hook-form'
 
 import { UserInfo } from '@/src/features/profileSettings/service'
 import { AvaModal } from '@/src/features/profileSettings/settings/avaModal'

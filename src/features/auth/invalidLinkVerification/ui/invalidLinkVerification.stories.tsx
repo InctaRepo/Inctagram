@@ -2,8 +2,7 @@ import type { StoryObj } from '@storybook/react'
 import { Meta } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { InvalidLinkVerification } from './InvalidLinkVerification'
-
+import { InvalidLinkVerification } from '@/src/features/auth/invalidLinkVerification'
 import { store } from '@/src/store'
 
 const meta = {

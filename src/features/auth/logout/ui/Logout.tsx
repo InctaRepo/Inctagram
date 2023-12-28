@@ -3,19 +3,17 @@ import { useState } from 'react'
 import { clsx } from 'clsx'
 import { useRouter } from 'next/router'
 
-import { useLogoutMutation } from '../service/logout'
-
-import s from './logout.module.scss'
-
 import { setLogout } from '@/src/features/auth/authService'
+import { useLogoutMutation } from '@/src/features/auth/logout/service/logout'
+import s from '@/src/features/auth/logout/ui/logout.module.scss'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { getUserEmail, setAuthMeData } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'
+import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import { Modal } from 'src/shared/ui/modal'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
