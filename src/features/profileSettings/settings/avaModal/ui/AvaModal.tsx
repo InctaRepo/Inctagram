@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Slider from '@mui/material/Slider'
+import * as Slider from '@radix-ui/react-slider'
 import Image from 'next/image'
 import AvatarEditor from 'react-avatar-editor'
 
@@ -40,7 +40,7 @@ export const AvaModal = ({
   handleSavePhoto,
 }: Props) => {
   const { t } = useTranslate()
-  const [slideValue, setSlideValue] = useState(10)
+  const [slideValue, setSlideValue] = useState<number>(10)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
   const [errorMessage, setErrorMessage] = useState('')
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
@@ -62,7 +62,7 @@ export const AvaModal = ({
     errorMessage?.includes('Error! The format of the uploaded photo must be PNG or JPEG') ||
     errorMessage?.includes('Ошибка! Формат загружаемой фотографии должен быть PNG или JPEG')
 
-  const handleSliderChange = (e: Event, value: number | number[]) => {
+  const handleSliderChange = (value: number | number[]) => {
     setSlideValue(value as number)
   }
 
@@ -218,19 +218,22 @@ export const AvaModal = ({
                 crossOrigin="anonymous"
                 disableBoundaryChecks={false}
               />
-              <Slider
-                min={10}
-                max={50}
-                sx={{
-                  margin: '0 auto',
-                  width: '50%',
-                  color: 'white',
-                }}
-                size="small"
-                defaultValue={slideValue}
-                value={slideValue}
-                onChange={handleSliderChange}
-              />
+              <form>
+                <Slider.Root
+                  className={s.SliderRoot}
+                  defaultValue={[slideValue]}
+                  min={10}
+                  max={50}
+                  step={2}
+                  onValueChange={handleSliderChange}
+                  value={[slideValue]}
+                >
+                  <Slider.Track className={s.SliderTrack}>
+                    <Slider.Range className={s.SliderRange} />
+                  </Slider.Track>
+                  <Slider.Thumb className={s.SliderThumb} aria-label="Volume" />
+                </Slider.Root>
+              </form>
             </>
           ) : (
             <ImgOutline />
