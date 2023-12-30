@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 
 import { ShowPostModal } from '@/src/entities/post/showPostModal'
 import { useGetUserPostsQuery } from '@/src/features/posts'
@@ -28,11 +28,11 @@ export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
   //   userId
   // )
 
-  // useEffect(() => {
-  //   if (posts?.resultCode === 0) {
-  //     refetch()
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (posts?.resultCode === 0) {
+      refetch()
+    }
+  }, [])
   // const getCurrentPostId = useCallback((id: string | null) => {
   //   setCurrentId(id)
   // }, [])
