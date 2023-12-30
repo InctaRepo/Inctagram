@@ -17,22 +17,11 @@ type Props = {
 export const Posts = memo(({ userData, postId, userId, variant }: Props) => {
   // const [currentId, setCurrentId] = useState<null | string>(null)
   //TODO это нам нужно?
-  const {
-    data: posts,
-    isLoading: isLoadingPosts,
-    isSuccess,
-    refetch,
-  } = useGetUserPostsQuery({ userId: userId })
+  const { data: posts, isLoading: isLoadingPosts } = useGetUserPostsQuery({ userId: userId })
   // const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts } = UseInfiniteScroll(
   //   posts?.data?.items!,
   //   userId
   // )
-
-  // useEffect(() => {
-  //   if (posts?.resultCode === 0) {
-  //     refetch()
-  //   }
-  // }, [])
   // const getCurrentPostId = useCallback((id: string | null) => {
   //   setCurrentId(id)
   // }, [])
