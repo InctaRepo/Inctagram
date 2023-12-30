@@ -1,4 +1,4 @@
-export { SignIn } from '@/src/features/auth/signIn/ui/SignIn'
+export { SignInDynamic } from '@/src/features/auth/signIn/ui/SignInDynamic'
 export {
   signInReducer,
   setToken,

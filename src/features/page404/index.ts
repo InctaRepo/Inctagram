@@ -1,1 +1,1 @@
-export { Page404 } from '@/src/features/page404/Page404'
+export { Page404Dynamic } from '@/src/features/page404/Page404Dynamic'

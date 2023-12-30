@@ -1,5 +1,5 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Logout } from '@/src/features/auth/logout'
+import { LogoutDynamic } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service'
 import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
@@ -59,7 +59,7 @@ export const Sidebar = () => {
         )}
 
         <div>
-          <Logout />
+          <LogoutDynamic />
         </div>
       </div>
     </div>

@@ -1,2 +1,2 @@
-export { Privacy } from '@/src/features/auth/termsPrivacy/Privacy'
-export { Terms } from '@/src/features/auth/termsPrivacy/Terms'
+export { PrivacyDynamic } from '@/src/features/auth/termsPrivacy/PrivacyDynamic'
+export { TermsDynamic } from '@/src/features/auth/termsPrivacy/TermsDynamic'

@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 
-import { MergerAccounts } from '@/src/features/auth/mergerAccounts'
+import { MergerAccounts } from '@/src/features/auth/mergerAccounts/ui/MergerAccounts'
 
 const meta = {
   title: 'pages/MergerAccounts',

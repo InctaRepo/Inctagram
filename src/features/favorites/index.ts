@@ -1,1 +1,1 @@
-export { Favorites } from '@/src/features/favorites/Favorites'
+export { FavoritesDynamic } from '@/src/features/favorites/FavoritesDynamic'

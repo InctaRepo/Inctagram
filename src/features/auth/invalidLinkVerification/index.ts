@@ -1,1 +1,1 @@
-export { InvalidLinkVerification } from '@/src/features/auth/invalidLinkVerification/ui/InvalidLinkVerification'
+export { InvalidLinkVerificationDynamic } from '@/src/features/auth/invalidLinkVerification/ui/InvalidLinkVerificationDynamic'
