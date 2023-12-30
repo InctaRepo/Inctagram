@@ -64,7 +64,7 @@ test('disc', async ({ page }) => {
   await page.locator('.postMenu_blue__nnUAa').click()
   await page.getByText('Edit Post').click()
   await page.getByLabel('Edit Post').getByText('eeeee').click()
-  await page.getByLabel('Edit Post').getByText('eeeee').fill('')
+  await page.getByLabel('Edit Post').getByText('eeeee').fill('', { timeout: 5000 })
   await page.getByRole('button', { name: 'Save changes' }).click()
   await page.locator('.editModal_IconButton__r0PgZ > svg').click()
   await page.locator('div:nth-child(2) > .showPostModal_postImage__cJ5FK > img').click()
