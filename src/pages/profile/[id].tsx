@@ -3,8 +3,6 @@ import { useRouter } from 'next/dist/client/router'
 import { getUserPosts } from '@/src/features/posts'
 import { Profile } from '@/src/features/profile'
 import { getProfile, getRunningQueriesThunk } from '@/src/features/profile/service'
-import { getUserId } from '@/src/shared/hoc'
-import { useAppSelector } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
 import { wrapper } from '@/src/store/wrapper'
 import { getAuthLayout } from '@/src/widgets/layout/authLayout'
@@ -25,14 +23,8 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
 const MyProfilePage: NextPageWithLayout = () => {
   const router = useRouter()
   const id = router.query.id as string
-  const userId = useAppSelector(getUserId)
 
-  if (!userId) {
-    return <Profile id={id} />
-  }
-  if (userId) {
-    return <Profile id={userId} />
-  }
+  return <Profile id={id} />
 }
 
 MyProfilePage.getLayout = getAuthLayout
