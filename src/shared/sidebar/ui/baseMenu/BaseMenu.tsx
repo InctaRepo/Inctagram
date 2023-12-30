@@ -1,7 +1,7 @@
 import React from 'react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { CreateNewPost } from '@/src/features/posts/createPost'
+import { CreatePostDynamic } from '@/src/features/posts/createPost'
 import { HomeIcon } from '@/src/shared/assets/icons/HomeIcon'
 import { MessageIcon } from '@/src/shared/assets/icons/MessageIcon'
 import { ProfileIcon } from '@/src/shared/assets/icons/ProfileIcon'
@@ -38,7 +38,7 @@ export const BaseMenu = () => {
         </LinkMenu>
       </div>
       <div>
-        <CreateNewPost />
+        <CreatePostDynamic />
       </div>
       <div className={s.linkMenu}>
         <LinkMenu
