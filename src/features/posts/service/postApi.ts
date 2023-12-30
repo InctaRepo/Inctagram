@@ -14,7 +14,7 @@ const postApi = baseApi.injectEndpoints({
         url: `posts/create`,
         body,
       }),
-      invalidatesTags: ['Posts', 'Profile'],
+      invalidatesTags: ['Posts'],
     }),
     getUserPosts: builder.query<
       BaseResponse<GetUserPostsResponse>,
@@ -46,7 +46,7 @@ const postApi = baseApi.injectEndpoints({
         url: `posts/${postId}`,
         body: patch,
       }),
-      invalidatesTags: ['Post', 'Posts', 'Profile'],
+      invalidatesTags: ['Post', 'Posts'],
     }),
   }),
 })

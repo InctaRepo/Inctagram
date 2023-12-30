@@ -25,11 +25,11 @@ export const Profile = ({ id, postId, variant }: Props) => {
   const router = useRouter()
   const { data, refetch, isSuccess, isLoading, isFetching } = useGetProfileQuery(id)
 
-  useEffect(() => {
-    if (data?.resultCode === resultCode.OK) {
-      refetch()
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (data?.resultCode === resultCode.OK) {
+  //     refetch()
+  //   }
+  // }, [])
   if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     router.push(RouteNames.PROFILE_SETTINGS)
 
