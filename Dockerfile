@@ -1,4 +1,4 @@
-node -vFROM node:21.5 as dependencies
+FROM node:21.5 as dependencies
 WORKDIR /app
 RUN npm install -g pnpm
 COPY package.json pnpm-lock.yaml ./
