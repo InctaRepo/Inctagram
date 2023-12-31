@@ -64,7 +64,7 @@ export const CreateNewPost = () => {
     inputRef && inputRef.current?.click()
   }
   const styles = {
-    check: clsx(`${RouteNames.CREATE_POST}`.startsWith('/' + variantIcon) && s.active),
+    check: clsx(s.btn, `${RouteNames.CREATE_POST}`.startsWith('/' + variantIcon) && s.active),
   }
 
   return (
@@ -115,7 +115,7 @@ export const CreateNewPost = () => {
         </CropModal>
       )}
       <div className={s.linkMenu}>
-        <Button variant="link" onClick={handleClick} className={s.btn}>
+        <Button variant="link" onClick={handleClick} className={styles.check}>
           <CreateIcon
             fill={variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'}
             className={s.logo}

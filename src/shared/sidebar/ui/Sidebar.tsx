@@ -1,10 +1,10 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { LogoutDynamic } from '@/src/features/auth/logout'
+import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/src/features/profile/service'
 import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
 import { StatisticsIcon } from '@/src/shared/assets/icons/StatisticsIcon'
-import { RouteNames } from '@/src/shared/const'
+import { RouteNames, variantIconLink } from '@/src/shared/const'
 import { getUserId } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
@@ -19,7 +19,7 @@ export const Sidebar = () => {
   const { data: profile } = useGetProfileQuery(userId)
   const { t } = useTranslate()
 
-  const handleItemClick = (variant: string) => {
+  const handleItemClick = (variant: variantIconLink) => {
     dispatch(setVariantIcon(variant))
   }
 
@@ -33,7 +33,9 @@ export const Sidebar = () => {
               <LinkMenu
                 nameLink={t.profile.favorites}
                 link={`${RouteNames.FAVORITES}`}
-                handleClick={() => handleItemClick(`${RouteNames.FAVORITES}`.slice(1))}
+                handleClick={() =>
+                  handleItemClick(`${RouteNames.FAVORITES}`.slice(1) as variantIconLink)
+                }
                 variantIcon={variantIcon}
               >
                 <FavoritesIcon
@@ -46,7 +48,9 @@ export const Sidebar = () => {
               <LinkMenu
                 nameLink={t.profile.statistics}
                 link={`${RouteNames.STATISTICS}`}
-                handleClick={() => handleItemClick(`${RouteNames.STATISTICS}`.slice(1))}
+                handleClick={() =>
+                  handleItemClick(`${RouteNames.STATISTICS}`.slice(1) as variantIconLink)
+                }
                 variantIcon={variantIcon}
               >
                 <StatisticsIcon
@@ -59,7 +63,7 @@ export const Sidebar = () => {
         )}
 
         <div>
-          <LogoutDynamic />
+          <Logout />
         </div>
       </div>
     </div>
