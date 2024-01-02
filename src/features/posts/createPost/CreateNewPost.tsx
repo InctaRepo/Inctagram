@@ -6,7 +6,7 @@ import s from '@/src/features/posts/createPost/createNewPost.module.scss'
 import { CropModal } from '@/src/features/posts/createPost/cropModal'
 import CroppedImage from '@/src/features/posts/createPost/croppedImage/ui/CroppedImage'
 import { CreateIcon } from '@/src/shared/assets/icons/CreateIcon'
-import { RouteNames } from '@/src/shared/const'
+import { RouteNames, variantIconLink } from '@/src/shared/const'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'
@@ -57,7 +57,7 @@ export const CreateNewPost = () => {
 
   const handleClick = () => {
     setIsBaseModalOpen(true)
-    dispatch(setVariantIcon(`${RouteNames.CREATE_POST}`.slice(1)))
+    dispatch(setVariantIcon(`${RouteNames.CREATE_POST}`.slice(1) as variantIconLink))
   }
 
   const selectFileHandler = () => {
@@ -120,7 +120,7 @@ export const CreateNewPost = () => {
             fill={variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'}
             className={s.logo}
           />
-          <Typography variant="medium14" className={s.text}>
+          <Typography variant="medium14" className={s.text + styles.check}>
             {t.profile.createPost}
           </Typography>
         </Button>

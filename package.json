@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "npx jest --watchAll=false --coverage",
@@ -30,6 +31,7 @@
     "@babel/preset-env": "^7.23.5",
     "@babel/preset-react": "^7.23.3",
     "@hookform/resolvers": "^3.3.2",
+    "@next/bundle-analyzer": "^14.0.4",
     "@radix-ui/colors": "^1.0.1",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -48,6 +50,7 @@
     "@types/react-slick": "^0.23.12",
     "axios": "^1.6.2",
     "clsx": "^2.0.0",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.30.0",
     "eslint": "^8.55.0",
     "eslint-config-next": "^14.0.4",

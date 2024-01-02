@@ -7,7 +7,7 @@ import { setLogout } from '@/src/features/auth/authService'
 import { useLogoutMutation } from '@/src/features/auth/logout/service/logout'
 import s from '@/src/features/auth/logout/ui/logout.module.scss'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
-import { RouteNames } from '@/src/shared/const'
+import { RouteNames, variantIconLink } from '@/src/shared/const'
 import { getUserEmail, setAuthMeData } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
@@ -37,7 +37,7 @@ export const Logout = () => {
   }
   const onClickOpenModal = () => {
     setOpenModal(true)
-    dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1)))
+    dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1) as variantIconLink))
   }
   const styles = {
     check: clsx(s.linkMenu, `${RouteNames.LOGOUT}`.startsWith('/' + variantIcon) && s.active),
