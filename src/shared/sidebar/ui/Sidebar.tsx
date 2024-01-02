@@ -1,22 +1,23 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service'
 import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
 import { StatisticsIcon } from '@/src/shared/assets/icons/StatisticsIcon'
 import { RouteNames, variantIconLink } from '@/src/shared/const'
-import { getUserId } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
+import {
+  profileFoundSelector,
+  setVariantIcon,
+  sidebarVariantIconSelector,
+} from '@/src/shared/sidebar'
 import { BaseMenu } from '@/src/shared/sidebar/ui/baseMenu'
 import s from '@/src/shared/sidebar/ui/sidebar.module.scss'
 import { LinkMenu } from '@/src/shared/ui/linkMenu'
 
 export const Sidebar = () => {
-  const userId = useAppSelector(getUserId)
+  const profileFound = useAppSelector(profileFoundSelector)
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
-  const { data: profile } = useGetProfileQuery(userId)
   const { t } = useTranslate()
 
   const handleItemClick = (variant: variantIconLink) => {
@@ -25,9 +26,9 @@ export const Sidebar = () => {
 
   return (
     <div className={s.container}>
-      {profile?.data && <BaseMenu />}
+      {profileFound && <BaseMenu />}
       <div className={s.containerLinks}>
-        {profile?.data && (
+        {profileFound && (
           <div>
             <div className={s.favorites}>
               <LinkMenu
