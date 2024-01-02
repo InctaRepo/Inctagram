@@ -10,7 +10,7 @@ import {
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } from '@/src/features/profileSettings/service'
-import { Settings } from '@/src/features/profileSettings/settings'
+import { SettingsDynamic } from '@/src/features/profileSettings/settings'
 import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
 import { RouteNames } from '@/src/shared/const'
 import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
@@ -125,7 +125,7 @@ export const ProfileSettings = () => {
     <div className={s.container}>
       <Sidebar />
       <div className={s.containerInfo}>
-        <Settings
+        <SettingsDynamic
           userNameFromMe={userName}
           userData={profile?.data}
           onSubmitHandler={submit}
