@@ -1,5 +1,5 @@
-export * from './service/postApi'
-export * from './service/postApiTypes'
-export * from './service/postSlice'
-export { Posts } from './ui/Posts'
+export * from '@/src/features/posts/service/postApi'
+export * from '@/src/features/posts/service//postApiTypes'
+export * from '@/src/features/posts/service//postSlice'
+export { Posts } from '@/src/features/posts/ui/Posts'
 //TODO убрать *

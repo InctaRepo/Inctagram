@@ -7,7 +7,6 @@ import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal
 import { RightDescription } from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription'
 import s from '@/src/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetUserPostQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -45,9 +44,9 @@ export const ShowPostModal = ({
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const username = useAppSelector(getUsername)
   const isAuth = useAppSelector(getIsAuth)
-  const { data: postData } = useGetUserPostQuery(postId!)
+  // const { data: postData } = useGetUserPostQuery(postId!)
   const userId = userData?.userId
-  const currentId = postData ? postId : id
+  const currentId = id === undefined ? postId : id
 
   const buttonClickHandler = () => {
     setIsEditModalOpen(false)
@@ -56,7 +55,7 @@ export const ShowPostModal = ({
 
   const openClickHandler = () => {
     setIsEditModalOpen(true)
-    window.history.pushState(null, 'post', `/profile/${userId}/post/${id}`)
+    window.history.pushState(null, 'post', `/profile/${userId}/post/${currentId}`)
   }
 
   useEffect(() => {

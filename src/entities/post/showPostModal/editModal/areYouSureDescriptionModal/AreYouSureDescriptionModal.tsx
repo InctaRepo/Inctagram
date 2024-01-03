@@ -1,10 +1,10 @@
 import React from 'react'
 
+import s from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal/areYouSureDescriptionModal.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
+import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import CloseIconOutline from 'public/icon/closeOutlineIcon.svg'
-import s from 'src/entities/post/showPostModal/editModal/areYouSureDescriptionModal/areYouSureDescriptionModal.module.scss'
-import { Modal } from 'src/shared/ui/modal'
 
 type Props = {
   openSureDescriptionModal: boolean
@@ -43,7 +43,6 @@ export const AreYouSureDescriptionModal = ({
     }
   }
 
-  //TODO <CloseIconOutline />
   return (
     <>
       <div className={s.close} onClick={clickHandler}>

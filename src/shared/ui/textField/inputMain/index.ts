@@ -1,1 +1,1 @@
-export { InputMain } from './InputMain'
+export { InputMain } from '@/src/shared/ui/textField/inputMain/InputMain'

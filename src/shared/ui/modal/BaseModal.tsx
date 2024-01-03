@@ -10,15 +10,14 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import s from './baseModal.module.scss'
-
 import { Button } from '@/src/shared/ui/button'
+import s from '@/src/shared/ui/modal/baseModal.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
 import CloseIcon from 'public/icon/closeIcon.svg'
 
 export type ModalSize = 'sm' | 'md' | 'lg'
 
-export type ModalProps = {
+type Props = {
   open: boolean
   onClose?: () => void
   onAction?: () => void
@@ -32,7 +31,7 @@ export type ModalProps = {
   className?: string
 } & ComponentPropsWithoutRef<'div'>
 
-const BaseModal = ({
+export const BaseModal = ({
   showSeparator = true,
   onClose,
   onAction,
@@ -45,7 +44,7 @@ const BaseModal = ({
   className,
   children,
   ...rest
-}: ModalProps) => {
+}: Props) => {
   const classNames = {
     content: getContentClassName(modalWidth, className),
     separator: clsx(s.separator, !showSeparator && s.separatorHide),
@@ -115,4 +114,4 @@ function getSizeClassName(size: ModalSize) {
   if (size === 'lg') return s.lg
 }
 
-export default BaseModal // do not export this , instead use dynamic import "Modal" for js bundle reduce
+// export default BaseModal // do not export this , instead use dynamic import "Modal" for js bundle reduce

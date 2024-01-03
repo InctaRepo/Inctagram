@@ -1,1 +1,1 @@
-export { AreYouSureDescriptionModal } from './AreYouSureDescriptionModal'
+export { AreYouSureDescriptionModal } from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal/AreYouSureDescriptionModal'

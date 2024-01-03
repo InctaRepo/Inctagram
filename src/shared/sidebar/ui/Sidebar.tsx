@@ -1,40 +1,42 @@
-import s from './sidebar.module.scss'
-
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Logout } from '@/src/features/auth/logout'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service'
 import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
 import { StatisticsIcon } from '@/src/shared/assets/icons/StatisticsIcon'
-import { RouteNames } from '@/src/shared/const/routeNames'
-import { getUserId } from '@/src/shared/hoc'
+import { RouteNames, variantIconLink } from '@/src/shared/const'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
+import {
+  profileFoundSelector,
+  setVariantIcon,
+  sidebarVariantIconSelector,
+} from '@/src/shared/sidebar'
 import { BaseMenu } from '@/src/shared/sidebar/ui/baseMenu'
+import s from '@/src/shared/sidebar/ui/sidebar.module.scss'
 import { LinkMenu } from '@/src/shared/ui/linkMenu'
 
 export const Sidebar = () => {
-  const userId = useAppSelector(getUserId)
+  const profileFound = useAppSelector(profileFoundSelector)
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
-  const { data: profile } = useGetProfileQuery(userId)
   const { t } = useTranslate()
 
-  const handleItemClick = (variant: string) => {
+  const handleItemClick = (variant: variantIconLink) => {
     dispatch(setVariantIcon(variant))
   }
 
   return (
     <div className={s.container}>
-      {profile?.data && <BaseMenu />}
+      {profileFound && <BaseMenu />}
       <div className={s.containerLinks}>
-        {profile?.data && (
+        {profileFound && (
           <div>
             <div className={s.favorites}>
               <LinkMenu
                 nameLink={t.profile.favorites}
                 link={`${RouteNames.FAVORITES}`}
-                handleClick={() => handleItemClick(`${RouteNames.FAVORITES}`.slice(1))}
+                handleClick={() =>
+                  handleItemClick(`${RouteNames.FAVORITES}`.slice(1) as variantIconLink)
+                }
                 variantIcon={variantIcon}
               >
                 <FavoritesIcon
@@ -47,7 +49,9 @@ export const Sidebar = () => {
               <LinkMenu
                 nameLink={t.profile.statistics}
                 link={`${RouteNames.STATISTICS}`}
-                handleClick={() => handleItemClick(`${RouteNames.STATISTICS}`.slice(1))}
+                handleClick={() =>
+                  handleItemClick(`${RouteNames.STATISTICS}`.slice(1) as variantIconLink)
+                }
                 variantIcon={variantIcon}
               >
                 <StatisticsIcon

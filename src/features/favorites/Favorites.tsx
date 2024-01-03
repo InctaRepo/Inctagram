@@ -1,7 +1,6 @@
 import React from 'react'
 
-import s from './favorites.module.scss'
-
+import s from '@/src/features/favorites/favorites.module.scss'
 import { Sidebar } from '@/src/shared/sidebar'
 import { Typography } from '@/src/shared/ui/typography'
 
