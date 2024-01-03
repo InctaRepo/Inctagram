@@ -5,13 +5,12 @@ import Slider from 'react-slick'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { Image } from '../../../CreateNewPost'
-
+import { SliderSettings } from '@/src/entities/post/sliderSettings'
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
 import { filtersVariant } from '@/src/features/posts/createPost/editPhoto/filters/selectedImages/filtersVariant'
 import s from '@/src/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
 import airBalloon from 'public/images/airBalloonImage.jpg'
-import { SliderSettings } from 'src/entities/post/sliderSettings'
 
 type Props = {
   addedImages: Image[]

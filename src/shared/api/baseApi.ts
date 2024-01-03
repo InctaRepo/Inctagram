@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { HYDRATE } from 'next-redux-wrapper'
 
-import { baseQueryWithReAuth } from './baseQueryWithReAuth'
+import { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',

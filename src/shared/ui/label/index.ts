@@ -1,1 +1,1 @@
-export { Label } from './Label'
+export { Label } from '@/src/shared/ui/label/Label'

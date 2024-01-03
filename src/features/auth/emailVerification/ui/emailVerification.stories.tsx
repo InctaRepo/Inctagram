@@ -2,8 +2,7 @@ import type { StoryObj } from '@storybook/react'
 import { Meta } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { EmailVerification } from './EmailVerification'
-
+import { EmailVerification } from '@/src/features/auth/emailVerification/ui/EmailVerification'
 import { store } from '@/src/store'
 
 const meta = {

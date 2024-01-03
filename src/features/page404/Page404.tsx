@@ -1,7 +1,6 @@
 import React from 'react'
 
-import s from './page404.module.scss'
-
+import s from '@/src/features/page404/page404.module.scss'
 import Error404 from 'public/icon/404.svg'
 
 export const Page404 = () => {

@@ -4,8 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import ImageAva from 'next/image'
 import { useForm } from 'react-hook-form'
 
-import s from './postDescription.module.scss'
-
+import s from '@/src/features/posts/createPost/addDescription/postDescription/ui/postDescription.module.scss'
 import { Image } from '@/src/features/posts/createPost/CreateNewPost'
 import { useUpdatePostMutation } from '@/src/features/posts/service/postApi'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices

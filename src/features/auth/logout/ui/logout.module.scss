@@ -5,32 +5,37 @@
   display: flex;
   padding: 0;
   fill: white;
+}
 
-  :hover {
-    font-weight: 700;
-    fill: $color-accent-500;
-  }
+.btn :hover {
+  font-weight: 700;
+  fill: $color-accent-500;
+}
 
-  .text {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-  }
+.logo {
+  fill: white;
+}
 
-  .logo {
-    fill: white;
-  }
+.logo:hover {
+  fill: $color-accent-500;
+}
 
-  .logo:hover {
-    fill: $color-accent-500;
-  }
+.text {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }
 
 .linkMenu {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.linkMenu:hover p {
+  font-weight: 700;
+  color: $color-accent-500;
 }
 
 .linkMenu:hover svg {

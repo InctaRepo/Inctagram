@@ -5,9 +5,8 @@ import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import s from './passwordRecoveryForm.module.scss'
-
 import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
+import s from '@/src/features/auth/passwordRecovery/ui/passwordRecoveryForm/passwordRecoveryForm.module.scss'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks'
 import { passwordRecoverySchema } from '@/src/shared/schemas/passwordRecoverySchema'

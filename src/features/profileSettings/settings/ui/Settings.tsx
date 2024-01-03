@@ -4,10 +4,10 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { parseISO } from 'date-fns'
 import AvatarEditor from 'react-avatar-editor'
-import { useForm } from 'react-hook-form' // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useForm } from 'react-hook-form'
 
 import { UserInfo } from '@/src/features/profileSettings/service'
-import { AvaModal } from '@/src/features/profileSettings/settings/avaModal'
+import { AvaModalDynamic } from '@/src/features/profileSettings/settings/avaModal'
 import s from '@/src/features/profileSettings/settings/ui/settings.module.scss'
 import { Countries } from '@/src/shared/countries/countries'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
@@ -133,7 +133,7 @@ export const Settings = ({
       <div className={s.content}>
         <div className={s.photoContent}>
           <div className={s.addBtn}>
-            <AvaModal
+            <AvaModalDynamic
               avatar={userData?.avatar!}
               croppedAvatar={croppedAvatar}
               setCroppedAvatar={setCroppedAvatar}

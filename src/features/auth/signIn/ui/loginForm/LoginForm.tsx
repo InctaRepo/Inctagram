@@ -5,9 +5,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import s from './loginForm.module.scss'
-
-import { RouteNames } from '@/src/shared/const/routeNames'
+import s from '@/src/features/auth/signIn/ui/loginForm/loginForm.module.scss'
+import { RouteNames } from '@/src/shared/const'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks'
 import { createLoginSchema, LoginFormType } from '@/src/shared/schemas/createLoginSchema'

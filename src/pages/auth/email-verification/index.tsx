@@ -1,8 +1,8 @@
-import { EmailVerification } from '@/src/features/auth/emailVerification'
+import { EmailVerificationDynamic } from '@/src/features/auth/emailVerification'
 import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const EmailVerificationPage = () => {
-  return <EmailVerification />
+  return <EmailVerificationDynamic />
 }
 
 EmailVerificationPage.getLayout = getAuthLayout

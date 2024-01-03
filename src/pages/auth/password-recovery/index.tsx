@@ -1,8 +1,8 @@
-import { PasswordRecovery } from '@/src/features/auth/passwordRecovery'
+import { PasswordRecoveryDynamic } from '@/src/features/auth/passwordRecovery'
 import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const PasswordRecoveryPage = () => {
-  return <PasswordRecovery />
+  return <PasswordRecoveryDynamic />
 }
 
 PasswordRecoveryPage.getLayout = getAuthLayout

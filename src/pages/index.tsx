@@ -1,10 +1,21 @@
 // eslint-disable-next-line @conarti/feature-sliced/public-api
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { useEffect } from 'react'
 
-const Home = () => {
-  return <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}></div>
+import { useRouter } from 'next/router'
+
+import { RouteNames } from '@/src/shared/const'
+import { getPublicLayout } from '@/src/widgets/layout/authLayout'
+
+const Main = () => {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.push(RouteNames.HOME)
+  }, [])
+
+  return <></>
 }
 
-Home.getLayout = getAuthLayout
+Main.getLayout = getPublicLayout
 
-export default Home
+export default Main

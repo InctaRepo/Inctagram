@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
 
-import Slider from '@mui/material/Slider'
+import * as Slider from '@radix-ui/react-slider'
 import Image from 'next/image'
 import AvatarEditor from 'react-avatar-editor'
 
-import s from './avaModal.module.scss'
-
 import { useDeleteAvatarMutation } from '@/src/features/profileSettings/settings/avaModal/service/deleteAvatar'
+import s from '@/src/features/profileSettings/settings/avaModal/ui/avaModal.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import CloseIcon from 'public/icon/closeIcon.svg'
 import DeleteIcon from 'public/icon/deleteAvaIcon.svg'
 import ImgOutline from 'public/icon/imgOutlineIcon.svg'
+import DefaultAva from 'public/images/avatarIcon.jpg'
 
 type Props = {
   avatar: string
@@ -41,12 +40,13 @@ export const AvaModal = ({
   handleSavePhoto,
 }: Props) => {
   const { t } = useTranslate()
-  const [slideValue, setSlideValue] = useState(10)
+  const [slideValue, setSlideValue] = useState<number>(10)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
   const [errorMessage, setErrorMessage] = useState('')
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const showError = !!errorMessage && errorMessage.length > 0
   const [deleteAvatar] = useDeleteAvatarMutation()
+  const [isAvaBroken, setIsAvaBroken] = useState(false)
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -62,7 +62,7 @@ export const AvaModal = ({
     errorMessage?.includes('Error! The format of the uploaded photo must be PNG or JPEG') ||
     errorMessage?.includes('Ошибка! Формат загружаемой фотографии должен быть PNG или JPEG')
 
-  const handleSliderChange = (e: Event, value: number | number[]) => {
+  const handleSliderChange = (value: number | number[]) => {
     setSlideValue(value as number)
   }
 
@@ -80,6 +80,10 @@ export const AvaModal = ({
         setOpenDeleteModal(false)
       })
   }
+  const errorHandler = () => {
+    setIsAvaBroken(true)
+  }
+  const avaWithError = isAvaBroken ? DefaultAva : avatar
 
   return (
     <div className={s.container}>
@@ -88,12 +92,13 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
             alt="ava"
             className={s.ava}
+            onError={errorHandler}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
-            <CloseIcon className={s.deleteAvatarIcon} />
+            <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
             modalWidth={'sm'}
@@ -114,12 +119,13 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
             alt="ava"
             className={s.ava}
+            onError={errorHandler}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
-            <CloseIcon className={s.deleteAvatarIcon} />
+            <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
             modalWidth={'sm'}
@@ -140,9 +146,10 @@ export const AvaModal = ({
           <Image
             width={196}
             height={196}
-            src={croppedAvatar ? croppedAvatar : avatar + '?nocache=' + Math.random()}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
             alt="ava"
             className={s.ava}
+            onError={errorHandler}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
@@ -174,7 +181,6 @@ export const AvaModal = ({
           {t.profile.profileSetting.addAProfilePhoto}
         </Typography>
       </Button>
-      {/*actionButtonName={'SAVE'} onAction={handleSaveAvatar}*/}
       <Modal
         className={s.baseModal}
         modalWidth={'md'}
@@ -212,19 +218,22 @@ export const AvaModal = ({
                 crossOrigin="anonymous"
                 disableBoundaryChecks={false}
               />
-              <Slider
-                min={10}
-                max={50}
-                sx={{
-                  margin: '0 auto',
-                  width: '50%',
-                  color: 'white',
-                }}
-                size="small"
-                defaultValue={slideValue}
-                value={slideValue}
-                onChange={handleSliderChange}
-              />
+              <form>
+                <Slider.Root
+                  className={s.SliderRoot}
+                  defaultValue={[slideValue]}
+                  min={10}
+                  max={50}
+                  step={2}
+                  onValueChange={handleSliderChange}
+                  value={[slideValue]}
+                >
+                  <Slider.Track className={s.SliderTrack}>
+                    <Slider.Range className={s.SliderRange} />
+                  </Slider.Track>
+                  <Slider.Thumb className={s.SliderThumb} aria-label="Volume" />
+                </Slider.Root>
+              </form>
             </>
           ) : (
             <ImgOutline />

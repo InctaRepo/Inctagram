@@ -1,1 +1,1 @@
-export { DataProfile } from './ui/DataProfile'
+export { DataProfile } from '@/src/entities/profile/profileInfo/dataProfile/ui/DataProfile'

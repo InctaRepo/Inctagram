@@ -7,7 +7,7 @@ const deletePost = baseApi.injectEndpoints({
         url: `posts/${postId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Posts', 'Profile'],
+      invalidatesTags: ['Posts'],
     }),
   }),
 })

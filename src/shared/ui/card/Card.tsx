@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 
-import s from './card.module.scss'
+import s from '@/src/shared/ui/card/card.module.scss'
 
 type Props = {
   children: ReactNode

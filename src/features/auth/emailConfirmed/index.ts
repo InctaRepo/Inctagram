@@ -1,1 +1,1 @@
-export { EmailConfirmed } from './ui/EmailConfirmed'
+export { EmailConfirmedDynamic } from '@/src/features/auth/emailConfirmed/ui/EmailConfirmedDynamic'

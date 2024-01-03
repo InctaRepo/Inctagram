@@ -1,9 +1,8 @@
 import React, { ChangeEvent, useRef } from 'react'
 
-import s from './inputTypeFile.module.scss'
-
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
+import s from '@/src/shared/ui/inputTypeFile/inputTypeFile.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
 
 type InputTypeFileProps = {

@@ -1,7 +1,6 @@
 import React from 'react'
 
-import s from './message.module.scss'
-
+import s from '@/src/features/message/message.module.scss'
 import { Sidebar } from '@/src/shared/sidebar'
 import { Typography } from '@/src/shared/ui/typography'
 

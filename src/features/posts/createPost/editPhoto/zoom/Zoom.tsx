@@ -1,7 +1,6 @@
 import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import s from '../zoom/Zoom.module.scss'
-
+import s from '@/src/features/posts/createPost/editPhoto/zoom/Zoom.module.scss'
 import ZoomIcon from 'public/icon/zoomIcon.svg'
 
 type Props = {

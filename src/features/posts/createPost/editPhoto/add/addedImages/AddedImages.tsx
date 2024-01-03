@@ -2,9 +2,8 @@ import React, { useEffect } from 'react'
 
 import ImageToAdd from 'next/image'
 
-import { Image } from '../../../CreateNewPost'
-import s from '../addedImages/AddedImages.module.scss'
-
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
+import s from '@/src/features/posts/createPost/editPhoto/add/addedImages/AddedImages.module.scss'
 import CloseIcon from 'public/icon/closeIcon.svg'
 
 type Props = {

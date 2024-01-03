@@ -4,15 +4,13 @@ import Slider from 'react-slick'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { Image } from '../../CreateNewPost'
-import { Add } from '../../editPhoto/add/Add'
-import { Cropping } from '../../editPhoto/crop/Cropping'
-import { Zoom } from '../../editPhoto/zoom/Zoom'
-
-import getCroppedImg from './Crop'
-import s from './CropedImage.module.scss'
-import EasyCrop, { CropArg } from './EasyCrop'
-
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
+import getCroppedImg from '@/src/features/posts/createPost/croppedImage/ui/Crop'
+import s from '@/src/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
+import EasyCrop, { CropArg } from '@/src/features/posts/createPost/croppedImage/ui/EasyCrop'
+import { Add } from '@/src/features/posts/createPost/editPhoto/add/Add'
+import { Cropping } from '@/src/features/posts/createPost/editPhoto/crop/Cropping'
+import { Zoom } from '@/src/features/posts/createPost/editPhoto/zoom/Zoom'
 import { useTranslate } from '@/src/shared/hooks'
 
 type Props = {

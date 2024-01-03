@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import s from './header.module.scss'
-
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
+import s from '@/src/shared/header/ui/header.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { Options, SelectBox } from '@/src/shared/ui/selectBox'
@@ -35,7 +34,7 @@ export const Header = ({ variant }: HeaderType) => {
       <div className={s.container}>
         <div className={s.content}>
           <Typography variant="large" className={s.text}>
-            <Link className={s.incta} href={RouteNames.SIGN_IN} tabIndex={1}>
+            <Link className={s.incta} href={RouteNames.HOME} tabIndex={1}>
               Inсtagram
             </Link>
           </Typography>
@@ -50,7 +49,7 @@ export const Header = ({ variant }: HeaderType) => {
             </div>
             {variant === 'public' && (
               <div className={s.button_container}>
-                <Button variant="link" color={'link'} onClick={() => push('/')}>
+                <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_IN)}>
                   {t.auth.signIn}
                 </Button>
                 <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>

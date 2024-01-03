@@ -1,5 +1,5 @@
-import { Privacy } from '@/src/features/auth/termsPrivacy'
+import { PrivacyDynamic } from '@/src/features/auth/termsPrivacy'
 
-const PrivacyPolicy = () => <Privacy />
+const PrivacyPolicy = () => <PrivacyDynamic />
 
 export default PrivacyPolicy

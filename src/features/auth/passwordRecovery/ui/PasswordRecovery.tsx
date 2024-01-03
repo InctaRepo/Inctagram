@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 
-import { usePasswordRecoveryMutation } from '../service/passwordRecovery'
-
-import { PasswordRecoveryForm } from './passwordRecoveryForm'
-import s from './passwordRecoveryForm/passwordRecoveryForm.module.scss'
-
+import { usePasswordRecoveryMutation } from '@/src/features/auth/passwordRecovery/service/passwordRecovery'
 import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
+import { PasswordRecoveryForm } from '@/src/features/auth/passwordRecovery/ui/passwordRecoveryForm'
+import s from '@/src/features/auth/passwordRecovery/ui/passwordRecoveryForm/passwordRecoveryForm.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button/Button'
 import { Modal } from '@/src/shared/ui/modal'

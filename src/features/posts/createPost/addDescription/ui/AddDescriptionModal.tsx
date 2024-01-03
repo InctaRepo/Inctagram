@@ -10,10 +10,8 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { Image } from '../../CreateNewPost'
-
-import s from './addDescriptionModal.module.scss'
-
+import s from '@/src/features/posts/createPost/addDescription/ui/addDescriptionModal.module.scss'
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
 import { useTranslate } from '@/src/shared/hooks/useTranslate'
 import { Button } from '@/src/shared/ui/button'
 import { Typography } from '@/src/shared/ui/typography'

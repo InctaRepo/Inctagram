@@ -4,23 +4,22 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { ToastContainer } from 'react-toastify'
 
-import s from './authLayout.module.scss'
-
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { Header } from '@/src/shared/header'
-import { AuthProvider, getUserId } from '@/src/shared/hoc'
+import { AuthProvider, getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
+import s from '@/src/widgets/layout/authLayout/ui/authLayout.module.scss'
 
 export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
-  const userId = useAppSelector(getUserId)
+  const isAuth = useAppSelector(getIsAuth)
   const { asPath } = useRouter()
   const isAuthPath = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
 
   return (
     <div className={s.container}>
-      {userId && <Header />}
-      {isAuthPath && !userId && <Header />}
-      {!isAuthPath && !userId && <Header variant="public" />}
+      {isAuth && <Header />}
+      {isAuthPath && !isAuth && <Header />}
+      {!isAuthPath && !isAuth && <Header variant="public" />}
       <div className={s.main}>{children}</div>
     </div>
   )

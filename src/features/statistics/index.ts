@@ -1,1 +1,1 @@
-export { Statistics } from './Statistics'
+export { StatisticsDynamic } from '@/src/features/statistics/StatisticsDynamic'

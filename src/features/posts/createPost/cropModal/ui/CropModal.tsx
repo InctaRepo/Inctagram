@@ -10,12 +10,10 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { Image } from '../../CreateNewPost'
-import FiltersModal from '../../editPhoto/filters/FiltersModal'
-
-import s from './cropModal.module.scss'
-
 import { AreYouSureCreatePostModal } from '@/src/entities/post/createPost/areYouSureСreatePostModal'
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
+import s from '@/src/features/posts/createPost/cropModal/ui/cropModal.module.scss'
+import FiltersModal from '@/src/features/posts/createPost/editPhoto/filters/FiltersModal'
 import { SelectedImages } from '@/src/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
 import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { PasswordRecoveryForm } from './PasswordRecoveryForm'
+import { PasswordRecoveryForm } from '@/src/features/auth/passwordRecovery/ui/passwordRecoveryForm/PasswordRecoveryForm'
 
 const meta: Meta<typeof PasswordRecoveryForm> = {
   title: 'Auth/PasswordRecoveryForm',

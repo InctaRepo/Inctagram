@@ -1,7 +1,6 @@
 import React from 'react'
 
-import s from './search.module.scss'
-
+import s from '@/src/features/search/search.module.scss'
 import { Sidebar } from '@/src/shared/sidebar'
 import { Typography } from '@/src/shared/ui/typography'
 

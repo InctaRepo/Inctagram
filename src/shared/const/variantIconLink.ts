@@ -7,3 +7,4 @@ export type variantIconLink =
   | 'search'
   | 'logout'
   | 'statistics'
+  | null

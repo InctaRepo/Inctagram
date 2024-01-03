@@ -1,4 +1,4 @@
-import { CropArg } from './EasyCrop'
+import { CropArg } from '@/src/features/posts/createPost/croppedImage/ui/EasyCrop'
 
 export const createImage = (url: string | null): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {

@@ -1,8 +1,8 @@
-import { InvalidLinkVerification } from '@/src/features/auth/invalidLinkVerification'
+import { InvalidLinkVerificationDynamic } from '@/src/features/auth/invalidLinkVerification'
 import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 
 const InvalidLinkVerificationPage = () => {
-  return <InvalidLinkVerification />
+  return <InvalidLinkVerificationDynamic />
 }
 
 InvalidLinkVerificationPage.getLayout = getAuthLayout

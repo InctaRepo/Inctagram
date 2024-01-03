@@ -2,31 +2,26 @@ import { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { SingInParams, useSignInMutation } from '../authByEmail'
-
-import { LoginForm } from './loginForm'
-
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { SingInParams, useSignInMutation } from '@/src/features/auth/signIn/authByEmail'
+import { LoginForm } from '@/src/features/auth/signIn/ui/loginForm'
+import { resultCode, RouteNames } from '@/src/shared/const'
 import { useGetMeQuery } from '@/src/shared/hoc'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
-import { Loader } from '@/src/shared/ui/loader'
 
 export const SignIn: NextPageWithLayout = () => {
-  const [loginUser, { isLoading, isSuccess, isUninitialized }] = useSignInMutation()
+  const [loginUser, { data: loginData, isSuccess }] = useSignInMutation()
   const router = useRouter()
   const [errorServer, setErrorServer] = useState<string>('')
-  const { data: user, isLoading: isLoadingMe, isSuccess: isSuccessMe } = useGetMeQuery()
+  const { data: user, isSuccess: isSuccessMe } = useGetMeQuery()
   const userId = user?.data?.userId!
 
   useEffect(() => {
-    if (isSuccess && isSuccessMe && userId) {
-      router.push(RouteNames.PROFILE + `/` + userId)
+    if (isSuccess && isSuccessMe && userId && loginData?.resultCode === resultCode.OK) {
+      router.push(RouteNames.HOME)
     }
-  }, [isSuccess, isSuccessMe, userId])
-  if (isLoading) return <Loader />
-  if (isLoadingMe) return <Loader />
+  }, [isSuccess, isSuccessMe, userId, errorServer])
   const submit = (data: SingInParams) => {
+    setErrorServer('')
     loginUser(data)
       .unwrap()
       .then(payload => {
@@ -38,8 +33,6 @@ export const SignIn: NextPageWithLayout = () => {
         }
       })
   }
-
-  console.log()
 
   return <LoginForm onSubmitHandler={submit} errorServer={errorServer} />
 }

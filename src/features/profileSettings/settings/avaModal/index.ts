@@ -1,1 +1,1 @@
-export { AvaModal } from './ui/AvaModal'
+export { AvaModalDynamic } from '@/src/features/profileSettings/settings/avaModal/ui/AvaModalDynamic'

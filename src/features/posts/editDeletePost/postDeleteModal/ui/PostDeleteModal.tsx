@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { useDeletePostMutation } from '@/src/features/posts/editDeletePost/postDeleteModal/service/deletePost'
+import s from '@/src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
+import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import Delete from 'public/icon/deletePost.svg'
-import s from 'src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
-import { Modal } from 'src/shared/ui/modal'
 
 type Props = {
   id: string
