@@ -11,8 +11,8 @@ import { getAuthLayout } from '@/src/widgets/layout/authLayout'
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.query?.id as string
 
-  store.dispatch(getProfile.initiate(id))
-  store.dispatch(getUserPosts.initiate({ userId: id }))
+  store.dispatch(getProfile.initiate(id, { forceRefetch: true }))
+  store.dispatch(getUserPosts.initiate({ userId: id }, { forceRefetch: true }))
   await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
   return {
