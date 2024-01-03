@@ -18,6 +18,7 @@ const baseQuery = fetchBaseQuery({
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
     }
+    headers.set('cache', 'no-store')
 
     return headers
   },
