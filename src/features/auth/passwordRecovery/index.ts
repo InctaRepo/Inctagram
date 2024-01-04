@@ -1,1 +1,1 @@
-export { PasswordRecovery } from './ui/PasswordRecovery'
+export { PasswordRecoveryDynamic } from '@/src/features/auth/passwordRecovery/ui/PasswordRecoveryDynamic'

@@ -1,12 +1,11 @@
 'use client'
 
-import s from './style.module.scss'
-
+import s from '@/src/features/auth/termsPrivacy/style.module.scss'
 import { Header } from '@/src/shared/header/ui/Header'
 import { useHistory, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
+import { Typography } from '@/src/shared/ui/typography'
 import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
-import { Typography } from 'src/shared/ui/typography'
 
 export const Privacy = () => {
   const { back } = useHistory()
@@ -33,9 +32,11 @@ export const Privacy = () => {
 
           <br />
           <div>
-            {t.auth.privacyAndTermsPages.textOfPrivacy.split(/\n+/).map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            {t.auth.privacyAndTermsPages.textOfPrivacy
+              .split(/\n+/)
+              .map((paragraph: string, index: number) => (
+                <p key={index}>{paragraph}</p>
+              ))}
           </div>
         </div>
       </div>

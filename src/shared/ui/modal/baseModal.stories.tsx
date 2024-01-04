@@ -3,8 +3,8 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '@/src/shared/ui/button'
+import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import { Modal } from 'src/shared/ui/modal'
 
 const meta = {
   title: 'Components/Modal',

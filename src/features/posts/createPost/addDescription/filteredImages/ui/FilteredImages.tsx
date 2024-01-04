@@ -5,11 +5,9 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
 
-import { Image } from '../../../CreateNewPost'
-
-import s from './filteredImages.module.scss'
-
-import { SliderSettings } from 'src/entities/post/sliderSettings'
+import { SliderSettings } from '@/src/entities/post/sliderSettings'
+import s from '@/src/features/posts/createPost/addDescription/filteredImages/ui/filteredImages.module.scss'
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
 
 type Props = {
   addedImages: Image[]

@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import s from './header.module.scss'
-
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
+import s from '@/src/shared/header/ui/header.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { Options, SelectBox } from '@/src/shared/ui/selectBox'

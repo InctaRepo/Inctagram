@@ -1,7 +1,6 @@
 import React from 'react'
 
-import s from './home.module.scss'
-
+import s from '@/src/features/home/home.module.scss'
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
 import { Sidebar } from '@/src/shared/sidebar'

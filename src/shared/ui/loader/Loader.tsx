@@ -1,8 +1,7 @@
-import s from './loader.module.scss'
+import { UseInfiniteScrollSchema } from '@/src/shared/hooks'
+import s from '@/src/shared/ui/loader/loader.module.scss'
 
-import { UseInfiniteScroll } from '@/src/shared/hooks/ useInfiniteScroll'
-
-type LoaderProps = Pick<UseInfiniteScroll, 'isLoading' | 'loadMoreCallback' | 'isLastPage'>
+type LoaderProps = Pick<UseInfiniteScrollSchema, 'isLoading' | 'loadMoreCallback' | 'isLastPage'>
 
 export const Loader = ({ isLoading, isLastPage, loadMoreCallback }: LoaderProps) => {
   if (isLoading)

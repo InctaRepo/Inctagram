@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-import { SignInSchema } from '../types/signInSchema'
+import { SignInSchema } from '@/src/features/auth/signIn'
 
 export const signInSlice = createSlice({
   name: 'signIn',

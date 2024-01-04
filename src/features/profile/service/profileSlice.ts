@@ -22,7 +22,7 @@ const slice = createSlice({
   },
 })
 
-//TODO
+//TODO это нам нужно?
 export const profileReducer = slice.reducer
 
 export const profileActions = slice.actions

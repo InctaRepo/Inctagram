@@ -1,7 +1,6 @@
 import React from 'react'
 
-import s from './statistics.module.scss'
-
+import s from '@/src/features/statistics/statistics.module.scss'
 import { Sidebar } from '@/src/shared/sidebar'
 import { Typography } from '@/src/shared/ui/typography'
 
