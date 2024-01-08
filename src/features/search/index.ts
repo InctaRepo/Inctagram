@@ -1,1 +1,1 @@
-export { Search } from './Search'
+export { SearchDynamic } from '@/src/features/search/SearchDynamic'

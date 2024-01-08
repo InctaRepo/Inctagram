@@ -1,9 +1,8 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import { Image } from '../../CreateNewPost'
-import { AddedImages } from '../../editPhoto/add/addedImages/AddedImages'
-import s from '../add/Add.module.scss'
-
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
+import s from '@/src/features/posts/createPost/editPhoto/add/Add.module.scss'
+import { AddedImages } from '@/src/features/posts/createPost/editPhoto/add/addedImages/AddedImages'
 import AddImage from 'public/icon/image.svg'
 import PlusCircleOutline from 'public/icon/plusCircleOutlineIcon.svg'
 

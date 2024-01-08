@@ -1,1 +1,1 @@
-export { ProgressBar } from './ProgressBar'
+export { ProgressBar } from '@/src/shared/ui/progressBar/ProgressBar'

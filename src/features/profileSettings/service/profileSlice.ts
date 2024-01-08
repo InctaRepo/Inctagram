@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import {
-  Avatar,
-  ProfileState,
-  UserInfo,
-} from 'src/features/profileSettings/service/profileSettingsTypes'
+import { Avatar, ProfileState, UserInfo } from '@/src/features/profileSettings/service'
 
 const initialState: ProfileState = {
   ava: null,

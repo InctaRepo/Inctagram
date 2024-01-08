@@ -1,7 +1,6 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import s from '../crop/Cropping.module.scss'
-
+import s from '@/src/features/posts/createPost/editPhoto/crop/Cropping.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'
 import Crop from 'public/icon/crop.svg'

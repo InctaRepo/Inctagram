@@ -1,4 +1,4 @@
-export { postReducer } from './postSlice'
+export { postReducer } from '@/src/features/posts/service/postSlice'
 export {
   useAddPostMutation,
   getUserPost,
@@ -6,5 +6,5 @@ export {
   useGetUserPostQuery,
   getRunningQueriesThunk,
   useGetUserPostsQuery,
-} from './postApi'
-export type { Images, UpdatePost } from './postApiTypes'
+} from '@/src/features/posts/service/postApi'
+export type { Images, UpdatePost } from '@/src/features/posts/service/postApiTypes'

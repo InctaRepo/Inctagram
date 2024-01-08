@@ -1,1 +1,1 @@
-export { AppLoader } from './AppLoader'
+export { AppLoader } from '@/src/shared/ui/appLoader/AppLoader'
