@@ -19,9 +19,9 @@ const authApi = baseApi.injectEndpoints({
             dispatch(setAuthMeData({ authMeData: data.data }))
             dispatch(setIsAuth(true))
           }
-          // if (data?.resultCode === resultCode.UNAUTHORIZED) {
-          //   dispatch(setIsAuth(false))
-          // }
+          if (data?.resultCode === resultCode.UNAUTHORIZED) {
+            dispatch(setIsAuth(false))
+          }
         } catch (e) {
           console.error(e)
         } finally {

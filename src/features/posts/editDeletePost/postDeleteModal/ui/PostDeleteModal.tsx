@@ -2,7 +2,8 @@ import React from 'react'
 
 import { useDeletePostMutation } from '@/src/features/posts/editDeletePost/postDeleteModal/service/deletePost'
 import s from '@/src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
-import { useTranslate } from '@/src/shared/hooks'
+import { getUserId } from '@/src/shared/hoc'
+import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
 import Delete from 'public/icon/deletePost.svg'
@@ -21,6 +22,7 @@ export const PostDeleteModal = ({
   setIsEditModalOpen,
 }: Props) => {
   const { t } = useTranslate()
+  const userId = useAppSelector(getUserId)
   const [deletePost] = useDeletePostMutation()
   const onModalClose = () => {
     setOpenDeleteModal(false)
@@ -33,6 +35,7 @@ export const PostDeleteModal = ({
         setOpenDeleteModal(false)
         if (setIsEditModalOpen) {
           setIsEditModalOpen(false)
+          window.history.pushState(null, 'post', `/profile/${userId}`)
         }
       })
   }

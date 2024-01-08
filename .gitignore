@@ -7,10 +7,14 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
+/playwright/.cache/
 
 # next.js
 /.next/
 /out/
+next-env.d.ts
 
 # production
 /build
@@ -32,7 +36,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
 .idea/
 .idea
 #turbo
