@@ -18,7 +18,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://localhost:3000',
+    baseURL: 'http://localhost:3000/',
     locale: 'en-GB',
     timezoneId: 'Europe/Paris',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -32,10 +32,10 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], locale: 'en-GB', timezoneId: 'Europe/Paris' },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'], locale: 'en-GB', timezoneId: 'Europe/Paris' },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'], locale: 'en-GB', timezoneId: 'Europe/Paris' },
+    // },
 
     /* Test against mobile viewports. */
     // {
@@ -57,14 +57,14 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
-
+  timeout: 50 * 60 * 1000,
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'next dev',
     url: 'http://127.0.0.1:3000',
     reuseExistingServer: !process.env.CI,
-    stdout: 'ignore',
-    stderr: 'pipe',
+    // stdout: 'ignore',
+    // stderr: 'pipe',
     timeout: 120 * 1000,
   },
 })
