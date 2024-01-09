@@ -29,6 +29,7 @@ export const Profile = ({ id, postId, variant }: Props) => {
   if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     dispatch(setProfileFound(false))
     router.push(RouteNames.PROFILE_SETTINGS)
+    console.log()
 
     return <Loader />
   }

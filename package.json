@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
+    "build:production": "pnpm build",
+    "start": "next start",
     "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -11,10 +14,9 @@
     "playwright codegen": "npx playwright codegen http://localhost:3000/en",
     "playwright test --ui": "npx playwright test --ui",
     "playwright test": "npx playwright test",
+    "test-coverage-watch": "jest --watch --coverage",
+    "test-coverage": "jest --coverage",
     "playwright show-report": "npx playwright show-report",
-    "build": "next build",
-    "build:production": "pnpm build",
-    "start": "next start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format": "prettier --write src",
@@ -91,6 +93,7 @@
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20.10.5",
     "@types/nprogress": "^0.2.3",
     "@types/react": "18.2.46",
@@ -104,6 +107,7 @@
     "sass": "^1.69.5",
     "storybook": "7.6.4",
     "stylelint": "^15.11.0",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2"
   }
 }

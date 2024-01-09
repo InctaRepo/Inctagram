@@ -40,3 +40,4 @@ next-env.d.ts
 turbo.json
 test-results/
 playwright-report/
+coverage/
