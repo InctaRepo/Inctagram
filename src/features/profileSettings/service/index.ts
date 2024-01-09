@@ -1,7 +1,11 @@
-export type { ProfileState, UserInfo, Avatar } from './profileSettingsTypes'
-export { profileReducer } from './profileSlice'
+export type {
+  ProfileState,
+  UserInfo,
+  Avatar,
+} from '@/src/features/profileSettings/service/profileSettingsTypes'
+export { profileReducer } from '@/src/features/profileSettings/service/profileSlice'
 export {
   useCreateProfileMutation,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
-} from './profileSettingsApi'
+} from '@/src/features/profileSettings/service/profileSettingsApi'

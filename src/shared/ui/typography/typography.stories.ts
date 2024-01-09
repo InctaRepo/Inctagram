@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Typography } from './index'
+import { Typography } from '@/src/shared/ui/typography/Typography'
 
 const meta = {
   title: 'Components/Typography',

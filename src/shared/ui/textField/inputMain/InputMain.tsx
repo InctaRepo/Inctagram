@@ -1,7 +1,6 @@
 import React, { ChangeEvent, ComponentProps, useState } from 'react'
 
-import s from './input-main.module.scss'
-
+import s from '@/src/shared/ui/textField/inputMain/inputMain.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
 import EyeIcon from 'public/icon/eyeIcon.svg'
 import EyeOffIcon from 'public/icon/eyeOffIcon.svg'

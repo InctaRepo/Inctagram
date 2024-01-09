@@ -3,9 +3,8 @@ import React, { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
 import { clsx } from 'clsx'
 
-import { AreYouSureDescriptionModal } from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal/AreYouSureDescriptionModal'
+import s from '@/src/entities/post/showPostModal/editModal/editModal.module.scss'
 import CloseIcon from 'public/icon/closeIcon.svg'
-import s from 'src/entities/post/showPostModal/editModal/editModal.module.scss'
 
 export type ModalSize = 'edit'
 
@@ -85,12 +84,6 @@ export const EditModal = ({
 
             <div className={s.contentBox}>{children}</div>
           </DialogContent>
-          <AreYouSureDescriptionModal
-            setIsEditModalOpen={setIsEditModalOpen}
-            setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
-            openSureDescriptionModal={openSureDescriptionModal}
-            setOpenSureDescriptionModal={setOpenSureDescriptionModal}
-          />
         </DialogPortal>
       </Dialog>
     </>

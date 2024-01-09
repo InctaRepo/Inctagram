@@ -1,1 +1,1 @@
-export { Settings } from '@/src/features/profileSettings/settings/ui/Settings'
+export { SettingsDynamic } from '@/src/features/profileSettings/settings/ui/SettingsDynamic'

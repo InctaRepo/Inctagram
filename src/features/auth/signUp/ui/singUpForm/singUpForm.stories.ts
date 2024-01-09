@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { SingUpForm } from './SingUpForm'
+import { SingUpForm } from '@/src/features/auth/signUp/ui/singUpForm'
 
 const meta = {
   title: 'Auth/RegisterForm',

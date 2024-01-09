@@ -1,5 +1,5 @@
-@import '../../../styles/colors';
-@import '../../../styles/typography';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
 
 @mixin button($color: $color-light-100, $bgColor: $color-accent-500) {
   all: unset;

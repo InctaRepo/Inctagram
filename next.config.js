@@ -1,4 +1,4 @@
-/** @type {import("next").NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
     return [
@@ -56,3 +56,10 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: 'false',
+//   openAnalyzer: 'false',
+// })
+//
+// module.exports = withBundleAnalyzer({})

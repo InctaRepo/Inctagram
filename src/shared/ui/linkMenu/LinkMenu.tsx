@@ -1,11 +1,10 @@
-import React, { FC, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 import Link from 'next/link'
 
-import s from './linkMenu.module.scss'
-
-import { variantIconLink } from '@/src/shared/const/variantIconLink'
+import { variantIconLink } from '@/src/shared/const'
+import s from '@/src/shared/ui/linkMenu/linkMenu.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
 
 type Props = {
@@ -15,7 +14,7 @@ type Props = {
   variantIcon: variantIconLink
   handleClick: (variant: variantIconLink) => void
 }
-export const LinkMenu: FC<Props> = ({ children, variantIcon, handleClick, nameLink, link }) => {
+export const LinkMenu = ({ children, variantIcon, handleClick, nameLink, link }: Props) => {
   const handleItemClick = () => {
     handleClick(variantIcon)
   }

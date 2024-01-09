@@ -3,13 +3,14 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import s from '@/src/entities/profile/profileInfo/dataProfile/ui/dataProfile.module.scss'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'
 import { Typography } from '@/src/shared/ui/typography'
-import s from 'src/entities/profile/profileInfo/dataProfile/ui/dataProfile.module.scss'
 
 type Props = {
   userData?: UserInfo
