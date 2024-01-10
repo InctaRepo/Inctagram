@@ -45,16 +45,22 @@ jobs:
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-  test:
+  playwright:
+    name: playwright-tests # название конктретной работы в pipeline
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout  # клонируем репозиторый
+        uses: actions/checkout@v3
+      - name: pnpm
+        uses: pnpm/action-setup@0609f0983b7a228f052f81ef4c3d6510cae254ad
+        with:
+          version: 8.14.0
       - uses: actions/setup-node@v3
         with:
           node-version: '20.x'
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install # устанавливаем зависимости
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
