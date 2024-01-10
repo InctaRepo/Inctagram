@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout  # клонируем репозиторый
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: pnpm
         uses: pnpm/action-setup@0609f0983b7a228f052f81ef4c3d6510cae254ad
         with:
