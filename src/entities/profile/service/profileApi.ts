@@ -3,7 +3,7 @@ import { baseApi, BaseResponse } from '@/src/shared/api'
 
 export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    getProfile: builder.query<BaseResponse<UserInfo>, string | string[] | undefined>({
+    getProfile: builder.query<BaseResponse<UserInfo>, string>({
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,
