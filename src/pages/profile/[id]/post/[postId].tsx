@@ -27,7 +27,7 @@ const MyPostPage: NextPageWithLayout = () => {
   const id = router.query.id as string
   const postId = router.query.postId as string
 
-  return <Profile id={id} variant="single post" postId={postId} />
+  return <Profile id={id} postId={postId} />
 }
 
 MyPostPage.getLayout = getPublicLayout

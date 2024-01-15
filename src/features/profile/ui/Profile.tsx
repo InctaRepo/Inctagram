@@ -15,12 +15,11 @@ import { Loader } from '@/src/shared/ui/loader'
 
 type Props = {
   id: string
-  variant?: string
   postId?: string
 }
 //TODO нужен ли variant?
 
-export const Profile = ({ id, postId, variant }: Props) => {
+export const Profile = ({ id, postId }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const dispatch = useAppDispatch()
   const router = useRouter()
@@ -44,7 +43,7 @@ export const Profile = ({ id, postId, variant }: Props) => {
       {isAuth && <Sidebar />}
       <div className={isAuth ? s.containerInfo : s.containerInfoPublic}>
         <ProfileInfo userData={data?.data} />
-        <Posts userData={data?.data} postId={postId} variant={variant} userId={id} />
+        <Posts userData={data?.data} postId={postId} userId={id} />
       </div>
     </div>
   )

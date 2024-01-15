@@ -7,24 +7,17 @@ import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal
 import { RightDescription } from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription'
 import s from '@/src/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
-import { getIsAuth, getUsername } from '@/src/shared/hoc'
-import { useAppSelector } from '@/src/shared/hooks'
 
 type Props = {
   openSureDescriptionModal?: boolean
-  isDescription?: boolean
   description?: string
   createdAt?: Date
   userData?: UserInfo
   images: Images[]
   id: string
-  modalWidth?: string
-  callBack?: (id: string | null) => void
-  variant?: string
   postId?: string
 } & ComponentProps<'div'>
 
@@ -36,15 +29,9 @@ export const ShowPostModal = ({
   images,
   id,
   postId,
-  variant,
-  isDescription,
-  callBack,
 }: Props) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const username = useAppSelector(getUsername)
-  const isAuth = useAppSelector(getIsAuth)
-  // const { data: postData } = useGetUserPostQuery(postId!)
   const userId = userData?.userId
   const currentId = id === undefined ? postId : id
 
@@ -59,7 +46,7 @@ export const ShowPostModal = ({
   }
 
   useEffect(() => {
-    if (variant === 'single post' && id === postId) {
+    if (id === postId) {
       openClickHandler()
     }
   }, [])
