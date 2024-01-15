@@ -4,7 +4,6 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 import { authReducer } from '@/src/features/auth/authService'
 import { signInReducer } from '@/src/features/auth/signIn'
 import { postReducer } from '@/src/features/posts/service'
-import { profileReducer } from '@/src/features/profile/service'
 import { baseApi } from '@/src/shared/api'
 import { appReducer } from '@/src/shared/app'
 import { authMeReducer } from '@/src/shared/hoc'
@@ -18,7 +17,6 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   authMe: authMeReducer,
   signIn: signInReducer,
   app: appReducer,
-  profile: profileReducer,
   post: postReducer,
   menu: menuReducer,
 }

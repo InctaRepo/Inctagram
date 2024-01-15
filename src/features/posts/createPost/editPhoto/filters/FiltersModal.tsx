@@ -163,7 +163,7 @@ const FiltersModal = ({
                   sendFilteredImg={sendFilteredImg}
                 >
                   <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
-                  <PostDescription value={value} setValue={setValue} addedImages={addedImages} />
+                  <PostDescription value={value} setValue={setValue} />
                 </AddDescriptionModal>
               </div>
 

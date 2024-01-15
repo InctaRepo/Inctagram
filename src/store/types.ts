@@ -3,7 +3,6 @@ import { rootReducer } from '@reduxjs/toolkit/src/tests/injectableCombineReducer
 import { AuthState } from '@/src/features/auth/authService'
 import { SignInSchema } from '@/src/features/auth/signIn'
 import { PostState } from '@/src/features/posts'
-import { ProfileState } from '@/src/features/profileSettings/service'
 import { baseApi } from '@/src/shared/api'
 import { AppSchema } from '@/src/shared/app'
 import { AuthMeSchema } from '@/src/shared/hoc'
@@ -19,7 +18,6 @@ export type StateSchema = {
   authMe: AuthMeSchema
   signIn: SignInSchema
   app: AppSchema
-  profile: ProfileState
   post: PostState
   menu: MenuState
 }
