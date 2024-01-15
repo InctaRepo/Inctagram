@@ -6,7 +6,7 @@ type Props = {}
 export const AccountManagement = ({}: Props) => {
   return (
     <div className={s.profile}>
-      <div className={s.content}>Devices</div>
+      <div className={s.content}>AccountManagement</div>
     </div>
   )
 }
