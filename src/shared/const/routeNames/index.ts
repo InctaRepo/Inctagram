@@ -1,1 +1,0 @@
-export { RouteNames } from './routeNames'
