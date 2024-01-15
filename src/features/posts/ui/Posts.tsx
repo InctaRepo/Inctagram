@@ -1,10 +1,9 @@
 import React, { memo } from 'react'
 
 import { ShowPostModal } from '@/src/entities/post/showPostModal'
+import { UserInfo } from '@/src/entities/profile/service'
 import { useGetUserPostsQuery } from '@/src/features/posts'
 import s from '@/src/features/posts/ui/posts.module.scss'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
 import { useInfiniteScroll } from '@/src/shared/hooks/ useInfiniteScroll'
 import { Loader } from '@/src/shared/ui/loader'
 

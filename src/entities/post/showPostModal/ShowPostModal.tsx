@@ -7,9 +7,9 @@ import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal
 import { RightDescription } from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription'
 import s from '@/src/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/src/features/posts/service'
+import { UserInfo } from '@/src/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
+import { Images } from '@/src/features/posts/service'
 import { RouteNames } from '@/src/shared/const'
 
 type Props = {

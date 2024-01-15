@@ -3,13 +3,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '@/src/features/profile/service'
-import {
-  useCreateProfileMutation,
-  useUpdateProfileMutation,
-  useUploadAvatarMutation,
-} from '@/src/features/profileSettings/service'
 import { SettingsDynamic } from '@/src/features/profileSettings/settings'
 import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
 import { RouteNames } from '@/src/shared/const'
@@ -19,6 +12,12 @@ import { useAppSelector, useErrorToast } from '@/src/shared/hooks'
 import { ProfileSettingSchema } from '@/src/shared/schemas/profileSettingSchema'
 import { Sidebar } from '@/src/shared/sidebar'
 import { Loader } from '@/src/shared/ui/loader'
+import {
+  useCreateProfileMutation,
+  useGetProfileQuery,
+  useUpdateProfileMutation,
+  useUploadAvatarMutation,
+} from 'src/entities/profile/service'
 
 export const ProfileSettings = () => {
   const { push } = useRouter()

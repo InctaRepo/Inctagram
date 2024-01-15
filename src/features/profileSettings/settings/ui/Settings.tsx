@@ -6,8 +6,8 @@ import { parseISO } from 'date-fns'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
-import { UserInfo } from '@/src/features/profileSettings/service'
-import { AvaModalDynamic } from '@/src/features/profileSettings/settings/avaModal'
+import { AvaModalDynamic } from '@/src/entities/profile/avaModal'
+import { UserInfo } from '@/src/entities/profile/service'
 import s from '@/src/features/profileSettings/settings/ui/settings.module.scss'
 import { Countries } from '@/src/shared/countries/countries'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
@@ -121,7 +121,11 @@ export const Settings = ({
               label: `${t.profile.profileSetting.generalInformation}`,
               value: 'settings',
             },
-            { label: `${t.profile.profileSetting.devices}`, value: 'devices' },
+            {
+              label: `${t.profile.profileSetting.devices}`,
+              value: 'devices',
+              children: <div>123123123</div>,
+            },
             {
               label: `${t.profile.profileSetting.accountManagement}`,
               value: 'account-management',

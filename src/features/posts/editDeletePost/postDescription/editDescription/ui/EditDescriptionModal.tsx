@@ -6,11 +6,10 @@ import { Separator } from '@radix-ui/react-separator'
 import { PostImages } from '@/src/entities/post/postImages'
 import { AreYouSureDescriptionModal } from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal'
 import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal'
+import { UserInfo } from '@/src/entities/profile/service'
 import { Images } from '@/src/features/posts'
 import { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription'
 import s from '@/src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
 import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'
 
@@ -82,7 +81,7 @@ export const EditDescriptionModal = ({
               value={value}
               setValue={setValue}
               description={description}
-              id={id}
+              postId={id}
               setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
               setIsEditModalOpen={setIsEditModalOpen}
               isDescription={true}
