@@ -1,7 +1,9 @@
 import React from 'react'
 
+import { AccountManagementDynamic } from '@/src/entities/profile/settings/accountManagement'
 import { DevicesDynamic } from '@/src/entities/profile/settings/devices'
 import { GeneralInformationDynamic } from '@/src/entities/profile/settings/generalInformation'
+import { MyPaymentDynamic } from '@/src/entities/profile/settings/myPayment'
 import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Sidebar } from '@/src/shared/sidebar'
@@ -30,8 +32,13 @@ export const ProfileSettings = () => {
               {
                 label: `${t.profile.profileSetting.accountManagement}`,
                 value: 'account-management',
+                children: <AccountManagementDynamic />,
               },
-              { label: `${t.profile.profileSetting.myPayment}`, value: 'my-payment' },
+              {
+                label: `${t.profile.profileSetting.myPayment}`,
+                value: 'my-payment',
+                children: <MyPaymentDynamic />,
+              },
             ]}
           />
         </div>

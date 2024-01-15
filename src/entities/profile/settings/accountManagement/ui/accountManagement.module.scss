@@ -1,0 +1,40 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.profile {
+  width: 100%;
+  max-width: 972px;
+  margin-top: 20px;
+
+  // height: auto;
+
+
+  .content {
+    @include flex-block(flex, row);
+
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 972px;
+    margin-bottom: 24px;
+  }
+}
+
+.grayLine {
+  width: 99%;
+  height: 1px;
+  margin-top: -82px;
+  background: $color-dark-300;
+}
+
+.grayLineError {
+  width: 100%;
+  height: 1px;
+  background: $color-dark-300;
+}
