@@ -11,7 +11,6 @@ import { AvaModalDynamic } from '@/src/entities/profile/avaModal'
 import {
   useCreateProfileMutation,
   useGetProfileQuery,
-  UserInfo,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } from '@/src/entities/profile/service'
@@ -36,19 +35,6 @@ import {
 import { Loader } from '@/src/shared/ui/loader'
 import { Options } from '@/src/shared/ui/selectBox'
 
-type Props = {
-  onSubmitHandler: (data: ProfileSettingSchema) => void
-  isModalOpen: boolean
-  setIsModalOpen: (isModalOpen: boolean) => void
-  selectedImage: File | null
-  setSelectedImage: (selectedImage: File | null) => void
-  editorRef: React.RefObject<AvatarEditor>
-  handleSavePhoto: () => void
-  croppedAvatar: string | null
-  setCroppedAvatar: (croppedAvatar: string | null) => void
-  userData?: UserInfo
-  userNameFromMe: string | undefined
-}
 export const GeneralInformation = () => {
   const [_, setValue] = useState('')
   const editorRef = useRef<AvatarEditor>(null)
