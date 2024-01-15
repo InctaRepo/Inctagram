@@ -1,29 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-import { DevTool } from '@hookform/devtools'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { parseISO } from 'date-fns'
 import AvatarEditor from 'react-avatar-editor'
-import { useForm } from 'react-hook-form'
 
-import { AvaModalDynamic } from '@/src/entities/profile/avaModal'
 import { UserInfo } from '@/src/entities/profile/service'
+import { DevicesDynamic } from '@/src/entities/profile/settings/devices'
+import { GeneralInformationDynamic } from '@/src/entities/profile/settings/generalInformation'
 import s from '@/src/features/profileSettings/settings/ui/settings.module.scss'
-import { Countries } from '@/src/shared/countries/countries'
-import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks'
-import {
-  createProfileSettingSchema,
-  ProfileSettingSchema,
-} from '@/src/shared/schemas/profileSettingSchema'
-import { Button } from '@/src/shared/ui/button'
-import {
-  ControlledDatePicker,
-  ControlledSelect,
-  ControlledTextArea,
-  ControlledTextField,
-} from '@/src/shared/ui/controlled'
-import { Options } from '@/src/shared/ui/selectBox'
+import { ProfileSettingSchema } from '@/src/shared/schemas/profileSettingSchema'
 import { TabsComponent } from '@/src/shared/ui/tabsComponent'
 
 type Props = {
@@ -52,65 +36,7 @@ export const Settings = ({
   userData,
   userNameFromMe,
 }: Props) => {
-  const [_, setValue] = useState('')
-  const [cities, setCities] = useState<Options[]>([])
   const { t } = useTranslate()
-
-  function getCountries(arr: any) {
-    return arr.map((el: { country: string; cities: string }) => ({
-      value: el.country,
-      cities: el.cities,
-    }))
-  }
-
-  const countriesList = getCountries(Countries.data)
-
-  function getCities(arr: any) {
-    return arr.map((el: string) => ({ value: el }))
-  }
-
-  const changeCountryHandler = (country: string | number) => {
-    if (!country) {
-      return null
-    }
-    const cities = countriesList.find((c: { value: string | number }) => c.value === country)
-
-    setCities(cities.cities)
-
-    const citiesSelected = getCities(cities.cities)
-
-    setCities(citiesSelected)
-  }
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, touchedFields },
-    trigger,
-  } = useForm<ProfileSettingSchema>({
-    resolver: zodResolver(createProfileSettingSchema(t)),
-    mode: 'onChange',
-    defaultValues: {
-      username: userData ? userData.username : userNameFromMe,
-      firstName: userData?.firstName,
-      lastName: userData?.lastName,
-      dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData.dateOfBirth}`) : new Date(),
-      country: userData?.country,
-      city: userData?.city,
-      aboutMe: userData?.aboutMe,
-      avatar: userData?.avatar || '',
-    },
-  })
-
-  useEffect(() => {
-    const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
-
-    triggerZodFieldError(touchedFieldNames, trigger)
-  }, [t])
-
-  const submitData = (data: ProfileSettingSchema) => {
-    onSubmitHandler(data)
-  }
 
   return (
     <div className={s.profile}>
@@ -120,11 +46,26 @@ export const Settings = ({
             {
               label: `${t.profile.profileSetting.generalInformation}`,
               value: 'settings',
+              children: (
+                <GeneralInformationDynamic
+                  croppedAvatar={croppedAvatar}
+                  setCroppedAvatar={setCroppedAvatar}
+                  isModalOpen={isModalOpen}
+                  setIsModalOpen={setIsModalOpen}
+                  selectedImage={selectedImage}
+                  setSelectedImage={setSelectedImage}
+                  editorRef={editorRef}
+                  handleSavePhoto={handleSavePhoto}
+                  onSubmitHandler={onSubmitHandler}
+                  userData={userData}
+                  userNameFromMe={userNameFromMe}
+                />
+              ),
             },
             {
               label: `${t.profile.profileSetting.devices}`,
               value: 'devices',
-              children: <div>123123123</div>,
+              children: <DevicesDynamic />,
             },
             {
               label: `${t.profile.profileSetting.accountManagement}`,
@@ -134,94 +75,6 @@ export const Settings = ({
           ]}
         />
       </div>
-      <div className={s.content}>
-        <div className={s.photoContent}>
-          <div className={s.addBtn}>
-            <AvaModalDynamic
-              avatar={userData?.avatar!}
-              croppedAvatar={croppedAvatar}
-              setCroppedAvatar={setCroppedAvatar}
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-              selectedImage={selectedImage}
-              setSelectedImage={setSelectedImage}
-              editorRef={editorRef}
-              handleSavePhoto={handleSavePhoto}
-            />
-          </div>
-        </div>
-
-        <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
-          <DevTool control={control} />
-          <ControlledTextField
-            control={control}
-            name={'username'}
-            label={t.profile.profileSetting.userName}
-            className={s.field}
-            isRequired
-          />
-          <ControlledTextField
-            control={control}
-            name={'firstName'}
-            label={t.profile.profileSetting.firstName}
-            className={s.field}
-            isRequired
-          />
-          <ControlledTextField
-            control={control}
-            name={'lastName'}
-            label={t.profile.profileSetting.lastName}
-            className={s.field}
-            isRequired
-          />
-          <div className={s.datePicker}>
-            <ControlledDatePicker
-              control={control}
-              className={s.date}
-              label={t.profile.profileSetting.dateOfBirthday}
-              name={'dateOfBirthday'}
-              errorMessage={errors.dateOfBirthday?.message}
-            />
-          </div>
-
-          <div className={s.fieldSelect}>
-            <div className={s.select}>
-              <ControlledSelect
-                control={control}
-                name="country"
-                options={countriesList}
-                label={t.profile.profileSetting.selectYourCountry}
-                onValueChange={changeCountryHandler}
-                defaultValue={t.profile.profileSetting.country}
-              />
-            </div>
-            <div className={s.select}>
-              <ControlledSelect
-                control={control}
-                name="city"
-                options={cities}
-                label={t.profile.profileSetting.selectYourCity}
-                defaultValue={t.profile.profileSetting.city}
-              />
-            </div>
-          </div>
-          <ControlledTextArea
-            control={control}
-            className={s.textArea}
-            setValue={setValue}
-            name={'aboutMe'}
-            fullWidth={true}
-            label={t.profile.profileSetting.aboutMe}
-          />
-
-          <div className={s.saveBtn}>
-            <Button type="submit" fullWidth variant="primary">
-              {t.profile.profileSetting.saveChanges}
-            </Button>
-          </div>
-        </form>
-      </div>
-      <div className={`${s.grayLine} ${errors.dateOfBirthday && s.grayLineError}`} />
     </div>
   )
 }
