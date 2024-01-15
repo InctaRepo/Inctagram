@@ -17,7 +17,6 @@ type Props = {
   id: string
   postId?: string
 }
-//TODO нужен ли variant?
 
 export const Profile = ({ id, postId }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
