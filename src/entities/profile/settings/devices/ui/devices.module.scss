@@ -6,35 +6,112 @@
   height: $h;
 }
 
-.profile {
+.device {
   width: 100%;
   max-width: 972px;
   margin-top: 20px;
 
-  // height: auto;
-
-
-  .content {
-    @include flex-block(flex, row);
-
-    flex-wrap: wrap;
-    justify-content: flex-start;
-
+  .currentDeviceWrapper {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 972px;
-    margin-bottom: 24px;
+
+    .browserWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      width: 100%;
+      height: 120px;
+      padding-bottom: 24px;
+      padding-left: 24px;
+
+      background: $color-dark-500;
+      border: 1px solid $color-dark-300;
+      border-radius: 4px;
+
+      .browser {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+
+        .img {
+        }
+
+        .browserProperty {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 24px;
+    }
   }
-}
 
-.grayLine {
-  width: 99%;
-  height: 1px;
-  margin-top: -82px;
-  background: $color-dark-300;
-}
+  .activeSessionsWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-.grayLineError {
-  width: 100%;
-  height: 1px;
-  background: $color-dark-300;
+    .activeSessions {
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+
+    .deviceWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      width: 100%;
+      height: 120px;
+      padding: 24px;
+
+      background: $color-dark-500;
+      border: 1px solid $color-dark-300;
+      border-radius: 4px;
+
+      .deviceSession {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+
+        .img {
+        }
+
+        .deviceProperty {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+
+        }
+
+      }
+
+      .logOut {
+        fill: white;
+
+        :hover {
+          font-weight: 700;
+          color: $color-accent-500;
+          fill: $color-accent-500;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          align-items: center;
+        }
+      }
+    }
+  }
 }
