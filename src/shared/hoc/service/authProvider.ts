@@ -30,7 +30,6 @@ const authApi = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: false,
 })
 
 export const { useGetMeQuery } = authApi
