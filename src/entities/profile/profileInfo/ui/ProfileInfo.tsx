@@ -4,8 +4,7 @@ import ImageAva from 'next/image'
 
 import { DataProfile } from '@/src/entities/profile/profileInfo/dataProfile'
 import s from '@/src/entities/profile/profileInfo/ui/profileInfo.module.scss'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
+import { UserInfo } from '@/src/entities/profile/service'
 import AvatarImage from 'public/icon/avatarIcon.svg'
 import DefaultAva from 'public/images/avatarIcon.jpg'
 

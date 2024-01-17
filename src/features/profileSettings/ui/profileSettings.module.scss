@@ -16,5 +16,10 @@
     padding: 35px 16px 0 20px;
 
     border-left: 1px solid $color-dark-300;
+
+    .tabsMenu {
+      width: 100%;
+      max-width: 972px;
+    }
   }
 }

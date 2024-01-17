@@ -1,8 +1,15 @@
-import { UserInfo } from '@/src/features/profileSettings/service'
+import { UserInfo } from '@/src/entities/profile/service/profileTypes'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 
-const profileSettingsApi = baseApi.injectEndpoints({
+export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
+    getProfile: builder.query<BaseResponse<UserInfo>, string>({
+      query: id => ({
+        method: 'GET',
+        url: `users/profile/${id}`,
+      }),
+      providesTags: ['Profile'],
+    }),
     createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
       query: ({ userId, ...patch }) => ({
         method: 'POST',
@@ -27,8 +34,23 @@ const profileSettingsApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Profile'],
     }),
+    deleteAvatar: builder.mutation<BaseResponse, void>({
+      query: () => ({
+        url: `users/profile/avatar`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Profile'],
+    }),
   }),
 })
 
-export const { useUpdateProfileMutation, useUploadAvatarMutation, useCreateProfileMutation } =
-  profileSettingsApi
+export const {
+  useGetProfileQuery,
+  useUpdateProfileMutation,
+  useUploadAvatarMutation,
+  useCreateProfileMutation,
+  useDeleteAvatarMutation,
+  util: { getRunningQueriesThunk },
+} = profileApi
+
+export const { getProfile } = profileApi.endpoints

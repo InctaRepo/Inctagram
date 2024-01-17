@@ -1,17 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { parseISO } from 'date-fns'
+import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
-import { UserInfo } from '@/src/features/profileSettings/service'
-import { AvaModalDynamic } from '@/src/features/profileSettings/settings/avaModal'
-import s from '@/src/features/profileSettings/settings/ui/settings.module.scss'
+import { AvaModalDynamic } from '@/src/entities/profile/avaModal'
+import {
+  useCreateProfileMutation,
+  useGetProfileQuery,
+  useUpdateProfileMutation,
+  useUploadAvatarMutation,
+} from '@/src/entities/profile/service'
+import s from '@/src/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
+import { RouteNames } from '@/src/shared/const'
 import { Countries } from '@/src/shared/countries/countries'
+import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { useTranslate } from '@/src/shared/hooks'
+import { getUserId, getUsername } from '@/src/shared/hoc'
+import { useAppSelector, useErrorToast, useTranslate } from '@/src/shared/hooks'
 import {
   createProfileSettingSchema,
   ProfileSettingSchema,
@@ -23,38 +32,94 @@ import {
   ControlledTextArea,
   ControlledTextField,
 } from '@/src/shared/ui/controlled'
+import { Loader } from '@/src/shared/ui/loader'
 import { Options } from '@/src/shared/ui/selectBox'
-import { TabsComponent } from '@/src/shared/ui/tabsComponent'
 
-type Props = {
-  onSubmitHandler: (data: ProfileSettingSchema) => void
-  isModalOpen: boolean
-  setIsModalOpen: (isModalOpen: boolean) => void
-  selectedImage: File | null
-  setSelectedImage: (selectedImage: File | null) => void
-  editorRef: React.RefObject<AvatarEditor>
-  handleSavePhoto: () => void
-  croppedAvatar: string | null
-  setCroppedAvatar: (croppedAvatar: string | null) => void
-  userData?: UserInfo
-  userNameFromMe: string | undefined
-}
-export const Settings = ({
-  croppedAvatar,
-  setCroppedAvatar,
-  isModalOpen,
-  setIsModalOpen,
-  selectedImage,
-  setSelectedImage,
-  editorRef,
-  handleSavePhoto,
-  onSubmitHandler,
-  userData,
-  userNameFromMe,
-}: Props) => {
+export const GeneralInformation = () => {
   const [_, setValue] = useState('')
+  const editorRef = useRef<AvatarEditor>(null)
+  const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const [cities, setCities] = useState<Options[]>([])
+  const [avatar, setAvatar] = useState<FormData | null>(null)
   const { t } = useTranslate()
+  const { push } = useRouter()
+  const [updateProfile, { isSuccess: isSuccessUpdate, isLoading: isLoadingUpdate }] =
+    useUpdateProfileMutation()
+  const [createProfile, { isSuccess: isSuccessCreate, isLoading: isLoadingCreate }] =
+    useCreateProfileMutation()
+  const userId = useAppSelector(getUserId)
+  const userName = useAppSelector(getUsername)
+  const { data: profile, isLoading } = useGetProfileQuery(userId)
+  const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =
+    useUploadAvatarMutation()
+  const userData = profile?.data
+  const handleSavePhoto = () => {
+    if (editorRef.current) {
+      const canvas = editorRef.current.getImageScaledToCanvas()
+
+      canvas.toBlob(blob => {
+        if (blob) {
+          const file = new File([blob], 'avatar', { type: blob.type })
+          const formData = new FormData()
+
+          formData.append('file', file)
+          convertFileToBase64(file, (file64: string) => {
+            setCroppedAvatar(file64)
+          })
+          setAvatar(formData)
+          setIsModalOpen(false)
+          setSelectedImage(null)
+        }
+      })
+    }
+  }
+  const successRes =
+    (isSuccessCreate && profile?.resultCode === 0) || (isSuccessUpdate && profile?.resultCode === 0)
+  const submit = (data: ProfileSettingSchema) => {
+    profile?.data
+      ? updateProfile({
+          userId: userId,
+          username: data.username,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          country: data.country,
+          city: data.city,
+          dateOfBirth: data.dateOfBirthday,
+          aboutMe: data.aboutMe,
+          avatar: data.avatar,
+        })
+          .then(() => {
+            if (avatar !== null) {
+              uploadAvatar(avatar!)
+            }
+          })
+          .then(() => {
+            setIsModalOpen(false)
+            setSelectedImage(null)
+          })
+      : createProfile({
+          userId: userId,
+          username: data.username,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          country: data.country,
+          city: data.city,
+          dateOfBirth: data.dateOfBirthday,
+          aboutMe: data.aboutMe,
+          avatar: data.avatar,
+        })
+          .then(() => {
+            if (avatar !== null) {
+              uploadAvatar(avatar!)
+            }
+          })
+          .then(() => {
+            setIsModalOpen(false)
+            setSelectedImage(null)
+          })
+  }
 
   function getCountries(arr: any) {
     return arr.map((el: { country: string; cities: string }) => ({
@@ -91,7 +156,7 @@ export const Settings = ({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onChange',
     defaultValues: {
-      username: userData ? userData.username : userNameFromMe,
+      username: userData ? userData.username : userName,
       firstName: userData?.firstName,
       lastName: userData?.lastName,
       dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData.dateOfBirth}`) : new Date(),
@@ -108,28 +173,25 @@ export const Settings = ({
     triggerZodFieldError(touchedFieldNames, trigger)
   }, [t])
 
-  const submitData = (data: ProfileSettingSchema) => {
-    onSubmitHandler(data)
+  const setToastHandler = () => {
+    if (successRes) {
+      useErrorToast(true, false, true)
+    }
   }
+
+  useEffect(() => {
+    if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar)) {
+      setToastHandler()
+      push(RouteNames.PROFILE + '/' + userId)
+    }
+  }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar, avatar])
+
+  if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) return <Loader />
+  if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar))
+    return <Loader />
 
   return (
     <div className={s.profile}>
-      <div className={s.tabsMenu}>
-        <TabsComponent
-          tabs={[
-            {
-              label: `${t.profile.profileSetting.generalInformation}`,
-              value: 'settings',
-            },
-            { label: `${t.profile.profileSetting.devices}`, value: 'devices' },
-            {
-              label: `${t.profile.profileSetting.accountManagement}`,
-              value: 'account-management',
-            },
-            { label: `${t.profile.profileSetting.myPayment}`, value: 'my-payment' },
-          ]}
-        />
-      </div>
       <div className={s.content}>
         <div className={s.photoContent}>
           <div className={s.addBtn}>
@@ -147,7 +209,7 @@ export const Settings = ({
           </div>
         </div>
 
-        <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
+        <form onSubmit={handleSubmit(submit)} className={s.editForm}>
           <DevTool control={control} />
           <ControlledTextField
             control={control}

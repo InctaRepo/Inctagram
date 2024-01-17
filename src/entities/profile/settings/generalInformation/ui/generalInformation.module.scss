@@ -9,14 +9,10 @@
 .profile {
   width: 100%;
   max-width: 972px;
+  margin-top: 20px;
 
   // height: auto;
 
-  .tabsMenu {
-    // width: 972px;
-    width: 100%;
-    max-width: 972px;
-  }
 
   .content {
     @include flex-block(flex, row);
