@@ -45,7 +45,7 @@ export type ModalProps = {
   setIsModalOpen: (open: boolean) => void
 } & ComponentProps<'div'>
 
-const FiltersModal = ({
+export const FiltersModal = ({
   image,
   showSeparator = true,
   onAction,
@@ -163,7 +163,7 @@ const FiltersModal = ({
                   sendFilteredImg={sendFilteredImg}
                 >
                   <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
-                  <PostDescription value={value} setValue={setValue} addedImages={addedImages} />
+                  <PostDescription value={value} setValue={setValue} />
                 </AddDescriptionModal>
               </div>
 
@@ -183,5 +183,3 @@ const FiltersModal = ({
 function getContentClassName(className?: string) {
   return clsx(className, s.DialogContent)
 }
-
-export default FiltersModal

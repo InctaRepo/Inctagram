@@ -9,9 +9,9 @@ import { PostMenu } from '@/src/entities/post/postMenu'
 import { fakeComments } from '@/src/entities/post/showPostModal/editModal/rightDescription/fakeComments'
 import s from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/src/features/posts'
+import { UserInfo } from '@/src/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
+import { Images } from '@/src/features/posts'
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui/button'

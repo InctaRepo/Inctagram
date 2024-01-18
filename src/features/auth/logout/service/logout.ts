@@ -24,7 +24,7 @@ const logout = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: true,
+  overrideExisting: false,
 })
 
 export const { useLogoutMutation } = logout

@@ -2,10 +2,8 @@ import React from 'react'
 
 import { useRouter } from 'next/router'
 
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import s from '@/src/entities/profile/profileInfo/dataProfile/ui/dataProfile.module.scss'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
+import { UserInfo } from '@/src/entities/profile/service'
 import { RouteNames } from '@/src/shared/const'
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector, useTranslate } from '@/src/shared/hooks'
