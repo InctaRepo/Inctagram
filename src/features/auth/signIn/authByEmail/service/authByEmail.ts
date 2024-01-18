@@ -1,12 +1,11 @@
-import { AccessType } from '@/src/features/auth/authService'
-import { setToken } from '@/src/features/auth/signIn'
+import { setToken, SignInSchema } from '@/src/features/auth/signIn'
 import { SingInParams } from '@/src/features/auth/signIn/authByEmail'
 import { baseApi, BaseResponse } from '@/src/shared/api'
 import { resultCode } from '@/src/shared/const'
 
 const authByEmail = baseApi.injectEndpoints({
   endpoints: build => ({
-    signIn: build.mutation<BaseResponse<AccessType>, SingInParams>({
+    signIn: build.mutation<BaseResponse<SignInSchema>, SingInParams>({
       query: data => ({
         method: 'POST',
         url: 'auth/login',

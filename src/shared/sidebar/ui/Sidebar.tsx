@@ -1,6 +1,5 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Logout } from '@/src/features/auth/logout'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
 import { StatisticsIcon } from '@/src/shared/assets/icons/StatisticsIcon'
 import { RouteNames, variantIconLink } from '@/src/shared/const'

@@ -1,4 +1,3 @@
-export { postReducer } from '@/src/features/posts/service/postSlice'
 export {
   useAddPostMutation,
   getUserPost,
