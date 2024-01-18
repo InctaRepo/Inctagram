@@ -10,7 +10,7 @@ import ConfirmedImage from 'public/icon/emailComfirmedIcon.svg'
 
 export const EmailConfirmed = () => {
   const router = useRouter()
-  const code = router.query as unknown as string
+  const { code } = router.query
 
   const [regConfirm, { data, isSuccess }] = useEmailConfirmedMutation()
 

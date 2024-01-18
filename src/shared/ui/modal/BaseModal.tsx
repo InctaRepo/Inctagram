@@ -113,5 +113,3 @@ function getSizeClassName(size: ModalSize) {
   if (size === 'md') return s.md
   if (size === 'lg') return s.lg
 }
-
-// export default BaseModal // do not export this , instead use dynamic import "Modal" for js bundle reduce

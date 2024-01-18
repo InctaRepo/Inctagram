@@ -7,7 +7,7 @@ export const signInSlice = createSlice({
   name: 'signIn',
   initialState: {} as SignInSchema,
   reducers: {
-    setToken: (state, action: PayloadAction<{ accessToken: string }>) => {
+    setToken: (state, action: PayloadAction<SignInSchema>) => {
       state.accessToken = action.payload.accessToken
     },
     clearToken: state => {
