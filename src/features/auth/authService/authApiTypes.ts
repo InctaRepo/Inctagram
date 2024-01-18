@@ -2,7 +2,6 @@ export type AccessType = {
   accessToken: string
 }
 export type AuthState = {
-  user: UserType | null
   isAuth: boolean
 }
 export type UserType = {

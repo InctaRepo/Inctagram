@@ -20,9 +20,6 @@ const authByEmail = baseApi.injectEndpoints({
           if (data?.resultCode === resultCode.OK) {
             dispatch(setToken(data.data))
           }
-          // if (data?.resultCode === resultCode.UNAUTHORIZED) {
-          //   dispatch(setIsAuth(false))
-          // }
         } catch (e) {
           console.error(e)
         }

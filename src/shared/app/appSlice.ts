@@ -21,44 +21,44 @@ const appSlice = createSlice({
       state.isInitialized = action.payload.isInitialized
     },
   },
-  // extraReducers: builder => {
-  //   builder
-  //     .addMatcher(
-  //       action => {
-  //         return action.type.endsWith('/pending')
-  //       },
-  //       state => {
-  //         state.isLoading = true
-  //       }
-  //     )
-  //     .addMatcher(
-  //       action => {
-  //         return action.type.endsWith('/fulfilled')
-  //       },
-  //       state => {
-  //         state.isLoading = false
-  //       }
-  //     )
-  //     .addMatcher(
-  //       action => {
-  //         return action.type.endsWith('/fulfilled')
-  //       },
-  //       //TODO error handling with status codes in response
-  //
-  //       (state, action) => {
-  //         // state.isLoading = false
-  //         // const { errorMessage, showGlobalError = true } = action.payload
-  //         // if (!showGlobalError) return
-  //         // if (errorMessage) {
-  //         //   state.error = errorMessage
-  //         // } else {
-  //         //   state.error = `Undefined error occurred`
-  //         // }
-  //         // toast.error(state.error)
-  //         // state.error = ''
-  //       }
-  // )
-  //   },
+  extraReducers: builder => {
+    builder
+      .addMatcher(
+        action => {
+          return action.type.endsWith('/pending')
+        },
+        state => {
+          state.isLoading = true
+        }
+      )
+      .addMatcher(
+        action => {
+          return action.type.endsWith('/fulfilled')
+        },
+        state => {
+          state.isLoading = false
+        }
+      )
+    //     .addMatcher(
+    //       action => {
+    //         return action.type.endsWith('/fulfilled')
+    //       },
+    //       //TODO error handling with status codes in response
+    //
+    //       (state, action) => {
+    //         // state.isLoading = false
+    //         // const { errorMessage, showGlobalError = true } = action.payload
+    //         // if (!showGlobalError) return
+    //         // if (errorMessage) {
+    //         //   state.error = errorMessage
+    //         // } else {
+    //         //   state.error = `Undefined error occurred`
+    //         // }
+    //         // toast.error(state.error)
+    //         // state.error = ''
+    //       }
+    // )
+  },
 })
 
 export const { reducer: appReducer } = appSlice

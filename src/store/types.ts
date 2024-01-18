@@ -1,6 +1,5 @@
 import { rootReducer } from '@reduxjs/toolkit/src/tests/injectableCombineReducers.example'
 
-import { AuthState } from '@/src/features/auth/authService'
 import { SignInSchema } from '@/src/features/auth/signIn'
 import { PostState } from '@/src/features/posts'
 import { baseApi } from '@/src/shared/api'
@@ -14,7 +13,6 @@ export type AppRootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof makeStore>
 export type StateSchema = {
   [baseApi.reducerPath]: ReturnType<typeof baseApi.reducer>
-  auth: AuthState
   authMe: AuthMeSchema
   signIn: SignInSchema
   app: AppSchema

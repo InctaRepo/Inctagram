@@ -1,11 +1,8 @@
-'use client'
 import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { setLogout } from '@/src/features/auth/authService'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { setToken } from '@/src/features/auth/signIn'
+import { clearToken, setToken } from '@/src/features/auth/signIn'
 import { BaseResponse } from '@/src/shared/api/baseResponse'
 import { BASE_URL, resultCode, RouteNames } from '@/src/shared/const'
 import { AppRootState } from '@/src/store'
@@ -49,7 +46,7 @@ export const baseQueryWithReAuth: BaseQueryFn<
       api.dispatch(setToken({ accessToken: refresh.data.accessToken }))
       result = await baseQuery(args, api, extraOptions)
     } else {
-      api.dispatch(setLogout())
+      api.dispatch(clearToken())
     }
   }
 
