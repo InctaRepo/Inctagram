@@ -1,6 +1,11 @@
 import React from 'react'
 
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Posts } from '../posts'
+
+import { Alerts } from './Alerts/Alerts'
 import s from './home.module.scss'
+import { PublicPost } from './PublicPost/PublicPost'
 
 import { getIsAuth } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
@@ -14,7 +19,8 @@ export const Home = () => {
     <div className={s.container}>
       {isAuth && <Sidebar />}
       <div className={isAuth ? s.containerInfo : s.containerInfoPublic}>
-        <Typography>Home Page hello</Typography>
+        <Alerts />
+        <PublicPost />
       </div>
     </div>
   )

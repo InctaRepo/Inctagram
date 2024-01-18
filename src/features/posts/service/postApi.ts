@@ -3,6 +3,8 @@ import {
   GetUserPostsResponse,
   UpdatePost,
   UpdateResponse,
+  GetAllPostsResponse,
+  GetUsersCount,
 } from './postApiTypes'
 
 import { baseApi, BaseResponse } from '@/src/shared/api'
@@ -49,6 +51,28 @@ const postApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Post', 'Posts', 'Profile'],
     }),
+    getAllPosts: builder.query<
+      BaseResponse<GetAllPostsResponse>,
+      {
+        sortDirection: string
+        pageNumber: number
+        pageSize: number
+        endCursorPostId?: number
+      }
+    >({
+      query: arg => ({
+        url: `posts?sortDirection=${arg.sortDirection}&pageNumber=${arg.pageNumber}&pageSize=${arg.pageSize}`,
+        method: 'GET',
+      }),
+      providesTags: ['AllPosts'],
+    }),
+    getUsersCount: builder.query<BaseResponse, void>({
+      query: arg => ({
+        url: `users/count`,
+        method: 'GET',
+      }),
+      providesTags: ['Users'],
+    }),
   }),
 })
 
@@ -57,7 +81,9 @@ export const {
   useGetUserPostsQuery,
   useGetUserPostQuery,
   useUpdatePostMutation,
+  useGetAllPostsQuery,
+  useGetUsersCountQuery,
   util: { getRunningQueriesThunk },
 } = postApi
 
-export const { getUserPosts, getUserPost } = postApi.endpoints
+export const { getUserPosts, getUserPost, getAllPosts, getUsersCount } = postApi.endpoints

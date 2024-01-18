@@ -1,0 +1,11 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+.box {
+  display: flex;
+  align-items: center;
+}
+.ava {
+  width: 54px;
+  height: 36px;
+  border-radius: 50%;
+}

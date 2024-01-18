@@ -1,0 +1,30 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.imgContainer {
+  @include wh(100%, 100%);
+
+  min-width: 490px;
+  max-height: 564px;
+}
+
+.carousel {
+  @include wh(auto, auto);
+
+  position: relative;
+  min-width: 490px;
+  max-height: 562px;
+}
+
+.carouselDescription {
+  @include wh(auto, auto);
+
+  position: relative;
+  min-width: 490px;
+  max-height: 504px;
+}

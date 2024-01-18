@@ -52,3 +52,30 @@ export type GetUserPostResponse = {
   images: Images[]
   userId: string
 }
+export type GetPublicPosts = {
+  pageNumber: number
+  pageSize: number
+}
+export type GetAllPostsResponse = {
+  totalCount: number
+  pageSize: number
+  items: {
+    url: any
+    userId: string
+    id: number
+    ownerId: number
+    description: string
+    location: string | null
+    images: string
+    createdAt: string
+    updatedAt: string
+    avatarOwner: string
+    owner: {
+      firstName: string | null
+      lastName: string | null
+    }
+  }[]
+}
+export type GetUsersCount = {
+  totalCount: number
+}
