@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev turbo": "next dev --turbo",
     "build": "next build",
     "build:production": "pnpm build",
     "start": "next start",
