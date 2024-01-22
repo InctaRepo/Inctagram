@@ -17,7 +17,7 @@ export const SignIn: NextPageWithLayout = () => {
 
   useEffect(() => {
     if (isSuccess && isSuccessMe && userId && loginData?.resultCode === resultCode.OK) {
-      router.push(RouteNames.HOME)
+      router.push(RouteNames.PROFILE + '/' + userId)
     }
   }, [isSuccess, isSuccessMe, userId, errorServer])
   const submit = (data: SingInParams) => {

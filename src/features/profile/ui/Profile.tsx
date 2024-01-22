@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { useRouter } from 'next/router'
 
 import { ProfileInfo } from '@/src/entities/profile/profileInfo'
@@ -30,12 +28,12 @@ export const Profile = ({ id, postId }: Props) => {
 
     return <Loader />
   }
-  useEffect(() => {
-    if (isFetching && data?.resultCode === resultCode.OK && isAuth) {
-      dispatch(setProfileFound(true))
-      router.push(RouteNames.HOME)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (isFetching && data?.resultCode === resultCode.OK && isAuth) {
+  //     dispatch(setProfileFound(true))
+  //     router.push(RouteNames.HOME)
+  //   }
+  // }, [])
   if (isLoading) return <Loader />
 
   return (
