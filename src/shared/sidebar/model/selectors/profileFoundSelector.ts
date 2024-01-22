@@ -1,3 +1,3 @@
-import { AppRootState } from '@/src/store'
+import { StateSchema } from '@/src/store'
 
-export const profileFoundSelector = (state: AppRootState) => state.menu.profileFound
+export const profileFoundSelector = (state: StateSchema) => state.menu.profileFound

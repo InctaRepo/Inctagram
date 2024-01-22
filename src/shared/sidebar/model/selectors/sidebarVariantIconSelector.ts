@@ -1,3 +1,3 @@
-import { AppRootState } from '@/src/store'
+import { StateSchema } from '@/src/store'
 
-export const sidebarVariantIconSelector = (state: AppRootState) => state.menu.variantIcon
+export const sidebarVariantIconSelector = (state: StateSchema) => state.menu.variantIcon

@@ -3,8 +3,8 @@ import { Provider } from 'react-redux'
 
 import { HistoryProvider, useLoader } from '@/src/shared/hooks'
 import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { ProgressBar } from '@/src/shared/ui/progressBar'
 import { wrapper } from '@/src/store'
-
 import 'src/styles/_globals.scss'
 import 'src/styles/nprogress.scss'
 import 'react-toastify/dist/ReactToastify.css'
@@ -21,7 +21,9 @@ export default function App({ Component, ...rest }: AppPropsWithLayout) {
 
   return (
     <HistoryProvider>
-      <Provider store={store}>{getLayout(<Component {...props.pageProps} />)}</Provider>
+      <Provider store={store}>
+        <ProgressBar>{getLayout(<Component {...props.pageProps} />)}</ProgressBar>
+      </Provider>
     </HistoryProvider>
   )
 }

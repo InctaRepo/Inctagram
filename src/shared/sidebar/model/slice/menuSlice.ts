@@ -2,16 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { variantIconLink } from '@/src/shared/const'
 
-export type MenuState = {
+export type MenuSchema = {
   variantIcon: variantIconLink
   profileFound: boolean
 }
 
-const initialState: MenuState = { variantIcon: null, profileFound: true }
+const initialState: MenuSchema = { variantIcon: null, profileFound: true }
 
 const menuSlice = createSlice({
   initialState,
-
   name: 'menu',
   reducers: {
     setVariantIcon: (state, action: PayloadAction<variantIconLink | null>) => {
