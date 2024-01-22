@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { clsx } from 'clsx'
 import { useRouter } from 'next/router'
 
-import { setLogout } from '@/src/features/auth/authService'
 import { useLogoutMutation } from '@/src/features/auth/logout/service/logout'
 import s from '@/src/features/auth/logout/ui/logout.module.scss'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
@@ -26,8 +25,8 @@ export const Logout = () => {
   const { t } = useTranslate()
   const logoutHandler = async () => {
     logoutUser()
-    dispatch(setLogout())
     dispatch(setAuthMeData({ authMeData: { userId: '', username: '', email: '' } }))
+    dispatch(setVariantIcon(null))
     router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
   }

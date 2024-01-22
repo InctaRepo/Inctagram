@@ -11,7 +11,7 @@ export type UseInfiniteScrollSchema = {
   isLastPage?: boolean
 }
 
-export const UseInfiniteScroll = (
+export const useInfiniteScroll = (
   posts: GetUserPostResponse[],
   userId: string
 ): UseInfiniteScrollSchema => {
@@ -21,7 +21,7 @@ export const UseInfiniteScroll = (
   const [dynamicPosts, setDynamicPosts] = useState<GetUserPostResponse[]>(posts)
   const [isLastPage, setIsLastPage] = useState(false)
 
-  const { data, isSuccess } = useGetUserPostsQuery({
+  const { data, isSuccess, refetch } = useGetUserPostsQuery({
     userId: userId!,
     pageNumber: page,
   })
@@ -33,10 +33,28 @@ export const UseInfiniteScroll = (
 
   useEffect(() => {
     newPosts = data?.data.items
-    if (newPosts?.length === data?.data.totalCount) {
-      setIsLastPage(false)
+    if (dynamicPosts?.length === data?.data.totalCount) {
+      setIsLastPage(true)
     }
-  }, [data, isSuccess, page])
+  }, [data, isSuccess, page, dynamicPosts])
+  useEffect(() => {
+    if (dynamicPosts?.length > data?.data.totalCount!) {
+      setIsLastPage(false)
+      setPage(1)
+    }
+  }, [data?.data?.totalCount!])
+  useEffect(() => {
+    if (page === 1 && dynamicPosts?.length != data?.data.totalCount!) {
+      refetch()
+        .unwrap()
+        .then(payload => {
+          if (payload) {
+            setDynamicPosts(payload?.data?.items!)
+          }
+        })
+    }
+  }, [page])
+
   const handleObserver = useCallback(
     (entries: any[]) => {
       const target = entries[0]
@@ -51,7 +69,7 @@ export const UseInfiniteScroll = (
             setPage(page + 1)
           }
 
-          if (newPosts?.length < data?.data.totalCount!) {
+          if (dynamicPosts?.length < data?.data.totalCount!) {
             const newDynamicPosts = [...dynamicPosts, ...newPosts!]
 
             setDynamicPosts(newDynamicPosts)
@@ -59,13 +77,20 @@ export const UseInfiniteScroll = (
             setHasDynamicPosts(true)
             setIsLoading(false)
           }
-          setIsLastPage(false)
           setIsLoading(false)
         }, 500)
       }
       setIsLoading(false)
     },
-    [loadMoreTimeoutRef, setIsLoading, page, dynamicPosts, isSuccess, newPosts]
+    [
+      loadMoreTimeoutRef,
+      setIsLoading,
+      page,
+      dynamicPosts,
+      isSuccess,
+      newPosts,
+      data?.data?.totalCount!,
+    ]
   )
 
   const loadMoreCallback = useCallback(

@@ -1,3 +1,3 @@
-import { AppRootState } from '@/src/store'
+import { StateSchema } from '@/src/store'
 
-export const getIsAuth = (state: AppRootState) => state.auth.isAuth
+export const getIsAuth = (state: StateSchema) => state.authMe.authMeData?.userId.length > 1

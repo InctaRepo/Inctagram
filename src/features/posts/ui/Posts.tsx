@@ -4,7 +4,7 @@ import { ShowPostModal } from '@/src/entities/post/showPostModal'
 import { UserInfo } from '@/src/entities/profile/service'
 import { useGetUserPostsQuery } from '@/src/features/posts'
 import s from '@/src/features/posts/ui/posts.module.scss'
-import { useInfiniteScroll } from '@/src/shared/hooks/ useInfiniteScroll'
+import { useInfiniteScroll } from '@/src/shared/hooks'
 import { Loader } from '@/src/shared/ui/loader'
 
 type Props = {
