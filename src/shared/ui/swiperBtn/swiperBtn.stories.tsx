@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { SwiperArrowIcon } from '@/src/assets/icons/swiper-arrow-icon'
+import { SwiperArrowIcon } from '@/src/assets/icons/SwiperArrowIcon'
 import { SwiperBtn } from '@/src/shared/ui/swiperBtn'
 
 export default {
