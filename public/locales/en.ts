@@ -1,4 +1,4 @@
-import {ru} from 'public/locales/ru'
+import { ru } from '@/public/locales/ru'
 
 export const en: LocaleType = {
     locale: {
