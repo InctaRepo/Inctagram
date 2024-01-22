@@ -4,12 +4,12 @@ import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import { FieldValues, UseControllerProps } from 'react-hook-form'
 
+import Privacy from '@/public/icon/recaptcha.svg'
+import RecaptchaChecked from '@/public/icon/recaptchaChecked.svg'
 import { RouteNames } from '@/src/shared/const'
 import { useTranslate } from '@/src/shared/hooks'
 import { Card } from '@/src/shared/ui/card'
 import s from '@/src/shared/ui/recaptcha/recaptcha.module.scss'
-import Privacy from 'public/icon/recaptcha.svg'
-import RecaptchaChecked from 'public/icon/recaptchaChecked.svg'
 
 export type RecaptchaProps = {
   primary?: boolean

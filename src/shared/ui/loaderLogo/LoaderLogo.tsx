@@ -1,7 +1,7 @@
 import { memo } from 'react'
 
+import Logo from '@/public/icon/logo.svg'
 import s from '@/src/shared/ui/loaderLogo/loaderLogo.module.scss'
-import Logo from 'public/icon/logo.svg'
 
 export const LoaderLogo = memo(() => {
   return (
