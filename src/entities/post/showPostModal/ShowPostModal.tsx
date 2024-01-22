@@ -11,6 +11,8 @@ import { useGetUserPostQuery } from '@/src/features/posts'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useGetProfileQuery } from '@/src/features/profile/service'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/src/features/profileSettings/service'
 import { getIsAuth, getUsername } from '@/src/shared/hoc'
 import { useAppSelector } from '@/src/shared/hooks'
@@ -27,6 +29,7 @@ type Props = {
   callBack?: (id: string | null) => void
   variant?: string
   postId?: string
+  userId?: string
 } & ComponentProps<'div'>
 
 export const ShowPostModal = ({
@@ -39,14 +42,15 @@ export const ShowPostModal = ({
   postId,
   variant,
   isDescription,
+  userId: propUserId,
   callBack,
 }: Props) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const username = useAppSelector(getUsername)
   const isAuth = useAppSelector(getIsAuth)
+  const userId = propUserId || userData?.userId
   const { data: postData } = useGetUserPostQuery(postId!)
-  const userId = userData?.userId
   const currentId = postData ? postId : id
 
   const buttonClickHandler = () => {

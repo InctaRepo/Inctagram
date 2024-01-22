@@ -1,16 +1,21 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import Image from 'next/image'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetAllPostsQuery } from '../../posts'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useGetProfileQuery } from '../../profile/service'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { UserInfo } from '../../profileSettings/service'
 
 import { formatPostCreatedAt } from './formatCreatetDate'
 import { PostImages } from './PostImages/PostImages'
 import { ProfileHeader } from './ProfileHeader/ProfileHeader'
 import style from './PublicPost.module.scss'
 
+import { ShowPostModal } from '@/src/entities/post/showPostModal'
 import { Typography } from '@/src/shared/ui/typography'
 
 export const PublicPost = (): ReactElement => {
@@ -30,7 +35,6 @@ export const PublicPost = (): ReactElement => {
   if (isError || !postData?.data?.items) {
     return <div>Error loading data</div>
   }
-  const avatarOwner = undefined
 
   return (
     <div className={style.container}>
@@ -40,11 +44,16 @@ export const PublicPost = (): ReactElement => {
             images={(post.images as unknown as { url: string }[]).map(image => image.url)}
           /> */}
           {Array.isArray(post.images) && post.images.length > 0 && (
-            <Image
-              src={(post.images[0] as unknown as { url: string }).url}
-              alt="content"
-              width={232}
-              height={240}
+            <ShowPostModal
+              userId={post.userId}
+              // callBack={getCurrentPostId}
+              modalWidth={'edit'}
+              description={post.description}
+              // key={index}
+              images={post.images}
+              id={post.id as unknown as string}
+              postId={post.id as unknown as string}
+              variant={post.images[0].variant}
             />
           )}
           <div className={style.profile_header}>
