@@ -1,1 +1,1 @@
-export * from './SwiperBtn'
+export { SwiperBtn } from '@/src/shared/ui/swiperBtn/SwiperBtn'

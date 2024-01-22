@@ -1,15 +1,16 @@
-import { Meta, Story, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { SwiperBtn } from './SwiperBtn'
-
-import SwiperArrowIcon from '@/src/assets/icons/swiper-arrow-icon'
+import { SwiperArrowIcon } from '@/src/assets/icons/swiper-arrow-icon'
+import { SwiperBtn } from '@/src/shared/ui/swiperBtn'
 
 export default {
   title: 'Components/SwiperBtn',
   component: SwiperBtn,
 } as Meta
 
-export const Default: StoryObj<React.ComponentProps<typeof SwiperBtn>> = {
+type Story = StoryObj
+
+export const Primary: Story = {
   args: {
     onClick: () => alert('Button clicked'),
     icon: SwiperArrowIcon,

@@ -6,12 +6,12 @@ interface Props extends SVGProps<SVGSVGElement> {
   direction?: Direction
 }
 
-const SvgComponent = forwardRef((props: Props, ref: Ref<SVGSVGElement>) => {
-  const [direction, setDirection] = useState<Direction | undefined>(props.direction)
+const SvgComponent = forwardRef(({ direction: directionProp }: Props, ref: Ref<SVGSVGElement>) => {
+  const [direction, setDirection] = useState<Direction | undefined>(directionProp)
 
   useEffect(() => {
-    setDirection(props.direction)
-  }, [props.direction])
+    setDirection(directionProp)
+  }, [directionProp])
 
   return (
     <svg
@@ -27,7 +27,6 @@ const SvgComponent = forwardRef((props: Props, ref: Ref<SVGSVGElement>) => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       ref={ref}
-      {...props}
     >
       <g>
         <path
@@ -52,6 +51,4 @@ const SvgComponent = forwardRef((props: Props, ref: Ref<SVGSVGElement>) => {
   )
 })
 
-const SwiperArrowIcon = memo(SvgComponent)
-
-export default SwiperArrowIcon
+export const SwiperArrowIcon = memo(SvgComponent)
