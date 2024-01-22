@@ -32,6 +32,7 @@ export const Profile = ({ id, postId }: Props) => {
   }
   useEffect(() => {
     if (isFetching && data?.resultCode === resultCode.OK && isAuth) {
+      dispatch(setProfileFound(true))
       router.push(RouteNames.HOME)
     }
   }, [])

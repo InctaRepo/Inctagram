@@ -20,11 +20,12 @@ import { Countries } from '@/src/shared/countries/countries'
 import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { getUserId, getUsername } from '@/src/shared/hoc'
-import { useAppSelector, useErrorToast, useTranslate } from '@/src/shared/hooks'
+import { useAppDispatch, useAppSelector, useErrorToast, useTranslate } from '@/src/shared/hooks'
 import {
   createProfileSettingSchema,
   ProfileSettingSchema,
 } from '@/src/shared/schemas/profileSettingSchema'
+import { setProfileFound } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'
 import {
   ControlledDatePicker,
@@ -36,6 +37,7 @@ import { Loader } from '@/src/shared/ui/loader'
 import { Options } from '@/src/shared/ui/selectBox'
 
 export const GeneralInformation = () => {
+  const dispatch = useAppDispatch()
   const [_, setValue] = useState('')
   const editorRef = useRef<AvatarEditor>(null)
   const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
@@ -114,6 +116,7 @@ export const GeneralInformation = () => {
             if (avatar !== null) {
               uploadAvatar(avatar!)
             }
+            dispatch(setProfileFound(true))
           })
           .then(() => {
             setIsModalOpen(false)
