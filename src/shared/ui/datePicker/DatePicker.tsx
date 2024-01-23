@@ -117,7 +117,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
           {showError && (
             <div style={{ display: 'flex' }}>
               <Typography color="error" variant="small">
-                {t.profile.profileSetting.profileSettingsErrors.refine}
+                {t.profileSetting.generalInformation.generalInformationErrors.refine}
               </Typography>
               {isError && (
                 <Typography

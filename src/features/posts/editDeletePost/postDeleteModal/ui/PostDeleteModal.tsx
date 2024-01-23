@@ -44,21 +44,21 @@ export const PostDeleteModal = ({
     <>
       <div className={s.editOption} onClick={() => setOpenDeleteModal(true)}>
         <Delete alt={'delete post'} width={24} height={24} />
-        <Typography variant={'regular14'}>{t.profile.editPost.delete}</Typography>
+        <Typography variant={'regular14'}>{t.posts.deletePost.delete}</Typography>
       </div>
       <div hidden={!openDeleteModal}>
         <Modal
           id={'deleteModal'}
           modalWidth={'sm'}
-          title={t.profile.deletePost.delete}
+          title={t.posts.deletePost.delete}
           open={openDeleteModal}
-          cancelButtonName={t.profile.editPost.no}
-          actionButtonName={t.profile.editPost.yes}
+          cancelButtonName={t.posts.deletePost.no}
+          actionButtonName={t.posts.deletePost.yes}
           onClose={onModalClose}
           onCancel={onModalClose}
           onAction={discardHandler}
         >
-          <Typography variant={'h3'}>{t.profile.deletePost.areYouSure}</Typography>
+          <Typography variant={'h3'}>{t.posts.deletePost.areYouSure}</Typography>
         </Modal>
       </div>
     </>

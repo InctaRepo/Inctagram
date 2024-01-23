@@ -75,14 +75,14 @@ export const CreateNewPost = () => {
           modalWidth={'md'}
           open={isBaseModalOpen}
           onClose={handleButtonClick}
-          title={t.profile.addPostPhoto}
+          title={t.posts.createPost.addPostPhoto}
         >
           <div className={`${s.photoContainer} ${image === null ? s.emptyPhotoContainer : ''}`}>
             <ImgOutline />
           </div>
           <div className={s.selectPhoto}>
             <Button variant={'primary'} onClick={selectFileHandler} className={s.btnSelect}>
-              <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
+              <Typography variant={'h3'}>{t.posts.createPost.selectFromComputer}</Typography>
             </Button>
             <input
               type="file"
@@ -99,7 +99,7 @@ export const CreateNewPost = () => {
           open={isModalOpen}
           onClose={handleButtonClick}
           onCancel={cancelButtonClick}
-          title={t.profile.addNewPost.cropping}
+          title={t.posts.createPost.cropping}
           addedImages={addedImages}
           setAddedImages={setAddedImages}
           isBaseModalOpen={isBaseModalOpen}
@@ -121,7 +121,7 @@ export const CreateNewPost = () => {
             className={s.logo}
           />
           <Typography variant="medium14" className={s.text + styles.check}>
-            {t.profile.createPost}
+            {t.sidebar.createPost}
           </Typography>
         </Button>
       </div>

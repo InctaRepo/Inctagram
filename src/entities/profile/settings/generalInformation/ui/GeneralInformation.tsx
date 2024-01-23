@@ -217,21 +217,21 @@ export const GeneralInformation = () => {
           <ControlledTextField
             control={control}
             name={'username'}
-            label={t.profile.profileSetting.userName}
+            label={t.profileSetting.generalInformation.userName}
             className={s.field}
             isRequired
           />
           <ControlledTextField
             control={control}
             name={'firstName'}
-            label={t.profile.profileSetting.firstName}
+            label={t.profileSetting.generalInformation.firstName}
             className={s.field}
             isRequired
           />
           <ControlledTextField
             control={control}
             name={'lastName'}
-            label={t.profile.profileSetting.lastName}
+            label={t.profileSetting.generalInformation.lastName}
             className={s.field}
             isRequired
           />
@@ -239,7 +239,7 @@ export const GeneralInformation = () => {
             <ControlledDatePicker
               control={control}
               className={s.date}
-              label={t.profile.profileSetting.dateOfBirthday}
+              label={t.profileSetting.generalInformation.dateOfBirthday}
               name={'dateOfBirthday'}
               errorMessage={errors.dateOfBirthday?.message}
             />
@@ -251,9 +251,9 @@ export const GeneralInformation = () => {
                 control={control}
                 name="country"
                 options={countriesList}
-                label={t.profile.profileSetting.selectYourCountry}
+                label={t.profileSetting.generalInformation.selectYourCountry}
                 onValueChange={changeCountryHandler}
-                defaultValue={t.profile.profileSetting.country}
+                defaultValue={t.profileSetting.generalInformation.country}
               />
             </div>
             <div className={s.select}>
@@ -261,8 +261,8 @@ export const GeneralInformation = () => {
                 control={control}
                 name="city"
                 options={cities}
-                label={t.profile.profileSetting.selectYourCity}
-                defaultValue={t.profile.profileSetting.city}
+                label={t.profileSetting.generalInformation.selectYourCity}
+                defaultValue={t.profileSetting.generalInformation.city}
               />
             </div>
           </div>
@@ -272,12 +272,12 @@ export const GeneralInformation = () => {
             setValue={setValue}
             name={'aboutMe'}
             fullWidth={true}
-            label={t.profile.profileSetting.aboutMe}
+            label={t.profileSetting.generalInformation.aboutMe}
           />
 
           <div className={s.saveBtn}>
             <Button type="submit" fullWidth variant="primary">
-              {t.profile.profileSetting.saveChanges}
+              {t.profileSetting.generalInformation.saveChanges}
             </Button>
           </div>
         </form>

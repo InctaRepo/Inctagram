@@ -3,6 +3,7 @@ export const ru = {
     english: 'English',
     russian: 'Russian',
   },
+
   auth: {
     BackToSignUp: 'Вернуться на страницу регистрации',
     signIn: 'Войти',
@@ -114,7 +115,7 @@ export const ru = {
         nonEmpty: 'Введите электронную почту',
         email: 'Некорректный адрес почты',
       },
-      terms: 'Пожалуйста ознакомтесь и примите Правила сервиса и Политику конфиденциальности',
+      terms: 'Пожалуйста ознакомьтесь и примите Правила сервиса и Политику конфиденциальности',
       password: {
         nonEmpty: 'Введите  пароль',
         regex: 'Пароль должен содержать A-z, 0-9, !#$%*+-?^_',
@@ -131,11 +132,20 @@ export const ru = {
     },
     // error fields block end =======================================================
   },
-  profile: {
+
+  sidebar: {
     home: 'Главная',
     createPost: 'Создать пост',
     myProfile: 'Мой профиль',
+    messenger: 'Сообщения',
+    search: 'Поиск',
+    favorites: 'Избранное',
+    statistics: 'Cтатистика',
     logout: 'Выйти',
+  },
+
+  profile: {
+
     confirmLogout(email: string) {
       return `Вы действительно хотите выйти из своей учетной записи ${email}?`
     },
@@ -146,21 +156,28 @@ export const ru = {
     publications: 'Публикации',
     aboutYourself: 'Расскажите о себе',
     profileSettings: 'Настройки профиля',
-    favorites: 'Избранное',
-    statistics: 'Cтатистика',
-    messenger: 'Сообщения',
-    search: 'Поиск',
-    addPostPhoto: 'Добавить фото',
-    selectFromComputer: 'Выбрать с компьютера',
+
     passwordChanged: 'Ваш пароль был успешно изменен',
     save: 'Сохранить',
     next: 'Далее',
-    publish: 'Опубликовать',
-    profileSetting: {
+    descriptionError: {
+      error: 'Максимальное количество знаков 200',
+    },
+
+  },
+
+  profileSetting: {
+
+    setting: {
       generalInformation: 'Общая информация',
       devices: 'Устройства',
       accountManagement: 'Управление аккаунтом',
       myPayment: 'Мои платежи',
+    },
+
+    generalInformation: {
+      yes: 'Да',
+      no: 'Нет',
       addAProfilePhoto: 'Добавить фото',
       save: 'Сохранить',
       userName: 'Имя пользователя',
@@ -179,49 +196,69 @@ export const ru = {
       deletePhoto: 'Удалить фото',
       areYouSure: 'Вы уверены что хотите удалить фото?',
       changesSaved: 'Ваши изменения сохранены',
+      selectFromComputer: 'Выбрать с компьютера',
 
-      profileSettingsErrors: {
+      generalInformationErrors: {
+
         usernameField: {
           nonEmpty: 'Введите имя пользователя',
           regex: 'Имя пользователя должно содержать A-B, a-b, 0-9, !#$%*+-?^_',
           min: 'Минимальное количество символов 6',
           max: 'Максимальное количество символов 30',
         },
+
         firstNameField: {
           nonEmpty: 'Введите имя',
           regex: 'Имя может содержать символы A-z; А-я; -; апостроф; пробел',
           min: 'Минимальное количество символов 1',
           max: 'Максимальное количество символов 50',
         },
+
         lastNameField: {
           nonEmpty: 'Введите фамилию',
           regex: 'Фамилия может содержать символы A-z; А-я; -; апостроф; пробел',
           min: 'Минимальное количество символов 1',
           max: 'Максимальное количество символов 50',
         },
+
         avatarError: {
           size: 'Ошибка! Размер фото не должен превышать 10 MB',
           format: 'Ошибка! Формат загружаемой фотографии должен быть PNG или JPEG',
         },
 
         refine: 'Пользователь младше 13 лет не может создать профиль.',
-        aboutMeError: 'Максимальное колличество знаков 200',
+        aboutMeError: 'Максимальное количество знаков 200',
       },
     },
-    addNewPost: {
-      showResult: 'Показать результат',
+
+    devices: {
+      currentDevice: 'Текущее устройство',
+      activeSessions: 'Активная сессия',
+      terminateAllOtherSession: 'Завершить все остальные сеансы',
+      lastVisit: 'Последнее посещение',
+    },
+
+    accountManagement: {},
+
+    myPayment: {},
+  },
+  posts: {
+    createPost: {
+      addPostPhoto: 'Добавить фото',
+      selectFromComputer: 'Выбрать с компьютера',
       cropping: 'Редактирование',
+      showResult: 'Показать результат',
+      next: 'Далее',
       filters: 'Фильтры',
       publication: 'Публикация',
       addDescription: 'Добавить описание публикации',
+      publish: 'Опубликовать',
+
       areYouSure:
         'Вы действительно хотите отменить создание публикации? Все изменения будут потеряны',
       discard: 'Сбросить',
       saveDraft: 'Сохранить',
       close: 'Закрыть',
-    },
-    descriptionError: {
-      error: 'Максимальное количество знаков 200',
     },
     editPost: {
       comment: 'Добавить комментарий ...',
@@ -233,10 +270,14 @@ export const ru = {
       yes: 'Да',
       no: 'Нет',
       save: 'Сохранить',
+      publish: 'Опубликовать',
     },
     deletePost: {
       delete: 'Удалить пост',
       areYouSure: 'Вы действительно хотите удалить пост?',
+      yes: 'Да',
+      no: 'Нет',
     },
   },
+
 }
