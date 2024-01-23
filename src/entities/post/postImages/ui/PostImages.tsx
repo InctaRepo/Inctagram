@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import Image from 'next/image'
 import Slider from 'react-slick'

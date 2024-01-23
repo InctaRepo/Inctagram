@@ -7,10 +7,10 @@ export const SliderSettings = {
   swipe: false,
   arrows: true,
   dotsClass: 'slick-dots slick-thumb',
-  infinite: true,
+  infinite: false,
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  nextArrow: <SwiperArrowIcon direction="left" />,
-  prevArrow: <SwiperArrowIcon direction="right" />,
+  prevArrow: <SwiperArrowIcon direction="left" />,
+  nextArrow: <SwiperArrowIcon direction="right" />,
 }
