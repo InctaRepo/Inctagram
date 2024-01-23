@@ -20,7 +20,7 @@ export const Profile = ({ id, postId }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const dispatch = useAppDispatch()
   const router = useRouter()
-  const { data, isSuccess, isLoading, isFetching } = useGetProfileQuery(id)
+  const { data, isSuccess, isLoading } = useGetProfileQuery(id)
 
   if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     dispatch(setProfileFound(false))

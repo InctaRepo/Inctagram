@@ -1,9 +1,8 @@
 export const ru = {
-  // object = feature
-    locale: {
-        english: 'English',
-        russian: 'Russian'
-    },
+  locale: {
+    english: 'English',
+    russian: 'Russian',
+  },
   auth: {
     BackToSignUp: 'Вернуться на страницу регистрации',
     signIn: 'Войти',
@@ -216,18 +215,18 @@ export const ru = {
       publication: 'Публикация',
       addDescription: 'Добавить описание публикации',
       areYouSure:
-          'Вы действительно хотите отменить создание публикации? Все изменения будут потеряны',
+        'Вы действительно хотите отменить создание публикации? Все изменения будут потеряны',
       discard: 'Сбросить',
       saveDraft: 'Сохранить',
       close: 'Закрыть',
     },
-      descriptionError: {
-        error: 'Максимальное количество знаков 200',
-      },
+    descriptionError: {
+      error: 'Максимальное количество знаков 200',
+    },
     editPost: {
       comment: 'Добавить комментарий ...',
-        edit: 'Изменить',
-        delete: 'Удалить',
+      edit: 'Изменить',
+      delete: 'Удалить',
       closePost: 'Закрыть пост',
       question:
         'Вы действительно хотите выйти из редактирования публикации? Все изменения будут потеряны',
