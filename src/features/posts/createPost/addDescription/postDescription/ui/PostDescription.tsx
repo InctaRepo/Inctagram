@@ -102,7 +102,7 @@ export const PostDescription = ({
             className={s.textArea}
             fullWidth={true}
             name={'description'}
-            label={t.profile.addNewPost.addDescription}
+            label={t.posts.createPost.addDescription}
             setValue={setValue}
           />
           <div className={s.counter}>
@@ -114,7 +114,7 @@ export const PostDescription = ({
 
         {isDescription && (
           <Button variant={'primary'} className={s.btn} onClick={saveHandler}>
-            <Typography variant={'h3'}>{t.profile.editPost.save}</Typography>
+            <Typography variant={'h3'}>{t.posts.editPost.save}</Typography>
           </Button>
         )}
       </div>

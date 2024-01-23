@@ -7,30 +7,35 @@ export function createProfileSettingSchema(t: LocaleType) {
     username: z
       .string()
       .trim()
-      .nonempty(t.profile.profileSetting.profileSettingsErrors.usernameField.nonEmpty)
-      .regex(/^[A-Za-z0-9-_]+$/, t.profile.profileSetting.profileSettingsErrors.usernameField.regex)
-      .min(6, t.profile.profileSetting.profileSettingsErrors.usernameField.min)
-      .max(30, t.profile.profileSetting.profileSettingsErrors.usernameField.max),
+      .nonempty(t.profileSetting.generalInformation.generalInformationErrors.usernameField.nonEmpty)
+      .regex(
+        /^[A-Za-z0-9-_]+$/,
+        t.profileSetting.generalInformation.generalInformationErrors.usernameField.regex
+      )
+      .min(6, t.profileSetting.generalInformation.generalInformationErrors.usernameField.min)
+      .max(30, t.profileSetting.generalInformation.generalInformationErrors.usernameField.max),
     firstName: z
       .string()
       .trim()
-      .nonempty(t.profile.profileSetting.profileSettingsErrors.firstNameField.nonEmpty)
+      .nonempty(
+        t.profileSetting.generalInformation.generalInformationErrors.firstNameField.nonEmpty
+      )
       .regex(
         /^[А-Яа-я- 'A-Za-z]+$/,
-        t.profile.profileSetting.profileSettingsErrors.firstNameField.regex
+        t.profileSetting.generalInformation.generalInformationErrors.firstNameField.regex
       )
-      .min(1, t.profile.profileSetting.profileSettingsErrors.firstNameField.min)
-      .max(50, t.profile.profileSetting.profileSettingsErrors.firstNameField.max),
+      .min(1, t.profileSetting.generalInformation.generalInformationErrors.firstNameField.min)
+      .max(50, t.profileSetting.generalInformation.generalInformationErrors.firstNameField.max),
     lastName: z
       .string()
       .trim()
-      .nonempty(t.profile.profileSetting.profileSettingsErrors.lastNameField.nonEmpty)
+      .nonempty(t.profileSetting.generalInformation.generalInformationErrors.lastNameField.nonEmpty)
       .regex(
         /^[А-Яа-я- 'A-Za-z]+$/,
-        t.profile.profileSetting.profileSettingsErrors.lastNameField.regex
+        t.profileSetting.generalInformation.generalInformationErrors.lastNameField.regex
       )
-      .min(1, t.profile.profileSetting.profileSettingsErrors.lastNameField.min)
-      .max(50, t.profile.profileSetting.profileSettingsErrors.lastNameField.max),
+      .min(1, t.profileSetting.generalInformation.generalInformationErrors.lastNameField.min)
+      .max(50, t.profileSetting.generalInformation.generalInformationErrors.lastNameField.max),
     dateOfBirthday: z.date().refine(
       data => {
         if (data === null) return true
@@ -43,7 +48,7 @@ export function createProfileSettingSchema(t: LocaleType) {
         }
       },
       {
-        message: t.profile.profileSetting.profileSettingsErrors.refine,
+        message: t.profileSetting.generalInformation.generalInformationErrors.refine,
       }
     ),
     country: z.string(),
@@ -51,10 +56,10 @@ export function createProfileSettingSchema(t: LocaleType) {
     aboutMe: z
       .string()
       .trim()
-      .max(200, t.profile.profileSetting.profileSettingsErrors.aboutMeError)
+      .max(200, t.profileSetting.generalInformation.generalInformationErrors.aboutMeError)
       /* .regex(
         /^[0-9- _A-Za-zА-Яа-я\s\S]+$/,
-        t.profile.settingPhoto.profileSettingsErrors.aboutMeError
+        t.settingPhoto.profileSettingsErrors.aboutMeError
       )*/
       .optional(),
   })

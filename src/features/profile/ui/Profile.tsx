@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { useRouter } from 'next/router'
 
 import { ProfileInfo } from '@/src/entities/profile/profileInfo'
@@ -22,7 +20,7 @@ export const Profile = ({ id, postId }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const dispatch = useAppDispatch()
   const router = useRouter()
-  const { data, isSuccess, isLoading, isFetching } = useGetProfileQuery(id)
+  const { data, isSuccess, isLoading } = useGetProfileQuery(id)
 
   if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     dispatch(setProfileFound(false))
@@ -30,11 +28,12 @@ export const Profile = ({ id, postId }: Props) => {
 
     return <Loader />
   }
-  useEffect(() => {
-    if (isFetching && data?.resultCode === resultCode.OK && isAuth) {
-      router.push(RouteNames.HOME)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (isFetching && data?.resultCode === resultCode.OK && isAuth) {
+  //     dispatch(setProfileFound(true))
+  //     router.push(RouteNames.HOME)
+  //   }
+  // }, [])
   if (isLoading) return <Loader />
 
   return (

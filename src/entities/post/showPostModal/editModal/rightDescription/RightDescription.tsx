@@ -222,13 +222,13 @@ export const RightDescription = ({
                 control={control}
                 className={s.comment}
                 name={'addComment'}
-                placeholder={t.profile.editPost.comment}
+                placeholder={t.posts.editPost.comment}
                 fullWidth={true}
               />
             </div>
 
             <Button variant="text" className={s.publishButton}>
-              {t.profile.publish}
+              {t.posts.editPost.publish}
             </Button>
           </div>
         )}

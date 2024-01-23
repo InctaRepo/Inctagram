@@ -36,15 +36,15 @@ export const AreYouSureCreatePostModal = ({
       <Modal
         id={'areYouSureCreatePostModal'}
         modalWidth={'sm'}
-        title={t.profile.addNewPost.close}
+        title={t.posts.createPost.close}
         open={openSureModal}
-        cancelButtonName={t.profile.addNewPost.saveDraft}
-        actionButtonName={t.profile.addNewPost.discard}
+        cancelButtonName={t.posts.createPost.saveDraft}
+        actionButtonName={t.posts.createPost.discard}
         onClose={onModalClose}
         onCancel={onModalClose}
         onAction={discardHandler}
       >
-        <Typography variant={'h3'}>{t.profile.addNewPost.areYouSure}</Typography>
+        <Typography variant={'h3'}>{t.posts.createPost.areYouSure}</Typography>
       </Modal>
     </div>
   )

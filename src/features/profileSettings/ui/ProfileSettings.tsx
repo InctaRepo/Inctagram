@@ -20,22 +20,22 @@ export const ProfileSettings = () => {
           <TabsComponent
             tabs={[
               {
-                label: `${t.profile.profileSetting.generalInformation}`,
+                label: `${t.profileSetting.setting.generalInformation}`,
                 value: 'settings',
                 children: <GeneralInformationDynamic />,
               },
               {
-                label: `${t.profile.profileSetting.devices}`,
+                label: `${t.profileSetting.setting.devices}`,
                 value: 'devices',
                 children: <DevicesDynamic />,
               },
               {
-                label: `${t.profile.profileSetting.accountManagement}`,
+                label: `${t.profileSetting.setting.accountManagement}`,
                 value: 'account-management',
                 children: <AccountManagementDynamic />,
               },
               {
-                label: `${t.profile.profileSetting.myPayment}`,
+                label: `${t.profileSetting.setting.myPayment}`,
                 value: 'my-payment',
                 children: <MyPaymentDynamic />,
               },

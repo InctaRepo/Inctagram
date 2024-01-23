@@ -31,7 +31,7 @@ export const Sidebar = () => {
           <div>
             <div className={s.favorites}>
               <LinkMenu
-                nameLink={t.profile.favorites}
+                nameLink={t.sidebar.favorites}
                 link={`${RouteNames.FAVORITES}`}
                 handleClick={() =>
                   handleItemClick(`${RouteNames.FAVORITES}`.slice(1) as variantIconLink)
@@ -46,7 +46,7 @@ export const Sidebar = () => {
             </div>
             <div className={s.favorites}>
               <LinkMenu
-                nameLink={t.profile.statistics}
+                nameLink={t.sidebar.statistics}
                 link={`${RouteNames.STATISTICS}`}
                 handleClick={() =>
                   handleItemClick(`${RouteNames.STATISTICS}`.slice(1) as variantIconLink)

@@ -26,7 +26,7 @@ export const BaseMenu = () => {
     <div className={s.container}>
       <div className={s.linkMenu}>
         <LinkMenu
-          nameLink={t.profile.home}
+          nameLink={t.sidebar.home}
           link={`${RouteNames.HOME}`}
           handleClick={() => handleClick(`${RouteNames.HOME}`.slice(1) as variantIconLink)}
           variantIcon={variantIcon}
@@ -42,7 +42,7 @@ export const BaseMenu = () => {
       </div>
       <div className={s.linkMenu}>
         <LinkMenu
-          nameLink={t.profile.myProfile}
+          nameLink={t.sidebar.myProfile}
           link={RouteNames.PROFILE + `/` + userId}
           handleClick={() => handleClick(`${RouteNames.PROFILE}`.slice(1) as variantIconLink)}
           variantIcon={variantIcon}
@@ -55,7 +55,7 @@ export const BaseMenu = () => {
       </div>
       <div className={s.linkMenu}>
         <LinkMenu
-          nameLink={t.profile.messenger}
+          nameLink={t.sidebar.messenger}
           link={`${RouteNames.MESSAGE}`}
           handleClick={() => handleClick(`${RouteNames.MESSAGE}`.slice(1) as variantIconLink)}
           variantIcon={variantIcon}
@@ -68,7 +68,7 @@ export const BaseMenu = () => {
       </div>
       <div>
         <LinkMenu
-          nameLink={t.profile.search}
+          nameLink={t.sidebar.search}
           link={`${RouteNames.SEARCH}`}
           handleClick={() => handleClick(`${RouteNames.SEARCH}`.slice(1) as variantIconLink)}
           variantIcon={variantIcon}
