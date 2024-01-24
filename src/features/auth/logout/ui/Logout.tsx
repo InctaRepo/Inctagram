@@ -51,13 +51,13 @@ export const Logout = () => {
             className={s.logo}
           />
           <Typography variant="medium14" className={s.text + styles.check}>
-            {t.profile.logout}
+            {t.sidebar.logout}
           </Typography>
         </Button>
       </div>
       <Modal
         modalWidth={'md'}
-        title={t.profile.logout}
+        title={t.sidebar.logout}
         open={openModal}
         actionButtonName={t.profile.yes}
         cancelButtonName={t.profile.no}

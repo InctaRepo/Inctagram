@@ -73,7 +73,7 @@ export const PostMenu = ({
         <div className={s.editOptions}>
           <div className={s.editOption1} onClick={editModalHandler}>
             <Edit alt={'edit'} width={24} height={24} />
-            <Typography variant={'regular14'}>{t.profile.editPost.edit}</Typography>
+            <Typography variant={'regular14'}>{t.posts.editPost.edit}</Typography>
           </div>
           <div>
             <PostDeleteModal

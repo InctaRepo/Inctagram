@@ -49,7 +49,7 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
           >
             <Typography className={aspectRatio === 4 / 3 ? s.text1Active : s.text1} variant={'h3'}>
               {' '}
-              {t.profile.profileSetting.original}{' '}
+              {t.profileSetting.generalInformation.original}{' '}
             </Typography>
             <Img
               className={aspectRatio === 4 / 3 ? s.white : s.gray}

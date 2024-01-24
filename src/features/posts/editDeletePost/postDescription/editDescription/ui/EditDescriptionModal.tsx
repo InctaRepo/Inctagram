@@ -60,7 +60,7 @@ export const EditDescriptionModal = ({
       >
         <div className={s.wrapper}>
           <DialogTitle className={s.DialogTitle}>
-            <Typography variant={'h1'}>{t.profile.editPost.edit}</Typography>
+            <Typography variant={'h1'}>{t.posts.editPost.edit}</Typography>
             <Separator className={s.separator} />
 
             <div className={s.closeIcon}>

@@ -142,7 +142,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                     color="primary"
                     className={s.button}
                   >
-                    {t.profile.addNewPost.showResult}
+                    {t.posts.createPost.showResult}
                   </button>
                 </div>
               )

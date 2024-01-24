@@ -105,7 +105,7 @@ export const AddDescriptionModal = ({
                   className={s.nextButton}
                   onClick={() => sendFilteredImg(activeFilter)}
                 >
-                  {t.profile.publish}
+                  {t.posts.createPost.publish}
                 </Button>
               </div>
             </div>

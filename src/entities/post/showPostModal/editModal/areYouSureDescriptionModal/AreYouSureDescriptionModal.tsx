@@ -1,10 +1,10 @@
 import React from 'react'
 
+import CloseIcon from '@/public/icon/closeIcon.svg'
 import s from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal/areYouSureDescriptionModal.module.scss'
 import { useTranslate } from '@/src/shared/hooks'
 import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import CloseIconOutline from 'public/icon/closeOutlineIcon.svg'
 
 type Props = {
   openSureDescriptionModal: boolean
@@ -46,21 +46,21 @@ export const AreYouSureDescriptionModal = ({
   return (
     <>
       <div className={s.close} onClick={clickHandler}>
-        <CloseIconOutline />
+        <CloseIcon />
       </div>
       <div hidden={!openSureDescriptionModal}>
         <Modal
           id={'areYouSureDescriptionModal'}
           modalWidth={'sm'}
-          title={t.profile.editPost.closePost}
+          title={t.posts.editPost.closePost}
           open={openSureDescriptionModal}
-          cancelButtonName={t.profile.editPost.no}
-          actionButtonName={t.profile.editPost.yes}
+          cancelButtonName={t.posts.editPost.no}
+          actionButtonName={t.posts.editPost.yes}
           onClose={onModalClose}
           onCancel={onModalClose}
           onAction={discardHandler}
         >
-          <Typography variant={'h3'}>{t.profile.editPost.question}</Typography>
+          <Typography variant={'h3'}>{t.posts.editPost.question}</Typography>
         </Modal>
       </div>
     </>

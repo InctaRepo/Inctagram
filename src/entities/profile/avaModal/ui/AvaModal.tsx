@@ -104,13 +104,13 @@ export const AvaModal = ({
             modalWidth={'sm'}
             open={openDeleteModal}
             onClose={onModalClose}
-            title={t.profile.profileSetting.deletePhoto}
-            cancelButtonName={t.profile.editPost.no}
-            actionButtonName={t.profile.editPost.yes}
+            title={t.profileSetting.generalInformation.deletePhoto}
+            cancelButtonName={t.profileSetting.generalInformation.no}
+            actionButtonName={t.profileSetting.generalInformation.yes}
             onCancel={onModalClose}
             onAction={discardHandler}
           >
-            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+            <Typography variant={'h3'}>{t.profileSetting.generalInformation.areYouSure}</Typography>
           </Modal>
         </>
       )}
@@ -131,13 +131,13 @@ export const AvaModal = ({
             modalWidth={'sm'}
             open={openDeleteModal}
             onClose={onModalClose}
-            title={t.profile.profileSetting.deletePhoto}
-            cancelButtonName={t.profile.editPost.no}
-            actionButtonName={t.profile.editPost.yes}
+            title={t.profileSetting.generalInformation.deletePhoto}
+            cancelButtonName={t.profileSetting.generalInformation.no}
+            actionButtonName={t.profileSetting.generalInformation.yes}
             onCancel={onModalClose}
             onAction={discardHandler}
           >
-            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+            <Typography variant={'h3'}>{t.profileSetting.generalInformation.areYouSure}</Typography>
           </Modal>
         </>
       )}
@@ -158,13 +158,13 @@ export const AvaModal = ({
             modalWidth={'sm'}
             open={openDeleteModal}
             onClose={onModalClose}
-            title={t.profile.profileSetting.deletePhoto}
-            cancelButtonName={t.profile.editPost.no}
-            actionButtonName={t.profile.editPost.yes}
+            title={t.profileSetting.generalInformation.deletePhoto}
+            cancelButtonName={t.profileSetting.generalInformation.no}
+            actionButtonName={t.profileSetting.generalInformation.yes}
             onCancel={onModalClose}
             onAction={discardHandler}
           >
-            <Typography variant={'h3'}>{t.profile.profileSetting.areYouSure}</Typography>
+            <Typography variant={'h3'}>{t.profileSetting.generalInformation.areYouSure}</Typography>
           </Modal>
         </>
       )}
@@ -178,7 +178,7 @@ export const AvaModal = ({
       )}
       <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
         <Typography variant={'h3'} className={s.addBtn}>
-          {t.profile.profileSetting.addAProfilePhoto}
+          {t.profileSetting.generalInformation.addAProfilePhoto}
         </Typography>
       </Button>
       <Modal
@@ -186,7 +186,7 @@ export const AvaModal = ({
         modalWidth={'md'}
         open={isModalOpen}
         onClose={handleButtonClick}
-        title={t.profile.profileSetting.addAProfilePhoto}
+        title={t.profileSetting.generalInformation.addAProfilePhoto}
       >
         <div className={s.errorContainer}>
           {showError && (
@@ -243,7 +243,7 @@ export const AvaModal = ({
         <div className={`${s.btnContainer} ${selectedImage === null ? s.selectPhoto : s.save}`}>
           {selectedImage ? (
             <Button className={s.saveBtn} onClick={handleSavePhoto}>
-              {t.profile.profileSetting.save}
+              {t.profileSetting.generalInformation.save}
             </Button>
           ) : (
             <InputTypeFile setSelectedImage={setSelectedImage} setErrorMessage={setErrorMessage} />
