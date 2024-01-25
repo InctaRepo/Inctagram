@@ -1,19 +1,19 @@
 import React from 'react'
 
-import Chrome from '@/public/icon/chromeIcon.svg'
-import Phone from '@/public/icon/phoneIcon.svg'
-import s from '@/src/entities/profile/settings/accountManagement/ui/accountManagement.module.scss'
+import s from '@/entities/profile/settings/accountManagement/ui/accountManagement.module.scss'
 import {
   useDeleteAllSessionsMutation,
   useDeleteThisSessionsMutation,
   useGetSessionsQuery,
-} from '@/src/entities/profile/settings/devices/service'
-import { Device } from '@/src/entities/profile/settings/devices/service/deviceApiTypes'
-import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
-import { useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button'
-import { RadioButton } from '@/src/shared/ui/radioButton'
-import { Typography } from '@/src/shared/ui/typography'
+} from '@/entities/profile/settings/devices/service'
+import { Device } from '@/entities/profile/settings/devices/service/deviceApiTypes'
+import Chrome from '@/public/icon/chromeIcon.svg'
+import Phone from '@/public/icon/phoneIcon.svg'
+import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
+import { useTranslate } from '@/shared/hooks'
+import { Button } from '@/ui/button'
+import { RadioButton } from '@/ui/radioButton'
+import { Typography } from '@/ui/typography'
 
 type Props = {}
 export const AccountManagement = ({}: Props) => {
