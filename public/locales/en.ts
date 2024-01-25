@@ -238,7 +238,9 @@ export const en: LocaleType = {
       terminateAllOtherSession: 'Terminate all other session',
       lastVisit: 'Last visit',
     },
-    accountManagement: {},
+    accountManagement: {
+      accountType: 'Account type',
+    },
     myPayment: {},
 
   },

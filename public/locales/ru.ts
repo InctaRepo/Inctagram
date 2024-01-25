@@ -238,7 +238,9 @@ export const ru = {
       lastVisit: 'Последнее посещение',
     },
 
-    accountManagement: {},
+    accountManagement: {
+      accountType: 'Тип аккаунта',
+    },
 
     myPayment: {},
   },
