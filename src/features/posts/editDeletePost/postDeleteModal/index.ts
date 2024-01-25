@@ -1,1 +1,1 @@
-export { PostDeleteModal } from '@/src/features/posts/editDeletePost/postDeleteModal/ui/PostDeleteModal'
+export { PostDeleteModal } from '@/features/posts/editDeletePost/postDeleteModal/ui/PostDeleteModal'

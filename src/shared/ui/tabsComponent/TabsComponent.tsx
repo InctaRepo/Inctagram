@@ -3,7 +3,7 @@ import React, { ReactNode, useState } from 'react'
 import * as Tabs from '@radix-ui/react-tabs'
 import clsx from 'clsx'
 
-import s from '@/src/shared/ui/tabsComponent/tabsComponent.module.scss'
+import s from '@/ui/tabsComponent/tabsComponent.module.scss'
 
 type TabProps = {
   label: string

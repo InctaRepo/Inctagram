@@ -10,12 +10,12 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import s from '@/src/features/posts/createPost/addDescription/ui/addDescriptionModal.module.scss'
-import { Image } from '@/src/features/posts/createPost/CreateNewPost'
-import { useTranslate } from '@/src/shared/hooks/useTranslate'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography'
-import ArrowBackIcon from 'public/icon/arrowBackIcon.svg'
+import s from '@/features/posts/createPost/addDescription/ui/addDescriptionModal.module.scss'
+import { Image } from '@/features/posts/createPost/CreateNewPost'
+import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
+import { useTranslate } from '@/shared/hooks/useTranslate'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 
 export type ModalProps = {
   image?: string

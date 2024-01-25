@@ -1,4 +1,4 @@
-import { baseApi, BaseResponse } from '@/src/shared/api'
+import { baseApi, BaseResponse } from '@/shared/api'
 
 const deletePost = baseApi.injectEndpoints({
   endpoints: builder => ({

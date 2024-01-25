@@ -1,1 +1,1 @@
-export { AddDescriptionModal } from '@/src/features/posts/createPost/addDescription/ui/AddDescriptionModal'
+export { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'

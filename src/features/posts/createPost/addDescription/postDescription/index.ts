@@ -1,1 +1,1 @@
-export { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
+export { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'

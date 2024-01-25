@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router'
 
-import { ProfileInfo } from '@/src/entities/profile/profileInfo'
+import { ProfileInfo } from '@/entities/profile/profileInfo'
+import { useGetProfileQuery } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Posts } from '@/src/features/posts'
-import s from '@/src/features/profile/ui/profile.module.scss'
-import { resultCode, RouteNames } from '@/src/shared/const'
-import { getIsAuth } from '@/src/shared/hoc'
-import { useAppDispatch, useAppSelector } from '@/src/shared/hooks'
-import { setProfileFound, Sidebar } from '@/src/shared/sidebar'
-import { Loader } from '@/src/shared/ui/loader'
-import { useGetProfileQuery } from 'src/entities/profile/service'
+import { Posts } from '@/features/posts'
+import s from '@/features/profile/ui/profile.module.scss'
+import { resultCode, RouteNames } from '@/shared/const'
+import { getIsAuth } from '@/shared/hoc'
+import { useAppDispatch, useAppSelector } from '@/shared/hooks'
+import { setProfileFound, Sidebar } from '@/shared/sidebar'
+import { Loader } from '@/ui/loader'
 
 type Props = {
   id: string

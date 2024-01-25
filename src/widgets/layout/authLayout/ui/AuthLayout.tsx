@@ -4,11 +4,11 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { ToastContainer } from 'react-toastify'
 
-import { RouteNames } from '@/src/shared/const'
-import { Header } from '@/src/shared/header'
-import { AuthProvider, getIsAuth } from '@/src/shared/hoc'
-import { useAppSelector } from '@/src/shared/hooks'
-import s from '@/src/widgets/layout/authLayout/ui/authLayout.module.scss'
+import { RouteNames } from '@/shared/const'
+import { Header } from '@/shared/header'
+import { AuthProvider, getIsAuth } from '@/shared/hoc'
+import { useAppSelector } from '@/shared/hooks'
+import s from '@/widgets/layout/authLayout/ui/authLayout.module.scss'
 
 export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   const isAuth = useAppSelector(getIsAuth)

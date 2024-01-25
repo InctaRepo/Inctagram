@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { useCreateNewPasswordMutation } from '@/src/features/auth/createNewPassword/service/CreateNewPassword'
-import s from '@/src/features/auth/createNewPassword/ui/createNewPassword.module.scss'
-import { CreateNewPasswordForm } from '@/src/features/auth/createNewPassword/ui/createNewPasswordForm'
-import { useErrorToast, useTranslate } from '@/src/shared/hooks'
-import { PasswordsMatchForm } from '@/src/shared/schemas/passwordsMatchSchema'
-import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
-import { Loader } from '@/src/shared/ui/loader'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
+import { useCreateNewPasswordMutation } from '@/features/auth/createNewPassword/service/CreateNewPassword'
+import s from '@/features/auth/createNewPassword/ui/createNewPassword.module.scss'
+import { CreateNewPasswordForm } from '@/features/auth/createNewPassword/ui/createNewPasswordForm'
+import { useErrorToast, useTranslate } from '@/shared/hooks'
+import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
+import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
+import { Loader } from '@/ui/loader'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 export const CreateNewPassword: NextPageWithLayout = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)

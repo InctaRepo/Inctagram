@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
 
-import { AlertToast } from '@/src/shared/ui/alertToast'
+import { AlertToast } from './AlertToast'
 
 jest.mock('react-toastify', () => ({
   toast: jest.fn(),

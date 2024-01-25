@@ -10,17 +10,17 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { FilteredImages } from '@/src/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
-import { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
-import { AddDescriptionModal } from '@/src/features/posts/createPost/addDescription/ui/AddDescriptionModal'
-import { Image } from '@/src/features/posts/createPost/CreateNewPost'
-import s from '@/src/features/posts/createPost/editPhoto/filters/FiltersModal.module.scss'
-import { useAddPostMutation } from '@/src/features/posts/service'
-import { filteredImg } from '@/src/shared/helpers/filteredImg'
-import { useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography'
-import ArrowBackIcon from 'public/icon/arrowBackIcon.svg'
+import { FilteredImages } from '@/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
+import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
+import { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'
+import { Image } from '@/features/posts/createPost/CreateNewPost'
+import s from '@/features/posts/createPost/editPhoto/filters/FiltersModal.module.scss'
+import { useAddPostMutation } from '@/features/posts/service'
+import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
+import { filteredImg } from '@/shared/helpers/filteredImg'
+import { useTranslate } from '@/shared/hooks'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 
 export type ModalProps = {
   image?: string

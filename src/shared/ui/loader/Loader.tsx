@@ -1,5 +1,5 @@
-import { UseInfiniteScrollSchema } from '@/src/shared/hooks'
-import s from '@/src/shared/ui/loader/loader.module.scss'
+import { UseInfiniteScrollSchema } from '@/shared/hooks'
+import s from '@/ui/loader/loader.module.scss'
 
 type LoaderProps = Pick<UseInfiniteScrollSchema, 'isLoading' | 'loadMoreCallback' | 'isLastPage'>
 

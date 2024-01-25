@@ -1,17 +1,13 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Logout } from '@/src/features/auth/logout'
-import { FavoritesIcon } from '@/src/shared/assets/icons/FavoritesIcon'
-import { StatisticsIcon } from '@/src/shared/assets/icons/StatisticsIcon'
-import { RouteNames, variantIconLink } from '@/src/shared/const'
-import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
-import {
-  profileFoundSelector,
-  setVariantIcon,
-  sidebarVariantIconSelector,
-} from '@/src/shared/sidebar'
-import { BaseMenu } from '@/src/shared/sidebar/ui/baseMenu'
-import s from '@/src/shared/sidebar/ui/sidebar.module.scss'
-import { LinkMenu } from '@/src/shared/ui/linkMenu'
+import { Logout } from '@/features/auth/logout'
+import { FavoritesIcon } from '@/shared/assets/icons/FavoritesIcon'
+import { StatisticsIcon } from '@/shared/assets/icons/StatisticsIcon'
+import { RouteNames, variantIconLink } from '@/shared/const'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
+import { profileFoundSelector, setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
+import { BaseMenu } from '@/shared/sidebar/ui/baseMenu'
+import s from '@/shared/sidebar/ui/sidebar.module.scss'
+import { LinkMenu } from '@/ui/linkMenu'
 
 export const Sidebar = () => {
   const profileFound = useAppSelector(profileFoundSelector)
