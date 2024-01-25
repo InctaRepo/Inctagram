@@ -10,13 +10,11 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { FilteredImages } from '../../addDescription/filteredImages/ui/FilteredImages'
-import { PostDescription } from '../../addDescription/postDescription/ui/PostDescription'
-import { AddDescriptionModal } from '../../addDescription/ui/AddDescriptionModal'
-import { Image } from '../../CreateNewPost'
-
-import s from './FiltersModal.module.scss'
-
+import { FilteredImages } from '@/src/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
+import { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
+import { AddDescriptionModal } from '@/src/features/posts/createPost/addDescription/ui/AddDescriptionModal'
+import { Image } from '@/src/features/posts/createPost/CreateNewPost'
+import s from '@/src/features/posts/createPost/editPhoto/filters/FiltersModal.module.scss'
 import { useAddPostMutation } from '@/src/features/posts/service'
 import { filteredImg } from '@/src/shared/helpers/filteredImg'
 import { useTranslate } from '@/src/shared/hooks'
@@ -47,7 +45,7 @@ export type ModalProps = {
   setIsModalOpen: (open: boolean) => void
 } & ComponentProps<'div'>
 
-const FiltersModal = ({
+export const FiltersModal = ({
   image,
   showSeparator = true,
   onAction,
@@ -165,7 +163,7 @@ const FiltersModal = ({
                   sendFilteredImg={sendFilteredImg}
                 >
                   <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
-                  <PostDescription value={value} setValue={setValue} addedImages={addedImages} />
+                  <PostDescription value={value} setValue={setValue} />
                 </AddDescriptionModal>
               </div>
 
@@ -185,5 +183,3 @@ const FiltersModal = ({
 function getContentClassName(className?: string) {
   return clsx(className, s.DialogContent)
 }
-
-export default FiltersModal

@@ -1,13 +1,13 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-import { SignInSchema } from '../types/signInSchema'
+import { SignInSchema } from '@/src/features/auth/signIn'
 
 export const signInSlice = createSlice({
-  name: 'sigIn',
+  name: 'signIn',
   initialState: {} as SignInSchema,
   reducers: {
-    setToken: (state, action: PayloadAction<{ accessToken: string }>) => {
+    setToken: (state, action: PayloadAction<SignInSchema>) => {
       state.accessToken = action.payload.accessToken
     },
     clearToken: state => {
@@ -16,7 +16,6 @@ export const signInSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { setToken, clearToken } = signInSlice.actions
 
 export const { reducer: signInReducer } = signInSlice

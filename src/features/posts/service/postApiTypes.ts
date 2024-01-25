@@ -23,26 +23,12 @@ export type GetUserPostsRequest = {
   userId: string
 }
 
-export type CreatePostResponse = {
-  createdAt: Date
-  description: string
-  id: string
-  images: Images[]
-  userId: string
-}
-
-export type GetPostResponse = CreatePostResponse
-
 export type GetUserPostsResponse = {
   items: GetUserPostResponse[]
   page: number
   pageSize: number
   pagesCount: number
   totalCount: number
-}
-
-export type PostState = {
-  post: Post | null
 }
 
 export type GetUserPostResponse = {

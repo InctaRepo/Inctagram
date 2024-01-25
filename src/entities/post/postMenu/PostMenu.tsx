@@ -3,6 +3,8 @@ import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { PostImages } from '@/src/entities/post/postImages/ui/PostImages'
 import s from '@/src/entities/post/postMenu/postMenu.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { UserInfo } from '@/src/entities/profile/service'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { PostDeleteModal } from '@/src/features/posts/editDeletePost/postDeleteModal'
@@ -10,8 +12,6 @@ import { PostDeleteModal } from '@/src/features/posts/editDeletePost/postDeleteM
 import { EditDescriptionModal } from '@/src/features/posts/editDeletePost/postDescription/editDescription'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/src/features/posts/service/postApiTypes'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/features/profileSettings/service'
 import { useTranslate } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui/typography'
 import Dots from 'public/icon/dots.svg'

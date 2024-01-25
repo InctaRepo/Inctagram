@@ -4,8 +4,7 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
-import s from './createNewPasswordForm.module.scss'
-
+import s from '@/src/features/auth/createNewPassword/ui/createNewPasswordForm/createNewPasswordForm.module.scss'
 import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
 import { useTranslate } from '@/src/shared/hooks'
 import { PasswordsMatchForm, passwordsMatchSchema } from '@/src/shared/schemas/passwordsMatchSchema'

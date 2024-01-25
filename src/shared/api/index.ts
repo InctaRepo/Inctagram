@@ -1,3 +1,3 @@
-export type { BaseResponse } from './baseResponse'
-export { baseQueryWithReAuth } from './baseQueryWithReAuth'
-export { baseApi } from './baseApi'
+export type { BaseResponse } from '@/src/shared/api/baseResponse'
+export { baseQueryWithReAuth } from '@/src/shared/api/baseQueryWithReAuth'
+export { baseApi } from '@/src/shared/api/baseApi'

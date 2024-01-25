@@ -1,4 +1,4 @@
-/** @type {import("next").NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
     return [
@@ -53,6 +53,16 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    typedRoutes: true,
+  },
 }
 
 module.exports = nextConfig
+
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: 'false',
+//   openAnalyzer: 'false',
+// })
+//
+// module.exports = withBundleAnalyzer({})

@@ -10,17 +10,15 @@ import * as RDP from 'react-datepicker'
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
 
-import textFieldStyles from '../textField/textField.module.scss'
-
-import s from './DatePicker.module.scss'
-
+import KeyboardArrowLeft from '@/public/icon/chevronLeftIcon.svg'
+import KeyboardArrowRight from '@/public/icon/chevronRightIcon.svg'
 import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames } from '@/src/shared/const'
 import { useTranslate } from '@/src/shared/hooks'
+import s from '@/src/shared/ui/datePicker/datePicker.module.scss'
 import { Label } from '@/src/shared/ui/label'
+import textFieldStyles from '@/src/shared/ui/textField/textField.module.scss'
 import { Typography } from '@/src/shared/ui/typography'
-import KeyboardArrowLeft from 'public/icon/chevronLeftIcon.svg'
-import KeyboardArrowRight from 'public/icon/chevronRightIcon.svg'
 import 'react-datepicker/dist/react-datepicker.min.css'
 
 export type DatePickerProps = {

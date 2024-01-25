@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { EditDescriptionModal } from './EditDescriptionModal'
+import { EditDescriptionModal } from '@/src/features/posts/editDeletePost/postDescription/editDescription/ui/EditDescriptionModal'
 
 const meta = {
   title: 'pages/edit-post-description',

@@ -1,0 +1,117 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+.device {
+  width: 100%;
+  max-width: 972px;
+  margin-top: 20px;
+
+  .currentDeviceWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .browserWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      width: 100%;
+      height: 120px;
+      padding-bottom: 24px;
+      padding-left: 24px;
+
+      background: $color-dark-500;
+      border: 1px solid $color-dark-300;
+      border-radius: 4px;
+
+      .browser {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+
+        .img {
+        }
+
+        .browserProperty {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 24px;
+    }
+  }
+
+  .activeSessionsWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .activeSessions {
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+
+    .deviceWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      width: 100%;
+      height: 120px;
+      padding: 24px;
+
+      background: $color-dark-500;
+      border: 1px solid $color-dark-300;
+      border-radius: 4px;
+
+      .deviceSession {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+
+        .img {
+        }
+
+        .deviceProperty {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+
+        }
+
+      }
+
+      .logOut {
+        fill: white;
+
+        :hover {
+          font-weight: 700;
+          color: $color-accent-500;
+          fill: $color-accent-500;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,1 @@
-export { ProfileSettings } from '@/src/features/profileSettings/ui/ProfileSettings'
+export { ProfileSettingsDynamic } from '@/src/features/profileSettings/ui/ProfileSettingsDynamic'

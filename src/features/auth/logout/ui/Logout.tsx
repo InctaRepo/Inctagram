@@ -3,19 +3,16 @@ import { useState } from 'react'
 import { clsx } from 'clsx'
 import { useRouter } from 'next/router'
 
-import { useLogoutMutation } from '../service/logout'
-
-import s from './logout.module.scss'
-
-import { setLogout } from '@/src/features/auth/authService'
+import { useLogoutMutation } from '@/src/features/auth/logout/service/logout'
+import s from '@/src/features/auth/logout/ui/logout.module.scss'
 import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { RouteNames, variantIconLink } from '@/src/shared/const'
 import { getUserEmail, setAuthMeData } from '@/src/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
 import { Button } from '@/src/shared/ui/button'
+import { Modal } from '@/src/shared/ui/modal'
 import { Typography } from '@/src/shared/ui/typography'
-import { Modal } from 'src/shared/ui/modal'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
@@ -28,8 +25,8 @@ export const Logout = () => {
   const { t } = useTranslate()
   const logoutHandler = async () => {
     logoutUser()
-    dispatch(setLogout())
     dispatch(setAuthMeData({ authMeData: { userId: '', username: '', email: '' } }))
+    dispatch(setVariantIcon(null))
     router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
   }
@@ -39,24 +36,22 @@ export const Logout = () => {
   }
   const onClickOpenModal = () => {
     setOpenModal(true)
-    dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1)))
+    dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1) as variantIconLink))
   }
   const styles = {
-    check: clsx(`${RouteNames.LOGOUT}`.startsWith('/' + variantIcon) && s.active),
+    check: clsx(s.linkMenu, `${RouteNames.LOGOUT}`.startsWith('/' + variantIcon) && s.active),
   }
 
   return (
     <div>
-      <div className={s.linkMenu}>
+      <div className={styles.check}>
         <Button variant="link" onClick={onClickOpenModal} className={s.btn}>
-          <Typography variant="medium14" className={s.text}>
-            <div>
-              <LogoutIcon
-                fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
-                className={s.logo}
-              />
-            </div>
-            <div className={styles.check}>{t.profile.logout}</div>
+          <LogoutIcon
+            fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
+            className={s.logo}
+          />
+          <Typography variant="medium14" className={s.text + styles.check}>
+            {t.profile.logout}
           </Typography>
         </Button>
       </div>

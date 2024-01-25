@@ -2,17 +2,15 @@ import React, { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { useEmailConfirmedMutation } from '../service/emailConfirmed'
-
 import { AuthPage } from '@/src/entities/auth/authPage'
-import { resultCode } from '@/src/shared/const/resultCode'
-import { RouteNames } from '@/src/shared/const/routeNames'
+import { useEmailConfirmedMutation } from '@/src/features/auth/emailConfirmed/service/emailConfirmed'
+import { resultCode, RouteNames } from '@/src/shared/const'
 import { AppLoader } from '@/src/shared/ui/appLoader'
 import ConfirmedImage from 'public/icon/emailComfirmedIcon.svg'
 
 export const EmailConfirmed = () => {
   const router = useRouter()
-  const code = router.query as unknown as string
+  const { code } = router.query
 
   const [regConfirm, { data, isSuccess }] = useEmailConfirmedMutation()
 
