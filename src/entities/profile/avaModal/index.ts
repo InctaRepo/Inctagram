@@ -1,1 +1,1 @@
-export { AvaModalDynamic } from '@/src/entities/profile/avaModal/ui/AvaModalDynamic'
+export { AvaModalDynamic } from '@/entities/profile/avaModal/ui/AvaModalDynamic'

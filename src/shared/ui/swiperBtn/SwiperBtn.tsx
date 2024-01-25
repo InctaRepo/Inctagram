@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import s from '@/src/shared/ui/swiperBtn/swiperBtn.module.scss'
+import s from '@/ui/swiperBtn/swiperBtn.module.scss'
 
 interface ArrowButtonProps extends React.RefAttributes<HTMLButtonElement> {
   onClick: () => void

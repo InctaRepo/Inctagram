@@ -1,5 +1,5 @@
-import { MergerAccountsDynamic } from '@/src/features/auth/mergerAccounts'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { MergerAccountsDynamic } from '@/features/auth/mergerAccounts'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 const MergerAccountsPage = () => {
   return <MergerAccountsDynamic />

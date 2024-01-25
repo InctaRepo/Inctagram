@@ -11,9 +11,9 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import CloseIcon from '@/public/icon/closeIcon.svg'
-import { Button } from '@/src/shared/ui/button'
-import s from '@/src/shared/ui/modal/baseModal.module.scss'
-import { Typography } from '@/src/shared/ui/typography'
+import { Button } from '@/ui/button'
+import s from '@/ui/modal/baseModal.module.scss'
+import { Typography } from '@/ui/typography'
 
 export type ModalSize = 'sm' | 'md' | 'lg'
 

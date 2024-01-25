@@ -1,1 +1,1 @@
-export { HomeDynamic } from '@/src/features/home/HomeDynamic'
+export { HomeDynamic } from '@/features/home/HomeDynamic'

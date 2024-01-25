@@ -1,1 +1,1 @@
-export { Modal } from '@/src/shared/ui/modal/Modal'
+export { Modal } from '@/ui/modal/Modal'

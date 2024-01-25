@@ -1,1 +1,1 @@
-export { PasswordRecoveryForm } from '@/src/features/auth/passwordRecovery/ui/passwordRecoveryForm/PasswordRecoveryForm'
+export { PasswordRecoveryForm } from '@/features/auth/passwordRecovery/ui/passwordRecoveryForm/PasswordRecoveryForm'

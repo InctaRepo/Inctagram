@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from '@/src/entities/profile/settings/accountManagement/ui/accountManagement.module.scss'
+import s from '@/entities/profile/settings/accountManagement/ui/accountManagement.module.scss'
 
 type Props = {}
 export const AccountManagement = ({}: Props) => {

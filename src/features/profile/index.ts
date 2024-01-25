@@ -1,1 +1,1 @@
-export { Profile } from '@/src/features/profile/ui/Profile'
+export { Profile } from '@/features/profile/ui/Profile'

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from '@/src/shared/ui/appLoader/appLoader.module.scss'
+import s from '@/ui/appLoader/appLoader.module.scss'
 
 export const AppLoader = () => {
   return (

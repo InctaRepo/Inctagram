@@ -1,5 +1,5 @@
-import { SignUpDynamic } from '@/src/features/auth/signUp'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { SignUpDynamic } from '@/features/auth/signUp'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 const SignUpPage = () => {
   return <SignUpDynamic />

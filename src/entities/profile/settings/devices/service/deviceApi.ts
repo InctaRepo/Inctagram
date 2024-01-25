@@ -1,5 +1,5 @@
-import { Device } from '@/src/entities/profile/settings/devices/service/deviceApiTypes'
-import { baseApi, BaseResponse } from '@/src/shared/api'
+import { Device } from '@/entities/profile/settings/devices/service/deviceApiTypes'
+import { baseApi, BaseResponse } from '@/shared/api'
 
 export const deviceApi = baseApi.injectEndpoints({
   endpoints: builder => ({

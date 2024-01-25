@@ -1,1 +1,1 @@
-export { LoaderLogo } from '@/src/shared/ui/loaderLogo/LoaderLogo'
+export { LoaderLogo } from '@/ui/loaderLogo/LoaderLogo'

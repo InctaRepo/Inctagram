@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { RouteNames } from '@/src/shared/const'
-import { getPublicLayout } from '@/src/widgets/layout/authLayout'
+import { RouteNames } from '@/shared/const'
+import { getPublicLayout } from '@/widgets/layout/authLayout'
 
 const Main = () => {
   const router = useRouter()
