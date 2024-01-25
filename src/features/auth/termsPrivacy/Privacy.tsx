@@ -1,11 +1,11 @@
 'use client'
 
-import s from '@/src/features/auth/termsPrivacy/style.module.scss'
-import { Header } from '@/src/shared/header/ui/Header'
-import { useHistory, useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography'
-import ArrowLeftIcon from 'public/icon/arrowLeftIcon.svg'
+import s from '@/features/auth/termsPrivacy/style.module.scss'
+import ArrowLeftIcon from '@/public/icon/arrowLeftIcon.svg'
+import { Header } from '@/shared/header/ui/Header'
+import { useHistory, useTranslate } from '@/shared/hooks'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 
 export const Privacy = () => {
   const { back } = useHistory()

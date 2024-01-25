@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from '@/src/entities/profile/settings/myPayment/ui/myPayment.module.scss'
+import s from '@/entities/profile/settings/myPayment/ui/myPayment.module.scss'
 
 type Props = {}
 export const MyPayment = ({}: Props) => {

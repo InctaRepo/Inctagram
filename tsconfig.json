@@ -2,7 +2,6 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Next.js",
   "_version": "2.0.0",
-
   "compilerOptions": {
     "target": "ESNext",
     "baseUrl": ".",
@@ -24,11 +23,14 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/src/*": [
+      "@/*": [
         "src/*"
       ],
       "@/public/*": [
         "public/*"
+      ],
+      "@/ui/*": [
+        "src/shared/ui/*"
       ]
     },
     "plugins": [

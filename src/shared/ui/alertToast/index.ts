@@ -1,1 +1,1 @@
-export { AlertToast } from '@/src/shared/ui/alertToast/AlertToast'
+export { AlertToast } from '@/ui/alertToast/AlertToast'

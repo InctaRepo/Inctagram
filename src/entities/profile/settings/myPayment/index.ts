@@ -1,1 +1,1 @@
-export { MyPaymentDynamic } from '@/src/entities/profile/settings/myPayment/ui/MyPaymentDynamic'
+export { MyPaymentDynamic } from '@/entities/profile/settings/myPayment/ui/MyPaymentDynamic'

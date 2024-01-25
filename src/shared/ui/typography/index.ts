@@ -1,1 +1,1 @@
-export { Typography } from '@/src/shared/ui/typography/Typography'
+export { Typography } from '@/ui/typography/Typography'

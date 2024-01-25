@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
 
-import { ShowPostModal } from '@/src/entities/post/showPostModal'
-import { UserInfo } from '@/src/entities/profile/service'
-import { useGetUserPostsQuery } from '@/src/features/posts'
-import s from '@/src/features/posts/ui/posts.module.scss'
-import { useInfiniteScroll } from '@/src/shared/hooks'
-import { Loader } from '@/src/shared/ui/loader'
+import { ShowPostModal } from '@/entities/post/showPostModal'
+import { UserInfo } from '@/entities/profile/service'
+import { GetUserPostResponse, useGetUserPostsQuery } from '@/features/posts'
+import s from '@/features/posts/ui/posts.module.scss'
+import { useInfiniteScroll } from '@/shared/hooks'
+import { Loader } from '@/ui/loader'
 
 type Props = {
   userData?: UserInfo
@@ -23,7 +23,7 @@ export const Posts = memo(({ userData, postId, userId }: Props) => {
   return (
     <div className={s.container}>
       {hasDynamicPosts &&
-        dynamicPosts?.map((el, index) => (
+        dynamicPosts?.map((el: GetUserPostResponse, index: number) => (
           <ShowPostModal
             description={el.description}
             key={index}

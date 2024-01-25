@@ -1,1 +1,1 @@
-export { CreateNewPasswordDynamic } from '@/src/features/auth/createNewPassword/ui/CreateNewPasswordDynamic'
+export { CreateNewPasswordDynamic } from '@/features/auth/createNewPassword/ui/CreateNewPasswordDynamic'

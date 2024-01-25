@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { AccountManagementDynamic } from '@/src/entities/profile/settings/accountManagement'
-import { DevicesDynamic } from '@/src/entities/profile/settings/devices'
-import { GeneralInformationDynamic } from '@/src/entities/profile/settings/generalInformation'
-import { MyPaymentDynamic } from '@/src/entities/profile/settings/myPayment'
-import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
-import { useTranslate } from '@/src/shared/hooks'
-import { Sidebar } from '@/src/shared/sidebar'
-import { TabsComponent } from '@/src/shared/ui/tabsComponent'
+import { AccountManagementDynamic } from '@/entities/profile/settings/accountManagement'
+import { DevicesDynamic } from '@/entities/profile/settings/devices'
+import { GeneralInformationDynamic } from '@/entities/profile/settings/generalInformation'
+import { MyPaymentDynamic } from '@/entities/profile/settings/myPayment'
+import s from '@/features/profileSettings/ui/profileSettings.module.scss'
+import { useTranslate } from '@/shared/hooks'
+import { Sidebar } from '@/shared/sidebar'
+import { TabsComponent } from '@/ui/tabsComponent'
 
 export const ProfileSettings = () => {
   const { t } = useTranslate()

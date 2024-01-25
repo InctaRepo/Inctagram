@@ -1,1 +1,1 @@
-export { MergerAccountsDynamic } from '@/src/features/auth/mergerAccounts/ui/MergerAccountsDynamic'
+export { MergerAccountsDynamic } from '@/features/auth/mergerAccounts/ui/MergerAccountsDynamic'

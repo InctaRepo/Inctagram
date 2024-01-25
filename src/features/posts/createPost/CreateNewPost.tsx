@@ -2,17 +2,17 @@ import React, { ChangeEvent, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
-import s from '@/src/features/posts/createPost/createNewPost.module.scss'
-import { CropModal } from '@/src/features/posts/createPost/cropModal'
-import CroppedImage from '@/src/features/posts/createPost/croppedImage/ui/CroppedImage'
-import { CreateIcon } from '@/src/shared/assets/icons/CreateIcon'
-import { RouteNames, variantIconLink } from '@/src/shared/const'
-import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
-import { Button } from '@/src/shared/ui/button'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
-import ImgOutline from 'public/icon/imgOutlineIcon.svg'
+import { CropModal } from '@//features/posts/createPost/cropModal'
+import { CreateIcon } from '@//shared/assets/icons/CreateIcon'
+import s from '@/features/posts/createPost/createNewPost.module.scss'
+import CroppedImage from '@/features/posts/createPost/croppedImage/ui/CroppedImage'
+import ImgOutline from '@/public/icon/imgOutlineIcon.svg'
+import { RouteNames, variantIconLink } from '@/shared/const'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
+import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
+import { Button } from '@/ui/button'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 export type Image = {
   image?: string

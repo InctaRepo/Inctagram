@@ -21,7 +21,7 @@ export type CropArg = {
   y: number
 }
 
-const EasyCrop = ({
+export const EasyCrop = ({
   zoom,
   aspectRatio,
   crop,
@@ -49,5 +49,3 @@ const EasyCrop = ({
     />
   )
 }
-
-export default EasyCrop

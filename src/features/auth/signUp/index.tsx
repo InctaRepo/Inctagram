@@ -1,1 +1,1 @@
-export { SignUpDynamic } from '@/src/features/auth/signUp/ui/SignUpDynamic'
+export { SignUpDynamic } from '@/features/auth/signUp/ui/SignUpDynamic'

@@ -1,7 +1,7 @@
-import { LoginFormType } from '@/src/shared/schemas/createLoginSchema'
-import { PasswordsMatchForm } from '@/src/shared/schemas/passwordsMatchSchema'
-import { ProfileSettingSchema } from '@/src/shared/schemas/profileSettingSchema'
-import { SignUpFormSchema } from '@/src/shared/schemas/signUpSchema'
+import { LoginFormType } from '@/shared/schemas/createLoginSchema'
+import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
+import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
+import { SignUpFormSchema } from '@/shared/schemas/signUpSchema'
 
 type FormType = LoginFormType | SignUpFormSchema | ProfileSettingSchema | PasswordsMatchForm
 

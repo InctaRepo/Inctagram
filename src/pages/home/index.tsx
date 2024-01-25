@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { HomeDynamic } from '@/src/features/home'
-import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
-import { getPublicLayout } from '@/src/widgets/layout/authLayout'
+import { HomeDynamic } from '@/features/home'
+import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
+import { getPublicLayout } from '@/widgets/layout/authLayout'
 
 const HomePage: NextPageWithLayout = () => {
   return <HomeDynamic />

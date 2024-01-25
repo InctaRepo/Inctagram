@@ -1,8 +1,8 @@
 import React from 'react'
 
-import s from '@/src/features/favorites/favorites.module.scss'
-import { Sidebar } from '@/src/shared/sidebar'
-import { Typography } from '@/src/shared/ui/typography'
+import s from '@/features/favorites/favorites.module.scss'
+import { Sidebar } from '@/shared/sidebar'
+import { Typography } from '@/ui/typography'
 
 export const Favorites = () => {
   return (

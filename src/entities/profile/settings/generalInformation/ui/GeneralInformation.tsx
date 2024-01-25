@@ -7,34 +7,34 @@ import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
-import { AvaModalDynamic } from '@/src/entities/profile/avaModal'
+import { AvaModalDynamic } from '@/entities/profile/avaModal'
 import {
   useCreateProfileMutation,
   useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
-} from '@/src/entities/profile/service'
-import s from '@/src/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
-import { RouteNames } from '@/src/shared/const'
-import { Countries } from '@/src/shared/countries/countries'
-import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
-import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { getUserId, getUsername } from '@/src/shared/hoc'
-import { useAppDispatch, useAppSelector, useErrorToast, useTranslate } from '@/src/shared/hooks'
+} from '@/entities/profile/service'
+import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
+import { RouteNames } from '@/shared/const'
+import { Countries } from '@/shared/countries/countries'
+import { convertFileToBase64 } from '@/shared/helpers/convertFileToBase64'
+import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
+import { getUserId, getUsername } from '@/shared/hoc'
+import { useAppDispatch, useAppSelector, useErrorToast, useTranslate } from '@/shared/hooks'
 import {
   createProfileSettingSchema,
   ProfileSettingSchema,
-} from '@/src/shared/schemas/profileSettingSchema'
-import { setProfileFound } from '@/src/shared/sidebar'
-import { Button } from '@/src/shared/ui/button'
+} from '@/shared/schemas/profileSettingSchema'
+import { setProfileFound } from '@/shared/sidebar'
+import { Button } from '@/ui/button'
 import {
   ControlledDatePicker,
   ControlledSelect,
   ControlledTextArea,
   ControlledTextField,
-} from '@/src/shared/ui/controlled'
-import { Loader } from '@/src/shared/ui/loader'
-import { Options } from '@/src/shared/ui/selectBox'
+} from '@/ui/controlled'
+import { Loader } from '@/ui/loader'
+import { Options } from '@/ui/selectBox'
 
 export const GeneralInformation = () => {
   const dispatch = useAppDispatch()
