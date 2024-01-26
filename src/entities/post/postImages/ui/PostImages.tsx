@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import Image from 'next/image'
 import Slider from 'react-slick'
@@ -24,10 +24,10 @@ export const PostImages = ({ images, isDescription }: Props) => {
                 alt={'img'}
                 src={el.url}
                 width={490}
-                height={562}
+                height={490}
                 style={{
                   width: '100%',
-                  height: 'auto',
+                  height: '100%',
                 }}
               />
             </div>
