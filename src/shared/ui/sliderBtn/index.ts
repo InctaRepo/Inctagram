@@ -1,1 +1,1 @@
-import { SliderBtn } from './SliderBtn'
+export { SliderBtn } from './SliderBtn'

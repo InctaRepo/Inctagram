@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SliderBtn } from '@/src/shared/ui/sliderBtn/SliderBtn'
+import { SliderBtn } from '@/ui/sliderBtn'
 
 export const SliderSettings = {
   dots: true,
