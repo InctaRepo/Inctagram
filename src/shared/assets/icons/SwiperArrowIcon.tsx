@@ -54,28 +54,4 @@ const SvgComponent = forwardRef(
   }
 )
 
-export const SwiperArrowIcon = memo(({ onClick, direction }: Props) => {
-  return (
-    <div
-      style={{
-        width: '36px',
-        height: '36px',
-        borderRadius: '2px',
-        backgroundColor: '#171717',
-        opacity: '50%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-        position: 'absolute',
-        top: '50%',
-        right: direction === 'right' ? '15px' : undefined,
-        left: direction === 'left' ? '15px' : undefined,
-        zIndex: direction === 'left' ? '1' : undefined,
-      }}
-      onClick={onClick}
-    >
-      <SvgComponent direction={direction} />
-    </div>
-  )
-})
+export const SwiperArrowIcon = memo(SvgComponent)

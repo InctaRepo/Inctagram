@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SwiperArrowIcon } from '@/src/shared/assets/icons/SwiperArrowIcon'
+import { SliderBtn } from '@/src/shared/ui/sliderBtn/SliderBtn'
 
 export const SliderSettings = {
   dots: true,
@@ -11,6 +11,6 @@ export const SliderSettings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  prevArrow: <SwiperArrowIcon direction="left" />,
-  nextArrow: <SwiperArrowIcon direction="right" />,
+  prevArrow: <SliderBtn direction="left" name="prevBtn" />,
+  nextArrow: <SliderBtn direction="right" name="nextBtn" />,
 }
