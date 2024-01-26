@@ -10,14 +10,14 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { AreYouSureCreatePostModal } from '@/src/entities/post/createPost/areYouSureСreatePostModal'
-import { Image } from '@/src/features/posts/createPost/CreateNewPost'
-import s from '@/src/features/posts/createPost/cropModal/ui/cropModal.module.scss'
-import { FiltersModal } from '@/src/features/posts/createPost/editPhoto/filters/FiltersModal'
-import { SelectedImages } from '@/src/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
-import { useTranslate } from '@/src/shared/hooks'
-import { Typography } from '@/src/shared/ui/typography'
-import ArrowBackIcon from 'public/icon/arrowBackIcon.svg'
+import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
+import { Image } from '@/features/posts/createPost/CreateNewPost'
+import s from '@/features/posts/createPost/cropModal/ui/cropModal.module.scss'
+import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
+import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
+import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
+import { useTranslate } from '@/shared/hooks'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   image?: string
@@ -103,7 +103,7 @@ export const CropModal = ({
                     isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}
                     onCancel={cancelButtonHandler}
-                    title={t.profile.addNewPost.filters}
+                    title={t.posts.createPost.filters}
                     activeFilter={activeFilter}
                     setActiveFilter={setActiveFilter}
                     setIsBaseModalOpen={setIsBaseModalOpen}

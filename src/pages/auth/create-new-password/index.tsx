@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { CreateNewPasswordDynamic } from '@/src/features/auth/createNewPassword'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { CreateNewPasswordDynamic } from '@/features/auth/createNewPassword'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 const CreateNewPasswordPage = () => {
   return <CreateNewPasswordDynamic />

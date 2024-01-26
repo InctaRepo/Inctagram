@@ -6,10 +6,10 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import s from '@/src/entities/post/postImages/ui/postImages.module.scss'
-import { SliderSettings } from '@/src/entities/post/sliderSettings'
+import s from '@/entities/post/postImages/ui/postImages.module.scss'
+import { SliderSettings } from '@/entities/post/sliderSettings'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/src/features/posts/service'
+import { Images } from '@/features/posts/service'
 
 type Props = { images?: Images[]; isDescription?: boolean }
 

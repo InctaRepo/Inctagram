@@ -1,4 +1,4 @@
-import { TermsDynamic } from '@/src/features/auth/termsPrivacy'
+import { TermsDynamic } from '@/features/auth/termsPrivacy'
 
 const TermsOfUse = () => {
   return (

@@ -4,14 +4,14 @@ import Slider from 'react-slick'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { Image } from '@/src/features/posts/createPost/CreateNewPost'
-import getCroppedImg from '@/src/features/posts/createPost/croppedImage/ui/Crop'
-import s from '@/src/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
-import EasyCrop, { CropArg } from '@/src/features/posts/createPost/croppedImage/ui/EasyCrop'
-import { Add } from '@/src/features/posts/createPost/editPhoto/add/Add'
-import { Cropping } from '@/src/features/posts/createPost/editPhoto/crop/Cropping'
-import { Zoom } from '@/src/features/posts/createPost/editPhoto/zoom/Zoom'
-import { useTranslate } from '@/src/shared/hooks'
+import { Image } from '@/features/posts/createPost/CreateNewPost'
+import { GetCroppedImg } from '@/features/posts/createPost/croppedImage/ui/Crop'
+import s from '@/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
+import { CropArg, EasyCrop } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
+import { Add } from '@/features/posts/createPost/editPhoto/add/Add'
+import { Cropping } from '@/features/posts/createPost/editPhoto/crop/Cropping'
+import { Zoom } from '@/features/posts/createPost/editPhoto/zoom/Zoom'
+import { useTranslate } from '@/shared/hooks'
 
 type Props = {
   image?: string
@@ -86,7 +86,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
     if (croppedAreaPixels && image) {
       try {
         {
-          const croppedImage = await getCroppedImg(image, croppedAreaPixels)
+          const croppedImage = await GetCroppedImg(image, croppedAreaPixels)
 
           if (!croppedImage) {
             return null
@@ -142,7 +142,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                     color="primary"
                     className={s.button}
                   >
-                    {t.profile.addNewPost.showResult}
+                    {t.posts.createPost.showResult}
                   </button>
                 </div>
               )

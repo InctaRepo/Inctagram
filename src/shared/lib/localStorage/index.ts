@@ -1,1 +1,1 @@
-export { loadState, saveState } from '@/src/shared/lib/localStorage/localStorage'
+export { loadState, saveState } from '@/shared/lib/localStorage/localStorage'

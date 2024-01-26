@@ -1,1 +1,1 @@
-export { GeneralInformationDynamic } from '@/src/entities/profile/settings/generalInformation/ui/GeneralInformationDynamic'
+export { GeneralInformationDynamic } from '@/entities/profile/settings/generalInformation/ui/GeneralInformationDynamic'

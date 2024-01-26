@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { SingInParams, useSignInMutation } from '@/src/features/auth/signIn/authByEmail'
-import { LoginForm } from '@/src/features/auth/signIn/ui/loginForm'
-import { resultCode, RouteNames } from '@/src/shared/const'
-import { useGetMeQuery } from '@/src/shared/hoc'
-import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
+import { SingInParams, useSignInMutation } from '@/features/auth/signIn/authByEmail'
+import { LoginForm } from '@/features/auth/signIn/ui/loginForm'
+import { resultCode, RouteNames } from '@/shared/const'
+import { useGetMeQuery } from '@/shared/hoc'
+import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 
 export const SignIn: NextPageWithLayout = () => {
   const [loginUser, { data: loginData, isSuccess }] = useSignInMutation()
@@ -17,7 +17,7 @@ export const SignIn: NextPageWithLayout = () => {
 
   useEffect(() => {
     if (isSuccess && isSuccessMe && userId && loginData?.resultCode === resultCode.OK) {
-      router.push(RouteNames.HOME)
+      router.push(RouteNames.PROFILE + '/' + userId)
     }
   }, [isSuccess, isSuccessMe, userId, errorServer])
   const submit = (data: SingInParams) => {

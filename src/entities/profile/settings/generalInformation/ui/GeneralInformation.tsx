@@ -7,35 +7,37 @@ import { useRouter } from 'next/router'
 import AvatarEditor from 'react-avatar-editor'
 import { useForm } from 'react-hook-form'
 
-import { AvaModalDynamic } from '@/src/entities/profile/avaModal'
+import { AvaModalDynamic } from '@/entities/profile/avaModal'
 import {
   useCreateProfileMutation,
   useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
-} from '@/src/entities/profile/service'
-import s from '@/src/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
-import { RouteNames } from '@/src/shared/const'
-import { Countries } from '@/src/shared/countries/countries'
-import { convertFileToBase64 } from '@/src/shared/helpers/convertFileToBase64'
-import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { getUserId, getUsername } from '@/src/shared/hoc'
-import { useAppSelector, useErrorToast, useTranslate } from '@/src/shared/hooks'
+} from '@/entities/profile/service'
+import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
+import { RouteNames } from '@/shared/const'
+import { Countries } from '@/shared/countries/countries'
+import { convertFileToBase64 } from '@/shared/helpers/convertFileToBase64'
+import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
+import { getUserId, getUsername } from '@/shared/hoc'
+import { useAppDispatch, useAppSelector, useErrorToast, useTranslate } from '@/shared/hooks'
 import {
   createProfileSettingSchema,
   ProfileSettingSchema,
-} from '@/src/shared/schemas/profileSettingSchema'
-import { Button } from '@/src/shared/ui/button'
+} from '@/shared/schemas/profileSettingSchema'
+import { setProfileFound } from '@/shared/sidebar'
+import { Button } from '@/ui/button'
 import {
   ControlledDatePicker,
   ControlledSelect,
   ControlledTextArea,
   ControlledTextField,
-} from '@/src/shared/ui/controlled'
-import { Loader } from '@/src/shared/ui/loader'
-import { Options } from '@/src/shared/ui/selectBox'
+} from '@/ui/controlled'
+import { Loader } from '@/ui/loader'
+import { Options } from '@/ui/selectBox'
 
 export const GeneralInformation = () => {
+  const dispatch = useAppDispatch()
   const [_, setValue] = useState('')
   const editorRef = useRef<AvatarEditor>(null)
   const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
@@ -114,6 +116,7 @@ export const GeneralInformation = () => {
             if (avatar !== null) {
               uploadAvatar(avatar!)
             }
+            dispatch(setProfileFound(true))
           })
           .then(() => {
             setIsModalOpen(false)
@@ -214,21 +217,21 @@ export const GeneralInformation = () => {
           <ControlledTextField
             control={control}
             name={'username'}
-            label={t.profile.profileSetting.userName}
+            label={t.profileSetting.generalInformation.userName}
             className={s.field}
             isRequired
           />
           <ControlledTextField
             control={control}
             name={'firstName'}
-            label={t.profile.profileSetting.firstName}
+            label={t.profileSetting.generalInformation.firstName}
             className={s.field}
             isRequired
           />
           <ControlledTextField
             control={control}
             name={'lastName'}
-            label={t.profile.profileSetting.lastName}
+            label={t.profileSetting.generalInformation.lastName}
             className={s.field}
             isRequired
           />
@@ -236,7 +239,7 @@ export const GeneralInformation = () => {
             <ControlledDatePicker
               control={control}
               className={s.date}
-              label={t.profile.profileSetting.dateOfBirthday}
+              label={t.profileSetting.generalInformation.dateOfBirthday}
               name={'dateOfBirthday'}
               errorMessage={errors.dateOfBirthday?.message}
             />
@@ -248,9 +251,9 @@ export const GeneralInformation = () => {
                 control={control}
                 name="country"
                 options={countriesList}
-                label={t.profile.profileSetting.selectYourCountry}
+                label={t.profileSetting.generalInformation.selectYourCountry}
                 onValueChange={changeCountryHandler}
-                defaultValue={t.profile.profileSetting.country}
+                defaultValue={t.profileSetting.generalInformation.country}
               />
             </div>
             <div className={s.select}>
@@ -258,8 +261,8 @@ export const GeneralInformation = () => {
                 control={control}
                 name="city"
                 options={cities}
-                label={t.profile.profileSetting.selectYourCity}
-                defaultValue={t.profile.profileSetting.city}
+                label={t.profileSetting.generalInformation.selectYourCity}
+                defaultValue={t.profileSetting.generalInformation.city}
               />
             </div>
           </div>
@@ -269,12 +272,12 @@ export const GeneralInformation = () => {
             setValue={setValue}
             name={'aboutMe'}
             fullWidth={true}
-            label={t.profile.profileSetting.aboutMe}
+            label={t.profileSetting.generalInformation.aboutMe}
           />
 
           <div className={s.saveBtn}>
             <Button type="submit" fullWidth variant="primary">
-              {t.profile.profileSetting.saveChanges}
+              {t.profileSetting.generalInformation.saveChanges}
             </Button>
           </div>
         </form>

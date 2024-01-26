@@ -1,4 +1,4 @@
-import { PrivacyDynamic } from '@/src/features/auth/termsPrivacy'
+import { PrivacyDynamic } from '@/features/auth/termsPrivacy'
 
 const PrivacyPolicy = () => <PrivacyDynamic />
 

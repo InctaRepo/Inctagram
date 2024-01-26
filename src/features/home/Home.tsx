@@ -1,10 +1,10 @@
 import React from 'react'
 
-import s from '@/src/features/home/home.module.scss'
-import { getIsAuth } from '@/src/shared/hoc'
-import { useAppSelector } from '@/src/shared/hooks'
-import { Sidebar } from '@/src/shared/sidebar'
-import { Typography } from '@/src/shared/ui/typography'
+import s from '@/features/home/home.module.scss'
+import { getIsAuth } from '@/shared/hoc'
+import { useAppSelector } from '@/shared/hooks'
+import { Sidebar } from '@/shared/sidebar'
+import { Typography } from '@/ui/typography'
 
 export const Home = () => {
   const isAuth = useAppSelector(getIsAuth)

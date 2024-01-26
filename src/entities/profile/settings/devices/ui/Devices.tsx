@@ -1,18 +1,18 @@
 import React from 'react'
 
-import Chrome from '@/public/icon/chromeIcon.svg'
-import Phone from '@/public/icon/phoneIcon.svg'
 import {
   useDeleteAllSessionsMutation,
   useDeleteThisSessionsMutation,
   useGetSessionsQuery,
-} from '@/src/entities/profile/settings/devices/service'
-import { Device } from '@/src/entities/profile/settings/devices/service/deviceApiTypes'
-import s from '@/src/entities/profile/settings/devices/ui/devices.module.scss'
-import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
-import { useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography'
+} from '@/entities/profile/settings/devices/service'
+import { Device } from '@/entities/profile/settings/devices/service/deviceApiTypes'
+import s from '@/entities/profile/settings/devices/ui/devices.module.scss'
+import Chrome from '@/public/icon/chromeIcon.svg'
+import Phone from '@/public/icon/phoneIcon.svg'
+import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
+import { useTranslate } from '@/shared/hooks'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 
 export const Devices = () => {
   const { t } = useTranslate()
@@ -27,7 +27,7 @@ export const Devices = () => {
     <>
       <div className={s.device}>
         <div className={s.currentDeviceWrapper}>
-          <Typography variant={'h3'}>Current device</Typography>
+          <Typography variant={'h3'}>{t.profileSetting.devices.currentDevice}</Typography>
           <div className={s.browserWrapper}>
             <div className={s.browser}>
               <div className={s.img}>
@@ -43,13 +43,13 @@ export const Devices = () => {
           </div>
           <div className={s.btn}>
             <Button variant={'outlined'} onClick={deleteAllSessionsHandler}>
-              Terminate all other session
+              {t.profileSetting.devices.terminateAllOtherSession}
             </Button>
           </div>
         </div>
         <div className={s.activeSessionsWrapper}>
           <Typography variant={'h3'} className={s.activeSessions}>
-            Active sessions
+            {t.profileSetting.devices.activeSessions}
           </Typography>
           {sessions?.data?.map((el: Device) => (
             <div key={el.deviceId} className={s.deviceWrapper}>
@@ -63,7 +63,8 @@ export const Devices = () => {
                   <Typography variant={'bold16'}>{el.deviceName}</Typography>
                   <Typography variant={'regular14'}>IP:{el.ip}</Typography>
                   <Typography variant={'small'}>
-                    Last visit:{new Date(el.lastVisit).toLocaleString('en-US', { hour12: false })}
+                    {t.profileSetting.devices.lastVisit}:
+                    {new Date(el.lastVisit).toLocaleString('en-US', { hour12: false })}
                   </Typography>
                 </div>
               </div>
@@ -74,7 +75,7 @@ export const Devices = () => {
               >
                 <Typography variant="medium14" className={s.text}>
                   <LogoutIcon fill={'current'} />
-                  {t.profile.logout}
+                  {t.sidebar.logout}
                 </Typography>
               </Button>
             </div>

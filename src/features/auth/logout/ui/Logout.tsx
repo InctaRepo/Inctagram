@@ -3,16 +3,16 @@ import { useState } from 'react'
 import { clsx } from 'clsx'
 import { useRouter } from 'next/router'
 
-import { useLogoutMutation } from '@/src/features/auth/logout/service/logout'
-import s from '@/src/features/auth/logout/ui/logout.module.scss'
-import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
-import { RouteNames, variantIconLink } from '@/src/shared/const'
-import { getUserEmail, setAuthMeData } from '@/src/shared/hoc'
-import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
-import { Button } from '@/src/shared/ui/button'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
+import { useLogoutMutation } from '@/features/auth/logout/service/logout'
+import s from '@/features/auth/logout/ui/logout.module.scss'
+import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
+import { RouteNames, variantIconLink } from '@/shared/const'
+import { getUserEmail, setAuthMeData } from '@/shared/hoc'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
+import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
+import { Button } from '@/ui/button'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
@@ -51,13 +51,13 @@ export const Logout = () => {
             className={s.logo}
           />
           <Typography variant="medium14" className={s.text + styles.check}>
-            {t.profile.logout}
+            {t.sidebar.logout}
           </Typography>
         </Button>
       </div>
       <Modal
         modalWidth={'md'}
-        title={t.profile.logout}
+        title={t.sidebar.logout}
         open={openModal}
         actionButtonName={t.profile.yes}
         cancelButtonName={t.profile.no}

@@ -2,15 +2,15 @@ import React, { ComponentProps, useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
-import { PostImages } from '@/src/entities/post/postImages/ui/PostImages'
-import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal'
-import { RightDescription } from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription'
-import s from '@/src/entities/post/showPostModal/showPostModal.module.scss'
+import { PostImages } from '@/entities/post/postImages/ui/PostImages'
+import { EditModal } from '@/entities/post/showPostModal/editModal/EditModal'
+import { RightDescription } from '@/entities/post/showPostModal/editModal/rightDescription/RightDescription'
+import s from '@/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/entities/profile/service'
+import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/src/features/posts/service'
-import { RouteNames } from '@/src/shared/const'
+import { Images } from '@/features/posts/service'
+import { RouteNames } from '@/shared/const'
 
 type Props = {
   openSureDescriptionModal?: boolean

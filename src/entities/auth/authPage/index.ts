@@ -1,1 +1,1 @@
-export { AuthPage } from 'src/entities/auth/authPage/ui/AuthPage'
+export { AuthPage } from '@/entities/auth/authPage/ui/AuthPage'

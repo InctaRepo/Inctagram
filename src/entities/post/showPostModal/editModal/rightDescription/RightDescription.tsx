@@ -5,22 +5,22 @@ import { Separator } from '@radix-ui/react-separator'
 import ImageAva from 'next/image'
 import { useForm } from 'react-hook-form'
 
-import { PostMenu } from '@/src/entities/post/postMenu'
-import { fakeComments } from '@/src/entities/post/showPostModal/editModal/rightDescription/fakeComments'
-import s from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription.module.scss'
+import { PostMenu } from '@/entities/post/postMenu'
+import { fakeComments } from '@/entities/post/showPostModal/editModal/rightDescription/fakeComments'
+import s from '@/entities/post/showPostModal/editModal/rightDescription/RightDescription.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/entities/profile/service'
+import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/src/features/posts'
-import { getIsAuth } from '@/src/shared/hoc'
-import { useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button'
-import { ControlledTextArea } from '@/src/shared/ui/controlled'
-import { Typography } from '@/src/shared/ui/typography'
-import AvatarImage from 'public/icon/avatarIcon.svg'
-import Bookmark from 'public/icon/bookmark.svg'
-import Heart from 'public/icon/heart.svg'
-import Plane from 'public/icon/plane.svg'
+import { Images } from '@/features/posts'
+import AvatarImage from '@/public/icon/avatarIcon.svg'
+import Bookmark from '@/public/icon/bookmark.svg'
+import Heart from '@/public/icon/heart.svg'
+import Plane from '@/public/icon/plane.svg'
+import { getIsAuth } from '@/shared/hoc'
+import { useAppSelector, useTranslate } from '@/shared/hooks'
+import { Button } from '@/shared/ui/button'
+import { ControlledTextArea } from '@/ui/controlled'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   openSureDescriptionModal: boolean
@@ -222,13 +222,13 @@ export const RightDescription = ({
                 control={control}
                 className={s.comment}
                 name={'addComment'}
-                placeholder={t.profile.editPost.comment}
+                placeholder={t.posts.editPost.comment}
                 fullWidth={true}
               />
             </div>
 
             <Button variant="text" className={s.publishButton}>
-              {t.profile.publish}
+              {t.posts.editPost.publish}
             </Button>
           </div>
         )}

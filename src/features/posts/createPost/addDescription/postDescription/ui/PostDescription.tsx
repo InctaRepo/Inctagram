@@ -4,17 +4,17 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import ImageAva from 'next/image'
 import { useForm } from 'react-hook-form'
 
-import s from '@/src/features/posts/createPost/addDescription/postDescription/ui/postDescription.module.scss'
-import { useUpdatePostMutation } from '@/src/features/posts/service/postApi'
-import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { getUserId } from '@/src/shared/hoc'
-import { useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { DescriptionForm, descriptionSchema } from '@/src/shared/schemas/descriptionSchema'
-import { Button } from '@/src/shared/ui/button'
-import { ControlledTextArea } from '@/src/shared/ui/controlled'
-import { Typography } from '@/src/shared/ui/typography'
-import AvatarImage from 'public/icon/avatarIcon.svg'
-import { useGetProfileQuery } from 'src/entities/profile/service'
+import { useGetProfileQuery } from '@/entities/profile/service'
+import s from '@/features/posts/createPost/addDescription/postDescription/ui/postDescription.module.scss'
+import { useUpdatePostMutation } from '@/features/posts/service/postApi'
+import AvatarImage from '@/public/icon/avatarIcon.svg'
+import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
+import { getUserId } from '@/shared/hoc'
+import { useAppSelector, useTranslate } from '@/shared/hooks'
+import { DescriptionForm, descriptionSchema } from '@/shared/schemas/descriptionSchema'
+import { Button } from '@/ui/button'
+import { ControlledTextArea } from '@/ui/controlled'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   value?: string
@@ -102,7 +102,7 @@ export const PostDescription = ({
             className={s.textArea}
             fullWidth={true}
             name={'description'}
-            label={t.profile.addNewPost.addDescription}
+            label={t.posts.createPost.addDescription}
             setValue={setValue}
           />
           <div className={s.counter}>
@@ -114,7 +114,7 @@ export const PostDescription = ({
 
         {isDescription && (
           <Button variant={'primary'} className={s.btn} onClick={saveHandler}>
-            <Typography variant={'h3'}>{t.profile.editPost.save}</Typography>
+            <Typography variant={'h3'}>{t.posts.editPost.save}</Typography>
           </Button>
         )}
       </div>

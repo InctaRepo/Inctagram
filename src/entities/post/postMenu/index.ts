@@ -1,1 +1,1 @@
-export { PostMenu } from '@/src/entities/post/postMenu/PostMenu'
+export { PostMenu } from '@/entities/post/postMenu/PostMenu'

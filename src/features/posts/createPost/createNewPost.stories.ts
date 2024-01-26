@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CreateNewPost } from '@/src/features/posts/createPost/CreateNewPost'
+import { CreateNewPost } from '@/features/posts/createPost/CreateNewPost'
 
 const meta = {
   title: 'pages/create-post',
