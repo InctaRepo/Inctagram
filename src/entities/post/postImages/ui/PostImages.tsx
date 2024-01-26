@@ -25,6 +25,7 @@ export const PostImages = ({ images, isDescription }: Props) => {
                 src={el.url}
                 width={490}
                 height={490}
+                priority={true}
                 style={{
                   width: '100%',
                   height: '100%',
