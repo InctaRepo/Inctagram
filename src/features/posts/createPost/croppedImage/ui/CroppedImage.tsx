@@ -12,6 +12,7 @@ import { Add } from '@/features/posts/createPost/editPhoto/add/Add'
 import { Cropping } from '@/features/posts/createPost/editPhoto/crop/Cropping'
 import { Zoom } from '@/features/posts/createPost/editPhoto/zoom/Zoom'
 import { useTranslate } from '@/shared/hooks'
+import { SliderBtn } from '@/shared/ui/sliderBtn'
 
 type Props = {
   image?: string
@@ -37,45 +38,8 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  }
-
-  function SampleNextArrow(props: any) {
-    const { className, style, onClick } = props
-
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: 'block',
-          right: 15,
-          backgroundColor: '#4c4c4c',
-          borderRadius: 50,
-        }}
-        onClick={onClick}
-      />
-    )
-  }
-
-  function SamplePrevArrow(props: any) {
-    const { className, style, onClick } = props
-
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: 'block',
-          left: 15,
-          zIndex: 1,
-          backgroundColor: '#4c4c4c',
-          borderRadius: 50,
-        }}
-        onClick={onClick}
-      />
-    )
+    nextArrow: <SliderBtn direction="right" name="prevBtn" />,
+    prevArrow: <SliderBtn direction="left" name="nextBtn" />,
   }
 
   useEffect(() => {
