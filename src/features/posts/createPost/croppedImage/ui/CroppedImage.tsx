@@ -25,7 +25,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
   const [index, setIndex] = useState<number>(0)
   const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [aspectRatio, setAspectRatio] = useState(4 / 3)
+  const [aspectRatio, setAspectRatio] = useState(3 / 4)
   const [croppedImage, setCroppedImage] = useState<string | undefined>(undefined)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArg | null>(null)
   const { t } = useTranslate()
@@ -101,13 +101,13 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                       />
                     </div>
                   </div>
-                  <button
+                  {/* <button
                     onClick={() => showCroppedImg(el.image, croppedAreaPixels)}
                     color="primary"
                     className={s.button}
                   >
                     {t.posts.createPost.showResult}
-                  </button>
+                  </button> */}
                 </div>
               )
             })}
