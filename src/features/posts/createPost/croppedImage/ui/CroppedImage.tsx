@@ -38,8 +38,8 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SliderBtn direction="right" name="prevBtn" />,
-    prevArrow: <SliderBtn direction="left" name="nextBtn" />,
+    nextArrow: <SliderBtn direction="right" />,
+    prevArrow: <SliderBtn direction="left" />,
   }
 
   useEffect(() => {
