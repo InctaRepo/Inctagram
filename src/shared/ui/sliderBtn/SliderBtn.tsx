@@ -5,13 +5,11 @@ type Direction = 'left' | 'right'
 interface Props {
   onClick?: () => void
   direction?: Direction
-  name: string
 }
 
-export const SliderBtn = ({ onClick, direction, name }: Props) => {
+export const SliderBtn = ({ onClick, direction }: Props) => {
   return (
     <div
-      className={name}
       style={{
         width: '36px',
         height: '36px',

@@ -11,6 +11,6 @@ export const SliderSettings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  prevArrow: <SliderBtn direction="left" name="prevBtn" />,
-  nextArrow: <SliderBtn direction="right" name="nextBtn" />,
+  prevArrow: <SliderBtn direction="left" />,
+  nextArrow: <SliderBtn direction="right" />,
 }
