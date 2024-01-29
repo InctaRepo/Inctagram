@@ -5,8 +5,8 @@ import {
   UpdateResponse,
   GetAllPostsResponse,
   GetUsersCount,
-} from '@/src/features/posts/service/postApiTypes'
-import { baseApi, BaseResponse } from '@/src/shared/api'
+} from '@/features/posts/service/postApiTypes'
+import { baseApi, BaseResponse } from '@/shared/api'
 
 const postApi = baseApi.injectEndpoints({
   endpoints: builder => ({

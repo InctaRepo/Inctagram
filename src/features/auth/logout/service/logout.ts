@@ -1,6 +1,6 @@
-import { clearToken, SignInSchema } from '@/src/features/auth/signIn'
-import { baseApi, BaseResponse } from '@/src/shared/api'
-import { resultCode } from '@/src/shared/const'
+import { clearToken, SignInSchema } from '@/features/auth/signIn'
+import { baseApi, BaseResponse } from '@/shared/api'
+import { resultCode } from '@/shared/const'
 
 const logout = baseApi.injectEndpoints({
   endpoints: build => ({

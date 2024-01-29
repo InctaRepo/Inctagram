@@ -2,10 +2,10 @@ import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/qu
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { clearToken, setToken } from '@/src/features/auth/signIn'
-import { BaseResponse } from '@/src/shared/api/baseResponse'
-import { BASE_URL, resultCode, RouteNames } from '@/src/shared/const'
-import { AppRootState } from '@/src/store'
+import { clearToken, setToken } from '@/features/auth/signIn'
+import { BaseResponse } from '@/shared/api/baseResponse'
+import { BASE_URL, resultCode, RouteNames } from '@/shared/const'
+import { AppRootState } from '@/store'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,

@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { useDeletePostMutation } from '@/src/features/posts/editDeletePost/postDeleteModal/service/deletePost'
-import s from '@/src/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
-import { getUserId } from '@/src/shared/hoc'
-import { useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
-import Delete from 'public/icon/deletePost.svg'
+import { useDeletePostMutation } from '@/features/posts/editDeletePost/postDeleteModal/service/deletePost'
+import s from '@/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
+import Delete from '@/public/icon/deletePost.svg'
+import { getUserId } from '@/shared/hoc'
+import { useAppSelector, useTranslate } from '@/shared/hooks'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   id: string
@@ -44,21 +44,21 @@ export const PostDeleteModal = ({
     <>
       <div className={s.editOption} onClick={() => setOpenDeleteModal(true)}>
         <Delete alt={'delete post'} width={24} height={24} />
-        <Typography variant={'regular14'}>{t.profile.editPost.delete}</Typography>
+        <Typography variant={'regular14'}>{t.posts.deletePost.delete}</Typography>
       </div>
       <div hidden={!openDeleteModal}>
         <Modal
           id={'deleteModal'}
           modalWidth={'sm'}
-          title={t.profile.deletePost.delete}
+          title={t.posts.deletePost.delete}
           open={openDeleteModal}
-          cancelButtonName={t.profile.editPost.no}
-          actionButtonName={t.profile.editPost.yes}
+          cancelButtonName={t.posts.deletePost.no}
+          actionButtonName={t.posts.deletePost.yes}
           onClose={onModalClose}
           onCancel={onModalClose}
           onAction={discardHandler}
         >
-          <Typography variant={'h3'}>{t.profile.deletePost.areYouSure}</Typography>
+          <Typography variant={'h3'}>{t.posts.deletePost.areYouSure}</Typography>
         </Modal>
       </div>
     </>

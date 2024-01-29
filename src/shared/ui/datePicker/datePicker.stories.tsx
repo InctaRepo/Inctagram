@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DatePicker } from '@/src/shared/ui/datePicker'
+import { DatePicker } from '@/ui/datePicker'
 
 const meta = {
   title: 'Components/DataPicker',

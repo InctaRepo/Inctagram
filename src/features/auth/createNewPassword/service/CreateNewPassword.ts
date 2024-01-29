@@ -1,5 +1,5 @@
-import { NewPasswordParams } from '@/src/features/auth/createNewPassword/service/types/newPasswordParams'
-import { baseApi, BaseResponse } from '@/src/shared/api'
+import { NewPasswordParams } from '@/features/auth/createNewPassword/service/types/newPasswordParams'
+import { baseApi, BaseResponse } from '@/shared/api'
 
 const createNewPassword = baseApi.injectEndpoints({
   endpoints: build => ({

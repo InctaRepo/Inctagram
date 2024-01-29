@@ -2,17 +2,17 @@ import React, { ChangeEvent, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
-import s from '@/src/features/posts/createPost/createNewPost.module.scss'
-import { CropModal } from '@/src/features/posts/createPost/cropModal'
-import CroppedImage from '@/src/features/posts/createPost/croppedImage/ui/CroppedImage'
-import { CreateIcon } from '@/src/shared/assets/icons/CreateIcon'
-import { RouteNames, variantIconLink } from '@/src/shared/const'
-import { useAppDispatch, useAppSelector, useTranslate } from '@/src/shared/hooks'
-import { setVariantIcon, sidebarVariantIconSelector } from '@/src/shared/sidebar'
-import { Button } from '@/src/shared/ui/button'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
-import ImgOutline from 'public/icon/imgOutlineIcon.svg'
+import { CropModal } from '@//features/posts/createPost/cropModal'
+import { CreateIcon } from '@//shared/assets/icons/CreateIcon'
+import s from '@/features/posts/createPost/createNewPost.module.scss'
+import CroppedImage from '@/features/posts/createPost/croppedImage/ui/CroppedImage'
+import ImgOutline from '@/public/icon/imgOutlineIcon.svg'
+import { RouteNames, variantIconLink } from '@/shared/const'
+import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
+import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
+import { Button } from '@/ui/button'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 export type Image = {
   image?: string
@@ -75,14 +75,14 @@ export const CreateNewPost = () => {
           modalWidth={'md'}
           open={isBaseModalOpen}
           onClose={handleButtonClick}
-          title={t.profile.addPostPhoto}
+          title={t.posts.createPost.addPostPhoto}
         >
           <div className={`${s.photoContainer} ${image === null ? s.emptyPhotoContainer : ''}`}>
             <ImgOutline />
           </div>
           <div className={s.selectPhoto}>
             <Button variant={'primary'} onClick={selectFileHandler} className={s.btnSelect}>
-              <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
+              <Typography variant={'h3'}>{t.posts.createPost.selectFromComputer}</Typography>
             </Button>
             <input
               type="file"
@@ -99,7 +99,7 @@ export const CreateNewPost = () => {
           open={isModalOpen}
           onClose={handleButtonClick}
           onCancel={cancelButtonClick}
-          title={t.profile.addNewPost.cropping}
+          title={t.posts.createPost.cropping}
           addedImages={addedImages}
           setAddedImages={setAddedImages}
           isBaseModalOpen={isBaseModalOpen}
@@ -121,7 +121,7 @@ export const CreateNewPost = () => {
             className={s.logo}
           />
           <Typography variant="medium14" className={s.text + styles.check}>
-            {t.profile.createPost}
+            {t.sidebar.createPost}
           </Typography>
         </Button>
       </div>

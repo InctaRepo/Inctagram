@@ -1,1 +1,1 @@
-export { DevicesDynamic } from '@/src/entities/profile/settings/devices/ui/DevicesDynamic'
+export { DevicesDynamic } from '@/entities/profile/settings/devices/ui/DevicesDynamic'

@@ -1,5 +1,5 @@
-import { EmailConfirmedDynamic } from '@/src/features/auth/emailConfirmed'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { EmailConfirmedDynamic } from '@/features/auth/emailConfirmed'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 const EmailConfirmedPage = () => {
   return <EmailConfirmedDynamic />

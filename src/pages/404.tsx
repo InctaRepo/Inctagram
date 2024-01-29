@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Page404Dynamic } from '@/src/features/page404'
-import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
+import { Page404Dynamic } from '@/features/page404'
+import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 const Custom404: NextPageWithLayout = () => {
   return <Page404Dynamic />

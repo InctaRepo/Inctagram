@@ -1,1 +1,1 @@
-export { ShowPostModal } from '@/src/entities/post/showPostModal/ShowPostModal'
+export { ShowPostModal } from '@/entities/post/showPostModal/ShowPostModal'

@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { AccountManagementDynamic } from '@/src/entities/profile/settings/accountManagement'
-import { DevicesDynamic } from '@/src/entities/profile/settings/devices'
-import { GeneralInformationDynamic } from '@/src/entities/profile/settings/generalInformation'
-import { MyPaymentDynamic } from '@/src/entities/profile/settings/myPayment'
-import s from '@/src/features/profileSettings/ui/profileSettings.module.scss'
-import { useTranslate } from '@/src/shared/hooks'
-import { Sidebar } from '@/src/shared/sidebar'
-import { TabsComponent } from '@/src/shared/ui/tabsComponent'
+import { AccountManagementDynamic } from '@/entities/profile/settings/accountManagement'
+import { DevicesDynamic } from '@/entities/profile/settings/devices'
+import { GeneralInformationDynamic } from '@/entities/profile/settings/generalInformation'
+import { MyPaymentDynamic } from '@/entities/profile/settings/myPayment'
+import s from '@/features/profileSettings/ui/profileSettings.module.scss'
+import { useTranslate } from '@/shared/hooks'
+import { Sidebar } from '@/shared/sidebar'
+import { TabsComponent } from '@/ui/tabsComponent'
 
 export const ProfileSettings = () => {
   const { t } = useTranslate()
@@ -20,22 +20,22 @@ export const ProfileSettings = () => {
           <TabsComponent
             tabs={[
               {
-                label: `${t.profile.profileSetting.generalInformation}`,
+                label: `${t.profileSetting.setting.generalInformation}`,
                 value: 'settings',
                 children: <GeneralInformationDynamic />,
               },
               {
-                label: `${t.profile.profileSetting.devices}`,
+                label: `${t.profileSetting.setting.devices}`,
                 value: 'devices',
                 children: <DevicesDynamic />,
               },
               {
-                label: `${t.profile.profileSetting.accountManagement}`,
+                label: `${t.profileSetting.setting.accountManagement}`,
                 value: 'account-management',
                 children: <AccountManagementDynamic />,
               },
               {
-                label: `${t.profile.profileSetting.myPayment}`,
+                label: `${t.profileSetting.setting.myPayment}`,
                 value: 'my-payment',
                 children: <MyPaymentDynamic />,
               },

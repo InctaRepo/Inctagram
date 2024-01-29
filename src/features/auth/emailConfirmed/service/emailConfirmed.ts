@@ -1,5 +1,5 @@
-import { SignInSchema } from '@/src/features/auth/signIn'
-import { baseApi, BaseResponse } from '@/src/shared/api'
+import { SignInSchema } from '@/features/auth/signIn'
+import { baseApi, BaseResponse } from '@/shared/api'
 
 export const emailConfirmed = baseApi.injectEndpoints({
   endpoints: build => ({

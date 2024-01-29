@@ -2,17 +2,17 @@ import React, { ComponentProps, useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
-import { PostImages } from '@/src/entities/post/postImages/ui/PostImages'
-import { EditModal } from '@/src/entities/post/showPostModal/editModal/EditModal'
-import { RightDescription } from '@/src/entities/post/showPostModal/editModal/rightDescription/RightDescription'
-import s from '@/src/entities/post/showPostModal/showPostModal.module.scss'
+import { PostImages } from '@/entities/post/postImages/ui/PostImages'
+import { EditModal } from '@/entities/post/showPostModal/editModal/EditModal'
+import { RightDescription } from '@/entities/post/showPostModal/editModal/rightDescription/RightDescription'
+import s from '@/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/entities/profile/service'
+import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images, useGetUserPostQuery } from '@/src/features/posts/service'
-import { RouteNames } from '@/src/shared/const'
-import { getIsAuth, getUsername } from '@/src/shared/hoc'
-import { useAppSelector } from '@/src/shared/hooks'
+import { Images, useGetUserPostQuery } from '@/features/posts/service'
+import { RouteNames } from '@/shared/const'
+import { getIsAuth, getUsername } from '@/shared/hoc'
+import { useAppSelector } from '@/shared/hooks'
 
 type Props = {
   openSureDescriptionModal?: boolean
