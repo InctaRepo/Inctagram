@@ -12,7 +12,7 @@ import { Add } from '@/features/posts/createPost/editPhoto/add/Add'
 import { Cropping } from '@/features/posts/createPost/editPhoto/crop/Cropping'
 import { Zoom } from '@/features/posts/createPost/editPhoto/zoom/Zoom'
 import { useTranslate } from '@/shared/hooks'
-import { SliderBtn } from '@/shared/ui/sliderBtn'
+import { SliderBtn } from '@/ui/sliderBtn'
 
 type Props = {
   image?: string
