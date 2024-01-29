@@ -1,22 +1,14 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import Image from 'next/image'
-
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetAllPostsQuery } from '../../posts'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetProfileQuery } from '../../profile/service'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '../../profileSettings/service'
-
 import { formatPostCreatedAt } from './formatCreatetDate'
 import { PostImages } from './PostImages/PostImages'
 import { ProfileHeader } from './ProfileHeader/ProfileHeader'
 import style from './PublicPost.module.scss'
 
-import { ShowPostModal } from '@/src/entities/post/showPostModal'
-import { Typography } from '@/src/shared/ui/typography'
+import { ShowPostModal } from '@/entities/post/showPostModal'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Posts, useGetAllPostsQuery } from '@/features/posts'
+import { Typography } from '@/ui/typography'
 
 export const PublicPost = (): ReactElement => {
   const {
@@ -47,7 +39,6 @@ export const PublicPost = (): ReactElement => {
             <ShowPostModal
               userId={post.userId}
               // callBack={getCurrentPostId}
-              modalWidth={'edit'}
               description={post.description}
               // key={index}
               images={post.images}
@@ -55,6 +46,12 @@ export const PublicPost = (): ReactElement => {
               postId={post.id as unknown as string}
               variant={post.images[0].variant}
             />
+            // <Posts
+            //   userId={post.userId}
+            //   description={post.description}
+            //   images={post.images[0]}
+            //   postId={post.id as unknown as string}
+            // />
           )}
           <div className={style.profile_header}>
             <ProfileHeader userId={post.userId} />

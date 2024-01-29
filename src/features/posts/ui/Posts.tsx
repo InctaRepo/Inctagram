@@ -2,12 +2,14 @@ import React, { memo } from 'react'
 
 import { ShowPostModal } from '@/entities/post/showPostModal'
 import { UserInfo } from '@/entities/profile/service'
-import { GetUserPostResponse, useGetUserPostsQuery } from '@/features/posts'
+import { GetUserPostResponse, Images, useGetUserPostsQuery } from '@/features/posts'
 import s from '@/features/posts/ui/posts.module.scss'
 import { useInfiniteScroll } from '@/shared/hooks'
 import { Loader } from '@/ui/loader'
 
 type Props = {
+  images?: Images[]
+  description?: string
   userData?: UserInfo
   postId?: string
   userId: string

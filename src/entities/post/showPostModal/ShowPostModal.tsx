@@ -23,6 +23,7 @@ type Props = {
   id: string
   postId?: string
   userId?: string
+  variant?: string
 } & ComponentProps<'div'>
 
 export const ShowPostModal = ({
@@ -33,6 +34,7 @@ export const ShowPostModal = ({
   images,
   id,
   postId,
+  variant,
   userId: propUserId,
 }: Props) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
@@ -58,10 +60,10 @@ export const ShowPostModal = ({
   }
 
   useEffect(() => {
-    if (id === postId) {
+    if (variant === 'single post' && id === postId) {
       openClickHandler()
     }
-  }, [])
+  }, [id, postId])
 
   return (
     <div className={s.container}>

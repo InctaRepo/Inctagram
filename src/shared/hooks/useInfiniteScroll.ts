@@ -32,8 +32,8 @@ export const useInfiniteScroll = (
   let newPosts = null
 
   useEffect(() => {
-    newPosts = data?.data.items
-    if (dynamicPosts?.length === data?.data.totalCount) {
+    newPosts = data?.data?.items
+    if (dynamicPosts?.length === data?.data?.totalCount) {
       setIsLastPage(true)
     }
   }, [data, isSuccess, page, dynamicPosts])
@@ -65,11 +65,11 @@ export const useInfiniteScroll = (
 
         // this timeout debounces the intersection events
         loadMoreTimeoutRef.current = setTimeout(() => {
-          if (page < data?.data.pagesCount!) {
+          if (page < data?.data?.pagesCount!) {
             setPage(page + 1)
           }
 
-          if (dynamicPosts?.length < data?.data.totalCount!) {
+          if (dynamicPosts?.length < data?.data?.totalCount!) {
             const newDynamicPosts = [...dynamicPosts, ...newPosts!]
 
             setDynamicPosts(newDynamicPosts)
