@@ -34,6 +34,12 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
     swipe: false,
     arrows: true,
     dotsClass: `slick-dots ${s.dots}`,
+    appendDots: (dots: any) => {
+      return <ul style={{ margin: '0px' }}>{dots}</ul>
+    },
+    customPaging: (i: any) => {
+      return <div className={s.dot}></div>
+    },
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -101,13 +107,13 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                       />
                     </div>
                   </div>
-                  {/* <button
+                  <button
                     onClick={() => showCroppedImg(el.image, croppedAreaPixels)}
                     color="primary"
                     className={s.button}
                   >
                     {t.posts.createPost.showResult}
-                  </button> */}
+                  </button>
                 </div>
               )
             })}
