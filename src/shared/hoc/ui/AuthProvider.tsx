@@ -2,10 +2,10 @@ import React, { FC, memo, ReactNode, useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { RouteNames } from '@/src/shared/const'
-import { getUserId, useGetMeQuery } from '@/src/shared/hoc'
-import { useAppSelector } from '@/src/shared/hooks'
-import { LoaderLogo } from '@/src/shared/ui/loaderLogo'
+import { RouteNames } from '@/shared/const'
+import { getUserId, useGetMeQuery } from '@/shared/hoc'
+import { useAppSelector } from '@/shared/hooks'
+import { LoaderLogo } from '@/ui/loaderLogo'
 
 interface AuthProviderProps {
   children: ReactNode

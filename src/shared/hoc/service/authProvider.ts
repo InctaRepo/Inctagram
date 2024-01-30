@@ -1,7 +1,7 @@
-import { baseApi, BaseResponse } from '@/src/shared/api'
-import { resultCode } from '@/src/shared/const'
-import { setAuthMeData } from '@/src/shared/hoc'
-import { AuthMeResponse } from '@/src/shared/hoc/service/AuthMeResponse'
+import { baseApi, BaseResponse } from '@/shared/api'
+import { resultCode } from '@/shared/const'
+import { setAuthMeData } from '@/shared/hoc'
+import { AuthMeResponse } from '@/shared/hoc/service/AuthMeResponse'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: build => ({

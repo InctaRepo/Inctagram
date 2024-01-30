@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { variantIconLink } from '@/src/shared/const'
+import { variantIconLink } from '@/shared/const'
 
 export type MenuSchema = {
   variantIcon: variantIconLink

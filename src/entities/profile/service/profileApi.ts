@@ -1,5 +1,5 @@
-import { UserInfo } from '@/src/entities/profile/service/profileTypes'
-import { baseApi, BaseResponse } from '@/src/shared/api'
+import { UserInfo } from '@/entities/profile/service/profileTypes'
+import { baseApi, BaseResponse } from '@/shared/api'
 
 export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-import { usePasswordRecoveryMutation } from '@/src/features/auth/passwordRecovery/service/passwordRecovery'
-import { PasswordRecoveryParams } from '@/src/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
-import { PasswordRecoveryForm } from '@/src/features/auth/passwordRecovery/ui/passwordRecoveryForm'
-import s from '@/src/features/auth/passwordRecovery/ui/passwordRecoveryForm/passwordRecoveryForm.module.scss'
-import { useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button/Button'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
+import { usePasswordRecoveryMutation } from '@/features/auth/passwordRecovery/service/passwordRecovery'
+import { PasswordRecoveryParams } from '@/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
+import { PasswordRecoveryForm } from '@/features/auth/passwordRecovery/ui/passwordRecoveryForm'
+import s from '@/features/auth/passwordRecovery/ui/passwordRecoveryForm/passwordRecoveryForm.module.scss'
+import { useTranslate } from '@/shared/hooks'
+import { Button } from '@/ui/button/Button'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 export const PasswordRecovery = () => {
   const [passwordRecovery] = usePasswordRecoveryMutation()

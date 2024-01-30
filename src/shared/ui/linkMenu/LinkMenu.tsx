@@ -3,9 +3,9 @@ import React, { ReactNode } from 'react'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 
-import { variantIconLink } from '@/src/shared/const'
-import s from '@/src/shared/ui/linkMenu/linkMenu.module.scss'
-import { Typography } from '@/src/shared/ui/typography'
+import { variantIconLink } from '@/shared/const'
+import s from '@/ui/linkMenu/linkMenu.module.scss'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   nameLink: string

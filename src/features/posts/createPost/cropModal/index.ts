@@ -1,1 +1,1 @@
-export { CropModal } from '@/src/features/posts/createPost/cropModal/ui/CropModal'
+export { CropModal } from '@/features/posts/createPost/cropModal/ui/CropModal'

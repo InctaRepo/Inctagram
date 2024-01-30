@@ -1,18 +1,18 @@
 import React from 'react'
 
-import Chrome from '@/public/icon/chromeIcon.svg'
-import Phone from '@/public/icon/phoneIcon.svg'
 import {
   useDeleteAllSessionsMutation,
   useDeleteThisSessionsMutation,
   useGetSessionsQuery,
-} from '@/src/entities/profile/settings/devices/service'
-import { Device } from '@/src/entities/profile/settings/devices/service/deviceApiTypes'
-import s from '@/src/entities/profile/settings/devices/ui/devices.module.scss'
-import { LogoutIcon } from '@/src/shared/assets/icons/LogoutIcon'
-import { useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography'
+} from '@/entities/profile/settings/devices/service'
+import { Device } from '@/entities/profile/settings/devices/service/deviceApiTypes'
+import s from '@/entities/profile/settings/devices/ui/devices.module.scss'
+import Chrome from '@/public/icon/chromeIcon.svg'
+import Phone from '@/public/icon/phoneIcon.svg'
+import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
+import { useTranslate } from '@/shared/hooks'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 
 export const Devices = () => {
   const { t } = useTranslate()
@@ -27,7 +27,9 @@ export const Devices = () => {
     <>
       <div className={s.device}>
         <div className={s.currentDeviceWrapper}>
-          <Typography variant={'h3'}>{t.profileSetting.devices.currentDevice}</Typography>
+          <Typography variant={'h3'} className={s.currentDevice}>
+            {t.profileSetting.devices.currentDevice}
+          </Typography>
           <div className={s.browserWrapper}>
             <div className={s.browser}>
               <div className={s.img}>

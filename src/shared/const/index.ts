@@ -1,4 +1,4 @@
-export { BASE_URL } from '@/src/shared/const/const'
-export { resultCode } from '@/src/shared/const/resultCode'
-export { RouteNames } from '@/src/shared/const/routeNames'
-export type { variantIconLink } from '@/src/shared/const/variantIconLink'
+export { BASE_URL } from '@/shared/const/const'
+export { resultCode } from '@/shared/const/resultCode'
+export { RouteNames } from '@/shared/const/routeNames'
+export type { variantIconLink } from '@/shared/const/variantIconLink'

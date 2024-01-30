@@ -3,10 +3,9 @@ import React from 'react'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 
-import s from './authPage.module.scss'
-
-import { Button } from '@/src/shared/ui/button'
-import { Typography } from '@/src/shared/ui/typography'
+import s from '@/entities/auth/authPage/ui/authPage.module.scss'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   title: string

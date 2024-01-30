@@ -1,10 +1,10 @@
 import React from 'react'
 
+import s from '@/entities/post/showPostModal/editModal/areYouSureDescriptionModal/areYouSureDescriptionModal.module.scss'
 import CloseIcon from '@/public/icon/closeIcon.svg'
-import s from '@/src/entities/post/showPostModal/editModal/areYouSureDescriptionModal/areYouSureDescriptionModal.module.scss'
-import { useTranslate } from '@/src/shared/hooks'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
+import { useTranslate } from '@/shared/hooks'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   openSureDescriptionModal: boolean

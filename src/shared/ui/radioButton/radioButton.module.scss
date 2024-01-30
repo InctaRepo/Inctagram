@@ -1,0 +1,87 @@
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+@import 'src/styles/mixins';
+
+.root {
+  cursor: pointer;
+
+  &[data-disabled] {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
+.option {
+  all: unset;
+}
+
+.label {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+
+  > label {
+    cursor: pointer;
+
+    [data-disabled] & {
+      cursor: default;
+    }
+  }
+}
+
+.icon {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  transition: 200ms background-color;
+
+  &::before {
+    content: '';
+
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid $color-light-500;
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    transition: 100ms background-color;
+
+    [data-state='checked'] & {
+      width: 8px;
+      height: 8px;
+      background-color: $color-light-500;
+    }
+  }
+
+  .option:focus-visible & {
+    background-color: $color-dark-700;
+  }
+
+  .option:hover & {
+    background-color: $color-dark-500;
+  }
+
+  .option:active & {
+    background-color: $color-light-900;
+  }
+
+  .root[data-disabled] & {
+    background-color: $color-light-900;
+  }
+}

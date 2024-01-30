@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { AuthPage } from '@/src/entities/auth/authPage'
-import { useEmailConfirmedMutation } from '@/src/features/auth/emailConfirmed/service/emailConfirmed'
-import { resultCode, RouteNames } from '@/src/shared/const'
-import { AppLoader } from '@/src/shared/ui/appLoader'
-import ConfirmedImage from 'public/icon/emailComfirmedIcon.svg'
+import { AuthPage } from '@/entities/auth/authPage'
+import { useEmailConfirmedMutation } from '@/features/auth/emailConfirmed/service/emailConfirmed'
+import ConfirmedImage from '@/public/icon/emailComfirmedIcon.svg'
+import { resultCode, RouteNames } from '@/shared/const'
+import { AppLoader } from '@/ui/appLoader'
 
 export const EmailConfirmed = () => {
   const router = useRouter()

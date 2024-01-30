@@ -1,1 +1,1 @@
-export { MessageDynamic } from '@/src/features/message/MessageDynamic'
+export { MessageDynamic } from '@/features/message/MessageDynamic'

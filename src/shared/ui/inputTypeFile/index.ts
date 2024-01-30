@@ -1,1 +1,1 @@
-export { InputTypeFile } from '@/src/shared/ui/inputTypeFile/inputTypeFile'
+export { InputTypeFile } from '@/ui/inputTypeFile/inputTypeFile'
