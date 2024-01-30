@@ -16,28 +16,31 @@
     flex-direction: column;
     width: 100%;
 
-    .browserWrapper {
+    .accountType {
+      padding-bottom: 6px;
+    }
+
+    .accountWrapper {
       display: flex;
       flex-direction: row;
       align-items: center;
 
       width: 100%;
-      height: 120px;
-      padding-bottom: 24px;
-      padding-left: 24px;
+      height: 96px;
+      padding-left: 16px;
 
       background: $color-dark-500;
       border: 1px solid $color-dark-300;
       border-radius: 4px;
 
-      .browser {
+      .account {
         display: flex;
         flex-direction: row;
         gap: 12px;
         width: 100%;
 
 
-        .browserProperty {
+        .accountProperty {
           display: flex;
           flex-direction: column;
           gap: 13px;
@@ -45,69 +48,110 @@
         }
       }
     }
-
-    .btn {
-      display: flex;
-      justify-content: flex-end;
-      padding-top: 24px;
-    }
   }
 
-  .activeSessionsWrapper {
+  .yourSubscriptionCostWrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    .activeSessions {
-      padding-top: 18px;
-      padding-bottom: 18px;
+    .yourSubscriptionCost {
+      padding-top: 42px;
+      padding-bottom: 6px;
     }
 
-    .deviceWrapper {
+    .costWrapper {
       display: flex;
       flex-direction: row;
       align-items: center;
 
       width: 100%;
       height: 120px;
-      padding: 24px;
+      padding: 16px;
 
       background: $color-dark-500;
       border: 1px solid $color-dark-300;
       border-radius: 4px;
+    }
 
-      .deviceSession {
+    .paySystemWrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 54px;
+      align-items: center;
+      justify-content: flex-end;
+
+      padding-top: 24px;
+
+      //.paySystem {
+      //  stroke: $color-accent-100;
+      //  stroke-opacity: 0.1;
+      //
+      //  &:focus {
+      //    border-radius: 3px;
+      //    outline: 2px solid $color-accent-700;
+      //  }
+      //
+      //  &:hover:not(:disabled) {
+      //    stroke: $color-dark-300;
+      //  }
+      //
+      //  &:active:not(:disabled) {
+      //    stroke: $color-accent-700;
+      //    stroke-opacity: 0.5;
+      //  }
+      //}
+
+      //&:focus {
+      //  border-radius: 3px;
+      //  outline: 2px solid $color-accent-700;
+      //}
+      .paySystem {
+        position: relative;
+
+        overflow: hidden;
         display: flex;
-        flex-direction: row;
-        gap: 12px;
-        width: 100%;
+        align-items: center;
+        justify-content: center;
 
-        .img {
+        width: 96px;
+        height: 64px;
+
+        background-color: $color-dark-500;
+        border: 1px solid $color-dark-300;
+        border-radius: 5px;
+
+        &::after {
+          content: "";
+
+          position: absolute;
+          top: -50px;
+          left: -75px;
+          transform: rotate(35deg);
+
+          width: 50px;
+          height: 155px;
+
+          opacity: .2;
+          background: #fff;
+
+          transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .deviceProperty {
-          display: flex;
-          flex-direction: column;
-          gap: 13px;
-
+        &:hover {
+          &::after {
+            left: 130%;
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+          }
         }
 
-      }
-
-      .logOut {
-        fill: white;
-
-        :hover {
-          font-weight: 700;
-          color: $color-accent-500;
-          fill: $color-accent-500;
+        &:disabled {
+          cursor: default;
+          opacity: 0.5;
         }
 
-        .text {
-          display: flex;
-          flex-direction: row;
-          gap: 10px;
-          align-items: center;
+        &:disabled:hover::after {
+          display: none;
         }
       }
     }
