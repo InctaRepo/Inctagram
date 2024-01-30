@@ -1,71 +1,60 @@
-import React, { FC, ReactNode } from 'react'
+import * as React from 'react'
 
-// import * as CheckboxRadix from '@radix-ui/react-checkbox'
-import * as LabelRadix from '@radix-ui/react-label'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
-import s from '@/src/shared/ui/radioButton/radioButton.module.scss'
-import { Typography } from '@/src/shared/ui/typography'
+import s from '@/ui/radioButton/radioButton.module.scss'
+import { Typography } from '@/ui/typography'
 
-export type RadioButtonPropsType = {
-  error?: string
-  value?: string
-  onValueChange?: (value: string) => void
-  disabled?: boolean
-  label?: string | ReactNode
+const RadioGroupRoot = React.forwardRef<
+  React.ElementRef<typeof RadioGroup.Root>,
+  React.ComponentPropsWithoutRef<typeof RadioGroup.Root>
+>(({ className, ...props }, ref) => {
+  return <RadioGroup.Root className={clsx(s.root, className)} {...props} ref={ref} />
+})
+
+RadioGroupRoot.displayName = RadioGroup.Root.displayName
+
+const RadioGroupItem = React.forwardRef<
+  React.ElementRef<typeof RadioGroup.Item>,
+  React.ComponentPropsWithoutRef<typeof RadioGroup.Item>
+>(({ children, className, ...props }, ref) => {
+  return (
+    <RadioGroup.Item className={clsx(s.option, className)} ref={ref} {...props}>
+      <div className={s.icon}></div>
+    </RadioGroup.Item>
+  )
+})
+
+RadioGroupItem.displayName = RadioGroup.Item.displayName
+
+type Option = {
+  label: string
+  value: string
 }
-
-export const RadioButton: FC<RadioButtonPropsType> = ({
-  error,
-  value,
-  onValueChange,
-  disabled,
-  label,
-}) => {
-  const classNames = {
-    container: s.container,
-    buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
-    // checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
-    indicator: clsx(s.indicator, disabled && s.disabled),
-    label: clsx(s.label, disabled && s.disabled),
-  }
+export type RadioButtonProps = Omit<
+  React.ComponentPropsWithoutRef<typeof RadioGroup.Root>,
+  'children'
+> & {
+  error?: string
+  options: Option[]
+}
+export const RadioButton = React.forwardRef<
+  React.ElementRef<typeof RadioGroup.Root>,
+  RadioButtonProps
+>((props, ref) => {
+  const { error, options, ...restProps } = props
 
   return (
-    <div className={s.wrapper}>
-      {/*<LabelRadix.Root className={classNames.label}>*/}
-      <div className={classNames.buttonWrapper}>
-        <RadioGroup.Root className={s.radioGroupRoot}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <RadioGroup.Item className={s.radioGroupItem} value={value!}>
-              <RadioGroup.Indicator
-                // className={s.RadioGroupIndicator}
-                color={disabled ? '#D5DAE0' : 'black'}
-              />
-            </RadioGroup.Item>
-            <LabelRadix.Root className={classNames.label}>{label}</LabelRadix.Root>
-          </div>
-        </RadioGroup.Root>
-        {/*  <CheckboxRadix.Root*/}
-        {/*    className={classNames.checkbox}*/}
-        {/*    checked={checked!}*/}
-        {/*    onCheckedChange={onChange!}*/}
-        {/*    disabled={disabled}*/}
-        {/*  >*/}
-        {/*    {checked && (*/}
-        {/*      <CheckboxRadix.Indicator className={classNames.indicator}>*/}
-        {/*        <CheckIcon color={disabled ? '#D5DAE0' : 'black'} />*/}
-        {/*      </CheckboxRadix.Indicator>*/}
-        {/*    )}*/}
-        {/*  </CheckboxRadix.Root>*/}
-      </div>
-      {/*{label}*/}
-      {/*</LabelRadix.Root>*/}
-      {error && (
-        <Typography variant={'regular14'} className={s.error} color={'error'}>
-          {error}
-        </Typography>
-      )}
-    </div>
+    <RadioGroupRoot {...restProps} ref={ref}>
+      {options.map(option => (
+        <div className={s.label} key={option.value}>
+          <RadioGroupItem id={option.value} value={option.value} />
+          <Typography as={'label'} htmlFor={option.value} variant={'regular14'}>
+            {option.label}
+          </Typography>
+        </div>
+      ))}
+    </RadioGroupRoot>
   )
-}
+})
