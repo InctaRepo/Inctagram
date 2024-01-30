@@ -239,7 +239,14 @@ export const en: LocaleType = {
       lastVisit: 'Last visit',
     },
     accountManagement: {
-      accountType: 'Account type',
+      accountType: 'Account type:',
+      personal: 'Personal',
+      business: 'Business',
+      yourSubscriptionCost: 'Your subscription cost:',
+      oneDay: 'per 1 Day',
+      sevenDay: 'per 7 Day',
+      oneMonth: 'per month',
+      or: 'or',
     },
     myPayment: {},
 
