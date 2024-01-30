@@ -1,7 +1,7 @@
-import { setToken, SignInSchema } from '@/src/features/auth/signIn'
-import { SingInParams } from '@/src/features/auth/signIn/authByEmail'
-import { baseApi, BaseResponse } from '@/src/shared/api'
-import { resultCode } from '@/src/shared/const'
+import { setToken, SignInSchema } from '@/features/auth/signIn'
+import { SingInParams } from '@/features/auth/signIn/authByEmail'
+import { baseApi, BaseResponse } from '@/shared/api'
+import { resultCode } from '@/shared/const'
 
 const authByEmail = baseApi.injectEndpoints({
   endpoints: build => ({

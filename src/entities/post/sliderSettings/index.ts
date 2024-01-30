@@ -1,1 +1,1 @@
-export { SliderSettings } from '@/src/entities/post/sliderSettings/SliderSettings'
+export { SliderSettings } from '@/entities/post/sliderSettings/SliderSettings'

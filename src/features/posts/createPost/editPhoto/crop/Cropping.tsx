@@ -1,13 +1,13 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import s from '@/src/features/posts/createPost/editPhoto/crop/Cropping.module.scss'
-import { useTranslate } from '@/src/shared/hooks'
-import { Typography } from '@/src/shared/ui/typography'
-import Crop from 'public/icon/crop.svg'
-import Img from 'public/icon/image.svg'
-import Rectangle11 from 'public/icon/rectangle11.svg'
-import Rectangle169 from 'public/icon/rectangle169.svg'
-import Rectangle45 from 'public/icon/rectangle45.svg'
+import s from '@/features/posts/createPost/editPhoto/crop/Cropping.module.scss'
+import Crop from '@/public/icon/crop.svg'
+import Img from '@/public/icon/image.svg'
+import Rectangle11 from '@/public/icon/rectangle11.svg'
+import Rectangle169 from '@/public/icon/rectangle169.svg'
+import Rectangle45 from '@/public/icon/rectangle45.svg'
+import { useTranslate } from '@/shared/hooks'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   setAspectRatio: (aspect: number) => void
@@ -49,7 +49,7 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
           >
             <Typography className={aspectRatio === 4 / 3 ? s.text1Active : s.text1} variant={'h3'}>
               {' '}
-              {t.profile.profileSetting.original}{' '}
+              {t.profileSetting.generalInformation.original}{' '}
             </Typography>
             <Img
               className={aspectRatio === 4 / 3 ? s.white : s.gray}

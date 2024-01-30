@@ -1,1 +1,1 @@
-export { Header } from '@/src/shared/header/ui/Header'
+export { Header } from '@/shared/header/ui/Header'

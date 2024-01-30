@@ -1,19 +1,19 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import { PostImages } from '@/src/entities/post/postImages/ui/PostImages'
-import s from '@/src/entities/post/postMenu/postMenu.module.scss'
+import { PostImages } from '@/entities/post/postImages/ui/PostImages'
+import s from '@/entities/post/postMenu/postMenu.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/src/entities/profile/service'
+import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { PostDescription } from '@/src/features/posts/createPost/addDescription/postDescription'
+import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { PostDeleteModal } from '@/src/features/posts/editDeletePost/postDeleteModal'
+import { PostDeleteModal } from '@/features/posts/editDeletePost/postDeleteModal'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { EditDescriptionModal } from '@/src/features/posts/editDeletePost/postDescription/editDescription'
+import { EditDescriptionModal } from '@/features/posts/editDeletePost/postDescription/editDescription'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/src/features/posts/service/postApiTypes'
-import { useTranslate } from '@/src/shared/hooks'
-import { Typography } from '@/src/shared/ui/typography'
+import { Images } from '@/features/posts/service/postApiTypes'
+import { useTranslate } from '@/shared/hooks'
+import { Typography } from '@/ui/typography'
 import Dots from 'public/icon/dots.svg'
 import Edit from 'public/icon/edit.svg'
 
@@ -73,7 +73,7 @@ export const PostMenu = ({
         <div className={s.editOptions}>
           <div className={s.editOption1} onClick={editModalHandler}>
             <Edit alt={'edit'} width={24} height={24} />
-            <Typography variant={'regular14'}>{t.profile.editPost.edit}</Typography>
+            <Typography variant={'regular14'}>{t.posts.editPost.edit}</Typography>
           </div>
           <div>
             <PostDeleteModal

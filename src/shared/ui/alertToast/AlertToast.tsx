@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import { toast } from 'react-toastify'
 
-import s from '@/src/shared/ui/alertToast/alertToast.module.scss'
+import s from '@/ui/alertToast/alertToast.module.scss'
 
 export const AlertToast = (error: boolean, text: string) => {
   const classNames = {

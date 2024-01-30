@@ -1,13 +1,12 @@
 import { useRouter } from 'next/dist/client/router'
 
-import { getUserPosts } from '@/src/features/posts'
-import { Profile } from '@/src/features/profile'
-import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
-import { wrapper } from '@/src/store/wrapper'
-import { getAuthLayout } from '@/src/widgets/layout/authLayout'
-import { getProfile, getRunningQueriesThunk } from 'src/entities/profile/service'
+import { getProfile, getRunningQueriesThunk } from '@/entities/profile/service'
+import { getUserPosts } from '@/features/posts'
+import { Profile } from '@/features/profile'
+import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
+import { wrapper } from '@/store'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
-//http://localhost:3000/profile/10a07b79-1bd3-4438-b21d-3a1c17c24cbb i need it for testing queries
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.query?.id as string
 

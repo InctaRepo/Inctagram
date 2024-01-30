@@ -1,1 +1,1 @@
-export { SearchDynamic } from '@/src/features/search/SearchDynamic'
+export { SearchDynamic } from '@/features/search/SearchDynamic'

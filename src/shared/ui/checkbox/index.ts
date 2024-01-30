@@ -1,2 +1,2 @@
-export { Checkbox } from '@/src/shared/ui/checkbox/Checkbox'
-export type { CheckboxPropsType } from '@/src/shared/ui/checkbox/Checkbox'
+export { Checkbox } from '@/ui/checkbox/Checkbox'
+export type { CheckboxProps } from '@/ui/checkbox/Checkbox'

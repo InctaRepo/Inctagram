@@ -1,1 +1,1 @@
-export { Logout } from '@/src/features/auth/logout/ui/Logout'
+export { Logout } from '@/features/auth/logout/ui/Logout'

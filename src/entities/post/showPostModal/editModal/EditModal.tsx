@@ -3,8 +3,8 @@ import React, { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
 import { clsx } from 'clsx'
 
-import s from '@/src/entities/post/showPostModal/editModal/editModal.module.scss'
-import CloseIcon from 'public/icon/closeIcon.svg'
+import s from '@/entities/post/showPostModal/editModal/editModal.module.scss'
+import CloseIcon from '@/public/icon/closeIcon.svg'
 
 export type ModalSize = 'edit'
 

@@ -1,1 +1,1 @@
-export { PostImages } from '@/src/entities/post/postImages/ui/PostImages'
+export { PostImages } from '@/entities/post/postImages/ui/PostImages'

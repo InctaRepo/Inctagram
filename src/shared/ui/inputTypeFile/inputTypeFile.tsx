@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useRef } from 'react'
 
-import { useTranslate } from '@/src/shared/hooks'
-import { Button } from '@/src/shared/ui/button'
-import s from '@/src/shared/ui/inputTypeFile/inputTypeFile.module.scss'
-import { Typography } from '@/src/shared/ui/typography'
+import { useTranslate } from '@/shared/hooks'
+import { Button } from '@/ui/button'
+import s from '@/ui/inputTypeFile/inputTypeFile.module.scss'
+import { Typography } from '@/ui/typography'
 
 type InputTypeFileProps = {
   setSelectedImage: (image: File) => void
@@ -30,11 +30,15 @@ export const InputTypeFile = ({ setSelectedImage, setErrorMessage }: InputTypeFi
         }
       } else if (file.size >= 10000000) {
         if (setErrorMessage) {
-          setErrorMessage(t.profile.profileSetting.profileSettingsErrors.avatarError.size)
+          setErrorMessage(
+            t.profileSetting.generalInformation.generalInformationErrors.avatarError.size
+          )
         }
       } else {
         if (setErrorMessage) {
-          setErrorMessage(t.profile.profileSetting.profileSettingsErrors.avatarError.format)
+          setErrorMessage(
+            t.profileSetting.generalInformation.generalInformationErrors.avatarError.format
+          )
         }
       }
     }
@@ -43,7 +47,9 @@ export const InputTypeFile = ({ setSelectedImage, setErrorMessage }: InputTypeFi
   return (
     <div>
       <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
-        <Typography variant={'h3'}>{t.profile.selectFromComputer}</Typography>
+        <Typography variant={'h3'}>
+          {t.profileSetting.generalInformation.selectFromComputer}
+        </Typography>
       </Button>
       <input
         style={{ display: 'none' }}

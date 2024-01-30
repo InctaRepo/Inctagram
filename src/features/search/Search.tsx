@@ -1,8 +1,8 @@
 import React from 'react'
 
-import s from '@/src/features/search/search.module.scss'
-import { Sidebar } from '@/src/shared/sidebar'
-import { Typography } from '@/src/shared/ui/typography'
+import s from '@/features/search/search.module.scss'
+import { Sidebar } from '@/shared/sidebar'
+import { Typography } from '@/ui/typography'
 
 export const Search = () => {
   return (

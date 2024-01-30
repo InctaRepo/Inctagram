@@ -1,1 +1,1 @@
-export { AccountManagementDynamic } from '@/src/entities/profile/settings/accountManagement/ui/AccountManagementDynamic'
+export { AccountManagementDynamic } from '@/entities/profile/settings/accountManagement/ui/AccountManagementDynamic'

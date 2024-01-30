@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 
-import { InputTypeFile } from '@/src/shared/ui/inputTypeFile'
+import { InputTypeFile } from '@/ui/inputTypeFile'
 
 const meta = {
   title: 'Components/InputTypeFile',

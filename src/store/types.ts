@@ -1,11 +1,11 @@
 import { rootReducer } from '@reduxjs/toolkit/src/tests/injectableCombineReducers.example'
 
-import { SignInSchema } from '@/src/features/auth/signIn'
-import { baseApi } from '@/src/shared/api'
-import { AuthMeSchema } from '@/src/shared/hoc'
-import { MenuSchema } from '@/src/shared/sidebar'
-import { ProgressBarSchema } from '@/src/shared/ui/progressBar'
-import { makeStore, store } from '@/src/store'
+import { SignInSchema } from '@/features/auth/signIn'
+import { baseApi } from '@/shared/api'
+import { AuthMeSchema } from '@/shared/hoc'
+import { MenuSchema } from '@/shared/sidebar'
+import { makeStore, store } from '@/store'
+import { ProgressBarSchema } from '@/ui/progressBar'
 
 export type AppDispatch = typeof store.dispatch
 export type AppRootState = ReturnType<typeof rootReducer>

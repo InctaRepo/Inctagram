@@ -1,3 +1,3 @@
-export { ProgressBar } from '@/src/shared/ui/progressBar/ProgressBar'
-export { progressBarReducer } from '@/src/shared/ui/progressBar/model/slice/progressBarSlice'
-export type { ProgressBarSchema } from '@/src/shared/ui/progressBar/model/slice/progressBarSlice'
+export { ProgressBar } from '@/ui/progressBar/ProgressBar'
+export { progressBarReducer } from '@/ui/progressBar/model/slice/progressBarSlice'
+export type { ProgressBarSchema } from '@/ui/progressBar/model/slice/progressBarSlice'

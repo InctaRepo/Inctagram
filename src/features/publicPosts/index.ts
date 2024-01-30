@@ -1,1 +1,1 @@
-export { PublicPosts } from '@/src/features/publicPosts/PublicPosts'
+export { PublicPosts } from '@/features/publicPosts/PublicPosts'

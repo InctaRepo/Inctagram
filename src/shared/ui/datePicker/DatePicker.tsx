@@ -12,13 +12,13 @@ import { FieldValues } from 'react-hook-form'
 
 import KeyboardArrowLeft from '@/public/icon/chevronLeftIcon.svg'
 import KeyboardArrowRight from '@/public/icon/chevronRightIcon.svg'
-import { CalendarOutline } from '@/src/assets/icons/calendar-outline'
-import { RouteNames } from '@/src/shared/const'
-import { useTranslate } from '@/src/shared/hooks'
-import s from '@/src/shared/ui/datePicker/datePicker.module.scss'
-import { Label } from '@/src/shared/ui/label'
-import textFieldStyles from '@/src/shared/ui/textField/textField.module.scss'
-import { Typography } from '@/src/shared/ui/typography'
+import { CalendarOutline } from '@/shared/assets/icons/CalendarOutlineIcon'
+import { RouteNames } from '@/shared/const'
+import { useTranslate } from '@/shared/hooks'
+import s from '@/shared/ui/datePicker/datePicker.module.scss'
+import { Label } from '@/ui/label'
+import textFieldStyles from '@/ui/textField/textField.module.scss'
+import { Typography } from '@/ui/typography'
 import 'react-datepicker/dist/react-datepicker.min.css'
 
 export type DatePickerProps = {
@@ -117,7 +117,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
           {showError && (
             <div style={{ display: 'flex' }}>
               <Typography color="error" variant="small">
-                {t.profile.profileSetting.profileSettingsErrors.refine}
+                {t.profileSetting.generalInformation.generalInformationErrors.refine}
               </Typography>
               {isError && (
                 <Typography
