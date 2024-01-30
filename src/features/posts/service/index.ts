@@ -5,5 +5,5 @@ export {
   useGetUserPostQuery,
   getRunningQueriesThunk,
   useGetUserPostsQuery,
-} from '@/src/features/posts/service/postApi'
-export type { Images, UpdatePost } from '@/src/features/posts/service/postApiTypes'
+} from '@/features/posts/service/postApi'
+export type { Images, UpdatePost } from '@/features/posts/service/postApiTypes'

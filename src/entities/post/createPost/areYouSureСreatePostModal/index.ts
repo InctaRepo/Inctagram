@@ -1,1 +1,1 @@
-export { AreYouSureCreatePostModal } from '@/src/entities/post/createPost/areYouSureСreatePostModal/ui/AreYouSureСreatePostModal'
+export { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal/ui/AreYouSureСreatePostModal'

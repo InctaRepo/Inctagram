@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { LoaderLogo } from '@/src/shared/ui/loaderLogo'
+import { LoaderLogo } from '@/ui/loaderLogo'
 
 const meta = {
   title: 'Components/ok/LoaderLogo',

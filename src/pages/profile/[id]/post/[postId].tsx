@@ -1,11 +1,11 @@
 import { useRouter } from 'next/dist/client/router'
 
-import { getRunningQueriesThunk, getUserPost, getUserPosts } from '@/src/features/posts'
-import { Profile } from '@/src/features/profile'
-import { NextPageWithLayout } from '@/src/shared/service/nextPageWithLayout'
-import { wrapper } from '@/src/store'
-import { getPublicLayout } from '@/src/widgets/layout/authLayout'
-import { getProfile } from 'src/entities/profile/service'
+import { getProfile } from '@/entities/profile/service'
+import { getRunningQueriesThunk, getUserPost, getUserPosts } from '@/features/posts'
+import { Profile } from '@/features/profile'
+import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
+import { wrapper } from '@/store'
+import { getPublicLayout } from '@/widgets/layout/authLayout'
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const postId = context.query?.postId as string

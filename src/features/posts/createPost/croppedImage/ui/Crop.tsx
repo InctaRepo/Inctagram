@@ -1,4 +1,4 @@
-import { CropArg } from '@/src/features/posts/createPost/croppedImage/ui/EasyCrop'
+import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
 
 export const createImage = (url: string | null): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
@@ -28,7 +28,7 @@ export function rotateSize(width: number, height: number, rotation: number) {
   }
 }
 
-export default async function getCroppedImg(
+export async function GetCroppedImg(
   imageSrc: string,
   pixelCrop: CropArg,
   rotation = 0,

@@ -1,1 +1,1 @@
-export { TabsComponent } from '@/src/shared/ui/tabsComponent/TabsComponent'
+export { TabsComponent } from '@/ui/tabsComponent/TabsComponent'

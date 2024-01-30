@@ -1,1 +1,1 @@
-export { LoginForm } from '@/src/features/auth/signIn/ui/loginForm/LoginForm'
+export { LoginForm } from '@/features/auth/signIn/ui/loginForm/LoginForm'

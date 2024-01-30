@@ -3,8 +3,8 @@ import React, { ChangeEvent, ComponentProps, useState } from 'react'
 import EyeIcon from '@/public/icon/eyeIcon.svg'
 import EyeOffIcon from '@/public/icon/eyeOffIcon.svg'
 import SearchIcon from '@/public/icon/searchIcon.svg'
-import s from '@/src/shared/ui/textField/inputMain/inputMain.module.scss'
-import { Typography } from '@/src/shared/ui/typography'
+import s from '@/ui/textField/inputMain/inputMain.module.scss'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   value?: string

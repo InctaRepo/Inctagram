@@ -1,2 +1,2 @@
-export { Recaptcha } from '@/src/shared/ui/recaptcha/Recaptcha'
-export type { RecaptchaProps, ForgotForm } from '@/src/shared/ui/recaptcha/Recaptcha'
+export { Recaptcha } from '@/ui/recaptcha/Recaptcha'
+export type { RecaptchaProps, ForgotForm } from '@/ui/recaptcha/Recaptcha'

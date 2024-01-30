@@ -30,6 +30,3 @@ export const CalendarOutline = memo((props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 ))
-const Icon = memo(CalendarOutline)
-
-export default Icon

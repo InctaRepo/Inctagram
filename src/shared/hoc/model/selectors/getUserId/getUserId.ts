@@ -1,3 +1,3 @@
-import { StateSchema } from '@/src/store'
+import { StateSchema } from '@/store'
 
 export const getUserId = (state: StateSchema) => state.authMe.authMeData?.userId

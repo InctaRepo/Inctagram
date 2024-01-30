@@ -4,13 +4,13 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
-import s from '@/src/features/auth/createNewPassword/ui/createNewPasswordForm/createNewPasswordForm.module.scss'
-import { FormFields, triggerZodFieldError } from '@/src/shared/helpers/updateZodError'
-import { useTranslate } from '@/src/shared/hooks'
-import { PasswordsMatchForm, passwordsMatchSchema } from '@/src/shared/schemas/passwordsMatchSchema'
-import { Button } from '@/src/shared/ui/button'
-import { ControlledTextField } from '@/src/shared/ui/controlled'
-import { Typography } from '@/src/shared/ui/typography'
+import s from '@/features/auth/createNewPassword/ui/createNewPasswordForm/createNewPasswordForm.module.scss'
+import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
+import { useTranslate } from '@/shared/hooks'
+import { PasswordsMatchForm, passwordsMatchSchema } from '@/shared/schemas/passwordsMatchSchema'
+import { Button } from '@/ui/button'
+import { ControlledTextField } from '@/ui/controlled'
+import { Typography } from '@/ui/typography'
 
 type CreateNewPasswordProps = {
   onSubmitHandler: (data: PasswordsMatchForm) => void

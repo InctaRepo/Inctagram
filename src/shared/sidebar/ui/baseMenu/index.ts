@@ -1,1 +1,1 @@
-export { BaseMenu } from '@/src/shared/sidebar/ui/baseMenu/BaseMenu'
+export { BaseMenu } from '@/shared/sidebar/ui/baseMenu/BaseMenu'

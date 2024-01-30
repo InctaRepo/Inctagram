@@ -1,4 +1,4 @@
-import { StateSchema } from '@/src/store/types'
+import { StateSchema } from '@/store/types'
 
 const KEY = 'accessToken'
 

@@ -1,1 +1,1 @@
-export { LinkMenu } from '@/src/shared/ui/linkMenu/LinkMenu'
+export { LinkMenu } from '@/ui/linkMenu/LinkMenu'

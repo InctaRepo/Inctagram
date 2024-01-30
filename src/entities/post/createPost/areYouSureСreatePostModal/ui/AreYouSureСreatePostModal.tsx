@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { useTranslate } from '@/src/shared/hooks'
-import { Modal } from '@/src/shared/ui/modal'
-import { Typography } from '@/src/shared/ui/typography'
+import { useTranslate } from '@/shared/hooks'
+import { Modal } from '@/ui/modal'
+import { Typography } from '@/ui/typography'
 
 type Props = {
   openSureModal: boolean
