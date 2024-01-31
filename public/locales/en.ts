@@ -238,7 +238,16 @@ export const en: LocaleType = {
       terminateAllOtherSession: 'Terminate all other session',
       lastVisit: 'Last visit',
     },
-    accountManagement: {},
+    accountManagement: {
+      accountType: 'Account type:',
+      personal: 'Personal',
+      business: 'Business',
+      yourSubscriptionCost: 'Your subscription cost:',
+      oneDay: 'per 1 Day',
+      sevenDay: 'per 7 Day',
+      oneMonth: 'per month',
+      or: 'or',
+    },
     myPayment: {},
 
   },

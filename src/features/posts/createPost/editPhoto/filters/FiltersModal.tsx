@@ -131,6 +131,8 @@ export const FiltersModal = ({
       })
   }
 
+  console.log(activeFilter)
+
   return (
     <div>
       <Button variant="text" className={s.nextButton} onClick={handleNext}>

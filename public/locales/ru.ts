@@ -238,7 +238,16 @@ export const ru = {
       lastVisit: 'Последнее посещение',
     },
 
-    accountManagement: {},
+    accountManagement: {
+      accountType: 'Тип аккаунта:',
+      personal: 'Личный',
+      business: 'Бизнес',
+      yourSubscriptionCost: 'Cтоимость вашей подписки:',
+      oneDay: 'за 1 день',
+      sevenDay: 'за 7 дней',
+      oneMonth: 'за месяц',
+      or: 'или',
+    },
 
     myPayment: {},
   },
