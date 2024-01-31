@@ -78,9 +78,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 492px;
-  height: 564px;
-
   background-color: $color-dark-300;
   border: 1px solid $color-dark-100;
   border-radius: 2px;
@@ -94,8 +91,6 @@
 
 .contentBox {
   @include flex-block($align-items: center);
-
-  margin-bottom: 18px;
 }
 
 .IconButton {

@@ -27,7 +27,9 @@ export const Devices = () => {
     <>
       <div className={s.device}>
         <div className={s.currentDeviceWrapper}>
-          <Typography variant={'h3'}>{t.profileSetting.devices.currentDevice}</Typography>
+          <Typography variant={'h3'} className={s.currentDevice}>
+            {t.profileSetting.devices.currentDevice}
+          </Typography>
           <div className={s.browserWrapper}>
             <div className={s.browser}>
               <div className={s.img}>
