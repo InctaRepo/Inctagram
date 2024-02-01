@@ -92,33 +92,3 @@
   justify-content: space-between;
   margin-top: 420px;
 }
-
-.slick-next {
-  right: 15px;
-}
-
-.slick-prev {
-  left: 15px;
-}
-
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 1px;
-  bottom: 40px !important;
-}
-
-.dots li {
-  width: 8px;
-  height: 8px;
-  border-radius: 100px;
-  background-color: $color-light-900;
-}
-
-.dots li[class='slick-active'] {
-  background-color: $color-accent-500;
-}
-
-.slick-active {
-  background-color: $color-accent-500;
-}

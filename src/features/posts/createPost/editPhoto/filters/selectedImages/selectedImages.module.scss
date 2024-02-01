@@ -41,22 +41,9 @@
 
 .filterName {
   @include wh(108px, 24px);
-
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-}
-
-.slick-next {
-  right: 15px;
-}
-
-.slick-prev {
-  left: 15px;
-}
-
-.slick-dots {
-  bottom: 10px;
-  color: #fff;
 }
 
 .imageWrapper {

@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { SliderSettings } from '@/entities/post/sliderSettings'
 import { Image } from '@/features/posts/createPost/CreateNewPost'
 import { GetCroppedImg } from '@/features/posts/createPost/croppedImage/ui/Crop'
 import s from '@/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
@@ -29,24 +30,6 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
   const [croppedImage, setCroppedImage] = useState<string | undefined>(undefined)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArg | null>(null)
   const { t } = useTranslate()
-  const settings = {
-    dots: true,
-    swipe: false,
-    arrows: true,
-    dotsClass: `slick-dots ${s.dots}`,
-    appendDots: (dots: any) => {
-      return <ul style={{ margin: '0px' }}>{dots}</ul>
-    },
-    customPaging: (i: any) => {
-      return <div className={s.dot}></div>
-    },
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SliderBtn direction="right" />,
-    prevArrow: <SliderBtn direction="left" />,
-  }
 
   useEffect(() => {
     setAddedImages(addedImages)
@@ -74,7 +57,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
     <>
       <div className={s.container}>
         <div className={s.cropContainer}>
-          <Slider {...settings}>
+          <Slider {...SliderSettings}>
             {addedImages.map((el, idx) => {
               return (
                 <div key={idx} className={s.carousel} onClick={() => setIndex(idx)}>
