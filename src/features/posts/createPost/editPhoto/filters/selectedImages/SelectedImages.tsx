@@ -45,17 +45,17 @@ export const SelectedImages = ({
         setActiveFilter('contrast(110%) brightness(110%) saturate(130%)')
         break
       case 'Clarendon':
-        setActiveFilter('invert(100%)')
+        setActiveFilter('invert(80%)')
         break
       case 'Shabby':
-        setActiveFilter('sepia(100%)')
+        setActiveFilter('sepia(80%)')
         break
       case 'Old school': {
-        setActiveFilter('opacity(50%)')
+        setActiveFilter('opacity(70%)')
         break
       }
       case 'Silent Hill': {
-        setActiveFilter('hue-rotate(180deg)')
+        setActiveFilter('hue-rotate(150deg)')
         break
       }
       default: {
@@ -92,18 +92,29 @@ export const SelectedImages = ({
         {filtersVariant.map((el, idx) => {
           return (
             <div key={idx} className={s.imgWithFilter} onClick={() => onActiveFilter(el.name)}>
-              <ImageWithFilter
-                src={airBalloon}
-                alt={'image-with-filter'}
-                width={108}
-                height={108}
-                style={{
-                  filter: el.filter,
-                }}
-                className={s.image}
-              />
+              <div
+                className={`${s.imageWrapper} ${
+                  el.filter == activeFilter ? s.activeFilterWrapper : ''
+                }`}
+              >
+                <ImageWithFilter
+                  src={airBalloon}
+                  alt={'image-with-filter'}
+                  width={108}
+                  height={108}
+                  style={{
+                    filter: el.filter,
+                  }}
+                  className={s.image}
+                />
+              </div>
               <div className={s.filterName}>
-                <Typography variant={'h3'}>{el.name}</Typography>
+                <Typography
+                  color={el.filter == activeFilter ? 'primary' : 'secondary'}
+                  variant={'h3'}
+                >
+                  {el.name}
+                </Typography>
               </div>
             </div>
           )
