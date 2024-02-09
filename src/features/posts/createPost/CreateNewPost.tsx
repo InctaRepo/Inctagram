@@ -28,8 +28,13 @@ export const CreateNewPost = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [image, setImage] = useState<string | undefined>(undefined)
   const [addedImages, setAddedImages] = useState<Image[]>([])
+  const [draftOfImages, setDraftOfImages] = useState<Image[]>([])
+  const [isDraftUploaded, setIsDraftUploaded] = useState(false)
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
+
+  const imagesForUpload = isDraftUploaded ? draftOfImages : addedImages
+
   const handleButtonClick = () => {
     setIsBaseModalOpen(false)
     setImage(undefined)
@@ -100,7 +105,7 @@ export const CreateNewPost = () => {
           onClose={handleButtonClick}
           onCancel={cancelButtonClick}
           title={t.posts.createPost.cropping}
-          addedImages={addedImages}
+          addedImages={imagesForUpload}
           setAddedImages={setAddedImages}
           isBaseModalOpen={isBaseModalOpen}
           setIsBaseModalOpen={setIsBaseModalOpen}
@@ -109,7 +114,7 @@ export const CreateNewPost = () => {
           <CroppedImage
             image={image}
             setImage={setImage}
-            addedImages={addedImages}
+            addedImages={imagesForUpload}
             setAddedImages={setAddedImages}
           />
         </CropModal>
