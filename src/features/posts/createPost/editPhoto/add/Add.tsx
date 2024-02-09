@@ -9,11 +9,9 @@ import PlusCircleOutline from '@/public/icon/plusCircleOutlineIcon.svg'
 type Props = {
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  image?: string
-  croppedImage?: string
 }
 
-export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props) => {
+export const Add = ({ addedImages, setAddedImages }: Props) => {
   const [isAddOpen, setIsAddOpen] = useState(false)
   const addRef = useRef() as MutableRefObject<HTMLDivElement>
   const inputRef = useRef<HTMLInputElement>(null)
@@ -29,10 +27,6 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
 
     return () => document.body.removeEventListener('click', handleClickOutside)
   }, [])
-
-  useEffect(() => {
-    setAddedImages(addedImages)
-  }, [addedImages])
 
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
@@ -59,12 +53,7 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
       {isAddOpen && (
         <div className={s.addContainer}>
           {addedImages.length && (
-            <AddedImages
-              croppedImage={croppedImage}
-              addedImages={addedImages}
-              setAddedImages={setAddedImages}
-              image={image}
-            />
+            <AddedImages addedImages={addedImages} setAddedImages={setAddedImages} />
           )}
           {addedImages.length < 10 ? (
             <div
