@@ -21,12 +21,11 @@ type Props = {
   setAddedImages: (addedImages: Image[]) => void
 }
 
-const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
+const CroppedImage = ({ addedImages, setAddedImages }: Props) => {
   const [index, setIndex] = useState<number>(0)
   const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [aspectRatio, setAspectRatio] = useState(3 / 4)
-  const [croppedImage, setCroppedImage] = useState<string | undefined>(undefined)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArg | null>(null)
   const { t } = useTranslate()
 
@@ -43,7 +42,6 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
           if (!croppedImage) {
             return null
           }
-          setCroppedImage(croppedImage)
           addedImages[index] = { image: croppedImage }
         }
       } catch (e) {
@@ -80,14 +78,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                       />
                       <Zoom className={s.maximize} zoom={zoomValue} setZoom={setZoomValue} />
                     </div>
-                    <div>
-                      <Add
-                        image={croppedImage ? croppedImage : image}
-                        addedImages={addedImages}
-                        setAddedImages={setAddedImages}
-                        croppedImage={croppedImage}
-                      />
-                    </div>
+                    <Add addedImages={addedImages} setAddedImages={setAddedImages} />
                   </div>
                   <button
                     onClick={() => showCroppedImg(el.image, croppedAreaPixels)}
