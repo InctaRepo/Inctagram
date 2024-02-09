@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import ImageToAdd from 'next/image'
 
@@ -9,16 +9,10 @@ import CloseIcon from '@/public/icon/closeIcon.svg'
 type Props = {
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  image?: string
-  croppedImage?: string
 }
 
-export const AddedImages = ({ addedImages, setAddedImages, croppedImage, image }: Props) => {
+export const AddedImages = ({ addedImages, setAddedImages }: Props) => {
   const imagesToShow = addedImages.slice(-2)
-
-  useEffect(() => {
-    setAddedImages(addedImages)
-  }, [addedImages])
 
   const onDeleteImage = (i: number) => {
     const image = i === 0 ? imagesToShow.slice(1) : imagesToShow.slice(0, -1)
