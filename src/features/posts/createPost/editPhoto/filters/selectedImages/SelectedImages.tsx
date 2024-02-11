@@ -23,48 +23,15 @@ type Props = {
 export const SelectedImages = ({
   image,
   addedImages,
-  activeFilter,
+  // activeFilter,
   setActiveFilter,
   setAddedImages,
 }: Props) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const activeFilter = addedImages[currentImageIndex].activeFilter
 
   const onActiveFilter = (filter: string) => {
-    switch (filter) {
-      case 'No filter':
-        setActiveFilter('none')
-        break
-      case 'Kyoto':
-        setActiveFilter('saturate(2)')
-        break
-      case 'Lark':
-        setActiveFilter('grayscale(100%)')
-        break
-      case 'Gingham':
-        setActiveFilter('contrast(160%)')
-        break
-      case 'Happy':
-        setActiveFilter('contrast(110%) brightness(110%) saturate(130%)')
-        break
-      case 'Clarendon':
-        setActiveFilter('invert(80%)')
-        break
-      case 'Shabby':
-        setActiveFilter('sepia(80%)')
-        break
-      case 'Old school': {
-        setActiveFilter('opacity(70%)')
-        break
-      }
-      case 'Silent Hill': {
-        setActiveFilter('hue-rotate(150deg)')
-        break
-      }
-      default: {
-        setActiveFilter('none')
-        break
-      }
-    }
+    setActiveFilter(getFilterType(filter))
 
     const updatedImages = addedImages.map((el: Image, index) => {
       if (index === currentImageIndex) {
