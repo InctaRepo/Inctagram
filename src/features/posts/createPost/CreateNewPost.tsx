@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -14,11 +14,23 @@ import { Button } from '@/ui/button'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
 
+export type ActiveFilter =
+  | 'none'
+  | 'saturate(2)'
+  | 'grayscale(100%)'
+  | 'contrast(160%)'
+  | 'contrast(110%) brightness(110%) saturate(130%)'
+  | 'invert(80%)'
+  | 'sepia(80%)'
+  | 'opacity(70%)'
+  | 'hue-rotate(150deg)'
+
 export type Image = {
   image?: string
   id?: string
   croppedImage?: string
   fileName?: string
+  activeFilter: ActiveFilter
 }
 
 export const CreateNewPost = () => {
@@ -46,28 +58,37 @@ export const CreateNewPost = () => {
     setIsModalOpen(false)
     dispatch(setVariantIcon(null))
   }
-
   const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    setIsDraftUploaded(false)
     if (e.target.files && e.target.files.length) {
       setAddedImages([
         {
           image: URL.createObjectURL(e.target.files[0]),
           fileName: e.target.files[0].name,
+          activeFilter: 'none',
         },
       ])
       setIsBaseModalOpen(false)
       setIsModalOpen(true)
     }
   }
-
   const handleClick = () => {
     setIsBaseModalOpen(true)
     dispatch(setVariantIcon(`${RouteNames.CREATE_POST}`.slice(1) as variantIconLink))
   }
-
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
+  const handleSaveDraft = () => {
+    setDraftOfImages([...addedImages])
+    setIsModalOpen(false)
+  }
+  const handleOpenDraft = () => {
+    setIsDraftUploaded(true)
+    setIsBaseModalOpen(false)
+    setIsModalOpen(true)
+  }
+
   const styles = {
     check: clsx(s.btn, `${RouteNames.CREATE_POST}`.startsWith('/' + variantIcon) && s.active),
   }
@@ -88,6 +109,11 @@ export const CreateNewPost = () => {
           <div className={s.selectPhoto}>
             <Button variant={'primary'} onClick={selectFileHandler} className={s.btnSelect}>
               <Typography variant={'h3'}>{t.posts.createPost.selectFromComputer}</Typography>
+            </Button>
+            <Button variant={'outlined'} onClick={handleOpenDraft} className={s.btnOpenDraft}>
+              <Typography className={s.btnOpenDraftText} variant={'h3'}>
+                {t.posts.createPost.openDraft}
+              </Typography>
             </Button>
             <input
               type="file"
@@ -110,6 +136,7 @@ export const CreateNewPost = () => {
           isBaseModalOpen={isBaseModalOpen}
           setIsBaseModalOpen={setIsBaseModalOpen}
           setImage={setImage}
+          handleSaveDraft={handleSaveDraft}
         >
           <CroppedImage
             image={image}

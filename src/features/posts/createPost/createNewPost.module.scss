@@ -96,7 +96,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-accent-500 !important;
 }
 
 .text {
@@ -104,4 +103,18 @@
   flex-direction: row;
   gap: 10px;
   align-items: center;
+}
+
+.btnOpenDraft {
+  @include wh(235px, 36px);
+
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 1px solid $color-accent-500;
+}
+
+.btnOpenDraftText {
+  color: $color-accent-500;
 }

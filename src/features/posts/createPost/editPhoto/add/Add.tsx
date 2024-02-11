@@ -35,7 +35,11 @@ export const Add = ({ addedImages, setAddedImages }: Props) => {
   const handleImageUpload = async (e: any) => {
     setAddedImages([
       ...addedImages,
-      { image: URL.createObjectURL(e.target.files[0]), fileName: e.target.files[0].name },
+      {
+        image: URL.createObjectURL(e.target.files[0]),
+        fileName: e.target.files[0].name,
+        activeFilter: 'none',
+      },
     ])
   }
 

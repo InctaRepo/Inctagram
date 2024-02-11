@@ -11,7 +11,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
+import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
 import s from '@/features/posts/createPost/cropModal/ui/cropModal.module.scss'
 import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
 import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
@@ -36,6 +36,7 @@ type Props = {
   isBaseModalOpen: boolean
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image: string | undefined) => void
+  handleSaveDraft: () => void
 } & ComponentProps<'div'>
 
 export const CropModal = ({
@@ -54,6 +55,7 @@ export const CropModal = ({
   isBaseModalOpen,
   setIsBaseModalOpen,
   setImage,
+  handleSaveDraft,
 }: Props) => {
   const classNames = {
     content: getContentClassName(className),
@@ -66,14 +68,16 @@ export const CropModal = ({
     ),
   }
   const [isModalOpen, setIsModalOpen] = useState(true)
-  const [activeFilter, setActiveFilter] = useState('')
+  const [activeFilter, setActiveFilter] = useState<ActiveFilter>('none')
   const [openSureModal, setOpenSureModal] = useState<boolean>(false)
   const areYouSureRef = useRef(null)
 
   const { t } = useTranslate()
+
   const actionButtonHandler = () => {
     onAction?.()
   }
+
   const cancelButtonHandler = () => {
     onCancel?.()
   }
@@ -82,6 +86,10 @@ export const CropModal = ({
     setIsModalOpen(false)
     setIsBaseModalOpen(true)
     setAddedImages([])
+  }
+
+  const setFilterHandler = (activeFilter: ActiveFilter) => {
+    setActiveFilter(activeFilter)
   }
 
   return (
@@ -105,7 +113,7 @@ export const CropModal = ({
                     onCancel={cancelButtonHandler}
                     title={t.posts.createPost.filters}
                     activeFilter={activeFilter}
-                    setActiveFilter={setActiveFilter}
+                    setActiveFilter={setFilterHandler}
                     setIsBaseModalOpen={setIsBaseModalOpen}
                     setImage={setImage}
                     openSureModal={openSureModal}
@@ -132,6 +140,7 @@ export const CropModal = ({
                   setIsModalOpen={setIsModalOpen}
                   setIsBaseModalOpen={setIsBaseModalOpen}
                   setImage={setImage}
+                  handleSaveDraft={handleSaveDraft}
                 />
               </div>
               <div className={s.contentBox}>{children}</div>

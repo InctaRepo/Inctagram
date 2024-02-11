@@ -10,6 +10,7 @@ type Props = {
   setOpenSureModal: (openSureModal: boolean) => void
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image?: string) => void
+  handleSaveDraft: () => void
 }
 
 export const AreYouSureCreatePostModal = ({
@@ -18,9 +19,12 @@ export const AreYouSureCreatePostModal = ({
   setIsModalOpen,
   setIsBaseModalOpen,
   setImage,
+  handleSaveDraft,
 }: Props) => {
   const { t } = useTranslate()
+
   const onModalClose = () => {
+    handleSaveDraft()
     setOpenSureModal(false)
   }
 

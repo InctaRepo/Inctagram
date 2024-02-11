@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import ImageWithFilter from 'next/image'
 import Slider from 'react-slick'
@@ -6,7 +6,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { SliderSettings } from '@/entities/post/sliderSettings'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
+import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
 import { filtersVariant } from '@/features/posts/createPost/editPhoto/filters/selectedImages/filtersVariant'
 import s from '@/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 import airBalloon from '@/public/images/airBalloonImage.jpg'
@@ -14,8 +14,8 @@ import { Typography } from '@/ui/typography'
 
 type Props = {
   addedImages: Image[]
-  activeFilter: string
-  setActiveFilter: (activeFilter: string) => void
+  activeFilter: ActiveFilter
+  setActiveFilter: (activeFilter: ActiveFilter) => void
   image?: string
   setAddedImages: (addedImages: Image[]) => void
 }
@@ -27,11 +27,13 @@ export const SelectedImages = ({
   setActiveFilter,
   setAddedImages,
 }: Props) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  console.log(addedImages)
+
   const onActiveFilter = (filter: string) => {
+    if (filter === 'No filter') return
     switch (filter) {
-      case 'No filter':
-        setActiveFilter('none')
-        break
       case 'Kyoto':
         setActiveFilter('saturate(2)')
         break
@@ -59,16 +61,26 @@ export const SelectedImages = ({
         break
       }
       default: {
-        setActiveFilter('')
+        setActiveFilter('none')
         break
       }
     }
+
+    // const currentImage = addedImages[currentImageIndex]
+    // const newAddedImages = addedImages.filter((el, i) => i != currentImageIndex)
+    // const newImages = [{ ...currentImage, activeFilter }, ...newAddedImages]
+
+    // setAddedImages(newImages)
+  }
+
+  const getCurrentImage = (current: any) => {
+    setCurrentImageIndex(current)
   }
 
   return (
     <>
       <div className={s.imgContainer}>
-        <Slider {...SliderSettings}>
+        <Slider {...SliderSettings} afterChange={getCurrentImage}>
           {addedImages.map((el, idx) => {
             return (
               <div key={idx} className={s.carousel}>

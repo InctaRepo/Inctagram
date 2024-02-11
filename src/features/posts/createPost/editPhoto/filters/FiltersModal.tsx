@@ -13,7 +13,7 @@ import { clsx } from 'clsx'
 import { FilteredImages } from '@/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
 import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
 import { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
+import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
 import s from '@/features/posts/createPost/editPhoto/filters/FiltersModal.module.scss'
 import { useAddPostMutation } from '@/features/posts/service'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
@@ -36,8 +36,8 @@ export type ModalProps = {
   className?: string
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  activeFilter: string
-  setActiveFilter: (activeFilter: string) => void
+  activeFilter: ActiveFilter
+  setActiveFilter: (activeFilter: ActiveFilter) => void
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image: string | undefined) => void
   openSureModal: boolean
@@ -124,7 +124,7 @@ export const FiltersModal = ({
       .unwrap()
       .then(() => {
         //setAddedImages(updatedImages)
-        setActiveFilter('')
+        setActiveFilter('none')
         setIsFiltersModalOpen(false)
         setIsDescriptionModalOpen(false)
         setIsModalOpen(false)

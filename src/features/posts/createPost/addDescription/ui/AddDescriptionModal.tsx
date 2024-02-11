@@ -11,7 +11,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import s from '@/features/posts/createPost/addDescription/ui/addDescriptionModal.module.scss'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
+import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
 import { useTranslate } from '@/shared/hooks/useTranslate'
 import { Button } from '@/ui/button'
@@ -26,8 +26,8 @@ export type ModalProps = {
   onClose?: () => void
   onAction?: () => void
   onCancel?: () => void
-  activeFilter: string
-  setActiveFilter: (activeFilter: string) => void
+  activeFilter: ActiveFilter
+  setActiveFilter: (activeFilter: ActiveFilter) => void
   cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string // if no props , visibility = hidden
   showSeparator?: boolean // if no props with false , visibility = visible
@@ -36,13 +36,8 @@ export type ModalProps = {
   className?: string
   setOpenSureModal: (openSureModal: boolean) => void
   addedImages: Image[]
-  setAddedImages: (
-    addedImages: Awaited<{
-      image: string
-      fileName: string
-    }>[]
-  ) => void
-  sendFilteredImg: (activeFilter: string) => void
+  setAddedImages: (addedImages: Awaited<Image[]>) => void
+  sendFilteredImg: (activeFilter: ActiveFilter) => void
   isDescriptionModalOpen: boolean
   setIsDescriptionModalOpen: (isDescriptionModalOpen: boolean) => void
 } & ComponentProps<'div'>

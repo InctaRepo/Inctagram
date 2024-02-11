@@ -29,9 +29,9 @@ const CroppedImage = ({ addedImages, setAddedImages }: Props) => {
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArg | null>(null)
   const { t } = useTranslate()
 
-  useEffect(() => {
-    setAddedImages(addedImages)
-  }, [addedImages])
+  // useEffect(() => {
+  //   setAddedImages(addedImages)
+  // }, [addedImages])
 
   const showCroppedImg = async (image: string | undefined, croppedAreaPixels: CropArg | null) => {
     if (croppedAreaPixels && image) {
