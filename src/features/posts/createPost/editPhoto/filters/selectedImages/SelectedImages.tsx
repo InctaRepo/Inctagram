@@ -6,7 +6,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { SliderSettings } from '@/entities/post/sliderSettings'
-import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
+import { ActiveFilter, Image, getFilterType } from '@/features/posts/createPost/CreateNewPost'
 import { filtersVariant } from '@/features/posts/createPost/editPhoto/filters/selectedImages/filtersVariant'
 import s from '@/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 import airBalloon from '@/public/images/airBalloonImage.jpg'
@@ -29,11 +29,11 @@ export const SelectedImages = ({
 }: Props) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  console.log(addedImages)
-
   const onActiveFilter = (filter: string) => {
-    if (filter === 'No filter') return
     switch (filter) {
+      case 'No filter':
+        setActiveFilter('none')
+        break
       case 'Kyoto':
         setActiveFilter('saturate(2)')
         break
@@ -66,11 +66,15 @@ export const SelectedImages = ({
       }
     }
 
-    // const currentImage = addedImages[currentImageIndex]
-    // const newAddedImages = addedImages.filter((el, i) => i != currentImageIndex)
-    // const newImages = [{ ...currentImage, activeFilter }, ...newAddedImages]
+    const updatedImages = addedImages.map((el: Image, index) => {
+      if (index === currentImageIndex) {
+        return { ...el, activeFilter: getFilterType(filter) }
+      }
 
-    // setAddedImages(newImages)
+      return el
+    })
+
+    setAddedImages(updatedImages)
   }
 
   const getCurrentImage = (current: any) => {
@@ -87,7 +91,7 @@ export const SelectedImages = ({
                 <ImageWithFilter
                   alt={'img'}
                   style={{
-                    filter: activeFilter,
+                    filter: el.activeFilter,
                     width: '100%',
                     height: 'auto',
                   }}

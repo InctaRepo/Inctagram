@@ -47,17 +47,19 @@ export const CreateNewPost = () => {
 
   const imagesForUpload = isDraftUploaded ? draftOfImages : addedImages
 
-  const handleButtonClick = () => {
+  const handleCloseCreateModal = () => {
     setIsBaseModalOpen(false)
     setImage(undefined)
     setIsModalOpen(false)
     dispatch(setVariantIcon(null))
   }
+
   const cancelButtonClick = () => {
     setIsBaseModalOpen(false)
     setIsModalOpen(false)
     dispatch(setVariantIcon(null))
   }
+
   const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     setIsDraftUploaded(false)
     if (e.target.files && e.target.files.length) {
@@ -72,17 +74,21 @@ export const CreateNewPost = () => {
       setIsModalOpen(true)
     }
   }
+
   const handleClick = () => {
     setIsBaseModalOpen(true)
     dispatch(setVariantIcon(`${RouteNames.CREATE_POST}`.slice(1) as variantIconLink))
   }
+
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
+
   const handleSaveDraft = () => {
     setDraftOfImages([...addedImages])
     setIsModalOpen(false)
   }
+
   const handleOpenDraft = () => {
     setIsDraftUploaded(true)
     setIsBaseModalOpen(false)
@@ -100,7 +106,7 @@ export const CreateNewPost = () => {
           className={s.baseModal}
           modalWidth={'md'}
           open={isBaseModalOpen}
-          onClose={handleButtonClick}
+          onClose={handleCloseCreateModal}
           title={t.posts.createPost.addPostPhoto}
         >
           <div className={`${s.photoContainer} ${image === null ? s.emptyPhotoContainer : ''}`}>
@@ -128,7 +134,7 @@ export const CreateNewPost = () => {
         <CropModal
           image={image}
           open={isModalOpen}
-          onClose={handleButtonClick}
+          onClose={handleCloseCreateModal}
           onCancel={cancelButtonClick}
           title={t.posts.createPost.cropping}
           addedImages={imagesForUpload}
@@ -159,4 +165,32 @@ export const CreateNewPost = () => {
       </div>
     </div>
   )
+}
+
+export const getFilterType = (filter: string): ActiveFilter => {
+  switch (filter) {
+    case 'No filter':
+      return 'none'
+    case 'Kyoto':
+      return 'saturate(2)'
+    case 'Lark':
+      return 'grayscale(100%)'
+    case 'Gingham':
+      return 'contrast(160%)'
+    case 'Happy':
+      return 'contrast(110%) brightness(110%) saturate(130%)'
+    case 'Clarendon':
+      return 'invert(80%)'
+    case 'Shabby':
+      return 'sepia(80%)'
+    case 'Old school': {
+      return 'opacity(70%)'
+    }
+    case 'Silent Hill': {
+      return 'hue-rotate(150deg)'
+    }
+    default: {
+      return 'none'
+    }
+  }
 }

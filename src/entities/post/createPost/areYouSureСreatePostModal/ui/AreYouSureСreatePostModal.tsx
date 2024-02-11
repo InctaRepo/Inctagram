@@ -23,8 +23,12 @@ export const AreYouSureCreatePostModal = ({
 }: Props) => {
   const { t } = useTranslate()
 
-  const onModalClose = () => {
+  const onSaveDraft = () => {
     handleSaveDraft()
+    setOpenSureModal(false)
+  }
+
+  const onModalClose = () => {
     setOpenSureModal(false)
   }
 
@@ -42,11 +46,11 @@ export const AreYouSureCreatePostModal = ({
         modalWidth={'sm'}
         title={t.posts.createPost.close}
         open={openSureModal}
-        cancelButtonName={t.posts.createPost.saveDraft}
-        actionButtonName={t.posts.createPost.discard}
+        cancelButtonName={t.posts.createPost.discard}
+        actionButtonName={t.posts.createPost.saveDraft}
         onClose={onModalClose}
-        onCancel={onModalClose}
-        onAction={discardHandler}
+        onCancel={discardHandler}
+        onAction={onSaveDraft}
       >
         <Typography variant={'h3'}>{t.posts.createPost.areYouSure}</Typography>
       </Modal>
