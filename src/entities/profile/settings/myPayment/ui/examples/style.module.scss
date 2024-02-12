@@ -3,17 +3,11 @@
 
 
 
-.main {
-  position: relative;
-  top: 20px;
-  // display: flex;
-  // justify-content: space-around;
-  // flex-direction: column;
 
-}
 
 .table {
   position: relative;
+  top: 20px;
   border-collapse: collapse;
   width: 100%;
 }
@@ -22,16 +16,13 @@
 
   position: relative;
   top: 10px;
-  left: 20px;
 
 }
 
 .thead .th {
   font-weight: 500;
   text-align: left;
-  display: flex;
-  // justify-content: flex-start;
-  // background-color: #fafafa;
+
 
 }
 
@@ -39,8 +30,15 @@
   background-color: $color-dark-100;
 }
 
+
+.tr,
+.userTableRow {
+
+  display: flex;
+  justify-content: space-around;
+}
+
 .tbody :nth-child(even) {
-  // background-color: $color-light-100;
   background-color: $color-light-100;
 
 }
