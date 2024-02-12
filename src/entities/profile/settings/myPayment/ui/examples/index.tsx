@@ -33,7 +33,7 @@ export const Main = () => {
   }
 
   return (
-    <div className={s.main}>
+    <div>
       <Typography as="table" className={s.table}>
         <Typography as="thead" className={s.thead}>
           <Typography as="tr" className={s.tr}>
@@ -47,13 +47,15 @@ export const Main = () => {
           </Typography>
         </Typography>
         <Typography as="tbody">
-          {currentTableData.map(item => (
-            <Typography key={item.id} as="tr" className={s.userTableRow}>
-              <Typography as="td">{item.id}</Typography>
-              <Typography as="td">{item.first_name}</Typography>
-              <Typography as="td">{item.last_name}</Typography>
-              <Typography as="td">{item.email}</Typography>
-              <Typography as="td">{item.phone}</Typography>
+          {currentTableData.map((item, index) => (
+            <Typography key={index} as="tr" className={s.userTableRow}>
+              <Typography as="td">{item.DateOfPayment}</Typography>
+              <Typography as="td">{item.EndDateSubscription}</Typography>
+              <Typography className={s.price} as="td">
+                {item.Price}
+              </Typography>
+              <Typography as="td">{item.SubscriptionType}</Typography>
+              <Typography as="td">{item.PaymentType}</Typography>
             </Typography>
           ))}
         </Typography>
