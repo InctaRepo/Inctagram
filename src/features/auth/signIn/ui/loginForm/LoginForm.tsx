@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -19,11 +19,11 @@ import { Card } from '@/ui/card'
 import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
 
-type LoginType = {
+type Props = {
   onSubmitHandler?: (data: LoginFormType) => void
   errorServer?: string
 }
-export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
+export const LoginForm = ({ onSubmitHandler, errorServer }: Props) => {
   const { t } = useTranslate()
   const router = useRouter()
 
