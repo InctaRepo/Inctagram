@@ -4,7 +4,6 @@ export const DOTS = '...'
 
 const range = (start: number, end: number) => {
   let length = end - start + 1
-  //end ic minchev start- ynkac length ,het +1 vor verchacnes length-y
 
   return Array.from({ length }, (_, idx) => idx + start)
 }
@@ -27,29 +26,18 @@ export const usePagination = ({
 }: UsePaginationParamType) => {
   const paginationRange = useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / pageSize)
-    //page er-y baxhxven bajzanven math.ceil- i michocov  sax tvialner-y hasnen ,bashxven minchev verchin page
     const totalPageNumbers = siblings + 5
 
     if (totalPageNumbers >= totalPageCount) {
-      //ete number-ka bayc el tvlyal chka ,number-y skselua 1-c,vor  aranc tvialneri tver chereva
-      //1-ic minchev verchin-in page-y
-      //пагинация будет ограничена от первой до последней страницы
-      //определение числа страниц
       return range(1, totalPageCount)
     }
     //12...212
     const leftSiblingIndex = Math.max(currentPage - siblings, 1)
-    //1-ic gna amen verchin cax tiv-y (page) ete  (1 nra hamara vor chancni sahmany ,chfra)
     const rightSiblingIndex = Math.min(currentPage + siblings, totalPageCount)
-    //  totalPageCount nra hamar vorpaes 3 paramater vor tveri diapazonic chelni amena poqr tive lhlni  totalPageCount -ic poqr
 
-    //3 clik aneluc heto erevuma Dots - cax koxmic
     const shouldShowLeftDots = leftSiblingIndex > 2
-    // right side -ic because  erb hasnume  99 - i totalPageCount  -i start-ic 2 het a erevum menak  dots-y
     const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2
 
-    // firstPageIndex  sksuma 1 hamaric
-    // lastPageIndex  =static vichakna bayc dots erevume
     const firstPageIndex = 1
     const lastPageIndex = totalPageCount
 
@@ -75,7 +63,6 @@ export const usePagination = ({
       // yndhanur
       let rightRange = range(totalPageCount - rightItemCount + 1, totalPageCount)
 
-      //vereadarcnuma  firstPageIndex- 1ic sksac-y   tox lini  rightRange  nor array -um  (rightRange copy es anum u nor array es unenum vor tex lcvum a caxic  )
       return [firstPageIndex, DOTS, ...rightRange]
     }
 
