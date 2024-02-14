@@ -1,4 +1,3 @@
-export { getUserId } from '@/shared/hoc/model/selectors/getUserId/getUserId'
 export { getUserEmail } from '@/shared/hoc/model/selectors/getUserEmail/getUserEmail'
 export { getUsername } from '@/shared/hoc/model/selectors/getUsername/getUsername'
 export { getIsAuth } from '@/shared/hoc/model/selectors/getIsAuth/getIsAuth'
