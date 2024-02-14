@@ -37,7 +37,7 @@ export const Devices = () => {
 
   return (
     <>
-      {sessions?.data && (
+      {sessions && (
         <div className={s.device}>
           <div className={s.currentDeviceWrapper}>
             <Typography variant={'h3'} className={s.currentDevice}>
@@ -76,6 +76,7 @@ export const Devices = () => {
                     {el.deviceName.trim() === 'Chrome,Windows 10' && <Chrome />}
                     {el.deviceName.trim() === 'Microsoft Edge,Windows 10' && <Chrome />}
                     {el.deviceName.trim() === 'Chrome,GNU/Linux' && <Phone />}
+                    {el.deviceName.trim() === 'Chrome Mobile,Android 10' && <Phone />}
                   </div>
                   <div className={s.deviceProperty}>
                     <Typography variant={'bold16'}>{el.deviceName}</Typography>
