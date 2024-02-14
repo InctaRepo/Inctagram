@@ -15,11 +15,13 @@ import {
   useUploadAvatarMutation,
 } from '@/entities/profile/service'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { getUserId } from '@/features/auth/signIn'
 import { RouteNames } from '@/shared/const'
 import { Countries } from '@/shared/countries/countries'
 import { convertFileToBase64 } from '@/shared/helpers/convertFileToBase64'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
-import { getUserId, getUsername } from '@/shared/hoc'
+import { getUsername } from '@/shared/hoc'
 import { useAppDispatch, useAppSelector, useErrorToast, useTranslate } from '@/shared/hooks'
 import {
   createProfileSettingSchema,
@@ -51,7 +53,7 @@ export const GeneralInformation = () => {
     useUpdateProfileMutation()
   const [createProfile, { isSuccess: isSuccessCreate, isLoading: isLoadingCreate }] =
     useCreateProfileMutation()
-  const userId = useAppSelector(getUserId)
+  const userId = useAppSelector(getUserId) as string
   const userName = useAppSelector(getUsername)
   const { data: profile, isLoading } = useGetProfileQuery(userId)
   const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =
@@ -165,7 +167,7 @@ export const GeneralInformation = () => {
       dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData.dateOfBirth}`) : new Date(),
       country: userData?.country,
       city: userData?.city,
-      aboutMe: userData?.aboutMe,
+      aboutMe: userData?.aboutMe || '',
       avatar: userData?.avatar || '',
     },
   })
