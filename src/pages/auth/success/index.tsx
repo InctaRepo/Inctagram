@@ -24,11 +24,11 @@ const SuccessPage = () => {
   }, [tokenStatus])
 
   useEffect(() => {
-    if (token) {
+    if (token !== undefined) {
       dispatch(setToken({ accessToken: token as string }))
       setTokenStatus(true)
     }
-  }, [token])
+  }, [token!])
   if (isLoading) {
     return <Loader />
   }
