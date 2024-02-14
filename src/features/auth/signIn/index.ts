@@ -8,3 +8,4 @@ export {
 } from '@/features/auth/signIn/model/slice/signInSlice'
 export type { SignInSchema } from '@/features/auth/signIn/model/types/signInSchema'
 export { getUserId } from '@/features/auth/signIn/model/selectors/getUserId/getUserId'
+export { ThirdPartyAuthPage } from '@/features/auth/signIn/service/ThirdPatryAuthPage'

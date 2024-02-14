@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 
-import { setToken } from '@/features/auth/signIn'
-import { RouteNames } from '@/shared/const'
-import { useGetMeQuery } from '@/shared/hoc'
+import { setToken, ThirdPartyAuthPage } from '@/features/auth/signIn'
 import { Loader } from '@/ui/loader'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
@@ -14,26 +12,15 @@ const SuccessPage = () => {
   const router = useRouter()
   const { token } = router.query
   const [tokenStatus, setTokenStatus] = useState(false)
-  const { data: user, isSuccess: isSuccessMe, isLoading } = useGetMeQuery()
-  const userId = user?.data?.userId
 
   useEffect(() => {
-    if (isSuccessMe && userId) {
-      router.push(RouteNames.PROFILE + '/' + userId)
-    }
-  }, [tokenStatus])
-
-  useEffect(() => {
-    if (token !== undefined) {
+    if (token) {
       dispatch(setToken({ accessToken: token as string }))
       setTokenStatus(true)
     }
-  }, [token!])
-  if (isLoading) {
-    return <Loader />
-  }
+  }, [token])
 
-  return <></>
+  return tokenStatus ? <ThirdPartyAuthPage /> : <Loader />
 }
 
 SuccessPage.getLayout = getAuthLayout
