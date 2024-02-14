@@ -53,7 +53,7 @@ export const GeneralInformation = () => {
     useUpdateProfileMutation()
   const [createProfile, { isSuccess: isSuccessCreate, isLoading: isLoadingCreate }] =
     useCreateProfileMutation()
-  const userId = useAppSelector(getUserId)
+  const userId = useAppSelector(getUserId) as string
   const userName = useAppSelector(getUsername)
   const { data: profile, isLoading } = useGetProfileQuery(userId)
   const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =

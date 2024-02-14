@@ -1,14 +1,12 @@
-import React, { FC, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import {
-  gitOnclickHandler,
-  googleOnclickHandler,
-} from '@/features/auth/signIn/authByThirdParty/service/onclickHandlers'
+import { authByGitHub } from '@/features/auth/signIn/authByGitHub/authByGitHub'
+import { authByGoogle } from '@/features/auth/signIn/authByGoogle/authByGoogle'
 import s from '@/features/auth/signIn/ui/loginForm/loginForm.module.scss'
 import GithubIcon from '@/public/icon/gitHubIcon.svg'
 import GoogleIcon from '@/public/icon/googleIcon.svg'
@@ -21,11 +19,11 @@ import { Card } from '@/ui/card'
 import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
 
-type LoginType = {
+type Props = {
   onSubmitHandler?: (data: LoginFormType) => void
   errorServer?: string
 }
-export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
+export const LoginForm = ({ onSubmitHandler, errorServer }: Props) => {
   const { t } = useTranslate()
   const router = useRouter()
 
@@ -66,10 +64,10 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
           {t.auth.signIn}
         </Typography>
         <div className={s.oauthWrap}>
-          <div onClick={googleOnclickHandler}>
+          <div onClick={authByGoogle}>
             <GoogleIcon />
           </div>
-          <div onClick={gitOnclickHandler}>
+          <div onClick={authByGitHub}>
             <GithubIcon />
           </div>
         </div>
