@@ -1,6 +1,6 @@
 import { StateSchema } from '@/store/types'
 
-const KEY = 'accessToken'
+const KEY = 'signIn'
 
 export function loadState() {
   try {

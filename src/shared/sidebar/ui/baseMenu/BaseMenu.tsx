@@ -1,13 +1,14 @@
 import React from 'react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { getUserId } from '@/features/auth/signIn'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { CreatePostDynamic } from '@/features/posts/createPost'
 import { HomeIcon } from '@/shared/assets/icons/HomeIcon'
 import { MessageIcon } from '@/shared/assets/icons/MessageIcon'
 import { ProfileIcon } from '@/shared/assets/icons/ProfileIcon'
 import { SearchIcon } from '@/shared/assets/icons/SearchIcon'
 import { RouteNames, variantIconLink } from '@/shared/const'
-import { getUserId } from '@/shared/hoc'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
 import s from '@/shared/sidebar/ui/baseMenu/baseMenu.module.scss'

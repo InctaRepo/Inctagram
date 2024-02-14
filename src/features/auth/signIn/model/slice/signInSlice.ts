@@ -13,9 +13,15 @@ export const signInSlice = createSlice({
     clearToken: state => {
       state.accessToken = null
     },
+    setId: (state, action: PayloadAction<SignInSchema>) => {
+      state.id = action.payload.id
+    },
+    clearId: state => {
+      state.id = null
+    },
   },
 })
 
-export const { setToken, clearToken } = signInSlice.actions
+export const { setToken, clearToken, clearId, setId } = signInSlice.actions
 
 export const { reducer: signInReducer } = signInSlice
