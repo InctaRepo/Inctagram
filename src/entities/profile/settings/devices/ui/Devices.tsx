@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
+import { useRouter } from 'next/router'
 
 import {
   useDeleteAllSessionsMutation,
@@ -10,6 +12,7 @@ import s from '@/entities/profile/settings/devices/ui/devices.module.scss'
 import Chrome from '@/public/icon/chromeIcon.svg'
 import Phone from '@/public/icon/phoneIcon.svg'
 import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
+import { resultCode, RouteNames } from '@/shared/const'
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
 import { Loader } from '@/ui/loader'
@@ -17,6 +20,7 @@ import { Typography } from '@/ui/typography'
 
 export const Devices = () => {
   const { t } = useTranslate()
+  const router = useRouter()
   const { data: sessions, isLoading } = useGetSessionsQuery()
   const [deleteAllSessions, {}] = useDeleteAllSessionsMutation()
   const [deleteSession, {}] = useDeleteThisSessionsMutation()
@@ -24,11 +28,16 @@ export const Devices = () => {
     deleteAllSessions()
   }
 
+  useEffect(() => {
+    if (sessions?.resultCode == resultCode.UNAUTHORIZED) {
+      router.push(RouteNames.SIGN_IN)
+    }
+  }, [sessions?.resultCode])
   if (isLoading) return <Loader />
 
   return (
     <>
-      {sessions && (
+      {sessions?.data && (
         <div className={s.device}>
           <div className={s.currentDeviceWrapper}>
             <Typography variant={'h3'} className={s.currentDevice}>

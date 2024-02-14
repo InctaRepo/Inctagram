@@ -167,7 +167,7 @@ export const GeneralInformation = () => {
       dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData.dateOfBirth}`) : new Date(),
       country: userData?.country,
       city: userData?.city,
-      aboutMe: userData?.aboutMe,
+      aboutMe: userData?.aboutMe || '',
       avatar: userData?.avatar || '',
     },
   })
