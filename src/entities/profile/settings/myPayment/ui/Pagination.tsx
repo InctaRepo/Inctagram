@@ -1,4 +1,4 @@
-import { FC } from 'react'
+// import { FC } from 'react'
 
 import classnames from 'classnames'
 
@@ -20,7 +20,8 @@ type PaginationConditionals =
   | {
       onChange?: never
     }
-export type PaginationProps = {
+
+type Props = {
   onChange: (page: number) => void
 
   siblings?: number
@@ -30,11 +31,14 @@ export type PaginationProps = {
   className: string
 } & PaginationConditionals
 
-export const MyPayment: FC<PaginationProps> = props => {
-  //vereadarcnuma
-  const { onChange, totalCount, siblings = 1, currentPage, pageSize, className } = props
-  //implementation usePagination  to Pagination page
-
+export const MyPayment = ({
+  onChange,
+  siblings,
+  currentPage,
+  totalCount,
+  pageSize,
+  className,
+}: Props) => {
   const paginationRange = usePagination({
     currentPage,
     totalCount,
@@ -65,8 +69,6 @@ export const MyPayment: FC<PaginationProps> = props => {
         })}
         onClick={onPrevious}
       >
-        {/* <chevronRighticon></chevronRighticon> */}
-
         <KeyboardArrowLeft />
       </Typography>
 

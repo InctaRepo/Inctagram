@@ -6,6 +6,7 @@ import data from './data/mock-data.json'
 import s from './style.module.scss'
 
 import { Typography } from '@/ui/typography'
+// import { DOTS, usePagination } from './hook/usePagination'
 
 let PageSize = 10
 
