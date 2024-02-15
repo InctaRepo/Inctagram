@@ -2,8 +2,10 @@ import React, { FC, memo, ReactNode, useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { getUserId } from '@/features/auth/signIn'
 import { RouteNames } from '@/shared/const'
-import { getUserId, useGetMeQuery } from '@/shared/hoc'
+import { useGetMeQuery } from '@/shared/hoc'
 import { useAppSelector } from '@/shared/hooks'
 import { LoaderLogo } from '@/ui/loaderLogo'
 

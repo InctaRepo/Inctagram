@@ -2,7 +2,7 @@ import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/qu
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { clearToken, setToken } from '@/features/auth/signIn'
+import { clearId, clearToken, setToken } from '@/features/auth/signIn'
 import { BaseResponse } from '@/shared/api/baseResponse'
 import { BASE_URL, resultCode, RouteNames } from '@/shared/const'
 import { AppRootState } from '@/store'
@@ -47,6 +47,7 @@ export const baseQueryWithReAuth: BaseQueryFn<
       result = await baseQuery(args, api, extraOptions)
     } else {
       api.dispatch(clearToken())
+      api.dispatch(clearId())
     }
   }
 
