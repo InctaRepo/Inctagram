@@ -14,7 +14,7 @@ const baseQuery = fetchBaseQuery({
     if (typeof window === 'undefined') {
       return headers
     }
-    const accessToken = (getState() as AppRootState).signIn.accessToken
+    const accessToken = (getState() as AppRootState).signIn.accessToken!
 
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
