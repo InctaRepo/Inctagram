@@ -4,8 +4,9 @@ import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 
 import { setToken } from '@/features/auth/signIn'
-import { ThirdPartyAuthPage } from '@/features/auth/signIn/authByThirdParty'
-import { Typography } from '@/ui/typography'
+import { RouteNames } from '@/shared/const'
+import { useGetMeQuery } from '@/shared/hoc'
+import { Loader } from '@/ui/loader'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 const SuccessPage = () => {
@@ -13,19 +14,26 @@ const SuccessPage = () => {
   const router = useRouter()
   const { token } = router.query
   const [tokenStatus, setTokenStatus] = useState(false)
+  const { data: user, isSuccess: isSuccessMe, isLoading } = useGetMeQuery()
+  const userId = user?.data?.userId
 
   useEffect(() => {
-    if (token) {
+    if (isSuccessMe && userId) {
+      router.push(RouteNames.PROFILE + '/' + userId)
+    }
+  }, [tokenStatus])
+
+  useEffect(() => {
+    if (token !== undefined) {
       dispatch(setToken({ accessToken: token as string }))
       setTokenStatus(true)
     }
-  }, [token])
+  }, [token!])
+  if (isLoading) {
+    return <Loader />
+  }
 
-  return tokenStatus ? (
-    <ThirdPartyAuthPage></ThirdPartyAuthPage>
-  ) : (
-    <Typography variant={'h3'}>Loading...</Typography>
-  )
+  return <></>
 }
 
 SuccessPage.getLayout = getAuthLayout
