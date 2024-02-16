@@ -93,27 +93,3 @@ export const AccountManagement = ({}: Props) => {
     </>
   )
 }
-// import React from 'react';
-// import * as RadioGroup from '@radix-ui/react-radio-group';
-// import './styles.css';
-//
-// const RadioGroupDemo = () => {
-//   const dataGroupe=[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'}]
-//   const [data,setData]=React.useState<typeof dataGroupe>(dataGroupe)
-//   return(
-//     <div>
-//       {data.map((el)=>(
-//         <RadioGroup.Root key={el.value}className="RadioGroupRoot" defaultValue={'1'} aria-label="View density" onValueChange={()=>{console.log(el.value)}}>
-//           <div style={{ display: 'flex', alignItems: 'center' }}>
-//             <RadioGroup.Item className="RadioGroupItem" value={el.value} id={el.value} >
-//               <RadioGroup.Indicator className="RadioGroupIndicator" />
-//             </RadioGroup.Item>
-//             <label className="Label" htmlFor="r1">
-//               {el.label}
-//             </label>
-//           </div>
-//         </RadioGroup.Root>
-//       ))}
-//     </div>)};
-//
-// export default RadioGroupDemo;
