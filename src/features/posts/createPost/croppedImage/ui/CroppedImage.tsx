@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import Slider from 'react-slick'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { SliderSettings } from '@/entities/post/sliderSettings'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
 import { GetCroppedImg } from '@/features/posts/createPost/croppedImage/ui/Crop'
 import s from '@/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
 import { CropArg, EasyCrop } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
@@ -13,6 +12,8 @@ import { Add } from '@/features/posts/createPost/editPhoto/add/Add'
 import { Cropping } from '@/features/posts/createPost/editPhoto/crop/Cropping'
 import { Zoom } from '@/features/posts/createPost/editPhoto/zoom/Zoom'
 import { useTranslate } from '@/shared/hooks'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
 
 type Props = {
   image?: string
@@ -21,20 +22,19 @@ type Props = {
   setAddedImages: (addedImages: Image[]) => void
 }
 
-const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
+const CroppedImage = ({ addedImages, setAddedImages }: Props) => {
   const [index, setIndex] = useState<number>(0)
   const [zoomValue, setZoomValue] = useState(1)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [aspectRatio, setAspectRatio] = useState(3 / 4)
-  const [croppedImage, setCroppedImage] = useState<string | undefined>(undefined)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArg | null>(null)
   const { t } = useTranslate()
 
-  useEffect(() => {
-    setAddedImages(addedImages)
-  }, [addedImages])
-
-  const showCroppedImg = async (image: string | undefined, croppedAreaPixels: CropArg | null) => {
+  const applyCroppingHandler = async (
+    image: string | undefined,
+    croppedAreaPixels: CropArg | null,
+    activeFilter: ImageFilter
+  ) => {
     if (croppedAreaPixels && image) {
       try {
         {
@@ -43,8 +43,7 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
           if (!croppedImage) {
             return null
           }
-          setCroppedImage(croppedImage)
-          addedImages[index] = { image: croppedImage }
+          addedImages[index] = { image: croppedImage, activeFilter }
         }
       } catch (e) {
         console.error(e)
@@ -80,17 +79,12 @@ const CroppedImage = ({ image, addedImages, setAddedImages }: Props) => {
                       />
                       <Zoom className={s.maximize} zoom={zoomValue} setZoom={setZoomValue} />
                     </div>
-                    <div>
-                      <Add
-                        image={croppedImage ? croppedImage : image}
-                        addedImages={addedImages}
-                        setAddedImages={setAddedImages}
-                        croppedImage={croppedImage}
-                      />
-                    </div>
+                    <Add addedImages={addedImages} setAddedImages={setAddedImages} />
                   </div>
                   <button
-                    onClick={() => showCroppedImg(el.image, croppedAreaPixels)}
+                    onClick={() =>
+                      applyCroppingHandler(el.image, croppedAreaPixels, el.activeFilter)
+                    }
                     color="primary"
                     className={s.button}
                   >
