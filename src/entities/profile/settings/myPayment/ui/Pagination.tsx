@@ -1,12 +1,8 @@
-// import { FC } from 'react'
-
-import classnames from 'classnames'
+import clsx from 'clsx'
 
 import { DOTS, usePagination } from './hook/usePagination'
 
 import s from 'src/entities/profile/settings/myPayment/ui/myPayment.module.scss'
-
-// import s from './myPayment.module.scss'
 
 import KeyboardArrowLeft from '/public/icon/chevronLeftIcon.svg'
 import KeyboardArrowRight from '/public/icon/chevronRightIcon.svg'
@@ -48,6 +44,7 @@ export const MyPayment = ({
 
   if (currentPage === 0 || paginationRange.length < 2) {
     return null
+    //dwew
   }
 
   const onNext = () => {
@@ -61,10 +58,10 @@ export const MyPayment = ({
   let lastPage = paginationRange[paginationRange.length - 1]
 
   return (
-    <Typography as="ul" className={classnames(s.paginationContainer, { [className]: className })}>
+    <Typography as="ul" className={clsx(s.paginationContainer, { [className]: className })}>
       <Typography
         as="li"
-        className={classnames(s.paginationItem, {
+        className={clsx(s.paginationItem, {
           disabled: currentPage === 1,
         })}
         onClick={onPrevious}
@@ -85,7 +82,7 @@ export const MyPayment = ({
           <Typography
             key={pageNumber}
             as="li"
-            className={classnames(`${s.paginationItem} `, {
+            className={clsx(`${s.paginationItem} `, {
               selected: pageNumber === currentPage,
             })}
             onClick={() => onChange(pageNumber)}
@@ -97,7 +94,7 @@ export const MyPayment = ({
 
       <Typography
         as="li"
-        className={classnames(s.paginationItem, {
+        className={clsx(s.paginationItem, {
           disabled: currentPage === lastPage,
         })}
         onClick={onNext}
