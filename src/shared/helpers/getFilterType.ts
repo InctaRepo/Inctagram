@@ -1,6 +1,6 @@
-import { ImageFiltersType } from '../types'
+import { ImageFilter } from '../types/posts/postsTypes'
 
-export const getFilterType = (filter: string): ImageFiltersType => {
+export const getFilterType = (filter: string): ImageFilter => {
   switch (filter) {
     case 'No filter':
       return 'none'

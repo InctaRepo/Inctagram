@@ -10,12 +10,13 @@ import { filtersVariant } from '@/features/posts/createPost/editPhoto/filters/se
 import s from '@/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 import airBalloon from '@/public/images/airBalloonImage.jpg'
 import { getFilterType } from '@/shared/helpers'
-import { Image, ImageFiltersType } from '@/shared/types'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
 import { Typography } from '@/ui/typography'
 
 type Props = {
   addedImages: Image[]
-  setActiveFilter: (activeFilter: ImageFiltersType) => void
+  setActiveFilter: (activeFilter: ImageFilter) => void
   setAddedImages: (addedImages: Image[]) => void
 }
 

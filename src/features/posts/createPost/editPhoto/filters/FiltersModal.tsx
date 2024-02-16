@@ -18,7 +18,8 @@ import { useAddPostMutation } from '@/features/posts/service'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
 import { filteredImg } from '@/shared/helpers/filteredImg'
 import { useTranslate } from '@/shared/hooks'
-import { Image, ImageFiltersType } from '@/shared/types'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
 import { Button } from '@/ui/button'
 import { Typography } from '@/ui/typography'
 
@@ -35,8 +36,8 @@ export type ModalProps = {
   className?: string
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  activeFilter: ImageFiltersType
-  setActiveFilter: (activeFilter: ImageFiltersType) => void
+  activeFilter: ImageFilter
+  setActiveFilter: (activeFilter: ImageFilter) => void
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image: string | undefined) => void
   openSureModal: boolean
@@ -56,7 +57,6 @@ export const FiltersModal = ({
   children,
   addedImages,
   setAddedImages,
-  activeFilter,
   setActiveFilter,
   setOpenSureModal,
   setIsBaseModalOpen,

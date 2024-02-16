@@ -16,7 +16,8 @@ import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/Filt
 import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
 import { useTranslate } from '@/shared/hooks'
-import { Image, ImageFiltersType } from '@/shared/types'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
 import { Typography } from '@/ui/typography'
 
 type Props = {
@@ -66,15 +67,11 @@ export const CropModal = ({
     ),
   }
   const [isModalOpen, setIsModalOpen] = useState(true)
-  const [activeFilter, setActiveFilter] = useState<ImageFiltersType>('none')
+  const [activeFilter, setActiveFilter] = useState<ImageFilter>('none')
   const [openSureModal, setOpenSureModal] = useState<boolean>(false)
   const areYouSureRef = useRef(null)
 
   const { t } = useTranslate()
-
-  const actionButtonHandler = () => {
-    onAction?.()
-  }
 
   const cancelButtonHandler = () => {
     onCancel?.()
@@ -86,7 +83,7 @@ export const CropModal = ({
     setAddedImages([])
   }
 
-  const setFilterHandler = (activeFilter: ImageFiltersType) => {
+  const setFilterHandler = (activeFilter: ImageFilter) => {
     setActiveFilter(activeFilter)
   }
 

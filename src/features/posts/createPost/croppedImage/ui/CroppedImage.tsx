@@ -12,7 +12,8 @@ import { Add } from '@/features/posts/createPost/editPhoto/add/Add'
 import { Cropping } from '@/features/posts/createPost/editPhoto/crop/Cropping'
 import { Zoom } from '@/features/posts/createPost/editPhoto/zoom/Zoom'
 import { useTranslate } from '@/shared/hooks'
-import { Image, ImageFiltersType } from '@/shared/types'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
 
 type Props = {
   image?: string
@@ -32,7 +33,7 @@ const CroppedImage = ({ addedImages, setAddedImages }: Props) => {
   const applyCroppingHandler = async (
     image: string | undefined,
     croppedAreaPixels: CropArg | null,
-    activeFilter: ImageFiltersType
+    activeFilter: ImageFilter
   ) => {
     if (croppedAreaPixels && image) {
       try {
