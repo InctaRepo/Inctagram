@@ -10,16 +10,10 @@ import ImgOutline from '@/public/icon/imgOutlineIcon.svg'
 import { RouteNames, variantIconLink } from '@/shared/const'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
+import { Image } from '@/shared/types'
 import { Button } from '@/ui/button'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
-
-export type Image = {
-  image?: string
-  id?: string
-  croppedImage?: string
-  fileName?: string
-}
 
 export const CreateNewPost = () => {
   const { t } = useTranslate()
@@ -28,14 +22,20 @@ export const CreateNewPost = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [image, setImage] = useState<string | undefined>(undefined)
   const [addedImages, setAddedImages] = useState<Image[]>([])
+  const [draftOfImages, setDraftOfImages] = useState<Image[]>([])
+  const [isDraftUploaded, setIsDraftUploaded] = useState(false)
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
-  const handleButtonClick = () => {
+
+  const imagesForUpload = isDraftUploaded ? draftOfImages : addedImages
+
+  const handleCloseCreateModal = () => {
     setIsBaseModalOpen(false)
     setImage(undefined)
     setIsModalOpen(false)
     dispatch(setVariantIcon(null))
   }
+
   const cancelButtonClick = () => {
     setIsBaseModalOpen(false)
     setIsModalOpen(false)
@@ -43,11 +43,13 @@ export const CreateNewPost = () => {
   }
 
   const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    setIsDraftUploaded(false)
     if (e.target.files && e.target.files.length) {
       setAddedImages([
         {
           image: URL.createObjectURL(e.target.files[0]),
           fileName: e.target.files[0].name,
+          activeFilter: 'none',
         },
       ])
       setIsBaseModalOpen(false)
@@ -63,6 +65,19 @@ export const CreateNewPost = () => {
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
+
+  const handleSaveDraft = () => {
+    setDraftOfImages([...addedImages])
+    setIsModalOpen(false)
+  }
+
+  const handleOpenDraft = () => {
+    if (!draftOfImages.length) return
+    setIsDraftUploaded(true)
+    setIsBaseModalOpen(false)
+    setIsModalOpen(true)
+  }
+
   const styles = {
     check: clsx(s.btn, `${RouteNames.CREATE_POST}`.startsWith('/' + variantIcon) && s.active),
   }
@@ -74,7 +89,7 @@ export const CreateNewPost = () => {
           className={s.baseModal}
           modalWidth={'md'}
           open={isBaseModalOpen}
-          onClose={handleButtonClick}
+          onClose={handleCloseCreateModal}
           title={t.posts.createPost.addPostPhoto}
         >
           <div className={`${s.photoContainer} ${image === null ? s.emptyPhotoContainer : ''}`}>
@@ -83,6 +98,11 @@ export const CreateNewPost = () => {
           <div className={s.selectPhoto}>
             <Button variant={'primary'} onClick={selectFileHandler} className={s.btnSelect}>
               <Typography variant={'h3'}>{t.posts.createPost.selectFromComputer}</Typography>
+            </Button>
+            <Button variant={'outlined'} onClick={handleOpenDraft} className={s.btnOpenDraft}>
+              <Typography className={s.btnOpenDraftText} variant={'h3'}>
+                {t.posts.createPost.openDraft}
+              </Typography>
             </Button>
             <input
               type="file"
@@ -97,19 +117,19 @@ export const CreateNewPost = () => {
         <CropModal
           image={image}
           open={isModalOpen}
-          onClose={handleButtonClick}
+          onClose={handleCloseCreateModal}
           onCancel={cancelButtonClick}
           title={t.posts.createPost.cropping}
-          addedImages={addedImages}
+          addedImages={imagesForUpload}
           setAddedImages={setAddedImages}
-          isBaseModalOpen={isBaseModalOpen}
           setIsBaseModalOpen={setIsBaseModalOpen}
           setImage={setImage}
+          handleSaveDraft={handleSaveDraft}
         >
           <CroppedImage
             image={image}
             setImage={setImage}
-            addedImages={addedImages}
+            addedImages={imagesForUpload}
             setAddedImages={setAddedImages}
           />
         </CropModal>

@@ -11,12 +11,13 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
 import s from '@/features/posts/createPost/cropModal/ui/cropModal.module.scss'
 import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
 import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
 import { useTranslate } from '@/shared/hooks'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
 import { Typography } from '@/ui/typography'
 
 type Props = {
@@ -33,9 +34,9 @@ type Props = {
   className?: string
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  isBaseModalOpen: boolean
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image: string | undefined) => void
+  handleSaveDraft: () => void
 } & ComponentProps<'div'>
 
 export const CropModal = ({
@@ -51,9 +52,9 @@ export const CropModal = ({
   children,
   addedImages,
   setAddedImages,
-  isBaseModalOpen,
   setIsBaseModalOpen,
   setImage,
+  handleSaveDraft,
 }: Props) => {
   const classNames = {
     content: getContentClassName(className),
@@ -66,14 +67,12 @@ export const CropModal = ({
     ),
   }
   const [isModalOpen, setIsModalOpen] = useState(true)
-  const [activeFilter, setActiveFilter] = useState('')
+  const [activeFilter, setActiveFilter] = useState<ImageFilter>('none')
   const [openSureModal, setOpenSureModal] = useState<boolean>(false)
   const areYouSureRef = useRef(null)
 
   const { t } = useTranslate()
-  const actionButtonHandler = () => {
-    onAction?.()
-  }
+
   const cancelButtonHandler = () => {
     onCancel?.()
   }
@@ -82,6 +81,10 @@ export const CropModal = ({
     setIsModalOpen(false)
     setIsBaseModalOpen(true)
     setAddedImages([])
+  }
+
+  const setFilterHandler = (activeFilter: ImageFilter) => {
+    setActiveFilter(activeFilter)
   }
 
   return (
@@ -105,17 +108,15 @@ export const CropModal = ({
                     onCancel={cancelButtonHandler}
                     title={t.posts.createPost.filters}
                     activeFilter={activeFilter}
-                    setActiveFilter={setActiveFilter}
+                    setActiveFilter={setFilterHandler}
                     setIsBaseModalOpen={setIsBaseModalOpen}
                     setImage={setImage}
                     openSureModal={openSureModal}
                     setOpenSureModal={setOpenSureModal}
                   >
                     <SelectedImages
-                      image={image}
                       addedImages={addedImages}
                       setActiveFilter={setActiveFilter}
-                      activeFilter={activeFilter}
                       setAddedImages={setAddedImages}
                     />
                   </FiltersModal>
@@ -132,6 +133,7 @@ export const CropModal = ({
                   setIsModalOpen={setIsModalOpen}
                   setIsBaseModalOpen={setIsBaseModalOpen}
                   setImage={setImage}
+                  handleSaveDraft={handleSaveDraft}
                 />
               </div>
               <div className={s.contentBox}>{children}</div>

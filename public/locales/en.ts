@@ -266,6 +266,7 @@ export const en: LocaleType = {
         'Do you really want to close the creation of a publication? If you close everything will be deleted',
       discard: 'Discard',
       saveDraft: 'Safe draft',
+      openDraft: 'Open draft',
       close: 'Close',
     },
     editPost: {

@@ -59,6 +59,7 @@ export const BaseModal = ({
   const actionButtonHandler = () => {
     onAction?.()
   }
+
   const cancelButtonHandler = () => {
     onCancel?.()
   }
