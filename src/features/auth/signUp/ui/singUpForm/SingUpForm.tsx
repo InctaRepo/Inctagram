@@ -122,7 +122,7 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
         <Typography variant={'regular16'} className={s.subtitle}>
           {t.auth.haveAccount}
         </Typography>
-        <Button variant="link" color={'link'} onClick={() => router.push('/')}>
+        <Button variant="link" color={'link'} onClick={() => router.push(RouteNames.SIGN_IN)}>
           {t.auth.signIn}
         </Button>
       </div>
