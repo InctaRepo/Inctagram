@@ -97,7 +97,7 @@ export const FiltersModal = ({
   const sendFilteredImg = async () => {
     await Promise.all(
       addedImages.map(async (el, idx) => {
-        const filteredImage = await filteredImg(el.image, activeFilter)
+        const filteredImage = await filteredImg(el.image, el.activeFilter)
 
         if (!filteredImage) {
           return null

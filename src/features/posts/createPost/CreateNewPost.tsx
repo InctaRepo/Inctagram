@@ -27,6 +27,9 @@ export const CreateNewPost = () => {
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
 
+  console.log(addedImages)
+  console.log(draftOfImages)
+
   const imagesForUpload = isDraftUploaded ? draftOfImages : addedImages
 
   const handleCloseCreateModal = () => {
@@ -72,6 +75,7 @@ export const CreateNewPost = () => {
   }
 
   const handleOpenDraft = () => {
+    if (!draftOfImages.length) return
     setIsDraftUploaded(true)
     setIsBaseModalOpen(false)
     setIsModalOpen(true)
