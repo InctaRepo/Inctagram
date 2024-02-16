@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
 import s from '@/features/auth/signUp/ui/singUpForm/singUpForm.module.scss'
+import { authByGitHub, authByGoogle } from '@/features/auth/successGoogleGitHub'
 import GithubIcon from '@/public/icon/gitHubIcon.svg'
 import GoogleIcon from '@/public/icon/googleIcon.svg'
 import { RouteNames } from '@/shared/const'
@@ -62,14 +63,12 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
           {t.auth.signUp}
         </Typography>
         <div className={s.authIcons}>
-          <Link href={'/google'}>
-            {/*TODO link oAuth 2.0 backend url*/}
+          <div onClick={authByGoogle}>
             <GoogleIcon />
-          </Link>
-          <Link href={'/github'}>
-            {/*TODO link oAuth 2.0 backend url*/}
+          </div>
+          <div onClick={authByGitHub}>
             <GithubIcon />
-          </Link>
+          </div>
         </div>
         <form onSubmit={onSubmit} className={s.form}>
           <ControlledTextField
@@ -123,7 +122,7 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
         <Typography variant={'regular16'} className={s.subtitle}>
           {t.auth.haveAccount}
         </Typography>
-        <Button variant="link" color={'link'} onClick={() => router.push('/')}>
+        <Button variant="link" color={'link'} onClick={() => router.push(RouteNames.SIGN_IN)}>
           {t.auth.signIn}
         </Button>
       </div>

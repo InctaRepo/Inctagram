@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import * as Slider from '@radix-ui/react-slider'
 import Image from 'next/image'
@@ -9,6 +9,7 @@ import { useDeleteAvatarMutation } from '@/entities/profile/service'
 import DeleteIcon from '@/public/icon/deleteAvaIcon.svg'
 import ImgOutline from '@/public/icon/imgOutlineIcon.svg'
 import DefaultAva from '@/public/images/avatarIcon.jpg'
+import { convertFileToBase64 } from '@/shared/helpers/convertFileToBase64'
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
 import { InputTypeFile } from '@/ui/inputTypeFile'
@@ -17,29 +18,12 @@ import { Typography } from '@/ui/typography'
 
 type Props = {
   avatar: string
-  setAvatar?: (avatar: string | null) => void
-  isModalOpen: boolean
-  setIsModalOpen: (isModalOpen: boolean) => void
-  selectedImage: File | null
-  setSelectedImage: (selectedImage: File | null) => void
-  editorRef: React.RefObject<AvatarEditor>
-  handleSavePhoto: () => void
-  croppedAvatar: string | null
-  setCroppedAvatar: (croppedAvatar: string | null) => void
+  setAvatar?: (avatar: FormData | null) => void
 }
 
-export const AvaModal = ({
-  avatar,
-  croppedAvatar,
-  setCroppedAvatar,
-  isModalOpen,
-  setIsModalOpen,
-  selectedImage,
-  setSelectedImage,
-  editorRef,
-  handleSavePhoto,
-}: Props) => {
+export const AvaModal = ({ avatar, setAvatar }: Props) => {
   const { t } = useTranslate()
+  const editorRef = useRef<AvatarEditor>(null)
   const [slideValue, setSlideValue] = useState<number>(10)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
   const [errorMessage, setErrorMessage] = useState('')
@@ -47,6 +31,9 @@ export const AvaModal = ({
   const showError = !!errorMessage && errorMessage.length > 0
   const [deleteAvatar] = useDeleteAvatarMutation()
   const [isAvaBroken, setIsAvaBroken] = useState(false)
+  const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const handlePositionChange = (position: { x: number; y: number }) => {
     setPosition(position)
   }
@@ -55,7 +42,28 @@ export const AvaModal = ({
     setSelectedImage(null)
     setErrorMessage('')
   }
+  const handleSavePhoto = () => {
+    if (editorRef.current) {
+      const canvas = editorRef.current.getImageScaledToCanvas()
 
+      canvas.toBlob(blob => {
+        if (blob) {
+          const file = new File([blob], 'avatar', { type: blob.type })
+          const formData = new FormData()
+
+          formData.append('file', file)
+          convertFileToBase64(file, (file64: string) => {
+            setCroppedAvatar(file64)
+          })
+          if (setAvatar) {
+            setAvatar(formData)
+          }
+          setIsModalOpen(false)
+          setSelectedImage(null)
+        }
+      })
+    }
+  }
   const isError =
     errorMessage?.includes('Error! Photo size must be less than 10 MB') ||
     errorMessage?.includes('Ошибка! Размер фото не должен превышать 10 MB') ||
