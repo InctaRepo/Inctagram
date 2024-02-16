@@ -1,0 +1,7002 @@
+[
+    {
+      "DateOfPayment": "09.04.2022",
+      "EndDateSubscription": "01.08.2022",
+      "Price": "$7.35",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.18.2022",
+      "EndDateSubscription": "07.09.2022",
+      "Price": "$26.98",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.08.2022",
+      "EndDateSubscription": "11.28.2022",
+      "Price": "$24.78",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.14.2022",
+      "EndDateSubscription": "08.27.2022",
+      "Price": "$27.55",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.24.2022",
+      "EndDateSubscription": "05.19.2022",
+      "Price": "$16.43",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.26.2022",
+      "EndDateSubscription": "07.23.2022",
+      "Price": "$48.87",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.04.2022",
+      "EndDateSubscription": "05.17.2022",
+      "Price": "$32.36",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.20.2022",
+      "EndDateSubscription": "11.06.2022",
+      "Price": "$32.41",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.27.2022",
+      "EndDateSubscription": "04.07.2022",
+      "Price": "$29.58",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$22.96",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.16.2022",
+      "EndDateSubscription": "07.06.2022",
+      "Price": "$38.90",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.11.2022",
+      "EndDateSubscription": "02.10.2022",
+      "Price": "$39.91",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.12.2022",
+      "EndDateSubscription": "05.26.2022",
+      "Price": "$21.08",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.06.2022",
+      "EndDateSubscription": "05.10.2022",
+      "Price": "$33.36",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.02.2022",
+      "EndDateSubscription": "10.24.2022",
+      "Price": "$8.39",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.05.2022",
+      "EndDateSubscription": "11.03.2022",
+      "Price": "$25.44",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.28.2022",
+      "EndDateSubscription": "11.01.2022",
+      "Price": "$27.29",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.10.2022",
+      "EndDateSubscription": "10.26.2022",
+      "Price": "$40.49",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.16.2022",
+      "EndDateSubscription": "05.24.2022",
+      "Price": "$45.05",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.22.2022",
+      "EndDateSubscription": "09.22.2022",
+      "Price": "$37.64",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.28.2022",
+      "EndDateSubscription": "12.23.2022",
+      "Price": "$37.01",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.12.2022",
+      "EndDateSubscription": "07.15.2022",
+      "Price": "$14.81",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.08.2022",
+      "EndDateSubscription": "09.19.2022",
+      "Price": "$25.73",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.07.2022",
+      "EndDateSubscription": "10.14.2022",
+      "Price": "$6.60",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "11.16.2022",
+      "Price": "$48.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "10.05.2022",
+      "Price": "$47.61",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.09.2022",
+      "EndDateSubscription": "02.07.2022",
+      "Price": "$42.49",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.11.2022",
+      "EndDateSubscription": "12.27.2022",
+      "Price": "$20.73",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.08.2022",
+      "EndDateSubscription": "01.03.2022",
+      "Price": "$36.92",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.23.2022",
+      "EndDateSubscription": "11.04.2022",
+      "Price": "$29.60",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.13.2022",
+      "EndDateSubscription": "02.19.2022",
+      "Price": "$19.99",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.03.2022",
+      "EndDateSubscription": "01.10.2022",
+      "Price": "$49.11",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.28.2022",
+      "EndDateSubscription": "02.09.2022",
+      "Price": "$44.37",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.13.2022",
+      "EndDateSubscription": "04.23.2022",
+      "Price": "$21.26",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.30.2022",
+      "EndDateSubscription": "10.28.2022",
+      "Price": "$29.04",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.15.2022",
+      "EndDateSubscription": "05.20.2022",
+      "Price": "$30.00",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.21.2022",
+      "EndDateSubscription": "01.12.2022",
+      "Price": "$46.42",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.06.2022",
+      "EndDateSubscription": "05.03.2022",
+      "Price": "$5.04",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.21.2022",
+      "EndDateSubscription": "04.12.2022",
+      "Price": "$5.61",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.11.2022",
+      "EndDateSubscription": "02.10.2022",
+      "Price": "$6.87",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.13.2022",
+      "EndDateSubscription": "12.10.2022",
+      "Price": "$29.51",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.02.2022",
+      "EndDateSubscription": "07.31.2022",
+      "Price": "$26.19",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.17.2022",
+      "EndDateSubscription": "08.20.2022",
+      "Price": "$23.68",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.07.2022",
+      "EndDateSubscription": "11.21.2022",
+      "Price": "$17.94",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.16.2022",
+      "EndDateSubscription": "01.18.2022",
+      "Price": "$14.17",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.07.2022",
+      "EndDateSubscription": "06.16.2022",
+      "Price": "$42.66",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.27.2022",
+      "EndDateSubscription": "01.03.2022",
+      "Price": "$29.32",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.21.2022",
+      "EndDateSubscription": "05.28.2022",
+      "Price": "$20.46",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.13.2022",
+      "EndDateSubscription": "10.19.2022",
+      "Price": "$19.83",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.23.2022",
+      "EndDateSubscription": "07.22.2022",
+      "Price": "$37.46",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "03.07.2022",
+      "Price": "$32.27",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "11.14.2022",
+      "Price": "$35.09",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.12.2022",
+      "EndDateSubscription": "09.11.2022",
+      "Price": "$43.94",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.02.2022",
+      "EndDateSubscription": "02.03.2022",
+      "Price": "$24.34",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.29.2022",
+      "EndDateSubscription": "07.05.2022",
+      "Price": "$44.85",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.11.2022",
+      "EndDateSubscription": "08.01.2022",
+      "Price": "$33.24",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.09.2022",
+      "EndDateSubscription": "02.27.2022",
+      "Price": "$23.99",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.10.2022",
+      "EndDateSubscription": "01.30.2022",
+      "Price": "$46.42",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.22.2022",
+      "EndDateSubscription": "10.16.2022",
+      "Price": "$11.65",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "05.30.2022",
+      "Price": "$38.04",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.10.2022",
+      "EndDateSubscription": "01.12.2022",
+      "Price": "$34.41",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.20.2022",
+      "EndDateSubscription": "11.23.2022",
+      "Price": "$21.46",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.02.2022",
+      "EndDateSubscription": "02.13.2022",
+      "Price": "$46.65",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.05.2022",
+      "EndDateSubscription": "08.24.2022",
+      "Price": "$7.07",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.09.2022",
+      "EndDateSubscription": "03.26.2022",
+      "Price": "$33.86",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.18.2022",
+      "EndDateSubscription": "03.15.2022",
+      "Price": "$34.95",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.13.2022",
+      "EndDateSubscription": "08.20.2022",
+      "Price": "$22.29",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.26.2022",
+      "EndDateSubscription": "08.31.2022",
+      "Price": "$34.22",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.11.2022",
+      "EndDateSubscription": "02.12.2022",
+      "Price": "$31.99",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.09.2022",
+      "EndDateSubscription": "03.09.2022",
+      "Price": "$30.33",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.18.2022",
+      "EndDateSubscription": "05.31.2022",
+      "Price": "$13.31",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.04.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$24.43",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.03.2022",
+      "EndDateSubscription": "10.14.2022",
+      "Price": "$15.61",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.31.2022",
+      "EndDateSubscription": "05.27.2022",
+      "Price": "$31.34",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.25.2022",
+      "EndDateSubscription": "06.02.2022",
+      "Price": "$15.46",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.25.2022",
+      "EndDateSubscription": "02.13.2022",
+      "Price": "$41.77",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.01.2022",
+      "EndDateSubscription": "02.26.2022",
+      "Price": "$27.63",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.21.2022",
+      "EndDateSubscription": "06.03.2022",
+      "Price": "$25.56",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.24.2022",
+      "EndDateSubscription": "02.11.2022",
+      "Price": "$15.39",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.11.2022",
+      "EndDateSubscription": "06.14.2022",
+      "Price": "$21.00",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.30.2022",
+      "EndDateSubscription": "04.11.2022",
+      "Price": "$9.48",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.25.2022",
+      "EndDateSubscription": "09.11.2022",
+      "Price": "$23.00",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.12.2022",
+      "EndDateSubscription": "07.12.2022",
+      "Price": "$23.01",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.27.2022",
+      "EndDateSubscription": "07.07.2022",
+      "Price": "$20.45",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.15.2022",
+      "EndDateSubscription": "05.01.2022",
+      "Price": "$29.85",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.30.2022",
+      "EndDateSubscription": "06.12.2022",
+      "Price": "$38.69",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.28.2022",
+      "EndDateSubscription": "08.02.2022",
+      "Price": "$37.40",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.03.2022",
+      "EndDateSubscription": "05.28.2022",
+      "Price": "$26.92",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.12.2022",
+      "EndDateSubscription": "01.09.2022",
+      "Price": "$43.42",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.12.2022",
+      "EndDateSubscription": "03.08.2022",
+      "Price": "$21.72",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.12.2022",
+      "EndDateSubscription": "10.04.2022",
+      "Price": "$35.04",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.04.2022",
+      "EndDateSubscription": "04.24.2022",
+      "Price": "$49.24",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.03.2022",
+      "EndDateSubscription": "04.06.2022",
+      "Price": "$12.55",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.27.2022",
+      "EndDateSubscription": "08.16.2022",
+      "Price": "$46.65",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.25.2022",
+      "EndDateSubscription": "09.20.2022",
+      "Price": "$10.07",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.13.2022",
+      "EndDateSubscription": "03.27.2022",
+      "Price": "$12.12",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.18.2022",
+      "EndDateSubscription": "01.29.2022",
+      "Price": "$31.80",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.26.2022",
+      "EndDateSubscription": "05.16.2022",
+      "Price": "$17.48",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.21.2022",
+      "EndDateSubscription": "07.18.2022",
+      "Price": "$42.72",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.02.2022",
+      "EndDateSubscription": "04.01.2022",
+      "Price": "$18.55",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.08.2022",
+      "EndDateSubscription": "07.28.2022",
+      "Price": "$41.82",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.22.2022",
+      "EndDateSubscription": "11.01.2022",
+      "Price": "$32.08",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.02.2022",
+      "EndDateSubscription": "11.07.2022",
+      "Price": "$29.89",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.30.2022",
+      "EndDateSubscription": "10.28.2022",
+      "Price": "$40.33",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.21.2022",
+      "EndDateSubscription": "08.21.2022",
+      "Price": "$43.37",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.31.2022",
+      "EndDateSubscription": "06.11.2022",
+      "Price": "$9.23",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.07.2022",
+      "EndDateSubscription": "08.07.2022",
+      "Price": "$5.21",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.30.2022",
+      "EndDateSubscription": "09.11.2022",
+      "Price": "$47.80",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.05.2022",
+      "EndDateSubscription": "09.23.2022",
+      "Price": "$37.44",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.12.2022",
+      "EndDateSubscription": "02.11.2022",
+      "Price": "$28.46",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.06.2022",
+      "EndDateSubscription": "01.13.2022",
+      "Price": "$25.62",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.06.2022",
+      "EndDateSubscription": "07.28.2022",
+      "Price": "$14.86",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.25.2022",
+      "EndDateSubscription": "07.23.2022",
+      "Price": "$45.75",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.27.2022",
+      "EndDateSubscription": "08.03.2022",
+      "Price": "$37.68",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.29.2022",
+      "EndDateSubscription": "08.02.2022",
+      "Price": "$46.80",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.21.2022",
+      "EndDateSubscription": "07.06.2022",
+      "Price": "$25.63",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.24.2022",
+      "EndDateSubscription": "07.19.2022",
+      "Price": "$28.70",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.16.2022",
+      "EndDateSubscription": "04.09.2022",
+      "Price": "$21.58",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.14.2022",
+      "EndDateSubscription": "11.26.2022",
+      "Price": "$42.82",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.23.2022",
+      "EndDateSubscription": "05.03.2022",
+      "Price": "$9.17",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.23.2022",
+      "EndDateSubscription": "04.05.2022",
+      "Price": "$10.74",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.28.2022",
+      "EndDateSubscription": "09.18.2022",
+      "Price": "$25.20",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.26.2022",
+      "EndDateSubscription": "03.12.2022",
+      "Price": "$46.61",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.30.2022",
+      "EndDateSubscription": "06.08.2022",
+      "Price": "$19.27",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.18.2022",
+      "EndDateSubscription": "03.03.2022",
+      "Price": "$37.86",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.17.2022",
+      "EndDateSubscription": "01.15.2022",
+      "Price": "$24.74",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.22.2022",
+      "EndDateSubscription": "06.15.2022",
+      "Price": "$12.72",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.22.2022",
+      "EndDateSubscription": "03.03.2022",
+      "Price": "$36.42",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.05.2022",
+      "EndDateSubscription": "11.05.2022",
+      "Price": "$24.59",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.19.2022",
+      "EndDateSubscription": "07.07.2022",
+      "Price": "$28.72",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.19.2022",
+      "EndDateSubscription": "04.18.2022",
+      "Price": "$49.87",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.06.2022",
+      "EndDateSubscription": "01.01.2022",
+      "Price": "$40.38",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.02.2022",
+      "EndDateSubscription": "06.01.2022",
+      "Price": "$19.39",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.23.2022",
+      "EndDateSubscription": "03.30.2022",
+      "Price": "$35.85",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.24.2022",
+      "EndDateSubscription": "06.16.2022",
+      "Price": "$11.06",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.25.2022",
+      "EndDateSubscription": "10.16.2022",
+      "Price": "$19.29",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.07.2022",
+      "EndDateSubscription": "03.23.2022",
+      "Price": "$41.99",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.14.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$20.64",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.31.2022",
+      "EndDateSubscription": "03.16.2022",
+      "Price": "$12.53",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.11.2022",
+      "EndDateSubscription": "09.14.2022",
+      "Price": "$31.15",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.18.2022",
+      "EndDateSubscription": "12.27.2022",
+      "Price": "$38.80",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.29.2022",
+      "EndDateSubscription": "07.27.2022",
+      "Price": "$33.94",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.03.2022",
+      "EndDateSubscription": "07.12.2022",
+      "Price": "$34.81",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.23.2022",
+      "EndDateSubscription": "03.10.2022",
+      "Price": "$25.07",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.08.2022",
+      "EndDateSubscription": "02.18.2022",
+      "Price": "$29.15",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.13.2022",
+      "EndDateSubscription": "06.09.2022",
+      "Price": "$26.28",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.26.2022",
+      "EndDateSubscription": "01.17.2022",
+      "Price": "$7.25",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.14.2022",
+      "EndDateSubscription": "08.19.2022",
+      "Price": "$32.71",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.13.2022",
+      "EndDateSubscription": "02.20.2022",
+      "Price": "$48.48",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.18.2022",
+      "EndDateSubscription": "02.15.2022",
+      "Price": "$8.88",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.27.2022",
+      "EndDateSubscription": "04.28.2022",
+      "Price": "$47.90",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.09.2022",
+      "EndDateSubscription": "10.21.2022",
+      "Price": "$31.82",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "11.21.2022",
+      "Price": "$37.27",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.30.2022",
+      "EndDateSubscription": "07.07.2022",
+      "Price": "$24.65",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.04.2022",
+      "EndDateSubscription": "02.07.2022",
+      "Price": "$18.65",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.03.2022",
+      "EndDateSubscription": "01.03.2022",
+      "Price": "$25.37",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.02.2022",
+      "EndDateSubscription": "01.27.2022",
+      "Price": "$32.05",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.31.2022",
+      "EndDateSubscription": "01.25.2022",
+      "Price": "$27.89",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.30.2022",
+      "EndDateSubscription": "05.17.2022",
+      "Price": "$24.11",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.30.2022",
+      "EndDateSubscription": "04.19.2022",
+      "Price": "$47.45",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.10.2022",
+      "EndDateSubscription": "06.23.2022",
+      "Price": "$35.84",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "07.09.2022",
+      "Price": "$29.34",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.19.2022",
+      "EndDateSubscription": "09.05.2022",
+      "Price": "$31.43",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.26.2022",
+      "EndDateSubscription": "09.10.2022",
+      "Price": "$44.87",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.22.2022",
+      "EndDateSubscription": "09.24.2022",
+      "Price": "$12.96",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.02.2022",
+      "EndDateSubscription": "12.06.2022",
+      "Price": "$49.91",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.18.2022",
+      "EndDateSubscription": "11.29.2022",
+      "Price": "$39.70",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.23.2022",
+      "EndDateSubscription": "03.03.2022",
+      "Price": "$24.16",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.06.2022",
+      "EndDateSubscription": "01.30.2022",
+      "Price": "$25.14",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.17.2022",
+      "EndDateSubscription": "01.28.2022",
+      "Price": "$44.15",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.03.2022",
+      "EndDateSubscription": "05.24.2022",
+      "Price": "$22.73",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.06.2022",
+      "EndDateSubscription": "11.13.2022",
+      "Price": "$10.54",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.17.2022",
+      "EndDateSubscription": "06.20.2022",
+      "Price": "$24.01",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.25.2022",
+      "EndDateSubscription": "09.11.2022",
+      "Price": "$16.37",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.28.2022",
+      "EndDateSubscription": "02.19.2022",
+      "Price": "$17.22",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.13.2022",
+      "EndDateSubscription": "01.28.2022",
+      "Price": "$14.99",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.14.2022",
+      "EndDateSubscription": "08.09.2022",
+      "Price": "$30.89",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.28.2022",
+      "EndDateSubscription": "03.30.2022",
+      "Price": "$42.99",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.19.2022",
+      "EndDateSubscription": "09.27.2022",
+      "Price": "$40.87",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "03.13.2022",
+      "Price": "$17.48",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.18.2022",
+      "EndDateSubscription": "07.15.2022",
+      "Price": "$29.26",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.13.2022",
+      "EndDateSubscription": "03.28.2022",
+      "Price": "$21.15",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.27.2022",
+      "EndDateSubscription": "05.09.2022",
+      "Price": "$28.72",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.23.2022",
+      "EndDateSubscription": "01.10.2022",
+      "Price": "$45.75",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.31.2022",
+      "EndDateSubscription": "03.30.2022",
+      "Price": "$7.04",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.28.2022",
+      "EndDateSubscription": "07.30.2022",
+      "Price": "$46.53",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.08.2022",
+      "EndDateSubscription": "08.05.2022",
+      "Price": "$16.62",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.18.2022",
+      "EndDateSubscription": "01.12.2022",
+      "Price": "$47.72",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.15.2022",
+      "EndDateSubscription": "01.31.2022",
+      "Price": "$27.50",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.04.2022",
+      "EndDateSubscription": "04.04.2022",
+      "Price": "$42.59",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.23.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$17.48",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.03.2022",
+      "EndDateSubscription": "03.18.2022",
+      "Price": "$28.43",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.28.2022",
+      "EndDateSubscription": "07.22.2022",
+      "Price": "$43.83",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.17.2022",
+      "EndDateSubscription": "01.13.2022",
+      "Price": "$18.07",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.17.2022",
+      "EndDateSubscription": "06.04.2022",
+      "Price": "$17.76",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.25.2022",
+      "EndDateSubscription": "09.03.2022",
+      "Price": "$44.34",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.06.2022",
+      "EndDateSubscription": "02.04.2022",
+      "Price": "$35.90",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.25.2022",
+      "EndDateSubscription": "10.07.2022",
+      "Price": "$17.94",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.24.2022",
+      "EndDateSubscription": "01.16.2022",
+      "Price": "$30.19",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.12.2022",
+      "EndDateSubscription": "10.20.2022",
+      "Price": "$31.30",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.26.2022",
+      "EndDateSubscription": "12.30.2022",
+      "Price": "$41.00",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.03.2022",
+      "EndDateSubscription": "01.29.2022",
+      "Price": "$46.64",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.06.2022",
+      "EndDateSubscription": "10.04.2022",
+      "Price": "$30.76",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.17.2022",
+      "EndDateSubscription": "06.28.2022",
+      "Price": "$28.60",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "01.31.2022",
+      "Price": "$25.48",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.29.2022",
+      "EndDateSubscription": "07.19.2022",
+      "Price": "$7.12",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.06.2022",
+      "EndDateSubscription": "05.19.2022",
+      "Price": "$32.63",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.20.2022",
+      "EndDateSubscription": "03.01.2022",
+      "Price": "$16.49",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.29.2022",
+      "EndDateSubscription": "04.28.2022",
+      "Price": "$48.08",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.21.2022",
+      "EndDateSubscription": "05.09.2022",
+      "Price": "$38.59",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.17.2022",
+      "EndDateSubscription": "10.09.2022",
+      "Price": "$22.60",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.18.2022",
+      "EndDateSubscription": "03.31.2022",
+      "Price": "$29.12",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.12.2022",
+      "EndDateSubscription": "06.30.2022",
+      "Price": "$34.30",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.11.2022",
+      "EndDateSubscription": "08.08.2022",
+      "Price": "$38.79",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.19.2022",
+      "EndDateSubscription": "02.23.2022",
+      "Price": "$21.36",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.07.2022",
+      "EndDateSubscription": "05.31.2022",
+      "Price": "$23.07",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.19.2022",
+      "EndDateSubscription": "09.21.2022",
+      "Price": "$49.14",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.27.2022",
+      "EndDateSubscription": "07.31.2022",
+      "Price": "$19.46",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.25.2022",
+      "EndDateSubscription": "06.05.2022",
+      "Price": "$21.16",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.26.2022",
+      "EndDateSubscription": "01.26.2022",
+      "Price": "$24.76",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.07.2022",
+      "EndDateSubscription": "03.09.2022",
+      "Price": "$13.64",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.24.2022",
+      "EndDateSubscription": "06.20.2022",
+      "Price": "$20.25",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.28.2022",
+      "EndDateSubscription": "09.14.2022",
+      "Price": "$30.07",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.10.2022",
+      "EndDateSubscription": "08.16.2022",
+      "Price": "$34.23",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.12.2022",
+      "EndDateSubscription": "04.29.2022",
+      "Price": "$42.11",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.03.2022",
+      "EndDateSubscription": "03.24.2022",
+      "Price": "$8.73",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.15.2022",
+      "EndDateSubscription": "12.09.2022",
+      "Price": "$39.56",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "06.14.2022",
+      "Price": "$36.77",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.03.2022",
+      "EndDateSubscription": "12.04.2022",
+      "Price": "$36.60",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.31.2022",
+      "EndDateSubscription": "12.18.2022",
+      "Price": "$49.09",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.14.2022",
+      "EndDateSubscription": "10.31.2022",
+      "Price": "$5.59",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.08.2022",
+      "EndDateSubscription": "09.15.2022",
+      "Price": "$39.16",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.28.2022",
+      "EndDateSubscription": "02.04.2022",
+      "Price": "$45.64",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.21.2022",
+      "EndDateSubscription": "02.24.2022",
+      "Price": "$42.56",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.29.2022",
+      "EndDateSubscription": "10.18.2022",
+      "Price": "$47.53",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.10.2022",
+      "EndDateSubscription": "01.11.2022",
+      "Price": "$31.53",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.12.2022",
+      "EndDateSubscription": "08.11.2022",
+      "Price": "$27.90",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.30.2022",
+      "EndDateSubscription": "09.12.2022",
+      "Price": "$35.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.20.2022",
+      "EndDateSubscription": "07.17.2022",
+      "Price": "$43.60",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.12.2022",
+      "EndDateSubscription": "06.22.2022",
+      "Price": "$30.83",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.08.2022",
+      "EndDateSubscription": "08.27.2022",
+      "Price": "$25.32",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.22.2022",
+      "EndDateSubscription": "02.09.2022",
+      "Price": "$36.43",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.08.2022",
+      "EndDateSubscription": "11.10.2022",
+      "Price": "$15.46",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.17.2022",
+      "EndDateSubscription": "09.23.2022",
+      "Price": "$14.15",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.30.2022",
+      "EndDateSubscription": "11.21.2022",
+      "Price": "$10.20",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.15.2022",
+      "EndDateSubscription": "12.14.2022",
+      "Price": "$36.40",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.21.2022",
+      "EndDateSubscription": "02.02.2022",
+      "Price": "$38.95",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.15.2022",
+      "EndDateSubscription": "08.28.2022",
+      "Price": "$23.12",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.10.2022",
+      "EndDateSubscription": "12.16.2022",
+      "Price": "$33.33",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.24.2022",
+      "EndDateSubscription": "05.09.2022",
+      "Price": "$17.58",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.10.2022",
+      "EndDateSubscription": "08.31.2022",
+      "Price": "$30.05",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.15.2022",
+      "EndDateSubscription": "02.28.2022",
+      "Price": "$32.72",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.28.2022",
+      "EndDateSubscription": "02.01.2022",
+      "Price": "$37.99",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.06.2022",
+      "EndDateSubscription": "01.08.2022",
+      "Price": "$7.55",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.09.2022",
+      "EndDateSubscription": "01.03.2022",
+      "Price": "$42.35",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.13.2022",
+      "EndDateSubscription": "05.10.2022",
+      "Price": "$26.56",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.07.2022",
+      "EndDateSubscription": "12.25.2022",
+      "Price": "$31.09",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.23.2022",
+      "EndDateSubscription": "01.14.2022",
+      "Price": "$44.71",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.01.2022",
+      "EndDateSubscription": "10.11.2022",
+      "Price": "$33.78",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.29.2022",
+      "EndDateSubscription": "07.19.2022",
+      "Price": "$11.27",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.18.2022",
+      "EndDateSubscription": "01.24.2022",
+      "Price": "$43.74",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.05.2022",
+      "EndDateSubscription": "12.10.2022",
+      "Price": "$9.29",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.08.2022",
+      "EndDateSubscription": "07.19.2022",
+      "Price": "$17.90",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.31.2022",
+      "EndDateSubscription": "10.22.2022",
+      "Price": "$20.51",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.09.2022",
+      "EndDateSubscription": "04.26.2022",
+      "Price": "$34.60",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.09.2022",
+      "EndDateSubscription": "04.27.2022",
+      "Price": "$39.59",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.24.2022",
+      "EndDateSubscription": "04.19.2022",
+      "Price": "$14.85",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.05.2022",
+      "EndDateSubscription": "02.13.2022",
+      "Price": "$21.95",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.29.2022",
+      "EndDateSubscription": "01.09.2022",
+      "Price": "$49.69",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.12.2022",
+      "EndDateSubscription": "02.05.2022",
+      "Price": "$9.20",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.17.2022",
+      "EndDateSubscription": "06.04.2022",
+      "Price": "$40.58",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.08.2022",
+      "EndDateSubscription": "05.07.2022",
+      "Price": "$12.75",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.23.2022",
+      "EndDateSubscription": "05.06.2022",
+      "Price": "$13.13",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.16.2022",
+      "EndDateSubscription": "01.12.2022",
+      "Price": "$45.89",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.07.2022",
+      "EndDateSubscription": "01.07.2022",
+      "Price": "$12.43",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.08.2022",
+      "EndDateSubscription": "02.12.2022",
+      "Price": "$41.96",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.12.2022",
+      "EndDateSubscription": "06.23.2022",
+      "Price": "$34.27",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.14.2022",
+      "EndDateSubscription": "03.18.2022",
+      "Price": "$10.37",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.20.2022",
+      "EndDateSubscription": "12.13.2022",
+      "Price": "$28.78",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.19.2022",
+      "EndDateSubscription": "04.09.2022",
+      "Price": "$40.03",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "03.18.2022",
+      "Price": "$36.38",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.09.2022",
+      "EndDateSubscription": "01.17.2022",
+      "Price": "$14.39",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.31.2022",
+      "EndDateSubscription": "03.01.2022",
+      "Price": "$14.19",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.21.2022",
+      "EndDateSubscription": "07.30.2022",
+      "Price": "$18.39",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.09.2022",
+      "EndDateSubscription": "10.11.2022",
+      "Price": "$43.53",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.25.2022",
+      "EndDateSubscription": "08.17.2022",
+      "Price": "$31.36",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.28.2022",
+      "EndDateSubscription": "04.20.2022",
+      "Price": "$24.93",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.21.2022",
+      "EndDateSubscription": "08.16.2022",
+      "Price": "$49.79",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.19.2022",
+      "EndDateSubscription": "02.05.2022",
+      "Price": "$15.30",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.21.2022",
+      "EndDateSubscription": "11.05.2022",
+      "Price": "$31.18",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.11.2022",
+      "EndDateSubscription": "06.20.2022",
+      "Price": "$22.58",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.16.2022",
+      "EndDateSubscription": "03.09.2022",
+      "Price": "$41.13",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.21.2022",
+      "EndDateSubscription": "10.29.2022",
+      "Price": "$27.51",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.26.2022",
+      "EndDateSubscription": "01.15.2022",
+      "Price": "$13.36",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.13.2022",
+      "EndDateSubscription": "12.14.2022",
+      "Price": "$11.20",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.15.2022",
+      "EndDateSubscription": "03.19.2022",
+      "Price": "$24.58",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.17.2022",
+      "EndDateSubscription": "09.16.2022",
+      "Price": "$45.21",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.28.2022",
+      "EndDateSubscription": "06.24.2022",
+      "Price": "$26.08",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.07.2022",
+      "EndDateSubscription": "02.05.2022",
+      "Price": "$21.19",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.25.2022",
+      "EndDateSubscription": "01.05.2022",
+      "Price": "$26.34",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.28.2022",
+      "EndDateSubscription": "10.09.2022",
+      "Price": "$42.62",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.29.2022",
+      "EndDateSubscription": "11.25.2022",
+      "Price": "$45.25",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.17.2022",
+      "EndDateSubscription": "09.17.2022",
+      "Price": "$39.61",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.06.2022",
+      "EndDateSubscription": "05.16.2022",
+      "Price": "$6.39",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.18.2022",
+      "EndDateSubscription": "07.01.2022",
+      "Price": "$21.86",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.23.2022",
+      "EndDateSubscription": "02.12.2022",
+      "Price": "$14.70",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.08.2022",
+      "EndDateSubscription": "11.22.2022",
+      "Price": "$23.74",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.07.2022",
+      "EndDateSubscription": "08.10.2022",
+      "Price": "$10.91",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.20.2022",
+      "EndDateSubscription": "08.12.2022",
+      "Price": "$15.60",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.30.2022",
+      "EndDateSubscription": "03.01.2022",
+      "Price": "$7.86",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.26.2022",
+      "EndDateSubscription": "05.18.2022",
+      "Price": "$38.27",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.01.2022",
+      "EndDateSubscription": "05.25.2022",
+      "Price": "$44.02",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.03.2022",
+      "EndDateSubscription": "04.01.2022",
+      "Price": "$45.95",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.31.2022",
+      "EndDateSubscription": "11.05.2022",
+      "Price": "$43.82",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.03.2022",
+      "EndDateSubscription": "06.14.2022",
+      "Price": "$47.50",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.21.2022",
+      "EndDateSubscription": "09.03.2022",
+      "Price": "$19.86",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.19.2022",
+      "EndDateSubscription": "05.19.2022",
+      "Price": "$40.36",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.21.2022",
+      "EndDateSubscription": "11.29.2022",
+      "Price": "$11.62",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.23.2022",
+      "EndDateSubscription": "08.12.2022",
+      "Price": "$34.66",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.26.2022",
+      "EndDateSubscription": "01.16.2022",
+      "Price": "$24.44",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.06.2022",
+      "EndDateSubscription": "06.01.2022",
+      "Price": "$48.33",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.06.2022",
+      "EndDateSubscription": "09.15.2022",
+      "Price": "$48.62",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.14.2022",
+      "EndDateSubscription": "08.10.2022",
+      "Price": "$19.77",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.05.2022",
+      "EndDateSubscription": "05.18.2022",
+      "Price": "$42.03",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.26.2022",
+      "EndDateSubscription": "07.24.2022",
+      "Price": "$34.03",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.15.2022",
+      "EndDateSubscription": "04.01.2022",
+      "Price": "$9.45",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.23.2022",
+      "EndDateSubscription": "02.05.2022",
+      "Price": "$8.78",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.17.2022",
+      "EndDateSubscription": "09.21.2022",
+      "Price": "$30.26",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.12.2022",
+      "EndDateSubscription": "01.04.2022",
+      "Price": "$21.51",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.21.2022",
+      "EndDateSubscription": "03.01.2022",
+      "Price": "$38.35",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.18.2022",
+      "EndDateSubscription": "04.26.2022",
+      "Price": "$5.98",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.24.2022",
+      "EndDateSubscription": "02.21.2022",
+      "Price": "$21.41",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "06.25.2022",
+      "Price": "$17.40",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.03.2022",
+      "EndDateSubscription": "07.09.2022",
+      "Price": "$36.29",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.19.2022",
+      "EndDateSubscription": "04.19.2022",
+      "Price": "$18.00",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.04.2022",
+      "EndDateSubscription": "05.30.2022",
+      "Price": "$42.21",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.07.2022",
+      "EndDateSubscription": "02.20.2022",
+      "Price": "$9.44",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.27.2022",
+      "EndDateSubscription": "05.30.2022",
+      "Price": "$38.29",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.13.2022",
+      "EndDateSubscription": "06.14.2022",
+      "Price": "$22.64",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.18.2022",
+      "EndDateSubscription": "01.24.2022",
+      "Price": "$39.30",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.06.2022",
+      "EndDateSubscription": "05.29.2022",
+      "Price": "$20.60",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.25.2022",
+      "EndDateSubscription": "07.31.2022",
+      "Price": "$24.11",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.07.2022",
+      "EndDateSubscription": "07.24.2022",
+      "Price": "$15.22",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.14.2022",
+      "EndDateSubscription": "01.11.2022",
+      "Price": "$22.64",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.20.2022",
+      "EndDateSubscription": "07.27.2022",
+      "Price": "$48.92",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.18.2022",
+      "EndDateSubscription": "07.20.2022",
+      "Price": "$41.42",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.23.2022",
+      "EndDateSubscription": "01.03.2022",
+      "Price": "$15.87",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.26.2022",
+      "EndDateSubscription": "05.31.2022",
+      "Price": "$43.95",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.29.2022",
+      "EndDateSubscription": "10.28.2022",
+      "Price": "$12.50",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.05.2022",
+      "EndDateSubscription": "10.03.2022",
+      "Price": "$38.59",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.23.2022",
+      "EndDateSubscription": "12.17.2022",
+      "Price": "$31.08",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.09.2022",
+      "EndDateSubscription": "03.01.2022",
+      "Price": "$32.95",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.06.2022",
+      "EndDateSubscription": "08.31.2022",
+      "Price": "$10.14",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.19.2022",
+      "EndDateSubscription": "06.27.2022",
+      "Price": "$21.76",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.03.2022",
+      "EndDateSubscription": "11.17.2022",
+      "Price": "$19.72",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.29.2022",
+      "EndDateSubscription": "10.25.2022",
+      "Price": "$10.80",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.03.2022",
+      "EndDateSubscription": "03.24.2022",
+      "Price": "$13.96",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.06.2022",
+      "EndDateSubscription": "11.21.2022",
+      "Price": "$24.21",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.07.2022",
+      "EndDateSubscription": "10.17.2022",
+      "Price": "$21.05",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.22.2022",
+      "EndDateSubscription": "11.14.2022",
+      "Price": "$11.42",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.21.2022",
+      "EndDateSubscription": "05.14.2022",
+      "Price": "$38.43",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.26.2022",
+      "EndDateSubscription": "02.12.2022",
+      "Price": "$10.95",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.10.2022",
+      "EndDateSubscription": "08.11.2022",
+      "Price": "$7.31",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.12.2022",
+      "EndDateSubscription": "02.23.2022",
+      "Price": "$21.13",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.30.2022",
+      "EndDateSubscription": "03.26.2022",
+      "Price": "$16.53",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.10.2022",
+      "EndDateSubscription": "10.05.2022",
+      "Price": "$49.73",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.27.2022",
+      "EndDateSubscription": "07.16.2022",
+      "Price": "$37.85",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "12.14.2022",
+      "Price": "$16.28",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.22.2022",
+      "EndDateSubscription": "09.24.2022",
+      "Price": "$31.11",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.07.2022",
+      "EndDateSubscription": "08.07.2022",
+      "Price": "$24.56",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.23.2022",
+      "EndDateSubscription": "02.25.2022",
+      "Price": "$15.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.04.2022",
+      "EndDateSubscription": "10.12.2022",
+      "Price": "$6.72",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.13.2022",
+      "EndDateSubscription": "06.05.2022",
+      "Price": "$34.46",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.16.2022",
+      "EndDateSubscription": "07.16.2022",
+      "Price": "$46.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.17.2022",
+      "EndDateSubscription": "02.12.2022",
+      "Price": "$35.14",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.06.2022",
+      "EndDateSubscription": "12.04.2022",
+      "Price": "$12.46",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.08.2022",
+      "EndDateSubscription": "04.14.2022",
+      "Price": "$46.70",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.02.2022",
+      "EndDateSubscription": "11.03.2022",
+      "Price": "$7.03",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.09.2022",
+      "EndDateSubscription": "05.02.2022",
+      "Price": "$27.35",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.03.2022",
+      "EndDateSubscription": "10.20.2022",
+      "Price": "$20.52",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.10.2022",
+      "EndDateSubscription": "03.16.2022",
+      "Price": "$43.50",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "08.07.2022",
+      "Price": "$35.22",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.15.2022",
+      "EndDateSubscription": "05.27.2022",
+      "Price": "$26.15",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.06.2022",
+      "EndDateSubscription": "11.12.2022",
+      "Price": "$19.75",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.08.2022",
+      "EndDateSubscription": "02.19.2022",
+      "Price": "$22.41",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.14.2022",
+      "EndDateSubscription": "06.20.2022",
+      "Price": "$26.86",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.02.2022",
+      "EndDateSubscription": "04.18.2022",
+      "Price": "$46.39",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.12.2022",
+      "EndDateSubscription": "03.01.2022",
+      "Price": "$14.46",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.04.2022",
+      "EndDateSubscription": "11.17.2022",
+      "Price": "$34.44",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.15.2022",
+      "EndDateSubscription": "10.23.2022",
+      "Price": "$22.96",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.10.2022",
+      "EndDateSubscription": "10.25.2022",
+      "Price": "$38.78",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.08.2022",
+      "EndDateSubscription": "06.30.2022",
+      "Price": "$41.54",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.16.2022",
+      "EndDateSubscription": "09.12.2022",
+      "Price": "$32.28",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.17.2022",
+      "EndDateSubscription": "07.31.2022",
+      "Price": "$39.05",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.05.2022",
+      "EndDateSubscription": "01.01.2022",
+      "Price": "$42.90",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.06.2022",
+      "EndDateSubscription": "03.23.2022",
+      "Price": "$26.93",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.28.2022",
+      "EndDateSubscription": "02.15.2022",
+      "Price": "$20.84",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.13.2022",
+      "EndDateSubscription": "06.28.2022",
+      "Price": "$36.24",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.08.2022",
+      "EndDateSubscription": "08.02.2022",
+      "Price": "$22.75",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.27.2022",
+      "EndDateSubscription": "07.31.2022",
+      "Price": "$45.59",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.26.2022",
+      "EndDateSubscription": "10.05.2022",
+      "Price": "$7.47",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.06.2022",
+      "EndDateSubscription": "01.27.2022",
+      "Price": "$19.18",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.25.2022",
+      "EndDateSubscription": "11.28.2022",
+      "Price": "$6.15",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.06.2022",
+      "EndDateSubscription": "02.24.2022",
+      "Price": "$26.51",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.01.2022",
+      "EndDateSubscription": "08.15.2022",
+      "Price": "$7.07",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.22.2022",
+      "EndDateSubscription": "12.06.2022",
+      "Price": "$12.71",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.10.2022",
+      "EndDateSubscription": "05.28.2022",
+      "Price": "$44.34",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.11.2022",
+      "EndDateSubscription": "05.21.2022",
+      "Price": "$26.53",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.06.2022",
+      "EndDateSubscription": "02.18.2022",
+      "Price": "$29.65",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "10.21.2022",
+      "Price": "$41.91",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.28.2022",
+      "EndDateSubscription": "06.05.2022",
+      "Price": "$10.54",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.24.2022",
+      "EndDateSubscription": "06.08.2022",
+      "Price": "$8.84",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.13.2022",
+      "EndDateSubscription": "10.19.2022",
+      "Price": "$21.34",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.18.2022",
+      "EndDateSubscription": "10.27.2022",
+      "Price": "$31.95",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.18.2022",
+      "EndDateSubscription": "06.08.2022",
+      "Price": "$26.57",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.24.2022",
+      "EndDateSubscription": "02.10.2022",
+      "Price": "$14.45",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.08.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$10.94",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.20.2022",
+      "EndDateSubscription": "04.20.2022",
+      "Price": "$40.79",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.23.2022",
+      "EndDateSubscription": "12.25.2022",
+      "Price": "$20.86",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.12.2022",
+      "EndDateSubscription": "01.24.2022",
+      "Price": "$10.85",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.20.2022",
+      "EndDateSubscription": "10.02.2022",
+      "Price": "$9.35",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.22.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$18.70",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.19.2022",
+      "EndDateSubscription": "01.24.2022",
+      "Price": "$46.77",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.26.2022",
+      "EndDateSubscription": "09.04.2022",
+      "Price": "$31.07",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.18.2022",
+      "EndDateSubscription": "02.14.2022",
+      "Price": "$24.68",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.29.2022",
+      "EndDateSubscription": "11.29.2022",
+      "Price": "$6.51",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.01.2022",
+      "EndDateSubscription": "02.21.2022",
+      "Price": "$44.84",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.01.2022",
+      "EndDateSubscription": "07.23.2022",
+      "Price": "$42.52",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.24.2022",
+      "EndDateSubscription": "11.09.2022",
+      "Price": "$45.38",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.14.2022",
+      "EndDateSubscription": "06.11.2022",
+      "Price": "$14.29",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.29.2022",
+      "EndDateSubscription": "12.30.2022",
+      "Price": "$9.10",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.30.2022",
+      "EndDateSubscription": "02.14.2022",
+      "Price": "$45.46",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.26.2022",
+      "EndDateSubscription": "09.13.2022",
+      "Price": "$7.29",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.03.2022",
+      "EndDateSubscription": "04.29.2022",
+      "Price": "$36.14",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.02.2022",
+      "EndDateSubscription": "03.23.2022",
+      "Price": "$16.58",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.26.2022",
+      "EndDateSubscription": "03.23.2022",
+      "Price": "$46.74",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.23.2022",
+      "EndDateSubscription": "03.30.2022",
+      "Price": "$42.80",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "09.12.2022",
+      "Price": "$46.14",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.11.2022",
+      "EndDateSubscription": "06.07.2022",
+      "Price": "$17.80",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.06.2022",
+      "EndDateSubscription": "01.07.2022",
+      "Price": "$43.63",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.20.2022",
+      "EndDateSubscription": "02.08.2022",
+      "Price": "$40.23",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.24.2022",
+      "EndDateSubscription": "11.05.2022",
+      "Price": "$49.26",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.25.2022",
+      "EndDateSubscription": "05.03.2022",
+      "Price": "$17.09",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.06.2022",
+      "EndDateSubscription": "03.08.2022",
+      "Price": "$5.71",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.03.2022",
+      "EndDateSubscription": "05.24.2022",
+      "Price": "$24.64",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.20.2022",
+      "EndDateSubscription": "01.17.2022",
+      "Price": "$28.67",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.26.2022",
+      "EndDateSubscription": "01.17.2022",
+      "Price": "$6.53",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.09.2022",
+      "EndDateSubscription": "02.12.2022",
+      "Price": "$16.17",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.28.2022",
+      "EndDateSubscription": "06.12.2022",
+      "Price": "$17.88",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.21.2022",
+      "EndDateSubscription": "06.06.2022",
+      "Price": "$49.60",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.01.2022",
+      "EndDateSubscription": "03.16.2022",
+      "Price": "$35.28",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.02.2022",
+      "EndDateSubscription": "08.16.2022",
+      "Price": "$6.22",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.03.2022",
+      "EndDateSubscription": "04.15.2022",
+      "Price": "$46.43",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.08.2022",
+      "EndDateSubscription": "07.13.2022",
+      "Price": "$29.61",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.12.2022",
+      "EndDateSubscription": "10.05.2022",
+      "Price": "$25.80",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.04.2022",
+      "EndDateSubscription": "09.24.2022",
+      "Price": "$22.06",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.20.2022",
+      "EndDateSubscription": "01.29.2022",
+      "Price": "$31.03",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.02.2022",
+      "EndDateSubscription": "11.12.2022",
+      "Price": "$17.52",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.21.2022",
+      "EndDateSubscription": "10.16.2022",
+      "Price": "$11.73",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.19.2022",
+      "EndDateSubscription": "02.18.2022",
+      "Price": "$14.47",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.19.2022",
+      "EndDateSubscription": "02.26.2022",
+      "Price": "$34.74",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.19.2022",
+      "EndDateSubscription": "07.21.2022",
+      "Price": "$5.29",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.10.2022",
+      "EndDateSubscription": "03.26.2022",
+      "Price": "$20.77",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.21.2022",
+      "EndDateSubscription": "11.27.2022",
+      "Price": "$40.95",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.09.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$6.44",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.03.2022",
+      "EndDateSubscription": "09.03.2022",
+      "Price": "$16.45",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.15.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$41.77",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.06.2022",
+      "EndDateSubscription": "12.09.2022",
+      "Price": "$39.59",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.16.2022",
+      "EndDateSubscription": "07.26.2022",
+      "Price": "$43.86",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.01.2022",
+      "EndDateSubscription": "02.27.2022",
+      "Price": "$22.41",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.11.2022",
+      "EndDateSubscription": "05.28.2022",
+      "Price": "$42.86",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.15.2022",
+      "EndDateSubscription": "06.13.2022",
+      "Price": "$44.40",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.30.2022",
+      "EndDateSubscription": "09.02.2022",
+      "Price": "$39.21",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.28.2022",
+      "EndDateSubscription": "05.05.2022",
+      "Price": "$26.95",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "12.05.2022",
+      "Price": "$42.55",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.04.2022",
+      "EndDateSubscription": "04.19.2022",
+      "Price": "$44.41",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.17.2022",
+      "EndDateSubscription": "11.29.2022",
+      "Price": "$41.36",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.11.2022",
+      "EndDateSubscription": "02.09.2022",
+      "Price": "$16.25",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.16.2022",
+      "EndDateSubscription": "12.02.2022",
+      "Price": "$29.64",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.05.2022",
+      "EndDateSubscription": "11.13.2022",
+      "Price": "$16.40",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.22.2022",
+      "EndDateSubscription": "03.09.2022",
+      "Price": "$31.13",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.12.2022",
+      "EndDateSubscription": "08.23.2022",
+      "Price": "$41.42",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.14.2022",
+      "EndDateSubscription": "07.12.2022",
+      "Price": "$23.70",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.22.2022",
+      "EndDateSubscription": "10.06.2022",
+      "Price": "$17.90",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.23.2022",
+      "EndDateSubscription": "01.27.2022",
+      "Price": "$49.79",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.09.2022",
+      "EndDateSubscription": "08.20.2022",
+      "Price": "$14.30",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.19.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$49.41",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.27.2022",
+      "EndDateSubscription": "03.17.2022",
+      "Price": "$47.96",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "08.29.2022",
+      "Price": "$43.66",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.13.2022",
+      "EndDateSubscription": "01.31.2022",
+      "Price": "$44.73",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.30.2022",
+      "EndDateSubscription": "03.11.2022",
+      "Price": "$49.84",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.04.2022",
+      "EndDateSubscription": "09.15.2022",
+      "Price": "$15.79",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.05.2022",
+      "EndDateSubscription": "09.01.2022",
+      "Price": "$32.57",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.11.2022",
+      "EndDateSubscription": "05.03.2022",
+      "Price": "$11.23",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.26.2022",
+      "EndDateSubscription": "01.02.2022",
+      "Price": "$13.14",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.14.2022",
+      "EndDateSubscription": "04.28.2022",
+      "Price": "$24.34",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.07.2022",
+      "EndDateSubscription": "03.31.2022",
+      "Price": "$44.33",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.10.2022",
+      "EndDateSubscription": "07.30.2022",
+      "Price": "$48.74",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.31.2022",
+      "EndDateSubscription": "05.13.2022",
+      "Price": "$25.85",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.28.2022",
+      "EndDateSubscription": "11.02.2022",
+      "Price": "$19.37",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.08.2022",
+      "EndDateSubscription": "04.16.2022",
+      "Price": "$36.44",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.21.2022",
+      "EndDateSubscription": "05.23.2022",
+      "Price": "$29.00",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.10.2022",
+      "EndDateSubscription": "11.10.2022",
+      "Price": "$44.33",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.30.2022",
+      "EndDateSubscription": "07.11.2022",
+      "Price": "$48.22",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.19.2022",
+      "EndDateSubscription": "11.04.2022",
+      "Price": "$28.94",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.29.2022",
+      "EndDateSubscription": "09.09.2022",
+      "Price": "$30.46",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.22.2022",
+      "EndDateSubscription": "11.20.2022",
+      "Price": "$16.36",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "09.25.2022",
+      "Price": "$16.88",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.06.2022",
+      "EndDateSubscription": "08.04.2022",
+      "Price": "$32.66",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.22.2022",
+      "EndDateSubscription": "12.19.2022",
+      "Price": "$21.71",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.03.2022",
+      "EndDateSubscription": "06.19.2022",
+      "Price": "$36.55",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.06.2022",
+      "EndDateSubscription": "11.26.2022",
+      "Price": "$8.37",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.20.2022",
+      "EndDateSubscription": "08.25.2022",
+      "Price": "$44.60",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.03.2022",
+      "EndDateSubscription": "08.19.2022",
+      "Price": "$18.43",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.23.2022",
+      "EndDateSubscription": "07.17.2022",
+      "Price": "$16.22",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.16.2022",
+      "EndDateSubscription": "01.31.2022",
+      "Price": "$38.93",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.08.2022",
+      "EndDateSubscription": "12.10.2022",
+      "Price": "$32.37",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.27.2022",
+      "EndDateSubscription": "12.31.2022",
+      "Price": "$35.88",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.12.2022",
+      "EndDateSubscription": "06.09.2022",
+      "Price": "$45.05",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.09.2022",
+      "EndDateSubscription": "06.25.2022",
+      "Price": "$27.92",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.18.2022",
+      "EndDateSubscription": "02.08.2022",
+      "Price": "$38.92",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.16.2022",
+      "EndDateSubscription": "06.18.2022",
+      "Price": "$45.99",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.20.2022",
+      "EndDateSubscription": "04.26.2022",
+      "Price": "$33.97",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.04.2022",
+      "EndDateSubscription": "07.12.2022",
+      "Price": "$5.08",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.15.2022",
+      "EndDateSubscription": "06.08.2022",
+      "Price": "$10.98",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.24.2022",
+      "EndDateSubscription": "01.14.2022",
+      "Price": "$30.13",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.06.2022",
+      "EndDateSubscription": "12.26.2022",
+      "Price": "$32.09",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.17.2022",
+      "EndDateSubscription": "09.27.2022",
+      "Price": "$48.76",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.06.2022",
+      "EndDateSubscription": "03.26.2022",
+      "Price": "$39.63",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.13.2022",
+      "EndDateSubscription": "01.30.2022",
+      "Price": "$33.03",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.13.2022",
+      "EndDateSubscription": "07.09.2022",
+      "Price": "$45.65",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.28.2022",
+      "EndDateSubscription": "01.23.2022",
+      "Price": "$5.08",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.18.2022",
+      "EndDateSubscription": "04.09.2022",
+      "Price": "$44.01",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.06.2022",
+      "EndDateSubscription": "06.22.2022",
+      "Price": "$47.43",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.03.2022",
+      "EndDateSubscription": "07.10.2022",
+      "Price": "$40.44",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.08.2022",
+      "EndDateSubscription": "12.18.2022",
+      "Price": "$8.03",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.01.2022",
+      "EndDateSubscription": "02.28.2022",
+      "Price": "$42.78",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.11.2022",
+      "EndDateSubscription": "07.20.2022",
+      "Price": "$17.26",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.03.2022",
+      "EndDateSubscription": "01.25.2022",
+      "Price": "$43.21",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.20.2022",
+      "EndDateSubscription": "02.16.2022",
+      "Price": "$26.21",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.04.2022",
+      "EndDateSubscription": "08.16.2022",
+      "Price": "$11.43",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.03.2022",
+      "EndDateSubscription": "01.19.2022",
+      "Price": "$15.28",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.09.2022",
+      "EndDateSubscription": "06.09.2022",
+      "Price": "$44.07",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.12.2022",
+      "EndDateSubscription": "01.30.2022",
+      "Price": "$46.16",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.23.2022",
+      "EndDateSubscription": "04.15.2022",
+      "Price": "$41.71",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.11.2022",
+      "EndDateSubscription": "11.28.2022",
+      "Price": "$30.00",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.06.2022",
+      "EndDateSubscription": "05.17.2022",
+      "Price": "$9.81",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.21.2022",
+      "EndDateSubscription": "03.10.2022",
+      "Price": "$17.52",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.26.2022",
+      "EndDateSubscription": "12.12.2022",
+      "Price": "$13.51",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.17.2022",
+      "EndDateSubscription": "07.28.2022",
+      "Price": "$49.36",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.28.2022",
+      "EndDateSubscription": "09.21.2022",
+      "Price": "$23.36",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.23.2022",
+      "EndDateSubscription": "05.29.2022",
+      "Price": "$18.49",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.26.2022",
+      "EndDateSubscription": "10.14.2022",
+      "Price": "$37.61",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.14.2022",
+      "EndDateSubscription": "09.26.2022",
+      "Price": "$27.02",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.29.2022",
+      "EndDateSubscription": "07.17.2022",
+      "Price": "$13.32",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.10.2022",
+      "EndDateSubscription": "05.18.2022",
+      "Price": "$24.85",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.20.2022",
+      "EndDateSubscription": "02.02.2022",
+      "Price": "$46.88",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.20.2022",
+      "EndDateSubscription": "07.21.2022",
+      "Price": "$23.23",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.07.2022",
+      "EndDateSubscription": "10.01.2022",
+      "Price": "$19.95",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.19.2022",
+      "EndDateSubscription": "01.30.2022",
+      "Price": "$12.27",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.16.2022",
+      "EndDateSubscription": "10.30.2022",
+      "Price": "$45.76",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.24.2022",
+      "EndDateSubscription": "05.20.2022",
+      "Price": "$5.04",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.29.2022",
+      "EndDateSubscription": "05.04.2022",
+      "Price": "$8.75",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.08.2022",
+      "EndDateSubscription": "11.01.2022",
+      "Price": "$15.93",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.30.2022",
+      "EndDateSubscription": "11.01.2022",
+      "Price": "$38.73",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.30.2022",
+      "EndDateSubscription": "08.22.2022",
+      "Price": "$47.51",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.30.2022",
+      "EndDateSubscription": "03.09.2022",
+      "Price": "$11.83",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.06.2022",
+      "EndDateSubscription": "12.26.2022",
+      "Price": "$24.64",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.01.2022",
+      "EndDateSubscription": "01.15.2022",
+      "Price": "$20.90",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.02.2022",
+      "EndDateSubscription": "09.01.2022",
+      "Price": "$9.80",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.16.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$16.17",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.24.2022",
+      "EndDateSubscription": "11.13.2022",
+      "Price": "$32.67",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.18.2022",
+      "EndDateSubscription": "09.18.2022",
+      "Price": "$17.51",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.13.2022",
+      "EndDateSubscription": "05.28.2022",
+      "Price": "$23.21",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.20.2022",
+      "EndDateSubscription": "01.08.2022",
+      "Price": "$42.73",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.07.2022",
+      "EndDateSubscription": "06.26.2022",
+      "Price": "$13.48",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.12.2022",
+      "EndDateSubscription": "05.11.2022",
+      "Price": "$38.99",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.12.2022",
+      "EndDateSubscription": "04.25.2022",
+      "Price": "$31.87",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.19.2022",
+      "EndDateSubscription": "12.02.2022",
+      "Price": "$21.80",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.24.2022",
+      "EndDateSubscription": "06.19.2022",
+      "Price": "$25.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.27.2022",
+      "EndDateSubscription": "07.23.2022",
+      "Price": "$20.77",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.07.2022",
+      "EndDateSubscription": "07.09.2022",
+      "Price": "$33.99",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.21.2022",
+      "EndDateSubscription": "03.12.2022",
+      "Price": "$27.38",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.19.2022",
+      "EndDateSubscription": "07.25.2022",
+      "Price": "$15.69",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.23.2022",
+      "EndDateSubscription": "04.12.2022",
+      "Price": "$16.91",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.14.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$17.56",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.26.2022",
+      "EndDateSubscription": "06.07.2022",
+      "Price": "$39.77",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.10.2022",
+      "EndDateSubscription": "03.03.2022",
+      "Price": "$48.54",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.02.2022",
+      "EndDateSubscription": "03.09.2022",
+      "Price": "$12.76",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.30.2022",
+      "EndDateSubscription": "08.24.2022",
+      "Price": "$46.75",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.31.2022",
+      "EndDateSubscription": "04.16.2022",
+      "Price": "$23.48",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.07.2022",
+      "EndDateSubscription": "12.15.2022",
+      "Price": "$21.65",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.18.2022",
+      "EndDateSubscription": "09.21.2022",
+      "Price": "$22.90",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.22.2022",
+      "EndDateSubscription": "04.03.2022",
+      "Price": "$23.42",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.08.2022",
+      "EndDateSubscription": "04.16.2022",
+      "Price": "$17.35",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "09.23.2022",
+      "Price": "$11.86",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.21.2022",
+      "EndDateSubscription": "04.09.2022",
+      "Price": "$16.38",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.15.2022",
+      "EndDateSubscription": "11.24.2022",
+      "Price": "$12.07",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.22.2022",
+      "EndDateSubscription": "03.23.2022",
+      "Price": "$44.09",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.06.2022",
+      "EndDateSubscription": "07.24.2022",
+      "Price": "$27.41",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.12.2022",
+      "EndDateSubscription": "08.19.2022",
+      "Price": "$27.91",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.17.2022",
+      "EndDateSubscription": "07.11.2022",
+      "Price": "$37.93",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.07.2022",
+      "EndDateSubscription": "02.18.2022",
+      "Price": "$14.67",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.03.2022",
+      "EndDateSubscription": "02.27.2022",
+      "Price": "$25.91",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.13.2022",
+      "EndDateSubscription": "03.13.2022",
+      "Price": "$14.83",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.03.2022",
+      "EndDateSubscription": "07.10.2022",
+      "Price": "$28.26",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.27.2022",
+      "EndDateSubscription": "11.19.2022",
+      "Price": "$27.33",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.18.2022",
+      "EndDateSubscription": "10.17.2022",
+      "Price": "$45.97",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.23.2022",
+      "EndDateSubscription": "04.02.2022",
+      "Price": "$36.67",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.28.2022",
+      "EndDateSubscription": "12.10.2022",
+      "Price": "$6.68",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.26.2022",
+      "EndDateSubscription": "01.31.2022",
+      "Price": "$42.52",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.14.2022",
+      "EndDateSubscription": "10.15.2022",
+      "Price": "$45.36",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.17.2022",
+      "EndDateSubscription": "01.22.2022",
+      "Price": "$49.54",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.19.2022",
+      "EndDateSubscription": "07.06.2022",
+      "Price": "$36.59",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.29.2022",
+      "EndDateSubscription": "04.09.2022",
+      "Price": "$38.11",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.21.2022",
+      "EndDateSubscription": "07.06.2022",
+      "Price": "$37.93",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.24.2022",
+      "EndDateSubscription": "10.13.2022",
+      "Price": "$23.84",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.29.2022",
+      "EndDateSubscription": "01.29.2022",
+      "Price": "$5.98",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "07.10.2022",
+      "Price": "$29.04",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.19.2022",
+      "EndDateSubscription": "10.11.2022",
+      "Price": "$16.87",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.26.2022",
+      "EndDateSubscription": "12.01.2022",
+      "Price": "$42.91",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.11.2022",
+      "EndDateSubscription": "10.04.2022",
+      "Price": "$23.26",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.30.2022",
+      "EndDateSubscription": "12.11.2022",
+      "Price": "$38.69",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.25.2022",
+      "EndDateSubscription": "12.28.2022",
+      "Price": "$29.28",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.09.2022",
+      "EndDateSubscription": "02.15.2022",
+      "Price": "$47.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.17.2022",
+      "EndDateSubscription": "09.26.2022",
+      "Price": "$9.36",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "10.05.2022",
+      "Price": "$20.17",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.10.2022",
+      "EndDateSubscription": "04.18.2022",
+      "Price": "$14.78",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.30.2022",
+      "EndDateSubscription": "09.21.2022",
+      "Price": "$40.51",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.21.2022",
+      "EndDateSubscription": "06.14.2022",
+      "Price": "$41.00",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.20.2022",
+      "EndDateSubscription": "08.29.2022",
+      "Price": "$19.85",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.17.2022",
+      "EndDateSubscription": "04.09.2022",
+      "Price": "$24.96",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.23.2022",
+      "EndDateSubscription": "03.13.2022",
+      "Price": "$12.92",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.11.2022",
+      "EndDateSubscription": "06.23.2022",
+      "Price": "$44.37",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.14.2022",
+      "EndDateSubscription": "07.08.2022",
+      "Price": "$34.30",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.14.2022",
+      "EndDateSubscription": "10.19.2022",
+      "Price": "$39.51",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.27.2022",
+      "EndDateSubscription": "07.25.2022",
+      "Price": "$13.72",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.22.2022",
+      "EndDateSubscription": "03.26.2022",
+      "Price": "$13.75",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.08.2022",
+      "EndDateSubscription": "09.26.2022",
+      "Price": "$47.26",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.21.2022",
+      "EndDateSubscription": "09.25.2022",
+      "Price": "$14.87",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.11.2022",
+      "EndDateSubscription": "11.12.2022",
+      "Price": "$11.54",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.18.2022",
+      "EndDateSubscription": "11.09.2022",
+      "Price": "$34.95",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.03.2022",
+      "EndDateSubscription": "06.24.2022",
+      "Price": "$43.30",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.25.2022",
+      "EndDateSubscription": "03.16.2022",
+      "Price": "$31.20",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.20.2022",
+      "EndDateSubscription": "12.15.2022",
+      "Price": "$31.76",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.29.2022",
+      "EndDateSubscription": "05.12.2022",
+      "Price": "$8.44",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.25.2022",
+      "EndDateSubscription": "02.20.2022",
+      "Price": "$12.64",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.31.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$37.63",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.20.2022",
+      "EndDateSubscription": "08.04.2022",
+      "Price": "$5.10",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.10.2022",
+      "EndDateSubscription": "02.03.2022",
+      "Price": "$38.57",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.28.2022",
+      "EndDateSubscription": "05.07.2022",
+      "Price": "$28.27",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.27.2022",
+      "EndDateSubscription": "05.21.2022",
+      "Price": "$21.31",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.06.2022",
+      "EndDateSubscription": "01.31.2022",
+      "Price": "$46.33",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.19.2022",
+      "EndDateSubscription": "01.11.2022",
+      "Price": "$48.73",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.03.2022",
+      "EndDateSubscription": "11.13.2022",
+      "Price": "$19.97",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.22.2022",
+      "EndDateSubscription": "06.12.2022",
+      "Price": "$34.12",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.14.2022",
+      "EndDateSubscription": "03.19.2022",
+      "Price": "$17.08",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.08.2022",
+      "EndDateSubscription": "03.11.2022",
+      "Price": "$31.31",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.17.2022",
+      "EndDateSubscription": "08.31.2022",
+      "Price": "$14.83",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.23.2022",
+      "EndDateSubscription": "03.05.2022",
+      "Price": "$16.03",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.22.2022",
+      "EndDateSubscription": "01.04.2022",
+      "Price": "$34.47",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.05.2022",
+      "EndDateSubscription": "03.21.2022",
+      "Price": "$25.74",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.08.2022",
+      "EndDateSubscription": "08.02.2022",
+      "Price": "$28.29",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.24.2022",
+      "EndDateSubscription": "12.26.2022",
+      "Price": "$42.79",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.08.2022",
+      "EndDateSubscription": "02.21.2022",
+      "Price": "$12.18",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.19.2022",
+      "EndDateSubscription": "01.11.2022",
+      "Price": "$45.96",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.09.2022",
+      "EndDateSubscription": "02.08.2022",
+      "Price": "$30.44",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.07.2022",
+      "EndDateSubscription": "04.16.2022",
+      "Price": "$38.54",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.30.2022",
+      "EndDateSubscription": "01.24.2022",
+      "Price": "$44.27",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.02.2022",
+      "EndDateSubscription": "02.10.2022",
+      "Price": "$10.14",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.12.2022",
+      "EndDateSubscription": "12.05.2022",
+      "Price": "$27.28",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.16.2022",
+      "EndDateSubscription": "10.07.2022",
+      "Price": "$47.32",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.15.2022",
+      "EndDateSubscription": "04.11.2022",
+      "Price": "$41.94",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.06.2022",
+      "EndDateSubscription": "07.15.2022",
+      "Price": "$32.43",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.06.2022",
+      "EndDateSubscription": "02.16.2022",
+      "Price": "$11.92",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.24.2022",
+      "EndDateSubscription": "05.20.2022",
+      "Price": "$48.13",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.10.2022",
+      "EndDateSubscription": "01.01.2022",
+      "Price": "$26.02",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.24.2022",
+      "EndDateSubscription": "01.08.2022",
+      "Price": "$20.10",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.09.2022",
+      "EndDateSubscription": "05.19.2022",
+      "Price": "$40.50",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.06.2022",
+      "EndDateSubscription": "02.23.2022",
+      "Price": "$9.46",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.04.2022",
+      "EndDateSubscription": "02.14.2022",
+      "Price": "$43.13",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.22.2022",
+      "EndDateSubscription": "11.14.2022",
+      "Price": "$11.48",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "08.13.2022",
+      "Price": "$39.90",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.30.2022",
+      "EndDateSubscription": "01.06.2022",
+      "Price": "$22.03",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.27.2022",
+      "EndDateSubscription": "04.05.2022",
+      "Price": "$5.13",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.03.2022",
+      "EndDateSubscription": "03.21.2022",
+      "Price": "$45.93",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.26.2022",
+      "EndDateSubscription": "03.10.2022",
+      "Price": "$21.63",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.17.2022",
+      "EndDateSubscription": "10.28.2022",
+      "Price": "$26.72",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.23.2022",
+      "EndDateSubscription": "10.08.2022",
+      "Price": "$36.66",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.18.2022",
+      "EndDateSubscription": "06.18.2022",
+      "Price": "$23.34",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.08.2022",
+      "EndDateSubscription": "01.27.2022",
+      "Price": "$46.11",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.20.2022",
+      "EndDateSubscription": "09.02.2022",
+      "Price": "$37.76",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.18.2022",
+      "EndDateSubscription": "01.01.2022",
+      "Price": "$48.52",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.20.2022",
+      "EndDateSubscription": "03.03.2022",
+      "Price": "$22.63",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.30.2022",
+      "EndDateSubscription": "08.11.2022",
+      "Price": "$48.88",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.03.2022",
+      "EndDateSubscription": "07.26.2022",
+      "Price": "$27.45",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.21.2022",
+      "EndDateSubscription": "10.28.2022",
+      "Price": "$42.08",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.22.2022",
+      "EndDateSubscription": "04.26.2022",
+      "Price": "$22.03",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.14.2022",
+      "EndDateSubscription": "10.08.2022",
+      "Price": "$10.00",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.04.2022",
+      "EndDateSubscription": "03.19.2022",
+      "Price": "$34.57",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.15.2022",
+      "EndDateSubscription": "05.09.2022",
+      "Price": "$44.52",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.22.2022",
+      "EndDateSubscription": "07.10.2022",
+      "Price": "$14.44",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.14.2022",
+      "EndDateSubscription": "06.18.2022",
+      "Price": "$23.87",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "09.15.2022",
+      "Price": "$13.10",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.13.2022",
+      "EndDateSubscription": "09.29.2022",
+      "Price": "$46.65",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.02.2022",
+      "EndDateSubscription": "07.31.2022",
+      "Price": "$47.60",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.28.2022",
+      "EndDateSubscription": "07.26.2022",
+      "Price": "$48.03",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.06.2022",
+      "EndDateSubscription": "08.26.2022",
+      "Price": "$9.20",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.01.2022",
+      "EndDateSubscription": "01.12.2022",
+      "Price": "$24.04",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.07.2022",
+      "EndDateSubscription": "10.31.2022",
+      "Price": "$8.01",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.21.2022",
+      "EndDateSubscription": "09.20.2022",
+      "Price": "$40.21",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.21.2022",
+      "EndDateSubscription": "03.07.2022",
+      "Price": "$46.45",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.15.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$20.33",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.20.2022",
+      "EndDateSubscription": "12.12.2022",
+      "Price": "$33.62",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.25.2022",
+      "EndDateSubscription": "05.25.2022",
+      "Price": "$34.71",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.25.2022",
+      "EndDateSubscription": "03.09.2022",
+      "Price": "$15.03",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.08.2022",
+      "EndDateSubscription": "02.27.2022",
+      "Price": "$32.70",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.28.2022",
+      "EndDateSubscription": "10.31.2022",
+      "Price": "$18.62",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.03.2022",
+      "EndDateSubscription": "01.18.2022",
+      "Price": "$20.58",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.29.2022",
+      "EndDateSubscription": "08.15.2022",
+      "Price": "$13.89",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.09.2022",
+      "EndDateSubscription": "01.27.2022",
+      "Price": "$7.57",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.13.2022",
+      "EndDateSubscription": "08.23.2022",
+      "Price": "$30.40",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.21.2022",
+      "EndDateSubscription": "02.24.2022",
+      "Price": "$18.49",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.05.2022",
+      "EndDateSubscription": "05.04.2022",
+      "Price": "$12.81",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.27.2022",
+      "EndDateSubscription": "04.04.2022",
+      "Price": "$10.00",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.28.2022",
+      "EndDateSubscription": "10.10.2022",
+      "Price": "$16.99",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.26.2022",
+      "EndDateSubscription": "02.01.2022",
+      "Price": "$17.20",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.29.2022",
+      "EndDateSubscription": "04.03.2022",
+      "Price": "$34.62",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.25.2022",
+      "EndDateSubscription": "12.13.2022",
+      "Price": "$7.75",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.29.2022",
+      "EndDateSubscription": "09.28.2022",
+      "Price": "$8.54",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.25.2022",
+      "EndDateSubscription": "09.04.2022",
+      "Price": "$37.15",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.13.2022",
+      "EndDateSubscription": "02.11.2022",
+      "Price": "$48.70",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.16.2022",
+      "EndDateSubscription": "02.09.2022",
+      "Price": "$21.18",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.23.2022",
+      "EndDateSubscription": "04.19.2022",
+      "Price": "$28.79",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.31.2022",
+      "EndDateSubscription": "07.29.2022",
+      "Price": "$44.96",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.24.2022",
+      "EndDateSubscription": "08.28.2022",
+      "Price": "$33.42",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.05.2022",
+      "EndDateSubscription": "11.09.2022",
+      "Price": "$45.52",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.20.2022",
+      "EndDateSubscription": "12.14.2022",
+      "Price": "$45.83",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.16.2022",
+      "EndDateSubscription": "08.24.2022",
+      "Price": "$26.41",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.31.2022",
+      "EndDateSubscription": "03.24.2022",
+      "Price": "$32.20",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.03.2022",
+      "EndDateSubscription": "07.23.2022",
+      "Price": "$9.37",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.08.2022",
+      "EndDateSubscription": "02.24.2022",
+      "Price": "$6.02",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.05.2022",
+      "EndDateSubscription": "05.27.2022",
+      "Price": "$10.99",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "08.05.2022",
+      "Price": "$39.47",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.26.2022",
+      "EndDateSubscription": "10.19.2022",
+      "Price": "$27.70",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.24.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$22.10",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.28.2022",
+      "EndDateSubscription": "12.13.2022",
+      "Price": "$30.96",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.29.2022",
+      "EndDateSubscription": "08.11.2022",
+      "Price": "$27.14",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.22.2022",
+      "EndDateSubscription": "04.27.2022",
+      "Price": "$17.95",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.21.2022",
+      "EndDateSubscription": "04.27.2022",
+      "Price": "$31.09",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.21.2022",
+      "EndDateSubscription": "06.12.2022",
+      "Price": "$28.01",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.24.2022",
+      "EndDateSubscription": "06.12.2022",
+      "Price": "$45.00",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.10.2022",
+      "EndDateSubscription": "03.17.2022",
+      "Price": "$34.34",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.20.2022",
+      "EndDateSubscription": "05.09.2022",
+      "Price": "$22.49",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.05.2022",
+      "EndDateSubscription": "08.14.2022",
+      "Price": "$20.21",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.13.2022",
+      "EndDateSubscription": "04.03.2022",
+      "Price": "$14.94",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.25.2022",
+      "EndDateSubscription": "01.18.2022",
+      "Price": "$36.21",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.18.2022",
+      "EndDateSubscription": "06.13.2022",
+      "Price": "$40.15",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.07.2022",
+      "EndDateSubscription": "10.10.2022",
+      "Price": "$20.12",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.11.2022",
+      "EndDateSubscription": "01.18.2022",
+      "Price": "$32.93",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.23.2022",
+      "EndDateSubscription": "04.18.2022",
+      "Price": "$27.98",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.07.2022",
+      "EndDateSubscription": "04.11.2022",
+      "Price": "$30.28",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.17.2022",
+      "EndDateSubscription": "04.09.2022",
+      "Price": "$47.14",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.14.2022",
+      "EndDateSubscription": "12.11.2022",
+      "Price": "$26.16",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.19.2022",
+      "EndDateSubscription": "06.20.2022",
+      "Price": "$27.72",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.18.2022",
+      "EndDateSubscription": "04.14.2022",
+      "Price": "$21.96",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.13.2022",
+      "EndDateSubscription": "02.05.2022",
+      "Price": "$27.73",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.07.2022",
+      "EndDateSubscription": "07.04.2022",
+      "Price": "$28.52",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.06.2022",
+      "EndDateSubscription": "04.05.2022",
+      "Price": "$29.48",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.12.2022",
+      "EndDateSubscription": "04.16.2022",
+      "Price": "$37.13",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.18.2022",
+      "EndDateSubscription": "07.28.2022",
+      "Price": "$6.27",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.01.2022",
+      "EndDateSubscription": "12.28.2022",
+      "Price": "$17.95",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.19.2022",
+      "EndDateSubscription": "02.09.2022",
+      "Price": "$49.20",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.19.2022",
+      "EndDateSubscription": "07.10.2022",
+      "Price": "$15.98",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.15.2022",
+      "EndDateSubscription": "02.28.2022",
+      "Price": "$43.63",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.19.2022",
+      "EndDateSubscription": "03.22.2022",
+      "Price": "$9.97",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.18.2022",
+      "EndDateSubscription": "11.02.2022",
+      "Price": "$9.99",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.05.2022",
+      "EndDateSubscription": "01.01.2022",
+      "Price": "$14.87",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.17.2022",
+      "EndDateSubscription": "04.18.2022",
+      "Price": "$12.54",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.20.2022",
+      "EndDateSubscription": "01.26.2022",
+      "Price": "$26.47",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.20.2022",
+      "EndDateSubscription": "03.27.2022",
+      "Price": "$15.87",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.24.2022",
+      "EndDateSubscription": "01.23.2022",
+      "Price": "$8.79",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.08.2022",
+      "EndDateSubscription": "09.19.2022",
+      "Price": "$44.60",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.28.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$13.73",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.30.2022",
+      "EndDateSubscription": "05.22.2022",
+      "Price": "$49.55",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.19.2022",
+      "EndDateSubscription": "01.27.2022",
+      "Price": "$10.44",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.20.2022",
+      "EndDateSubscription": "01.18.2022",
+      "Price": "$44.80",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.23.2022",
+      "EndDateSubscription": "11.07.2022",
+      "Price": "$38.72",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.19.2022",
+      "EndDateSubscription": "08.06.2022",
+      "Price": "$40.98",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "10.06.2022",
+      "Price": "$25.65",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.20.2022",
+      "EndDateSubscription": "03.24.2022",
+      "Price": "$40.08",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.07.2022",
+      "EndDateSubscription": "08.07.2022",
+      "Price": "$6.54",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.04.2022",
+      "EndDateSubscription": "03.10.2022",
+      "Price": "$43.97",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.25.2022",
+      "EndDateSubscription": "06.14.2022",
+      "Price": "$12.49",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.29.2022",
+      "EndDateSubscription": "01.13.2022",
+      "Price": "$28.62",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.12.2022",
+      "EndDateSubscription": "06.08.2022",
+      "Price": "$21.86",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.17.2022",
+      "EndDateSubscription": "12.07.2022",
+      "Price": "$44.06",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.10.2022",
+      "EndDateSubscription": "03.08.2022",
+      "Price": "$34.21",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.23.2022",
+      "EndDateSubscription": "12.20.2022",
+      "Price": "$21.91",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.15.2022",
+      "EndDateSubscription": "09.07.2022",
+      "Price": "$48.32",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.06.2022",
+      "EndDateSubscription": "02.09.2022",
+      "Price": "$23.52",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.04.2022",
+      "EndDateSubscription": "05.08.2022",
+      "Price": "$49.91",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.19.2022",
+      "EndDateSubscription": "06.01.2022",
+      "Price": "$17.28",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.29.2022",
+      "EndDateSubscription": "07.21.2022",
+      "Price": "$46.33",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.01.2022",
+      "EndDateSubscription": "12.25.2022",
+      "Price": "$20.67",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.27.2022",
+      "EndDateSubscription": "06.27.2022",
+      "Price": "$46.82",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.08.2022",
+      "EndDateSubscription": "08.31.2022",
+      "Price": "$10.74",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.11.2022",
+      "EndDateSubscription": "02.06.2022",
+      "Price": "$36.52",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.25.2022",
+      "EndDateSubscription": "08.23.2022",
+      "Price": "$12.24",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.02.2022",
+      "EndDateSubscription": "06.08.2022",
+      "Price": "$34.09",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.01.2022",
+      "EndDateSubscription": "07.29.2022",
+      "Price": "$18.77",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.02.2022",
+      "EndDateSubscription": "12.25.2022",
+      "Price": "$5.71",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.15.2022",
+      "EndDateSubscription": "03.07.2022",
+      "Price": "$12.42",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.26.2022",
+      "EndDateSubscription": "07.29.2022",
+      "Price": "$20.63",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.13.2022",
+      "EndDateSubscription": "01.16.2022",
+      "Price": "$44.89",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.26.2022",
+      "EndDateSubscription": "05.23.2022",
+      "Price": "$5.64",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.21.2022",
+      "EndDateSubscription": "03.22.2022",
+      "Price": "$38.94",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.01.2022",
+      "EndDateSubscription": "11.02.2022",
+      "Price": "$39.02",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.09.2022",
+      "EndDateSubscription": "01.20.2022",
+      "Price": "$18.56",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.11.2022",
+      "EndDateSubscription": "01.08.2022",
+      "Price": "$40.02",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.21.2022",
+      "EndDateSubscription": "08.14.2022",
+      "Price": "$6.03",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.30.2022",
+      "EndDateSubscription": "10.28.2022",
+      "Price": "$22.16",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.04.2022",
+      "EndDateSubscription": "11.24.2022",
+      "Price": "$39.62",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.23.2022",
+      "EndDateSubscription": "07.27.2022",
+      "Price": "$28.51",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.16.2022",
+      "EndDateSubscription": "01.11.2022",
+      "Price": "$43.10",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.07.2022",
+      "EndDateSubscription": "08.22.2022",
+      "Price": "$24.76",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.11.2022",
+      "EndDateSubscription": "03.06.2022",
+      "Price": "$49.65",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.12.2022",
+      "EndDateSubscription": "01.16.2022",
+      "Price": "$15.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.17.2022",
+      "EndDateSubscription": "11.06.2022",
+      "Price": "$40.23",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.21.2022",
+      "EndDateSubscription": "11.09.2022",
+      "Price": "$30.23",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.11.2022",
+      "EndDateSubscription": "05.20.2022",
+      "Price": "$25.61",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.18.2022",
+      "EndDateSubscription": "10.01.2022",
+      "Price": "$20.84",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.29.2022",
+      "EndDateSubscription": "06.16.2022",
+      "Price": "$27.00",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "11.27.2022",
+      "Price": "$9.40",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.13.2022",
+      "EndDateSubscription": "07.10.2022",
+      "Price": "$21.13",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.30.2022",
+      "EndDateSubscription": "07.02.2022",
+      "Price": "$43.71",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "10.13.2022",
+      "Price": "$6.93",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.21.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$38.80",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.25.2022",
+      "EndDateSubscription": "08.02.2022",
+      "Price": "$9.74",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.22.2022",
+      "EndDateSubscription": "05.03.2022",
+      "Price": "$12.80",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.30.2022",
+      "EndDateSubscription": "02.16.2022",
+      "Price": "$7.29",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.31.2022",
+      "EndDateSubscription": "08.22.2022",
+      "Price": "$14.00",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.08.2022",
+      "EndDateSubscription": "01.28.2022",
+      "Price": "$46.65",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.09.2022",
+      "EndDateSubscription": "08.27.2022",
+      "Price": "$15.53",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.24.2022",
+      "EndDateSubscription": "01.28.2022",
+      "Price": "$45.65",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.30.2022",
+      "EndDateSubscription": "06.20.2022",
+      "Price": "$28.77",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.08.2022",
+      "EndDateSubscription": "07.15.2022",
+      "Price": "$35.87",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.28.2022",
+      "EndDateSubscription": "12.06.2022",
+      "Price": "$19.74",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.05.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$28.54",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.08.2022",
+      "EndDateSubscription": "07.24.2022",
+      "Price": "$24.76",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.23.2022",
+      "EndDateSubscription": "11.04.2022",
+      "Price": "$42.75",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.01.2022",
+      "EndDateSubscription": "08.02.2022",
+      "Price": "$43.00",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.22.2022",
+      "EndDateSubscription": "02.19.2022",
+      "Price": "$42.52",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.19.2022",
+      "EndDateSubscription": "07.13.2022",
+      "Price": "$17.30",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.21.2022",
+      "EndDateSubscription": "03.25.2022",
+      "Price": "$16.25",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.27.2022",
+      "EndDateSubscription": "04.29.2022",
+      "Price": "$6.31",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.01.2022",
+      "EndDateSubscription": "11.17.2022",
+      "Price": "$43.13",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.10.2022",
+      "EndDateSubscription": "08.11.2022",
+      "Price": "$42.80",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.21.2022",
+      "EndDateSubscription": "05.26.2022",
+      "Price": "$28.92",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.08.2022",
+      "EndDateSubscription": "10.26.2022",
+      "Price": "$12.81",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.13.2022",
+      "EndDateSubscription": "11.08.2022",
+      "Price": "$39.86",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.07.2022",
+      "EndDateSubscription": "12.27.2022",
+      "Price": "$15.27",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.23.2022",
+      "EndDateSubscription": "01.05.2022",
+      "Price": "$29.52",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.13.2022",
+      "EndDateSubscription": "11.11.2022",
+      "Price": "$10.22",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.03.2022",
+      "EndDateSubscription": "12.01.2022",
+      "Price": "$16.89",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.02.2022",
+      "EndDateSubscription": "06.26.2022",
+      "Price": "$26.49",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.16.2022",
+      "EndDateSubscription": "07.02.2022",
+      "Price": "$8.01",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.10.2022",
+      "EndDateSubscription": "02.22.2022",
+      "Price": "$47.62",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.30.2022",
+      "EndDateSubscription": "08.27.2022",
+      "Price": "$6.73",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.01.2022",
+      "EndDateSubscription": "10.17.2022",
+      "Price": "$23.54",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.08.2022",
+      "EndDateSubscription": "02.20.2022",
+      "Price": "$25.77",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.19.2022",
+      "EndDateSubscription": "11.25.2022",
+      "Price": "$16.08",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.11.2022",
+      "EndDateSubscription": "02.13.2022",
+      "Price": "$49.61",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.31.2022",
+      "EndDateSubscription": "01.02.2022",
+      "Price": "$13.34",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.14.2022",
+      "EndDateSubscription": "03.19.2022",
+      "Price": "$13.86",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.06.2022",
+      "EndDateSubscription": "11.15.2022",
+      "Price": "$41.66",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.05.2022",
+      "EndDateSubscription": "03.10.2022",
+      "Price": "$39.91",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.14.2022",
+      "EndDateSubscription": "02.06.2022",
+      "Price": "$31.26",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.29.2022",
+      "EndDateSubscription": "12.08.2022",
+      "Price": "$31.56",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.20.2022",
+      "EndDateSubscription": "06.16.2022",
+      "Price": "$15.38",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.16.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$7.28",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.07.2022",
+      "EndDateSubscription": "10.23.2022",
+      "Price": "$47.87",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.17.2022",
+      "EndDateSubscription": "08.11.2022",
+      "Price": "$12.12",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.21.2022",
+      "EndDateSubscription": "07.20.2022",
+      "Price": "$28.68",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.07.2022",
+      "EndDateSubscription": "12.29.2022",
+      "Price": "$7.09",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.01.2022",
+      "EndDateSubscription": "02.26.2022",
+      "Price": "$25.87",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.13.2022",
+      "EndDateSubscription": "09.21.2022",
+      "Price": "$31.47",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.20.2022",
+      "EndDateSubscription": "06.07.2022",
+      "Price": "$26.48",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.23.2022",
+      "EndDateSubscription": "08.27.2022",
+      "Price": "$23.17",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.15.2022",
+      "EndDateSubscription": "07.30.2022",
+      "Price": "$10.19",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.15.2022",
+      "EndDateSubscription": "05.30.2022",
+      "Price": "$11.61",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.23.2022",
+      "EndDateSubscription": "05.20.2022",
+      "Price": "$41.44",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.27.2022",
+      "EndDateSubscription": "08.27.2022",
+      "Price": "$29.94",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.12.2022",
+      "EndDateSubscription": "05.06.2022",
+      "Price": "$46.49",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "07.19.2022",
+      "Price": "$49.09",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.06.2022",
+      "EndDateSubscription": "02.06.2022",
+      "Price": "$38.82",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.03.2022",
+      "EndDateSubscription": "04.06.2022",
+      "Price": "$22.11",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.28.2022",
+      "EndDateSubscription": "08.17.2022",
+      "Price": "$15.08",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.10.2022",
+      "EndDateSubscription": "08.13.2022",
+      "Price": "$6.93",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.11.2022",
+      "EndDateSubscription": "09.03.2022",
+      "Price": "$16.77",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.29.2022",
+      "EndDateSubscription": "03.03.2022",
+      "Price": "$16.80",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.22.2022",
+      "EndDateSubscription": "02.09.2022",
+      "Price": "$37.18",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.11.2022",
+      "EndDateSubscription": "03.31.2022",
+      "Price": "$7.92",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.29.2022",
+      "EndDateSubscription": "07.12.2022",
+      "Price": "$31.78",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.18.2022",
+      "EndDateSubscription": "04.10.2022",
+      "Price": "$48.73",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.08.2022",
+      "EndDateSubscription": "04.06.2022",
+      "Price": "$23.52",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.01.2022",
+      "EndDateSubscription": "12.23.2022",
+      "Price": "$16.13",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.18.2022",
+      "EndDateSubscription": "11.19.2022",
+      "Price": "$44.58",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.05.2022",
+      "EndDateSubscription": "03.30.2022",
+      "Price": "$31.20",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.15.2022",
+      "EndDateSubscription": "05.13.2022",
+      "Price": "$34.67",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.10.2022",
+      "EndDateSubscription": "06.29.2022",
+      "Price": "$23.41",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.19.2022",
+      "EndDateSubscription": "06.02.2022",
+      "Price": "$40.86",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.01.2022",
+      "EndDateSubscription": "07.31.2022",
+      "Price": "$22.58",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.15.2022",
+      "EndDateSubscription": "07.30.2022",
+      "Price": "$44.79",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.11.2022",
+      "EndDateSubscription": "07.14.2022",
+      "Price": "$20.68",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.12.2022",
+      "EndDateSubscription": "01.23.2022",
+      "Price": "$45.61",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.02.2022",
+      "EndDateSubscription": "01.15.2022",
+      "Price": "$20.57",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.08.2022",
+      "EndDateSubscription": "12.06.2022",
+      "Price": "$5.67",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.03.2022",
+      "EndDateSubscription": "05.17.2022",
+      "Price": "$6.11",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.09.2022",
+      "EndDateSubscription": "02.02.2022",
+      "Price": "$35.55",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.31.2022",
+      "EndDateSubscription": "05.28.2022",
+      "Price": "$42.28",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.08.2022",
+      "EndDateSubscription": "04.10.2022",
+      "Price": "$43.79",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.05.2022",
+      "EndDateSubscription": "01.10.2022",
+      "Price": "$14.64",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.14.2022",
+      "EndDateSubscription": "01.21.2022",
+      "Price": "$38.72",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.21.2022",
+      "EndDateSubscription": "02.14.2022",
+      "Price": "$17.45",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.02.2022",
+      "EndDateSubscription": "12.16.2022",
+      "Price": "$19.91",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.19.2022",
+      "EndDateSubscription": "06.21.2022",
+      "Price": "$18.32",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.31.2022",
+      "EndDateSubscription": "12.21.2022",
+      "Price": "$18.45",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.06.2022",
+      "EndDateSubscription": "12.01.2022",
+      "Price": "$5.05",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.23.2022",
+      "EndDateSubscription": "02.11.2022",
+      "Price": "$44.55",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.29.2022",
+      "EndDateSubscription": "02.26.2022",
+      "Price": "$46.07",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.31.2022",
+      "EndDateSubscription": "01.21.2022",
+      "Price": "$8.04",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.12.2022",
+      "EndDateSubscription": "01.01.2022",
+      "Price": "$22.91",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.17.2022",
+      "EndDateSubscription": "04.16.2022",
+      "Price": "$16.34",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.29.2022",
+      "EndDateSubscription": "02.10.2022",
+      "Price": "$15.94",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.15.2022",
+      "EndDateSubscription": "05.28.2022",
+      "Price": "$27.22",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.27.2022",
+      "EndDateSubscription": "01.26.2022",
+      "Price": "$12.67",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.08.2022",
+      "EndDateSubscription": "09.24.2022",
+      "Price": "$28.41",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.07.2022",
+      "EndDateSubscription": "03.20.2022",
+      "Price": "$48.78",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.19.2022",
+      "EndDateSubscription": "04.28.2022",
+      "Price": "$33.82",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.19.2022",
+      "EndDateSubscription": "02.14.2022",
+      "Price": "$29.00",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.01.2022",
+      "EndDateSubscription": "04.20.2022",
+      "Price": "$30.79",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.12.2022",
+      "EndDateSubscription": "04.24.2022",
+      "Price": "$11.76",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.03.2022",
+      "EndDateSubscription": "01.05.2022",
+      "Price": "$10.39",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.11.2022",
+      "EndDateSubscription": "08.16.2022",
+      "Price": "$22.75",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.31.2022",
+      "EndDateSubscription": "12.03.2022",
+      "Price": "$29.39",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.09.2022",
+      "EndDateSubscription": "05.30.2022",
+      "Price": "$23.61",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "08.01.2022",
+      "EndDateSubscription": "05.08.2022",
+      "Price": "$41.05",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.22.2022",
+      "EndDateSubscription": "10.29.2022",
+      "Price": "$36.04",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.17.2022",
+      "EndDateSubscription": "01.19.2022",
+      "Price": "$36.77",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.05.2022",
+      "EndDateSubscription": "09.17.2022",
+      "Price": "$13.47",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.23.2022",
+      "EndDateSubscription": "10.01.2022",
+      "Price": "$22.68",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.21.2022",
+      "EndDateSubscription": "06.15.2022",
+      "Price": "$10.42",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.09.2022",
+      "EndDateSubscription": "11.18.2022",
+      "Price": "$20.15",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.19.2022",
+      "EndDateSubscription": "05.20.2022",
+      "Price": "$11.08",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.21.2022",
+      "EndDateSubscription": "09.12.2022",
+      "Price": "$10.22",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.08.2022",
+      "EndDateSubscription": "01.20.2022",
+      "Price": "$9.61",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.15.2022",
+      "EndDateSubscription": "04.21.2022",
+      "Price": "$5.17",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.30.2022",
+      "EndDateSubscription": "07.15.2022",
+      "Price": "$37.35",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.25.2022",
+      "EndDateSubscription": "09.15.2022",
+      "Price": "$31.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.29.2022",
+      "EndDateSubscription": "11.11.2022",
+      "Price": "$7.49",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.19.2022",
+      "EndDateSubscription": "07.15.2022",
+      "Price": "$26.66",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.02.2022",
+      "EndDateSubscription": "11.24.2022",
+      "Price": "$25.17",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.15.2022",
+      "EndDateSubscription": "06.01.2022",
+      "Price": "$24.93",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.02.2022",
+      "EndDateSubscription": "10.30.2022",
+      "Price": "$7.41",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.13.2022",
+      "EndDateSubscription": "09.18.2022",
+      "Price": "$29.99",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.26.2022",
+      "EndDateSubscription": "05.05.2022",
+      "Price": "$16.40",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.20.2022",
+      "EndDateSubscription": "11.01.2022",
+      "Price": "$7.55",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.10.2022",
+      "EndDateSubscription": "02.03.2022",
+      "Price": "$19.56",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.07.2022",
+      "EndDateSubscription": "12.01.2022",
+      "Price": "$43.79",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.15.2022",
+      "EndDateSubscription": "06.07.2022",
+      "Price": "$27.17",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.21.2022",
+      "EndDateSubscription": "05.18.2022",
+      "Price": "$21.96",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.14.2022",
+      "EndDateSubscription": "09.28.2022",
+      "Price": "$12.37",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "09.24.2022",
+      "EndDateSubscription": "01.19.2022",
+      "Price": "$28.39",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.09.2022",
+      "EndDateSubscription": "12.26.2022",
+      "Price": "$18.26",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.15.2022",
+      "EndDateSubscription": "02.11.2022",
+      "Price": "$12.56",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.17.2022",
+      "EndDateSubscription": "09.10.2022",
+      "Price": "$23.94",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.30.2022",
+      "EndDateSubscription": "03.25.2022",
+      "Price": "$41.74",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.18.2022",
+      "EndDateSubscription": "05.29.2022",
+      "Price": "$25.47",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "05.16.2022",
+      "EndDateSubscription": "04.20.2022",
+      "Price": "$6.86",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.19.2022",
+      "EndDateSubscription": "10.24.2022",
+      "Price": "$23.03",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.16.2022",
+      "EndDateSubscription": "04.30.2022",
+      "Price": "$28.22",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.14.2022",
+      "EndDateSubscription": "03.28.2022",
+      "Price": "$34.03",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.03.2022",
+      "EndDateSubscription": "04.28.2022",
+      "Price": "$39.04",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.30.2022",
+      "EndDateSubscription": "09.20.2022",
+      "Price": "$32.69",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.16.2022",
+      "EndDateSubscription": "06.29.2022",
+      "Price": "$13.26",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.31.2022",
+      "EndDateSubscription": "01.18.2022",
+      "Price": "$31.38",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "02.26.2022",
+      "EndDateSubscription": "10.29.2022",
+      "Price": "$17.36",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.07.2022",
+      "EndDateSubscription": "04.04.2022",
+      "Price": "$46.60",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.24.2022",
+      "EndDateSubscription": "08.22.2022",
+      "Price": "$19.57",
+      "SubscriptionType": "1 day",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.17.2022",
+      "EndDateSubscription": "07.21.2022",
+      "Price": "$6.69",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "12.07.2022",
+      "EndDateSubscription": "07.25.2022",
+      "Price": "$6.27",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "06.22.2022",
+      "EndDateSubscription": "05.15.2022",
+      "Price": "$25.12",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.25.2022",
+      "EndDateSubscription": "12.04.2022",
+      "Price": "$7.77",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "11.03.2022",
+      "EndDateSubscription": "05.06.2022",
+      "Price": "$12.62",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "01.15.2022",
+      "EndDateSubscription": "11.12.2022",
+      "Price": "$23.18",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "03.12.2022",
+      "EndDateSubscription": "03.03.2022",
+      "Price": "$24.22",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "10.18.2022",
+      "EndDateSubscription": "04.11.2022",
+      "Price": "$35.38",
+      "SubscriptionType": "1 month",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "04.26.2022",
+      "EndDateSubscription": "08.16.2022",
+      "Price": "$5.94",
+      "SubscriptionType": "3 months",
+      "PaymentType": "Stripe"
+    },
+    {
+      "DateOfPayment": "07.13.2022",
+      "EndDateSubscription": "12.12.2022",
+      "Price": "$36.86",
+      "SubscriptionType": "7 days",
+      "PaymentType": "Stripe"
+    }
+  ]

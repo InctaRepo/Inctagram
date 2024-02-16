@@ -45,7 +45,7 @@ export const AreYouSureDescriptionModal = ({
 
   return (
     <>
-      <div className={s.close} onClick={clickHandler}>
+      {/* <div className={s.close} onClick={clickHandler}>
         <CloseIcon />
       </div>
       <div hidden={!openSureDescriptionModal}>
@@ -62,7 +62,7 @@ export const AreYouSureDescriptionModal = ({
         >
           <Typography variant={'h3'}>{t.posts.editPost.question}</Typography>
         </Modal>
-      </div>
+      </div> */}
     </>
   )
 }
