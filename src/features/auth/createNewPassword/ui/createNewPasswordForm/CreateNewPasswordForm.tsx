@@ -12,11 +12,11 @@ import { Button } from '@/ui/button'
 import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
 
-type CreateNewPasswordProps = {
+type Props = {
   onSubmitHandler: (data: PasswordsMatchForm) => void
 }
 
-export const CreateNewPasswordForm = ({ onSubmitHandler }: CreateNewPasswordProps) => {
+export const CreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
   const { t } = useTranslate()
 
   const {
