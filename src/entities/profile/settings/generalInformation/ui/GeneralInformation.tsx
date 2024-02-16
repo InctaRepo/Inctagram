@@ -10,7 +10,8 @@ import {
   useUploadAvatarMutation,
 } from '@/entities/profile/service'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
-import { GeneralInformationForm } from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/GeneralInformationForm' // eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { GeneralInformationForm } from '@/entities/profile/settings/generalInformation/ui/generalInformationForm'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { getUserId } from '@/features/auth/signIn'
 import { RouteNames } from '@/shared/const'
 import { useAppDispatch, useAppSelector, useErrorToast } from '@/shared/hooks'
