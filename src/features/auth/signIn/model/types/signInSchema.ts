@@ -1,3 +1,4 @@
 export type SignInSchema = {
-  accessToken: string | null
+  accessToken?: string | null
+  id?: string | null
 }

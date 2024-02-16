@@ -1,9 +1,10 @@
 import React from 'react'
 
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { getUserId } from '@/features/auth/signIn'
 import { useDeletePostMutation } from '@/features/posts/editDeletePost/postDeleteModal/service/deletePost'
 import s from '@/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
 import Delete from '@/public/icon/deletePost.svg'
-import { getUserId } from '@/shared/hoc'
 import { useAppSelector, useTranslate } from '@/shared/hooks'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
