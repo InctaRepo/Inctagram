@@ -11,12 +11,12 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
-import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
 import s from '@/features/posts/createPost/cropModal/ui/cropModal.module.scss'
 import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
 import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
 import { useTranslate } from '@/shared/hooks'
+import { Image, ImageFiltersType } from '@/shared/types'
 import { Typography } from '@/ui/typography'
 
 type Props = {
@@ -33,7 +33,6 @@ type Props = {
   className?: string
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  isBaseModalOpen: boolean
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image: string | undefined) => void
   handleSaveDraft: () => void
@@ -52,7 +51,6 @@ export const CropModal = ({
   children,
   addedImages,
   setAddedImages,
-  isBaseModalOpen,
   setIsBaseModalOpen,
   setImage,
   handleSaveDraft,
@@ -68,7 +66,7 @@ export const CropModal = ({
     ),
   }
   const [isModalOpen, setIsModalOpen] = useState(true)
-  const [activeFilter, setActiveFilter] = useState<ActiveFilter>('none')
+  const [activeFilter, setActiveFilter] = useState<ImageFiltersType>('none')
   const [openSureModal, setOpenSureModal] = useState<boolean>(false)
   const areYouSureRef = useRef(null)
 
@@ -88,7 +86,7 @@ export const CropModal = ({
     setAddedImages([])
   }
 
-  const setFilterHandler = (activeFilter: ActiveFilter) => {
+  const setFilterHandler = (activeFilter: ImageFiltersType) => {
     setActiveFilter(activeFilter)
   }
 
@@ -120,10 +118,8 @@ export const CropModal = ({
                     setOpenSureModal={setOpenSureModal}
                   >
                     <SelectedImages
-                      image={image}
                       addedImages={addedImages}
                       setActiveFilter={setActiveFilter}
-                      activeFilter={activeFilter}
                       setAddedImages={setAddedImages}
                     />
                   </FiltersModal>

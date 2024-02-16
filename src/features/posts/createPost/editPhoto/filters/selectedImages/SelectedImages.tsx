@@ -6,27 +6,20 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { SliderSettings } from '@/entities/post/sliderSettings'
-import { ActiveFilter, Image, getFilterType } from '@/features/posts/createPost/CreateNewPost'
 import { filtersVariant } from '@/features/posts/createPost/editPhoto/filters/selectedImages/filtersVariant'
 import s from '@/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 import airBalloon from '@/public/images/airBalloonImage.jpg'
+import { getFilterType } from '@/shared/helpers'
+import { Image, ImageFiltersType } from '@/shared/types'
 import { Typography } from '@/ui/typography'
 
 type Props = {
   addedImages: Image[]
-  activeFilter: ActiveFilter
-  setActiveFilter: (activeFilter: ActiveFilter) => void
-  image?: string
+  setActiveFilter: (activeFilter: ImageFiltersType) => void
   setAddedImages: (addedImages: Image[]) => void
 }
 
-export const SelectedImages = ({
-  image,
-  addedImages,
-  // activeFilter,
-  setActiveFilter,
-  setAddedImages,
-}: Props) => {
+export const SelectedImages = ({ addedImages, setActiveFilter, setAddedImages }: Props) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const activeFilter = addedImages[currentImageIndex].activeFilter
 

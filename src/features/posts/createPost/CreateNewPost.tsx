@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
+import React, { ChangeEvent, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -10,28 +10,10 @@ import ImgOutline from '@/public/icon/imgOutlineIcon.svg'
 import { RouteNames, variantIconLink } from '@/shared/const'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
+import { Image } from '@/shared/types'
 import { Button } from '@/ui/button'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
-
-export type ActiveFilter =
-  | 'none'
-  | 'saturate(2)'
-  | 'grayscale(100%)'
-  | 'contrast(160%)'
-  | 'contrast(110%) brightness(110%) saturate(130%)'
-  | 'invert(80%)'
-  | 'sepia(80%)'
-  | 'opacity(70%)'
-  | 'hue-rotate(150deg)'
-
-export type Image = {
-  image?: string
-  id?: string
-  croppedImage?: string
-  fileName?: string
-  activeFilter: ActiveFilter
-}
 
 export const CreateNewPost = () => {
   const { t } = useTranslate()
@@ -139,7 +121,6 @@ export const CreateNewPost = () => {
           title={t.posts.createPost.cropping}
           addedImages={imagesForUpload}
           setAddedImages={setAddedImages}
-          isBaseModalOpen={isBaseModalOpen}
           setIsBaseModalOpen={setIsBaseModalOpen}
           setImage={setImage}
           handleSaveDraft={handleSaveDraft}
@@ -165,32 +146,4 @@ export const CreateNewPost = () => {
       </div>
     </div>
   )
-}
-
-export const getFilterType = (filter: string): ActiveFilter => {
-  switch (filter) {
-    case 'No filter':
-      return 'none'
-    case 'Kyoto':
-      return 'saturate(2)'
-    case 'Lark':
-      return 'grayscale(100%)'
-    case 'Gingham':
-      return 'contrast(160%)'
-    case 'Happy':
-      return 'contrast(110%) brightness(110%) saturate(130%)'
-    case 'Clarendon':
-      return 'invert(80%)'
-    case 'Shabby':
-      return 'sepia(80%)'
-    case 'Old school': {
-      return 'opacity(70%)'
-    }
-    case 'Silent Hill': {
-      return 'hue-rotate(150deg)'
-    }
-    default: {
-      return 'none'
-    }
-  }
 }

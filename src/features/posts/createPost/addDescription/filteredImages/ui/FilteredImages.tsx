@@ -11,10 +11,9 @@ import { Image } from '@/features/posts/createPost/CreateNewPost'
 
 type Props = {
   addedImages: Image[]
-  activeFilter: string
 }
 
-export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
+export const FilteredImages = ({ addedImages }: Props) => {
   return (
     <>
       <div className={s.imgContainer}>
@@ -28,7 +27,7 @@ export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
                   width={490}
                   height={503}
                   style={{
-                    filter: activeFilter,
+                    filter: el.activeFilter,
                     width: '100%',
                     height: 'auto',
                   }}

@@ -11,7 +11,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
 import s from '@/features/posts/createPost/addDescription/ui/addDescriptionModal.module.scss'
-import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
+import { Image } from '@/features/posts/createPost/CreateNewPost'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
 import { useTranslate } from '@/shared/hooks/useTranslate'
 import { Button } from '@/ui/button'
@@ -26,8 +26,6 @@ export type ModalProps = {
   onClose?: () => void
   onAction?: () => void
   onCancel?: () => void
-  activeFilter: ActiveFilter
-  setActiveFilter: (activeFilter: ActiveFilter) => void
   cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string // if no props , visibility = hidden
   showSeparator?: boolean // if no props with false , visibility = visible
@@ -37,13 +35,12 @@ export type ModalProps = {
   setOpenSureModal: (openSureModal: boolean) => void
   addedImages: Image[]
   setAddedImages: (addedImages: Awaited<Image[]>) => void
-  sendFilteredImg: (activeFilter: ActiveFilter) => void
+  sendFilteredImg: () => void
   isDescriptionModalOpen: boolean
   setIsDescriptionModalOpen: (isDescriptionModalOpen: boolean) => void
 } & ComponentProps<'div'>
 
 export const AddDescriptionModal = ({
-  activeFilter,
   setIsFiltersModalOpen,
   showSeparator = true,
   cancelButtonName,
@@ -95,11 +92,7 @@ export const AddDescriptionModal = ({
                 <Typography variant={'h1'}>{title}</Typography>
               </DialogTitle>
               <div className={s.next}>
-                <Button
-                  variant="text"
-                  className={s.nextButton}
-                  onClick={() => sendFilteredImg(activeFilter)}
-                >
+                <Button variant="text" className={s.nextButton} onClick={() => sendFilteredImg()}>
                   {t.posts.createPost.publish}
                 </Button>
               </div>

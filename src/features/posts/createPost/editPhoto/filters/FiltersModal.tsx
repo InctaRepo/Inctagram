@@ -13,12 +13,12 @@ import { clsx } from 'clsx'
 import { FilteredImages } from '@/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
 import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
 import { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'
-import { ActiveFilter, Image } from '@/features/posts/createPost/CreateNewPost'
 import s from '@/features/posts/createPost/editPhoto/filters/FiltersModal.module.scss'
 import { useAddPostMutation } from '@/features/posts/service'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
 import { filteredImg } from '@/shared/helpers/filteredImg'
 import { useTranslate } from '@/shared/hooks'
+import { Image, ImageFiltersType } from '@/shared/types'
 import { Button } from '@/ui/button'
 import { Typography } from '@/ui/typography'
 
@@ -26,7 +26,6 @@ export type ModalProps = {
   image?: string
   isModalOpen: boolean
   onClose?: () => void
-  onAction?: () => void
   onCancel?: () => void
   cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string // if no props , visibility = hidden
@@ -36,8 +35,8 @@ export type ModalProps = {
   className?: string
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  activeFilter: ActiveFilter
-  setActiveFilter: (activeFilter: ActiveFilter) => void
+  activeFilter: ImageFiltersType
+  setActiveFilter: (activeFilter: ImageFiltersType) => void
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image: string | undefined) => void
   openSureModal: boolean
@@ -48,7 +47,6 @@ export type ModalProps = {
 export const FiltersModal = ({
   image,
   showSeparator = true,
-  onAction,
   onCancel,
   isModalOpen,
   cancelButtonName,
@@ -76,12 +74,10 @@ export const FiltersModal = ({
   }
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
   const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
-  const [value, setValue] = useState('')
+  const [postDescription, setPostDescription] = useState('')
   const { t } = useTranslate()
   const [addPost] = useAddPostMutation()
-  const actionButtonHandler = () => {
-    onAction?.()
-  }
+
   const cancelButtonHandler = () => {
     onCancel?.()
   }
@@ -94,12 +90,12 @@ export const FiltersModal = ({
   const handleNext = () => {
     setIsFiltersModalOpen(true)
     setIsBaseModalOpen(false)
-    //setIsModalOpen(false)
   }
 
   const formData = new FormData()
-  const sendFilteredImg = async (activeFilter: string) => {
-    const updatedImages = await Promise.all(
+
+  const sendFilteredImg = async () => {
+    await Promise.all(
       addedImages.map(async (el, idx) => {
         const filteredImage = await filteredImg(el.image, activeFilter)
 
@@ -118,12 +114,11 @@ export const FiltersModal = ({
       })
     )
 
-    formData.append('description', value)
+    formData.append('description', postDescription)
 
     addPost(formData)
       .unwrap()
       .then(() => {
-        //setAddedImages(updatedImages)
         setActiveFilter('none')
         setIsFiltersModalOpen(false)
         setIsDescriptionModalOpen(false)
@@ -149,8 +144,6 @@ export const FiltersModal = ({
                   image={image}
                   addedImages={addedImages}
                   setAddedImages={setAddedImages}
-                  activeFilter={activeFilter}
-                  setActiveFilter={setActiveFilter}
                   isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
                   onCancel={cancelButtonHandler}
@@ -162,8 +155,8 @@ export const FiltersModal = ({
                   setIsDescriptionModalOpen={setIsDescriptionModalOpen}
                   sendFilteredImg={sendFilteredImg}
                 >
-                  <FilteredImages addedImages={addedImages} activeFilter={activeFilter} />
-                  <PostDescription value={value} setValue={setValue} />
+                  <FilteredImages addedImages={addedImages} />
+                  <PostDescription value={postDescription} setValue={setPostDescription} />
                 </AddDescriptionModal>
               </div>
 
