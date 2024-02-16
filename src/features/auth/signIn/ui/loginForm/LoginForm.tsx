@@ -5,11 +5,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import {
-  gitOnclickHandler,
-  googleOnclickHandler,
-} from '@/features/auth/signIn/authByThirdParty/service/onclickHandlers'
 import s from '@/features/auth/signIn/ui/loginForm/loginForm.module.scss'
+import { authByGitHub, authByGoogle } from '@/features/auth/successGoogleGitHub'
 import GithubIcon from '@/public/icon/gitHubIcon.svg'
 import GoogleIcon from '@/public/icon/googleIcon.svg'
 import { RouteNames } from '@/shared/const'
@@ -66,10 +63,10 @@ export const LoginForm = ({ onSubmitHandler, errorServer }: Props) => {
           {t.auth.signIn}
         </Typography>
         <div className={s.oauthWrap}>
-          <div onClick={googleOnclickHandler}>
+          <div onClick={authByGoogle}>
             <GoogleIcon />
           </div>
-          <div onClick={gitOnclickHandler}>
+          <div onClick={authByGitHub}>
             <GithubIcon />
           </div>
         </div>

@@ -5,11 +5,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import {
-  gitOnclickHandler,
-  googleOnclickHandler,
-} from '@/features/auth/signIn/authByThirdParty/service/onclickHandlers'
 import s from '@/features/auth/signUp/ui/singUpForm/singUpForm.module.scss'
+import { authByGitHub, authByGoogle } from '@/features/auth/successGoogleGitHub'
 import GithubIcon from '@/public/icon/gitHubIcon.svg'
 import GoogleIcon from '@/public/icon/googleIcon.svg'
 import { RouteNames } from '@/shared/const'
@@ -66,10 +63,10 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
           {t.auth.signUp}
         </Typography>
         <div className={s.authIcons}>
-          <div onClick={googleOnclickHandler}>
+          <div onClick={authByGoogle}>
             <GoogleIcon />
           </div>
-          <div onClick={gitOnclickHandler}>
+          <div onClick={authByGitHub}>
             <GithubIcon />
           </div>
         </div>
@@ -125,7 +122,7 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
         <Typography variant={'regular16'} className={s.subtitle}>
           {t.auth.haveAccount}
         </Typography>
-        <Button variant="link" color={'link'} onClick={() => router.push('/')}>
+        <Button variant="link" color={'link'} onClick={() => router.push(RouteNames.SIGN_IN)}>
           {t.auth.signIn}
         </Button>
       </div>
