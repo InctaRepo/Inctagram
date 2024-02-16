@@ -7,7 +7,7 @@ import Slider from 'react-slick'
 
 import { SliderSettings } from '@/entities/post/sliderSettings'
 import s from '@/features/posts/createPost/addDescription/filteredImages/ui/filteredImages.module.scss'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
+import { Image } from '@/shared/types'
 
 type Props = {
   addedImages: Image[]

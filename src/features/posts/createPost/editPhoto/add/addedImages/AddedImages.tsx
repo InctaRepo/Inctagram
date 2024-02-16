@@ -2,9 +2,9 @@ import React from 'react'
 
 import ImageToAdd from 'next/image'
 
-import { Image } from '@/features/posts/createPost/CreateNewPost'
 import s from '@/features/posts/createPost/editPhoto/add/addedImages/AddedImages.module.scss'
 import CloseIcon from '@/public/icon/closeIcon.svg'
+import { Image } from '@/shared/types'
 
 type Props = {
   addedImages: Image[]

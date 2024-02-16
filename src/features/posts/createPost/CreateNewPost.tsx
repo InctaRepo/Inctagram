@@ -27,9 +27,6 @@ export const CreateNewPost = () => {
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
 
-  console.log(addedImages)
-  console.log(draftOfImages)
-
   const imagesForUpload = isDraftUploaded ? draftOfImages : addedImages
 
   const handleCloseCreateModal = () => {
