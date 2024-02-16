@@ -1,1 +1,1 @@
-export type { ImageFiltersType, Image } from './posts/postsTypes'
+export type { ImageFilter as ImageFiltersType, Image } from './posts/postsTypes'

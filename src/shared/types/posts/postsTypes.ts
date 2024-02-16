@@ -1,4 +1,4 @@
-export type ImageFiltersType =
+export type ImageFilter =
   | 'none'
   | 'saturate(2)'
   | 'grayscale(100%)'
@@ -14,5 +14,5 @@ export type Image = {
   id?: string
   croppedImage?: string
   fileName?: string
-  activeFilter: ImageFiltersType
+  activeFilter: ImageFilter
 }
