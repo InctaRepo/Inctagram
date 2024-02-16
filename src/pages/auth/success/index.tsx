@@ -3,9 +3,8 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 
-import { setToken } from '@/features/auth/signIn'
-import { ThirdPartyAuthPage } from '@/features/auth/signIn/authByThirdParty'
-import { Typography } from '@/ui/typography'
+import { GetMeAuthGoogleGithub, setToken } from '@/features/auth/signIn'
+import { Loader } from '@/ui/loader'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 const SuccessPage = () => {
@@ -21,11 +20,7 @@ const SuccessPage = () => {
     }
   }, [token])
 
-  return tokenStatus ? (
-    <ThirdPartyAuthPage></ThirdPartyAuthPage>
-  ) : (
-    <Typography variant={'h3'}>Loading...</Typography>
-  )
+  return tokenStatus ? <GetMeAuthGoogleGithub /> : <Loader />
 }
 
 SuccessPage.getLayout = getAuthLayout
