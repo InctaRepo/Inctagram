@@ -16,6 +16,7 @@
 
   position: relative;
   top: 10px;
+  
 
 }
 
@@ -27,7 +28,7 @@
 }
 
 .thead {
-  background-color: $color-dark-100;
+  background-color: #171717;
 }
 
 
@@ -36,18 +37,25 @@
 
   display: flex;
   justify-content: space-around;
+  padding: 10px;
 }
 
 .tbody :nth-child(even) {
   background-color: $color-light-100;
 
+
 }
 
-.td,
+
 .td {
-  padding: 8px;
-  overflow-wrap: break-word;
+  
+
+  position: relative;
+  left: 20px;
+  // padding: 8px;
+  // overflow-wrap: break-word;
 }
+
 
 .paginationBar {
   display: flex;
@@ -55,4 +63,9 @@
   top: 40px;
   right: 40px;
   // width: 1100px;
+}
+
+.userTableRow{
+  border: 1px solid  #171717; /* Add borders to all table headers and cells */
+  padding: 8px; 
 }
