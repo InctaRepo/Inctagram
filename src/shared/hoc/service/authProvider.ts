@@ -21,9 +21,6 @@ const authApi = baseApi.injectEndpoints({
         } catch (e) {
           console.error(e)
         }
-        // finally {
-        //   dispatch(setAppInitialized({ isInitialized: true }))
-        // }
       },
     }),
   }),
