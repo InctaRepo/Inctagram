@@ -1,16 +1,13 @@
 import React, { useMemo, useState } from 'react'
 
-import { MyPayment } from '../Pagination'
-
-import data from './data/mock-data.json'
-import s from './style.module.scss'
-
+import data from '@/entities/profile/settings/myPayment/ui/data/mockData.json'
+import s from '@/entities/profile/settings/myPayment/ui/myPayment.module.scss'
+import { Pagination } from '@/ui/pagination/Pagination'
 import { Typography } from '@/ui/typography'
-// import { DOTS, usePagination } from './hook/usePagination'
 
 let PageSize = 10
 
-export const Main = () => {
+export const MyPayment = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(data.length / PageSize)
 
@@ -28,7 +25,6 @@ export const Main = () => {
     } else if (page > totalPages) {
       setCurrentPage(totalPages) // Set to the last page
     } else {
-      //t
       setCurrentPage(page)
     }
   }
@@ -62,7 +58,7 @@ export const Main = () => {
         </Typography>
       </Typography>
 
-      <MyPayment
+      <Pagination
         className={s.paginationBar}
         currentPage={currentPage}
         totalCount={data.length}

@@ -8,6 +8,7 @@
   width: 100%;
   margin-bottom: 24px;
 
+
   .tabs_list {
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +19,7 @@
       cursor: pointer;
 
       width: 100%;
-      max-width: 234px;
+      max-width: 243px;
       height: 36px;
       padding: 0 20px;
 
@@ -34,20 +35,17 @@
 
       &:focus {
         color: $color-accent-500;
-        background-color: rgba($color-accent-100, 0.15);
-        border: 2px solid $color-accent-900;
+        border-bottom: 2px solid $color-accent-900;
         border-radius: 2px;
       }
 
       &[data-state='active'] {
         color: $color-accent-500;
-        background-color: rgba($color-accent-100, 0.15);
         border-bottom: 2px solid $color-accent-500;
       }
 
       &:hover {
         color: $color-accent-500;
-        background-color: rgba($color-accent-900, 0.15);
         border-bottom: 2px solid $color-accent-500;
       }
 
