@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
 import s from '@/features/auth/signIn/ui/loginForm/loginForm.module.scss'
+import { authByGitHub, authByGoogle } from '@/features/auth/successGoogleGitHub'
 import GithubIcon from '@/public/icon/gitHubIcon.svg'
 import GoogleIcon from '@/public/icon/googleIcon.svg'
 import { RouteNames } from '@/shared/const'
@@ -17,11 +18,11 @@ import { Card } from '@/ui/card'
 import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
 
-type LoginType = {
+type Props = {
   onSubmitHandler?: (data: LoginFormType) => void
   errorServer?: string
 }
-export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
+export const LoginForm = ({ onSubmitHandler, errorServer }: Props) => {
   const { t } = useTranslate()
   const router = useRouter()
 
@@ -62,12 +63,12 @@ export const LoginForm: FC<LoginType> = ({ onSubmitHandler, errorServer }) => {
           {t.auth.signIn}
         </Typography>
         <div className={s.oauthWrap}>
-          <Link href={'/google'}>
+          <div onClick={authByGoogle}>
             <GoogleIcon />
-          </Link>
-          <Link href={'/github'}>
+          </div>
+          <div onClick={authByGitHub}>
             <GithubIcon />
-          </Link>
+          </div>
         </div>
         <form onSubmit={handleSubmit(submitData)} className={s.form}>
           <ControlledTextField

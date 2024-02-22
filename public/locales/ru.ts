@@ -236,9 +236,11 @@ export const ru = {
       activeSessions: 'Активная сессия',
       terminateAllOtherSession: 'Завершить все остальные сеансы',
       lastVisit: 'Последнее посещение',
+      otherDevices: 'Вы еще не авторизовались с других устройств',
     },
 
     accountManagement: {
+      currentSubscription: 'Текущая подписка',
       accountType: 'Тип аккаунта:',
       personal: 'Личный',
       business: 'Бизнес',
@@ -247,6 +249,15 @@ export const ru = {
       sevenDay: 'за 7 дней',
       oneMonth: 'за месяц',
       or: 'или',
+      paymentWasSuccessful: 'Платеж прошел успешно!',
+      success: 'Успех',
+      ok: 'ОК',
+      error: 'Ошибка',
+      transactionFailed: 'Транзакция не удалась. Пожалуйста, напишите в поддержку',
+      backToPayment: 'Вернуться к оплате',
+      expireAt: 'Дата окончания подписки',
+      nextPayment: 'Следующий платеж',
+      autoRenewal: 'Автоматическое продление',
     },
 
     myPayment: {},
@@ -262,6 +273,7 @@ export const ru = {
       publication: 'Публикация',
       addDescription: 'Добавить описание публикации',
       publish: 'Опубликовать',
+      openDraft: 'Открыть черновик',
 
       areYouSure:
         'Вы действительно хотите отменить создание публикации? Все изменения будут потеряны',

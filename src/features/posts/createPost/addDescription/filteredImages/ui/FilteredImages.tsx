@@ -7,14 +7,13 @@ import Slider from 'react-slick'
 
 import { SliderSettings } from '@/entities/post/sliderSettings'
 import s from '@/features/posts/createPost/addDescription/filteredImages/ui/filteredImages.module.scss'
-import { Image } from '@/features/posts/createPost/CreateNewPost'
+import { Image } from '@/shared/types'
 
 type Props = {
   addedImages: Image[]
-  activeFilter: string
 }
 
-export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
+export const FilteredImages = ({ addedImages }: Props) => {
   return (
     <>
       <div className={s.imgContainer}>
@@ -28,7 +27,7 @@ export const FilteredImages = ({ addedImages, activeFilter }: Props) => {
                   width={490}
                   height={503}
                   style={{
-                    filter: activeFilter,
+                    filter: el.activeFilter,
                     width: '100%',
                     height: 'auto',
                   }}

@@ -1,4 +1,5 @@
 export { BASE_URL } from '@/shared/const/const'
 export { resultCode } from '@/shared/const/resultCode'
 export { RouteNames } from '@/shared/const/routeNames'
+export { DOTS } from '@/shared/const/dots'
 export type { variantIconLink } from '@/shared/const/variantIconLink'

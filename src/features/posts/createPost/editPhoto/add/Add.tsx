@@ -1,19 +1,17 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import { Image } from '@/features/posts/createPost/CreateNewPost'
 import s from '@/features/posts/createPost/editPhoto/add/Add.module.scss'
 import { AddedImages } from '@/features/posts/createPost/editPhoto/add/addedImages/AddedImages'
 import AddImage from '@/public/icon/image.svg'
 import PlusCircleOutline from '@/public/icon/plusCircleOutlineIcon.svg'
+import { Image } from '@/shared/types'
 
 type Props = {
   addedImages: Image[]
   setAddedImages: (addedImages: Image[]) => void
-  image?: string
-  croppedImage?: string
 }
 
-export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props) => {
+export const Add = ({ addedImages, setAddedImages }: Props) => {
   const [isAddOpen, setIsAddOpen] = useState(false)
   const addRef = useRef() as MutableRefObject<HTMLDivElement>
   const inputRef = useRef<HTMLInputElement>(null)
@@ -30,10 +28,6 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
     return () => document.body.removeEventListener('click', handleClickOutside)
   }, [])
 
-  useEffect(() => {
-    setAddedImages(addedImages)
-  }, [addedImages])
-
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
@@ -41,7 +35,11 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
   const handleImageUpload = async (e: any) => {
     setAddedImages([
       ...addedImages,
-      { image: URL.createObjectURL(e.target.files[0]), fileName: e.target.files[0].name },
+      {
+        image: URL.createObjectURL(e.target.files[0]),
+        fileName: e.target.files[0].name,
+        activeFilter: 'none',
+      },
     ])
   }
 
@@ -59,12 +57,7 @@ export const Add = ({ image, addedImages, setAddedImages, croppedImage }: Props)
       {isAddOpen && (
         <div className={s.addContainer}>
           {addedImages.length && (
-            <AddedImages
-              croppedImage={croppedImage}
-              addedImages={addedImages}
-              setAddedImages={setAddedImages}
-              image={image}
-            />
+            <AddedImages addedImages={addedImages} setAddedImages={setAddedImages} />
           )}
           {addedImages.length < 10 ? (
             <div
