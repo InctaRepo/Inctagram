@@ -239,6 +239,7 @@ export const en: LocaleType = {
       lastVisit: 'Last visit',
     },
     accountManagement: {
+      currentSubscription: 'Current Subscription',
       accountType: 'Account type:',
       personal: 'Personal',
       business: 'Business',
@@ -247,6 +248,15 @@ export const en: LocaleType = {
       sevenDay: 'per 7 Day',
       oneMonth: 'per month',
       or: 'or',
+      paymentWasSuccessful: 'Payment was successful!',
+      success: 'Success',
+      ok: 'OK',
+      error: 'Error',
+      transactionFailed: 'Transaction failed. Please, write to support',
+      backToPayment: 'Back to payment',
+      expireAt: 'Expire at',
+      nextPayment: 'Next payment',
+      autoRenewal: 'Auto-Renewal',
     },
     myPayment: {},
 
