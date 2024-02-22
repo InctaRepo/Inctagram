@@ -236,6 +236,7 @@ export const ru = {
       activeSessions: 'Активная сессия',
       terminateAllOtherSession: 'Завершить все остальные сеансы',
       lastVisit: 'Последнее посещение',
+      otherDevices: 'Вы еще не авторизовались с других устройств',
     },
 
     accountManagement: {

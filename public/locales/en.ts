@@ -237,6 +237,7 @@ export const en: LocaleType = {
       activeSessions: 'Active sessions',
       terminateAllOtherSession: 'Terminate all other session',
       lastVisit: 'Last visit',
+      otherDevices: 'You have not yet logged in from other devices',
     },
     accountManagement: {
       currentSubscription: 'Current Subscription',
