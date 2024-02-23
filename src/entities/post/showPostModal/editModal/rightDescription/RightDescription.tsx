@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 
 import { PostMenu } from '@/entities/post/postMenu'
 import { fakeComments } from '@/entities/post/showPostModal/editModal/rightDescription/fakeComments'
-import s from '@/entities/post/showPostModal/editModal/rightDescription/RightDescription.module.scss'
+import s from '@/entities/post/showPostModal/editModal/rightDescription/rightDescription.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -29,7 +29,6 @@ type Props = {
   description?: string
   createdAt?: Date
   userData?: UserInfo
-  userName?: string
   isEditModalOpen?: boolean
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
   images?: Images[]
@@ -43,7 +42,6 @@ export const RightDescription = ({
   description,
   createdAt,
   userData,
-  userName,
   isEditModalOpen,
   setIsEditModalOpen,
   images,
@@ -83,7 +81,7 @@ export const RightDescription = ({
             </div>
             <div className={s.userNameHead}>
               <Typography variant={'h3'} color="primary">
-                {userName}
+                {userData?.username}
               </Typography>
             </div>
           </div>
@@ -98,7 +96,6 @@ export const RightDescription = ({
               setIsEditModalOpen={setIsEditModalOpen}
               description={description}
               createdAt={createdAt}
-              userName={userName}
               userData={userData}
             />
           )}
@@ -125,7 +122,7 @@ export const RightDescription = ({
                   <div style={{ display: 'inline-block' }}>
                     <div className={s.userName} style={{ display: 'inline', marginRight: 5 }}>
                       <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
-                        {userName}
+                        {userData?.username}
                       </Typography>
                     </div>
                     <Typography variant={'regular14'} style={{ display: 'inline' }}>

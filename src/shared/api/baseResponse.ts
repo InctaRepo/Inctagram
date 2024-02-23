@@ -10,3 +10,8 @@ type Message = {
   message: string
   field: string
 }
+export type Images = {
+  size: number
+  url: string
+  variant: string
+}

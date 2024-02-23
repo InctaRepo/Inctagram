@@ -16,13 +16,6 @@ export type Images = {
   url: string
   variant: string
 }
-
-export type GetUserPostsRequest = {
-  pageNumber: number
-  pageSize: number
-  userId: string
-}
-
 export type GetUserPostsResponse = {
   items: GetUserPostResponse[]
   page: number
@@ -30,11 +23,25 @@ export type GetUserPostsResponse = {
   pagesCount: number
   totalCount: number
 }
-
 export type GetUserPostResponse = {
   createdAt: Date
   description: string
   id: string
   images: Images[]
   userId: string
+}
+export type GetAllPostsResponse = {
+  pagesCount: number
+  page: number
+  totalCount: number
+  pageSize: number
+  items: Items[]
+}
+export type Items = {
+  images: Images[]
+  id: string
+  userId: string
+  createdAt: string
+  description: string
+  location?: any
 }

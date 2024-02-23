@@ -3,11 +3,11 @@ import React, { ComponentProps, useEffect, useState } from 'react'
 import Image from 'next/image'
 
 import { PostImages } from '@/entities/post/postImages/ui/PostImages'
-import { EditModal } from '@/entities/post/showPostModal/editModal/EditModal'
-import { RightDescription } from '@/entities/post/showPostModal/editModal/rightDescription/RightDescription'
+import { EditModal } from '@/entities/post/showPostModal/editModal'
+import { RightDescription } from '@/entities/post/showPostModal/editModal/rightDescription'
 import s from '@/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { UserInfo } from '@/entities/profile/service'
+import { useGetProfileQuery } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/features/posts/service'
 import { RouteNames } from '@/shared/const'
@@ -16,24 +16,24 @@ type Props = {
   openSureDescriptionModal?: boolean
   description?: string
   createdAt?: Date
-  userData?: UserInfo
   images: Images[]
   id: string
   postId?: string
+  userId: string
 } & ComponentProps<'div'>
 
 export const ShowPostModal = ({
   openSureDescriptionModal,
   description,
   createdAt,
-  userData,
   images,
   id,
   postId,
+  userId,
 }: Props) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const userId = userData?.userId
+  const { data: userData } = useGetProfileQuery(userId)
   const currentId = id === undefined ? postId : id
 
   const buttonClickHandler = () => {
@@ -54,7 +54,7 @@ export const ShowPostModal = ({
     if (id === postId) {
       openClickHandler()
     }
-  }, [])
+  }, [id, postId])
 
   return (
     <div className={s.container}>
@@ -75,7 +75,6 @@ export const ShowPostModal = ({
 
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
-        modalWidth={'edit'}
         open={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
         onClose={buttonClickHandler}
@@ -91,8 +90,7 @@ export const ShowPostModal = ({
             id={id}
             description={description}
             createdAt={createdAt}
-            userName={userData?.username}
-            userData={userData}
+            userData={userData?.data}
             isEditModalOpen={isEditModalOpen}
             setIsEditModalOpen={setIsEditModalOpen}
           />
