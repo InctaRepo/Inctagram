@@ -1,10 +1,9 @@
 import {
+  GetAllPostsResponse,
   GetUserPostResponse,
   GetUserPostsResponse,
   UpdatePost,
   UpdateResponse,
-  GetAllPostsResponse,
-  GetUsersCount,
 } from '@/features/posts/service/postApiTypes'
 import { baseApi, BaseResponse } from '@/shared/api'
 
@@ -56,7 +55,6 @@ const postApi = baseApi.injectEndpoints({
         sortDirection: string
         pageNumber: number
         pageSize: number
-        endCursorPostId?: number
       }
     >({
       query: arg => ({

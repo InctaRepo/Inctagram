@@ -36,13 +36,9 @@ export const PublicPost = (): ReactElement => {
           {Array.isArray(post.images) && post.images.length > 0 && (
             <ShowPostModal
               userId={post.userId}
-              // callBack={getCurrentPostId}
               description={post.description}
-              // key={index}
               images={post.images}
-              id={post.id as unknown as string}
-              postId={post.id as unknown as string}
-              variant={post.images[0].variant}
+              id={post.id}
             />
             // <Posts
             //   userId={post.userId}

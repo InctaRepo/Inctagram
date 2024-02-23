@@ -16,7 +16,6 @@ import { Typography } from '@/ui/typography'
 export type ModalProps = {
   setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
   isEditDescriptionModalOpen: boolean
-  userName?: string
   description?: string
   createdAt?: Date
   userData?: UserInfo

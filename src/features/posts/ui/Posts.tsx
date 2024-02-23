@@ -1,21 +1,17 @@
 import React, { memo } from 'react'
 
 import { ShowPostModal } from '@/entities/post/showPostModal'
-import { UserInfo } from '@/entities/profile/service'
-import { GetUserPostResponse, Images, useGetUserPostsQuery } from '@/features/posts'
+import { GetUserPostResponse, useGetUserPostsQuery } from '@/features/posts'
 import s from '@/features/posts/ui/posts.module.scss'
 import { useInfiniteScroll } from '@/shared/hooks'
 import { Loader } from '@/ui/loader'
 
 type Props = {
-  images?: Images[]
-  description?: string
-  userData?: UserInfo
   postId?: string
   userId: string
 }
 
-export const Posts = memo(({ userData, postId, userId }: Props) => {
+export const Posts = memo(({ postId, userId }: Props) => {
   const { data: posts, isLoading: isLoadingPosts } = useGetUserPostsQuery({ userId: userId })
   const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
     useInfiniteScroll(posts?.data?.items!, userId)
@@ -32,7 +28,7 @@ export const Posts = memo(({ userData, postId, userId }: Props) => {
             images={el.images}
             id={el.id}
             createdAt={el.createdAt}
-            userData={userData}
+            userId={userId}
             postId={postId}
           />
         ))}
@@ -44,7 +40,7 @@ export const Posts = memo(({ userData, postId, userId }: Props) => {
             images={el.images}
             id={el.id}
             createdAt={el.createdAt}
-            userData={userData}
+            userId={userId}
             postId={postId}
           />
         ))}
