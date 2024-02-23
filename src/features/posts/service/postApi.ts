@@ -66,7 +66,12 @@ const postApi = baseApi.injectEndpoints({
       invalidatesTags: ['Post', 'Posts', 'Profile'],
     }),
 
-    getUsersCount: builder.query<BaseResponse, void>({
+    getUsersCount: builder.query<
+      BaseResponse<{
+        totalCount: string
+      }>,
+      void
+    >({
       query: arg => ({
         url: `users/count`,
         method: 'GET',
