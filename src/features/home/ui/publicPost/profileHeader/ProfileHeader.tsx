@@ -1,14 +1,12 @@
 import { ReactElement } from 'react'
 
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import ImageAva from 'next/image'
-
-import style from './ProfileHeader.module.scss'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/entities/profile/service'
 import { Typography } from '@/ui/typography'
 import AvatarImage from 'public/icon/avatarIcon.svg'
+import style from 'src/features/home/ui/publicPost/profileHeader/profileHeader.module.scss'
 
 export const ProfileHeader = ({ userId }: { userId: string }): ReactElement => {
   const { data: profileData, isLoading, isError } = useGetProfileQuery(userId)

@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { useGetUsersCountQuery } from '../../posts'
-
 import style from './alerts.module.scss'
+
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { useGetUsersCountQuery } from '@/features/posts'
 
 export const Alerts = (): ReactElement => {
   const { data } = useGetUsersCountQuery()

@@ -1,13 +1,11 @@
-import React, { ReactElement, useEffect, useState } from 'react'
-
-import { formatPostCreatedAt } from './formatCreatetDate'
-import { PostImages } from './PostImages/PostImages'
-import { ProfileHeader } from './ProfileHeader/ProfileHeader'
-import style from './PublicPost.module.scss'
+import React, { ReactElement } from 'react'
 
 import { ShowPostModal } from '@/entities/post/showPostModal'
+import { formatPostCreatedAt } from '@/features/home/ui/publicPost/lib/formatCreatetDate'
+import { ProfileHeader } from '@/features/home/ui/publicPost/profileHeader/ProfileHeader'
+import s from '@/features/home/ui/publicPost/publicPost.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Posts, useGetAllPostsQuery } from '@/features/posts'
+import { useGetAllPostsQuery } from '@/features/posts'
 import { Typography } from '@/ui/typography'
 
 export const PublicPost = (): ReactElement => {
@@ -29,9 +27,9 @@ export const PublicPost = (): ReactElement => {
   }
 
   return (
-    <div className={style.container}>
+    <div className={s.container}>
       {postData.data.items.map(post => (
-        <div key={post.id} className={style.box}>
+        <div key={post.id} className={s.box}>
           {/* <PostImages
             images={(post.images as unknown as { url: string }[]).map(image => image.url)}
           /> */}
@@ -53,12 +51,12 @@ export const PublicPost = (): ReactElement => {
             //   postId={post.id as unknown as string}
             // />
           )}
-          <div className={style.profile_header}>
+          <div className={s.profile_header}>
             <ProfileHeader userId={post.userId} />
           </div>
-          <div className={style.time_online}>{formatPostCreatedAt(post.createdAt)}</div>
-          <div className={style.disrciption}>
-            <Typography color="primary" variant="regular14" className={style.text}>
+          <div className={s.time_online}>{formatPostCreatedAt(post.createdAt)}</div>
+          <div className={s.disrciption}>
+            <Typography color="primary" variant="regular14" className={s.text}>
               {post.description}
             </Typography>
             {post.description ? (
