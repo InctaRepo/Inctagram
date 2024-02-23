@@ -7,16 +7,9 @@ import { formatPostCreatedAt } from '@/shared/lib'
 import { Typography } from '@/ui/typography'
 
 export const PublicPost = () => {
-  const {
-    data: postData,
-    isLoading,
-    isError,
-  } = useGetAllPostsQuery({
-    pageSize: 4,
-    pageNumber: 1,
-    sortDirection: 'desc',
-  })
+  const { data: postData, isLoading, isError } = useGetAllPostsQuery({})
 
+  console.log(postData, 'postData')
   if (isLoading) {
     return <div>Loading...</div>
   }

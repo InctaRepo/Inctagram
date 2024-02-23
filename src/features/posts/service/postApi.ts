@@ -17,6 +17,22 @@ const postApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Posts'],
     }),
+    getAllPosts: builder.query<
+      BaseResponse<GetAllPostsResponse>,
+      {
+        sortDirection?: string
+        pageNumber?: number
+        pageSize?: number
+      }
+    >({
+      query: arg => ({
+        url: `posts?sortDirection=${arg.sortDirection || 'desc'}&pageNumber=${
+          arg.pageNumber || 1
+        }&pageSize=${arg.pageSize || 4}`,
+        method: 'GET',
+      }),
+      providesTags: ['AllPosts'],
+    }),
     getUserPosts: builder.query<
       BaseResponse<GetUserPostsResponse>,
       {
@@ -49,20 +65,7 @@ const postApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['Post', 'Posts', 'Profile'],
     }),
-    getAllPosts: builder.query<
-      BaseResponse<GetAllPostsResponse>,
-      {
-        sortDirection: string
-        pageNumber: number
-        pageSize: number
-      }
-    >({
-      query: arg => ({
-        url: `posts?sortDirection=${arg.sortDirection}&pageNumber=${arg.pageNumber}&pageSize=${arg.pageSize}`,
-        method: 'GET',
-      }),
-      providesTags: ['AllPosts'],
-    }),
+
     getUsersCount: builder.query<BaseResponse, void>({
       query: arg => ({
         url: `users/count`,
