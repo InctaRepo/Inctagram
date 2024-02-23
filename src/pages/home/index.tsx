@@ -1,13 +1,14 @@
 import React from 'react'
 
 import { HomeDynamic } from '@/features/home'
-import { getAllPosts, getRunningQueriesThunk } from '@/features/posts'
+import { getAllPosts, getRunningQueriesThunk, getUsersCount } from '@/features/posts'
 import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { wrapper } from '@/store'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getStaticProps = wrapper.getStaticProps(store => async context => {
   store.dispatch(getAllPosts.initiate({}))
+  store.dispatch(getUsersCount.initiate())
   await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
   return {
