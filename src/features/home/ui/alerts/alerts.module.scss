@@ -1,45 +1,56 @@
 @import 'src/styles/typography';
 @import 'src/styles/colors';
+
 .alerts {
-  background-color: $color-dark-500;
+  position: relative;
+
+  overflow: hidden;
   display: flex;
   align-items: center;
-  border: 1px solid grey;
-  border-radius: 2px;
+  justify-content: space-between;
+
   width: 972px;
   height: 72px;
   padding: 12px 24px;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
+
+  background-color: $color-dark-500;
+  border: 1px solid grey;
+  border-radius: 2px;
 }
+
 .frame {
+  position: relative;
+
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  width: 203px;
+  height: 48px;
   padding: 12px;
+
   background-color: $color-dark-700;
   border: 1px solid grey;
   border-radius: 2px;
-  height: 48px;
-  overflow: hidden;
-  position: relative;
-  width: 203px;
 }
+
 .text_wrapper {
-  color: $color-light-100;
   font-size: 18px;
   font-style: normal;
-}
-.number_wraper {
   color: $color-light-100;
+}
+
+.numer_wrapper {
   font-family: $font-family-primary;
   font-weight: 700;
   line-height: 24px;
+  color: $color-light-100;
 }
+
 .box {
-  height: 30px;
-  width: 1px;
-  background-color: $color-dark-300;
   left: 0;
+  width: 1px;
+  height: 30px;
+  background-color: $color-dark-300;
 }

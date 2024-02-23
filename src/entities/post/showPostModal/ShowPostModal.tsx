@@ -3,8 +3,8 @@ import React, { ComponentProps, useEffect, useState } from 'react'
 import Image from 'next/image'
 
 import { PostImages } from '@/entities/post/postImages/ui/PostImages'
-import { EditModal } from '@/entities/post/showPostModal/editModal/EditModal'
-import { RightDescription } from '@/entities/post/showPostModal/editModal/rightDescription/RightDescription'
+import { EditModal } from '@/entities/post/showPostModal/editModal'
+import { RightDescription } from '@/entities/post/showPostModal/editModal/rightDescription'
 import s from '@/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/entities/profile/service'
@@ -33,7 +33,7 @@ export const ShowPostModal = ({
 }: Props) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-  const { data: userData, isSuccess, isLoading } = useGetProfileQuery(userId)
+  const { data: userData } = useGetProfileQuery(userId)
   const currentId = id === undefined ? postId : id
 
   const buttonClickHandler = () => {
@@ -75,7 +75,6 @@ export const ShowPostModal = ({
 
       <EditModal
         openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
-        modalWidth={'edit'}
         open={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
         onClose={buttonClickHandler}

@@ -1,14 +1,12 @@
-import React, { ReactElement } from 'react'
-
 import { ShowPostModal } from '@/entities/post/showPostModal'
-import { formatPostCreatedAt } from '@/features/home/ui/publicPost/lib/formatCreatetDate'
-import { ProfileHeader } from '@/features/home/ui/publicPost/profileHeader/ProfileHeader'
+import { ProfileHeader } from '@/features/home/ui/publicPost/profileHeader'
 import s from '@/features/home/ui/publicPost/publicPost.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetAllPostsQuery } from '@/features/posts'
+import { formatPostCreatedAt } from '@/shared/lib'
 import { Typography } from '@/ui/typography'
 
-export const PublicPost = (): ReactElement => {
+export const PublicPost = () => {
   const {
     data: postData,
     isLoading,

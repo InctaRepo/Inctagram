@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 
 import { PostMenu } from '@/entities/post/postMenu'
 import { fakeComments } from '@/entities/post/showPostModal/editModal/rightDescription/fakeComments'
-import s from '@/entities/post/showPostModal/editModal/rightDescription/RightDescription.module.scss'
+import s from '@/entities/post/showPostModal/editModal/rightDescription/rightDescription.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices

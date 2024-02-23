@@ -6,9 +6,9 @@ import { clsx } from 'clsx'
 import s from '@/entities/post/showPostModal/editModal/editModal.module.scss'
 import CloseIcon from '@/public/icon/closeIcon.svg'
 
-export type ModalSize = 'edit'
+// export type ModalSize = 'edit'
 
-export type ModalProps = {
+type Props = {
   setIsEditModalOpen: (open: boolean) => void
   open?: boolean
   onClose?: () => void
@@ -16,7 +16,6 @@ export type ModalProps = {
   onCancel?: () => void
   showSeparator?: boolean
   children?: ReactNode
-  modalWidth?: ModalSize
   className?: string
   cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string
@@ -40,12 +39,11 @@ export const EditModal = ({
   open,
   cancelButtonName,
   actionButtonName,
-  modalWidth,
   title,
   className,
   children,
   ...rest
-}: ModalProps) => {
+}: Props) => {
   const classNames = {
     content: getContentClassName(className),
     separator: clsx(s.separator, !showSeparator && s.separatorHide),
