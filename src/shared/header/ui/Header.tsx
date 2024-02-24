@@ -18,8 +18,8 @@ export const Header = ({ variant }: HeaderType) => {
   const { push, pathname, query, asPath, locale } = useRouter()
   const { t } = useTranslate()
   const languages: Options[] = [
-    { value: 'English', image: <FlagUKIcon /> },
-    { value: 'Russian', image: <FlagRussiaIcon /> },
+    { value: 'English', image: <FlagUKIcon />, id: 'eng01' },
+    { value: 'Russian', image: <FlagRussiaIcon />, id: 'rus01' },
   ]
   const changeLangHandler = (value: string | number) => {
     if (typeof value == 'string') {

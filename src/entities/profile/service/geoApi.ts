@@ -1,17 +1,17 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { GEO_API_URL } from '@/shared/const/const'
+import { GEO_API_KEY, GEO_API_URL } from '@/shared/const/const'
 
 const headers: Headers = new Headers()
 
-headers.append('X-CSCAPI-KEY', 'API_KEY')
+headers.append('X-CSCAPI-KEY', GEO_API_KEY)
 
 export const geoApi = createApi({
   reducerPath: 'geoApi',
   baseQuery: fetchBaseQuery({ baseUrl: GEO_API_URL }),
   endpoints: builder => ({
-    getCountries: builder.query({
+    getCountries: builder.query<Country[], void>({
       query: () => {
         return {
           url: 'countries',
@@ -20,10 +20,10 @@ export const geoApi = createApi({
         }
       },
     }),
-    getCities: builder.query({
-      query: country => {
+    getCities: builder.query<City[], string>({
+      query: iso2 => {
         return {
-          url: `countries/${country}/cities`,
+          url: `countries/${iso2}/cities`,
           method: 'GET',
           headers: headers,
         }
@@ -32,7 +32,7 @@ export const geoApi = createApi({
   }),
 })
 
-export const { useGetCountriesQuery, useGetCitiesQuery } = geoApi
+export const { useGetCountriesQuery, useLazyGetCitiesQuery } = geoApi
 
 type Country = {
   id: number

@@ -27,6 +27,8 @@ export const InputMain = ({
 }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
+  console.log(value)
+
   const onClickShowValue = () => {
     if (!disabled) {
       setShowPassword(!showPassword)

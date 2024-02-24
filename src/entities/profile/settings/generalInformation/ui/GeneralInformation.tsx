@@ -32,9 +32,10 @@ export const GeneralInformation = () => {
   const userData = profile?.data
   const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =
     useUploadAvatarMutation()
+
   const successRes =
     (isSuccessCreate && profile?.resultCode === 0) || (isSuccessUpdate && profile?.resultCode === 0)
-  const submit = (data: ProfileSettingSchema) => {
+  const onFormSubmit = (data: ProfileSettingSchema) => {
     profile?.data
       ? updateProfile({
           userId: userId,
@@ -92,7 +93,9 @@ export const GeneralInformation = () => {
         <div className={s.photoContent}>
           <AvaModalDynamic avatar={userData?.avatar!} setAvatar={setAvatar} />
         </div>
-        {isSuccess && <GeneralInformationForm onSubmitHandler={submit} userData={userData!} />}
+        {isSuccess && (
+          <GeneralInformationForm onSubmitHandler={onFormSubmit} userData={userData!} />
+        )}
       </div>
     </div>
   )

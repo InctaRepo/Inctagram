@@ -1,0 +1,13 @@
+@import 'src/styles/colors';
+
+.optionsList {
+  list-style-type: none;
+  background-color: $color-light-500;
+  color: $color-dark-500;
+}
+
+.option:hover {
+  cursor: pointer;
+  background-color: $color-dark-900;
+  color: $color-light-100;
+}

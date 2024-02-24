@@ -5,9 +5,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { parseISO } from 'date-fns'
 import { useForm } from 'react-hook-form'
 
+import { AutocompleteInput } from './autocompleteInput'
+
 import { UserInfo } from '@/entities/profile/service'
+import { useGetCountriesQuery, useLazyGetCitiesQuery } from '@/entities/profile/service/geoApi'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/generalInformationForm.module.scss'
-import { Countries } from '@/shared/countries/countries'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { getUsername } from '@/shared/hoc'
 import { useAppSelector, useTranslate } from '@/shared/hooks'
@@ -15,6 +17,7 @@ import {
   createProfileSettingSchema,
   ProfileSettingSchema,
 } from '@/shared/schemas/profileSettingSchema'
+import { Option } from '@/shared/ui/selectBox/SelectBox'
 import { Button } from '@/ui/button'
 import {
   ControlledDatePicker,
@@ -22,7 +25,6 @@ import {
   ControlledTextArea,
   ControlledTextField,
 } from '@/ui/controlled'
-import { Options } from '@/ui/selectBox'
 
 type Props = {
   onSubmitHandler?: (data: ProfileSettingSchema) => void
@@ -31,13 +33,15 @@ type Props = {
 export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => {
   const { t } = useTranslate()
   const userName = useAppSelector(getUsername)
-  const [cities, setCities] = useState<Options[]>([])
   const [_, setValue] = useState('')
+  const [cityInputReset, setCityInputReset] = useState(false)
   const {
     control,
     handleSubmit,
     formState: { errors, touchedFields },
     trigger,
+    watch,
+    resetField,
   } = useForm<ProfileSettingSchema>({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onChange',
@@ -53,32 +57,6 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
     },
   })
 
-  function getCountries(arr: any) {
-    return arr.map((el: { country: string; cities: string }) => ({
-      value: el.country,
-      cities: el.cities,
-    }))
-  }
-
-  const countriesList = getCountries(Countries.data)
-
-  function getCities(arr: any) {
-    return arr.map((el: string) => ({ value: el }))
-  }
-
-  const changeCountryHandler = (country: string | number) => {
-    if (!country) {
-      return null
-    }
-    const cities = countriesList.find((c: { value: string | number }) => c.value === country)
-
-    setCities(cities.cities)
-
-    const citiesSelected = getCities(cities.cities)
-
-    setCities(citiesSelected)
-  }
-
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
@@ -86,6 +64,19 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
   }, [t])
   const submitData = (data: ProfileSettingSchema) => {
     onSubmitHandler?.(data)
+  }
+
+  const { data: dataCountries } = useGetCountriesQuery()
+  const [getCities, { data: dataCities }] = useLazyGetCitiesQuery()
+
+  const countriesList = dataCountries || []
+  const citiesList = dataCities || []
+
+  const selectCountryHandler = (selectedValue: string | number) => {
+    const selectedIso2 = countriesList.find((el: Option) => el.name === selectedValue)?.iso2 || ''
+
+    getCities(selectedIso2)
+    setCityInputReset(true)
   }
 
   return (
@@ -128,20 +119,20 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
               name="country"
               options={countriesList}
               label={t.profileSetting.generalInformation.selectYourCountry}
-              onValueChange={changeCountryHandler}
+              onValueChange={selectCountryHandler}
               defaultValue={t.profileSetting.generalInformation.country}
             />
           </div>
           <div className={s.select}>
-            <ControlledSelect
+            <AutocompleteInput
               control={control}
-              name="city"
-              options={cities}
-              label={t.profileSetting.generalInformation.selectYourCity}
-              defaultValue={t.profileSetting.generalInformation.city}
+              inputLabel={t.profileSetting.generalInformation.city}
+              options={citiesList}
+              cityInputReset={cityInputReset}
             />
           </div>
         </div>
+
         <ControlledTextArea
           control={control}
           className={s.textArea}
