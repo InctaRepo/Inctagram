@@ -33,15 +33,14 @@ type Props = {
 export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => {
   const { t } = useTranslate()
   const userName = useAppSelector(getUsername)
-  const [_, setValue] = useState('')
+  const [_, setTextValue] = useState('')
   const [cityInputReset, setCityInputReset] = useState(false)
   const {
     control,
     handleSubmit,
     formState: { errors, touchedFields },
     trigger,
-    watch,
-    resetField,
+    setValue,
   } = useForm<ProfileSettingSchema>({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onChange',
@@ -121,6 +120,7 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
               label={t.profileSetting.generalInformation.selectYourCountry}
               onValueChange={selectCountryHandler}
               defaultValue={t.profileSetting.generalInformation.country}
+              setFormValues={setValue}
             />
           </div>
           <div className={s.select}>
@@ -136,7 +136,7 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
         <ControlledTextArea
           control={control}
           className={s.textArea}
-          setValue={setValue}
+          setValue={setTextValue}
           name={'aboutMe'}
           fullWidth={true}
           label={t.profileSetting.generalInformation.aboutMe}

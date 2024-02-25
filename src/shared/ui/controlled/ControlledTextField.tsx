@@ -6,7 +6,7 @@ import { TextField, TextFieldProps } from '@/ui/textField'
 
 type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
   Omit<TextFieldProps, 'onChange' | 'value'> & {
-    handleAutocompletetOptions?: (value: string) => void
+    handleAutocompleteOptions?: (value: string) => void
     selectedValue?: string
   }
 
@@ -14,7 +14,7 @@ export const ControlledTextField = <T extends FieldValues>({
   control,
   name,
   isRequired,
-  handleAutocompletetOptions,
+  handleAutocompleteOptions,
   selectedValue,
   ...rest
 }: Props<T>) => {
@@ -33,8 +33,8 @@ export const ControlledTextField = <T extends FieldValues>({
   }, [selectedValue])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (handleAutocompletetOptions) {
-      handleAutocompletetOptions(event.target.value)
+    if (handleAutocompleteOptions) {
+      handleAutocompleteOptions(event.target.value)
     }
     onChange(event)
   }

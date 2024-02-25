@@ -1,11 +1,20 @@
 import { useEffect, useState } from 'react'
 
+import { Control } from 'react-hook-form'
+import { useDebouncedCallback } from 'use-debounce'
+
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/autocompleteInput/autocompleteInput.module.scss'
+import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
 import { ControlledTextField } from '@/shared/ui/controlled'
 
+type Option = {
+  id: number
+  name: string
+}
+
 type AutocompleteInputProps = {
-  control: any
-  options: any[]
+  control: Control<ProfileSettingSchema, any>
+  options: Option[]
   inputLabel: string
   cityInputReset: Boolean
 }
@@ -15,47 +24,32 @@ export const AutocompleteInput = ({
   options,
   inputLabel,
   cityInputReset,
+  ...restProps
 }: AutocompleteInputProps) => {
-  const [autocompleteOptions, setAutocompleteOptions] = useState<string[]>([])
-  const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null)
+  const [autocompleteOptions, setAutocompleteOptions] = useState<(string | undefined)[]>([])
   const [selectedValue, setSelectedValue] = useState('')
+  const [selectMenuActive, setSelectMenuActive] = useState(false)
 
   useEffect(() => {
-    if (cityInputReset) {
-      setSelectedValue('')
-    }
-  }, [cityInputReset])
+    setAutocompleteOptions([])
+    setSelectedValue('')
+  }, [options])
 
-  const handleAutocompletetOptions = (value: string) => {
-    if (debounceTimer) {
-      clearTimeout(debounceTimer)
-    }
-
-    const timerId = setTimeout(() => {
-      setAutocompleteOptions(
-        options.map(option => {
-          if (option.name.toLowerCase().includes(value.toLowerCase())) {
-            return option.name
-          }
-        })
-      )
-    }, 300)
-
-    setDebounceTimer(timerId)
-  }
+  const handleAutocompleteOptions = useDebouncedCallback((value: string) => {
+    setAutocompleteOptions(
+      options.map((option: Option) => {
+        if (option.name.toLowerCase().includes(value.toLowerCase())) {
+          return option.name
+        }
+      })
+    )
+    setSelectMenuActive(true)
+  }, 300)
 
   const handleOptionClick = (option: string) => {
     setSelectedValue(option)
     setAutocompleteOptions([])
   }
-
-  useEffect(() => {
-    return () => {
-      if (debounceTimer) {
-        clearTimeout(debounceTimer)
-      }
-    }
-  }, [debounceTimer])
 
   return (
     <div>
@@ -63,10 +57,11 @@ export const AutocompleteInput = ({
         name="city"
         control={control}
         label={inputLabel}
-        handleAutocompletetOptions={handleAutocompletetOptions}
+        handleAutocompleteOptions={handleAutocompleteOptions}
         selectedValue={selectedValue}
+        {...restProps}
       />
-      {autocompleteOptions.length > 0 && (
+      {selectMenuActive && (
         <ul className={s.optionsList}>
           {autocompleteOptions.map(
             (option, index) =>
