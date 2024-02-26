@@ -4,6 +4,7 @@ import ImageAva from 'next/image'
 import { useGetProfileQuery } from '@/entities/profile/service'
 import s from '@/features/home/ui/publicPost/profileHeader/profileHeader.module.scss'
 import AvatarImage from '@/public/icon/avatarIcon.svg'
+import { Loader } from '@/ui/loader'
 import { Typography } from '@/ui/typography'
 
 type Props = {
@@ -13,7 +14,7 @@ export const ProfileHeader = ({ userId }: Props) => {
   const { data: profileData, isLoading, isError } = useGetProfileQuery(userId)
 
   if (isLoading) {
-    return <div>Loading profile...</div>
+    return <Loader />
   }
 
   if (isError || !profileData?.data) {
