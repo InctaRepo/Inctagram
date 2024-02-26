@@ -7,13 +7,15 @@ import { wrapper } from '@/store'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getStaticProps = wrapper.getStaticProps(store => async context => {
-  store.dispatch(getAllPosts.initiate({}, { forceRefetch: true }))
-  store.dispatch(getUsersCount.initiate(void { forceRefetch: true }))
+  store.dispatch(getAllPosts.initiate({}, { subscriptionOptions: { pollingInterval: 60 } }))
+  store.dispatch(getUsersCount.initiate(void { subscriptionOptions: { pollingInterval: 60 } }))
   await Promise.all(store.dispatch(getRunningQueriesThunk()))
+  // const { data: postData, isLoading, isError } = useGetAllPostsQuery({})
 
   return {
-    props: {},
-    revalidate: 60,
+    props: {
+      // postData
+    },
   }
 })
 const HomePage: NextPageWithLayout = () => {
