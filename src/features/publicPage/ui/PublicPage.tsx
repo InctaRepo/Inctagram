@@ -7,8 +7,10 @@ import { PublicPost } from '@/features/publicPage/ui/publicPost'
 export const PublicPage = () => {
   return (
     <div className={s.container}>
-      <Alerts />
-      <PublicPost />
+      <div className={s.containerInfoPublic}>
+        <Alerts />
+        <PublicPost />
+      </div>
     </div>
   )
 }
