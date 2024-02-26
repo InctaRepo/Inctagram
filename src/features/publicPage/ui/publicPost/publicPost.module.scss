@@ -1,0 +1,51 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+.container {
+  display: flex;
+}
+
+.box {
+  width: 234px;
+  height: 391px;
+  margin-top: 36px;
+  margin-left: 12px;
+}
+
+.ava {
+  width: 54px;
+  height: 36px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.mask_group {
+  top: 0;
+  left: 0;
+
+  width: 234px;
+  height: 240px;
+  margin-top: 36px;
+  margin-bottom: 30px;
+
+  object-fit: cover;
+}
+
+.group {
+  position: absolute;
+  top: 192px;
+  left: 400px;
+
+  width: 240px;
+  height: 391px;
+}
+
+.time_online {
+  margin-top: 12px;
+
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16px;
+  color: $color-light-900;
+}

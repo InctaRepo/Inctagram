@@ -1,12 +1,11 @@
 import React from 'react'
 
 import { HomeDynamic } from '@/features/home'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
-import { getPublicLayout } from '@/widgets/layout/authLayout'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
-const HomePage: NextPageWithLayout = () => {
+const HomePage = () => {
   return <HomeDynamic />
 }
 
-HomePage.getLayout = getPublicLayout
+HomePage.getLayout = getAuthLayout
 export default HomePage

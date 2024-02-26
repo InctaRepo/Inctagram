@@ -1,0 +1,28 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 1280px;
+  height: 100%;
+
+  .containerInfo {
+    width: 100%;
+    max-width: 1030px;
+    height: min-content;
+    padding: 35px 16px 0 20px;
+
+    border-left: 1px solid $color-dark-300;
+  }
+
+  .containerInfoPublic {
+    width: 100%;
+    max-width: 1030px;
+    height: min-content;
+    padding: 35px 16px 0 20px;
+  }
+}

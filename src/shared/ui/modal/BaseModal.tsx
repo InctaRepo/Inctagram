@@ -29,6 +29,7 @@ type Props = {
   modalWidth?: ModalSize //sm - 378px,md - 492px,lg - 644px.
   children?: ReactNode
   className?: string
+  fullWidthButton?: boolean
 } & ComponentPropsWithoutRef<'div'>
 
 export const BaseModal = ({
@@ -43,6 +44,7 @@ export const BaseModal = ({
   title,
   className,
   children,
+  fullWidthButton = false,
   ...rest
 }: Props) => {
   const classNames = {
@@ -93,7 +95,11 @@ export const BaseModal = ({
             >
               {cancelButtonName}
             </Button>
-            <Button className={classNames.actionButton} onClick={actionButtonHandler}>
+            <Button
+              fullWidth={fullWidthButton}
+              className={classNames.actionButton}
+              onClick={actionButtonHandler}
+            >
               {actionButtonName}
             </Button>
           </div>

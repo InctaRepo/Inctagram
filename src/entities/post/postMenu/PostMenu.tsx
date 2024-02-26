@@ -28,7 +28,6 @@ type Props = {
   description?: string
   createdAt?: Date
   userData?: UserInfo
-  userName?: string
 }
 
 export const PostMenu = ({
@@ -41,7 +40,6 @@ export const PostMenu = ({
   description,
   createdAt,
   userData,
-  userName,
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
@@ -94,7 +92,6 @@ export const PostMenu = ({
             id={id}
             description={description}
             createdAt={createdAt}
-            userName={userName}
             userData={userData}
             isEditModalOpen={isEditModalOpen}
             setIsEditModalOpen={setIsEditModalOpen}
