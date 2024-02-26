@@ -22,9 +22,6 @@ export const PublicPost = () => {
     <div className={s.container}>
       {postData.data.items.map(post => (
         <div key={post.id} className={s.box}>
-          {/* <PostImages
-            images={(post.images as unknown as { url: string }[]).map(image => image.url)}
-          /> */}
           {Array.isArray(post.images) && post.images.length > 0 && (
             <ShowPostModal
               userId={post.userId}
@@ -32,12 +29,6 @@ export const PublicPost = () => {
               images={post.images}
               id={post.id}
             />
-            // <Posts
-            //   userId={post.userId}
-            //   description={post.description}
-            //   images={post.images[0]}
-            //   postId={post.id as unknown as string}
-            // />
           )}
           <div className={s.profile_header}>
             <ProfileHeader userId={post.userId} />
