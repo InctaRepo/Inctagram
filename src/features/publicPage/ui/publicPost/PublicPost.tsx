@@ -1,8 +1,8 @@
 import { ShowPostModal } from '@/entities/post/showPostModal'
-import { ProfileHeader } from '@/features/home/ui/publicPost/profileHeader'
-import s from '@/features/home/ui/publicPost/publicPost.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetAllPostsQuery } from '@/features/posts'
+import { ProfileHeader } from '@/features/publicPage/ui/publicPost/profileHeader'
+import s from '@/features/publicPage/ui/publicPost/publicPost.module.scss'
 import { formatPostCreatedAt } from '@/shared/lib'
 import { Loader } from '@/ui/loader'
 import { Typography } from '@/ui/typography'

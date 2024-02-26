@@ -1,8 +1,8 @@
 import React from 'react'
 
-import s from '@/features/home/ui/alerts/alerts.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetUsersCountQuery } from '@/features/posts'
+import s from '@/features/publicPage/ui/alerts/alerts.module.scss'
 
 export const Alerts = () => {
   const { data } = useGetUsersCountQuery()
