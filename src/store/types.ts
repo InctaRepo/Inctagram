@@ -1,5 +1,3 @@
-import { rootReducer } from '@reduxjs/toolkit/src/tests/injectableCombineReducers.example'
-
 import { SignInSchema } from '@/features/auth/signIn'
 import { baseApi } from '@/shared/api'
 import { AuthMeSchema } from '@/shared/hoc'
@@ -8,8 +6,8 @@ import { makeStore, store } from '@/store'
 import { ProgressBarSchema } from '@/ui/progressBar'
 
 export type AppDispatch = typeof store.dispatch
-export type AppRootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof makeStore>
+export type AppRootState = ReturnType<AppStore['getState']>
 export type StateSchema = {
   [baseApi.reducerPath]: ReturnType<typeof baseApi.reducer>
   authMe: AuthMeSchema

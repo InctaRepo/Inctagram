@@ -1,24 +1,31 @@
 import React from 'react'
 
+import { InferGetStaticPropsType } from 'next'
+
 import { HomeDynamic } from '@/features/home'
 import { getAllPosts, getRunningQueriesThunk, getUsersCount } from '@/features/posts'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { wrapper } from '@/store'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getStaticProps = wrapper.getStaticProps(store => async context => {
-  store.dispatch(getAllPosts.initiate({}, { subscriptionOptions: { pollingInterval: 60 } }))
-  store.dispatch(getUsersCount.initiate(void { subscriptionOptions: { pollingInterval: 60 } }))
-  await Promise.all(store.dispatch(getRunningQueriesThunk()))
+  store.dispatch(getAllPosts.initiate({}, { forceRefetch: 60 }))
+  store.dispatch(getUsersCount.initiate(void { forceRefetch: 60 }))
+  const data = await Promise.all(store.dispatch(getRunningQueriesThunk()))
+
   // const { data: postData, isLoading, isError } = useGetAllPostsQuery({})
+  console.log(data, 'data')
 
   return {
     props: {
-      // postData
+      data,
     },
+    revalidate: 60,
   }
 })
-const HomePage: NextPageWithLayout = () => {
+const HomePage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // @ts-ignore
+  console.log(data[0]?.data?.data.totalCount, 'data.totalCount')
+
   return <HomeDynamic />
 }
 

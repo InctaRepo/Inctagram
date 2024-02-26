@@ -4,6 +4,7 @@ import s from '@/features/home/ui/publicPost/publicPost.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetAllPostsQuery } from '@/features/posts'
 import { formatPostCreatedAt } from '@/shared/lib'
+import { Loader } from '@/ui/loader'
 import { Typography } from '@/ui/typography'
 
 export const PublicPost = () => {
@@ -11,7 +12,7 @@ export const PublicPost = () => {
 
   console.log(postData, 'postData')
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Loader />
   }
   if (isError || !postData?.data?.items) {
     return <div>Error loading data</div>
