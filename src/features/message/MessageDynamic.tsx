@@ -1,3 +1,3 @@
 import dynamic from 'next/dynamic'
 
-export const MessageDynamic = dynamic(() => import('./Message').then(mod => mod.Message))
+export const MessageDynamic = dynamic(() => import('./Messages').then(mod => mod.Message))
