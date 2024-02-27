@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import { useRouter } from 'next/router'
 
+import { DevicesIconSelection } from '@/entities/profile/settings/devices/lib/devicesIconSelection'
 import {
   useDeleteAllSessionsMutation,
   useDeleteThisSessionsMutation,
@@ -46,12 +47,10 @@ export const Devices = () => {
             <div className={s.browserWrapper}>
               <div className={s.browser}>
                 <div className={s.img}>
-                  {sessions?.data[0].deviceName.trim() === 'Chrome,Windows 10' && <Chrome />}
-                  {sessions?.data[0].deviceName.trim() === 'Microsoft Edge,Windows 10' && (
-                    <Chrome />
+                  {DevicesIconSelection(sessions?.data[0].deviceName.trim()) === 'PC' && <Chrome />}
+                  {DevicesIconSelection(sessions?.data[0].deviceName.trim()) === 'Phone' && (
+                    <Phone />
                   )}
-                  {sessions?.data[0].deviceName.trim() === 'Chrome,GNU/Linux' && <Phone />}
-                  {sessions?.data[0].deviceName.trim() === 'Chrome Mobile,Android 10' && <Phone />}
                 </div>
                 <div className={s.browserProperty}>
                   <Typography variant={'bold16'}>{sessions?.data[0].deviceName}</Typography>
@@ -59,24 +58,24 @@ export const Devices = () => {
                 </div>
               </div>
             </div>
-            <div className={s.btn}>
-              <Button variant={'outlined'} onClick={deleteAllSessionsHandler}>
-                {t.profileSetting.devices.terminateAllOtherSession}
-              </Button>
-            </div>
+            {sessions?.data?.slice(1).length != 0 && (
+              <div className={s.btn}>
+                <Button variant={'outlined'} onClick={deleteAllSessionsHandler}>
+                  {t.profileSetting.devices.terminateAllOtherSession}
+                </Button>
+              </div>
+            )}
           </div>
           <div className={s.activeSessionsWrapper}>
             <Typography variant={'h3'} className={s.activeSessions}>
               {t.profileSetting.devices.activeSessions}
             </Typography>
-            {sessions?.data?.map((el: Device) => (
+            {sessions?.data?.slice(1).map((el: Device) => (
               <div key={el.deviceId} className={s.deviceWrapper}>
                 <div className={s.deviceSession}>
                   <div className={s.img}>
-                    {el.deviceName.trim() === 'Chrome,Windows 10' && <Chrome />}
-                    {el.deviceName.trim() === 'Microsoft Edge,Windows 10' && <Chrome />}
-                    {el.deviceName.trim() === 'Chrome,GNU/Linux' && <Phone />}
-                    {el.deviceName.trim() === 'Chrome Mobile,Android 10' && <Phone />}
+                    {DevicesIconSelection(el.deviceName.trim()) === 'PC' && <Chrome />}
+                    {DevicesIconSelection(el.deviceName.trim()) === 'Phone' && <Phone />}
                   </div>
                   <div className={s.deviceProperty}>
                     <Typography variant={'bold16'}>{el.deviceName}</Typography>
@@ -99,6 +98,11 @@ export const Devices = () => {
                 </Button>
               </div>
             ))}
+            {sessions?.data?.slice(1).length === 0 && (
+              <Typography variant={'h1'} className={s.otherDevices}>
+                {t.profileSetting.devices.otherDevices}
+              </Typography>
+            )}
           </div>
         </div>
       )}

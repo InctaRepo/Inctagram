@@ -1,13 +1,11 @@
 import clsx from 'clsx'
 
-import { DOTS, usePagination } from './hook/usePagination'
-
-import s from 'src/entities/profile/settings/myPayment/ui/myPayment.module.scss'
-
-import KeyboardArrowLeft from '/public/icon/chevronLeftIcon.svg'
-import KeyboardArrowRight from '/public/icon/chevronRightIcon.svg'
-
-import { Typography } from 'src/shared/ui/typography'
+import KeyboardArrowLeft from '@/public/icon/chevronLeftIcon.svg'
+import KeyboardArrowRight from '@/public/icon/chevronRightIcon.svg'
+import { DOTS } from '@/shared/const'
+import { usePagination } from '@/shared/hooks'
+import s from '@/shared/ui/pagination/pagination.module.scss'
+import { Typography } from '@/ui/typography'
 
 type PaginationConditionals =
   | {
@@ -27,7 +25,7 @@ type Props = {
   className: string
 } & PaginationConditionals
 
-export const MyPayment = ({
+export const Pagination = ({
   onChange,
   siblings,
   currentPage,
@@ -44,7 +42,6 @@ export const MyPayment = ({
 
   if (currentPage === 0 || paginationRange.length < 2) {
     return null
-    //dwew
   }
 
   const onNext = () => {
@@ -69,7 +66,7 @@ export const MyPayment = ({
         <KeyboardArrowLeft />
       </Typography>
 
-      {paginationRange.map(pageNumber => {
+      {paginationRange.map((pageNumber: number) => {
         if (pageNumber.toString() === DOTS) {
           return (
             <Typography as="li" key={pageNumber} className={`${s.paginationItem} ${s.dots}`}>

@@ -1,11 +1,5 @@
 import { TermsDynamic } from '@/features/auth/termsPrivacy'
 
-const TermsOfUse = () => {
-  return (
-    <div>
-      <TermsDynamic />
-    </div>
-  )
-}
+const TermsOfUse = () => <TermsDynamic />
 
 export default TermsOfUse

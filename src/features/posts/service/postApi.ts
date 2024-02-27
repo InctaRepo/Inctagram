@@ -1,4 +1,5 @@
 import {
+  GetAllPostsResponse,
   GetUserPostResponse,
   GetUserPostsResponse,
   UpdatePost,
@@ -15,6 +16,22 @@ const postApi = baseApi.injectEndpoints({
         body,
       }),
       invalidatesTags: ['Posts'],
+    }),
+    getAllPosts: builder.query<
+      BaseResponse<GetAllPostsResponse>,
+      {
+        sortDirection?: string
+        pageNumber?: number
+        pageSize?: number
+      }
+    >({
+      query: arg => ({
+        url: `posts?sortDirection=${arg.sortDirection || 'desc'}&pageNumber=${
+          arg.pageNumber || 1
+        }&pageSize=${arg.pageSize || 4}`,
+        method: 'GET',
+      }),
+      providesTags: ['AllPosts'],
     }),
     getUserPosts: builder.query<
       BaseResponse<GetUserPostsResponse>,
@@ -46,7 +63,20 @@ const postApi = baseApi.injectEndpoints({
         url: `posts/${postId}`,
         body: patch,
       }),
-      invalidatesTags: ['Post', 'Posts'],
+      invalidatesTags: ['Post', 'Posts', 'Profile'],
+    }),
+
+    getUsersCount: builder.query<
+      BaseResponse<{
+        totalCount: string
+      }>,
+      void
+    >({
+      query: arg => ({
+        url: `users/count`,
+        method: 'GET',
+      }),
+      providesTags: ['Users'],
     }),
   }),
 })
@@ -56,7 +86,9 @@ export const {
   useGetUserPostsQuery,
   useGetUserPostQuery,
   useUpdatePostMutation,
+  useGetAllPostsQuery,
+  useGetUsersCountQuery,
   util: { getRunningQueriesThunk },
 } = postApi
 
-export const { getUserPosts, getUserPost } = postApi.endpoints
+export const { getUserPosts, getUserPost, getAllPosts, getUsersCount } = postApi.endpoints

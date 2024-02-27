@@ -41,7 +41,7 @@ export const Profile = ({ id, postId }: Props) => {
       {isAuth && <Sidebar />}
       <div className={isAuth ? s.containerInfo : s.containerInfoPublic}>
         <ProfileInfo userData={data?.data} />
-        <Posts userData={data?.data} postId={postId} userId={id} />
+        <Posts postId={postId} userId={id} />
       </div>
     </div>
   )

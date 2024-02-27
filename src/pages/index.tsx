@@ -1,21 +1,21 @@
 // eslint-disable-next-line @conarti/feature-sliced/public-api
-import { useEffect } from 'react'
+import React from 'react'
 
-import { useRouter } from 'next/router'
+import { getAllPosts, getRunningQueriesThunk, getUsersCount } from '@/features/posts'
+import { PublicPageDynamic } from '@/features/publicPage'
+import { wrapper } from '@/store'
+import { getAuthLayout } from '@/widgets/layout/authLayout'
 
-import { RouteNames } from '@/shared/const'
-import { getPublicLayout } from '@/widgets/layout/authLayout'
+export const getStaticProps = wrapper.getStaticProps(store => async context => {
+  store.dispatch(getAllPosts.initiate({}, { forceRefetch: 60 }))
+  store.dispatch(getUsersCount.initiate(void { forceRefetch: 60 }))
+  await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
-const Main = () => {
-  const router = useRouter()
+  return {
+    props: {},
+  }
+})
+const PublicPage = () => <PublicPageDynamic />
 
-  useEffect(() => {
-    router.push(RouteNames.HOME)
-  }, [])
-
-  return <></>
-}
-
-Main.getLayout = getPublicLayout
-
-export default Main
+PublicPage.getLayout = getAuthLayout
+export default PublicPage

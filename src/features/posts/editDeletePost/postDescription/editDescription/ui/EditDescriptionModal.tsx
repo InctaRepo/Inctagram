@@ -4,8 +4,8 @@ import { DialogTitle } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 
 import { PostImages } from '@/entities/post/postImages'
+import { EditModal } from '@/entities/post/showPostModal/editModal'
 import { AreYouSureDescriptionModal } from '@/entities/post/showPostModal/editModal/areYouSureDescriptionModal'
-import { EditModal } from '@/entities/post/showPostModal/editModal/EditModal'
 import { UserInfo } from '@/entities/profile/service'
 import { Images } from '@/features/posts'
 import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription'
@@ -13,10 +13,9 @@ import s from '@/features/posts/editDeletePost/postDescription/editDescription/u
 import { useTranslate } from '@/shared/hooks'
 import { Typography } from '@/ui/typography'
 
-export type ModalProps = {
+type Props = {
   setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
   isEditDescriptionModalOpen: boolean
-  userName?: string
   description?: string
   createdAt?: Date
   userData?: UserInfo
@@ -35,7 +34,7 @@ export const EditDescriptionModal = ({
   images,
   id,
   setIsEditModalOpen,
-}: ModalProps) => {
+}: Props) => {
   const [openSureDescriptionModal, setOpenSureDescriptionModal] = useState<boolean>(false)
 
   const [value, setValue] = useState('')
@@ -52,7 +51,6 @@ export const EditDescriptionModal = ({
         openSureDescriptionModal={openSureDescriptionModal}
         setOpenSureDescriptionModal={setOpenSureDescriptionModal}
         setIsEditModalOpen={setIsEditModalOpen}
-        modalWidth={'edit'}
         open={isEditDescriptionModalOpen}
         onClose={buttonClickHandler}
         isDescription={false}
