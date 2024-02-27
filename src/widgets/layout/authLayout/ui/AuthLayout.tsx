@@ -19,8 +19,7 @@ const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (
     <div className={s.container}>
       {isAuth && <Header />}
-      {isPublicPath && !isAuth && <Header />}
-      {!isPublicPath && !isAuth && <Header variant="public" />}
+      {isPublicPath && !isAuth && <Header variant="public" />}
       <div className={s.main}>{children}</div>
     </div>
   )
