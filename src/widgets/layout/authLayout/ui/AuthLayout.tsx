@@ -10,16 +10,17 @@ import { AuthProvider, getIsAuth } from '@/shared/hoc'
 import { useAppSelector } from '@/shared/hooks'
 import s from '@/widgets/layout/authLayout/ui/authLayout.module.scss'
 
-export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
+const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   const isAuth = useAppSelector(getIsAuth)
   const { asPath } = useRouter()
-  const isAuthPath = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
+  const isPublicPath =
+    asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404') || asPath.startsWith('/')
 
   return (
     <div className={s.container}>
       {isAuth && <Header />}
-      {isAuthPath && !isAuth && <Header />}
-      {!isAuthPath && !isAuth && <Header variant="public" />}
+      {isPublicPath && !isAuth && <Header />}
+      {!isPublicPath && !isAuth && <Header variant="public" />}
       <div className={s.main}>{children}</div>
     </div>
   )
@@ -42,4 +43,3 @@ export const getAuthLayout = (page: ReactElement) => {
     </>
   )
 }
-export const getPublicLayout = (page: ReactElement) => <AuthLayout>{page}</AuthLayout>
