@@ -6,7 +6,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { SliderSettings } from '@/entities/post/sliderSettings'
-import s from '@/features/home/ui/publicPost/postImages/postImages.module.scss'
+import s from '@/features/publicPage/ui/publicPost/postImages/postImages.module.scss'
 import { Images } from '@/shared/api/baseResponse'
 
 type Props = { images: Images[]; isDescription?: boolean }
