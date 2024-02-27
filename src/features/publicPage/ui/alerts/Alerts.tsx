@@ -6,7 +6,7 @@ import s from '@/features/publicPage/ui/alerts/alerts.module.scss'
 
 export const Alerts = () => {
   const { data } = useGetUsersCountQuery()
-  const totalCount = String((data as any)?.data?.totalCount || 0).padStart(6, '0')
+  const totalCount = String(data?.data?.totalCount || 0).padStart(6, '0')
 
   return (
     <div className={s.alerts}>
