@@ -14,7 +14,7 @@ const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   const isAuth = useAppSelector(getIsAuth)
   const { asPath } = useRouter()
   const isPublicPath =
-    asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404') || asPath.startsWith('')
+    asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404') || !asPath.startsWith('/')
 
   return (
     <div className={s.container}>
