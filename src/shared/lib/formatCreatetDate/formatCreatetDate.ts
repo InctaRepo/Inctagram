@@ -3,7 +3,7 @@ export const formatPostCreatedAt = (createdAt: string): string => {
   const postDate = new Date(createdAt)
   const differenceInMinutes = Math.floor((now.getTime() - postDate.getTime()) / (1000 * 60))
 
-  if (differenceInMinutes < 60) {
+  if (differenceInMinutes < 2) {
     return `${differenceInMinutes} min ago`
   } else if (differenceInMinutes < 24 * 60) {
     const differenceInHours = Math.floor(differenceInMinutes / 60)
