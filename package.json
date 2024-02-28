@@ -58,6 +58,7 @@
     "date-fns": "^2.30.0",
     "eslint": "^8.55.0",
     "eslint-config-next": "^14.0.4",
+    "javascript-time-ago": "^2.5.9",
     "next": "14.0.4",
     "next-redux-wrapper": "^8.1.0",
     "nprogress": "^0.2.0",
