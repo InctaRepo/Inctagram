@@ -7,8 +7,8 @@ import { wrapper } from '@/store'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getStaticProps = wrapper.getStaticProps(store => async context => {
-  store.dispatch(getAllPosts.initiate({}, { forceRefetch: 60 }))
-  store.dispatch(getUsersCount.initiate(void { forceRefetch: 60 }))
+  store.dispatch(getAllPosts.initiate({}, { forceRefetch: 300 }))
+  store.dispatch(getUsersCount.initiate(void { forceRefetch: 300 }))
   await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
   return {
