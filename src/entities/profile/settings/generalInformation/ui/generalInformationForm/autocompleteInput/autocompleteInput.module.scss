@@ -6,13 +6,20 @@
   list-style-type: none;
   width: var(--radix-select-trigger-width);
   background-color: $color-dark-500;
-  border: 1px solid $color-dark-100;
   max-height: 300px;
   overflow-y: auto;
+  position: relative;
+  z-index: 1;
 }
 
-.option:hover {
+.option {
+  padding: 10px;
   cursor: pointer;
-  background-color: $color-dark-900;
+}
+
+.option:hover,
+.highlighted {
+  cursor: pointer;
+  background-color: $color-dark-100;
   color: $color-light-100;
 }

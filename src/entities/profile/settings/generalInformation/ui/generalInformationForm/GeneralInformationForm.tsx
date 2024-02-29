@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form'
 import { AutocompleteInput } from './autocompleteInput'
 
 import { UserInfo } from '@/entities/profile/service'
-import { useGetCountriesQuery, useLazyGetCitiesQuery } from '@/entities/profile/service/geoApi'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/generalInformationForm.module.scss'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { getUsername } from '@/shared/hoc'
@@ -17,14 +16,8 @@ import {
   createProfileSettingSchema,
   ProfileSettingSchema,
 } from '@/shared/schemas/profileSettingSchema'
-import { Option } from '@/shared/ui/selectBox/SelectBox'
 import { Button } from '@/ui/button'
-import {
-  ControlledDatePicker,
-  ControlledSelect,
-  ControlledTextArea,
-  ControlledTextField,
-} from '@/ui/controlled'
+import { ControlledDatePicker, ControlledTextArea, ControlledTextField } from '@/ui/controlled'
 
 type Props = {
   onSubmitHandler?: (data: ProfileSettingSchema) => void
@@ -33,14 +26,11 @@ type Props = {
 export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => {
   const { t } = useTranslate()
   const userName = useAppSelector(getUsername)
-  const [_, setTextValue] = useState('')
-  const [cityInputReset, setCityInputReset] = useState(false)
   const {
     control,
     handleSubmit,
     formState: { errors, touchedFields },
     trigger,
-    setValue,
   } = useForm<ProfileSettingSchema>({
     resolver: zodResolver(createProfileSettingSchema(t)),
     mode: 'onChange',
@@ -50,7 +40,7 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
       lastName: userData?.lastName,
       dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData?.dateOfBirth}`) : new Date(),
       country: userData?.country,
-      city: userData?.city,
+      city: userData?.city + ',' + userData?.country,
       aboutMe: userData?.aboutMe || '',
       avatar: userData?.avatar || '',
     },
@@ -63,19 +53,6 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
   }, [t])
   const submitData = (data: ProfileSettingSchema) => {
     onSubmitHandler?.(data)
-  }
-
-  const { data: dataCountries } = useGetCountriesQuery()
-  const [getCities, { data: dataCities }] = useLazyGetCitiesQuery()
-
-  const countriesList = dataCountries || []
-  const citiesList = dataCities || []
-
-  const selectCountryHandler = (selectedValue: string | number) => {
-    const selectedIso2 = countriesList.find((el: Option) => el.name === selectedValue)?.iso2 || ''
-
-    getCities(selectedIso2)
-    setCityInputReset(true)
   }
 
   return (
@@ -111,32 +88,16 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
           errorMessage={errors.dateOfBirthday?.message}
         />
 
-        <div className={s.fieldSelect}>
-          <div className={s.select}>
-            <ControlledSelect
-              control={control}
-              name="country"
-              options={countriesList}
-              label={t.profileSetting.generalInformation.selectYourCountry}
-              onValueChange={selectCountryHandler}
-              defaultValue={t.profileSetting.generalInformation.country}
-              setFormValues={setValue}
-            />
-          </div>
-          <div className={s.select}>
-            <AutocompleteInput
-              control={control}
-              inputLabel={t.profileSetting.generalInformation.city}
-              options={citiesList}
-              cityInputReset={cityInputReset}
-            />
-          </div>
+        <div className={s.field}>
+          <AutocompleteInput
+            control={control}
+            inputLabel={t.profileSetting.generalInformation.city}
+          />
         </div>
 
         <ControlledTextArea
           control={control}
           className={s.textArea}
-          setValue={setTextValue}
           name={'aboutMe'}
           fullWidth={true}
           label={t.profileSetting.generalInformation.aboutMe}

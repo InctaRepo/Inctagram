@@ -1,3 +1,2 @@
 export const BASE_URL = 'https://inctagram.space/api/v1/'
-export const GEO_API_URL = 'https://api.countrystatecity.in/v1/'
-export const GEO_API_KEY = 'bDltaXBRNEY2WXlxdUxETDJ4MXRKR0lRYzBiN3kxeHZCMXdCUUV0bQ=='
+export const AUTOCOMPLETE_API_KEY = '6e795a1dab5f4a4d8b733f3ecd489c44'

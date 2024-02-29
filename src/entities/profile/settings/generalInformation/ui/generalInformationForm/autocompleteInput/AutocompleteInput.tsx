@@ -1,58 +1,89 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Control } from 'react-hook-form'
 import { useDebouncedCallback } from 'use-debounce'
 
+import {
+  AutocompleteOption,
+  useLazyGetAutocompleteQuery,
+} from '@/entities/profile/service/autocompleteApi'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/autocompleteInput/autocompleteInput.module.scss'
 import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
 import { ControlledTextField } from '@/shared/ui/controlled'
 
-type Option = {
-  id: number
-  name: string
-}
-
 type AutocompleteInputProps = {
   control: Control<ProfileSettingSchema, any>
-  options: Option[]
-  inputLabel: string
-  cityInputReset: Boolean
+  inputLabel?: string
 }
 
 export const AutocompleteInput = ({
   control,
-  options,
   inputLabel,
-  cityInputReset,
   ...restProps
 }: AutocompleteInputProps) => {
-  const [autocompleteOptions, setAutocompleteOptions] = useState<(string | undefined)[]>([])
   const [selectedValue, setSelectedValue] = useState('')
   const [selectMenuActive, setSelectMenuActive] = useState(false)
+  const [autocompleteOptions, setAutocompleteOptions] = useState<AutocompleteOption[]>([])
+  const [getAutocomplete, { data }] = useLazyGetAutocompleteQuery()
+  const dropdownRef = useRef<HTMLUListElement>(null)
+  const [highlightedIndex, setHighlightedIndex] = useState(-1)
 
   useEffect(() => {
-    setAutocompleteOptions([])
-    setSelectedValue('')
-  }, [options])
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setSelectMenuActive(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  useEffect(() => {
+    const options =
+      data?.results.map((option: AutocompleteOption) => {
+        return {
+          city: option.city,
+          country: option.country,
+        }
+      }) || []
+
+    setAutocompleteOptions([...options])
+  }, [data])
 
   const handleAutocompleteOptions = useDebouncedCallback((value: string) => {
-    setAutocompleteOptions(
-      options.map((option: Option) => {
-        if (option.name.toLowerCase().includes(value.toLowerCase())) {
-          return option.name
-        }
-      })
-    )
+    getAutocomplete(value)
     setSelectMenuActive(true)
   }, 300)
 
-  const handleOptionClick = (option: string) => {
-    setSelectedValue(option)
+  const handleOptionClick = (city: string, country: string) => {
+    setSelectedValue(`${city},${country}`)
     setAutocompleteOptions([])
+    setSelectMenuActive(false)
+  }
+
+  const handleKeyDown = (event: unknown) => {
+    const e = event as KeyboardEvent
+
+    if (e.key === 'ArrowDown') {
+      setHighlightedIndex(prevIndex =>
+        prevIndex < autocompleteOptions.length - 1 ? prevIndex + 1 : prevIndex
+      )
+      e.preventDefault() // Prevent cursor from moving
+    } else if (e.key === 'ArrowUp') {
+      setHighlightedIndex(prevIndex => (prevIndex > 0 ? prevIndex - 1 : 0))
+      e.preventDefault() // Prevent cursor from moving
+    } else if (e.key === 'Enter' && highlightedIndex !== -1) {
+      const selectedOption = autocompleteOptions[highlightedIndex]
+
+      handleOptionClick(selectedOption.city, selectedOption.country)
+      e.preventDefault() // Prevent form submission
+    }
   }
 
   return (
-    <div>
+    <div onKeyDown={e => handleKeyDown(e)}>
       <ControlledTextField
         name="city"
         control={control}
@@ -62,12 +93,16 @@ export const AutocompleteInput = ({
         {...restProps}
       />
       {selectMenuActive && (
-        <ul className={s.optionsList}>
+        <ul className={s.optionsList} ref={dropdownRef}>
           {autocompleteOptions.map(
-            (option, index) =>
+            (option: AutocompleteOption, index) =>
               option && (
-                <li className={s.option} key={index} onClick={() => handleOptionClick(option)}>
-                  {option}
+                <li
+                  className={`${s.option} ${highlightedIndex === index ? s.highlighted : ''}`}
+                  key={index}
+                  onClick={() => handleOptionClick(option.city, option.country)}
+                >
+                  {`${option.city} , ${option.country}`}
                 </li>
               )
           )}
