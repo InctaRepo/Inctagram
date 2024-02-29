@@ -1,20 +1,32 @@
+import Cors from 'cors'
 import { NextApiRequest, NextApiResponse } from 'next'
 
+const cors = Cors({
+  methods: ['POST', 'GET', 'HEAD'],
+})
+
+function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: Function) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result: any) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
+
+      return resolve(result)
+    })
+  })
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<any> {
-  // Check for secret to confirm this is a valid request
-  if (req.query.secret !== 'ttt') {
+  await runMiddleware(req, res, cors)
+  if (req.query.secret !== process.env.NEXT_PUBLIC_SECRET_TOKEN) {
     return res.status(401).json({ message: 'Invalid token' })
   }
-
   try {
-    // this should be the actual path not a rewritten path
-    // e.g. for "/blog/[slug]" this should be "/blog/post-1"
     await res.revalidate('/')
 
     return res.json({ revalidated: true })
   } catch (err) {
-    // If there was an error, Next.js will continue
-    // to show the last successfully generated page
     return res.status(500).send('Error revalidating')
   }
 }
