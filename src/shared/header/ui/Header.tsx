@@ -8,7 +8,7 @@ import { RouteNames } from '@/shared/const'
 import s from '@/shared/header/ui/header.module.scss'
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/shared/ui/button'
-import { Options, SelectBox } from '@/ui/selectBox'
+import { Option, SelectBox } from '@/ui/selectBox'
 import { Typography } from '@/ui/typography'
 
 type HeaderType = {
@@ -17,9 +17,9 @@ type HeaderType = {
 export const Header = ({ variant }: HeaderType) => {
   const { push, pathname, query, asPath, locale } = useRouter()
   const { t } = useTranslate()
-  const languages: Options[] = [
-    { value: 'English', image: <FlagUKIcon /> },
-    { value: 'Russian', image: <FlagRussiaIcon /> },
+  const languages: Option[] = [
+    { value: 'English', image: <FlagUKIcon />, id: 'eng01' },
+    { value: 'Russian', image: <FlagRussiaIcon />, id: 'rus01' },
   ]
   const changeLangHandler = (value: string | number) => {
     if (typeof value == 'string') {
