@@ -19,4 +19,5 @@ export const RouteNames = {
   POSTS: '/posts',
   POST: '/post',
   CREATE_POST: '/create-post',
+  PUBLIC_PAGE: '/',
 } as const

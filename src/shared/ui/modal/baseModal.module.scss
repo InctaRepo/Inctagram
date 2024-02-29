@@ -80,15 +80,18 @@
   animation: content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &.sm {
-    width: 378px;
+    width: auto;
+    max-width: 378px;
   }
 
   &.md {
-    width: 438px;
+    width: auto;
+    max-width: 438px;
   }
 
   &.lg {
-    width: 644px;
+    width: auto;
+    max-width: 644px;
   }
 }
 

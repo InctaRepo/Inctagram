@@ -1,0 +1,56 @@
+@import 'src/styles/typography';
+@import 'src/styles/colors';
+
+.alerts {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 972px;
+  height: 72px;
+  padding: 12px 24px;
+
+  background-color: $color-dark-500;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+.frame {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 203px;
+  height: 48px;
+  padding: 12px;
+
+  background-color: $color-dark-700;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+.text_wrapper {
+  font-size: 18px;
+  font-style: normal;
+  color: $color-light-100;
+}
+
+.numer_wrapper {
+  font-family: $font-family-primary;
+  font-weight: 700;
+  line-height: 24px;
+  color: $color-light-100;
+}
+
+.box {
+  left: 0;
+  width: 1px;
+  height: 30px;
+  background-color: $color-dark-300;
+}
