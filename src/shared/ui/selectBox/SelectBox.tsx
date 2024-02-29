@@ -24,10 +24,10 @@ export type SelectProps = {
 }
 
 export type Option = {
-  id: number
-  name: string
+  id?: number | string
+  name?: string
   image?: ReactElement
-  iso2?: string
+  value?: string
 }
 
 export const SelectBox = ({
@@ -87,7 +87,7 @@ export const SelectBox = ({
                 style={{ overflowY: undefined }}
               >
                 {options?.map(el => (
-                  <Select.Item value={el?.name} key={el.id} className={s.line}>
+                  <Select.Item value={el?.name || ''} key={el.id} className={s.line}>
                     {el.image}
                     <Select.ItemText>{el.name}</Select.ItemText>
                   </Select.Item>
