@@ -2,20 +2,26 @@
 import React from 'react'
 
 import { getAllPosts, getRunningQueriesThunk, getUsersCount } from '@/features/posts'
-import { PublicPageDynamic } from '@/features/publicPage'
+import { PublicPage } from '@/features/publicPage'
 import { wrapper } from '@/store'
 import { getAuthLayout } from '@/widgets/layout/authLayout'
 
-export const getStaticProps = wrapper.getStaticProps(store => async context => {
-  store.dispatch(getAllPosts.initiate({}, { forceRefetch: 60 }))
-  store.dispatch(getUsersCount.initiate(void { forceRefetch: 60 }))
-  await Promise.all(store.dispatch(getRunningQueriesThunk()))
+export const getStaticProps = wrapper.getStaticProps(store => {
+  return async context => {
+    store.dispatch(getAllPosts.initiate({}, { subscriptionOptions: { pollingInterval: 300 } }))
+    store.dispatch(getUsersCount.initiate(void { subscriptionOptions: { pollingInterval: 300 } }))
+    store.dispatch(getAllPosts.initiate({}, { forceRefetch: true }))
+    store.dispatch(getUsersCount.initiate(void { forceRefetch: true }))
+    await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
-  return {
-    props: {},
+    return {
+      props: {},
+    }
   }
 })
-const PublicPage = () => <PublicPageDynamic />
+const Public = () => {
+  return <PublicPage />
+}
 
-PublicPage.getLayout = getAuthLayout
-export default PublicPage
+Public.getLayout = getAuthLayout
+export default Public
