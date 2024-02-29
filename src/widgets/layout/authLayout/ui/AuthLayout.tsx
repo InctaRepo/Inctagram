@@ -12,14 +12,18 @@ import s from '@/widgets/layout/authLayout/ui/authLayout.module.scss'
 
 const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   const isAuth = useAppSelector(getIsAuth)
-  const { asPath } = useRouter()
+  const { asPath, pathname } = useRouter()
   const isPublicPath =
-    asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404') || asPath.startsWith('/')
+    asPath.startsWith(RouteNames.AUTH) ||
+    asPath.endsWith('404') ||
+    pathname === RouteNames.PUBLIC_PAGE
 
   return (
     <div className={s.container}>
-      {isAuth && <Header />}
+      {!isPublicPath && isAuth && <Header />}
+      {isPublicPath && isAuth && <Header variant="public" />}
       {isPublicPath && !isAuth && <Header variant="public" />}
+      {!isPublicPath && !isAuth && <Header variant="public" />}
       <div className={s.main}>{children}</div>
     </div>
   )
