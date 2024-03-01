@@ -1,2 +1,6 @@
 export const BASE_URL = 'https://inctagram.space/api/v1/'
 export const AUTOCOMPLETE_API_KEY = '6e795a1dab5f4a4d8b733f3ecd489c44'
+export const PRODUCTION_REVALIDATE = 'https://inctagram.space/api/revalidate'
+export const TEST_REVALIDATE = 'https://inctagram-ruby.vercel.app/api/revalidate'
+export const LOCAL_REVALIDATE = 'http://localhost:3000/api/revalidate'
+export const REVALIDATE_SECRET = 'ttt'

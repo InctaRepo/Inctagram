@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { AUTOCOMPLETE_API_KEY } from '@/shared/const/const'
+import { AUTOCOMPLETE_API_KEY } from '@/shared/const'
 
 export const autocompleteApi = createApi({
   reducerPath: 'geoApi',

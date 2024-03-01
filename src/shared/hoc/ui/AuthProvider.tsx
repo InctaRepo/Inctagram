@@ -14,13 +14,13 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
-  const { push, asPath } = useRouter()
+  const { push, asPath, pathname } = useRouter()
   const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
   const { isLoading, error } = useGetMeQuery(undefined, {
     skip: skipAuthMe,
   })
   const authMeData = useAppSelector(getUserId)
-  const publicPage = asPath.startsWith(RouteNames.PROFILE) || asPath.startsWith('/')
+  const publicPage = asPath.startsWith(RouteNames.PROFILE) || pathname === RouteNames.PUBLIC_PAGE
   const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH) || publicPage
   const router = useRouter()
 
