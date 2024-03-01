@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ComponentProps, ForwardedRef, forwardRef, useState } from 'react'
+import React, { ChangeEvent, ComponentProps, useState } from 'react'
 
 import EyeIcon from '@/public/icon/eyeIcon.svg'
 import EyeOffIcon from '@/public/icon/eyeOffIcon.svg'
