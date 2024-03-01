@@ -1,0 +1,25 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+.optionsList {
+  list-style-type: none;
+  width: var(--radix-select-trigger-width);
+  background-color: $color-dark-500;
+  max-height: 300px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option:hover,
+.highlighted {
+  cursor: pointer;
+  background-color: $color-dark-100;
+  color: $color-light-100;
+}
