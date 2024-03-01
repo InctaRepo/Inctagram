@@ -9,18 +9,14 @@ import {
 } from '@/entities/profile/service/autocompleteApi'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/autocompleteInput/autocompleteInput.module.scss'
 import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
-import { ControlledTextField } from '@/shared/ui/controlled'
+import { ControlledTextField } from '@/ui/controlled'
 
-type AutocompleteInputProps = {
+type Props = {
   control: Control<ProfileSettingSchema, any>
   inputLabel?: string
 }
 
-export const AutocompleteInput = ({
-  control,
-  inputLabel,
-  ...restProps
-}: AutocompleteInputProps) => {
+export const AutocompleteInput = ({ control, inputLabel, ...restProps }: Props) => {
   const [selectedValue, setSelectedValue] = useState('')
   const [selectMenuActive, setSelectMenuActive] = useState(false)
   const [autocompleteOptions, setAutocompleteOptions] = useState<AutocompleteOption[]>([])

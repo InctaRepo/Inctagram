@@ -5,9 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { parseISO } from 'date-fns'
 import { useForm } from 'react-hook-form'
 
-import { AutocompleteInput } from './autocompleteInput'
-
 import { UserInfo } from '@/entities/profile/service'
+import { AutocompleteInput } from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/autocompleteInput'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/generalInformationForm.module.scss'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { getUsername } from '@/shared/hoc'
