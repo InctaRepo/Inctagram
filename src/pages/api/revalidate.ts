@@ -1,6 +1,8 @@
 import Cors from 'cors'
 import { NextApiRequest, NextApiResponse } from 'next'
 
+import { REVALIDATE_SECRET } from '@/shared/const'
+
 const cors = Cors({
   methods: ['POST', 'GET', 'HEAD'],
 })
@@ -19,7 +21,7 @@ function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: Function) 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<any> {
   await runMiddleware(req, res, cors)
-  if (req.query.secret !== process.env.NEXT_PUBLIC_SECRET_TOKEN) {
+  if (req.query.secret !== REVALIDATE_SECRET) {
     return res.status(401).json({ message: 'Invalid token' })
   }
   try {

@@ -1,6 +1,12 @@
 import React from 'react'
 
 import s from '@/features/home/ui/home.module.scss'
+import {
+  LOCAL_REVALIDATE,
+  PRODUCTION_REVALIDATE,
+  REVALIDATE_SECRET,
+  TEST_REVALIDATE,
+} from '@/shared/const'
 import { getIsAuth } from '@/shared/hoc'
 import { useAppSelector } from '@/shared/hooks'
 import { Sidebar } from '@/shared/sidebar'
@@ -15,7 +21,7 @@ export const Home = () => {
   const isAuth = useAppSelector(getIsAuth)
   const onHandlerSpace = async () => {
     try {
-      const rawResponse = await fetch('https://inctagram.space/api/revalidate?secret=ttt', {
+      const rawResponse = await fetch(PRODUCTION_REVALIDATE + `?secret=${REVALIDATE_SECRET}`, {
         method: 'POST',
         headers: options,
       })
@@ -27,13 +33,10 @@ export const Home = () => {
   }
   const onHandlerRuby = async () => {
     try {
-      const rawResponse = await fetch(
-        'https://inctagram-ruby.vercel.app/api/revalidate?secret=ttt',
-        {
-          method: 'POST',
-          headers: options,
-        }
-      )
+      const rawResponse = await fetch(TEST_REVALIDATE + `?secret=${REVALIDATE_SECRET}`, {
+        method: 'POST',
+        headers: options,
+      })
 
       await rawResponse.json()
     } catch (e) {
@@ -42,7 +45,7 @@ export const Home = () => {
   }
   const onHandlerLocal = async () => {
     try {
-      const rawResponse = await fetch('http://localhost:3000/api/revalidate?secret=ttt', {
+      const rawResponse = await fetch(LOCAL_REVALIDATE + `?secret=${REVALIDATE_SECRET}`, {
         method: 'POST',
         headers: options,
       })
