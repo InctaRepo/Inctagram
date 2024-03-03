@@ -20,7 +20,6 @@ export type SelectProps = {
   defaultImage?: ReactElement
   children?: ReactNode
   onChange?: (e: any) => void
-  setFormValues?: any
 }
 
 export type Option = {
@@ -36,10 +35,8 @@ export const SelectBox = ({
   onValueChange,
   disabled,
   required,
-  placeholder,
   label,
   onChange,
-  setFormValues,
 }: SelectProps) => {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
@@ -47,7 +44,6 @@ export const SelectBox = ({
     setValue(newValue)
     onValueChange?.(newValue)
     onChange?.(newValue)
-    setFormValues('city', '')
   }
 
   return (
