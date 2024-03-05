@@ -56,9 +56,9 @@ export const CreateNewPassword: NextPageWithLayout = () => {
         <CreateNewPasswordForm onSubmitHandler={submit} />
         <Modal
           modalWidth={'sm'}
-          title={'New password was created'}
+          title={t.auth.wasCreateNewPassword}
           open={passwordSentModal}
-          actionButtonName={'OK'}
+          actionButtonName={t.auth.ok}
           onClose={onModalClose}
           onAction={onSaveModalAction}
         >
