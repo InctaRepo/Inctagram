@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { PasswordRecoveryForm } from '@/features/auth/passwordRecovery/ui/passwordRecoveryForm/PasswordRecoveryForm'
+import { RecoveryForm } from '@/features/auth/recovery/ui/recoveryForm/RecoveryForm'
 
-const meta: Meta<typeof PasswordRecoveryForm> = {
+const meta: Meta<typeof RecoveryForm> = {
   title: 'Auth/PasswordRecoveryForm',
-  component: PasswordRecoveryForm,
+  component: RecoveryForm,
   parameters: {
     layout: 'centered',
   },
@@ -12,7 +12,7 @@ const meta: Meta<typeof PasswordRecoveryForm> = {
 }
 
 export default meta
-type Story = StoryObj<typeof PasswordRecoveryForm>
+type Story = StoryObj<typeof RecoveryForm>
 
 export const Default: Story = {
   args: {

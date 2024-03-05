@@ -1,9 +1,9 @@
 import { RecoveryParams } from '@/features/auth/recovery/service/types/recoveryParams'
 import { baseApi, BaseResponse } from '@/shared/api'
 
-const passwordRecovery = baseApi.injectEndpoints({
+const emailRecovery = baseApi.injectEndpoints({
   endpoints: build => ({
-    passwordRecovery: build.mutation<
+    emailRecovery: build.mutation<
       BaseResponse<{
         email: string
       }>,
@@ -11,7 +11,7 @@ const passwordRecovery = baseApi.injectEndpoints({
     >({
       query: data => ({
         method: 'POST',
-        url: 'auth/password-recovery',
+        url: 'auth/registration-email-resending',
         body: data,
       }),
     }),
@@ -19,4 +19,4 @@ const passwordRecovery = baseApi.injectEndpoints({
   overrideExisting: false,
 })
 
-export const { usePasswordRecoveryMutation } = passwordRecovery
+export const { useEmailRecoveryMutation } = emailRecovery
