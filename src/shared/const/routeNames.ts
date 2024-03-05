@@ -5,6 +5,8 @@ export const RouteNames = {
   SIGN_UP: '/auth/sign-up',
   PASSWORD_RECOVERY: '/auth/password-recovery',
   CREATE_NEW_PASSWORD: '/auth/create-new-password',
+  INVALID_LINK_VERIFICATION: '/auth/invalid-link-verification',
+  EMAIL_VERIFICATION: '/auth/email-verification',
   NEW_PASSWORD: '/auth/new-password',
   PRIVACY_POLICY: '/auth/privacy-policy',
   TERMS_OF_USE: '/auth/terms-of-use',

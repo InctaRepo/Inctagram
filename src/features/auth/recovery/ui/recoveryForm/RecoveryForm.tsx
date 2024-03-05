@@ -5,8 +5,9 @@ import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-import { PasswordRecoveryParams } from '@/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
-import s from '@/features/auth/passwordRecovery/ui/passwordRecoveryForm/passwordRecoveryForm.module.scss'
+import { RecoveryParams } from '@/features/auth/recovery/service/types/recoveryParams'
+import s from '@/features/auth/recovery/ui/recoveryForm/recoveryForm.module.scss'
+import { RouteNames } from '@/shared/const'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { useTranslate } from '@/shared/hooks'
 import { passwordRecoverySchema } from '@/shared/schemas/passwordRecoverySchema'
@@ -17,8 +18,9 @@ import { ForgotForm } from '@/ui/recaptcha'
 import { Typography } from '@/ui/typography'
 
 type Props = {
-  onSubmitHandler: (data: PasswordRecoveryParams) => void
+  onSubmitHandler: (data: RecoveryParams) => void
   modalHandler: () => void
+  type: 'email' | 'password'
 }
 
 // css variator
@@ -27,7 +29,7 @@ const CSSMod = {
   secondary: 'secondary',
 }
 
-export const PasswordRecoveryForm = ({ onSubmitHandler, modalHandler }: Props) => {
+export const RecoveryForm = ({ onSubmitHandler, modalHandler, type }: Props) => {
   const [mode, setMode] = useState(CSSMod.primary)
   const { t } = useTranslate()
   const router = useRouter()
@@ -67,7 +69,8 @@ export const PasswordRecoveryForm = ({ onSubmitHandler, modalHandler }: Props) =
     <div className={s[mode]}>
       <Card className={s.main}>
         <Typography variant="h1" className={s.title}>
-          {t.auth.forgotPasswordTitle}
+          {type === 'password' && t.auth.forgotPasswordTitle}
+          {type === 'email' && t.auth.resendVerificationLinkTitle}
         </Typography>
         <form onSubmit={handleSubmit(submitData)} className={s.form}>
           <ControlledTextField
@@ -94,7 +97,7 @@ export const PasswordRecoveryForm = ({ onSubmitHandler, modalHandler }: Props) =
             color={'$color-accent-500'}
             className={s.back}
             type="button"
-            onClick={() => router.push('/')}
+            onClick={() => router.push(RouteNames.SIGN_IN)}
           >
             <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
           </Button>

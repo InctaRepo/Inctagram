@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
 import { useSignUpMutation } from '@/features/auth/signUp/service/signUp'
-import s from '@/features/auth/signUp/ui/signUp.module.scss'
 import { SingUpForm } from '@/features/auth/signUp/ui/singUpForm'
 import { resultCode } from '@/shared/const'
 import { useErrorToast, useTranslate } from '@/shared/hooks'
@@ -52,23 +51,20 @@ export const SignUp: NextPageWithLayout = () => {
   if (isLoading) return <Loader />
 
   return (
-    <div className={s.container}>
-      {!emailSentModal}
-      <div className={s.main}>
-        <SingUpForm onSubmitHandler={submit} />
-        <Modal
-          modalWidth={'sm'}
-          title={t.auth.emailSent}
-          open={emailSentModal}
-          actionButtonName={t.auth.ok}
-          onClose={onModalClose}
-          onAction={onSaveModalAction}
-        >
-          <Typography variant={'regular16'}>
-            {t.auth.emailConfirm(data?.data?.email ? data?.data?.email : '...')}
-          </Typography>
-        </Modal>
-      </div>
+    <div>
+      <SingUpForm onSubmitHandler={submit} />
+      <Modal
+        modalWidth={'sm'}
+        title={t.auth.emailSent}
+        open={emailSentModal}
+        actionButtonName={t.auth.ok}
+        onClose={onModalClose}
+        onAction={onSaveModalAction}
+      >
+        <Typography variant={'regular16'}>
+          {t.auth.emailConfirm(data?.data?.email ? data?.data?.email : '...')}
+        </Typography>
+      </Modal>
     </div>
   )
 }
