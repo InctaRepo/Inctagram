@@ -1,25 +1,6 @@
 @import 'src/styles/mixins';
 @import 'src/styles/colors';
 
-.modal {
-  p {
-    text-align: start;
-  }
-
-  .buttonOkWrapper {
-    width: 100%;
-
-    .buttonOk {
-      @include flex-block;
-
-      position: fixed;
-      right: 24px;
-      bottom: 36px;
-      width: 96px;
-    }
-  }
-}
-
 .main {
   @include flex-block($justify-content: flex-start);
 
