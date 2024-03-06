@@ -47,6 +47,8 @@ export const PasswordRecoveryFC: FC<PropsWithChildren<{}>> = ({ children }) => {
     setEmail(data.email.length > 30 ? data.email.slice(0, 30) + '...' : data.email)
   }
 
+  console.log(siteKey)
+
   return (
     <>
       <PasswordRecoveryForm

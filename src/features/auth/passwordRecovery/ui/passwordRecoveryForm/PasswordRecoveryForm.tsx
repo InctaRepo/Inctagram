@@ -56,7 +56,7 @@ export const PasswordRecoveryForm = (props: IForgotPasswordProps) => {
     setMode(CSSMod.secondary)
     if (data && data.recaptcha) {
       // @ts-ignore
-      delete data.recaptcha // our server doesnt receive it yet
+      delete data.recaptcha
     }
     onSubmitHandler(data)
     modalHandler()
@@ -65,8 +65,6 @@ export const PasswordRecoveryForm = (props: IForgotPasswordProps) => {
   const classNames = {
     hint: clsx(s.hint, errors.email && s.emailError),
   }
-
-  console.log(siteKey)
 
   return (
     <div className={s[mode]}>
@@ -99,12 +97,12 @@ export const PasswordRecoveryForm = (props: IForgotPasswordProps) => {
             color={'$color-accent-500'}
             className={s.back}
             type="button"
-            onClick={() => router.push('/')}
+            onClick={handleSubmit(onSubmitHandler)}
           >
             <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
           </Button>
           <ReCAPTCHA
-            sitekey={'6LfVhYopAAAAANZ_fQNo2p5aFT9kCOMgX2PeQaVX'}
+            sitekey={siteKey}
             onChange={onChange}
             className={s.recaptcha}
             ref={recaptchaRef}
