@@ -53,8 +53,6 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange && onChange(e.target.value)
-    console.log(e.currentTarget.value)
-    // setValue(e.target.value)
   }
 
   return (

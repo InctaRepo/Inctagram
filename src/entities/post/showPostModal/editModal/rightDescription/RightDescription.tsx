@@ -75,7 +75,7 @@ export const RightDescription = ({
             <div className={s.userAvaHead}>
               {userData?.avatar !== null ? (
                 <ImageAva
-                  src={userData?.avatar!}
+                  src={userData?.avatar! ? userData?.avatar! : avaWithError}
                   width={36}
                   height={36}
                   alt={'ava'}
@@ -116,7 +116,7 @@ export const RightDescription = ({
                 <div>
                   {userData?.avatar !== null ? (
                     <ImageAva
-                      src={userData?.avatar!}
+                      src={userData?.avatar! ? userData?.avatar! : avaWithError}
                       width={36}
                       height={36}
                       alt={'ava'}
