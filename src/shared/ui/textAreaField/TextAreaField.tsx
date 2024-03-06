@@ -36,7 +36,7 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
     disabled,
     maxLength,
     onChange,
-    setValue,
+    // setValue,
     ...rest
   } = props
 
@@ -53,7 +53,8 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange && onChange(e.target.value)
-    setValue(e.target.value)
+    console.log(e.currentTarget.value)
+    // setValue(e.target.value)
   }
 
   return (
