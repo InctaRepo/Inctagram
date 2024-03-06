@@ -4,3 +4,7 @@ export type SignUpParams = {
   password: string
   passwordConfirm: string
 }
+export type PrintModalType = {
+  title: string
+  content: string
+}

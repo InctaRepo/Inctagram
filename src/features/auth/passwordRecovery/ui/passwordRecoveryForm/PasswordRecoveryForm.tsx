@@ -3,23 +3,21 @@ import React, { useEffect, useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 
-import { PasswordRecoveryParams } from '@/features/auth/passwordRecovery/service/types/passwordRecoveryParams'
-import s from '@/features/auth/passwordRecovery/ui/passwordRecoveryForm/passwordRecoveryForm.module.scss'
+import { IForgotPasswordProps } from '../PasswordForgotTypes'
+
+import s from './passwordRecoveryForm.module.scss'
+
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { useTranslate } from '@/shared/hooks'
 import { passwordRecoverySchema } from '@/shared/schemas/passwordRecoverySchema'
+import { ForgotForm } from '@/shared/ui/recaptcha'
 import { Button } from '@/ui/button'
 import { Card } from '@/ui/card'
-import { ControlledRecaptcha, ControlledTextField } from '@/ui/controlled'
-import { ForgotForm } from '@/ui/recaptcha'
+import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
-
-type Props = {
-  onSubmitHandler: (data: PasswordRecoveryParams) => void
-  modalHandler: () => void
-}
 
 // css variator
 const CSSMod = {
@@ -27,10 +25,15 @@ const CSSMod = {
   secondary: 'secondary',
 }
 
-export const PasswordRecoveryForm = ({ onSubmitHandler, modalHandler }: Props) => {
+const handleRecaptchaError = (error: any) => {
+  console.error('Ошибка ReCAPTCHA:', error)
+}
+
+export const PasswordRecoveryForm = (props: IForgotPasswordProps) => {
   const [mode, setMode] = useState(CSSMod.primary)
   const { t } = useTranslate()
   const router = useRouter()
+  const { siteKey, onChange, recaptchaRef, onSubmitHandler, modalHandler } = props
   const {
     control,
     handleSubmit,
@@ -62,6 +65,8 @@ export const PasswordRecoveryForm = ({ onSubmitHandler, modalHandler }: Props) =
   const classNames = {
     hint: clsx(s.hint, errors.email && s.emailError),
   }
+
+  console.log(siteKey)
 
   return (
     <div className={s[mode]}>
@@ -98,12 +103,13 @@ export const PasswordRecoveryForm = ({ onSubmitHandler, modalHandler }: Props) =
           >
             <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
           </Button>
-          <ControlledRecaptcha
-            control={control}
-            name="recaptcha"
-            error={errors?.recaptcha?.message}
+          <ReCAPTCHA
+            sitekey={'6LfVhYopAAAAANZ_fQNo2p5aFT9kCOMgX2PeQaVX'}
+            onChange={onChange}
             className={s.recaptcha}
-            primary
+            ref={recaptchaRef}
+            theme="dark"
+            onError={handleRecaptchaError} // Обработчик ошибок ReCAPTCHA
           />
         </form>
       </Card>
