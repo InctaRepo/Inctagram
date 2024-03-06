@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 import { useLogoutMutation } from '@/features/auth/logout/service/logout'
 import s from '@/features/auth/logout/ui/logout.module.scss'
+import { clearId, clearToken } from '@/features/auth/signIn'
 import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
 import { RouteNames, variantIconLink } from '@/shared/const'
 import { getUserEmail, setAuthMeData } from '@/shared/hoc'
@@ -24,8 +25,10 @@ export const Logout = () => {
 
   const { t } = useTranslate()
   const logoutHandler = async () => {
-    logoutUser()
+    await logoutUser()
     dispatch(setAuthMeData({ authMeData: { userId: '', username: '', email: '' } }))
+    dispatch(clearToken)
+    dispatch(clearId)
     dispatch(setVariantIcon(null))
     router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
