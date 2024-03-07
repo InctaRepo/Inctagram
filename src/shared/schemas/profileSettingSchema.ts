@@ -51,7 +51,7 @@ export function createProfileSettingSchema(t: LocaleType) {
         message: t.profileSetting.generalInformation.generalInformationErrors.refine,
       }
     ),
-    country: z.string(),
+    // country: z.string(),
     city: z.string(),
     aboutMe: z
       .string()

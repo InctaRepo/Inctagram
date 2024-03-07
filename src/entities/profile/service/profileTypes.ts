@@ -3,7 +3,7 @@ export interface UserInfo {
   username: string
   firstName: string
   lastName: string
-  country: string
+  country?: string
   city: string
   dateOfBirth: Date
   aboutMe: string
