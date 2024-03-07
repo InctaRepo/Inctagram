@@ -50,10 +50,10 @@ export const Header = ({ variant }: HeaderType) => {
             {variant === 'public' && (
               <div className={s.button_container}>
                 <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_IN)}>
-                  {t.auth.signIn}
+                  {t.auth.logInHeader}
                 </Button>
-                <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>
-                  {t.auth.signUp}
+                <Button variant="primary" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>
+                  {t.auth.signUpHeader}
                 </Button>
               </div>
             )}

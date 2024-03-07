@@ -16,6 +16,8 @@ export const en: LocaleType = {
     wereSorry: 'We\'re sorry',
     signIn: 'Sign In',
     signUp: 'Sign Up',
+    logInHeader: 'Log in',
+    signUpHeader: 'Sign up',
     backToSignIn: 'Back to Sign In',
     signUpTitle: 'Registration',
     password: 'Password',
