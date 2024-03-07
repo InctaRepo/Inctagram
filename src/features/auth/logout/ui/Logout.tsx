@@ -25,7 +25,7 @@ export const Logout = () => {
 
   const { t } = useTranslate()
   const logoutHandler = async () => {
-    await logoutUser()
+    logoutUser()
     dispatch(setAuthMeData({ authMeData: { userId: '', username: '', email: '' } }))
     dispatch(clearToken)
     dispatch(clearId)
