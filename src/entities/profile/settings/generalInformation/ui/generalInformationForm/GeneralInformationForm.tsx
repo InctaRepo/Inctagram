@@ -38,8 +38,9 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
       firstName: userData?.firstName,
       lastName: userData?.lastName,
       dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData?.dateOfBirth}`) : new Date(),
-      country: userData?.country,
-      city: userData?.city + ',' + userData?.country,
+      city: userData
+        ? userData?.city && userData.city + (userData?.country && ',' + userData?.country)
+        : '',
       aboutMe: userData?.aboutMe || '',
       avatar: userData?.avatar || '',
     },
