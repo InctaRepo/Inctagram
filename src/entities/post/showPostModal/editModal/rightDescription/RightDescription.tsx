@@ -16,6 +16,7 @@ import AvatarImage from '@/public/icon/avatarIcon.svg'
 import Bookmark from '@/public/icon/bookmark.svg'
 import Heart from '@/public/icon/heart.svg'
 import Plane from '@/public/icon/plane.svg'
+import DefaultAva from '@/public/images/avatarIcon.jpg'
 import { getIsAuth } from '@/shared/hoc'
 import { useAppSelector, useTranslate } from '@/shared/hooks'
 import { Button } from '@/shared/ui/button'
@@ -49,6 +50,7 @@ export const RightDescription = ({
 }: Props) => {
   const { t } = useTranslate()
   const { control } = useForm()
+  const [isAvaBroken, setIsAvaBroken] = useState(false)
   const [isLikeActive, setIsLikeActive] = useState(false)
   const isAuth = useAppSelector(getIsAuth)
   const dateOfPost = new Date(createdAt ? createdAt : '').toLocaleDateString('en-US', {
@@ -60,6 +62,10 @@ export const RightDescription = ({
   const handleLike = () => {
     //setIsLikeActive(current => !current)
   }
+  const errorHandler = () => {
+    setIsAvaBroken(true)
+  }
+  const avaWithError = isAvaBroken ? DefaultAva : userData?.avatar!
 
   return (
     <>
@@ -69,11 +75,13 @@ export const RightDescription = ({
             <div className={s.userAvaHead}>
               {userData?.avatar !== null ? (
                 <ImageAva
-                  src={userData?.avatar!}
+                  src={userData?.avatar! ? userData?.avatar! : avaWithError}
                   width={36}
                   height={36}
                   alt={'ava'}
                   className={s.ava}
+                  priority={true}
+                  onError={errorHandler}
                 />
               ) : (
                 <AvatarImage className={s.ava} />
@@ -108,11 +116,13 @@ export const RightDescription = ({
                 <div>
                   {userData?.avatar !== null ? (
                     <ImageAva
-                      src={userData?.avatar!}
+                      src={userData?.avatar! ? userData?.avatar! : avaWithError}
                       width={36}
                       height={36}
                       alt={'ava'}
                       className={s.ava}
+                      priority={true}
+                      onError={errorHandler}
                     />
                   ) : (
                     <AvatarImage className={s.ava} />

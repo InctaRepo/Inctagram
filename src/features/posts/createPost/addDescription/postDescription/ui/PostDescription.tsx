@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import ImageAva from 'next/image'
@@ -10,6 +10,7 @@ import { getUserId } from '@/features/auth/signIn'
 import s from '@/features/posts/createPost/addDescription/postDescription/ui/postDescription.module.scss'
 import { useUpdatePostMutation } from '@/features/posts/service/postApi'
 import AvatarImage from '@/public/icon/avatarIcon.svg'
+import DefaultAva from '@/public/images/avatarIcon.jpg'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { useAppSelector, useTranslate } from '@/shared/hooks'
 import { DescriptionForm, descriptionSchema } from '@/shared/schemas/descriptionSchema'
@@ -39,7 +40,7 @@ export const PostDescription = ({
   const { t } = useTranslate()
   const [updatePost] = useUpdatePostMutation()
   const userId = useAppSelector(getUserId)
-
+  const [isAvaBroken, setIsAvaBroken] = useState(false)
   const { data } = useGetProfileQuery(userId)
   const {
     control,
@@ -72,6 +73,10 @@ export const PostDescription = ({
       }
     })
   }
+  const errorHandler = () => {
+    setIsAvaBroken(true)
+  }
+  const avaWithError = isAvaBroken ? DefaultAva : data?.data?.avatar!
 
   return (
     <>
@@ -83,10 +88,11 @@ export const PostDescription = ({
                 <ImageAva
                   width={36}
                   height={36}
-                  src={data?.data?.avatar}
+                  src={data?.data?.avatar ? data?.data?.avatar : avaWithError}
                   className={s.ava}
                   alt={'avatar'}
                   priority={true}
+                  onError={errorHandler}
                 />
               )}
               {!data?.data?.avatar && <AvatarImage className={s.ava} />}
