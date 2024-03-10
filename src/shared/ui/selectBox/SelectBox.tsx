@@ -62,9 +62,6 @@ export const SelectBox = ({
       <Select.Trigger asChild className={s.selectBox} tabIndex={0}>
         <div>
           <Typography variant={'regular16'} color="primary" className={s.value}>
-            {options.map(el => {
-              return <React.Fragment key={el.id}>{value === el.name && el.image}</React.Fragment>
-            })}
             {value ? value : defaultValue}
           </Typography>
 
@@ -82,12 +79,14 @@ export const SelectBox = ({
                 className={s.scrollAreaViewport}
                 style={{ overflowY: undefined }}
               >
-                {options?.map(el => (
-                  <Select.Item value={el?.name || ''} key={el.id} className={s.line}>
-                    {el.image}
-                    <Select.ItemText>{el.name}</Select.ItemText>
-                  </Select.Item>
-                ))}
+                {options?.map(el => {
+                  return (
+                    <Select.Item value={el?.value || ''} key={el.id} className={s.line}>
+                      {el.image}
+                      <Select.ItemText>{el.value}</Select.ItemText>
+                    </Select.Item>
+                  )
+                })}
               </ScrollArea.Viewport>
             </Select.Viewport>
             <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation="vertical">
