@@ -208,7 +208,7 @@ export const en: LocaleType = {
       edit: 'Edit',
       delete: 'Delete',
       deletePhoto: 'Delete photo',
-      areYouSure: 'Are you sure you want to delete the photo?',
+      areYouSure: 'Do you really want to delete your profile photo?',
       changesSaved: 'Your settings are saved',
       selectFromComputer: 'Select from computer',
 
