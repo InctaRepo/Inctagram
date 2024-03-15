@@ -101,6 +101,7 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
           name={'aboutMe'}
           fullWidth={true}
           label={t.profileSetting.generalInformation.aboutMe}
+          placeholder={t.profileSetting.generalInformation.placeholderTextArea}
         />
 
         <div className={s.saveBtn}>

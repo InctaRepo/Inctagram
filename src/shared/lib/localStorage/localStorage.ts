@@ -1,10 +1,11 @@
 import { StateSchema } from '@/store/types'
 
-const KEY = 'signIn'
+const mapKey = ['signIn']
+const key = mapKey[0]
 
 export function loadState() {
   try {
-    const serializedState = localStorage.getItem(KEY)
+    const serializedState = localStorage.getItem(key)
 
     if (!serializedState) return undefined
 
@@ -16,13 +17,19 @@ export function loadState() {
 
 export async function saveState(state: StateSchema) {
   const signIn = state.signIn
-  let lsData = { signIn }
 
-  try {
-    const serializedState = JSON.stringify(lsData)
+  mapKey.forEach(key => {
+    let lsData
 
-    localStorage.setItem(KEY, serializedState)
-  } catch (e) {
-    // Ignore
-  }
+    if (key === 'signIn') {
+      lsData = { signIn }
+    }
+    try {
+      const serializedState = JSON.stringify(lsData)
+
+      localStorage.setItem(key, serializedState)
+    } catch (e) {
+      // Ignore
+    }
+  })
 }

@@ -1,5 +1,4 @@
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { setId } from '@/features/auth/signIn'
 import { baseApi, BaseResponse } from '@/shared/api'
 import { resultCode } from '@/shared/const'
 import { setAuthMeData } from '@/shared/hoc'
@@ -16,7 +15,6 @@ const authApi = baseApi.injectEndpoints({
 
           if (data?.resultCode === resultCode.OK) {
             dispatch(setAuthMeData({ authMeData: data.data }))
-            dispatch(setId({ id: data.data.userId }))
           }
         } catch (e) {
           console.error(e)

@@ -1,6 +1,7 @@
 export { getUserEmail } from '@/shared/hoc/model/selectors/getUserEmail/getUserEmail'
 export { getUsername } from '@/shared/hoc/model/selectors/getUsername/getUsername'
 export { getIsAuth } from '@/shared/hoc/model/selectors/getIsAuth/getIsAuth'
+export { getUserId } from '@/shared/hoc/model/selectors/getUserId/getUserId'
 export type { AuthMeSchema } from '@/shared/hoc/model/types/AuthMeSchema'
 export { authMeReducer, setAuthMeData } from '@/shared/hoc/model/slice/authMeSlice'
 export { useGetMeQuery } from '@/shared/hoc/service/authProvider'
