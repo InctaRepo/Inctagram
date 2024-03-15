@@ -5,13 +5,12 @@ import ImageAva from 'next/image'
 import { useForm } from 'react-hook-form'
 
 import { useGetProfileQuery } from '@/entities/profile/service'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { getUserId } from '@/features/auth/signIn'
 import s from '@/features/posts/createPost/addDescription/postDescription/ui/postDescription.module.scss'
 import { useUpdatePostMutation } from '@/features/posts/service/postApi'
 import AvatarImage from '@/public/icon/avatarIcon.svg'
 import DefaultAva from '@/public/images/avatarIcon.jpg'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
+import { getUserId } from '@/shared/hoc'
 import { useAppSelector, useTranslate } from '@/shared/hooks'
 import { DescriptionForm, descriptionSchema } from '@/shared/schemas/descriptionSchema'
 import { Button } from '@/ui/button'
@@ -39,7 +38,7 @@ export const PostDescription = ({
 }: Props) => {
   const { t } = useTranslate()
   const [updatePost] = useUpdatePostMutation()
-  const userId = useAppSelector(getUserId)
+  const userId = useAppSelector(getUserId) as string
   const [isAvaBroken, setIsAvaBroken] = useState(false)
   const { data } = useGetProfileQuery(userId)
   const {
