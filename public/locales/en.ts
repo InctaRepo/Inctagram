@@ -211,6 +211,7 @@ export const en: LocaleType = {
       areYouSure: 'Do you really want to delete your profile photo?',
       changesSaved: 'Your settings are saved',
       selectFromComputer: 'Select from computer',
+      placeholderTextArea: 'Please enter at least 1 character or space',
 
       generalInformationErrors: {
 

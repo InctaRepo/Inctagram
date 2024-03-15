@@ -77,13 +77,14 @@ export const GeneralInformation = () => {
   useEffect(() => {
     if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar)) {
       setToastHandler()
+      // push(RouteNames.PROFILE_SETTINGS)
       // push(RouteNames.PROFILE + '/' + userId)
     }
   }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar, avatar])
 
   if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) return <Loader />
-  if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar))
-    return <Loader />
+  // if ((isSuccessCreate || isSuccessUpdate) && (avatar === null || isSuccessAvatar))
+  //   return <Loader />
 
   return (
     <div className={s.profile}>
