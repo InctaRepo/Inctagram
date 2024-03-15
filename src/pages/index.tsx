@@ -30,7 +30,6 @@ const Public = () => {
   const userId = useAppSelector(getStorageId) as string
   const router = useRouter()
 
-  console.log('userId:', userId)
   if (isAuth && userId !== null) {
     router.push(RouteNames.PROFILE + '/' + userId)
   } else {
