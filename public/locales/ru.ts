@@ -206,9 +206,10 @@ export const ru = {
       edit: 'Редактировать',
       delete: 'Удалить',
       deletePhoto: 'Удалить фото',
-      areYouSure: 'Вы уверены что хотите удалить фото?',
+      areYouSure: 'Вы действительно хотите удалить фотографию своего профиля?',
       changesSaved: 'Ваши изменения сохранены',
       selectFromComputer: 'Выбрать с компьютера',
+      placeholderTextArea: 'Пожалуйста введите минимум 1 символ или пробел',
 
       generalInformationErrors: {
 
