@@ -88,6 +88,16 @@ export const AutocompleteInput = ({ control, inputLabel, ...restProps }: Props) 
         selectedValue={selectedValue}
         {...restProps}
       />
+      <div style={{ display: 'none' }}>
+        <ControlledTextField
+          name="country"
+          control={control}
+          label={inputLabel}
+          handleAutocompleteOptions={handleAutocompleteOptions}
+          selectedValue={selectedValue}
+          {...restProps}
+        />
+      </div>
       {selectMenuActive && (
         <ul className={s.optionsList} ref={dropdownRef}>
           {autocompleteOptions.map(

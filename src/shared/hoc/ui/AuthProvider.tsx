@@ -3,10 +3,10 @@ import React, { FC, memo, ReactNode, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { getUserId } from '@/features/auth/signIn'
+import { clearId, getToken } from '@/features/auth/signIn'
 import { RouteNames } from '@/shared/const'
-import { useGetMeQuery } from '@/shared/hoc'
-import { useAppSelector } from '@/shared/hooks'
+import { getUserId, setAuthMeData, useGetMeQuery } from '@/shared/hoc'
+import { useAppDispatch, useAppSelector } from '@/shared/hooks'
 import { LoaderLogo } from '@/ui/loaderLogo'
 
 interface AuthProviderProps {
@@ -15,17 +15,27 @@ interface AuthProviderProps {
 
 export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
   const { push, asPath, pathname } = useRouter()
+  const dispatch = useAppDispatch()
+  const token = useAppSelector(getToken) as string
+  const userId = useAppSelector(getUserId)
+
+  useEffect(() => {
+    if (token === null) {
+      dispatch(clearId())
+      dispatch(setAuthMeData({ authMeData: { userId: null } }))
+    }
+  }, [token])
+  const publicPage = asPath.startsWith(RouteNames.PROFILE) || pathname === RouteNames.PUBLIC_PAGE
   const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
   const { isLoading, error } = useGetMeQuery(undefined, {
     skip: skipAuthMe,
   })
-  const authMeData = useAppSelector(getUserId)
-  const publicPage = asPath.startsWith(RouteNames.PROFILE) || pathname === RouteNames.PUBLIC_PAGE
-  const isAuthPage = !!authMeData || asPath.startsWith(RouteNames.AUTH) || publicPage
+
+  const isAuthPage = !!userId || asPath.startsWith(RouteNames.AUTH) || publicPage
   const router = useRouter()
 
   useEffect(() => {
-    if (!isAuthPage || (asPath.endsWith(RouteNames.PROFILE_SETTINGS) && !authMeData)) {
+    if (!isAuthPage || (asPath.endsWith(RouteNames.PROFILE_SETTINGS) && !userId)) {
       router.push(RouteNames.SIGN_IN)
     }
   }, [isAuthPage, router])

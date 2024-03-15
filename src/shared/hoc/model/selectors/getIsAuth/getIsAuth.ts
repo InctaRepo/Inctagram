@@ -1,3 +1,3 @@
 import { StateSchema } from '@/store'
 
-export const getIsAuth = (state: StateSchema) => state.authMe.authMeData?.userId.length > 1
+export const getIsAuth = (state: StateSchema) => state.authMe.authMeData?.userId != null
