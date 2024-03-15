@@ -14,11 +14,11 @@ import { getAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getStaticProps = wrapper.getStaticProps(store => {
   return async context => {
-    store.dispatch(getAllPosts.initiate({}, { subscriptionOptions: { pollingInterval: 60 } }))
-    store.dispatch(getUsersCount.initiate(void { subscriptionOptions: { pollingInterval: 60 } }))
+    store.dispatch(getAllPosts.initiate({}, { forceRefetch: 60 }))
+    store.dispatch(getUsersCount.initiate(void { forceRefetch: 60 }))
     store.dispatch(getAllPosts.initiate({}, { forceRefetch: true }))
     store.dispatch(getUsersCount.initiate(void { forceRefetch: true }))
-    await Promise.all(store.dispatch(getRunningQueriesThunk()))
+    await Promise.race(store.dispatch(getRunningQueriesThunk()))
 
     return {
       props: {},
@@ -30,7 +30,6 @@ const Public = () => {
   const userId = useAppSelector(getStorageId) as string
   const router = useRouter()
 
-  console.log('userId:', userId)
   if (isAuth && userId !== null) {
     router.push(RouteNames.PROFILE + '/' + userId)
   } else {
