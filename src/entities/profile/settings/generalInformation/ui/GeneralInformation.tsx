@@ -11,9 +11,8 @@ import {
 } from '@/entities/profile/service'
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
 import { GeneralInformationForm } from '@/entities/profile/settings/generalInformation/ui/generalInformationForm'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { getUserId } from '@/features/auth/signIn'
 import { RouteNames } from '@/shared/const'
+import { getUserId } from '@/shared/hoc'
 import { useAppDispatch, useAppSelector, useErrorToast } from '@/shared/hooks'
 import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
 import { setProfileFound } from '@/shared/sidebar'
@@ -27,7 +26,7 @@ export const GeneralInformation = () => {
     useUpdateProfileMutation()
   const [createProfile, { isSuccess: isSuccessCreate, isLoading: isLoadingCreate }] =
     useCreateProfileMutation()
-  const userId = useAppSelector(getUserId)
+  const userId = useAppSelector(getUserId) as string
   const { data: profile, isLoading, isSuccess } = useGetProfileQuery(userId)
   const userData = profile?.data
   const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =
