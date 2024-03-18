@@ -1,7 +1,7 @@
 import { MergerAccountsDynamic } from '@/features/auth/mergerAccounts'
-import { getAuthLayout } from '@/widgets/layout/authLayout'
+import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
 const MergerAccountsPage = () => <MergerAccountsDynamic />
 
-MergerAccountsPage.getLayout = getAuthLayout
+MergerAccountsPage.getLayout = GetAuthLayout
 export default MergerAccountsPage
