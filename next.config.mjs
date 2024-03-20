@@ -1,3 +1,5 @@
+import * as million from 'million/compiler'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
@@ -57,9 +59,10 @@ const nextConfig = {
 
 // module.exports = nextConfig
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-  openAnalyzer: 'false',
-})
-
-module.exports = withBundleAnalyzer(nextConfig)
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: process.env.ANALYZE === 'true',
+//   openAnalyzer: 'false',
+// })
+//
+// module.exports = withBundleAnalyzer(nextConfig)
+export default million.next(nextConfig)
