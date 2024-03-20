@@ -1,4 +1,4 @@
-import * as million from 'million/compiler'
+import million from 'million/compiler'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -56,9 +56,7 @@ const nextConfig = {
     ],
   },
 }
-
-// module.exports = nextConfig
-
+// rename mjs to js, comment export default
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
 //   enabled: process.env.ANALYZE === 'true',
 //   openAnalyzer: 'false',
