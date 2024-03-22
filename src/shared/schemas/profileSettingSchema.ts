@@ -51,8 +51,10 @@ export function createProfileSettingSchema(t: LocaleType) {
         message: t.profileSetting.generalInformation.generalInformationErrors.refine,
       }
     ),
-    // country: z.string(),
-    city: z.string(),
+    city: z
+      .string()
+      .min(3, t.profileSetting.generalInformation.generalInformationErrors.minLength)
+      .regex(/^[а-яА-Яa-zA-Z,]+$/, 'Incorrect input value'),
     aboutMe: z
       .string()
       .max(200, t.profileSetting.generalInformation.generalInformationErrors.aboutMeError)

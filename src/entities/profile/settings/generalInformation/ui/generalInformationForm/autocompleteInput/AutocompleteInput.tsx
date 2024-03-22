@@ -49,6 +49,10 @@ export const AutocompleteInput = ({ control, inputLabel, ...restProps }: Props) 
   }, [data])
 
   const handleAutocompleteOptions = useDebouncedCallback((value: string) => {
+    const regex = /^[а-яА-Яa-zA-Z]+$/
+
+    if (!regex.test(value)) return
+
     getAutocomplete(value)
     setSelectMenuActive(true)
   }, 300)
@@ -88,16 +92,6 @@ export const AutocompleteInput = ({ control, inputLabel, ...restProps }: Props) 
         selectedValue={selectedValue}
         {...restProps}
       />
-      <div style={{ display: 'none' }}>
-        <ControlledTextField
-          name="country"
-          control={control}
-          label={inputLabel}
-          handleAutocompleteOptions={handleAutocompleteOptions}
-          selectedValue={selectedValue}
-          {...restProps}
-        />
-      </div>
       {selectMenuActive && (
         <ul className={s.optionsList} ref={dropdownRef}>
           {autocompleteOptions.map(
