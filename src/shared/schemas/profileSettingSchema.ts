@@ -57,8 +57,8 @@ export function createProfileSettingSchema(t: LocaleType) {
       .string()
       .max(200, t.profileSetting.generalInformation.generalInformationErrors.aboutMeError)
       .regex(
-        /^[0-9- A-Za-zА-Яа-я!"#$%&'()*+,-./:;<=>?@\\[\]^_`{|}〜\s\S]+$/,
-        t.profileSetting.generalInformation.generalInformationErrors.aboutMeError
+        /^[0-9A-Za-zА-Яа-я!"#$%&'()*+,-./:;<=>?@[\]^_`{|}〜\s]+$/,
+        'About me should only contain alphanumeric characters in English or Russian'
       )
       .trim()
       .optional(),
