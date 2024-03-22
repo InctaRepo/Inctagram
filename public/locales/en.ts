@@ -242,6 +242,7 @@ export const en: LocaleType = {
         },
 
         refine: 'A user under 13 cannot create a profile.',
+        incorrectInput: 'Incorrect input type.',
         aboutMeError: 'Max number of characters 200',
       },
     },
