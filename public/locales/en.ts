@@ -224,14 +224,14 @@ export const en: LocaleType = {
 
         firstNameField: {
           nonEmpty: 'Enter first name',
-          regex: 'First name can contain only A-z; -; apostrophe; space',
+          regex: 'First name can contain only A-z; -;',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },
 
         lastNameField: {
           nonEmpty: 'Enter last name',
-          regex: 'Last name can contain only A-z; -; apostrophe; space',
+          regex: 'Last name can contain only A-z; -;',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },
@@ -242,6 +242,8 @@ export const en: LocaleType = {
         },
 
         refine: 'A user under 13 cannot create a profile.',
+        incorrectInput: 'Incorrect input type.',
+        minLength:'Minimum input length 3',
         aboutMeError: 'Max number of characters 200',
       },
     },
