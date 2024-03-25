@@ -9,4 +9,9 @@ describe('Typography component', () => {
 
     expect(typographyElement).toHaveClass('link')
   })
+  it('Typography snapshot', () => {
+    const typography = render(<Typography>Typography render</Typography>)
+
+    expect(typography).toMatchSnapshot()
+  })
 })
