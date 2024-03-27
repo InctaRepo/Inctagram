@@ -56,6 +56,9 @@ const nextConfig = {
     ],
   },
 }
+const millionConfig = {
+  auto: true,// if you're using RSC: auto: { rsc: true },
+}
 // rename mjs to js, comment export default
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
 //   enabled: process.env.ANALYZE === 'true',
@@ -63,4 +66,4 @@ const nextConfig = {
 // })
 //
 // module.exports = withBundleAnalyzer(nextConfig)
-export default million.next(nextConfig)
+export default million.next(nextConfig, millionConfig)
