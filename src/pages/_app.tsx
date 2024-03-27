@@ -5,8 +5,8 @@ import { HistoryProvider, useLoader } from '@/shared/hooks'
 import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { wrapper } from '@/store'
 import { ProgressBar } from '@/ui/progressBar'
-import 'src/styles/_globals.scss'
-import 'src/styles/nprogress.scss'
+import '@/styles/_globals.scss'
+import '@/styles/nprogress.scss'
 import 'react-toastify/dist/ReactToastify.css'
 
 type AppPropsWithLayout = AppProps & {
