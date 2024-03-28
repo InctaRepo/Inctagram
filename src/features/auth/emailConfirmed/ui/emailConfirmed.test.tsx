@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react'
-
 import { EmailConfirmed } from './EmailConfirmed'
+
+import { render } from '__mocks__/customRender'
 
 // Mock the dependencies used in the component
 jest.mock('next/router', () => ({

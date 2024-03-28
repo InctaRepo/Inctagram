@@ -1,5 +1,5 @@
 import { LoginForm } from '@/features/auth/signIn/ui/loginForm/LoginForm'
-import { render } from '@/shared/helpers/test-utils'
+import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),

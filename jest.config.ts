@@ -25,23 +25,24 @@ const config: Config = {
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
   // Add more setup options before each test is run
-  transform: {
-    // '^.+\\.(ts|tsx)$': 'ts-jest',
-    '^.+\\.(t|j)sx?$': '@swc/jest',
-  },
-  moduleDirectories: ['node_modules'],
+  // transform: {
+  //   // '^.+\\.(ts|tsx)$': 'ts-jest',
+  //   '^.+\\.(t|j)sx?$': '@swc/jest',
+  // },
+  // moduleDirectories: ['node_modules'],
   moduleNameMapper: {
     '^.+\\.(svg)$': '<rootDir>/../__mocks__/svg.tsx',
     '^@/ui(.*)$': '<rootDir>/shared/ui/$1',
     '^@/public(.*)$': '<rootDir>/../public/$1',
     '^@/(.*)$': '<rootDir>/$1',
+    '__mocks__/customRender': '<rootDir>/../__mocks__/customRender.tsx',
   },
-  testMatch: ['**/*.test.*'],
-  collectCoverageFrom: [
-    '<rootDir>/**/*.tsx',
-    '!<rootDir>/**/*.stories.tsx',
-    '!**/__snapshots__/**',
-  ],
+  // testMatch: ['**/*.test.*'],
+  // collectCoverageFrom: [
+  //   '<rootDir>/**/*.tsx',
+  //   '!<rootDir>/**/*.stories.tsx',
+  //   '!**/__snapshots__/**',
+  // ],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
