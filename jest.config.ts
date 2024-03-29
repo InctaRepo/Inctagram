@@ -7,6 +7,7 @@ const createJestConfig = nextJest({
 })
 
 const config: Config = {
+  verbose: true,
   rootDir: 'src/',
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
