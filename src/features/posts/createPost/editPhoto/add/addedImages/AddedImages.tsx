@@ -32,6 +32,7 @@ export const AddedImages = ({ addedImages, setAddedImages }: Props) => {
                   alt={'photos'}
                   height={82}
                   width={80}
+                  placeholder="blur"
                 />
               </div>
             )
@@ -48,6 +49,7 @@ export const AddedImages = ({ addedImages, setAddedImages }: Props) => {
                   alt={'photos'}
                   height={82}
                   width={80}
+                  placeholder="blur"
                 />
               </div>
             )

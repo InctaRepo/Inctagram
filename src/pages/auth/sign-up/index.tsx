@@ -1,7 +1,7 @@
 import { SignUpDynamic } from '@/features/auth/signUp'
-import { getAuthLayout } from '@/widgets/layout/authLayout'
+import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
 const SignUpPage = () => <SignUpDynamic />
 
-SignUpPage.getLayout = getAuthLayout
+SignUpPage.getLayout = GetAuthLayout
 export default SignUpPage

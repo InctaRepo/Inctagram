@@ -25,7 +25,7 @@ export type TypographyProps<T extends ElementType = 'p'> = {
 export const Typography = <T extends ElementType = 'p'>(
   props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>
 ) => {
-  const { variant = 'body1', color = 'primary', className, as: Component = 'p', ...rest } = props
+  const { variant = 'bold14', color = 'primary', className, as: Component = 'p', ...rest } = props
 
   return <Component className={`${variant && s[variant]} ${s[color]}  ${className}`} {...rest} />
 }

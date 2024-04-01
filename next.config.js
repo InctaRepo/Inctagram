@@ -44,6 +44,7 @@ const nextConfig = {
     defaultLocale: 'en',
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -54,12 +55,14 @@ const nextConfig = {
     ],
   },
 }
-
-// module.exports = nextConfig
-
+// const millionConfig = {
+//   auto: true,// if you're using RSC: auto: { rsc: true },
+// }
+// rename mjs to js, comment export default
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
   openAnalyzer: 'false',
 })
 
 module.exports = withBundleAnalyzer(nextConfig)
+// export default million.next(nextConfig, millionConfig)

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { ChangeEvent, useEffect } from 'react'
 
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
 
@@ -32,7 +32,7 @@ export const ControlledTextField = <T extends FieldValues>({
     }
   }, [selectedValue])
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (handleAutocompleteOptions) {
       handleAutocompleteOptions(event.target.value)
     }

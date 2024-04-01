@@ -7,7 +7,7 @@ import OutlineBellIcon from '@/public/icon/outlineBellIcon.svg'
 import { RouteNames } from '@/shared/const'
 import s from '@/shared/header/ui/header.module.scss'
 import { useTranslate } from '@/shared/hooks'
-import { Button } from '@/shared/ui/button'
+import { Button } from '@/ui/button'
 import { Option, SelectBox } from '@/ui/selectBox'
 import { Typography } from '@/ui/typography'
 

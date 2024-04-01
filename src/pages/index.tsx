@@ -10,7 +10,7 @@ import { RouteNames } from '@/shared/const'
 import { getIsAuth } from '@/shared/hoc'
 import { useAppSelector } from '@/shared/hooks'
 import { wrapper } from '@/store'
-import { getAuthLayout } from '@/widgets/layout/authLayout'
+import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getStaticProps = wrapper.getStaticProps(store => {
   return async context => {
@@ -37,5 +37,5 @@ const Public = () => {
   }
 }
 
-Public.getLayout = getAuthLayout
+Public.getLayout = GetAuthLayout
 export default Public
