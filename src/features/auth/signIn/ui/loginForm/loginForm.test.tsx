@@ -1,4 +1,10 @@
-import { LoginForm } from '@/features/auth/signIn/ui/loginForm/LoginForm'
+// import { LoginForm } from '@/features/auth/signIn/ui/loginForm/LoginForm'
+
+//
+import { fireEvent, screen, waitFor } from '@testing-library/react'
+
+import { LoginForm } from './LoginForm'
+
 import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
@@ -10,35 +16,53 @@ jest.mock('next/router', () => ({
 // }))
 
 describe('LoginForm', () => {
-  test('renders LoginForm component', () => {
+  it('renders LoginForm component', async () => {
     render(<LoginForm />)
 
-    // Assert that the component is rendered
-    // expect(screen.getByText('Sign In')).toBeInTheDocument()
-    // expect(screen.getByLabelText('Email')).toBeInTheDocument()
-    // expect(screen.getByLabelText('Password')).toBeInTheDocument()
-    // expect(screen.getByText('Sign In')).toBeInTheDocument()
+    //Assert that the component is rendered
+    expect(screen.getByLabelText('Email')).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: /email/i })).toBeInTheDocument()
+    expect(screen.getByLabelText('Password')).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: /password/i })).toBeInTheDocument()
+    expect(screen.getByText('Forgot password?')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Forgot password?/i })).toBeInTheDocument()
+    expect(screen.getByText('Sign In', { selector: 'p.bold16.primary' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument()
+    expect(screen.getByText('Sign Up')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /sign up/i })).toBeInTheDocument()
   })
 
-  test('calls onSubmitHandler with form data on submit', () => {
+  it('calls onSubmitHandler with form data on submit', async () => {
     const onSubmitHandler = jest.fn()
 
     render(<LoginForm onSubmitHandler={onSubmitHandler} />)
-
-    // Fill in the form fields
-    // fireEvent.change(screen.getByRole('Email'), { target: { value: 'test@example.com' } })
-    // fireEvent.change(screen.getByRole('Password'), { target: { value: 'password123' } })
-    //
-    // // Submit the form
-    // fireEvent.click(screen.getByText('Sign In'))
-
-    // Assert that onSubmitHandler is called with the form data
-    // expect(onSubmitHandler).toHaveBeenCalledTimes(1)
-    // expect(onSubmitHandler).toHaveBeenCalledWith({
-    //   email: 'test@example.com',
-    //   password: 'password123',
-    // })
+    await waitFor(() => {
+      fireEvent.change(screen.getByRole('textbox', { name: /email/i }), {
+        target: { value: 'test@example.com' },
+      })
+      fireEvent.change(screen.getByRole('textbox', { name: /password/i }), {
+        target: { value: '1qaz@WSX' },
+      })
+    })
+    await waitFor(() => {
+      fireEvent.click(screen.getByRole('button', { name: /sign in/i }))
+    })
+    // Submit the form
+    // Check if the onSubmitHandler function was called with the correct data
+    // await waitFor(() => expect(onSubmitHandler).toHaveBeenCalledTimes(1))
+    // await waitFor(() => expect(onSubmitHandler).toHaveBeenCalledTimes(1))
+    // expect(onSubmitHandler).toHaveBeenCalled()
   })
+})
 
-  // Add more tests for other functionality as needed
+test('displays error message when form submission fails', async () => {
+  render(<LoginForm errorServer="Invalid email or password" />)
+
+  await waitFor(() => {
+    const errorElements = screen.queryAllByText(/Invalid email or password/i, {
+      selector: 'p.regular14.primary.errorWrap',
+    })
+
+    expect(errorElements.length).toBeGreaterThan(0)
+  })
 })

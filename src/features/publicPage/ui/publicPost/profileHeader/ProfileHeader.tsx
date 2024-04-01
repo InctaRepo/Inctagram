@@ -41,6 +41,7 @@ export const ProfileHeader = ({ userId }: Props) => {
             className={s.ava}
             priority={true}
             onError={errorHandler}
+            placeholder="blur"
           />
         ) : (
           <AvatarImage className={s.ava} />
