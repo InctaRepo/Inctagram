@@ -5,7 +5,7 @@ import { getUserPosts } from '@/features/posts'
 import { Profile } from '@/features/profile'
 import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { wrapper } from '@/store'
-import { getAuthLayout } from '@/widgets/layout/authLayout'
+import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.query?.id as string
@@ -26,5 +26,5 @@ const MyProfilePage: NextPageWithLayout = () => {
   return <Profile id={id} />
 }
 
-MyProfilePage.getLayout = getAuthLayout
+MyProfilePage.getLayout = GetAuthLayout
 export default MyProfilePage

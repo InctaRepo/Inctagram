@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { HomeDynamic } from '@/features/home'
-import { getAuthLayout } from '@/widgets/layout/authLayout'
+import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
 const HomePage = () => <HomeDynamic />
 
-HomePage.getLayout = getAuthLayout
+HomePage.getLayout = GetAuthLayout
 export default HomePage

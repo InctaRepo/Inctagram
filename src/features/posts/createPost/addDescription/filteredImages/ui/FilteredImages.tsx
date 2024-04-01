@@ -31,6 +31,7 @@ export const FilteredImages = ({ addedImages }: Props) => {
                     width: '100%',
                     height: 'auto',
                   }}
+                  placeholder="blur"
                 />
               </div>
             )
