@@ -104,6 +104,7 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
             alt="ava"
             className={s.ava}
             onError={errorHandler}
+            placeholder="blur"
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
@@ -131,6 +132,7 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
             alt="ava"
             className={s.ava}
             onError={errorHandler}
+            placeholder="blur"
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
@@ -158,6 +160,7 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
             alt="ava"
             className={s.ava}
             onError={errorHandler}
+            placeholder="blur"
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />

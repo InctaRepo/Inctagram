@@ -5,7 +5,7 @@ import { getRunningQueriesThunk, getUserPost, getUserPosts } from '@/features/po
 import { Profile } from '@/features/profile'
 import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { wrapper } from '@/store'
-import { getAuthLayout } from '@/widgets/layout/authLayout'
+import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const postId = context.query?.postId as string
@@ -30,5 +30,5 @@ const MyPostPage: NextPageWithLayout = () => {
   return <Profile id={id} postId={postId} />
 }
 
-MyPostPage.getLayout = getAuthLayout
+MyPostPage.getLayout = GetAuthLayout
 export default MyPostPage
