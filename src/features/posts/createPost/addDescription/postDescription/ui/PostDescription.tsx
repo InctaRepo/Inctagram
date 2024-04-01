@@ -92,6 +92,7 @@ export const PostDescription = ({
                   alt={'avatar'}
                   priority={true}
                   onError={errorHandler}
+                  placeholder="blur"
                 />
               )}
               {!data?.data?.avatar && <AvatarImage className={s.ava} />}

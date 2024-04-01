@@ -28,6 +28,7 @@ export const PostImages = ({ images }: { images: string[] }): ReactElement => {
                   width: '100%',
                   height: 'auto',
                 }}
+                placeholder="blur"
               />
             </div>
           ))}
