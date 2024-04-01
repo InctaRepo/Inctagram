@@ -1,7 +1,7 @@
 import { PasswordRecoveryDynamic } from '@/features/auth/passwordRecovery'
-import { getAuthLayout } from '@/widgets/layout/authLayout'
+import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
 const PasswordRecoveryPage = () => <PasswordRecoveryDynamic />
 
-PasswordRecoveryPage.getLayout = getAuthLayout
+PasswordRecoveryPage.getLayout = GetAuthLayout
 export default PasswordRecoveryPage

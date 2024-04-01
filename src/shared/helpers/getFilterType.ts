@@ -1,4 +1,4 @@
-import { ImageFilter } from '../types/posts/postsTypes'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
 
 export const getFilterType = (filter: string): ImageFilter => {
   switch (filter) {

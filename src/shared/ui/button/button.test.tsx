@@ -43,6 +43,6 @@ describe('Button', () => {
 
     expect(customComponentElement.tagName).toBe('DIV')
     expect(customComponentElement).toHaveClass('customComponent')
-    expect(customComponentElement.getAttribute('data-customprop')).toBe('custom')
+    expect(customComponentElement).toHaveAttribute('data-customprop', 'custom')
   })
 })

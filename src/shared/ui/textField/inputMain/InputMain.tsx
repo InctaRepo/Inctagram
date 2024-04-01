@@ -41,11 +41,12 @@ export const InputMain = ({
 
   return (
     <div className={s.textFieldWrap}>
-      <label className={`${s.label} ${disabled && s.disabledLabel}`}>
+      <label className={`${s.label} ${disabled && s.disabledLabel}`} htmlFor="name">
         {label}
         {isRequired && <span className={s.star}>*</span>}
       </label>
       <input
+        id="name"
         type={showPassword ? 'text' : type}
         value={value}
         onChange={onchangeHandler}
