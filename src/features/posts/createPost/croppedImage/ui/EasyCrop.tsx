@@ -1,5 +1,3 @@
-import React from 'react'
-
 import ReactCrop from 'react-easy-crop'
 
 type Props = {
