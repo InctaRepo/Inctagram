@@ -10,6 +10,8 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
+import { CropArg } from '../../croppedImage/ui/EasyCrop'
+
 import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
 import s from '@/features/posts/createPost/cropModal/ui/cropModal.module.scss'
 import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
@@ -37,6 +39,7 @@ type Props = {
   setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setImage: (image: string | undefined) => void
   handleSaveDraft: () => void
+  croppedAreaPixels: CropArg | null
 } & ComponentProps<'div'>
 
 export const CropModal = ({
@@ -55,6 +58,7 @@ export const CropModal = ({
   setIsBaseModalOpen,
   setImage,
   handleSaveDraft,
+  croppedAreaPixels,
 }: Props) => {
   const classNames = {
     content: getContentClassName(className),
@@ -113,6 +117,7 @@ export const CropModal = ({
                     setImage={setImage}
                     openSureModal={openSureModal}
                     setOpenSureModal={setOpenSureModal}
+                    croppedAreaPixels={croppedAreaPixels}
                   >
                     <SelectedImages
                       addedImages={addedImages}

@@ -2,6 +2,8 @@ import React, { ChangeEvent, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
+import { CropArg } from './croppedImage/ui/EasyCrop'
+
 import { CropModal } from '@//features/posts/createPost/cropModal'
 import { CreateIcon } from '@//shared/assets/icons/CreateIcon'
 import s from '@/features/posts/createPost/createNewPost.module.scss'
@@ -24,6 +26,7 @@ export const CreateNewPost = () => {
   const [addedImages, setAddedImages] = useState<Image[]>([])
   const [draftOfImages, setDraftOfImages] = useState<Image[]>([])
   const [isDraftUploaded, setIsDraftUploaded] = useState(false)
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState<CropArg | null>(null)
   const dispatch = useAppDispatch()
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
 
@@ -125,12 +128,15 @@ export const CreateNewPost = () => {
           setIsBaseModalOpen={setIsBaseModalOpen}
           setImage={setImage}
           handleSaveDraft={handleSaveDraft}
+          croppedAreaPixels={croppedAreaPixels}
         >
           <CroppedImage
             image={image}
             setImage={setImage}
             addedImages={imagesForUpload}
             setAddedImages={setAddedImages}
+            croppedAreaPixels={croppedAreaPixels}
+            setCroppedAreaPixels={setCroppedAreaPixels}
           />
         </CropModal>
       )}

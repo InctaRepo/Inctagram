@@ -10,6 +10,9 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
+import { GetCroppedImg } from '../../croppedImage/ui/Crop'
+import { CropArg } from '../../croppedImage/ui/EasyCrop'
+
 import { FilteredImages } from '@/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
 import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
 import { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'
@@ -43,6 +46,7 @@ export type ModalProps = {
   openSureModal: boolean
   setOpenSureModal: (openSureModal: boolean) => void
   setIsModalOpen: (open: boolean) => void
+  croppedAreaPixels: CropArg | null
 } & ComponentProps<'div'>
 
 export const FiltersModal = ({
@@ -61,6 +65,7 @@ export const FiltersModal = ({
   setOpenSureModal,
   setIsBaseModalOpen,
   setIsModalOpen,
+  croppedAreaPixels,
 }: ModalProps) => {
   const classNames = {
     content: getContentClassName(className),
@@ -87,9 +92,13 @@ export const FiltersModal = ({
     setIsModalOpen(true)
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setIsFiltersModalOpen(true)
     setIsBaseModalOpen(false)
+    const images = await applyCropping(croppedAreaPixels, addedImages)
+
+    if (!images) return
+    setAddedImages(images)
   }
 
   const formData = new FormData()
@@ -175,4 +184,23 @@ export const FiltersModal = ({
 
 function getContentClassName(className?: string) {
   return clsx(className, s.DialogContent)
+}
+
+export const applyCropping = async (croppedAreaPixels: CropArg | null, addedImages: Image[]) => {
+  if (croppedAreaPixels && addedImages.length) {
+    try {
+      let newImagesPromises = addedImages.map(async (img: Image) => {
+        if (!img.image) return
+        const croppedImage = await GetCroppedImg(img.image, croppedAreaPixels)
+
+        return { ...img, image: croppedImage }
+      })
+
+      let newImages = await Promise.all(newImagesPromises)
+
+      return newImages as Image[]
+    } catch (e) {
+      console.error(e)
+    }
+  }
 }
