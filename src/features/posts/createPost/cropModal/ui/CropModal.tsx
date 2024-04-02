@@ -10,10 +10,9 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { CropArg } from '../../croppedImage/ui/EasyCrop'
-
 import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
 import s from '@/features/posts/createPost/cropModal/ui/cropModal.module.scss'
+import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
 import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
 import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'

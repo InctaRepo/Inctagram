@@ -2,13 +2,12 @@ import React, { ChangeEvent, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
-import { CropArg } from './croppedImage/ui/EasyCrop'
-
-import { CropModal } from '@//features/posts/createPost/cropModal'
-import { CreateIcon } from '@//shared/assets/icons/CreateIcon'
 import s from '@/features/posts/createPost/createNewPost.module.scss'
+import { CropModal } from '@/features/posts/createPost/cropModal'
 import CroppedImage from '@/features/posts/createPost/croppedImage/ui/CroppedImage'
+import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
 import ImgOutline from '@/public/icon/imgOutlineIcon.svg'
+import { CreateIcon } from '@/shared/assets/icons/CreateIcon'
 import { RouteNames, variantIconLink } from '@/shared/const'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
 import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'

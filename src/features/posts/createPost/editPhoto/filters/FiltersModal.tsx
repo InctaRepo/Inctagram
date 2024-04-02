@@ -10,12 +10,11 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { GetCroppedImg } from '../../croppedImage/ui/Crop'
-import { CropArg } from '../../croppedImage/ui/EasyCrop'
-
 import { FilteredImages } from '@/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
 import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
 import { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'
+import { GetCroppedImg } from '@/features/posts/createPost/croppedImage/ui/Crop'
+import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
 import s from '@/features/posts/createPost/editPhoto/filters/FiltersModal.module.scss'
 import { useAddPostMutation } from '@/features/posts/service'
 import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
