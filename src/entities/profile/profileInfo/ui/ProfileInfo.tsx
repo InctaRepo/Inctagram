@@ -28,7 +28,6 @@ export const ProfileInfo = ({ userData }: Props) => {
           className={s.avatar}
           alt={'avatar'}
           onError={errorHandler}
-          placeholder="blur"
         />
       )}
       <div className={s.dataProfile}>

@@ -10,9 +10,9 @@ import { resultCode, RouteNames } from '@/shared/const'
 import { useTranslate } from '@/shared/hooks'
 
 export const EmailConfirmed = () => {
-  const router = useRouter()
+  const { query } = useRouter()
   const { t } = useTranslate()
-  const { code } = router.query
+  const { code } = query
 
   const [regConfirm, { data, isSuccess }] = useEmailConfirmedMutation()
 

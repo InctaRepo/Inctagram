@@ -30,7 +30,6 @@ export const PostImages = ({ images, isDescription }: Props) => {
                   width: '100%',
                   height: '100%',
                 }}
-                placeholder="blur"
               />
             </div>
           ))}

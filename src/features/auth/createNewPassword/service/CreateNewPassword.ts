@@ -1,7 +1,7 @@
 import { NewPasswordParams } from '@/features/auth/createNewPassword/service/types/newPasswordParams'
 import { baseApi, BaseResponse } from '@/shared/api'
 
-const createNewPassword = baseApi.injectEndpoints({
+const createNewPasswordApi = baseApi.injectEndpoints({
   endpoints: build => ({
     createNewPassword: build.mutation<BaseResponse, NewPasswordParams>({
       query: data => ({
@@ -14,4 +14,4 @@ const createNewPassword = baseApi.injectEndpoints({
   overrideExisting: false,
 })
 
-export const { useCreateNewPasswordMutation } = createNewPassword
+export const { useCreateNewPasswordMutation } = createNewPasswordApi
