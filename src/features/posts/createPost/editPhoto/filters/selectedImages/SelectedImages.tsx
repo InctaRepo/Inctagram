@@ -59,7 +59,6 @@ export const SelectedImages = ({ addedImages, setActiveFilter, setAddedImages }:
                   src={el.image ? el.image : ''}
                   width={490}
                   height={503}
-                  placeholder="blur"
                 />
               </div>
             )
@@ -84,7 +83,6 @@ export const SelectedImages = ({ addedImages, setActiveFilter, setAddedImages }:
                     filter: el.filter,
                   }}
                   className={s.image}
-                  placeholder="blur"
                 />
               </div>
               <div className={s.filterName}>
