@@ -22,7 +22,6 @@ export const CreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
   const {
     control,
     handleSubmit,
-    formState,
     trigger,
     formState: { touchedFields, errors },
   } = useForm<PasswordsMatchForm>({
@@ -39,13 +38,12 @@ export const CreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
 
     triggerZodFieldError(touchedFieldNames, trigger)
   }, [t])
-
-  const onSubmit = handleSubmit((data: PasswordsMatchForm) => {
-    onSubmitHandler(data)
-  })
+  const submitData = (data: PasswordsMatchForm) => {
+    onSubmitHandler?.(data)
+  }
 
   return (
-    <form className={s.wrapper} onSubmit={onSubmit}>
+    <form className={s.wrapper} onSubmit={handleSubmit(submitData)}>
       <Typography variant={'h1'}>{t.auth.createNewPassword}</Typography>
       <DevTool control={control} />
 
@@ -55,6 +53,7 @@ export const CreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
         type={'password'}
         label={t.auth.newPassword}
         className={s.password}
+        autoComplete="new-password"
       />
 
       <ControlledTextField
@@ -63,6 +62,7 @@ export const CreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
         type={'password'}
         label={t.auth.passwordConfirmation}
         className={`${s.password} ${errors.passwordConfirm && s.fieldWithError}`}
+        autoComplete="new-password"
       />
       <div className={s.text}>
         <Typography variant="medium14" className={s.passwordRequirement}>

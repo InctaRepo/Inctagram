@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -71,6 +72,7 @@ export const LoginForm = ({ onSubmitHandler, errorServer }: Props) => {
           </div>
         </div>
         <form onSubmit={handleSubmit(submitData)} className={s.form}>
+          <DevTool control={control} />
           <ControlledTextField
             control={control}
             name="email"
