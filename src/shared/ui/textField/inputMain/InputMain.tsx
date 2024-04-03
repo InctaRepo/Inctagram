@@ -23,6 +23,7 @@ export const InputMain = ({
   placeholder,
   value,
   isRequired,
+  name,
   ...rest
 }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -41,12 +42,14 @@ export const InputMain = ({
 
   return (
     <div className={s.textFieldWrap}>
-      <label className={`${s.label} ${disabled && s.disabledLabel}`} htmlFor="name">
+      <label className={`${s.label} ${disabled && s.disabledLabel}`} htmlFor={name}>
         {label}
         {isRequired && <span className={s.star}>*</span>}
       </label>
       <input
-        id="name"
+        role={name}
+        id={name}
+        name={name}
         type={showPassword ? 'text' : type}
         value={value}
         onChange={onchangeHandler}

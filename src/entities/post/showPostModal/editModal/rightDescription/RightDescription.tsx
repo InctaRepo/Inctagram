@@ -82,7 +82,6 @@ export const RightDescription = ({
                   className={s.ava}
                   priority={true}
                   onError={errorHandler}
-                  placeholder="blur"
                 />
               ) : (
                 <AvatarImage className={s.ava} />
@@ -124,7 +123,6 @@ export const RightDescription = ({
                       className={s.ava}
                       priority={true}
                       onError={errorHandler}
-                      placeholder="blur"
                     />
                   ) : (
                     <AvatarImage className={s.ava} />

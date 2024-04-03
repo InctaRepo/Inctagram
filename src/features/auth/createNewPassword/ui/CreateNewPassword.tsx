@@ -7,21 +7,17 @@ import s from '@/features/auth/createNewPassword/ui/createNewPassword.module.scs
 import { CreateNewPasswordForm } from '@/features/auth/createNewPassword/ui/createNewPasswordForm'
 import { useErrorToast, useTranslate } from '@/shared/hooks'
 import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { Loader } from '@/ui/loader'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
 
-export const CreateNewPassword: NextPageWithLayout = () => {
+export const CreateNewPassword = () => {
   const [passwordSentModal, setPasswordSentModal] = useState<boolean>(false)
 
-  const [createNewPassword, { isSuccess, isLoading, error }] = useCreateNewPasswordMutation()
+  const [createNewPassword, { isSuccess, isLoading, error, data }] = useCreateNewPasswordMutation()
   const { t } = useTranslate()
-
-  useErrorToast(isSuccess, error)
-
-  const router = useRouter()
-  const { code } = router.query
+  const { query } = useRouter()
+  const { code } = query
 
   let recoveryCode = ''
 
@@ -30,16 +26,22 @@ export const CreateNewPassword: NextPageWithLayout = () => {
       recoveryCode = code as string
     }
   }, [code])
+
+  useEffect(() => {
+    if (data?.extensions[0] === undefined && isSuccess === true) {
+      setPasswordSentModal(true)
+    } else {
+      useErrorToast(false, data?.extensions[0]?.message)
+    }
+  }, [data])
+
   const submit = (data: PasswordsMatchForm) => {
-    setPasswordSentModal(true)
     createNewPassword({ newPassword: data.password, recoveryCode })
   }
 
   useEffect(() => {
-    if (isSuccess) {
-      setPasswordSentModal(true)
-    }
-  }, [isSuccess])
+    useErrorToast(isSuccess, error)
+  }, [isSuccess, error])
 
   const onModalClose = () => {
     setPasswordSentModal(false)
