@@ -70,7 +70,6 @@ export const ShowPostModal = ({
             width: '100%',
             height: 'auto',
           }}
-          placeholder="blur"
         />
       </div>
 

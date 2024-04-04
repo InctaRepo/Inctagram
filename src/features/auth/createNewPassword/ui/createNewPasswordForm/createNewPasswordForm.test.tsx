@@ -1,33 +1,41 @@
-import { render } from '@testing-library/react'
+import React from 'react'
+
+import { screen } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 
 import { CreateNewPasswordForm } from './CreateNewPasswordForm'
+
+import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
 }))
+
+function setup(jsx: React.JSX.Element) {
+  return {
+    user: userEvent.setup(),
+    ...render(jsx),
+  }
+}
 // Mocked onSubmitHandler function for testing
-const mockOnSubmitHandler = jest.fn()
+const onSubmitHandler = jest.fn()
 
 describe('CreateNewPasswordForm', () => {
-  test('renders form fields and submits data', () => {
-    render(<CreateNewPasswordForm onSubmitHandler={mockOnSubmitHandler} />)
+  test('renders form fields and submits data', async () => {
+    const onSubmitHandler = jest.fn()
+    const { user, debug } = setup(<CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />)
 
-    // Find form fields
-    //   const newPasswordInput = screen.getByLabelText('New Password')
-    //   const confirmPasswordInput = screen.getByLabelText('Password Confirmation')
-    //   const submitButton = screen.getByRole('button', { name: 'Create New Password' })
-    //
-    //   // Fill in form fields
-    //   fireEvent.change(newPasswordInput, { target: { value: 'password123' } })
-    //   fireEvent.change(confirmPasswordInput, { target: { value: 'password123' } })
-    //
-    //   // Submit the form
-    //   fireEvent.click(submitButton)
-    //
-    //   // Assert that onSubmitHandler is called with the correct data
-    //   expect(mockOnSubmitHandler).toHaveBeenCalledWith({
-    //     password: 'password123',
-    //     passwordConfirm: 'password123',
-    //   })
+    // Fill in form fields
+    await user.type(screen.getByRole('password', { name: /password/i }), '1qaz@WSX')
+    await user.type(screen.getByRole('passwordConfirm', { name: /password/i }), '1qaz@WSX')
+    // Submit the form
+    await user.click(screen.getByRole('button', { name: /Create new password/i }))
+
+    // Assert that onSubmitHandler is called with the correct data
+    expect(onSubmitHandler).toHaveBeenCalledTimes(1)
+    expect(onSubmitHandler).toHaveBeenCalledWith({
+      password: '1qaz@WSX',
+      passwordConfirm: '1qaz@WSX',
+    })
   })
 })
