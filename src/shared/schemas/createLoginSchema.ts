@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { LocaleType } from '@/public/locales/en'
+import { LocaleType } from '@/public/locales/ru'
 
 export const createLoginSchema = (t: LocaleType) => {
   return z.object({
