@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 
 import { CreateNewPasswordForm } from './CreateNewPasswordForm'
@@ -37,5 +37,10 @@ describe('CreateNewPasswordForm', () => {
       password: '1qaz@WSX',
       passwordConfirm: '1qaz@WSX',
     })
+  })
+  it('snapshot CreateNewPasswordForm', () => {
+    const snapshot = render(<CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />)
+
+    waitFor(() => expect(snapshot).toMatchSnapshot())
   })
 })

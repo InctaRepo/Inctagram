@@ -1,53 +1,112 @@
+import React from 'react'
+
+import { screen, waitFor } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
+
 import { EmailConfirmed } from './EmailConfirmed'
 
 import { render } from '__mocks__/customRender'
 
-// Mock the dependencies used in the component
 jest.mock('next/router', () => ({
   useRouter: () => ({
     query: { code: 'mockCode' },
+    locale: 'en',
   }),
 }))
 
-jest.mock('@/features/auth/emailConfirmed/service/emailConfirmed', () => ({
-  useEmailConfirmedMutation: () => [
-    jest.fn(), // Mocked mutation function
+function setup(jsx: React.JSX.Element) {
+  return {
+    user: userEvent.setup(),
+    ...render(jsx),
+  }
+}
+
+const useEmailConfirmedMutation = jest
+  .fn(() => [
+    jest.fn(),
     {
       data: {
-        extensions: [{ message: 'mockMessage' }],
-        resultCode: 'mockResultCode',
+        extensions: [{ message: 'email is already confirmed' }],
+        resultCode: 2,
       },
       isSuccess: true,
     },
-  ],
-}))
-
-jest.mock('@/shared/hooks', () => ({
-  useTranslate: () => ({
-    t: {
-      auth: {
-        alreadyConfirmedEmail: 'Already confirmed email',
-        codeIncorrect: 'Incorrect code',
-        confirmedEmail: 'Email confirmed',
-        congratulations: 'Congratulations',
-        emailVerificationLink: 'Email verification link',
-        resendVerificationLinkTitle: 'Resend verification link',
-        signIn: 'Sign In',
-        verificationLinkExpired: 'Verification link expired',
-        wereSorry: "We're sorry",
+  ])
+  .mockImplementationOnce(() => [
+    jest.fn(),
+    {
+      data: {
+        extensions: [{ message: 'email is already confirmed' }],
+        resultCode: 0,
       },
+      isSuccess: true,
     },
-  }),
+  ])
+  .mockImplementationOnce(() => [
+    jest.fn(),
+    {
+      data: {
+        extensions: [{ message: 'email is already confirmed' }],
+        resultCode: 2,
+      },
+      isSuccess: true,
+    },
+  ])
+  .mockImplementationOnce(() => [
+    jest.fn(),
+    {
+      data: {
+        extensions: [{ message: 'Code is incorrect' }],
+        resultCode: 2,
+      },
+      isSuccess: true,
+    },
+  ])
+  .mockImplementationOnce(() => [
+    jest.fn(),
+    {
+      data: {
+        extensions: [{ message: 'email confirmation code is expired' }],
+        resultCode: 2,
+      },
+      isSuccess: true,
+    },
+  ])
+
+jest.mock('@/features/auth/emailConfirmed/service/emailConfirmed', () => ({
+  useEmailConfirmedMutation: () => useEmailConfirmedMutation(),
 }))
-
 describe('EmailConfirmed', () => {
-  test('renders the appropriate AuthPage component when code is valid and result code is OK', async () => {
-    render(<EmailConfirmed />)
+  it('renders the EmailConfirmed', async () => {
+    const { user, debug } = setup(<EmailConfirmed />)
 
-    // expect(screen.getByText('Congratulations')).toBe(true)
-    // screen.getByText('Email confirmed')
-    // expect(screen.getByText('Sign In'))
+    await waitFor(() => {
+      expect(screen.queryByText(/Your email has been confirmed/i)).toBeInTheDocument()
+    })
+  })
+  it('renders the alreadyConfirmedEmail', async () => {
+    const { user, debug } = setup(<EmailConfirmed />)
+
+    expect(screen.queryByText(/Your email is already confirmed/i)).toBeInTheDocument()
+  })
+  it('renders the Code is incorrect', async () => {
+    const { user, debug } = setup(<EmailConfirmed />)
+
+    expect(screen.queryByText(/Code is incorrect/i)).toBeInTheDocument()
+  })
+  it('renders the email confirmation code is expired', async () => {
+    const { user, debug } = setup(<EmailConfirmed />)
+
+    expect(
+      screen.queryByText(
+        /Looks like the verification link has expired. Not to worry, we can send the link again/i
+      )
+    ).toBeInTheDocument()
   })
 
-  // Add more tests for other scenarios, such as when the result code is BAD_REQUEST
+  it('snapshot EmailConfirmed', () => {
+    const snapshot = render(<EmailConfirmed />)
+
+    waitFor(() => expect(snapshot).toMatchSnapshot())
+  })
 })

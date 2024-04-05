@@ -18,10 +18,9 @@ function setup(jsx: React.JSX.Element) {
   }
 }
 
-let createNewPasswordMock = jest.fn()
-
-jest.mock('@/features/auth/createNewPassword/service/CreateNewPassword', () => ({
-  useCreateNewPasswordMutation: () => [
+const createNewPasswordMock = jest.fn()
+const useCreateNewPasswordMutation = jest
+  .fn(() => [
     createNewPasswordMock,
     {
       isSuccess: false,
@@ -31,13 +30,38 @@ jest.mock('@/features/auth/createNewPassword/service/CreateNewPassword', () => (
         extensions: [undefined],
       },
     },
-  ],
+  ])
+  .mockImplementationOnce(() => [
+    createNewPasswordMock,
+    {
+      isSuccess: false,
+      isLoading: false,
+      error: null,
+      data: {
+        extensions: [undefined],
+      },
+    },
+  ])
+  .mockImplementationOnce(() => [
+    createNewPasswordMock,
+    {
+      isSuccess: true,
+      isLoading: false,
+      error: null,
+      data: {
+        extensions: [undefined],
+      },
+    },
+  ])
+
+jest.mock('@/features/auth/createNewPassword/service/CreateNewPassword', () => ({
+  useCreateNewPasswordMutation: () => useCreateNewPasswordMutation(),
 }))
 
 const passwordText = '1qaz@WSX'
 
 describe('CreateNewPassword', () => {
-  it('submits the form with valid data 2 variant', async () => {
+  it('submits the form with valid data 1 variant for user-event', async () => {
     const { user, debug } = setup(<CreateNewPassword />)
 
     await user.type(screen.getByRole('password', { name: 'New password' }), passwordText)
@@ -53,7 +77,13 @@ describe('CreateNewPassword', () => {
       })
     })
   })
-  it('submits the form with valid data 1 variant', async () => {
+  it('submits the form with valid data "Your password was successfully changed"', async () => {
+    render(<CreateNewPassword />)
+    await waitFor(() => {
+      expect(screen.getByText('Your password was successfully changed')).toBeInTheDocument()
+    })
+  })
+  it('submits the form with valid data 2 variant for user-event', async () => {
     render(<CreateNewPassword />)
     await waitFor(() =>
       expect(screen.getByRole('password', { name: 'New password' })).toBeInTheDocument()
@@ -77,9 +107,10 @@ describe('CreateNewPassword', () => {
         recoveryCode: 'code',
       })
     })
+  })
+  it('snapshot CreateNewPassword', () => {
+    const snapshot = render(<CreateNewPassword />)
 
-    // await waitFor(() => {
-    //   expect(screen.getByText('Your password was successfully changed')).toBeInTheDocument()
-    // })
+    waitFor(() => expect(snapshot).toMatchSnapshot())
   })
 })
