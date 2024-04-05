@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { LocaleType } from '@/public/locales/en'
+import { LocaleType } from '@/public/locales/ru'
 
 export function createProfileSettingSchema(t: LocaleType) {
   return z.object({
@@ -21,7 +21,7 @@ export function createProfileSettingSchema(t: LocaleType) {
         t.profileSetting.generalInformation.generalInformationErrors.firstNameField.nonEmpty
       )
       .regex(
-        /^[A-Za-zА-Яа-я-]+$/,
+        /^[A-Za-zА-Яа-я]+$/,
         t.profileSetting.generalInformation.generalInformationErrors.firstNameField.regex
       )
       .min(1, t.profileSetting.generalInformation.generalInformationErrors.firstNameField.min)

@@ -10,7 +10,7 @@
     "start": "next start",
     "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
     "test": "jest",
-    "snapshot update": "pnpm test -- -u",
+    "snapshot update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
     "coverage": "npx jest --watchAll=false --coverage",
     "playwright codegen": "npx playwright codegen http://localhost:3000/en",

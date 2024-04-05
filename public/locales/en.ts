@@ -1,6 +1,4 @@
-import { ru } from '@/public/locales/ru'
-
-export const en: LocaleType = {
+export const en = {
   locale: {
     english: 'Английский',
     russian: 'Русский',
@@ -224,14 +222,14 @@ export const en: LocaleType = {
 
         firstNameField: {
           nonEmpty: 'Enter first name',
-          regex: 'First name can contain only A-z; -;',
+          regex: 'First name can contain only A-z; А-я',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },
 
         lastNameField: {
           nonEmpty: 'Enter last name',
-          regex: 'Last name can contain only A-z; -;',
+          regex: 'Last name can contain only A-z; А-я',
           min: 'Min number of characters 1',
           max: 'Max number of characters 50',
         },
@@ -315,5 +313,3 @@ export const en: LocaleType = {
     },
   },
 }
-
-export type LocaleType = typeof ru
