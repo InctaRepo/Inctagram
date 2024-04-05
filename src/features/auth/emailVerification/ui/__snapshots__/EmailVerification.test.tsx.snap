@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailVerification snapshot EmailVerification 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body
+    style=""
+  >
+    <div>
+      <div
+        class="primary"
+      >
+        <div
+          class="card main"
+        >
+          <p
+            class="h1 primary  title"
+          >
+            Resend verification link
+          </p>
+          <form
+            class="form"
+          >
+            <div
+              class="email "
+            >
+              <div
+                class="textFieldWrap"
+              >
+                <label
+                  class="label undefined"
+                  for="email"
+                >
+                  Email
+                </label>
+                <input
+                  class="textField undefined undefined"
+                  id="email"
+                  name="email"
+                  placeholder="Epam@epam.com"
+                  role="email"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <p
+              class="regular14 primary  hint"
+            >
+              Enter your email address and we will send you further instructions
+            </p>
+            <button
+              class="primary  submit"
+              type="submit"
+            >
+              <p
+                class="h3 primary  undefined"
+              >
+                Send Link
+              </p>
+            </button>
+            <p
+              class="regular14 primary  answer"
+            >
+              The link has been sent by email. If you dont receive an email send link again
+            </p>
+            <button
+              class="primary  repeat"
+              type="submit"
+            >
+              <p
+                class="regular16 primary  undefined"
+              >
+                Send Link Again
+              </p>
+            </button>
+            <button
+              class="link  back"
+              color="$color-accent-500"
+              type="button"
+            >
+              <p
+                class="bold16 primary  undefined"
+              >
+                Back to Sign In
+              </p>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="primary"
+    >
+      <div
+        class="card main"
+      >
+        <p
+          class="h1 primary  title"
+        >
+          Resend verification link
+        </p>
+        <form
+          class="form"
+        >
+          <div
+            class="email "
+          >
+            <div
+              class="textFieldWrap"
+            >
+              <label
+                class="label undefined"
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                class="textField undefined undefined"
+                id="email"
+                name="email"
+                placeholder="Epam@epam.com"
+                role="email"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <p
+            class="regular14 primary  hint"
+          >
+            Enter your email address and we will send you further instructions
+          </p>
+          <button
+            class="primary  submit"
+            type="submit"
+          >
+            <p
+              class="h3 primary  undefined"
+            >
+              Send Link
+            </p>
+          </button>
+          <p
+            class="regular14 primary  answer"
+          >
+            The link has been sent by email. If you dont receive an email send link again
+          </p>
+          <button
+            class="primary  repeat"
+            type="submit"
+          >
+            <p
+              class="regular16 primary  undefined"
+            >
+              Send Link Again
+            </p>
+          </button>
+          <button
+            class="link  back"
+            color="$color-accent-500"
+            type="button"
+          >
+            <p
+              class="bold16 primary  undefined"
+            >
+              Back to Sign In
+            </p>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
