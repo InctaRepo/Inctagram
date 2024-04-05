@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { LocaleType } from '@/public/locales/en'
+import { LocaleType } from '@/public/locales/ru'
 
 export function createSignUpSchema(t: LocaleType) {
   return z

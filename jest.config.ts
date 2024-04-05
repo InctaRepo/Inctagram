@@ -15,6 +15,12 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>../jest.setup.ts'],
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
+  collectCoverageFrom: [
+    '<rootDir>/**/*.{js,jsx,ts,tsx}',
+    '!**/node_modules/**',
+    '!**/*Dynamic*.tsx',
+    '!**/index.ts',
+  ],
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
