@@ -17,14 +17,18 @@ function setup(jsx: React.JSX.Element) {
     ...render(jsx),
   }
 }
+
 // Mocked onSubmitHandler function for testing
 const onSubmitHandler = jest.fn()
 
 describe('CreateNewPasswordForm', () => {
-  test('renders form fields and submits data', async () => {
+  it('renders form fields and submits data', async () => {
     const onSubmitHandler = jest.fn()
-    const { user, debug } = setup(<CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />)
+    const { user, debug, container } = setup(
+      <CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />
+    )
 
+    expect(container.querySelector('form')).toBeInTheDocument()
     // Fill in form fields
     await user.type(screen.getByRole('password', { name: /password/i }), '1qaz@WSX')
     await user.type(screen.getByRole('passwordConfirm', { name: /password/i }), '1qaz@WSX')

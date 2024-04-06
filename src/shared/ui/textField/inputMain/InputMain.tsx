@@ -42,7 +42,11 @@ export const InputMain = ({
 
   return (
     <div className={s.textFieldWrap}>
-      <label className={`${s.label} ${disabled && s.disabledLabel}`} htmlFor={name}>
+      <label
+        className={`${s.label} ${disabled && s.disabledLabel}`}
+        htmlFor={name}
+        data-testid={name}
+      >
         {label}
         {isRequired && <span className={s.star}>*</span>}
       </label>
