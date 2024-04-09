@@ -8,9 +8,8 @@ import { LoginForm } from '@/features/auth/signIn/ui/loginForm'
 import { resultCode, RouteNames } from '@/shared/const'
 import { useGetMeQuery } from '@/shared/hoc'
 import { useAppDispatch } from '@/shared/hooks'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 
-export const SignIn: NextPageWithLayout = () => {
+export const SignIn = () => {
   const dispatch = useAppDispatch()
   const [loginUser, { data: loginData, isSuccess }] = useSignInMutation()
   const router = useRouter()

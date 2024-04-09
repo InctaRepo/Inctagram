@@ -5,12 +5,11 @@ import { SingUpForm } from '@/features/auth/signUp/ui/singUpForm'
 import { resultCode } from '@/shared/const'
 import { useErrorToast, useTranslate } from '@/shared/hooks'
 import { SignUpFormSchema } from '@/shared/schemas/signUpSchema'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { Loader } from '@/ui/loader'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
 
-export const SignUp: NextPageWithLayout = () => {
+export const SignUp = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
