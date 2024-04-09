@@ -20,6 +20,8 @@ const config: Config = {
     '!**/node_modules/**',
     '!**/*Dynamic*.tsx',
     '!**/index.ts',
+    '!<rootDir>/shared/assets/icons/*.tsx',
+    '!**/*.stories.{ts,tsx}',
   ],
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
