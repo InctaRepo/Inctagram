@@ -1,7 +1,7 @@
 module.exports = {
   settings: {
     'import/resolver': {
-      typescript: { 'project': '<rootdir>tsconfig.json' },
+      typescript: { 'project': 'tsconfig.json' },
     },// this loads <rootdir>/tsconfig.json to eslint
   },
 

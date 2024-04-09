@@ -5,7 +5,7 @@ import { userEvent } from '@testing-library/user-event'
 
 import { CreateNewPassword } from './CreateNewPassword'
 
-import { render } from '__mocks__/customRender'
+import { customRender as render } from '@/__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', query: { code: 'code' } }),

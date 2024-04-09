@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@/public/*": ["public/*"],
-      "@/ui/*": ["src/shared/ui/*"]
+      "@/ui/*": ["src/shared/ui/*"],
+      "@/__mocks__/*": ["__mocks__/*"]
     },
     "plugins": [
       {

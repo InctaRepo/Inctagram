@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom'
 import 'cross-fetch/polyfill'
-
 // global.matchMedia =
 //   global.matchMedia ||
 //   function (query) {

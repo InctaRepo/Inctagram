@@ -3,8 +3,8 @@ import React from 'react'
 import { renderHook } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 
+import { customRender as render } from '@/__mocks__/customRender'
 import { useCreateNewPasswordForm } from '@/features/auth/createNewPassword/hooks'
-import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),

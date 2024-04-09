@@ -1,5 +1,3 @@
-import { rootReducer } from '@reduxjs/toolkit/src/tests/injectableCombineReducers.example'
-
 import { autocompleteApi } from '@/entities/profile/service/autocompleteApi'
 import { SignInSchema } from '@/features/auth/signIn'
 import { baseApi } from '@/shared/api'
