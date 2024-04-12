@@ -12,5 +12,6 @@ export default meta
 type Story = StoryObj<typeof Header>
 
 export const Primary: Story = {
-  args: {},
+  render: () => <Header variant={'public'} />,
+  // args: {},
 }

@@ -1,6 +1,5 @@
 import type { StoryObj } from '@storybook/react'
 
-import FlagRussiaIcon from '@/public/icon/flagRussiaIcon.svg'
 import { Button } from '@/ui/button'
 
 const meta = {
@@ -24,14 +23,26 @@ export const Primary: Story = {
     children: 'Primary Button',
     disabled: false,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'button primary',
+      },
+    },
+  },
 }
 
 export const DisabledPrimary: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Disabled Button',
-    disabled: true,
-  },
+  render: () => (
+    <Button variant={'primary'} disabled={true}>
+      Disabled Button
+    </Button>
+  ),
+  // args: {
+  //   variant: 'primary',
+  //   children: 'Disabled Button',
+  //   disabled: true,
+  // },
 }
 
 export const Secondary: Story = {
@@ -62,15 +73,15 @@ export const ButtonAsText: Story = {
   },
 }
 
-export const Internation: Story = {
-  render: args => {
-    return (
-      <>
-        <Button {...args} variant={'internation'}>
-          <FlagRussiaIcon />
-          {'English'}
-        </Button>
-      </>
-    )
-  },
-}
+// export const Internation: Story = {
+//   render: args => {
+//     return (
+//       <>
+//         <Button {...args} variant={'internation'}>
+//           <FlagRussiaIcon />
+//           {'English'}
+//         </Button>
+//       </>
+//     )
+//   },
+// }
