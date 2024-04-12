@@ -30,36 +30,34 @@ export const Header = ({ variant }: HeaderType) => {
   }
 
   return (
-    <div className={s.containerMain}>
-      <div className={s.container}>
-        <div className={s.content}>
-          <Typography variant="large" className={s.text}>
-            <Link className={s.incta} href={'/'} tabIndex={1}>
-              Inсtagram
-            </Link>
-          </Typography>
-          <div className={s.options_container}>
-            <OutlineBellIcon />
-            <div className={s.select}>
-              <SelectBox
-                options={languages}
-                onValueChange={changeLangHandler}
-                defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
-              />
-            </div>
-            {variant === 'public' && (
-              <div className={s.button_container}>
-                <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_IN)}>
-                  {t.auth.logInHeader}
-                </Button>
-                <Button variant="primary" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>
-                  {t.auth.signUpHeader}
-                </Button>
-              </div>
-            )}
+    <header className={s.header}>
+      <div className={s.content}>
+        <Typography variant="large" className={s.text}>
+          <Link className={s.incta} href={'/'} tabIndex={1}>
+            Inсtagram
+          </Link>
+        </Typography>
+        <div className={s.options_container}>
+          <OutlineBellIcon />
+          <div className={s.select}>
+            <SelectBox
+              options={languages}
+              onValueChange={changeLangHandler}
+              defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
+            />
           </div>
+          {variant === 'public' && (
+            <div className={s.button_container}>
+              <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_IN)}>
+                {t.auth.logInHeader}
+              </Button>
+              <Button variant="primary" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>
+                {t.auth.signUpHeader}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </header>
   )
 }

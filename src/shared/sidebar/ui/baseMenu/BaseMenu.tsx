@@ -24,7 +24,7 @@ export const BaseMenu = () => {
 
   return (
     <div className={s.container}>
-      <div className={s.linkMenu}>
+      <li style={{ listStyleType: 'none' }}>
         <LinkMenu
           nameLink={t.sidebar.home}
           link={`${RouteNames.HOME}`}
@@ -36,11 +36,11 @@ export const BaseMenu = () => {
             className={s.logo}
           />
         </LinkMenu>
-      </div>
-      <div>
+      </li>
+      <li style={{ listStyleType: 'none' }}>
         <CreatePostDynamic />
-      </div>
-      <div className={s.linkMenu}>
+      </li>
+      <li style={{ listStyleType: 'none' }}>
         <LinkMenu
           nameLink={t.sidebar.myProfile}
           link={RouteNames.PROFILE + `/` + userId}
@@ -52,8 +52,8 @@ export const BaseMenu = () => {
             className={s.logo}
           />
         </LinkMenu>
-      </div>
-      <div className={s.linkMenu}>
+      </li>
+      <li style={{ listStyleType: 'none' }}>
         <LinkMenu
           nameLink={t.sidebar.messenger}
           link={`${RouteNames.MESSAGE}`}
@@ -65,8 +65,8 @@ export const BaseMenu = () => {
             className={s.logo}
           />
         </LinkMenu>
-      </div>
-      <div>
+      </li>
+      <li style={{ listStyleType: 'none' }}>
         <LinkMenu
           nameLink={t.sidebar.search}
           link={`${RouteNames.SEARCH}`}
@@ -78,7 +78,7 @@ export const BaseMenu = () => {
             className={s.logo}
           />
         </LinkMenu>
-      </div>
+      </li>
     </div>
   )
 }

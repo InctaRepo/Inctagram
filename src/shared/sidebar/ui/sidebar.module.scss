@@ -2,7 +2,7 @@
 @import 'src/styles/colors';
 @import 'src/styles/variables';
 
-.container {
+.menu {
   @include flex-block;
 
   position: sticky;
@@ -38,21 +38,19 @@
     align-items: flex-start;
     height: 100%;
 
-    .favorites {
-      padding: 6px 0;
+    .container {
+      @include flex-block;
+
+      gap: 12px;
+
+      .linkMenu:hover svg {
+        fill: $color-accent-500;
+        stroke: $color-accent-500;
+      }
 
       .logo {
         fill: white;
       }
-
-      .logo:hover {
-        fill: $color-accent-500;
-      }
-    }
-
-    .favorites:hover svg {
-      fill: $color-accent-500;
-      stroke: $color-accent-500;
     }
   }
 }

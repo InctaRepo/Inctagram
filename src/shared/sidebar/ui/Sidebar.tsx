@@ -15,22 +15,22 @@ export const Sidebar = () => {
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
   const { t } = useTranslate()
 
-  const handleItemClick = (variant: variantIconLink) => {
+  const handleClick = (variant: variantIconLink) => {
     dispatch(setVariantIcon(variant))
   }
 
   return (
-    <div className={s.container}>
+    <menu className={s.menu}>
       {profileFound && <BaseMenu />}
-      <div className={s.containerLinks}>
+      <ul className={s.containerLinks}>
         {profileFound && (
-          <div>
-            <div className={s.favorites}>
+          <li style={{ listStyleType: 'none' }} className={s.container}>
+            <li className={s.linkMenu}>
               <LinkMenu
                 nameLink={t.sidebar.favorites}
-                link={`${RouteNames.FAVORITES}`}
+                link={RouteNames.FAVORITES}
                 handleClick={() =>
-                  handleItemClick(`${RouteNames.FAVORITES}`.slice(1) as variantIconLink)
+                  handleClick(`${RouteNames.FAVORITES}`.slice(1) as variantIconLink)
                 }
                 variantIcon={variantIcon}
               >
@@ -39,13 +39,13 @@ export const Sidebar = () => {
                   className={s.logo}
                 />
               </LinkMenu>
-            </div>
-            <div className={s.favorites}>
+            </li>
+            <li className={s.linkMenu}>
               <LinkMenu
                 nameLink={t.sidebar.statistics}
-                link={`${RouteNames.STATISTICS}`}
+                link={RouteNames.STATISTICS}
                 handleClick={() =>
-                  handleItemClick(`${RouteNames.STATISTICS}`.slice(1) as variantIconLink)
+                  handleClick(`${RouteNames.STATISTICS}`.slice(1) as variantIconLink)
                 }
                 variantIcon={variantIcon}
               >
@@ -54,14 +54,14 @@ export const Sidebar = () => {
                   className={s.logo}
                 />
               </LinkMenu>
-            </div>
-          </div>
+            </li>
+          </li>
         )}
 
-        <div>
+        <li style={{ listStyleType: 'none' }}>
           <Logout />
-        </div>
-      </div>
-    </div>
+        </li>
+      </ul>
+    </menu>
   )
 }

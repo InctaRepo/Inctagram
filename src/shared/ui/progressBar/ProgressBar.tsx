@@ -22,5 +22,5 @@ export const ProgressBar: NextPage<PropsWithChildren> = ({ children }) => {
     }
   }, [isLoading])
 
-  return <div className={s.wrapper}>{children}</div>
+  return <div className={s.progress}>{children}</div>
 }

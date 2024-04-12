@@ -46,7 +46,7 @@ export const Logout = () => {
   }
 
   return (
-    <div>
+    <>
       <div className={styles.check}>
         <Button variant="link" onClick={onClickOpenModal} className={s.btn}>
           <LogoutIcon
@@ -70,6 +70,6 @@ export const Logout = () => {
       >
         <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
       </Modal>
-    </div>
+    </>
   )
 }
