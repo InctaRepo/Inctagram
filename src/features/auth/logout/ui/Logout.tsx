@@ -1,10 +1,6 @@
 import { useState } from 'react'
 
-import { clsx } from 'clsx'
-import { useRouter } from 'next/router'
-
 import { useLogoutMutation } from '@/features/auth/logout/service/logout'
-import s from '@/features/auth/logout/ui/logout.module.scss'
 import { clearId, clearToken } from '@/features/auth/signIn'
 import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
 import { RouteNames, variantIconLink } from '@/shared/const'
@@ -14,6 +10,10 @@ import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
 import { Button } from '@/ui/button'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
+import { clsx } from 'clsx'
+import { useRouter } from 'next/router'
+
+import s from '@/features/auth/logout/ui/logout.module.scss'
 
 export const Logout = () => {
   const dispatch = useAppDispatch()
@@ -26,9 +26,9 @@ export const Logout = () => {
   const { t } = useTranslate()
   const logoutHandler = async () => {
     logoutUser()
-    dispatch(setAuthMeData({ authMeData: { userId: '', username: '', email: '' } }))
-    dispatch(clearToken)
-    dispatch(clearId)
+    dispatch(setAuthMeData({ authMeData: { email: '', userId: '', username: '' } }))
+    dispatch(clearToken())
+    dispatch(clearId())
     dispatch(setVariantIcon(null))
     router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
@@ -48,25 +48,25 @@ export const Logout = () => {
   return (
     <>
       <div className={styles.check}>
-        <Button variant="link" onClick={onClickOpenModal} className={s.btn}>
+        <Button className={s.btn} onClick={onClickOpenModal} variant={'link'}>
           <LogoutIcon
-            fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
             className={s.logo}
+            fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
           />
-          <Typography variant="medium14" className={s.text + styles.check}>
+          <Typography className={s.text + styles.check} variant={'medium14'}>
             {t.sidebar.logout}
           </Typography>
         </Button>
       </div>
       <Modal
-        modalWidth={'md'}
-        title={t.sidebar.logout}
-        open={openModal}
         actionButtonName={t.profile.yes}
         cancelButtonName={t.profile.no}
-        onClose={onModalClose}
-        onCancel={onModalClose}
+        modalWidth={'md'}
         onAction={logoutHandler}
+        onCancel={onModalClose}
+        onClose={onModalClose}
+        open={openModal}
+        title={t.sidebar.logout}
       >
         <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
       </Modal>

@@ -1,6 +1,3 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
-import { setupListeners } from '@reduxjs/toolkit/query'
-
 import { autocompleteApi } from '@/entities/profile/service/autocompleteApi'
 import { signInReducer } from '@/features/auth/signIn'
 import { baseApi } from '@/shared/api'
@@ -9,21 +6,23 @@ import { loadState, saveState } from '@/shared/lib'
 import { menuReducer } from '@/shared/sidebar'
 import { StateSchema } from '@/store'
 import { progressBarReducer } from '@/ui/progressBar'
+import { ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 const rootReducer: ReducersMapObject<StateSchema> = {
-  [baseApi.reducerPath]: baseApi.reducer,
-  [autocompleteApi.reducerPath]: autocompleteApi.reducer,
   authMe: authMeReducer,
-  signIn: signInReducer,
+  [autocompleteApi.reducerPath]: autocompleteApi.reducer,
+  [baseApi.reducerPath]: baseApi.reducer,
   menu: menuReducer,
   progressBar: progressBarReducer,
+  signIn: signInReducer,
 }
 
 export const store = configureStore({
-  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat([baseApi.middleware]).concat([autocompleteApi.middleware]),
   preloadedState: loadState(),
+  reducer: rootReducer,
 })
 setupListeners(store.dispatch)
 store.subscribe(() => {

@@ -1,11 +1,4 @@
 import { ComponentProps, forwardRef } from 'react'
-
-import { clsx } from 'clsx'
-// eslint-disable-next-line import/no-duplicates
-import { format } from 'date-fns'
-// eslint-disable-next-line import/no-duplicates
-import { enGB, ru } from 'date-fns/locale'
-import { useRouter } from 'next/router'
 import * as RDP from 'react-datepicker'
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
@@ -15,18 +8,26 @@ import KeyboardArrowRight from '@/public/icon/chevronRightIcon.svg'
 import { CalendarOutline } from '@/shared/assets/icons/CalendarOutlineIcon'
 import { RouteNames } from '@/shared/const'
 import { useTranslate } from '@/shared/hooks'
-import s from '@/shared/ui/datePicker/datePicker.module.scss'
 import { Label } from '@/ui/label'
-import textFieldStyles from '@/ui/textField/textField.module.scss'
 import { Typography } from '@/ui/typography'
+import { clsx } from 'clsx'
+// eslint-disable-next-line import/no-duplicates
+import { format } from 'date-fns'
+// eslint-disable-next-line import/no-duplicates
+import { enGB, ru } from 'date-fns/locale'
+import { useRouter } from 'next/router'
+
 import 'react-datepicker/dist/react-datepicker.min.css'
+
+import s from '@/shared/ui/datePicker/datePicker.module.scss'
+import textFieldStyles from '@/ui/textField/textField.module.scss'
 
 export type DatePickerProps = {
   disabled?: boolean
-  onChange?: (value: Date | Date[] | null) => void
   endDate?: Date | null
   errorMessage?: string
   label?: string
+  onChange?: (value: Date | Date[] | null) => void
   placeholder?: string
   setEndDate?: (date: Date | null) => void
   setStartDate: (date: Date | null) => void
@@ -60,13 +61,13 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
     const router = useRouter()
 
     const classNames = {
-      root: clsx(s.root, className),
-      inputContainer: s.inputContainer,
-      input: clsx(s.input, textFieldStyles.input, showError && s.error, isRange && s.range),
       calendar: s.calendar,
-      popper: s.popper,
-      errorText: s.errorText,
       day: () => s.day,
+      errorText: s.errorText,
+      input: clsx(s.input, textFieldStyles.input, showError && s.error, isRange && s.range),
+      inputContainer: s.inputContainer,
+      popper: s.popper,
+      root: clsx(s.root, className),
     }
 
     const DatePickerHandler = (dates: [Date | null, Date | null] | Date) => {
@@ -86,24 +87,19 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
     return (
       <div className={classNames.root} {...rest}>
         <RDPC
-          startDate={startDate}
-          endDate={endDate}
-          onChange={DatePickerHandler}
-          selected={startDate}
-          selectsRange={isRange}
-          formatWeekDay={formatWeekDay}
-          placeholderText={placeholder}
-          renderCustomHeader={CustomHeaderWrapper(router.locale === 'en' ? enGB : ru)}
-          customInput={<CustomInput error={errorMessage} disabled={disabled} label={label} />}
           calendarClassName={classNames.calendar}
-          className={classNames.input}
-          popperClassName={classNames.popper}
-          dayClassName={classNames.day}
-          locale={router.locale === 'en' ? enGB : ru}
-          dateFormat="dd/MM/yyyy"
-          showPopperArrow={false}
           calendarStartDay={1}
+          className={classNames.input}
+          customInput={<CustomInput disabled={disabled} error={errorMessage} label={label} />}
+          dateFormat={'dd/MM/yyyy'}
+          dayClassName={classNames.day}
           disabled={disabled}
+          endDate={endDate}
+          formatWeekDay={formatWeekDay}
+          locale={router.locale === 'en' ? enGB : ru}
+          onChange={DatePickerHandler}
+          placeholderText={placeholder}
+          popperClassName={classNames.popper}
           popperModifiers={[
             {
               name: 'offset',
@@ -112,28 +108,33 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
               },
             },
           ]}
+          renderCustomHeader={CustomHeaderWrapper(router.locale === 'en' ? enGB : ru)}
+          selected={startDate}
+          selectsRange={isRange}
+          showPopperArrow={false}
+          startDate={startDate}
         />
         <div className={s.errorContainer}>
           {showError && (
             <div style={{ display: 'flex' }}>
-              <Typography color="error" variant="small">
+              <Typography color={'error'} variant={'small'}>
                 {t.profileSetting.generalInformation.generalInformationErrors.refine}
               </Typography>
               {isError && (
                 <Typography
+                  as={'a'}
+                  color={'error'}
+                  onClick={() => router.replace(RouteNames.PRIVACY_POLICY)}
                   style={{
-                    textDecoration: 'underline',
-                    marginLeft: '3px',
-                    display: 'flex',
-                    justifyContent: 'center',
                     alignItems: 'center',
                     color: '#cc1439',
                     cursor: 'pointer',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginLeft: '3px',
+                    textDecoration: 'underline',
                   }}
-                  color="error"
-                  variant="small"
-                  as="a"
-                  onClick={() => router.replace(RouteNames.PRIVACY_POLICY)}
+                  variant={'small'}
                 >
                   {t.auth.privacyAndTermsPages.titleOfPrivacyPolicy}
                 </Typography>
@@ -148,8 +149,8 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
 
 type CustomInputProps = {
   disabled?: boolean
-  label?: string
   error?: string
+  label?: string
 }
 
 const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
@@ -163,7 +164,7 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
       <Label className={s.label} label={label}>
         <span className={s.star}>*</span>
         <div className={classNames.inputContainer}>
-          <input ref={ref} disabled={disabled} {...rest} />
+          <input disabled={disabled} ref={ref} {...rest} />
           <div className={classNames.icon}>
             <CalendarOutline fill={error ? '#cc1439' : '#fff'} />
           </div>
@@ -173,6 +174,7 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   }
 )
 
+// eslint-disable-next-line no-undef
 const CustomHeaderWrapper = (locale: Locale) => {
   const CustomHeader = ({
     date,
@@ -180,9 +182,9 @@ const CustomHeaderWrapper = (locale: Locale) => {
     increaseMonth,
   }: ReactDatePickerCustomHeaderProps) => {
     const classNames = {
-      header: s.header,
-      buttonBox: s.buttonBox,
       button: s.button,
+      buttonBox: s.buttonBox,
+      header: s.header,
     }
 
     const headerText = capitalizeFirstLetter(format(date, 'LLLL Y', { locale: locale }))
@@ -191,10 +193,10 @@ const CustomHeaderWrapper = (locale: Locale) => {
       <div className={classNames.header}>
         <Typography>{headerText}</Typography>
         <div className={classNames.buttonBox}>
-          <button className={classNames.button} type="button" onClick={decreaseMonth}>
+          <button className={classNames.button} onClick={decreaseMonth} type={'button'}>
             <KeyboardArrowLeft />
           </button>
-          <button className={classNames.button} type="button" onClick={increaseMonth}>
+          <button className={classNames.button} onClick={increaseMonth} type={'button'}>
             <KeyboardArrowRight />
           </button>
         </div>

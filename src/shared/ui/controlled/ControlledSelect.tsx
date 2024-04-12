@@ -1,4 +1,4 @@
-import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
+import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import { SelectBox, SelectProps } from '@/ui/selectBox'
 
@@ -6,30 +6,30 @@ export type ControlledSelectProps<T extends FieldValues> = UseControllerProps<T>
   Omit<SelectProps, 'onChange' | 'value'>
 
 export const ControlledSelect = <T extends FieldValues>({
+  control,
+  defaultValue,
   name,
   rules,
   shouldUnregister,
-  control,
-  defaultValue,
   ...rest
 }: ControlledSelectProps<T>) => {
   const {
-    field: { value, onBlur, onChange, ref, ...restField },
+    field: { onBlur, onChange, ref, value, ...restField },
     fieldState: { error },
   } = useController({
+    control,
+    defaultValue,
     name,
     rules,
     shouldUnregister,
-    control,
-    defaultValue,
   })
 
   return (
     <SelectBox
       defaultValue={value ? value : defaultValue}
       onBlur={onBlur}
-      value={value}
       onChange={onChange}
+      value={value}
       {...restField}
       {...rest}
     />

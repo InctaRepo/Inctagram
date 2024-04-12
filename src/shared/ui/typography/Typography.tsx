@@ -5,27 +5,27 @@ import s from '@/ui/typography/typography.module.scss'
 export type TypographyProps<T extends ElementType = 'p'> = {
   as?: T // h1 h2 h3 for semantic
   className?: string
-  color?: 'primary' | 'secondary' | 'link' | 'error'
+  color?: 'error' | 'link' | 'primary' | 'secondary'
   variant?:
-    | 'large'
+    | 'bold14'
+    | 'bold16'
     | 'h1'
     | 'h2'
     | 'h3'
-    | 'regular16'
-    | 'bold16'
-    | 'regular14'
-    | 'bold14'
-    | 'medium14'
-    | 'small'
-    | 'sb_small' // semi-bold small text
+    | 'large'
     | 'link'
+    | 'medium14'
+    | 'regular14'
+    | 'regular16'
+    | 'sb_small' // semi-bold small text
     | 'sm_link' //small link
+    | 'small'
 } & ComponentPropsWithoutRef<T>
 
 export const Typography = <T extends ElementType = 'p'>(
   props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>
 ) => {
-  const { variant = 'bold14', color = 'primary', className, as: Component = 'p', ...rest } = props
+  const { as: Component = 'p', className, color = 'primary', variant = 'bold14', ...rest } = props
 
   return <Component className={`${variant && s[variant]} ${s[color]}  ${className}`} {...rest} />
 }

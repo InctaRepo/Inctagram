@@ -1,15 +1,16 @@
 import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import s from '@/features/posts/createPost/editPhoto/zoom/Zoom.module.scss'
 import ZoomIcon from '@/public/icon/zoomIcon.svg'
+
+import s from '@/features/posts/createPost/editPhoto/zoom/Zoom.module.scss'
 
 type Props = {
   className?: string
-  zoom: number
   setZoom: (zoom: number) => void
+  zoom: number
 }
 
-export const Zoom = ({ zoom, setZoom }: Props) => {
+export const Zoom = ({ setZoom, zoom }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const zoomRef = useRef() as MutableRefObject<HTMLDivElement>
 
@@ -33,20 +34,20 @@ export const Zoom = ({ zoom, setZoom }: Props) => {
 
   return (
     <div ref={zoomRef}>
-      <div onClick={() => setIsOpen(current => !current)} className={s.zoomBtn}>
-        <ZoomIcon alt={'zoom'} width={24} height={24} className={isOpen ? s.blueActive : s.blue} />
+      <div className={s.zoomBtn} onClick={() => setIsOpen(current => !current)}>
+        <ZoomIcon alt={'zoom'} className={isOpen ? s.blueActive : s.blue} height={24} width={24} />
       </div>
 
       {isOpen && (
         <div className={s.slider}>
           <input
             className={s.range}
-            type="range"
-            min="1"
-            max="3"
-            step="0.1"
-            value={zoom}
+            max={'3'}
+            min={'1'}
             onChange={onZoomChange}
+            step={'0.1'}
+            type={'range'}
+            value={zoom}
           />
         </div>
       )}

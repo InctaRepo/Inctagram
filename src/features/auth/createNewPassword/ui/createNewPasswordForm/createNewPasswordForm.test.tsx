@@ -1,11 +1,10 @@
 import React from 'react'
 
+import { customRender as render } from '@/__mocks__/customRender'
 import { screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 
 import { CreateNewPasswordForm } from './CreateNewPasswordForm'
-
-import { customRender as render } from '@/__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
@@ -24,7 +23,7 @@ const onSubmitHandler = jest.fn()
 describe('CreateNewPasswordForm', () => {
   it('renders form fields and submits data', async () => {
     const onSubmitHandler = jest.fn()
-    const { user, debug, container } = setup(
+    const { container, debug, user } = setup(
       <CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />
     )
 

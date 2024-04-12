@@ -1,19 +1,41 @@
-import { z } from 'zod'
-
 import { LocaleType } from '@/public/locales/ru'
+import { z } from 'zod'
 
 export function createProfileSettingSchema(t: LocaleType) {
   return z.object({
-    username: z
+    aboutMe: z
       .string()
-      .trim()
-      .nonempty(t.profileSetting.generalInformation.generalInformationErrors.usernameField.nonEmpty)
+      .max(200, t.profileSetting.generalInformation.generalInformationErrors.aboutMeError)
       .regex(
-        /^[0-9A-Za-z_-]+$/,
-        t.profileSetting.generalInformation.generalInformationErrors.usernameField.regex
+        /^[0-9A-Za-zА-Яа-я!"#$%&'()*+,-./:;<=>?@[\]^_`{|}〜\s]+$/,
+        'About me should only contain alphanumeric characters in English or Russian'
       )
-      .min(6, t.profileSetting.generalInformation.generalInformationErrors.usernameField.min)
-      .max(30, t.profileSetting.generalInformation.generalInformationErrors.usernameField.max),
+      .trim()
+      .optional(),
+    city: z
+      .string()
+      .min(3, t.profileSetting.generalInformation.generalInformationErrors.minLength)
+      .regex(
+        /^[а-яА-Яa-zA-Z,]+$/,
+        t.profileSetting.generalInformation.generalInformationErrors.incorrectInput
+      ),
+    dateOfBirthday: z.date().refine(
+      data => {
+        if (data === null) {
+          return true
+        }
+        if (data) {
+          const dateOfB = new Date(data)
+          const now = new Date()
+          const usersAge = now.getFullYear() - dateOfB.getFullYear()
+
+          return usersAge >= 13
+        }
+      },
+      {
+        message: t.profileSetting.generalInformation.generalInformationErrors.refine,
+      }
+    ),
     firstName: z
       .string()
       .trim()
@@ -36,47 +58,26 @@ export function createProfileSettingSchema(t: LocaleType) {
       )
       .min(1, t.profileSetting.generalInformation.generalInformationErrors.lastNameField.min)
       .max(50, t.profileSetting.generalInformation.generalInformationErrors.lastNameField.max),
-    dateOfBirthday: z.date().refine(
-      data => {
-        if (data === null) return true
-        if (data) {
-          const dateOfB = new Date(data)
-          const now = new Date()
-          const usersAge = now.getFullYear() - dateOfB.getFullYear()
-
-          return usersAge >= 13
-        }
-      },
-      {
-        message: t.profileSetting.generalInformation.generalInformationErrors.refine,
-      }
-    ),
-    city: z
+    username: z
       .string()
-      .min(3, t.profileSetting.generalInformation.generalInformationErrors.minLength)
-      .regex(
-        /^[а-яА-Яa-zA-Z,]+$/,
-        t.profileSetting.generalInformation.generalInformationErrors.incorrectInput
-      ),
-    aboutMe: z
-      .string()
-      .max(200, t.profileSetting.generalInformation.generalInformationErrors.aboutMeError)
-      .regex(
-        /^[0-9A-Za-zА-Яа-я!"#$%&'()*+,-./:;<=>?@[\]^_`{|}〜\s]+$/,
-        'About me should only contain alphanumeric characters in English or Russian'
-      )
       .trim()
-      .optional(),
+      .nonempty(t.profileSetting.generalInformation.generalInformationErrors.usernameField.nonEmpty)
+      .regex(
+        /^[0-9A-Za-z_-]+$/,
+        t.profileSetting.generalInformation.generalInformationErrors.usernameField.regex
+      )
+      .min(6, t.profileSetting.generalInformation.generalInformationErrors.usernameField.min)
+      .max(30, t.profileSetting.generalInformation.generalInformationErrors.usernameField.max),
   })
 }
 
 export type ProfileSettingSchema = {
-  username: string
-  firstName: string
-  lastName: string
-  dateOfBirthday: Date
-  country: string
-  city: string
   aboutMe: string
   avatar: string
+  city: string
+  country: string
+  dateOfBirthday: Date
+  firstName: string
+  lastName: string
+  username: string
 }

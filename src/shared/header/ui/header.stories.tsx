@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Header } from '@/shared/header/ui/Header'
 
 const meta: Meta<typeof Header> = {
-  title: 'Components/Header',
   component: Header,
+  title: 'Components/Header',
 }
 
 export default meta

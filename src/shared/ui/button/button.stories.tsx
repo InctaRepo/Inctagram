@@ -3,15 +3,15 @@ import type { StoryObj } from '@storybook/react'
 import { Button } from '@/ui/button'
 
 const meta = {
-  title: 'Components/Button',
-  component: Button,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'outlined', 'link', 'internation'],
       control: { type: 'radio' },
+      options: ['primary', 'secondary', 'outlined', 'link', 'internation'],
     },
   },
+  component: Button,
+  tags: ['autodocs'],
+  title: 'Components/Button',
 }
 
 export default meta
@@ -19,9 +19,9 @@ type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
     children: 'Primary Button',
     disabled: false,
+    variant: 'primary',
   },
   parameters: {
     docs: {
@@ -34,7 +34,7 @@ export const Primary: Story = {
 
 export const DisabledPrimary: Story = {
   render: () => (
-    <Button variant={'primary'} disabled={true}>
+    <Button disabled variant={'primary'}>
       Disabled Button
     </Button>
   ),
@@ -47,29 +47,29 @@ export const DisabledPrimary: Story = {
 
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
     children: 'Secondary Button',
     disabled: false,
+    variant: 'secondary',
   },
 }
 export const DisabledSecondary: Story = {
   args: {
-    variant: 'secondary',
     children: 'Secondary Button',
     disabled: true,
+    variant: 'secondary',
   },
 }
 export const Outlined: Story = {
   args: {
-    variant: 'outlined',
     children: 'Outlined Button',
     disabled: false,
+    variant: 'outlined',
   },
 }
 export const ButtonAsText: Story = {
   args: {
-    variant: 'text',
     children: 'button as text',
+    variant: 'text',
   },
 }
 

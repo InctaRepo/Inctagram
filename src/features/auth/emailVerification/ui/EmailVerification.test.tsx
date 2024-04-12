@@ -1,10 +1,9 @@
 import React from 'react'
 
+import { customRender as render } from '@/__mocks__/customRender'
 import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 
 import { EmailVerification } from './EmailVerification'
-
-import { customRender as render } from '@/__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', query: { code: 'code' } }),

@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react'
-
-import { zodResolver } from '@hookform/resolvers/zod'
-import clsx from 'clsx'
-import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
 import { RecoveryParams } from '@/features/auth/recovery/service/types/recoveryParams'
-import s from '@/features/auth/recovery/ui/recoveryForm/recoveryForm.module.scss'
 import { RouteNames } from '@/shared/const'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { useTranslate } from '@/shared/hooks'
@@ -16,10 +11,15 @@ import { Card } from '@/ui/card'
 import { ControlledRecaptcha, ControlledTextField } from '@/ui/controlled'
 import { ForgotForm } from '@/ui/recaptcha'
 import { Typography } from '@/ui/typography'
+import { zodResolver } from '@hookform/resolvers/zod'
+import clsx from 'clsx'
+import { useRouter } from 'next/router'
+
+import s from '@/features/auth/recovery/ui/recoveryForm/recoveryForm.module.scss'
 
 type Props = {
-  onSubmitHandler: (data: RecoveryParams) => void
   modalHandler: () => void
+  onSubmitHandler: (data: RecoveryParams) => void
   type: 'email' | 'password'
 }
 
@@ -29,27 +29,27 @@ const CSSMod = {
   secondary: 'secondary',
 }
 
-export const RecoveryForm = ({ onSubmitHandler, modalHandler, type }: Props) => {
+export const RecoveryForm = ({ modalHandler, onSubmitHandler, type }: Props) => {
   const [mode, setMode] = useState(CSSMod.primary)
   const { t } = useTranslate()
   const router = useRouter()
   const {
     control,
+    formState: { errors, touchedFields },
     handleSubmit,
     trigger,
-    formState: { touchedFields, errors },
   } = useForm<ForgotForm>({
-    resolver: zodResolver(passwordRecoverySchema(t)),
-    mode: 'onTouched',
     defaultValues: {
       email: '',
       recaptcha: false,
     },
+    mode: 'onTouched',
+    resolver: zodResolver(passwordRecoverySchema(t)),
   })
 
   useEffect(() => {
     triggerZodFieldError(Object.keys(touchedFields) as FormFields[], trigger)
-  }, [t])
+  }, [t, touchedFields, trigger])
 
   const submitData = (data: ForgotForm) => {
     setMode(CSSMod.secondary)
@@ -68,44 +68,44 @@ export const RecoveryForm = ({ onSubmitHandler, modalHandler, type }: Props) => 
   return (
     <div className={s[mode]}>
       <Card className={s.main}>
-        <Typography variant="h1" className={s.title}>
+        <Typography className={s.title} variant={'h1'}>
           {type === 'password' && t.auth.forgotPasswordTitle}
           {type === 'email' && t.auth.resendVerificationLinkTitle}
         </Typography>
-        <form onSubmit={handleSubmit(submitData)} className={s.form}>
+        <form className={s.form} onSubmit={handleSubmit(submitData)}>
           <ControlledTextField
-            control={control}
-            name="email"
-            label={t.auth.email}
-            placeholder="Epam@epam.com"
             className={s.email}
+            control={control}
+            label={t.auth.email}
+            name={'email'}
+            placeholder={'Epam@epam.com'}
           />
-          <Typography variant="regular14" className={classNames.hint}>
+          <Typography className={classNames.hint} variant={'regular14'}>
             {t.auth.instructions}
           </Typography>
-          <Button variant="primary" className={s.submit} type="submit">
-            <Typography variant="h3">{t.auth.sendLink}</Typography>
+          <Button className={s.submit} type={'submit'} variant={'primary'}>
+            <Typography variant={'h3'}>{t.auth.sendLink}</Typography>
           </Button>
-          <Typography variant="regular14" className={s.answer}>
+          <Typography className={s.answer} variant={'regular14'}>
             {t.auth.linkHasBeenSent}
           </Typography>
-          <Button variant="primary" className={s.repeat} type="submit">
-            <Typography variant="regular16">{t.auth.sendLinkAgain}</Typography>
+          <Button className={s.repeat} type={'submit'} variant={'primary'}>
+            <Typography variant={'regular16'}>{t.auth.sendLinkAgain}</Typography>
           </Button>
           <Button
-            variant="link"
-            color={'$color-accent-500'}
             className={s.back}
-            type="button"
+            color={'$color-accent-500'}
             onClick={() => router.push(RouteNames.SIGN_IN)}
+            type={'button'}
+            variant={'link'}
           >
-            <Typography variant="bold16">{t.auth.backToSignIn}</Typography>
+            <Typography variant={'bold16'}>{t.auth.backToSignIn}</Typography>
           </Button>
           <ControlledRecaptcha
-            control={control}
-            name="recaptcha"
-            error={errors?.recaptcha?.message}
             className={s.recaptcha}
+            control={control}
+            error={errors?.recaptcha?.message}
+            name={'recaptcha'}
             primary
           />
         </form>

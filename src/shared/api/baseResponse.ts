@@ -1,14 +1,14 @@
 export type BaseResponse<D = {}> = {
+  data: D
   extensions: {
     key: string
-    message: string | Message[]
+    message: Message[] | string
   }[]
-  data: D
   resultCode: number
 }
 type Message = {
-  message: string
   field: string
+  message: string
 }
 export type Images = {
   size: number

@@ -1,10 +1,9 @@
-import { useRouter } from 'next/dist/client/router'
-
 import { getProfile } from '@/entities/profile/service'
 import { getRunningQueriesThunk, getUserPost, getUserPosts } from '@/features/posts'
 import { Profile } from '@/features/profile'
 import { wrapper } from '@/store'
 import { GetAuthLayout } from '@/widgets/layout/authLayout'
+import { useRouter } from 'next/dist/client/router'
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const postId = context.query?.postId as string

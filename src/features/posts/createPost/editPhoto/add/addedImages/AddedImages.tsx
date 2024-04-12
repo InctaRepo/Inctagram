@@ -1,10 +1,10 @@
 import React from 'react'
 
+import CloseIcon from '@/public/icon/closeIcon.svg'
+import { Image } from '@/shared/types'
 import ImageToAdd from 'next/image'
 
 import s from '@/features/posts/createPost/editPhoto/add/addedImages/AddedImages.module.scss'
-import CloseIcon from '@/public/icon/closeIcon.svg'
-import { Image } from '@/shared/types'
 
 type Props = {
   addedImages: Image[]
@@ -25,12 +25,12 @@ export const AddedImages = ({ addedImages, setAddedImages }: Props) => {
       {addedImages.length <= 1
         ? addedImages.map((el, idx) => {
             return (
-              <div key={idx} className={s.addedPhoto}>
+              <div className={s.addedPhoto} key={idx}>
                 <ImageToAdd
-                  className={s.oneImage}
-                  src={String(el.image)}
                   alt={'photos'}
+                  className={s.oneImage}
                   height={82}
+                  src={String(el.image)}
                   width={80}
                 />
               </div>
@@ -38,15 +38,15 @@ export const AddedImages = ({ addedImages, setAddedImages }: Props) => {
           })
         : imagesToShow.map((el, i) => {
             return (
-              <div key={i} className={s.addedPhoto}>
+              <div className={s.addedPhoto} key={i}>
                 <div className={s.closeIcon} onClick={() => onDeleteImage(i)}>
                   <CloseIcon className={s.close} />
                 </div>
                 <ImageToAdd
-                  className={s.image}
-                  src={String(el.image)}
                   alt={'photos'}
+                  className={s.image}
                   height={82}
+                  src={String(el.image)}
                   width={80}
                 />
               </div>

@@ -1,2 +1,2 @@
 export { SelectBox } from '@/ui/selectBox/SelectBox'
-export type { SelectProps, Option } from '@/ui/selectBox/SelectBox'
+export type { Option, SelectProps } from '@/ui/selectBox/SelectBox'

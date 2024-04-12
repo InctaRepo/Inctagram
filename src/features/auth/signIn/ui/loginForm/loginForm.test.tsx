@@ -1,11 +1,10 @@
 import React from 'react'
 
+import { customRender as render } from '@/__mocks__/customRender'
 import { screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 
 import { LoginForm } from './LoginForm'
-
-import { customRender as render } from '@/__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
@@ -36,7 +35,7 @@ describe('LoginForm', () => {
 
   it('calls onSubmitHandler with form data on submit', async () => {
     const onSubmitHandler = jest.fn()
-    const { user, debug } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
+    const { debug, user } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
 
     await user.type(screen.getByRole('email', { name: /email/i }), 'test@example.com')
     await user.type(screen.getByRole('password', { name: /password/i }), '1qaz@WSX')
@@ -50,7 +49,7 @@ describe('LoginForm', () => {
   })
 
   it('displays error message when form submission fails', async () => {
-    render(<LoginForm errorServer="Invalid email or password" />)
+    render(<LoginForm errorServer={'Invalid email or password'} />)
 
     await waitFor(() => {
       const errorElements = screen.queryAllByText(/Invalid email or password/i, {

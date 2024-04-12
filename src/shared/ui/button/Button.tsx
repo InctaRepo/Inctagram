@@ -4,21 +4,21 @@ import s from '@/ui/button/button.module.scss'
 
 type Props<T extends ElementType = 'button'> = {
   as?: T
-  variant?: 'primary' | 'secondary' | 'outlined' | 'link' | 'internation' | 'text'
-  fullWidth?: boolean
-  className?: string
   children: ReactNode
+  className?: string
+  fullWidth?: boolean
+  variant?: 'internation' | 'link' | 'outlined' | 'primary' | 'secondary' | 'text'
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>(
   props: Props<T> & Omit<ComponentPropsWithoutRef<T>, keyof Props<T>>
 ) => {
   const {
-    variant = 'primary',
-    fullWidth,
-    className,
-    children,
     as: Component = 'button',
+    children,
+    className,
+    fullWidth,
+    variant = 'primary',
     ...rest
   } = props
 

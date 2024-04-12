@@ -3,27 +3,28 @@ import React, { ChangeEvent, ComponentProps, useState } from 'react'
 import EyeIcon from '@/public/icon/eyeIcon.svg'
 import EyeOffIcon from '@/public/icon/eyeOffIcon.svg'
 import SearchIcon from '@/public/icon/searchIcon.svg'
-import s from '@/ui/textField/inputMain/inputMain.module.scss'
 import { Typography } from '@/ui/typography'
 
+import s from '@/ui/textField/inputMain/inputMain.module.scss'
+
 type Props = {
-  value?: string
-  label?: string
   errorMessage?: string
-  onChangeText?: (value: string) => void
   isRequired?: boolean
+  label?: string
+  onChangeText?: (value: string) => void
+  value?: string
 } & ComponentProps<'input'>
 
 export const InputMain = ({
-  type = 'text',
   disabled,
-  onChangeText,
   errorMessage,
-  label,
-  placeholder,
-  value,
   isRequired,
+  label,
   name,
+  onChangeText,
+  placeholder,
+  type = 'text',
+  value,
   ...rest
 }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -44,21 +45,21 @@ export const InputMain = ({
     <div className={s.textFieldWrap}>
       <label
         className={`${s.label} ${disabled && s.disabledLabel}`}
-        htmlFor={name}
         data-testid={name}
+        htmlFor={name}
       >
         {label}
         {isRequired && <span className={s.star}>*</span>}
       </label>
       <input
-        role={name}
+        disabled={disabled}
         id={name}
         name={name}
-        type={showPassword ? 'text' : type}
-        value={value}
         onChange={onchangeHandler}
         placeholder={placeholder && placeholder}
-        disabled={disabled}
+        role={name}
+        type={showPassword ? 'text' : type}
+        value={value}
         {...rest}
         className={`${s.textField} ${errorMessage && s.errorInput} ${disabled && s.disabledInput}`}
       />
@@ -78,7 +79,7 @@ export const InputMain = ({
 
       {type === 'search' && <SearchIcon className={s.searchIcon} />}
       {showErrorMess && (
-        <Typography variant={'regular14'} className={s.errorWrap}>
+        <Typography className={s.errorWrap} variant={'regular14'}>
           {errorMessage}
         </Typography>
       )}

@@ -1,59 +1,59 @@
 import React, { ComponentPropsWithoutRef, ReactNode } from 'react'
 
+import CloseIcon from '@/public/icon/closeIcon.svg'
 import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@radix-ui/react-dialog'
 import { clsx } from 'clsx'
 
 import s from '@/entities/post/showPostModal/editModal/editModal.module.scss'
-import CloseIcon from '@/public/icon/closeIcon.svg'
 
 // export type ModalSize = 'edit'
 
 type Props = {
-  setIsEditModalOpen: (open: boolean) => void
-  open?: boolean
-  onClose?: () => void
-  onAction?: () => void
-  onCancel?: () => void
-  showSeparator?: boolean
+  actionButtonName?: string
+  cancelButtonName?: string // if no props , visibility = hidden
   children?: ReactNode
   className?: string
-  cancelButtonName?: string // if no props , visibility = hidden
-  actionButtonName?: string
-  setDeletePostModal?: (openSureModal: boolean) => void
   isDescription?: boolean
-  setIsEditDescriptionModalOpen?: (isEditDescriptionModalOpen: boolean) => void
+  onAction?: () => void
+  onCancel?: () => void
+  onClose?: () => void
+  open?: boolean
   openSureDescriptionModal: boolean
+  setDeletePostModal?: (openSureModal: boolean) => void
+  setIsEditDescriptionModalOpen?: (isEditDescriptionModalOpen: boolean) => void
+  setIsEditModalOpen: (open: boolean) => void
   setOpenSureDescriptionModal?: (openSureDescriptionModal: boolean) => void
+  showSeparator?: boolean
 } & ComponentPropsWithoutRef<'div'>
 
 export const EditModal = ({
-  openSureDescriptionModal,
-  setOpenSureDescriptionModal,
-  setIsEditModalOpen,
-  setIsEditDescriptionModalOpen,
+  actionButtonName,
+  cancelButtonName,
+  children,
+  className,
   isDescription,
-  showSeparator = true,
-  onClose,
   onAction,
   onCancel,
+  onClose,
   open,
-  cancelButtonName,
-  actionButtonName,
+  openSureDescriptionModal,
+  setIsEditDescriptionModalOpen,
+  setIsEditModalOpen,
+  setOpenSureDescriptionModal,
+  showSeparator = true,
   title,
-  className,
-  children,
   ...rest
 }: Props) => {
   const classNames = {
-    content: getContentClassName(className),
-    separator: clsx(s.separator, !showSeparator && s.separatorHide),
-    wrapper: clsx(s.wrapper),
     actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
     cancelButton: clsx(
       s.widePaddingButton,
       !cancelButtonName && s.cancelButtonHide,
-      <s className="actionButton"></s>
+      <s className={'actionButton'}></s>
     ),
+    content: getContentClassName(className),
+    separator: clsx(s.separator, !showSeparator && s.separatorHide),
+    wrapper: clsx(s.wrapper),
   }
 
   function onCloseHandler() {
@@ -63,10 +63,10 @@ export const EditModal = ({
   return (
     <>
       <Dialog
-        open={open}
         onOpenChange={open =>
           !open && setOpenSureDescriptionModal && setOpenSureDescriptionModal(true)
         }
+        open={open}
       >
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
@@ -75,7 +75,7 @@ export const EditModal = ({
             {!isDescription ? (
               <div className={s.IconButtonNone}></div>
             ) : (
-              <div onClick={onCloseHandler} className={s.IconButton}>
+              <div className={s.IconButton} onClick={onCloseHandler}>
                 <CloseIcon />
               </div>
             )}
@@ -95,5 +95,7 @@ function getContentClassName(size: string | undefined, className?: string) {
 }
 
 function getSizeClassName(size: string | undefined) {
-  if (size === 'edit') return s.edit
+  if (size === 'edit') {
+    return s.edit
+  }
 }

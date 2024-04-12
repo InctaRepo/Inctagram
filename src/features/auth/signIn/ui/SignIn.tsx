@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import { useRouter } from 'next/router'
-
 import { setId } from '@/features/auth/signIn'
 import { SingInParams, useSignInMutation } from '@/features/auth/signIn/authByEmail'
 import { LoginForm } from '@/features/auth/signIn/ui/loginForm'
-import { resultCode, RouteNames } from '@/shared/const'
+import { RouteNames, resultCode } from '@/shared/const'
 import { useGetMeQuery } from '@/shared/hoc'
 import { useAppDispatch } from '@/shared/hooks'
+import { useRouter } from 'next/router'
 
 export const SignIn = () => {
   const dispatch = useAppDispatch()
@@ -22,7 +21,7 @@ export const SignIn = () => {
       router.push(RouteNames.PROFILE + '/' + userId)
       dispatch(setId({ id: userId }))
     }
-  }, [isSuccess, isSuccessMe, userId, errorServer])
+  }, [isSuccess, isSuccessMe, userId, errorServer, loginData?.resultCode, router, dispatch])
   const submit = (data: SingInParams) => {
     setErrorServer('')
     loginUser(data)
@@ -37,5 +36,5 @@ export const SignIn = () => {
       })
   }
 
-  return <LoginForm onSubmitHandler={submit} errorServer={errorServer} />
+  return <LoginForm errorServer={errorServer} onSubmitHandler={submit} />
 }

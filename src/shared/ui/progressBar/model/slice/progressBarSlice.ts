@@ -7,9 +7,6 @@ const initialState: ProgressBarSchema = {
   isLoading: false,
 }
 const progressBarSlice = createSlice({
-  initialState,
-  name: 'progressBar',
-  reducers: {},
   extraReducers: builder => {
     builder
       .addMatcher(
@@ -37,6 +34,9 @@ const progressBarSlice = createSlice({
     //   }
     // )
   },
+  initialState,
+  name: 'progressBar',
+  reducers: {},
 })
 
 export const { reducer: progressBarReducer } = progressBarSlice

@@ -1,9 +1,8 @@
-import { useRouter } from 'next/router'
-
 import { setId } from '@/features/auth/signIn'
 import { RouteNames } from '@/shared/const'
 import { useGetMeQuery } from '@/shared/hoc'
 import { useAppDispatch } from '@/shared/hooks'
+import { useRouter } from 'next/router'
 
 export const GetMeAuthGoogleGithub = () => {
   const dispatch = useAppDispatch()

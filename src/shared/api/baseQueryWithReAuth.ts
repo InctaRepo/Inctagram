@@ -1,11 +1,10 @@
-import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query'
-import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { clearId, clearToken, setToken } from '@/features/auth/signIn'
 import { BaseResponse } from '@/shared/api/baseResponse'
-import { BASE_URL, resultCode, RouteNames } from '@/shared/const'
+import { BASE_URL, RouteNames, resultCode } from '@/shared/const'
 import { AppRootState } from '@/store'
+import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query'
+import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
@@ -25,7 +24,7 @@ const baseQuery = fetchBaseQuery({
 })
 
 export const baseQueryWithReAuth: BaseQueryFn<
-  string | FetchArgs,
+  FetchArgs | string,
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
@@ -36,7 +35,7 @@ export const baseQueryWithReAuth: BaseQueryFn<
 
   if (!isLoginEndpoint && error401) {
     const refreshResult = await baseQuery(
-      { url: 'auth/refresh-token', method: 'POST' },
+      { method: 'POST', url: 'auth/refresh-token' },
       api,
       extraOptions
     )

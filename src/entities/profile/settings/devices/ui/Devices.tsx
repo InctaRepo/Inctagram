@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 
-import { useRouter } from 'next/router'
-
 import { DevicesIconSelection } from '@/entities/profile/settings/devices/lib/devicesIconSelection'
 import {
   useDeleteAllSessionsMutation,
@@ -9,15 +7,17 @@ import {
   useGetSessionsQuery,
 } from '@/entities/profile/settings/devices/service'
 import { Device } from '@/entities/profile/settings/devices/service/deviceApiTypes'
-import s from '@/entities/profile/settings/devices/ui/devices.module.scss'
 import Chrome from '@/public/icon/chromeIcon.svg'
 import Phone from '@/public/icon/phoneIcon.svg'
 import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
-import { resultCode, RouteNames } from '@/shared/const'
+import { RouteNames, resultCode } from '@/shared/const'
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
 import { Loader } from '@/ui/loader'
 import { Typography } from '@/ui/typography'
+import { useRouter } from 'next/router'
+
+import s from '@/entities/profile/settings/devices/ui/devices.module.scss'
 
 export const Devices = () => {
   const { t } = useTranslate()
@@ -33,15 +33,17 @@ export const Devices = () => {
     if (sessions?.resultCode == resultCode.UNAUTHORIZED) {
       router.push(RouteNames.SIGN_IN)
     }
-  }, [sessions?.resultCode])
-  if (isLoading) return <Loader />
+  }, [router, sessions?.resultCode])
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <>
       {sessions && (
         <div className={s.device}>
           <div className={s.currentDeviceWrapper}>
-            <Typography variant={'h3'} className={s.currentDevice}>
+            <Typography className={s.currentDevice} variant={'h3'}>
               {t.profileSetting.devices.currentDevice}
             </Typography>
             <div className={s.browserWrapper}>
@@ -60,18 +62,18 @@ export const Devices = () => {
             </div>
             {sessions?.data?.slice(1).length != 0 && (
               <div className={s.btn}>
-                <Button variant={'outlined'} onClick={deleteAllSessionsHandler}>
+                <Button onClick={deleteAllSessionsHandler} variant={'outlined'}>
                   {t.profileSetting.devices.terminateAllOtherSession}
                 </Button>
               </div>
             )}
           </div>
           <div className={s.activeSessionsWrapper}>
-            <Typography variant={'h3'} className={s.activeSessions}>
+            <Typography className={s.activeSessions} variant={'h3'}>
               {t.profileSetting.devices.activeSessions}
             </Typography>
             {sessions?.data?.slice(1).map((el: Device) => (
-              <div key={el.deviceId} className={s.deviceWrapper}>
+              <div className={s.deviceWrapper} key={el.deviceId}>
                 <div className={s.deviceSession}>
                   <div className={s.img}>
                     {DevicesIconSelection(el.deviceName.trim()) === 'PC' && <Chrome />}
@@ -87,11 +89,11 @@ export const Devices = () => {
                   </div>
                 </div>
                 <Button
-                  variant={'link'}
                   className={s.logOut}
                   onClick={() => deleteSession(el.deviceId)}
+                  variant={'link'}
                 >
-                  <Typography variant="medium14" className={s.text}>
+                  <Typography className={s.text} variant={'medium14'}>
                     <LogoutIcon fill={'current'} />
                     {t.sidebar.logout}
                   </Typography>
@@ -99,7 +101,7 @@ export const Devices = () => {
               </div>
             ))}
             {sessions?.data?.slice(1).length === 0 && (
-              <Typography variant={'h1'} className={s.otherDevices}>
+              <Typography className={s.otherDevices} variant={'h1'}>
                 {t.profileSetting.devices.otherDevices}
               </Typography>
             )}

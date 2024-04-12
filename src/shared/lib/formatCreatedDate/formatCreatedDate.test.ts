@@ -5,7 +5,7 @@ jest.mock('next/router', () => ({
 }))
 describe('formatPostCreatedAt', () => {
   it('should format the creation date correctly', () => {
-    let today = new Date()
+    const today = new Date()
 
     today.setMonth(today.getMonth() - 5)
 

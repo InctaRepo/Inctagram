@@ -1,6 +1,5 @@
-import { renderHook } from '@testing-library/react'
-
 import { useCreateNewPassword } from '@/features/auth/createNewPassword/hooks'
+import { renderHook } from '@testing-library/react'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', query: { code: 'code' } }),
@@ -10,34 +9,34 @@ const useCreateNewPasswordMutation = jest
   .fn(() => [
     createNewPasswordMock,
     {
-      isSuccess: false,
-      isLoading: false,
-      error: null,
       data: {
         extensions: [undefined],
       },
+      error: null,
+      isLoading: false,
+      isSuccess: false,
     },
   ])
   .mockImplementationOnce(() => [
     createNewPasswordMock,
     {
-      isSuccess: false,
-      isLoading: false,
-      error: null,
       data: {
         extensions: [undefined],
       },
+      error: null,
+      isLoading: false,
+      isSuccess: false,
     },
   ])
   .mockImplementationOnce(() => [
     createNewPasswordMock,
     {
+      data: {
+        extensions: [undefined],
+      },
+      error: null,
+      isLoading: false,
       isSuccess: true,
-      isLoading: false,
-      error: null,
-      data: {
-        extensions: [undefined],
-      },
     },
   ])
 
