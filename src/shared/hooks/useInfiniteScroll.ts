@@ -47,6 +47,7 @@ export const useInfiniteScroll = (
       setPage(1)
     }
   }, [data?.data?.totalCount, dynamicPosts?.length])
+  // }, [data?.data?.totalCount])
   useEffect(() => {
     if (page === 1 && dynamicPosts?.length != data?.data.totalCount!) {
       refetch()
@@ -58,6 +59,7 @@ export const useInfiniteScroll = (
         })
     }
   }, [data?.data.totalCount, dynamicPosts?.length, page, refetch])
+  // }, [ page])
 
   const handleObserver = useCallback(
     (entries: any[]) => {
@@ -87,6 +89,15 @@ export const useInfiniteScroll = (
       setIsLoading(false)
     },
     [page, data?.data?.pagesCount, data?.data.totalCount, dynamicPosts, newPosts]
+    //[
+    //       loadMoreTimeoutRef,
+    //       setIsLoading,
+    //       page,
+    //       dynamicPosts,
+    //       isSuccess,
+    //       newPosts,
+    //       data?.data?.totalCount!,
+    //     ]
   )
 
   const loadMoreCallback = useCallback(

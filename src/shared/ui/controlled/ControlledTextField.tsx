@@ -29,7 +29,8 @@ export const ControlledTextField = <T extends FieldValues>({
     if (selectedValue) {
       onChange(selectedValue)
     }
-  }, [onChange, selectedValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedValue])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (handleAutocompleteOptions) {

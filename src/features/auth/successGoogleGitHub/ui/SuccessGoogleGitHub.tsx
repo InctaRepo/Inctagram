@@ -17,7 +17,8 @@ export const SuccessGoogleGitHub = () => {
       dispatch(setToken({ accessToken: token as string }))
       setTokenStatus(true)
     }
-  }, [dispatch, token])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token])
 
   return tokenStatus ? <GetMeAuthGoogleGithub /> : <Loader />
 }
