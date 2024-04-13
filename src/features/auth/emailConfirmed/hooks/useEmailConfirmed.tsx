@@ -26,11 +26,7 @@ export const useEmailConfirmed = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    message = data?.extensions[0].message as string
-  }, [data?.extensions[0].message])
-
+  message = data?.extensions[0].message as string
   const messageConfirmed = 'email is already confirmed'
   const messageIncorrectCode = 'Code is incorrect'
   const messageExpire = 'email confirmation code is expired'
