@@ -49,7 +49,8 @@ export const RecoveryForm = ({ modalHandler, onSubmitHandler, type }: Props) => 
 
   useEffect(() => {
     triggerZodFieldError(Object.keys(touchedFields) as FormFields[], trigger)
-  }, [t, touchedFields, trigger])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t])
 
   const submitData = (data: ForgotForm) => {
     setMode(CSSMod.secondary)

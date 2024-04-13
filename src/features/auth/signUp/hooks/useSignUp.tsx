@@ -33,7 +33,8 @@ export const useSignUp = () => {
         setEmailSentModal(true)
       }
     }
-  }, [isSuccess, data, setToastHandler, successRes])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess, data])
 
   const submit = (data: SignUpFormSchema) => {
     userRegistration(data)

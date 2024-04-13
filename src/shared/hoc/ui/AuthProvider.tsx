@@ -23,7 +23,8 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
       dispatch(clearId())
       dispatch(setAuthMeData({ authMeData: { userId: null } }))
     }
-  }, [dispatch, token])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token])
   const publicPage = asPath.startsWith(RouteNames.PROFILE) || pathname === RouteNames.PUBLIC_PAGE
   const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
   const { error, isLoading } = useGetMeQuery(undefined, {

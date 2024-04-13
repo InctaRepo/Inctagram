@@ -34,7 +34,8 @@ export const useLoginForm = ({ errorServer, onSubmitHandler }: Props) => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
-  }, [t, touchedFields, trigger])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t])
 
   useEffect(() => {
     setError('password', { message: errorServer, type: 'custom' })

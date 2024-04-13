@@ -16,13 +16,15 @@ export const useEmailConfirmed = () => {
     if (code) {
       regConfirm({ code: code as string })
     }
-  }, [code, regConfirm])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [code])
 
   useEffect(() => {
     if (isSuccess && data?.resultCode == resultCode.BAD_REQUEST) {
       return
     }
-  }, [data, isSuccess])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data])
 
   const message = data?.extensions[0].message as string
   const messageConfirmed = 'email is already confirmed'
