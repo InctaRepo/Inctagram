@@ -19,8 +19,8 @@ function setup(jsx: React.JSX.Element) {
 // Mocked onSubmitHandler function for testing
 const onSubmitHandler = jest.fn(() => ({ data: { password: 'string', passwordConfirm: 'string' } }))
 
-describe('CreateNewPasswordForm', () => {
-  it('should return an object with correct properties', async () => {
+describe('useCreateNewPasswordForm', () => {
+  it('expect correct properties and types', async () => {
     const { result } = renderHook(() => useCreateNewPasswordForm({ onSubmitHandler }))
 
     expect(result.current).toHaveProperty('submit')
@@ -34,8 +34,5 @@ describe('CreateNewPasswordForm', () => {
     expect(typeof result.current.control).toBe('object')
     expect(typeof result.current.handleSubmit).toBe('function')
     expect(typeof result.current.errors).toBe('object')
-    //   await expect(
-    //     result.current.submit({ password: '1qaz@WSX', passwordConfirm: '1qaz@WSX' })
-    //   // ).toHaveBeenCalledWith()
   })
 })

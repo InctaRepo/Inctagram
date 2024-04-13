@@ -1,34 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { AuthPage } from '@/entities/auth/authPage'
-import { useEmailConfirmedMutation } from '@/features/auth/emailConfirmed/service/emailConfirmed'
+import { useEmailConfirmed } from '@/features/auth/emailConfirmed/hooks/useEmailConfirmed'
 import ConfirmedImage from '@/public/icon/emailComfirmedIcon.svg'
 import TimeManagementImage from '@/public/icon/timeMenegmentIcon.svg'
 import { RouteNames, resultCode } from '@/shared/const'
-import { useTranslate } from '@/shared/hooks'
-import { useRouter } from 'next/router'
 
 export const EmailConfirmed = () => {
-  const { query } = useRouter()
-  const { t } = useTranslate()
-  const { code } = query
-
-  const [regConfirm, { data, isSuccess }] = useEmailConfirmedMutation()
-
-  useEffect(() => {
-    if (code) {
-      regConfirm({ code: code as string })
-    }
-  }, [code, regConfirm])
-  useEffect(() => {
-    if (isSuccess && data?.resultCode == resultCode.BAD_REQUEST) {
-      return
-    }
-  }, [data, isSuccess])
-  const message = data?.extensions[0].message as string
-  const messageConfirmed = 'email is already confirmed'
-  const messageIncorrectCode = 'Code is incorrect'
-  const messageExpire = 'email confirmation code is expired'
+  const { data, isSuccess, message, messageConfirmed, messageExpire, messageIncorrectCode, t } =
+    useEmailConfirmed()
 
   return (
     <>
