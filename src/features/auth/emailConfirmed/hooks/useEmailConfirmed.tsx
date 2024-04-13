@@ -9,6 +9,7 @@ export const useEmailConfirmed = () => {
   const { query } = useRouter()
   const { t } = useTranslate()
   const { code } = query
+  let message = ''
 
   const [regConfirm, { data, isSuccess }] = useEmailConfirmedMutation()
 
@@ -25,8 +26,11 @@ export const useEmailConfirmed = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    message = data?.extensions[0].message as string
+  }, [data?.extensions[0].message])
 
-  const message = data?.extensions[0].message as string
   const messageConfirmed = 'email is already confirmed'
   const messageIncorrectCode = 'Code is incorrect'
   const messageExpire = 'email confirmation code is expired'
