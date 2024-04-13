@@ -1,18 +1,18 @@
 export type ImageFilter =
-  | 'none'
-  | 'saturate(2)'
-  | 'grayscale(100%)'
-  | 'contrast(160%)'
   | 'contrast(110%) brightness(110%) saturate(130%)'
-  | 'invert(80%)'
-  | 'sepia(80%)'
-  | 'opacity(70%)'
+  | 'contrast(160%)'
+  | 'grayscale(100%)'
   | 'hue-rotate(150deg)'
+  | 'invert(80%)'
+  | 'none'
+  | 'opacity(70%)'
+  | 'saturate(2)'
+  | 'sepia(80%)'
 
 export type Image = {
-  image?: string
-  id?: string
+  activeFilter: ImageFilter
   croppedImage?: string
   fileName?: string
-  activeFilter: ImageFilter
+  id?: string
+  image?: string
 }

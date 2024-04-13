@@ -1,5 +1,5 @@
 export type Post = {
-  description: string | null
+  description: null | string
   photos: FormData
 } | null
 
@@ -31,17 +31,17 @@ export type GetUserPostResponse = {
   userId: string
 }
 export type GetAllPostsResponse = {
-  pagesCount: number
-  page: number
-  totalCount: number
-  pageSize: number
   items: Items[]
+  page: number
+  pageSize: number
+  pagesCount: number
+  totalCount: number
 }
 export type Items = {
-  images: Images[]
-  id: string
-  userId: string
   createdAt: string
   description: string
+  id: string
+  images: Images[]
   location?: any
+  userId: string
 }

@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
-
-import * as ScrollArea from '@radix-ui/react-scroll-area'
-import { Separator } from '@radix-ui/react-separator'
-import ImageAva from 'next/image'
 import { useForm } from 'react-hook-form'
 
 import { PostMenu } from '@/entities/post/postMenu'
 import { fakeComments } from '@/entities/post/showPostModal/editModal/rightDescription/fakeComments'
-import s from '@/entities/post/showPostModal/editModal/rightDescription/rightDescription.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -22,31 +17,36 @@ import { useAppSelector, useTranslate } from '@/shared/hooks'
 import { Button } from '@/shared/ui/button'
 import { ControlledTextArea } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
+import * as ScrollArea from '@radix-ui/react-scroll-area'
+import { Separator } from '@radix-ui/react-separator'
+import ImageAva from 'next/image'
+
+import s from '@/entities/post/showPostModal/editModal/rightDescription/rightDescription.module.scss'
 
 type Props = {
+  createdAt?: Date
+  description?: string
+  id: string
+  images?: Images[]
+  isEditDescriptionModalOpen: boolean
+  isEditModalOpen?: boolean
   openSureDescriptionModal: boolean
   setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
-  isEditDescriptionModalOpen: boolean
-  description?: string
-  createdAt?: Date
-  userData?: UserInfo
-  isEditModalOpen?: boolean
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
-  images?: Images[]
-  id: string
+  userData?: UserInfo
 }
 
 export const RightDescription = ({
+  createdAt,
+  description,
+  id,
+  images,
+  isEditDescriptionModalOpen,
+  isEditModalOpen,
   openSureDescriptionModal,
   setIsEditDescriptionModalOpen,
-  isEditDescriptionModalOpen,
-  description,
-  createdAt,
-  userData,
-  isEditModalOpen,
   setIsEditModalOpen,
-  images,
-  id,
+  userData,
 }: Props) => {
   const { t } = useTranslate()
   const { control } = useForm()
@@ -54,9 +54,9 @@ export const RightDescription = ({
   const [isLikeActive, setIsLikeActive] = useState(false)
   const isAuth = useAppSelector(getIsAuth)
   const dateOfPost = new Date(createdAt ? createdAt : '').toLocaleDateString('en-US', {
-    year: 'numeric',
     day: '2-digit',
     month: 'long',
+    year: 'numeric',
   })
 
   const handleLike = () => {
@@ -75,54 +75,54 @@ export const RightDescription = ({
             <div className={s.userAvaHead}>
               {userData?.avatar !== null ? (
                 <ImageAva
-                  src={userData?.avatar! ? userData?.avatar! : avaWithError}
-                  width={36}
-                  height={36}
                   alt={'ava'}
                   className={s.ava}
-                  priority={true}
+                  height={36}
                   onError={errorHandler}
+                  priority
+                  src={userData?.avatar! ? userData?.avatar! : avaWithError}
+                  width={36}
                 />
               ) : (
                 <AvatarImage className={s.ava} />
               )}
             </div>
             <div className={s.userNameHead}>
-              <Typography variant={'h3'} color="primary">
+              <Typography color={'primary'} variant={'h3'}>
                 {userData?.username}
               </Typography>
             </div>
           </div>
           {isAuth && (
             <PostMenu
+              createdAt={createdAt}
+              description={description}
+              id={id}
+              images={images}
+              isEditDescriptionModalOpen={isEditDescriptionModalOpen}
+              isEditModalOpen={isEditModalOpen}
               openSureDescriptionModal={openSureDescriptionModal}
               setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
-              isEditDescriptionModalOpen={isEditDescriptionModalOpen}
-              images={images}
-              id={id}
-              isEditModalOpen={isEditModalOpen}
               setIsEditModalOpen={setIsEditModalOpen}
-              description={description}
-              createdAt={createdAt}
               userData={userData}
             />
           )}
         </div>
         <Separator className={s.separator} />
-        <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
+        <ScrollArea.Root className={s.scrollAreaRoot} type={'auto'}>
           <ScrollArea.Viewport className={s.scrollAreaViewport}>
             <div className={s.comments}>
               <div className={s.user}>
                 <div>
                   {userData?.avatar !== null ? (
                     <ImageAva
-                      src={userData?.avatar! ? userData?.avatar! : avaWithError}
-                      width={36}
-                      height={36}
                       alt={'ava'}
                       className={s.ava}
-                      priority={true}
+                      height={36}
                       onError={errorHandler}
+                      priority
+                      src={userData?.avatar! ? userData?.avatar! : avaWithError}
+                      width={36}
                     />
                   ) : (
                     <AvatarImage className={s.ava} />
@@ -131,17 +131,17 @@ export const RightDescription = ({
                 <div className={s.postDescription}>
                   <div style={{ display: 'inline-block' }}>
                     <div className={s.userName} style={{ display: 'inline', marginRight: 5 }}>
-                      <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
+                      <Typography color={'primary'} style={{ display: 'inline' }} variant={'h3'}>
                         {userData?.username}
                       </Typography>
                     </div>
-                    <Typography variant={'regular14'} style={{ display: 'inline' }}>
+                    <Typography style={{ display: 'inline' }} variant={'regular14'}>
                       {description}
                     </Typography>
                   </div>
                 </div>
               </div>
-              <Typography variant={'small'} color={'secondary'} className={s.time}>
+              <Typography className={s.time} color={'secondary'} variant={'small'}>
                 {' '}
                 2 hours ago
               </Typography>
@@ -155,31 +155,35 @@ export const RightDescription = ({
                     <div className={s.oneComment}>
                       <div style={{ display: 'inline-block' }}>
                         <div className={s.userName} style={{ display: 'inline', marginRight: 5 }}>
-                          <Typography variant={'h3'} color="primary" style={{ display: 'inline' }}>
+                          <Typography
+                            color={'primary'}
+                            style={{ display: 'inline' }}
+                            variant={'h3'}
+                          >
                             {el.userName + index}
                           </Typography>
                         </div>
-                        <Typography variant={'regular14'} style={{ display: 'inline' }}>
+                        <Typography style={{ display: 'inline' }} variant={'regular14'}>
                           {el.comment}
                         </Typography>
                       </div>
                     </div>
                     <Heart
                       alt={'heart'}
-                      width={16}
-                      height={16}
                       className={isLikeActive ? s.red : s.iconForComment}
+                      height={16}
                       onClick={handleLike}
+                      width={16}
                     />
                   </div>
-                  <Typography variant={'small'} color={'secondary'} className={s.time}>
+                  <Typography className={s.time} color={'secondary'} variant={'small'}>
                     {el.grayText}
                   </Typography>
                 </div>
               ))}
             </div>
           </ScrollArea.Viewport>
-          <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation="vertical">
+          <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation={'vertical'}>
             <ScrollArea.Thumb className={s.scrollAreaThumb} />
           </ScrollArea.Scrollbar>
         </ScrollArea.Root>
@@ -187,11 +191,11 @@ export const RightDescription = ({
         <div className={s.likesArea}>
           <div className={s.iconsArea}>
             <div className={s.heartPlane}>
-              <Heart alt={'heart'} width={24} height={24} className={s.icon} />
-              <Plane alt={'plane'} width={24} height={24} className={s.icon} />
+              <Heart alt={'heart'} className={s.icon} height={24} width={24} />
+              <Plane alt={'plane'} className={s.icon} height={24} width={24} />
             </div>
             <div className={s.bookmark}>
-              <Bookmark alt={'bookmark'} width={24} height={24} className={s.bookmark} />
+              <Bookmark alt={'bookmark'} className={s.bookmark} height={24} width={24} />
             </div>
           </div>
           <div className={s.likesCounter}>
@@ -208,13 +212,13 @@ export const RightDescription = ({
                 <AvatarImage className={s.lastAvaLikes} />
               </span>
               <div className={s.text}>
-                <Typography variant="regular14">2 234 </Typography>
-                <Typography className={s.boldText} variant="bold14">
+                <Typography variant={'regular14'}>2 234 </Typography>
+                <Typography className={s.boldText} variant={'bold14'}>
                   Like
                 </Typography>
               </div>
             </div>
-            <Typography variant="small" color="secondary">
+            <Typography color={'secondary'} variant={'small'}>
               {dateOfPost}
             </Typography>
           </div>
@@ -225,16 +229,16 @@ export const RightDescription = ({
           <div className={s.addComment}>
             <div className={s.textarea}>
               <ControlledTextArea
-                variant="comment"
-                control={control}
                 className={s.comment}
+                control={control}
+                fullWidth
                 name={'addComment'}
                 placeholder={t.posts.editPost.comment}
-                fullWidth={true}
+                variant={'comment'}
               />
             </div>
 
-            <Button variant="text" className={s.publishButton}>
+            <Button className={s.publishButton} variant={'text'}>
               {t.posts.editPost.publish}
             </Button>
           </div>

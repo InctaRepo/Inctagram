@@ -3,26 +3,26 @@ import { useMemo } from 'react'
 import { DOTS } from '@/shared/const'
 
 const range = (start: number, end: number) => {
-  let length = end - start + 1
+  const length = end - start + 1
 
   return Array.from({ length }, (_, idx) => idx + start)
 }
 
 type Props = {
-  totalCount: number
   currentPage: number
   pageSize: number
   siblings?: number
+  totalCount: number
 }
 
 type PaginationRange = number[]
 
 export const usePagination = ({
-  //oject ira proerty-enrov voronq parametrer en
-  totalCount,
   currentPage,
   pageSize = 12,
   siblings = 1,
+  //oject ira proerty-enrov voronq parametrer en
+  totalCount,
 }: Props) => {
   const paginationRange = useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / pageSize)
@@ -45,9 +45,9 @@ export const usePagination = ({
                         Case 2: No left dots to show, but rights dots to be shown
                     */
     if (!shouldShowLeftDots && shouldShowRightDots) {
-      let leftItemCount = 3 + 2 * siblings
+      const leftItemCount = 3 + 2 * siblings
       //leftItemCount -5 hata
-      let leftRange = range(1, leftItemCount)
+      const leftRange = range(1, leftItemCount)
 
       //1-ic minchev verchin tivy caxic
       //vor value-ery lcven copy exac nor array-um amenagam vor sxmes
@@ -59,9 +59,9 @@ export const usePagination = ({
                         Case 3: No right dots to show, but left dots to be shown
                     */
     if (shouldShowLeftDots && !shouldShowRightDots) {
-      let rightItemCount = 3 + 2 * siblings
+      const rightItemCount = 3 + 2 * siblings
       // yndhanur
-      let rightRange = range(totalPageCount - rightItemCount + 1, totalPageCount)
+      const rightRange = range(totalPageCount - rightItemCount + 1, totalPageCount)
 
       return [firstPageIndex, DOTS, ...rightRange]
     }
@@ -70,7 +70,7 @@ export const usePagination = ({
                         Case 4: Both left and right dots to be shown
                     */
     if (shouldShowLeftDots && shouldShowRightDots) {
-      let middleRange = range(leftSiblingIndex, rightSiblingIndex)
+      const middleRange = range(leftSiblingIndex, rightSiblingIndex)
 
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex]
     }

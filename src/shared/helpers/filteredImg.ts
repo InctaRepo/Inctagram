@@ -18,8 +18,8 @@ function rotateSize(width: number, height: number, rotation: number): Size {
   const rad = getRadianAngle(rotation)
 
   return {
-    width: Math.abs(Math.cos(rad) * width) + Math.abs(Math.sin(rad) * height),
     height: Math.abs(Math.sin(rad) * width) + Math.abs(Math.cos(rad) * height),
+    width: Math.abs(Math.cos(rad) * width) + Math.abs(Math.sin(rad) * height),
   }
 }
 
@@ -28,6 +28,7 @@ export async function filteredImg(
   filter: string = 'none',
   rotation = 0,
   flip = { horizontal: false, vertical: false }
+  // eslint-disable-next-line no-undef
 ): Promise<BlobPart | null> {
   const image = await createImage(String(imageSrc))
   const canvas = document.createElement('canvas')
@@ -39,7 +40,7 @@ export async function filteredImg(
 
   const rot = getRadianAngle(rotation)
 
-  const { width: bBoxWidth, height: bBoxHeight } = rotateSize(image.width, image.height, rotation)
+  const { height: bBoxHeight, width: bBoxWidth } = rotateSize(image.width, image.height, rotation)
 
   canvas.width = bBoxWidth
   canvas.height = bBoxHeight

@@ -1,5 +1,14 @@
 import React, { ComponentProps, ReactNode, useRef, useState } from 'react'
 
+import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
+import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
+import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
+import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
+import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
+import { useTranslate } from '@/shared/hooks'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
+import { Typography } from '@/ui/typography'
 import {
   Dialog,
   DialogContent,
@@ -10,64 +19,55 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { AreYouSureCreatePostModal } from '@/entities/post/createPost/areYouSureСreatePostModal'
 import s from '@/features/posts/createPost/cropModal/ui/cropModal.module.scss'
-import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
-import { FiltersModal } from '@/features/posts/createPost/editPhoto/filters/FiltersModal'
-import { SelectedImages } from '@/features/posts/createPost/editPhoto/filters/selectedImages/SelectedImages'
-import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
-import { useTranslate } from '@/shared/hooks'
-import { Image } from '@/shared/types'
-import { ImageFilter } from '@/shared/types/posts/postsTypes'
-import { Typography } from '@/ui/typography'
 
 type Props = {
-  image?: string
-  open: boolean
-  onClose?: () => void
-  onAction?: () => void
-  onCancel?: () => void
-  cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string // if no props , visibility = hidden
-  showSeparator?: boolean // if no props with false , visibility = visible
-  title?: string
+  addedImages: Image[]
+  cancelButtonName?: string // if no props , visibility = hidden
   children?: ReactNode
   className?: string
-  addedImages: Image[]
-  setAddedImages: (addedImages: Image[]) => void
-  setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
-  setImage: (image: string | undefined) => void
-  handleSaveDraft: () => void
   croppedAreaPixels: CropArg | null
+  handleSaveDraft: () => void
+  image?: string
+  onAction?: () => void
+  onCancel?: () => void
+  onClose?: () => void
+  open: boolean
+  setAddedImages: (addedImages: Image[]) => void
+  setImage: (image: string | undefined) => void
+  setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
+  showSeparator?: boolean // if no props with false , visibility = visible
+  title?: string
 } & ComponentProps<'div'>
 
 export const CropModal = ({
+  actionButtonName,
+  addedImages,
+  cancelButtonName,
+  children,
+  className,
+  croppedAreaPixels,
+  handleSaveDraft,
   image,
-  showSeparator = true,
   onAction,
   onCancel,
   open,
-  cancelButtonName,
-  actionButtonName,
-  title,
-  className,
-  children,
-  addedImages,
   setAddedImages,
-  setIsBaseModalOpen,
   setImage,
-  handleSaveDraft,
-  croppedAreaPixels,
+  setIsBaseModalOpen,
+  showSeparator = true,
+  title,
 }: Props) => {
   const classNames = {
-    content: getContentClassName(className),
-    separator: clsx(s.separator, !showSeparator && s.separatorHide),
     actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
     cancelButton: clsx(
       s.widePaddingButton,
       !cancelButtonName && s.cancelButtonHide,
       s.actionButton
     ),
+    content: getContentClassName(className),
+    separator: clsx(s.separator, !showSeparator && s.separatorHide),
   }
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [activeFilter, setActiveFilter] = useState<ImageFilter>('none')
@@ -93,7 +93,7 @@ export const CropModal = ({
   return (
     <div>
       {isModalOpen && (
-        <Dialog open={open} onOpenChange={open => !open && setOpenSureModal(true)}>
+        <Dialog onOpenChange={open => !open && setOpenSureModal(true)} open={open}>
           <DialogPortal>
             <DialogOverlay className={s.DialogOverlay} />
             <DialogContent className={classNames.content}>
@@ -103,20 +103,20 @@ export const CropModal = ({
                 </button>
                 <div className={s.nextButton}>
                   <FiltersModal
-                    image={image}
-                    addedImages={addedImages}
-                    setAddedImages={setAddedImages}
-                    isModalOpen={isModalOpen}
-                    setIsModalOpen={setIsModalOpen}
-                    onCancel={cancelButtonHandler}
-                    title={t.posts.createPost.filters}
                     activeFilter={activeFilter}
-                    setActiveFilter={setFilterHandler}
-                    setIsBaseModalOpen={setIsBaseModalOpen}
-                    setImage={setImage}
-                    openSureModal={openSureModal}
-                    setOpenSureModal={setOpenSureModal}
+                    addedImages={addedImages}
                     croppedAreaPixels={croppedAreaPixels}
+                    image={image}
+                    isModalOpen={isModalOpen}
+                    onCancel={cancelButtonHandler}
+                    openSureModal={openSureModal}
+                    setActiveFilter={setFilterHandler}
+                    setAddedImages={setAddedImages}
+                    setImage={setImage}
+                    setIsBaseModalOpen={setIsBaseModalOpen}
+                    setIsModalOpen={setIsModalOpen}
+                    setOpenSureModal={setOpenSureModal}
+                    title={t.posts.createPost.filters}
                   >
                     <SelectedImages
                       addedImages={addedImages}
@@ -132,12 +132,12 @@ export const CropModal = ({
               </div>
               <div ref={areYouSureRef}>
                 <AreYouSureCreatePostModal
-                  openSureModal={openSureModal}
-                  setOpenSureModal={setOpenSureModal}
-                  setIsModalOpen={setIsModalOpen}
-                  setIsBaseModalOpen={setIsBaseModalOpen}
-                  setImage={setImage}
                   handleSaveDraft={handleSaveDraft}
+                  openSureModal={openSureModal}
+                  setImage={setImage}
+                  setIsBaseModalOpen={setIsBaseModalOpen}
+                  setIsModalOpen={setIsModalOpen}
+                  setOpenSureModal={setOpenSureModal}
                 />
               </div>
               <div className={s.contentBox}>{children}</div>

@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { customRender as render } from '@/__mocks__/customRender'
+import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 
 import { EmailVerification } from './EmailVerification'
 

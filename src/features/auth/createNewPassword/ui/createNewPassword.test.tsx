@@ -1,11 +1,10 @@
 import React from 'react'
 
+import { customRender as render } from '@/__mocks__/customRender'
 import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 
 import { CreateNewPassword } from './CreateNewPassword'
-
-import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', query: { code: 'code' } }),
@@ -23,34 +22,34 @@ const useCreateNewPasswordMutation = jest
   .fn(() => [
     createNewPasswordMock,
     {
-      isSuccess: false,
-      isLoading: false,
-      error: null,
       data: {
         extensions: [undefined],
       },
+      error: null,
+      isLoading: false,
+      isSuccess: false,
     },
   ])
   .mockImplementationOnce(() => [
     createNewPasswordMock,
     {
-      isSuccess: false,
-      isLoading: false,
-      error: null,
       data: {
         extensions: [undefined],
       },
+      error: null,
+      isLoading: false,
+      isSuccess: false,
     },
   ])
   .mockImplementationOnce(() => [
     createNewPasswordMock,
     {
+      data: {
+        extensions: [undefined],
+      },
+      error: null,
+      isLoading: false,
       isSuccess: true,
-      isLoading: false,
-      error: null,
-      data: {
-        extensions: [undefined],
-      },
     },
   ])
 
@@ -62,7 +61,7 @@ const passwordText = '1qaz@WSX'
 
 describe('CreateNewPassword', () => {
   it('submits the form with valid data 1 variant for user-event', async () => {
-    const { user, debug } = setup(<CreateNewPassword />)
+    const { debug, user } = setup(<CreateNewPassword />)
 
     await user.type(screen.getByRole('password', { name: 'New password' }), passwordText)
     await user.type(

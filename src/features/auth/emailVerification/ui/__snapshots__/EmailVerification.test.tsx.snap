@@ -29,6 +29,7 @@ exports[`EmailVerification snapshot EmailVerification 1`] = `
               >
                 <label
                   class="label undefined"
+                  data-testid="email"
                   for="email"
                 >
                   Email
@@ -113,6 +114,7 @@ exports[`EmailVerification snapshot EmailVerification 1`] = `
             >
               <label
                 class="label undefined"
+                data-testid="email"
                 for="email"
               >
                 Email

@@ -2,9 +2,10 @@ import React, { memo } from 'react'
 
 import { ShowPostModal } from '@/entities/post/showPostModal'
 import { GetUserPostResponse, useGetUserPostsQuery } from '@/features/posts'
-import s from '@/features/posts/ui/posts.module.scss'
 import { useInfiniteScroll } from '@/shared/hooks'
 import { Loader } from '@/ui/loader'
+
+import s from '@/features/posts/ui/posts.module.scss'
 
 type Props = {
   postId?: string
@@ -13,38 +14,40 @@ type Props = {
 
 export const Posts = memo(({ postId, userId }: Props) => {
   const { data: posts, isLoading: isLoadingPosts } = useGetUserPostsQuery({ userId: userId })
-  const { isLoading, loadMoreCallback, hasDynamicPosts, dynamicPosts, isLastPage } =
+  const { dynamicPosts, hasDynamicPosts, isLastPage, isLoading, loadMoreCallback } =
     useInfiniteScroll(posts?.data?.items!, userId)
 
-  if (isLoadingPosts) return <Loader />
+  if (isLoadingPosts) {
+    return <Loader />
+  }
 
   return (
     <div className={s.container}>
       {hasDynamicPosts &&
         dynamicPosts?.map((el: GetUserPostResponse, index: number) => (
           <ShowPostModal
-            description={el.description}
-            key={index}
-            images={el.images}
-            id={el.id}
             createdAt={el.createdAt}
-            userId={userId}
+            description={el.description}
+            id={el.id}
+            images={el.images}
+            key={index}
             postId={postId}
+            userId={userId}
           />
         ))}
       {!hasDynamicPosts &&
         posts?.data?.items.map((el, index) => (
           <ShowPostModal
-            description={el.description}
-            key={index}
-            images={el.images}
-            id={el.id}
             createdAt={el.createdAt}
-            userId={userId}
+            description={el.description}
+            id={el.id}
+            images={el.images}
+            key={index}
             postId={postId}
+            userId={userId}
           />
         ))}
-      <Loader isLoading={isLoading} isLastPage={isLastPage} loadMoreCallback={loadMoreCallback} />
+      <Loader isLastPage={isLastPage} isLoading={isLoading} loadMoreCallback={loadMoreCallback} />
     </div>
   )
 })

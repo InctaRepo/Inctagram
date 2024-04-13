@@ -1,11 +1,12 @@
 import React, { useMemo, useState } from 'react'
 
 import data from '@/entities/profile/settings/myPayment/ui/data/mockData.json'
-import s from '@/entities/profile/settings/myPayment/ui/myPayment.module.scss'
 import { Pagination } from '@/ui/pagination/Pagination'
 import { Typography } from '@/ui/typography'
 
-let PageSize = 10
+import s from '@/entities/profile/settings/myPayment/ui/myPayment.module.scss'
+
+const PageSize = 10
 
 export const MyPayment = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -31,28 +32,28 @@ export const MyPayment = () => {
 
   return (
     <div>
-      <Typography as="table" className={s.table}>
-        <Typography as="thead" className={s.thead}>
-          <Typography as="tr" className={s.tr}>
-            <Typography as="th" className={s.th}>
+      <Typography as={'table'} className={s.table}>
+        <Typography as={'thead'} className={s.thead}>
+          <Typography as={'tr'} className={s.tr}>
+            <Typography as={'th'} className={s.th}>
               Date of Payment
             </Typography>
-            <Typography as="th">End date subscription</Typography>
-            <Typography as="th">Price</Typography>
-            <Typography as="th">Subscription Type </Typography>
-            <Typography as="th">Payment Type</Typography>
+            <Typography as={'th'}>End date subscription</Typography>
+            <Typography as={'th'}>Price</Typography>
+            <Typography as={'th'}>Subscription Type </Typography>
+            <Typography as={'th'}>Payment Type</Typography>
           </Typography>
         </Typography>
-        <Typography as="tbody">
+        <Typography as={'tbody'}>
           {currentTableData.map((item, index) => (
-            <Typography key={index} as="tr" className={s.userTableRow}>
-              <Typography as="td">{item.DateOfPayment}</Typography>
-              <Typography as="td">{item.EndDateSubscription}</Typography>
-              <Typography className={s.price} as="td">
+            <Typography as={'tr'} className={s.userTableRow} key={index}>
+              <Typography as={'td'}>{item.DateOfPayment}</Typography>
+              <Typography as={'td'}>{item.EndDateSubscription}</Typography>
+              <Typography as={'td'} className={s.price}>
                 {item.Price}
               </Typography>
-              <Typography as="td">{item.SubscriptionType}</Typography>
-              <Typography as="td">{item.PaymentType}</Typography>
+              <Typography as={'td'}>{item.SubscriptionType}</Typography>
+              <Typography as={'td'}>{item.PaymentType}</Typography>
             </Typography>
           ))}
         </Typography>
@@ -61,9 +62,9 @@ export const MyPayment = () => {
       <Pagination
         className={s.paginationBar}
         currentPage={currentPage}
-        totalCount={data.length}
-        pageSize={PageSize}
         onChange={handlePageChange}
+        pageSize={PageSize}
+        totalCount={data.length}
       />
     </div>
   )

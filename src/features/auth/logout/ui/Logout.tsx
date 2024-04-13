@@ -1,75 +1,49 @@
-import { useState } from 'react'
-
-import { clsx } from 'clsx'
-import { useRouter } from 'next/router'
-
-import { useLogoutMutation } from '@/features/auth/logout/service/logout'
-import s from '@/features/auth/logout/ui/logout.module.scss'
-import { clearId, clearToken } from '@/features/auth/signIn'
+import { useLogout } from '@/features/auth/logout/hooks'
 import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
-import { RouteNames, variantIconLink } from '@/shared/const'
-import { getUserEmail, setAuthMeData } from '@/shared/hoc'
-import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
-import { setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
+import { RouteNames } from '@/shared/const'
 import { Button } from '@/ui/button'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
 
-export const Logout = () => {
-  const dispatch = useAppDispatch()
-  const router = useRouter()
-  const variantIcon = useAppSelector(sidebarVariantIconSelector)
-  const email = useAppSelector(getUserEmail)
-  const [openModal, setOpenModal] = useState<boolean>(false)
-  const [logoutUser] = useLogoutMutation()
+import s from '@/features/auth/logout/ui/logout.module.scss'
 
-  const { t } = useTranslate()
-  const logoutHandler = async () => {
-    logoutUser()
-    dispatch(setAuthMeData({ authMeData: { userId: '', username: '', email: '' } }))
-    dispatch(clearToken)
-    dispatch(clearId)
-    dispatch(setVariantIcon(null))
-    router.push(RouteNames.SIGN_IN)
-    setOpenModal(false)
-  }
-  const onModalClose = () => {
-    setOpenModal(false)
-    dispatch(setVariantIcon(null))
-  }
-  const onClickOpenModal = () => {
-    setOpenModal(true)
-    dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1) as variantIconLink))
-  }
-  const styles = {
-    check: clsx(s.linkMenu, `${RouteNames.LOGOUT}`.startsWith('/' + variantIcon) && s.active),
-  }
+export const Logout = () => {
+  const {
+    email,
+    logoutHandler,
+    onClickOpenModal,
+    onModalClose,
+    openModal,
+    styles,
+    t,
+    variantIcon,
+  } = useLogout()
 
   return (
-    <div>
+    <>
       <div className={styles.check}>
-        <Button variant="link" onClick={onClickOpenModal} className={s.btn}>
+        <Button className={s.btn} onClick={onClickOpenModal} variant={'link'}>
           <LogoutIcon
-            fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
             className={s.logo}
+            fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
           />
-          <Typography variant="medium14" className={s.text + styles.check}>
+          <Typography className={s.text + styles.check} variant={'medium14'}>
             {t.sidebar.logout}
           </Typography>
         </Button>
       </div>
       <Modal
-        modalWidth={'md'}
-        title={t.sidebar.logout}
-        open={openModal}
         actionButtonName={t.profile.yes}
         cancelButtonName={t.profile.no}
-        onClose={onModalClose}
-        onCancel={onModalClose}
+        modalWidth={'md'}
         onAction={logoutHandler}
+        onCancel={onModalClose}
+        onClose={onModalClose}
+        open={openModal}
+        title={t.sidebar.logout}
       >
         <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
       </Modal>
-    </div>
+    </>
   )
 }

@@ -6,8 +6,9 @@ import { RouteNames, variantIconLink } from '@/shared/const'
 import { useAppDispatch, useAppSelector, useTranslate } from '@/shared/hooks'
 import { profileFoundSelector, setVariantIcon, sidebarVariantIconSelector } from '@/shared/sidebar'
 import { BaseMenu } from '@/shared/sidebar/ui/baseMenu'
-import s from '@/shared/sidebar/ui/sidebar.module.scss'
 import { LinkMenu } from '@/ui/linkMenu'
+
+import s from '@/shared/sidebar/ui/sidebar.module.scss'
 
 export const Sidebar = () => {
   const profileFound = useAppSelector(profileFoundSelector)
@@ -15,53 +16,53 @@ export const Sidebar = () => {
   const variantIcon = useAppSelector(sidebarVariantIconSelector)
   const { t } = useTranslate()
 
-  const handleItemClick = (variant: variantIconLink) => {
+  const handleClick = (variant: variantIconLink) => {
     dispatch(setVariantIcon(variant))
   }
 
   return (
-    <div className={s.container}>
+    <menu className={s.menu}>
       {profileFound && <BaseMenu />}
-      <div className={s.containerLinks}>
+      <ul className={s.containerLinks}>
         {profileFound && (
-          <div>
-            <div className={s.favorites}>
+          <li className={s.container} style={{ listStyleType: 'none' }}>
+            <li className={s.linkMenu}>
               <LinkMenu
-                nameLink={t.sidebar.favorites}
-                link={`${RouteNames.FAVORITES}`}
                 handleClick={() =>
-                  handleItemClick(`${RouteNames.FAVORITES}`.slice(1) as variantIconLink)
+                  handleClick(`${RouteNames.FAVORITES}`.slice(1) as variantIconLink)
                 }
+                link={RouteNames.FAVORITES}
+                nameLink={t.sidebar.favorites}
                 variantIcon={variantIcon}
               >
                 <FavoritesIcon
-                  fill={variantIcon === `${RouteNames.FAVORITES}`.slice(1) ? '#397df6' : 'current'}
                   className={s.logo}
+                  fill={variantIcon === `${RouteNames.FAVORITES}`.slice(1) ? '#397df6' : 'current'}
                 />
               </LinkMenu>
-            </div>
-            <div className={s.favorites}>
+            </li>
+            <li className={s.linkMenu}>
               <LinkMenu
-                nameLink={t.sidebar.statistics}
-                link={`${RouteNames.STATISTICS}`}
                 handleClick={() =>
-                  handleItemClick(`${RouteNames.STATISTICS}`.slice(1) as variantIconLink)
+                  handleClick(`${RouteNames.STATISTICS}`.slice(1) as variantIconLink)
                 }
+                link={RouteNames.STATISTICS}
+                nameLink={t.sidebar.statistics}
                 variantIcon={variantIcon}
               >
                 <StatisticsIcon
-                  fill={variantIcon === `${RouteNames.STATISTICS}`.slice(1) ? '#397df6' : 'current'}
                   className={s.logo}
+                  fill={variantIcon === `${RouteNames.STATISTICS}`.slice(1) ? '#397df6' : 'current'}
                 />
               </LinkMenu>
-            </div>
-          </div>
+            </li>
+          </li>
         )}
 
-        <div>
+        <li style={{ listStyleType: 'none' }}>
           <Logout />
-        </div>
-      </div>
-    </div>
+        </li>
+      </ul>
+    </menu>
   )
 }

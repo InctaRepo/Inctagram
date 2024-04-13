@@ -3,7 +3,7 @@ import nextJest from 'next/jest.js'
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: 'src/',
+  dir: '',
 })
 
 const config: Config = {
@@ -16,10 +16,12 @@ const config: Config = {
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>**/*.{js,jsx,ts,tsx}',
     '!**/node_modules/**',
     '!**/*Dynamic*.tsx',
     '!**/index.ts',
+    '!<rootDir>shared/assets/icons/*.tsx',
+    '!**/*.stories.{ts,tsx}',
   ],
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
@@ -38,11 +40,12 @@ const config: Config = {
   // },
   // moduleDirectories: ['node_modules'],
   moduleNameMapper: {
-    '^.+\\.(svg)$': '<rootDir>/../__mocks__/svg.tsx',
-    '^@/ui(.*)$': '<rootDir>/shared/ui/$1',
-    '^@/public(.*)$': '<rootDir>/../public/$1',
+    '^.+\\.(svg)$': '<rootDir>../__mocks__/svg.tsx',
+    '^@/ui(.*)$': '<rootDir>shared/ui/$1',
+    '^@/public(.*)$': '<rootDir>../public/$1',
+    '^@/__mocks__(.*)$': '<rootDir>../__mocks__/$1',
     '^@/(.*)$': '<rootDir>/$1',
-    '__mocks__/customRender': '<rootDir>/../__mocks__/customRender.tsx',
+    // '__mocks__/customRender': '<rootDir>/../__mocks__/customRender.tsx',
   },
   // testMatch: ['**/*.test.*'],
   // collectCoverageFrom: [

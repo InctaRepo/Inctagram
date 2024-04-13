@@ -1,8 +1,6 @@
 // eslint-disable-next-line @conarti/feature-sliced/public-api
 import React from 'react'
 
-import { useRouter } from 'next/router'
-
 import { getStorageId } from '@/features/auth/signIn'
 import { getAllPosts, getRunningQueriesThunk, getUsersCount } from '@/features/posts'
 import { PublicPage } from '@/features/publicPage'
@@ -11,6 +9,7 @@ import { getIsAuth } from '@/shared/hoc'
 import { useAppSelector } from '@/shared/hooks'
 import { wrapper } from '@/store'
 import { GetAuthLayout } from '@/widgets/layout/authLayout'
+import { useRouter } from 'next/router'
 
 export const getStaticProps = wrapper.getStaticProps(store => {
   return async context => {

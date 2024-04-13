@@ -1,5 +1,4 @@
 import { ReactElement } from 'react'
-
 import { ToastContainer } from 'react-toastify'
 
 import { AuthProvider } from '@/shared/hoc'
@@ -12,12 +11,12 @@ export const GetAuthLayout = (page: ReactElement) => {
         <AuthLayout>{page}</AuthLayout>
       </AuthProvider>
       <ToastContainer
-        position="bottom-left"
         autoClose={4000}
         closeOnClick
         draggable
         pauseOnFocusLoss={false}
         pauseOnHover={false}
+        position={'bottom-left'}
       />
     </>
   )

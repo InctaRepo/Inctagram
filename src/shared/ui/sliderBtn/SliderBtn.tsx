@@ -1,35 +1,35 @@
-import { SwiperArrowIcon } from '../../assets/icons/SwiperArrowIcon'
+import { SwiperArrowIcon } from '@/shared/assets/icons/SwiperArrowIcon'
 
 type Direction = 'left' | 'right'
 
 interface Props {
-  onClick?: () => void
   direction?: Direction
+  onClick?: () => void
 }
 
-export const SliderBtn = ({ onClick, direction }: Props) => {
+export const SliderBtn = ({ direction, onClick }: Props) => {
   return (
     <div
+      onClick={onClick}
       style={{
-        width: '36px',
-        height: '36px',
-        borderRadius: '2px',
-        backgroundColor: '#171717',
-        opacity: '50%',
-        textAlign: 'center',
-        verticalAlign: 'middle',
-        display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        visibility: onClick === null ? 'hidden' : 'visible',
+        backgroundColor: '#171717',
+        borderRadius: '2px',
         cursor: 'pointer',
-        position: 'absolute',
-        top: '50%',
-        right: direction === 'right' ? '15px' : undefined,
+        display: 'flex',
+        height: '36px',
+        justifyContent: 'center',
         left: direction === 'left' ? '15px' : undefined,
+        opacity: '50%',
+        position: 'absolute',
+        right: direction === 'right' ? '15px' : undefined,
+        textAlign: 'center',
+        top: '50%',
+        verticalAlign: 'middle',
+        visibility: onClick === null ? 'hidden' : 'visible',
+        width: '36px',
         zIndex: direction === 'left' ? '1' : undefined,
       }}
-      onClick={onClick}
     >
       <SwiperArrowIcon direction={direction} />
     </div>

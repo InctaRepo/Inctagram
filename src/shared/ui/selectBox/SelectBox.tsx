@@ -1,42 +1,42 @@
 import React, { ReactElement, ReactNode, useState } from 'react'
 
+import ChevronDown from '@/public/icon/chevronDownIcon.svg'
+import { Typography } from '@/ui/typography'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import * as Select from '@radix-ui/react-select'
 
-import ChevronDown from '@/public/icon/chevronDownIcon.svg'
 import s from '@/ui/selectBox/selectBox.module.scss'
-import { Typography } from '@/ui/typography'
 
 export type SelectProps = {
-  onBlur?: () => void
-  label?: string
-  value?: string
-  placeholder?: string | ReactElement
-  onValueChange?: (value: string | number) => void
-  defaultValue?: string
-  options: Option[]
-  disabled?: boolean
-  required?: boolean
-  defaultImage?: ReactElement
   children?: ReactNode
+  defaultImage?: ReactElement
+  defaultValue?: string
+  disabled?: boolean
+  label?: string
+  onBlur?: () => void
   onChange?: (e: any) => void
+  onValueChange?: (value: number | string) => void
+  options: Option[]
+  placeholder?: ReactElement | string
+  required?: boolean
+  value?: string
 }
 
 export type Option = {
   id?: number | string
-  name?: string
   image?: ReactElement
+  name?: string
   value?: string
 }
 
 export const SelectBox = ({
   defaultValue,
-  options,
-  onValueChange,
   disabled,
-  required,
   label,
   onChange,
+  onValueChange,
+  options,
+  required,
 }: SelectProps) => {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
@@ -49,19 +49,19 @@ export const SelectBox = ({
   return (
     <Select.Root
       defaultValue={value}
-      value={defaultValue}
-      onValueChange={onChangeHandler}
       disabled={disabled}
+      onValueChange={onChangeHandler}
       required={required}
+      value={defaultValue}
     >
       {label && (
-        <Typography variant={'regular14'} color="secondary" className={s.label}>
+        <Typography className={s.label} color={'secondary'} variant={'regular14'}>
           {label}
         </Typography>
       )}
       <Select.Trigger asChild className={s.selectBox} tabIndex={0}>
         <div>
-          <Typography variant={'regular16'} color="primary" className={s.value}>
+          <Typography className={s.value} color={'primary'} variant={'regular16'}>
             {value ? value : defaultValue}
           </Typography>
 
@@ -72,8 +72,8 @@ export const SelectBox = ({
       </Select.Trigger>
 
       <Select.Portal>
-        <Select.Content position={'popper'} className={s.selectContent}>
-          <ScrollArea.Root className={s.scrollAreaRoot} type="auto">
+        <Select.Content className={s.selectContent} position={'popper'}>
+          <ScrollArea.Root className={s.scrollAreaRoot} type={'auto'}>
             <Select.Viewport asChild>
               <ScrollArea.Viewport
                 className={s.scrollAreaViewport}
@@ -81,7 +81,7 @@ export const SelectBox = ({
               >
                 {options?.map(el => {
                   return (
-                    <Select.Item value={el?.value || ''} key={el.id} className={s.line}>
+                    <Select.Item className={s.line} key={el.id} value={el?.value || ''}>
                       {el.image}
                       <Select.ItemText>{el.value}</Select.ItemText>
                     </Select.Item>
@@ -89,7 +89,7 @@ export const SelectBox = ({
                 })}
               </ScrollArea.Viewport>
             </Select.Viewport>
-            <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation="vertical">
+            <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation={'vertical'}>
               <ScrollArea.Thumb className={s.scrollAreaThumb} />
             </ScrollArea.Scrollbar>
           </ScrollArea.Root>

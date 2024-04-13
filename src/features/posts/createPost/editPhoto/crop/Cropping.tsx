@@ -1,21 +1,22 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import s from '@/features/posts/createPost/editPhoto/crop/Cropping.module.scss'
 import Crop from '@/public/icon/crop.svg'
 import Img from '@/public/icon/image.svg'
 import Rectangle11 from '@/public/icon/rectangle11.svg'
-import Rectangle169 from '@/public/icon/rectangle169.svg'
 import Rectangle45 from '@/public/icon/rectangle45.svg'
+import Rectangle169 from '@/public/icon/rectangle169.svg'
 import { useTranslate } from '@/shared/hooks'
 import { Typography } from '@/ui/typography'
 
+import s from '@/features/posts/createPost/editPhoto/crop/Cropping.module.scss'
+
 type Props = {
-  setAspectRatio: (aspect: number) => void
-  className?: string
   aspectRatio: number
+  className?: string
+  setAspectRatio: (aspect: number) => void
 }
 
-export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
+export const Cropping = ({ aspectRatio, setAspectRatio }: Props) => {
   const [, setIsActive] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const cropRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -35,8 +36,8 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
 
   return (
     <div ref={cropRef}>
-      <div onClick={() => setIsOpen(current => !current)} className={s.cropBtn}>
-        <Crop alt={'crop'} width={24} height={24} className={isOpen ? s.blueActive : s.blue} />
+      <div className={s.cropBtn} onClick={() => setIsOpen(current => !current)}>
+        <Crop alt={'crop'} className={isOpen ? s.blueActive : s.blue} height={24} width={24} />
       </div>
       {isOpen && (
         <div className={s.cropOptions}>
@@ -52,10 +53,10 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               {t.profileSetting.generalInformation.original}{' '}
             </Typography>
             <Img
-              className={aspectRatio === 4 / 3 ? s.white : s.gray}
               alt={'image'}
-              width={24}
+              className={aspectRatio === 4 / 3 ? s.white : s.gray}
               height={24}
+              width={24}
             />
           </div>
           <div
@@ -70,10 +71,10 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               1:1
             </Typography>
             <Rectangle11
-              className={aspectRatio === 1 ? s.white : s.gray}
               alt={'rect11'}
-              width={18}
+              className={aspectRatio === 1 ? s.white : s.gray}
               height={18}
+              width={18}
             />
           </div>
           <div
@@ -88,10 +89,10 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               4:5{' '}
             </Typography>
             <Rectangle45
-              className={aspectRatio === 4 / 5 ? s.white : s.gray}
               alt={'rect45'}
-              width={18}
+              className={aspectRatio === 4 / 5 ? s.white : s.gray}
               height={26}
+              width={18}
             />
           </div>
           <div
@@ -106,10 +107,10 @@ export const Cropping = ({ setAspectRatio, aspectRatio }: Props) => {
               16:9{' '}
             </Typography>
             <Rectangle169
-              className={aspectRatio === 16 / 9 ? s.white : s.gray}
               alt={'rect169'}
-              width={26}
+              className={aspectRatio === 16 / 9 ? s.white : s.gray}
               height={20}
+              width={26}
             />
           </div>
         </div>

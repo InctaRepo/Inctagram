@@ -1,29 +1,29 @@
 import React from 'react'
 
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 
 import s from '@/entities/auth/authPage/ui/authPage.module.scss'
-import { Button } from '@/ui/button'
-import { Typography } from '@/ui/typography'
 
 type Props = {
-  title: string
-  text: string
-  nameButton: string
   children?: React.ReactNode
-  nameButtonTwo?: string
-  variant?: 'merger'
   linkPath?: string
+  nameButton: string
+  nameButtonTwo?: string
+  text: string
+  title: string
+  variant?: 'merger'
 }
 export const AuthPage = ({
+  children,
+  linkPath,
+  nameButton,
+  nameButtonTwo,
+  text,
   title,
   variant,
-  nameButtonTwo,
-  children,
-  text,
-  nameButton,
-  linkPath,
 }: Props) => {
   const styles = {
     button: clsx(s.button, variant && s.buttonMerger),
@@ -34,26 +34,26 @@ export const AuthPage = ({
     <div className={s.container}>
       <div className={s.text_container}>
         <div className={s.title}>
-          <Typography color="primary" variant="bold16">
+          <Typography color={'primary'} variant={'bold16'}>
             {title}
           </Typography>
         </div>
         <div className={s.text}>
-          <Typography color="primary" variant="regular14">
+          <Typography color={'primary'} variant={'regular14'}>
             {text}
           </Typography>
         </div>
         <Button
-          variant={variant ? 'outlined' : 'primary'}
-          fullWidth={true}
           className={styles.button}
+          fullWidth
           onClick={() => linkPath && router.push(linkPath)}
+          variant={variant ? 'outlined' : 'primary'}
         >
-          <Typography variant="bold14">{nameButton}</Typography>
+          <Typography variant={'bold14'}>{nameButton}</Typography>
         </Button>
         {variant && (
-          <Button variant="outlined" className={styles.button}>
-            <Typography variant="bold14">{nameButtonTwo}</Typography>
+          <Button className={styles.button} variant={'outlined'}>
+            <Typography variant={'bold14'}>{nameButtonTwo}</Typography>
           </Button>
         )}
       </div>

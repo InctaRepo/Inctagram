@@ -3,8 +3,8 @@ import type { StoryObj } from '@storybook/react'
 import { MergerAccounts } from '@/features/auth/mergerAccounts/ui/MergerAccounts'
 
 const meta = {
-  title: 'pages/MergerAccounts',
   component: MergerAccounts,
+  title: 'pages/MergerAccounts',
 }
 
 export default meta

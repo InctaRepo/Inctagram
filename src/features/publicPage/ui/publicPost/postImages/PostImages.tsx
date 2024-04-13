@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react'
-
-import Image from 'next/image'
 import Slider from 'react-slick'
+
+import { SliderSettings } from '@/entities/post/sliderSettings'
+import { Images } from '@/shared/api/baseResponse'
+import Image from 'next/image'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { SliderSettings } from '@/entities/post/sliderSettings'
+
 import s from '@/features/publicPage/ui/publicPost/postImages/postImages.module.scss'
-import { Images } from '@/shared/api/baseResponse'
 
 type Props = { images: Images[]; isDescription?: boolean }
 
@@ -17,17 +18,17 @@ export const PostImages = ({ images }: { images: string[] }): ReactElement => {
       <div className={s.imgContainer}>
         <Slider {...SliderSettings}>
           {images.map((url, index) => (
-            <div key={index} className={s.carouselDescription}>
+            <div className={s.carouselDescription} key={index}>
               <Image
-                key={index}
                 alt={'img'}
-                src={url}
-                width={234}
                 height={240}
+                key={index}
+                src={url}
                 style={{
-                  width: '100%',
                   height: 'auto',
+                  width: '100%',
                 }}
+                width={234}
               />
             </div>
           ))}

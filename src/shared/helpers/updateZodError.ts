@@ -3,7 +3,7 @@ import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
 import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
 import { SignUpFormSchema } from '@/shared/schemas/signUpSchema'
 
-type FormType = LoginFormType | SignUpFormSchema | ProfileSettingSchema | PasswordsMatchForm
+type FormType = LoginFormType | PasswordsMatchForm | ProfileSettingSchema | SignUpFormSchema
 
 export type FormFields = keyof FormType
 

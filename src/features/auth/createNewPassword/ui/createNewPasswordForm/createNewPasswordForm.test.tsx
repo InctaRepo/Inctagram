@@ -1,11 +1,10 @@
 import React from 'react'
 
+import { customRender as render } from '@/__mocks__/customRender'
 import { screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 
 import { CreateNewPasswordForm } from './CreateNewPasswordForm'
-
-import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
@@ -17,14 +16,18 @@ function setup(jsx: React.JSX.Element) {
     ...render(jsx),
   }
 }
+
 // Mocked onSubmitHandler function for testing
 const onSubmitHandler = jest.fn()
 
 describe('CreateNewPasswordForm', () => {
-  test('renders form fields and submits data', async () => {
+  it('renders form fields and submits data', async () => {
     const onSubmitHandler = jest.fn()
-    const { user, debug } = setup(<CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />)
+    const { container, debug, user } = setup(
+      <CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />
+    )
 
+    expect(container.querySelector('form')).toBeInTheDocument()
     // Fill in form fields
     await user.type(screen.getByRole('password', { name: /password/i }), '1qaz@WSX')
     await user.type(screen.getByRole('passwordConfirm', { name: /password/i }), '1qaz@WSX')
