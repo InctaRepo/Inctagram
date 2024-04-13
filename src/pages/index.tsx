@@ -15,11 +15,9 @@ export const getStaticProps = wrapper.getStaticProps(store => {
   return async context => {
     store.dispatch(getAllPosts.initiate({}, { forceRefetch: 60 }))
     store.dispatch(getAllPosts.initiate({}, { forceRefetch: true }))
-    await Promise.race(store.dispatch(getRunningQueriesThunk()))
-
     store.dispatch(getUsersCount.initiate(void { forceRefetch: 60 }))
     store.dispatch(getUsersCount.initiate(void { forceRefetch: true }))
-    await Promise.race(store.dispatch(getRunningQueriesThunk()))
+    await Promise.allSettled(store.dispatch(getRunningQueriesThunk()))
 
     return {
       props: {},
