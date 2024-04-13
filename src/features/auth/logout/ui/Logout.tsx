@@ -1,4 +1,4 @@
-import { useLogout } from '@/features/auth/logout/hooks/useLogout'
+import { useLogout } from '@/features/auth/logout/hooks'
 import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
 import { RouteNames } from '@/shared/const'
 import { Button } from '@/ui/button'

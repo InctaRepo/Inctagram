@@ -9,6 +9,7 @@ import { LoginForm } from './LoginForm'
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
 }))
+const onSubmitHandler = jest.fn()
 
 function setup(jsx: React.JSX.Element) {
   return {
@@ -34,7 +35,6 @@ describe('LoginForm', () => {
   })
 
   it('calls onSubmitHandler with form data on submit', async () => {
-    const onSubmitHandler = jest.fn()
     const { debug, user } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
 
     await user.type(screen.getByRole('email', { name: /email/i }), 'test@example.com')
@@ -45,7 +45,24 @@ describe('LoginForm', () => {
       email: 'test@example.com',
       password: '1qaz@WSX',
     })
-    //debug()
+  })
+  it('Min number of characters', async () => {
+    const { debug, user } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
+
+    await user.type(screen.getByRole('email', { name: /email/i }), 'test@example.com')
+    await user.type(screen.getByRole('password', { name: /password/i }), '123')
+    await user.click(screen.getByRole('button', { name: /sign in/i }))
+    expect(screen.getByText('Min number of characters 6')).toBeInTheDocument()
+    expect(onSubmitHandler).not.toHaveBeenCalledTimes(1)
+  })
+  it('Invalid email address', async () => {
+    const { debug, user } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
+
+    await user.type(screen.getByRole('email', { name: /email/i }), 'test')
+    await user.type(screen.getByRole('password', { name: /password/i }), '123456')
+    await user.click(screen.getByRole('button', { name: /sign in/i }))
+    expect(screen.getByText('Invalid email address')).toBeInTheDocument()
+    expect(onSubmitHandler).not.toHaveBeenCalledTimes(1)
   })
 
   it('displays error message when form submission fails', async () => {
@@ -58,5 +75,10 @@ describe('LoginForm', () => {
 
       expect(errorElements.length).toBeGreaterThan(0)
     })
+  })
+  it('snapshot LoginForm', () => {
+    const snapshot = render(<LoginForm />)
+
+    waitFor(() => expect(snapshot).toMatchSnapshot())
   })
 })

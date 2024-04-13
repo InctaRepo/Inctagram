@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { AuthPage } from '@/entities/auth/authPage'
-import { useEmailConfirmed } from '@/features/auth/emailConfirmed/hooks/useEmailConfirmed'
+import { useEmailConfirmed } from '@/features/auth/emailConfirmed/hooks'
 import ConfirmedImage from '@/public/icon/emailComfirmedIcon.svg'
 import TimeManagementImage from '@/public/icon/timeMenegmentIcon.svg'
 import { RouteNames, resultCode } from '@/shared/const'

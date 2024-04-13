@@ -4,41 +4,17 @@ import { renderHook } from '@testing-library/react'
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', query: { code: 'code' } }),
 }))
-const createNewPasswordMock = jest.fn()
-const useCreateNewPasswordMutation = jest
-  .fn(() => [
-    createNewPasswordMock,
-    {
-      data: {
-        extensions: [undefined],
-      },
-      error: null,
-      isLoading: false,
-      isSuccess: false,
+const useCreateNewPasswordMutation = jest.fn(() => [
+  jest.fn(),
+  {
+    data: {
+      extensions: [undefined],
     },
-  ])
-  .mockImplementationOnce(() => [
-    createNewPasswordMock,
-    {
-      data: {
-        extensions: [undefined],
-      },
-      error: null,
-      isLoading: false,
-      isSuccess: false,
-    },
-  ])
-  .mockImplementationOnce(() => [
-    createNewPasswordMock,
-    {
-      data: {
-        extensions: [undefined],
-      },
-      error: null,
-      isLoading: false,
-      isSuccess: true,
-    },
-  ])
+    error: null,
+    isLoading: false,
+    isSuccess: false,
+  },
+])
 
 jest.mock('@/features/auth/createNewPassword/service/CreateNewPassword', () => ({
   useCreateNewPasswordMutation: () => useCreateNewPasswordMutation(),

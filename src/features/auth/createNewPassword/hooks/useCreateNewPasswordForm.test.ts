@@ -1,22 +1,9 @@
-import React from 'react'
-
-import { customRender as render } from '@/__mocks__/customRender'
 import { useCreateNewPasswordForm } from '@/features/auth/createNewPassword/hooks'
 import { renderHook } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
 }))
-
-function setup(jsx: React.JSX.Element) {
-  return {
-    user: userEvent.setup(),
-    ...render(jsx),
-  }
-}
-
-// Mocked onSubmitHandler function for testing
 const onSubmitHandler = jest.fn(() => ({ data: { password: 'string', passwordConfirm: 'string' } }))
 
 describe('useCreateNewPasswordForm', () => {

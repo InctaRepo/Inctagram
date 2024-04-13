@@ -1,21 +1,17 @@
-import React, { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
+import React from 'react'
 
+import { useLoginForm } from '@/features/auth/signIn/hooks'
 import { authByGitHub, authByGoogle } from '@/features/auth/successGoogleGitHub'
 import GithubIcon from '@/public/icon/gitHubIcon.svg'
 import GoogleIcon from '@/public/icon/googleIcon.svg'
 import { RouteNames } from '@/shared/const'
-import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
-import { useTranslate } from '@/shared/hooks'
-import { LoginFormType, createLoginSchema } from '@/shared/schemas/createLoginSchema'
+import { LoginFormType } from '@/shared/schemas/createLoginSchema'
 import { Button } from '@/ui/button'
 import { Card } from '@/ui/card'
 import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
 import { DevTool } from '@hookform/devtools'
-import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 import s from '@/features/auth/signIn/ui/loginForm/loginForm.module.scss'
 
@@ -24,38 +20,10 @@ type Props = {
   onSubmitHandler?: (data: LoginFormType) => void
 }
 export const LoginForm = ({ errorServer, onSubmitHandler }: Props) => {
-  const { t } = useTranslate()
-  const router = useRouter()
-
-  const {
-    control,
-    formState: { errors, touchedFields },
-    handleSubmit,
-    setError,
-    trigger,
-  } = useForm<LoginFormType>({
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-    mode: 'onTouched',
-    resolver: zodResolver(createLoginSchema(t)),
+  const { control, errors, handleSubmit, router, submitData, t } = useLoginForm({
+    errorServer,
+    onSubmitHandler,
   })
-
-  useEffect(() => {
-    const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
-
-    triggerZodFieldError(touchedFieldNames, trigger)
-  }, [t, touchedFields, trigger])
-
-  useEffect(() => {
-    setError('password', { message: errorServer, type: 'custom' })
-    setError('email', { message: errorServer, type: 'custom' })
-  }, [errorServer, onSubmitHandler, setError])
-
-  const submitData = (data: LoginFormType) => {
-    onSubmitHandler?.(data)
-  }
 
   return (
     <Card className={s.card}>
