@@ -24,7 +24,7 @@ export const BaseMenu = () => {
   }
 
   return (
-    <div className={s.container}>
+    <ul className={s.container}>
       <li style={{ listStyleType: 'none' }}>
         <LinkMenu
           handleClick={() => handleClick(`${RouteNames.HOME}`.slice(1) as variantIconLink)}
@@ -80,6 +80,6 @@ export const BaseMenu = () => {
           />
         </LinkMenu>
       </li>
-    </div>
+    </ul>
   )
 }

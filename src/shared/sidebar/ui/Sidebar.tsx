@@ -21,7 +21,7 @@ export const Sidebar = () => {
   }
 
   return (
-    <menu className={s.menu}>
+    <nav className={s.nav}>
       {profileFound && <BaseMenu />}
       <ul className={s.containerLinks}>
         {profileFound && (
@@ -63,6 +63,6 @@ export const Sidebar = () => {
           <Logout />
         </li>
       </ul>
-    </menu>
+    </nav>
   )
 }

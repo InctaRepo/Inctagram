@@ -9,6 +9,8 @@ import { getIsAuth } from '@/shared/hoc'
 import { useAppSelector } from '@/shared/hooks'
 import { wrapper } from '@/store'
 import { GetAuthLayout } from '@/widgets/layout/authLayout'
+// eslint-disable-next-line @next/next/no-document-import-in-page
+import { Head } from 'next/document'
 import { useRouter } from 'next/router'
 
 export const getStaticProps = wrapper.getStaticProps(store => {
@@ -32,7 +34,15 @@ const Public = () => {
   if (isAuth && userId !== null) {
     router.push(RouteNames.PROFILE + '/' + userId)
   } else {
-    return <PublicPage />
+    return (
+      <>
+        <Head>
+          {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
+          <title>Public Page Inctagram</title>
+        </Head>
+        <PublicPage />
+      </>
+    )
   }
 }
 
