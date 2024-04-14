@@ -1,5 +1,6 @@
-import { customRender as render } from '@/__mocks__/customRender'
-import { fireEvent, screen, waitFor } from '@testing-library/react'
+import React from 'react'
+
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 
 import { Logout } from './Logout'
 
@@ -13,9 +14,15 @@ jest.mock('@/shared/hoc/model/selectors/getUserEmail/getUserEmail', () => ({
   getUserEmail: () => mockGetUserEmail(),
 }))
 
+function setup(jsx: React.JSX.Element) {
+  return {
+    user: userEvent.setup(),
+    ...render(jsx),
+  }
+}
 describe('Logout', () => {
   it('renders Logout button', async () => {
-    render(<Logout />)
+    setup(<Logout />)
 
     const logoutButton = screen.getByRole('button', { name: 'Log Out' })
 
@@ -23,29 +30,22 @@ describe('Logout', () => {
   })
 
   it('opens the confirmation modal on button click', async () => {
-    render(<Logout />)
+    const { user } = setup(<Logout />)
 
-    const logoutButton = screen.getByRole('button', { name: 'Log Out' })
-
-    fireEvent.click(logoutButton)
+    await user.click(screen.getByRole('button', { name: 'Log Out' }))
 
     const confirmationModal = screen.getByText(
       'Are you really want to log out of your account test@example.com?'
     )
 
-    expect(confirmationModal).toBeInTheDocument()
+    await waitFor(() => expect(confirmationModal).toBeInTheDocument())
   })
 
   it('calls logoutHandler when confirming logout', async () => {
-    render(<Logout />)
+    const { user } = setup(<Logout />)
 
-    const logoutButton = screen.getByRole('button', { name: 'Log Out' })
-
-    fireEvent.click(logoutButton)
-
-    const confirmButton = screen.getByText('Yes')
-
-    fireEvent.click(confirmButton)
+    await user.click(screen.getByRole('button', { name: 'Log Out' }))
+    await user.click(screen.getByText('Yes'))
 
     const confirmationModal = screen.queryByText(
       'Are you really want to log out of your account test@example.com?'
@@ -55,15 +55,10 @@ describe('Logout', () => {
   })
 
   it('closes the confirmation modal on cancel', async () => {
-    render(<Logout />)
+    const { user } = setup(<Logout />)
 
-    const logoutButton = screen.getByRole('button', { name: 'Log Out' })
-
-    fireEvent.click(logoutButton)
-
-    const cancelButton = screen.getByText('No')
-
-    fireEvent.click(cancelButton)
+    await user.click(screen.getByRole('button', { name: 'Log Out' }))
+    await user.click(screen.getByText('No'))
 
     const confirmationModal = screen.queryByText(
       'Are you really want to log out of your account test@example.com?'
@@ -72,7 +67,7 @@ describe('Logout', () => {
     expect(confirmationModal).not.toBeInTheDocument()
   })
   it('snapshot Logout', () => {
-    const snapshot = render(<Logout />)
+    const snapshot = setup(<Logout />)
 
     waitFor(() => expect(snapshot).toMatchSnapshot())
   })

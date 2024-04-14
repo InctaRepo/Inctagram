@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { customRender as render } from '@/__mocks__/customRender'
-import { fireEvent, screen, waitFor } from '@testing-library/react'
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 
 import { EmailVerification } from './EmailVerification'
 
@@ -9,6 +8,12 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', query: { code: 'code' } }),
 }))
 
+function setup(jsx: React.JSX.Element) {
+  return {
+    user: userEvent.setup(),
+    ...render(jsx),
+  }
+}
 const emailRecoveryMock = jest.fn()
 const useEmailRecoveryMutation = jest.fn().mockReturnValue([emailRecoveryMock])
 
@@ -26,16 +31,16 @@ const consoleErrorSpy = jest.spyOn(console, 'error')
 consoleErrorSpy.mockImplementation(() => {})
 describe('EmailVerification', () => {
   it('submits the email recovery form', async () => {
-    render(<EmailVerification />)
+    const { user } = setup(<EmailVerification />)
 
-    fireEvent.change(screen.getByRole('email'), { target: { value: 'test@example.com' } })
-    fireEvent.click(screen.getByRole('button', { name: 'Send Link' }))
+    await user.type(screen.getByRole('email', { name: 'Email' }), 'test@example.com')
+    await user.click(screen.getByRole('button', { name: 'Send Link' }))
     await waitFor(() => {
       expect(emailRecoveryMock).toHaveBeenCalledWith({ email: 'test@example.com' })
     })
   })
   it('snapshot EmailVerification', () => {
-    const snapshot = render(<EmailVerification />)
+    const snapshot = setup(<EmailVerification />)
 
     waitFor(() => expect(snapshot).toMatchSnapshot())
   })

@@ -1,6 +1,5 @@
-import { customRenderHook } from '@/__mocks__/customRender'
+import { act, customRenderHook } from '@/__mocks__/customRender'
 import { useLogout } from '@/features/auth/logout/hooks/useLogout'
-import { act } from '@testing-library/react'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', push: jest.fn() }),
