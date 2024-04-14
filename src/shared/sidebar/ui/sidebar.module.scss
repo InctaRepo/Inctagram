@@ -2,7 +2,7 @@
 @import 'src/styles/colors';
 @import 'src/styles/variables';
 
-.menu {
+.nav {
   @include flex-block;
 
   position: sticky;
