@@ -18,7 +18,7 @@ const config: Config = {
     '!**/node_modules/**',
     '!**/*Dynamic*.tsx',
     '!**/index.ts',
-    '!<rootDir>shared/assets/icons/*.tsx',
+    '!shared/assets/icons/*.tsx',
     '!**/*.stories.{ts,tsx}',
   ],
   coverageDirectory: '<rootDir>../coverage',
