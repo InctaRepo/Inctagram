@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { customRender as render } from '@/__mocks__/customRender'
-import { act, fireEvent, screen, waitFor } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 
 import { CreateNewPassword } from './CreateNewPassword'
@@ -92,14 +92,12 @@ describe('CreateNewPassword', () => {
         screen.getByRole('passwordConfirm', { name: 'Password confirmation' })
       ).toBeInTheDocument()
     )
-    await act(() =>
-      fireEvent.change(screen.getByRole('password'), { target: { value: passwordText } })
-    )
-    await act(() =>
-      fireEvent.change(screen.getByRole('passwordConfirm'), { target: { value: passwordText } })
-    )
-    await act(() => fireEvent.click(screen.getByRole('button', { name: 'Create new password' })))
-    render(<CreateNewPassword />)
+
+    fireEvent.change(screen.getByRole('password'), { target: { value: passwordText } })
+
+    fireEvent.change(screen.getByRole('passwordConfirm'), { target: { value: passwordText } })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Create new password' }))
     await waitFor(() => {
       expect(createNewPasswordMock).toHaveBeenCalledWith({
         newPassword: passwordText,

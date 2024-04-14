@@ -1,5 +1,5 @@
 import { customRender as render } from '@/__mocks__/customRender'
-import { act, fireEvent, screen, waitFor } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 
 import { Logout } from './Logout'
 
@@ -27,7 +27,7 @@ describe('Logout', () => {
 
     const logoutButton = screen.getByRole('button', { name: 'Log Out' })
 
-    await act(() => fireEvent.click(logoutButton))
+    fireEvent.click(logoutButton)
 
     const confirmationModal = screen.getByText(
       'Are you really want to log out of your account test@example.com?'
@@ -41,11 +41,11 @@ describe('Logout', () => {
 
     const logoutButton = screen.getByRole('button', { name: 'Log Out' })
 
-    await act(() => fireEvent.click(logoutButton))
+    fireEvent.click(logoutButton)
 
     const confirmButton = screen.getByText('Yes')
 
-    await act(() => fireEvent.click(confirmButton))
+    fireEvent.click(confirmButton)
 
     const confirmationModal = screen.queryByText(
       'Are you really want to log out of your account test@example.com?'
@@ -59,11 +59,11 @@ describe('Logout', () => {
 
     const logoutButton = screen.getByRole('button', { name: 'Log Out' })
 
-    await act(() => fireEvent.click(logoutButton))
+    fireEvent.click(logoutButton)
 
     const cancelButton = screen.getByText('No')
 
-    await act(() => fireEvent.click(cancelButton))
+    fireEvent.click(cancelButton)
 
     const confirmationModal = screen.queryByText(
       'Are you really want to log out of your account test@example.com?'
