@@ -1,10 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
 import { AuthMeSchema } from '@/shared/hoc'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 const authMeSlice = createSlice({
-  name: 'authMe',
   initialState: {} as AuthMeSchema,
+  name: 'authMe',
   reducers: {
     setAuthMeData: (state, action: PayloadAction<AuthMeSchema>) => {
       state.authMeData = action.payload.authMeData

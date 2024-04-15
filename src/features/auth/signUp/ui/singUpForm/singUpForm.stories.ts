@@ -1,16 +1,15 @@
+import { SingUpForm } from '@/features/auth/signUp/ui/singUpForm'
 import { Meta, StoryObj } from '@storybook/react'
 
-import { SingUpForm } from '@/features/auth/signUp/ui/singUpForm'
-
 const meta = {
-  title: 'Auth/RegisterForm',
-  component: SingUpForm,
-  tags: ['autodocs'],
   argTypes: {
     onSubmitHandler: {
       action: 'submit',
     },
   },
+  component: SingUpForm,
+  tags: ['autodocs'],
+  title: 'Auth/RegisterForm',
 } satisfies Meta<typeof SingUpForm>
 
 export default meta

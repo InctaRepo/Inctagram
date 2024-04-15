@@ -1,27 +1,27 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
 import FlagRussiaIcon from '@/public/icon/flagRussiaIcon.svg'
 import FlagUKIcon from '@/public/icon/flagUKIcon.svg'
 import OutlineBellIcon from '@/public/icon/outlineBellIcon.svg'
 import { RouteNames } from '@/shared/const'
-import s from '@/shared/header/ui/header.module.scss'
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
 import { Option, SelectBox } from '@/ui/selectBox'
 import { Typography } from '@/ui/typography'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+import s from '@/shared/header/ui/header.module.scss'
 
 type HeaderType = {
   variant?: 'public'
 }
 export const Header = ({ variant }: HeaderType) => {
-  const { push, pathname, query, asPath, locale } = useRouter()
+  const { asPath, locale, pathname, push, query } = useRouter()
   const { t } = useTranslate()
   const languages: Option[] = [
-    { value: 'English', image: <FlagUKIcon />, id: 'eng01' },
-    { value: 'Russian', image: <FlagRussiaIcon />, id: 'rus01' },
+    { id: 'eng01', image: <FlagUKIcon />, value: 'English' },
+    { id: 'rus01', image: <FlagRussiaIcon />, value: 'Russian' },
   ]
-  const changeLangHandler = (value: string | number) => {
+  const changeLangHandler = (value: number | string) => {
     if (typeof value == 'string') {
       const locale = value.slice(0, 2).toLowerCase()
 
@@ -30,36 +30,34 @@ export const Header = ({ variant }: HeaderType) => {
   }
 
   return (
-    <div className={s.containerMain}>
-      <div className={s.container}>
-        <div className={s.content}>
-          <Typography variant="large" className={s.text}>
-            <Link className={s.incta} href={'/'} tabIndex={1}>
-              Inсtagram
-            </Link>
-          </Typography>
-          <div className={s.options_container}>
-            <OutlineBellIcon />
-            <div className={s.select}>
-              <SelectBox
-                options={languages}
-                onValueChange={changeLangHandler}
-                defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
-              />
-            </div>
-            {variant === 'public' && (
-              <div className={s.button_container}>
-                <Button variant="link" color={'link'} onClick={() => push(RouteNames.SIGN_IN)}>
-                  {t.auth.logInHeader}
-                </Button>
-                <Button variant="primary" color={'link'} onClick={() => push(RouteNames.SIGN_UP)}>
-                  {t.auth.signUpHeader}
-                </Button>
-              </div>
-            )}
+    <header className={s.header}>
+      <div className={s.content}>
+        <Typography className={s.text} variant={'large'}>
+          <Link className={s.incta} href={'/'} tabIndex={1}>
+            Inсtagram
+          </Link>
+        </Typography>
+        <div className={s.options_container}>
+          <OutlineBellIcon />
+          <div className={s.select}>
+            <SelectBox
+              defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
+              onValueChange={changeLangHandler}
+              options={languages}
+            />
           </div>
+          {variant === 'public' && (
+            <div className={s.button_container}>
+              <Button color={'link'} onClick={() => push(RouteNames.SIGN_IN)} variant={'link'}>
+                {t.auth.logInHeader}
+              </Button>
+              <Button color={'link'} onClick={() => push(RouteNames.SIGN_UP)} variant={'primary'}>
+                {t.auth.signUpHeader}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </header>
   )
 }

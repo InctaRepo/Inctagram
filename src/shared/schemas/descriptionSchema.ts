@@ -1,6 +1,5 @@
-import { z } from 'zod'
-
 import { LocaleType } from '@/public/locales/ru'
+import { z } from 'zod'
 
 export function descriptionSchema(t: LocaleType) {
   return z.object({

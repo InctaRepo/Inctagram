@@ -18,13 +18,13 @@ describe('AlertToast', () => {
     AlertToast(false, text)
 
     expect(toast).not.toHaveBeenCalledWith(
-      <div className="toastContent">
-        <div className="toastText">{text}</div>
+      <div className={'toastContent'}>
+        <div className={'toastText'}>{text}</div>
       </div>,
       {
-        toastId: customId,
-        className: 'wrapper',
         bodyClassName: 'toast',
+        className: 'wrapper',
+        toastId: customId,
       }
     )
   })
@@ -36,16 +36,16 @@ describe('AlertToast', () => {
     AlertToast(true, text)
 
     expect(toast).toHaveBeenCalledWith(
-      <div className="toastContent">
-        <div className="toastText">
+      <div className={'toastContent'}>
+        <div className={'toastText'}>
           <b>Error! </b>
           {text}
         </div>
       </div>,
       {
-        toastId: customId,
-        className: 'wrapper error',
         bodyClassName: 'toast',
+        className: 'wrapper error',
+        toastId: customId,
       }
     )
   })

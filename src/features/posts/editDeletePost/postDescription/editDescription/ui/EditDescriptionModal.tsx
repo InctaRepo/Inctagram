@@ -1,38 +1,38 @@
 import React, { ComponentProps, useState } from 'react'
 
-import { DialogTitle } from '@radix-ui/react-dialog'
-import { Separator } from '@radix-ui/react-separator'
-
 import { PostImages } from '@/entities/post/postImages'
 import { EditModal } from '@/entities/post/showPostModal/editModal'
 import { AreYouSureDescriptionModal } from '@/entities/post/showPostModal/editModal/areYouSureDescriptionModal'
 import { UserInfo } from '@/entities/profile/service'
 import { Images } from '@/features/posts'
 import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription'
-import s from '@/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
 import { useTranslate } from '@/shared/hooks'
 import { Typography } from '@/ui/typography'
+import { DialogTitle } from '@radix-ui/react-dialog'
+import { Separator } from '@radix-ui/react-separator'
+
+import s from '@/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
 
 type Props = {
-  setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
-  isEditDescriptionModalOpen: boolean
-  description?: string
   createdAt?: Date
-  userData?: UserInfo
-  images?: Images[]
+  description?: string
   id: string | string[] | undefined
-  modalWidth?: string
+  images?: Images[]
   isDescription?: boolean
+  isEditDescriptionModalOpen: boolean
   isEditModalOpen?: boolean
+  modalWidth?: string
+  setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
+  userData?: UserInfo
 } & ComponentProps<'div'>
 
 export const EditDescriptionModal = ({
-  setIsEditDescriptionModalOpen,
-  isEditDescriptionModalOpen,
   description,
-  images,
   id,
+  images,
+  isEditDescriptionModalOpen,
+  setIsEditDescriptionModalOpen,
   setIsEditModalOpen,
 }: Props) => {
   const [openSureDescriptionModal, setOpenSureDescriptionModal] = useState<boolean>(false)
@@ -48,13 +48,13 @@ export const EditDescriptionModal = ({
   return (
     <>
       <EditModal
-        openSureDescriptionModal={openSureDescriptionModal}
-        setOpenSureDescriptionModal={setOpenSureDescriptionModal}
-        setIsEditModalOpen={setIsEditModalOpen}
-        open={isEditDescriptionModalOpen}
-        onClose={buttonClickHandler}
         isDescription={false}
+        onClose={buttonClickHandler}
+        open={isEditDescriptionModalOpen}
+        openSureDescriptionModal={openSureDescriptionModal}
         setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
+        setIsEditModalOpen={setIsEditModalOpen}
+        setOpenSureDescriptionModal={setOpenSureDescriptionModal}
       >
         <div className={s.wrapper}>
           <DialogTitle className={s.DialogTitle}>
@@ -64,25 +64,25 @@ export const EditDescriptionModal = ({
             <div className={s.closeIcon}>
               <AreYouSureDescriptionModal
                 openSureDescriptionModal={openSureDescriptionModal}
-                setOpenSureDescriptionModal={setOpenSureDescriptionModal}
                 setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
                 setIsEditModalOpen={setIsEditModalOpen}
+                setOpenSureDescriptionModal={setOpenSureDescriptionModal}
               />
             </div>
           </DialogTitle>
 
           <div className={s.wrapperContent}>
             <div className={s.image}>
-              <PostImages images={images} isDescription={true} />
+              <PostImages images={images} isDescription />
             </div>
             <PostDescription
-              value={value}
-              setValue={setValue}
               description={description}
+              isDescription
               postId={id}
               setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
               setIsEditModalOpen={setIsEditModalOpen}
-              isDescription={true}
+              setValue={setValue}
+              value={value}
             />
           </div>
         </div>

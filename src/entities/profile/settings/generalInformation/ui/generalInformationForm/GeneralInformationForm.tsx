@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react'
-
-import { DevTool } from '@hookform/devtools'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { parseISO } from 'date-fns'
 import { useForm } from 'react-hook-form'
 
 import { UserInfo } from '@/entities/profile/service'
 import { AutocompleteInput } from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/autocompleteInput'
-import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/generalInformationForm.module.scss'
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { getUsername } from '@/shared/hoc'
 import { useAppSelector, useTranslate } from '@/shared/hooks'
 import {
-  createProfileSettingSchema,
   ProfileSettingSchema,
+  createProfileSettingSchema,
 } from '@/shared/schemas/profileSettingSchema'
 import { Button } from '@/ui/button'
 import { ControlledDatePicker, ControlledTextArea, ControlledTextField } from '@/ui/controlled'
+import { DevTool } from '@hookform/devtools'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { parseISO } from 'date-fns'
+
+import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/generalInformationForm.module.scss'
 
 type Props = {
   onSubmitHandler?: (data: ProfileSettingSchema) => void
@@ -27,65 +27,65 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
   const userName = useAppSelector(getUsername)
   const {
     control,
-    handleSubmit,
     formState: { errors, touchedFields },
+    handleSubmit,
     trigger,
   } = useForm<ProfileSettingSchema>({
-    resolver: zodResolver(createProfileSettingSchema(t)),
-    mode: 'onChange',
     defaultValues: {
-      username: userData ? userData?.username : userName,
-      firstName: userData?.firstName,
-      lastName: userData?.lastName,
-      dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData?.dateOfBirth}`) : new Date(),
+      aboutMe: userData?.aboutMe || '',
+      avatar: userData?.avatar || '',
       city: userData
         ? userData?.city && userData.city + (userData?.country && ',' + userData?.country)
         : '',
-      aboutMe: userData?.aboutMe || '',
-      avatar: userData?.avatar || '',
+      dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData?.dateOfBirth}`) : new Date(),
+      firstName: userData?.firstName,
+      lastName: userData?.lastName,
+      username: userData ? userData?.username : userName,
     },
+    mode: 'onChange',
+    resolver: zodResolver(createProfileSettingSchema(t)),
   })
 
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
-  }, [t])
+  }, [t, touchedFields, trigger])
   const submitData = (data: ProfileSettingSchema) => {
     onSubmitHandler?.(data)
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit(submitData)} className={s.editForm}>
+      <form className={s.editForm} onSubmit={handleSubmit(submitData)}>
         <DevTool control={control} />
         <ControlledTextField
+          className={s.field}
           control={control}
-          name={'username'}
+          isRequired
           label={t.profileSetting.generalInformation.userName}
-          className={s.field}
-          isRequired
+          name={'username'}
         />
         <ControlledTextField
+          className={s.field}
           control={control}
-          name={'firstName'}
+          isRequired
           label={t.profileSetting.generalInformation.firstName}
-          className={s.field}
-          isRequired
+          name={'firstName'}
         />
         <ControlledTextField
-          control={control}
-          name={'lastName'}
-          label={t.profileSetting.generalInformation.lastName}
           className={s.field}
+          control={control}
           isRequired
+          label={t.profileSetting.generalInformation.lastName}
+          name={'lastName'}
         />
         <ControlledDatePicker
-          control={control}
           className={s.date}
+          control={control}
+          errorMessage={errors.dateOfBirthday?.message}
           label={t.profileSetting.generalInformation.dateOfBirthday}
           name={'dateOfBirthday'}
-          errorMessage={errors.dateOfBirthday?.message}
         />
 
         <div className={s.field}>
@@ -96,16 +96,16 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
         </div>
 
         <ControlledTextArea
-          control={control}
           className={s.textArea}
-          name={'aboutMe'}
-          fullWidth={true}
+          control={control}
+          fullWidth
           label={t.profileSetting.generalInformation.aboutMe}
+          name={'aboutMe'}
           placeholder={t.profileSetting.generalInformation.placeholderTextArea}
         />
 
         <div className={s.saveBtn}>
-          <Button type="submit" fullWidth variant="primary">
+          <Button fullWidth type={'submit'} variant={'primary'}>
             {t.profileSetting.generalInformation.saveChanges}
           </Button>
         </div>

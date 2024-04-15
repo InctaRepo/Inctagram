@@ -1,16 +1,13 @@
 import React from 'react'
 
-import { screen, waitFor } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 
 import { EmailConfirmed } from './EmailConfirmed'
 
-import { render } from '__mocks__/customRender'
-
 jest.mock('next/router', () => ({
   useRouter: () => ({
-    query: { code: 'mockCode' },
     locale: 'en',
+    query: { code: 'mockCode' },
   }),
 }))
 
@@ -78,24 +75,24 @@ jest.mock('@/features/auth/emailConfirmed/service/emailConfirmed', () => ({
 }))
 describe('EmailConfirmed', () => {
   it('renders the EmailConfirmed', async () => {
-    const { user, debug } = setup(<EmailConfirmed />)
+    setup(<EmailConfirmed />)
 
     await waitFor(() => {
       expect(screen.queryByText(/Your email has been confirmed/i)).toBeInTheDocument()
     })
   })
   it('renders the alreadyConfirmedEmail', async () => {
-    const { user, debug } = setup(<EmailConfirmed />)
+    setup(<EmailConfirmed />)
 
     expect(screen.queryByText(/Your email is already confirmed/i)).toBeInTheDocument()
   })
   it('renders the Code is incorrect', async () => {
-    const { user, debug } = setup(<EmailConfirmed />)
+    setup(<EmailConfirmed />)
 
     expect(screen.queryByText(/Code is incorrect/i)).toBeInTheDocument()
   })
   it('renders the email confirmation code is expired', async () => {
-    const { user, debug } = setup(<EmailConfirmed />)
+    setup(<EmailConfirmed />)
 
     expect(
       screen.queryByText(

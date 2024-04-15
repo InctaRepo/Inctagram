@@ -1,8 +1,5 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
 
-import { clsx } from 'clsx'
-
-import s from '@/features/posts/createPost/createNewPost.module.scss'
 import { CropModal } from '@/features/posts/createPost/cropModal'
 import CroppedImage from '@/features/posts/createPost/croppedImage/ui/CroppedImage'
 import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
@@ -15,6 +12,9 @@ import { Image } from '@/shared/types'
 import { Button } from '@/ui/button'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
+import { clsx } from 'clsx'
+
+import s from '@/features/posts/createPost/createNewPost.module.scss'
 
 export const CreateNewPost = () => {
   const { t } = useTranslate()
@@ -49,9 +49,9 @@ export const CreateNewPost = () => {
     if (e.target.files && e.target.files.length) {
       setAddedImages([
         {
-          image: URL.createObjectURL(e.target.files[0]),
-          fileName: e.target.files[0].name,
           activeFilter: 'none',
+          fileName: e.target.files[0].name,
+          image: URL.createObjectURL(e.target.files[0]),
         },
       ])
       setIsBaseModalOpen(false)
@@ -74,7 +74,9 @@ export const CreateNewPost = () => {
   }
 
   const handleOpenDraft = () => {
-    if (!draftOfImages.length) return
+    if (!draftOfImages.length) {
+      return
+    }
     setIsDraftUploaded(true)
     setIsBaseModalOpen(false)
     setIsModalOpen(true)
@@ -90,62 +92,62 @@ export const CreateNewPost = () => {
         <Modal
           className={s.baseModal}
           modalWidth={'md'}
-          open={isBaseModalOpen}
           onClose={handleCloseCreateModal}
+          open={isBaseModalOpen}
           title={t.posts.createPost.addPostPhoto}
         >
           <div className={`${s.photoContainer} ${image === null ? s.emptyPhotoContainer : ''}`}>
             <ImgOutline />
           </div>
           <div className={s.selectPhoto}>
-            <Button variant={'primary'} onClick={selectFileHandler} className={s.btnSelect}>
+            <Button className={s.btnSelect} onClick={selectFileHandler} variant={'primary'}>
               <Typography variant={'h3'}>{t.posts.createPost.selectFromComputer}</Typography>
             </Button>
-            <Button variant={'outlined'} onClick={handleOpenDraft} className={s.btnOpenDraft}>
+            <Button className={s.btnOpenDraft} onClick={handleOpenDraft} variant={'outlined'}>
               <Typography className={s.btnOpenDraftText} variant={'h3'}>
                 {t.posts.createPost.openDraft}
               </Typography>
             </Button>
             <input
-              type="file"
-              ref={inputRef}
+              accept={'image/png, image/jpeg, image/jpg'}
               onChange={handleImageUpload}
-              accept="image/png, image/jpeg, image/jpg"
+              ref={inputRef}
               style={{ display: 'none' }}
+              type={'file'}
             />
           </div>
         </Modal>
       ) : (
         <CropModal
-          image={image}
-          open={isModalOpen}
-          onClose={handleCloseCreateModal}
-          onCancel={cancelButtonClick}
-          title={t.posts.createPost.cropping}
           addedImages={imagesForUpload}
-          setAddedImages={setAddedImages}
-          setIsBaseModalOpen={setIsBaseModalOpen}
-          setImage={setImage}
-          handleSaveDraft={handleSaveDraft}
           croppedAreaPixels={croppedAreaPixels}
+          handleSaveDraft={handleSaveDraft}
+          image={image}
+          onCancel={cancelButtonClick}
+          onClose={handleCloseCreateModal}
+          open={isModalOpen}
+          setAddedImages={setAddedImages}
+          setImage={setImage}
+          setIsBaseModalOpen={setIsBaseModalOpen}
+          title={t.posts.createPost.cropping}
         >
           <CroppedImage
-            image={image}
-            setImage={setImage}
             addedImages={imagesForUpload}
-            setAddedImages={setAddedImages}
             croppedAreaPixels={croppedAreaPixels}
+            image={image}
+            setAddedImages={setAddedImages}
             setCroppedAreaPixels={setCroppedAreaPixels}
+            setImage={setImage}
           />
         </CropModal>
       )}
       <div className={s.linkMenu}>
-        <Button variant="link" onClick={handleClick} className={styles.check}>
+        <Button className={styles.check} onClick={handleClick} variant={'link'}>
           <CreateIcon
-            fill={variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'}
             className={s.logo}
+            fill={variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'}
           />
-          <Typography variant="medium14" className={s.text + styles.check}>
+          <Typography className={s.text + styles.check} variant={'medium14'}>
             {t.sidebar.createPost}
           </Typography>
         </Button>

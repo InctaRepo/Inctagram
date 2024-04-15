@@ -1,10 +1,10 @@
 export {
-  useGetProfileQuery,
   getProfile,
   getRunningQueriesThunk,
   useCreateProfileMutation,
+  useDeleteAvatarMutation,
+  useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
-  useDeleteAvatarMutation,
 } from '@/entities/profile/service/profileApi'
-export type { ProfileState, UserInfo, Avatar } from '@/entities/profile/service/profileTypes'
+export type { Avatar, ProfileState, UserInfo } from '@/entities/profile/service/profileTypes'

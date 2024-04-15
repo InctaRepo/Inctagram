@@ -1,10 +1,9 @@
 import React from 'react'
 
 import { ProfileSettingsDynamic } from '@/features/profileSettings'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
-const SettingsPage: NextPageWithLayout = () => {
+const SettingsPage = () => {
   return <ProfileSettingsDynamic />
 }
 

@@ -1,30 +1,31 @@
 import React, { useState } from 'react'
-
 import Slider from 'react-slick'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 import { SliderSettings } from '@/entities/post/sliderSettings'
-import s from '@/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
 import { CropArg, EasyCrop } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
 import { Add } from '@/features/posts/createPost/editPhoto/add/Add'
 import { Cropping } from '@/features/posts/createPost/editPhoto/crop/Cropping'
 import { Zoom } from '@/features/posts/createPost/editPhoto/zoom/Zoom'
 import { Image } from '@/shared/types'
 
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
+import s from '@/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
+
 type Props = {
-  image?: string
-  setImage: (image: string | undefined) => void
   addedImages: Image[]
-  setAddedImages: (addedImages: Image[]) => void
   croppedAreaPixels: CropArg | null
+  image?: string
+  setAddedImages: (addedImages: Image[]) => void
   setCroppedAreaPixels: (croppedAreaPixels: CropArg | null) => void
+  setImage: (image: string | undefined) => void
 }
 
 const CroppedImage = ({
   addedImages,
-  setAddedImages,
   croppedAreaPixels,
+  setAddedImages,
   setCroppedAreaPixels,
 }: Props) => {
   const [index, setIndex] = useState<number>(0)
@@ -39,26 +40,26 @@ const CroppedImage = ({
           <Slider {...SliderSettings}>
             {addedImages.map((el, idx) => {
               return (
-                <div key={idx} className={s.carousel} onClick={() => setIndex(idx)}>
+                <div className={s.carousel} key={idx} onClick={() => setIndex(idx)}>
                   <EasyCrop
+                    aspectRatio={aspectRatio}
+                    crop={crop}
+                    croppedAreaPixels={croppedAreaPixels}
                     image={el.image}
                     objectFit={'fill'}
-                    crop={crop}
-                    zoom={zoomValue}
-                    setZoom={setZoomValue}
                     setCrop={setCrop}
-                    aspectRatio={aspectRatio}
-                    croppedAreaPixels={croppedAreaPixels}
                     setCroppedAreaPixels={setCroppedAreaPixels}
+                    setZoom={setZoomValue}
+                    zoom={zoomValue}
                   />
                   <div className={s.editAndAdd}>
                     <div className={s.edit}>
                       <Cropping
+                        aspectRatio={aspectRatio}
                         className={s.expand}
                         setAspectRatio={setAspectRatio}
-                        aspectRatio={aspectRatio}
                       />
-                      <Zoom className={s.maximize} zoom={zoomValue} setZoom={setZoomValue} />
+                      <Zoom className={s.maximize} setZoom={setZoomValue} zoom={zoomValue} />
                     </div>
                     <Add addedImages={addedImages} setAddedImages={setAddedImages} />
                   </div>

@@ -19,7 +19,7 @@ const preview: Preview = {
     docs: {
       inlineStories: false,
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    // actions: { argTypesRegex: '^on.*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

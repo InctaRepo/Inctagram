@@ -1,13 +1,13 @@
 import { SignInSchema } from '@/features/auth/signIn'
-import { baseApi, BaseResponse } from '@/shared/api'
+import { BaseResponse, baseApi } from '@/shared/api'
 
 export const emailConfirmed = baseApi.injectEndpoints({
   endpoints: build => ({
     emailConfirmed: build.mutation<BaseResponse<SignInSchema>, { code: string }>({
       query: data => ({
+        body: data,
         method: 'POST',
         url: 'auth/registration-confirmation',
-        body: data,
       }),
     }),
   }),

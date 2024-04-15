@@ -5,21 +5,21 @@ import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
 
 type Props = {
+  handleSaveDraft: () => void
   openSureModal: boolean
+  setImage: (image?: string) => void
+  setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
   setIsModalOpen: (isModalOpen: boolean) => void
   setOpenSureModal: (openSureModal: boolean) => void
-  setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
-  setImage: (image?: string) => void
-  handleSaveDraft: () => void
 }
 
 export const AreYouSureCreatePostModal = ({
-  openSureModal,
-  setOpenSureModal,
-  setIsModalOpen,
-  setIsBaseModalOpen,
-  setImage,
   handleSaveDraft,
+  openSureModal,
+  setImage,
+  setIsBaseModalOpen,
+  setIsModalOpen,
+  setOpenSureModal,
 }: Props) => {
   const { t } = useTranslate()
 
@@ -42,15 +42,15 @@ export const AreYouSureCreatePostModal = ({
   return (
     <div hidden={!openSureModal}>
       <Modal
+        actionButtonName={t.posts.createPost.saveDraft}
+        cancelButtonName={t.posts.createPost.discard}
         id={'areYouSureCreatePostModal'}
         modalWidth={'sm'}
-        title={t.posts.createPost.close}
-        open={openSureModal}
-        cancelButtonName={t.posts.createPost.discard}
-        actionButtonName={t.posts.createPost.saveDraft}
-        onClose={onModalClose}
-        onCancel={discardHandler}
         onAction={onSaveDraft}
+        onCancel={discardHandler}
+        onClose={onModalClose}
+        open={openSureModal}
+        title={t.posts.createPost.close}
       >
         <Typography variant={'h3'}>{t.posts.createPost.areYouSure}</Typography>
       </Modal>

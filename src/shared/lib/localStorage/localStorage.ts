@@ -7,7 +7,9 @@ export function loadState() {
   try {
     const serializedState = localStorage.getItem(key)
 
-    if (!serializedState) return undefined
+    if (!serializedState) {
+      return undefined
+    }
 
     return JSON.parse(serializedState)
   } catch (e) {

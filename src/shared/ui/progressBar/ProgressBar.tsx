@@ -1,10 +1,10 @@
 import { PropsWithChildren, useEffect } from 'react'
 
+import { useAppSelector } from '@/shared/hooks'
+import { getIsLoading } from '@/ui/progressBar/model/selectors/getIsLoading'
 import { NextPage } from 'next'
 import NProgress from 'nprogress'
 
-import { useAppSelector } from '@/shared/hooks'
-import { getIsLoading } from '@/ui/progressBar/model/selectors/getIsLoading'
 import s from '@/ui/progressBar/progressBar.module.scss'
 
 export const ProgressBar: NextPage<PropsWithChildren> = ({ children }) => {
@@ -22,5 +22,5 @@ export const ProgressBar: NextPage<PropsWithChildren> = ({ children }) => {
     }
   }, [isLoading])
 
-  return <div className={s.wrapper}>{children}</div>
+  return <div className={s.progress}>{children}</div>
 }

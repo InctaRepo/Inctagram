@@ -1,6 +1,4 @@
-import React, { FC, memo, ReactNode, useEffect } from 'react'
-
-import { useRouter } from 'next/router'
+import React, { FC, ReactNode, memo, useEffect } from 'react'
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { clearId, getToken } from '@/features/auth/signIn'
@@ -8,13 +6,14 @@ import { RouteNames } from '@/shared/const'
 import { getUserId, setAuthMeData, useGetMeQuery } from '@/shared/hoc'
 import { useAppDispatch, useAppSelector } from '@/shared/hooks'
 import { LoaderLogo } from '@/ui/loaderLogo'
+import { useRouter } from 'next/router'
 
 interface AuthProviderProps {
   children: ReactNode
 }
 
 export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
-  const { push, asPath, pathname } = useRouter()
+  const { asPath, pathname, push } = useRouter()
   const dispatch = useAppDispatch()
   const token = useAppSelector(getToken) as string
   const userId = useAppSelector(getUserId)
@@ -24,10 +23,11 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
       dispatch(clearId())
       dispatch(setAuthMeData({ authMeData: { userId: null } }))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token])
   const publicPage = asPath.startsWith(RouteNames.PROFILE) || pathname === RouteNames.PUBLIC_PAGE
   const skipAuthMe = asPath.startsWith(RouteNames.AUTH) || asPath.endsWith('404')
-  const { isLoading, error } = useGetMeQuery(undefined, {
+  const { error, isLoading } = useGetMeQuery(undefined, {
     skip: skipAuthMe,
   })
 
@@ -38,7 +38,7 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
     if (!isAuthPage || (asPath.endsWith(RouteNames.PROFILE_SETTINGS) && !userId)) {
       router.push(RouteNames.SIGN_IN)
     }
-  }, [isAuthPage, router])
+  }, [asPath, isAuthPage, router, userId])
   if (error && !isAuthPage) {
     push(RouteNames.SIGN_IN)
 

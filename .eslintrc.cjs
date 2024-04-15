@@ -1,7 +1,7 @@
 module.exports = {
   settings: {
     'import/resolver': {
-      typescript: { 'project': '<rootdir>tsconfig.json' },
+      typescript: { 'project': 'tsconfig.json' },
     },// this loads <rootdir>/tsconfig.json to eslint
   },
 
@@ -9,6 +9,7 @@ module.exports = {
     ['@it-incubator/eslint-config',
       'plugin:@next/next/recommended',
       'plugin:storybook/recommended',
+      'plugin:jest/recommended',
     ],
 
   rules:
@@ -25,7 +26,16 @@ module.exports = {
       'testing-library/no-await-sync-queries': 'error',
       'testing-library/no-debugging-utils': 'warn',
       'testing-library/no-dom-import': 'off',
+      'jest/no-mocks-import': 'off',
+      'jest/no-disabled-tests': 'warn',
+      'jest/no-focused-tests': 'error',
+      'jest/no-identical-title': 'error',
+      'jest/prefer-to-have-length': 'warn',
+      'jest/valid-expect': 'error',
     }
   ,
-  plugins: ['@conarti/feature-sliced', 'testing-library'],
+  plugins: ['@conarti/feature-sliced', 'testing-library', 'jest'],
+  env: {
+    'jest/globals': true,
+  },
 }

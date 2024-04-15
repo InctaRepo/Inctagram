@@ -3,10 +3,10 @@ import type { StoryObj } from '@storybook/react'
 import { InputTypeFile } from '@/ui/inputTypeFile'
 
 const meta = {
-  title: 'Components/InputTypeFile',
+  argTypes: {},
   component: InputTypeFile,
   tags: ['autodocs'],
-  argTypes: {},
+  title: 'Components/InputTypeFile',
 }
 
 export default meta

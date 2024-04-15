@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Recaptcha } from '@/ui/recaptcha/Recaptcha'
 
 const meta: Meta<typeof Recaptcha> = {
-  title: 'Components/Recaptcha',
   component: Recaptcha,
   tags: ['autodocs'],
+  title: 'Components/Recaptcha',
 }
 
 export default meta
@@ -19,8 +19,8 @@ export const Primary: Story = {
 
 export const Error: Story = {
   args: {
-    primary: false,
     error: 'error',
+    primary: false,
   },
 }
 

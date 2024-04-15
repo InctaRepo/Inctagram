@@ -1,18 +1,18 @@
-import { useState } from 'react'
-
 import type { StoryObj } from '@storybook/react'
+
+import { useState } from 'react'
 
 import { Checkbox } from '@/ui/checkbox'
 
 const meta = {
-  title: 'Components/Checkbox',
-  component: Checkbox,
   argTypes: {
     checked: {
-      options: [true, false],
       control: { type: 'boolean' },
+      options: [true, false],
     },
   },
+  component: Checkbox,
+  title: 'Components/Checkbox',
 }
 
 export default meta
@@ -26,9 +26,9 @@ export const Default: Story = {
       <>
         <Checkbox
           {...args}
-          label={'Check-box'}
-          disabled={false}
           checked={checked}
+          disabled={false}
+          label={'Check-box'}
           onChange={() => setChecked(!checked)}
         />
       </>
@@ -36,15 +36,15 @@ export const Default: Story = {
   },
 }
 export const Checked: Story = {
-  args: { disabled: false, checked: true, label: 'Check-box' },
+  args: { checked: true, disabled: false, label: 'Check-box' },
 }
 export const NotChecked: Story = {
-  args: { disabled: false, checked: false, label: 'Check-box' },
+  args: { checked: false, disabled: false, label: 'Check-box' },
 }
 export const DisabledAndChecked: Story = {
-  args: { disabled: true, checked: true, label: 'Check-box' },
+  args: { checked: true, disabled: true, label: 'Check-box' },
 }
 
 export const DisabledAndNotChecked: Story = {
-  args: { disabled: true, checked: false, label: 'Check-box' },
+  args: { checked: false, disabled: true, label: 'Check-box' },
 }

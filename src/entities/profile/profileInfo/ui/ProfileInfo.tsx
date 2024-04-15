@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-import ImageAva from 'next/image'
-
 import { DataProfile } from '@/entities/profile/profileInfo/dataProfile'
-import s from '@/entities/profile/profileInfo/ui/profileInfo.module.scss'
 import { UserInfo } from '@/entities/profile/service'
 import AvatarImage from '@/public/icon/avatarIcon.svg'
 import DefaultAva from '@/public/images/avatarIcon.jpg'
+import ImageAva from 'next/image'
+
+import s from '@/entities/profile/profileInfo/ui/profileInfo.module.scss'
 
 type Props = {
   userData?: UserInfo
@@ -22,12 +22,12 @@ export const ProfileInfo = ({ userData }: Props) => {
       {!userData?.avatar && <AvatarImage className={s.ava} />}
       {userData?.avatar && (
         <ImageAva
-          width={204}
-          height={204}
-          src={isAvaBroken ? DefaultAva : userData?.avatar}
-          className={s.avatar}
           alt={'avatar'}
+          className={s.avatar}
+          height={204}
           onError={errorHandler}
+          src={isAvaBroken ? DefaultAva : userData?.avatar}
+          width={204}
         />
       )}
       <div className={s.dataProfile}>

@@ -6,16 +6,16 @@ import clsx from 'clsx'
 import s from '@/ui/tabsComponent/tabsComponent.module.scss'
 
 type TabProps = {
+  children?: ReactNode
   label: string
   value: string
-  children?: ReactNode
 }
 
 type Props = {
-  tabs: TabProps[]
   defaultValue?: string
-  onChange?: (value: string) => void
   disabled?: boolean
+  onChange?: (value: string) => void
+  tabs: TabProps[]
 }
 
 export const TabsComponent = ({ defaultValue, disabled, onChange, tabs }: Props) => {
@@ -42,10 +42,10 @@ export const TabsComponent = ({ defaultValue, disabled, onChange, tabs }: Props)
       <Tabs.List className={classNames.list}>
         {tabs?.map((el, index) => (
           <Tabs.Trigger
-            key={index}
-            disabled={disabled}
-            value={el.value}
             className={classNames.trigger}
+            disabled={disabled}
+            key={index}
+            value={el.value}
           >
             {el.label}
           </Tabs.Trigger>

@@ -1,7 +1,6 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
 import { PostImages } from '@/entities/post/postImages/ui/PostImages'
-import s from '@/entities/post/postMenu/postMenu.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { UserInfo } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -17,28 +16,30 @@ import { Typography } from '@/ui/typography'
 import Dots from 'public/icon/dots.svg'
 import Edit from 'public/icon/edit.svg'
 
+import s from '@/entities/post/postMenu/postMenu.module.scss'
+
 type Props = {
-  openSureDescriptionModal: boolean
-  setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
+  createdAt?: Date
+  description?: string
+  id: string
+  images?: Images[]
   isEditDescriptionModalOpen: boolean
   isEditModalOpen?: boolean
+  openSureDescriptionModal: boolean
+  setIsEditDescriptionModalOpen: (isEditDescriptionModalOpen: boolean) => void
   setIsEditModalOpen: (isEditModalOpen: boolean) => void
-  images?: Images[]
-  id: string
-  description?: string
-  createdAt?: Date
   userData?: UserInfo
 }
 
 export const PostMenu = ({
-  setIsEditDescriptionModalOpen,
+  createdAt,
+  description,
+  id,
+  images,
   isEditDescriptionModalOpen,
   isEditModalOpen,
+  setIsEditDescriptionModalOpen,
   setIsEditModalOpen,
-  images,
-  id,
-  description,
-  createdAt,
   userData,
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -64,20 +65,20 @@ export const PostMenu = ({
 
   return (
     <div ref={editRef}>
-      <div onClick={() => setIsOpen(!isOpen)} className={s.editBtn}>
-        <Dots alt={'dots'} width={24} height={24} className={isOpen ? s.blueDots : s.blue} />
+      <div className={s.editBtn} onClick={() => setIsOpen(!isOpen)}>
+        <Dots alt={'dots'} className={isOpen ? s.blueDots : s.blue} height={24} width={24} />
       </div>
       {isOpen && (
         <div className={s.editOptions}>
           <div className={s.editOption1} onClick={editModalHandler}>
-            <Edit alt={'edit'} width={24} height={24} />
+            <Edit alt={'edit'} height={24} width={24} />
             <Typography variant={'regular14'}>{t.posts.editPost.edit}</Typography>
           </div>
           <div>
             <PostDeleteModal
               id={id}
-              setIsEditModalOpen={setIsEditModalOpen}
               openDeleteModal={openDeleteModal}
+              setIsEditModalOpen={setIsEditModalOpen}
               setOpenDeleteModal={setOpenDeleteModal}
             />
           </div>
@@ -86,15 +87,15 @@ export const PostMenu = ({
       {isEditDescriptionModalOpen && (
         <div className={s.editOptions}>
           <EditDescriptionModal
-            setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
-            isEditDescriptionModalOpen={isEditDescriptionModalOpen}
-            images={images}
-            id={id}
-            description={description}
             createdAt={createdAt}
-            userData={userData}
+            description={description}
+            id={id}
+            images={images}
+            isEditDescriptionModalOpen={isEditDescriptionModalOpen}
             isEditModalOpen={isEditModalOpen}
+            setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
             setIsEditModalOpen={setIsEditModalOpen}
+            userData={userData}
           >
             <div className={s.wrapper}>
               <PostImages images={images} />

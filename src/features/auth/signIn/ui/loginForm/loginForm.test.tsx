@@ -1,15 +1,13 @@
 import React from 'react'
 
-import { screen, waitFor } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 
 import { LoginForm } from './LoginForm'
-
-import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
 }))
+const onSubmitHandler = jest.fn()
 
 function setup(jsx: React.JSX.Element) {
   return {
@@ -20,7 +18,7 @@ function setup(jsx: React.JSX.Element) {
 
 describe('LoginForm', () => {
   it('renders LoginForm component', async () => {
-    render(<LoginForm />)
+    setup(<LoginForm />)
 
     expect(screen.getByLabelText('Email')).toBeInTheDocument()
     expect(screen.getByRole('email', { name: /email/i })).toBeInTheDocument()
@@ -35,8 +33,7 @@ describe('LoginForm', () => {
   })
 
   it('calls onSubmitHandler with form data on submit', async () => {
-    const onSubmitHandler = jest.fn()
-    const { user, debug } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
+    const { debug, user } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
 
     await user.type(screen.getByRole('email', { name: /email/i }), 'test@example.com')
     await user.type(screen.getByRole('password', { name: /password/i }), '1qaz@WSX')
@@ -46,11 +43,28 @@ describe('LoginForm', () => {
       email: 'test@example.com',
       password: '1qaz@WSX',
     })
-    //debug()
+  })
+  it('Min number of characters', async () => {
+    const { debug, user } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
+
+    await user.type(screen.getByRole('email', { name: /email/i }), 'test@example.com')
+    await user.type(screen.getByRole('password', { name: /password/i }), '123')
+    await user.click(screen.getByRole('button', { name: /sign in/i }))
+    expect(screen.getByText('Min number of characters 6')).toBeInTheDocument()
+    expect(onSubmitHandler).not.toHaveBeenCalledTimes(1)
+  })
+  it('Invalid email address', async () => {
+    const { debug, user } = setup(<LoginForm onSubmitHandler={onSubmitHandler} />)
+
+    await user.type(screen.getByRole('email', { name: /email/i }), 'test')
+    await user.type(screen.getByRole('password', { name: /password/i }), '123456')
+    await user.click(screen.getByRole('button', { name: /sign in/i }))
+    expect(screen.getByText('Invalid email address')).toBeInTheDocument()
+    expect(onSubmitHandler).not.toHaveBeenCalledTimes(1)
   })
 
   it('displays error message when form submission fails', async () => {
-    render(<LoginForm errorServer="Invalid email or password" />)
+    render(<LoginForm errorServer={'Invalid email or password'} />)
 
     await waitFor(() => {
       const errorElements = screen.queryAllByText(/Invalid email or password/i, {
@@ -59,5 +73,10 @@ describe('LoginForm', () => {
 
       expect(errorElements.length).toBeGreaterThan(0)
     })
+  })
+  it('snapshot LoginForm', () => {
+    const snapshot = render(<LoginForm />)
+
+    waitFor(() => expect(snapshot).toMatchSnapshot())
   })
 })

@@ -1,10 +1,10 @@
 export type variantIconLink =
-  | 'home'
   | 'create-post'
-  | 'profile'
-  | 'message'
   | 'favorites'
-  | 'search'
+  | 'home'
   | 'logout'
+  | 'message'
+  | 'profile'
+  | 'search'
   | 'statistics'
   | null

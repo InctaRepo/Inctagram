@@ -1,11 +1,9 @@
-import { useRouter } from 'next/dist/client/router'
-
 import { getProfile, getRunningQueriesThunk } from '@/entities/profile/service'
 import { getUserPosts } from '@/features/posts'
 import { Profile } from '@/features/profile'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { wrapper } from '@/store'
 import { GetAuthLayout } from '@/widgets/layout/authLayout'
+import { useRouter } from 'next/router'
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async context => {
   const id = context.query?.id as string
@@ -19,7 +17,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
   }
 })
 
-const MyProfilePage: NextPageWithLayout = () => {
+const MyProfilePage = () => {
   const router = useRouter()
   const id = router.query.id as string
 
