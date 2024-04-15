@@ -1,12 +1,10 @@
 import React from 'react'
 
-import { customRender as render } from '@/__mocks__/customRender'
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 import { AuthPage } from '@/entities/auth/authPage'
-import { screen, waitFor } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
 import clsx from 'clsx'
 
-const routerMock = { locale: 'en', push: '/dashboard' }
+const routerMock = { locale: 'en', push: jest.fn(() => '/dashboard') }
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn(() => routerMock),
@@ -20,10 +18,6 @@ function setup(jsx: React.JSX.Element) {
 }
 
 describe('AuthPage', () => {
-  beforeEach(() => {
-    jest.resetAllMocks()
-  })
-
   it('should render the component with the correct props', async () => {
     const linkPathMock = '/dashboard'
     const nameButtonMock = 'Login'
@@ -54,14 +48,14 @@ describe('AuthPage', () => {
     expect(buttonTwo).toHaveClass('button')
   })
 
-  it('should render the component without the second button when variant prop is not provided', async () => {
+  it('should render the component without the second button when variant prop is not provided', () => {
     const linkPathMock = '/dashboard'
     const nameButtonMock = 'Login'
     const nameButtonTwoMock = 'Register'
     const textMock = 'Welcome to the authentication page!'
     const titleMock = 'Authentication'
     const variantMock = undefined
-    const { debug, user } = setup(
+    const { user } = setup(
       <AuthPage
         linkPath={linkPathMock}
         nameButton={nameButtonMock}
@@ -83,5 +77,45 @@ describe('AuthPage', () => {
 
     user.click(screen.getByRole('button', { name: 'Login' }))
     waitFor(() => expect(routerMock.push).toHaveBeenCalledWith(linkPathMock))
+  })
+  it('snapshot AuthPage with merger', () => {
+    const linkPathMock = '/dashboard'
+    const nameButtonMock = 'Login'
+    const nameButtonTwoMock = 'Register'
+    const textMock = 'Welcome to the authentication page!'
+    const titleMock = 'Authentication'
+    const variantMock = 'merger'
+    const snapshot = setup(
+      <AuthPage
+        linkPath={linkPathMock}
+        nameButton={nameButtonMock}
+        nameButtonTwo={nameButtonTwoMock}
+        text={textMock}
+        title={titleMock}
+        variant={variantMock}
+      />
+    )
+
+    waitFor(() => expect(snapshot).toMatchSnapshot())
+  })
+  it('snapshot AuthPage with undefined', () => {
+    const linkPathMock = '/dashboard'
+    const nameButtonMock = 'Login'
+    const nameButtonTwoMock = 'Register'
+    const textMock = 'Welcome to the authentication page!'
+    const titleMock = 'Authentication'
+    const variantMock = undefined
+    const snapshot = setup(
+      <AuthPage
+        linkPath={linkPathMock}
+        nameButton={nameButtonMock}
+        nameButtonTwo={nameButtonTwoMock}
+        text={textMock}
+        title={titleMock}
+        variant={variantMock}
+      />
+    )
+
+    waitFor(() => expect(snapshot).toMatchSnapshot())
   })
 })

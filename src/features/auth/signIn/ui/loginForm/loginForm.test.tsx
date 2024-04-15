@@ -1,8 +1,6 @@
 import React from 'react'
 
-import { customRender as render } from '@/__mocks__/customRender'
-import { screen, waitFor } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 
 import { LoginForm } from './LoginForm'
 
@@ -20,7 +18,7 @@ function setup(jsx: React.JSX.Element) {
 
 describe('LoginForm', () => {
   it('renders LoginForm component', async () => {
-    render(<LoginForm />)
+    setup(<LoginForm />)
 
     expect(screen.getByLabelText('Email')).toBeInTheDocument()
     expect(screen.getByRole('email', { name: /email/i })).toBeInTheDocument()

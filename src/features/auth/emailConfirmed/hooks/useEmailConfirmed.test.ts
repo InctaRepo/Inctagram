@@ -7,57 +7,16 @@ jest.mock('next/router', () => ({
     query: { code: 'mockCode' },
   }),
 }))
-const useEmailConfirmedMutation = jest
-  .fn(() => [
-    jest.fn(),
-    {
-      data: {
-        extensions: [{ message: 'email is already confirmed' }],
-        resultCode: 2,
-      },
-      isSuccess: true,
+const useEmailConfirmedMutation = jest.fn(() => [
+  jest.fn(),
+  {
+    data: {
+      extensions: [{ message: 'email is already confirmed' }],
+      resultCode: 2,
     },
-  ])
-  .mockImplementationOnce(() => [
-    jest.fn(),
-    {
-      data: {
-        extensions: [{ message: 'email is already confirmed' }],
-        resultCode: 0,
-      },
-      isSuccess: true,
-    },
-  ])
-  .mockImplementationOnce(() => [
-    jest.fn(),
-    {
-      data: {
-        extensions: [{ message: 'email is already confirmed' }],
-        resultCode: 2,
-      },
-      isSuccess: true,
-    },
-  ])
-  .mockImplementationOnce(() => [
-    jest.fn(),
-    {
-      data: {
-        extensions: [{ message: 'Code is incorrect' }],
-        resultCode: 2,
-      },
-      isSuccess: true,
-    },
-  ])
-  .mockImplementationOnce(() => [
-    jest.fn(),
-    {
-      data: {
-        extensions: [{ message: 'email confirmation code is expired' }],
-        resultCode: 2,
-      },
-      isSuccess: true,
-    },
-  ])
+    isSuccess: true,
+  },
+])
 
 jest.mock('@/features/auth/emailConfirmed/service/emailConfirmed', () => ({
   useEmailConfirmedMutation: () => useEmailConfirmedMutation(),

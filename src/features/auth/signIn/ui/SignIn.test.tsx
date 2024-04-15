@@ -1,9 +1,7 @@
 import React from 'react'
 
-import { customRender as render } from '@/__mocks__/customRender'
+import { render, screen, userEvent } from '@/__mocks__/customRender'
 import { LoginForm } from '@/features/auth/signIn/ui/loginForm'
-import { screen } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
@@ -21,11 +19,11 @@ const onSubmitHandler = jest.fn()
 
 describe('LoginForm', () => {
   test('should call submit function with correct data on form submission', async () => {
-    setup(<LoginForm errorServer={''} onSubmitHandler={onSubmitHandler} />)
+    const { user } = setup(<LoginForm errorServer={''} onSubmitHandler={onSubmitHandler} />)
 
-    await userEvent.type(screen.getByLabelText('Email'), 'test@example.com')
-    await userEvent.type(screen.getByLabelText('Password'), 'password')
-    await userEvent.click(screen.getByRole('button', { name: 'Sign In' }))
+    await user.type(screen.getByLabelText('Email'), 'test@example.com')
+    await user.type(screen.getByLabelText('Password'), 'password')
+    await user.click(screen.getByRole('button', { name: 'Sign In' }))
 
     expect(onSubmitHandler).toHaveBeenCalledWith({
       email: 'test@example.com',

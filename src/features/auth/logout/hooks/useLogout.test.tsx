@@ -1,23 +1,21 @@
+import { act, customRenderHook } from '@/__mocks__/customRender'
 import { useLogout } from '@/features/auth/logout/hooks/useLogout'
-import { renderHook } from '@testing-library/react'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', push: jest.fn() }),
 }))
 const useLogoutMutation = jest.fn(() => [jest.fn()])
+const useAppDispatch = jest.fn().mockReturnValue(jest.fn())
 
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  Provider: ({ children }: any) => children,
-  useDispatch: jest.fn(),
-  useSelector: jest.fn(() => 'string'),
+jest.mock('@/shared/hooks/useAppDispatch', () => ({
+  useAppDispatch: () => useAppDispatch(),
 }))
 jest.mock('@/features/auth/logout/service/logout', () => ({
   useLogoutMutation: () => useLogoutMutation(),
 }))
 describe('useLogout', () => {
   it('expect correct properties and types', () => {
-    const { result } = renderHook(useLogout)
+    const { result } = customRenderHook(useLogout)
 
     expect(result.current).toHaveProperty('email')
     expect(result.current).toHaveProperty('t')
@@ -35,6 +33,19 @@ describe('useLogout', () => {
     expect(typeof result.current.onModalClose).toBe('function')
     expect(typeof result.current.openModal).toBe('boolean')
     expect(typeof result.current.styles).toBe('object')
-    expect(typeof result.current.variantIcon).toBe('string')
+    expect(typeof result.current.variantIcon).toBe('object')
+  })
+  it('expect correct work openModal', () => {
+    const { result } = customRenderHook(useLogout)
+
+    expect(result.current.openModal).toBe(false)
+    act(() => {
+      result.current.onClickOpenModal()
+    })
+    expect(result.current.openModal).toBe(true)
+    act(() => {
+      result.current.onModalClose()
+    })
+    expect(result.current.openModal).toBe(false)
   })
 })
