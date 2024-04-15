@@ -2,14 +2,15 @@ import React, { ChangeEvent, useRef } from 'react'
 
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
-import s from '@/ui/inputTypeFile/inputTypeFile.module.scss'
 import { Typography } from '@/ui/typography'
 
+import s from '@/ui/inputTypeFile/inputTypeFile.module.scss'
+
 type InputTypeFileProps = {
-  setSelectedImage: (image: File) => void
   setErrorMessage?: (errorMessage: string) => void
+  setSelectedImage: (image: File) => void
 }
-export const InputTypeFile = ({ setSelectedImage, setErrorMessage }: InputTypeFileProps) => {
+export const InputTypeFile = ({ setErrorMessage, setSelectedImage }: InputTypeFileProps) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const selectFileHandler = () => {
@@ -46,17 +47,17 @@ export const InputTypeFile = ({ setSelectedImage, setErrorMessage }: InputTypeFi
 
   return (
     <div>
-      <Button variant={'primary'} onClick={selectFileHandler} className={s.btn}>
+      <Button className={s.btn} onClick={selectFileHandler} variant={'primary'}>
         <Typography variant={'h3'}>
           {t.profileSetting.generalInformation.selectFromComputer}
         </Typography>
       </Button>
       <input
-        style={{ display: 'none' }}
-        ref={inputRef}
-        type="file"
+        accept={'image/png, image/jpeg, image/jpg'}
         onChange={uploadHandler}
-        accept="image/png, image/jpeg, image/jpg"
+        ref={inputRef}
+        style={{ display: 'none' }}
+        type={'file'}
       />
     </div>
   )

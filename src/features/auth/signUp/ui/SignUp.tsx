@@ -5,25 +5,27 @@ import { SingUpForm } from '@/features/auth/signUp/ui/singUpForm'
 import { resultCode } from '@/shared/const'
 import { useErrorToast, useTranslate } from '@/shared/hooks'
 import { SignUpFormSchema } from '@/shared/schemas/signUpSchema'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { Loader } from '@/ui/loader'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
 
-export const SignUp: NextPageWithLayout = () => {
+export const SignUp = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-  const [userRegistration, { isLoading, isSuccess, data }] = useSignUpMutation()
+  const [userRegistration, { data, isLoading, isSuccess }] = useSignUpMutation()
   const successRes = isSuccess && data?.resultCode === resultCode.OK
   const errorRes = isSuccess && data?.resultCode !== resultCode.OK
   const error = data?.extensions && data.extensions.length > 0 && data.extensions[0].message
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setToastHandler = () => {
     if (successRes) {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useErrorToast(isSuccess, false)
     }
     if (errorRes) {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useErrorToast(false, error ? error : 'Some error')
     }
   }
@@ -35,6 +37,7 @@ export const SignUp: NextPageWithLayout = () => {
         setEmailSentModal(true)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, data])
 
   const submit = (data: SignUpFormSchema) => {
@@ -48,18 +51,20 @@ export const SignUp: NextPageWithLayout = () => {
     setEmailSentModal(false)
   }
 
-  if (isLoading) return <Loader />
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <div>
       <SingUpForm onSubmitHandler={submit} />
       <Modal
-        modalWidth={'sm'}
-        title={t.auth.emailSent}
-        open={emailSentModal}
         actionButtonName={t.auth.ok}
-        onClose={onModalClose}
+        modalWidth={'sm'}
         onAction={onSaveModalAction}
+        onClose={onModalClose}
+        open={emailSentModal}
+        title={t.auth.emailSent}
       >
         <Typography variant={'regular16'}>
           {t.auth.emailConfirm(data?.data?.email ? data?.data?.email : '...')}

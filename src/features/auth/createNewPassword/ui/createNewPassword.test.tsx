@@ -1,11 +1,8 @@
 import React from 'react'
 
-import { act, fireEvent, screen, waitFor } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 
 import { CreateNewPassword } from './CreateNewPassword'
-
-import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en', query: { code: 'code' } }),
@@ -18,28 +15,57 @@ function setup(jsx: React.JSX.Element) {
   }
 }
 
-let createNewPasswordMock = jest.fn()
-
-jest.mock('@/features/auth/createNewPassword/service/CreateNewPassword', () => ({
-  useCreateNewPasswordMutation: () => [
+const createNewPasswordMock = jest.fn()
+const useCreateNewPasswordMutation = jest
+  .fn(() => [
     createNewPasswordMock,
     {
-      isSuccess: false,
-      isLoading: false,
-      error: null,
       data: {
         extensions: [undefined],
       },
+      error: null,
+      isLoading: false,
+      isSuccess: false,
     },
-  ],
+  ])
+  .mockImplementationOnce(() => [
+    createNewPasswordMock,
+    {
+      data: {
+        extensions: [undefined],
+      },
+      error: null,
+      isLoading: false,
+      isSuccess: false,
+    },
+  ])
+  .mockImplementationOnce(() => [
+    createNewPasswordMock,
+    {
+      data: {
+        extensions: [undefined],
+      },
+      error: null,
+      isLoading: false,
+      isSuccess: true,
+    },
+  ])
+
+jest.mock('@/features/auth/createNewPassword/service/CreateNewPassword', () => ({
+  useCreateNewPasswordMutation: () => useCreateNewPasswordMutation(),
 }))
 
 const passwordText = '1qaz@WSX'
 
 describe('CreateNewPassword', () => {
-  it('submits the form with valid data 2 variant', async () => {
-    const { user, debug } = setup(<CreateNewPassword />)
+  it('submits the form with valid data for user-event', async () => {
+    const { user } = setup(<CreateNewPassword />)
 
+    expect(screen.getByRole('password', { name: 'New password' })).toBeInTheDocument()
+
+    expect(
+      screen.getByRole('passwordConfirm', { name: 'Password confirmation' })
+    ).toBeInTheDocument()
     await user.type(screen.getByRole('password', { name: 'New password' }), passwordText)
     await user.type(
       screen.getByRole('passwordConfirm', { name: 'Password confirmation' }),
@@ -53,33 +79,15 @@ describe('CreateNewPassword', () => {
       })
     })
   })
-  it('submits the form with valid data 1 variant', async () => {
-    render(<CreateNewPassword />)
-    await waitFor(() =>
-      expect(screen.getByRole('password', { name: 'New password' })).toBeInTheDocument()
-    )
-    await waitFor(() =>
-      expect(
-        screen.getByRole('passwordConfirm', { name: 'Password confirmation' })
-      ).toBeInTheDocument()
-    )
-    await act(() =>
-      fireEvent.change(screen.getByRole('password'), { target: { value: passwordText } })
-    )
-    await act(() =>
-      fireEvent.change(screen.getByRole('passwordConfirm'), { target: { value: passwordText } })
-    )
-    await act(() => fireEvent.click(screen.getByRole('button', { name: 'Create new password' })))
-    render(<CreateNewPassword />)
+  it('submits the form with valid data "Your password was successfully changed"', async () => {
+    setup(<CreateNewPassword />)
     await waitFor(() => {
-      expect(createNewPasswordMock).toHaveBeenCalledWith({
-        newPassword: passwordText,
-        recoveryCode: 'code',
-      })
+      expect(screen.getByText('Your password was successfully changed')).toBeInTheDocument()
     })
+  })
+  it('snapshot CreateNewPassword', () => {
+    const snapshot = setup(<CreateNewPassword />)
 
-    // await waitFor(() => {
-    //   expect(screen.getByText('Your password was successfully changed')).toBeInTheDocument()
-    // })
+    waitFor(() => expect(snapshot).toMatchSnapshot())
   })
 })

@@ -1,26 +1,26 @@
 import React, { ReactNode } from 'react'
 
+import { CheckIcon } from '@/shared/assets/icons/CheckIcon'
+import { Typography } from '@/ui/typography'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import clsx from 'clsx'
 
-import { CheckIcon } from '@/shared/assets/icons/CheckIcon'
 import s from '@/shared/ui/checkbox/checkbox.module.scss'
-import { Typography } from '@/ui/typography'
 
 export type CheckboxProps = {
-  error?: string
   checked: boolean
-  onChange?: (checked: boolean) => void
   disabled?: boolean
-  label?: string | ReactNode
+  error?: string
+  label?: ReactNode | string
+  onChange?: (checked: boolean) => void
 }
 
-export const Checkbox = ({ error, checked, onChange, disabled, label }: CheckboxProps) => {
+export const Checkbox = ({ checked, disabled, error, label, onChange }: CheckboxProps) => {
   const classNames = {
-    container: s.container,
     buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
     checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
+    container: s.container,
     indicator: clsx(s.indicator, disabled && s.disabled),
     label: clsx(s.label, disabled && s.disabled),
   }
@@ -30,10 +30,10 @@ export const Checkbox = ({ error, checked, onChange, disabled, label }: Checkbox
       <LabelRadix.Root className={classNames.label}>
         <div className={classNames.buttonWrapper}>
           <CheckboxRadix.Root
-            className={classNames.checkbox}
             checked={checked!}
-            onCheckedChange={onChange!}
+            className={classNames.checkbox}
             disabled={disabled}
+            onCheckedChange={onChange!}
           >
             {checked && (
               <CheckboxRadix.Indicator className={classNames.indicator}>
@@ -45,7 +45,7 @@ export const Checkbox = ({ error, checked, onChange, disabled, label }: Checkbox
         {label}
       </LabelRadix.Root>
       {error && (
-        <Typography variant={'regular14'} className={s.error} color={'error'}>
+        <Typography className={s.error} color={'error'} variant={'regular14'}>
           {error}
         </Typography>
       )}

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
-
-import { zodResolver } from '@hookform/resolvers/zod'
-import ImageAva from 'next/image'
 import { useForm } from 'react-hook-form'
 
 import { useGetProfileQuery } from '@/entities/profile/service'
-import s from '@/features/posts/createPost/addDescription/postDescription/ui/postDescription.module.scss'
 import { useUpdatePostMutation } from '@/features/posts/service/postApi'
 import AvatarImage from '@/public/icon/avatarIcon.svg'
 import DefaultAva from '@/public/images/avatarIcon.jpg'
@@ -16,25 +12,29 @@ import { DescriptionForm, descriptionSchema } from '@/shared/schemas/description
 import { Button } from '@/ui/button'
 import { ControlledTextArea } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
+import { zodResolver } from '@hookform/resolvers/zod'
+import ImageAva from 'next/image'
+
+import s from '@/features/posts/createPost/addDescription/postDescription/ui/postDescription.module.scss'
 
 type Props = {
-  value?: string
-  setValue?: (value: string) => void
   description?: string
   isDescription?: boolean
+  postId?: string
   setIsEditDescriptionModalOpen?: (isEditDescriptionModalOpen: boolean) => void
   setIsEditModalOpen?: (isEditModalOpen: boolean) => void
-  postId?: string
+  setValue?: (value: string) => void
+  value?: string
 }
 
 export const PostDescription = ({
-  value,
-  setValue,
   description,
   isDescription,
+  postId,
   setIsEditDescriptionModalOpen,
   setIsEditModalOpen,
-  postId,
+  setValue,
+  value,
 }: Props) => {
   const { t } = useTranslate()
   const [updatePost] = useUpdatePostMutation()
@@ -43,26 +43,27 @@ export const PostDescription = ({
   const { data } = useGetProfileQuery(userId)
   const {
     control,
-    trigger,
     formState: { touchedFields },
+    trigger,
   } = useForm<DescriptionForm>({
-    resolver: zodResolver(descriptionSchema(t)),
-    mode: 'onTouched',
     defaultValues: {
       description: description,
     },
+    mode: 'onTouched',
+    resolver: zodResolver(descriptionSchema(t)),
   })
 
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
     triggerZodFieldError(touchedFieldNames, trigger)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [t])
 
   const saveHandler = () => {
     updatePost({
-      postId: postId,
       description: value,
+      postId: postId,
     }).then(() => {
       if (setIsEditDescriptionModalOpen) {
         setIsEditDescriptionModalOpen(false)
@@ -85,41 +86,41 @@ export const PostDescription = ({
             <div>
               {data?.data?.avatar && (
                 <ImageAva
-                  width={36}
-                  height={36}
-                  src={data?.data?.avatar ? data?.data?.avatar : avaWithError}
-                  className={s.ava}
                   alt={'avatar'}
-                  priority={true}
+                  className={s.ava}
+                  height={36}
                   onError={errorHandler}
+                  priority
+                  src={data?.data?.avatar ? data?.data?.avatar : avaWithError}
+                  width={36}
                 />
               )}
               {!data?.data?.avatar && <AvatarImage className={s.ava} />}
             </div>
             <div className={s.userName}>
-              <Typography variant={'h3'} color="primary">
+              <Typography color={'primary'} variant={'h3'}>
                 {data?.data?.username}
               </Typography>
             </div>
           </div>
 
           <ControlledTextArea
-            control={control}
             className={s.textArea}
-            fullWidth={true}
-            name={'description'}
+            control={control}
+            fullWidth
             label={t.posts.createPost.addDescription}
+            name={'description'}
             setValue={setValue}
           />
           <div className={s.counter}>
-            <Typography variant={'small'} color="secondary">
+            <Typography color={'secondary'} variant={'small'}>
               {value?.length}/500
             </Typography>
           </div>
         </div>
 
         {isDescription && (
-          <Button variant={'primary'} className={s.btn} onClick={saveHandler}>
+          <Button className={s.btn} onClick={saveHandler} variant={'primary'}>
             <Typography variant={'h3'}>{t.posts.editPost.save}</Typography>
           </Button>
         )}

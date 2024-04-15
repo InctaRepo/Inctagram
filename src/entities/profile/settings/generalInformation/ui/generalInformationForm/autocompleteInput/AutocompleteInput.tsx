@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
-
 import { Control } from 'react-hook-form'
-import { useDebouncedCallback } from 'use-debounce'
 
 import {
   AutocompleteOption,
   useLazyGetAutocompleteQuery,
 } from '@/entities/profile/service/autocompleteApi'
-import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/autocompleteInput/autocompleteInput.module.scss'
 import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
 import { ControlledTextField } from '@/ui/controlled'
+import { useDebouncedCallback } from 'use-debounce'
+
+import s from '@/entities/profile/settings/generalInformation/ui/generalInformationForm/autocompleteInput/autocompleteInput.module.scss'
 
 type Props = {
   control: Control<ProfileSettingSchema, any>
@@ -51,7 +51,9 @@ export const AutocompleteInput = ({ control, inputLabel, ...restProps }: Props) 
   const handleAutocompleteOptions = useDebouncedCallback((value: string) => {
     const regex = /^[а-яА-Яa-zA-Z]+$/
 
-    if (!regex.test(value)) return
+    if (!regex.test(value)) {
+      return
+    }
 
     getAutocomplete(value)
     setSelectMenuActive(true)
@@ -85,10 +87,10 @@ export const AutocompleteInput = ({ control, inputLabel, ...restProps }: Props) 
   return (
     <div onKeyDown={e => handleKeyDown(e)}>
       <ControlledTextField
-        name="city"
         control={control}
-        label={inputLabel}
         handleAutocompleteOptions={handleAutocompleteOptions}
+        label={inputLabel}
+        name={'city'}
         selectedValue={selectedValue}
         {...restProps}
       />

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import s from '@/entities/profile/settings/accountManagement/ui/accountManagement.module.scss'
 import PayPal from '@/public/icon/payPalIcon.svg'
 import Stripe from '@/public/icon/stripeIcon.svg'
 import { useTranslate } from '@/shared/hooks'
@@ -10,12 +9,14 @@ import { Modal } from '@/ui/modal'
 import { RadioButton } from '@/ui/radioButton'
 import { Typography } from '@/ui/typography'
 
+import s from '@/entities/profile/settings/accountManagement/ui/accountManagement.module.scss'
+
 type Props = {}
 export const AccountManagement = ({}: Props) => {
   const { t } = useTranslate()
   const account = [
-    { label: t.profileSetting.accountManagement.personal, id: '1' },
-    { label: t.profileSetting.accountManagement.business, id: '2' },
+    { id: '1', label: t.profileSetting.accountManagement.personal },
+    { id: '2', label: t.profileSetting.accountManagement.business },
   ]
   const [openModalSuccess, setOpenModalSuccess] = useState<boolean>(false)
   const [openModalError, setOpenModalError] = useState<boolean>(false)
@@ -25,9 +26,9 @@ export const AccountManagement = ({}: Props) => {
   }
 
   const cost = [
-    { label: '$10' + ' ' + t.profileSetting.accountManagement.oneDay, id: '3' },
-    { label: '$50' + ' ' + t.profileSetting.accountManagement.sevenDay, id: '4' },
-    { label: '$100' + ' ' + t.profileSetting.accountManagement.oneMonth, id: '5' },
+    { id: '3', label: '$10' + ' ' + t.profileSetting.accountManagement.oneDay },
+    { id: '4', label: '$50' + ' ' + t.profileSetting.accountManagement.sevenDay },
+    { id: '5', label: '$100' + ' ' + t.profileSetting.accountManagement.oneMonth },
   ]
   const [valueChangeCost, setValueChangeCost] = useState('3')
   const onValueChangeCost = (valueChange: string) => {
@@ -63,20 +64,20 @@ export const AccountManagement = ({}: Props) => {
       <div className={s.accountManagement}>
         {paymentActive && (
           <div className={s.currentSubscriptionWrapper}>
-            <Typography variant={'h3'} className={s.currentSubscription}>
+            <Typography className={s.currentSubscription} variant={'h3'}>
               {t.profileSetting.accountManagement.currentSubscription}
             </Typography>
             <div className={s.subscriptionWrapper}>
               <div className={s.subscription}>
                 <div className={s.expire}>
-                  <Typography variant={'regular14'} className={s.titleExpire}>
+                  <Typography className={s.titleExpire} variant={'regular14'}>
                     {t.profileSetting.accountManagement.expireAt}
                   </Typography>
                   <div>12.12.2022</div>
                 </div>
                 {autoRenewal && (
                   <div className={s.nextPayment}>
-                    <Typography variant={'regular14'} className={s.titleNextPayment}>
+                    <Typography className={s.titleNextPayment} variant={'regular14'}>
                       {t.profileSetting.accountManagement.nextPayment}
                     </Typography>
                     <div>13.02.2023</div>
@@ -90,13 +91,13 @@ export const AccountManagement = ({}: Props) => {
           <div className={s.autoRenewal}>
             <Checkbox
               checked={autoRenewal}
-              onChange={autoRenewalChecked}
               label={t.profileSetting.accountManagement.autoRenewal}
+              onChange={autoRenewalChecked}
             />
           </div>
         )}
         <div className={s.accountTypeWrapper}>
-          <Typography variant={'h3'} className={s.accountType}>
+          <Typography className={s.accountType} variant={'h3'}>
             {t.profileSetting.accountManagement.accountType}
           </Typography>
           <div className={s.accountWrapper}>
@@ -106,8 +107,8 @@ export const AccountManagement = ({}: Props) => {
                   <RadioButton
                     key={t.id}
                     onValueChange={onValueChangeAccount}
-                    value={valueChangeAccount}
                     options={[{ label: t.label, value: t.id }]}
+                    value={valueChangeAccount}
                   />
                 ))}
               </div>
@@ -116,7 +117,7 @@ export const AccountManagement = ({}: Props) => {
         </div>
         {valueChangeAccount === account[1].id && (
           <div className={s.yourSubscriptionCostWrapper}>
-            <Typography variant={'h3'} className={s.yourSubscriptionCost}>
+            <Typography className={s.yourSubscriptionCost} variant={'h3'}>
               {t.profileSetting.accountManagement.yourSubscriptionCost}
             </Typography>
             <div className={s.costWrapper}>
@@ -126,8 +127,8 @@ export const AccountManagement = ({}: Props) => {
                     <RadioButton
                       key={t.id}
                       onValueChange={onValueChangeCost}
-                      value={valueChangeCost}
                       options={[{ label: t.label, value: t.id }]}
+                      value={valueChangeCost}
                     />
                   ))}
                 </div>
@@ -154,28 +155,28 @@ export const AccountManagement = ({}: Props) => {
         )}
       </div>
       <Modal
-        modalWidth={'sm'}
-        title={t.profileSetting.accountManagement.success}
-        open={openModalSuccess}
         actionButtonName={t.profileSetting.accountManagement.ok}
-        onClose={onModalClose}
+        fullWidthButton
+        modalWidth={'sm'}
         onAction={onModalActionSuccess}
-        fullWidthButton={true}
+        onClose={onModalClose}
+        open={openModalSuccess}
+        title={t.profileSetting.accountManagement.success}
       >
-        <Typography variant={'regular16'} className={s.textModal}>
+        <Typography className={s.textModal} variant={'regular16'}>
           {t.profileSetting.accountManagement.paymentWasSuccessful}
         </Typography>
       </Modal>
       <Modal
-        modalWidth={'sm'}
-        title={t.profileSetting.accountManagement.error}
-        open={openModalError}
         actionButtonName={t.profileSetting.accountManagement.backToPayment}
-        onClose={onModalClose}
+        fullWidthButton
+        modalWidth={'sm'}
         onAction={onModalActionError}
-        fullWidthButton={true}
+        onClose={onModalClose}
+        open={openModalError}
+        title={t.profileSetting.accountManagement.error}
       >
-        <Typography variant={'regular16'} className={s.textModal}>
+        <Typography className={s.textModal} variant={'regular16'}>
           {t.profileSetting.accountManagement.transactionFailed}
         </Typography>
       </Modal>

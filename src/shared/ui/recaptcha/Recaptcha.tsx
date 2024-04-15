@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
-import clsx from 'clsx'
-import { useRouter } from 'next/router'
 import { FieldValues, UseControllerProps } from 'react-hook-form'
 
 import Privacy from '@/public/icon/recaptcha.svg'
@@ -9,26 +6,29 @@ import RecaptchaChecked from '@/public/icon/recaptchaChecked.svg'
 import { RouteNames } from '@/shared/const'
 import { useTranslate } from '@/shared/hooks'
 import { Card } from '@/ui/card'
+import clsx from 'clsx'
+import { useRouter } from 'next/router'
+
 import s from '@/ui/recaptcha/recaptcha.module.scss'
 
 export type RecaptchaProps = {
-  primary?: boolean
-  expired?: boolean
   className?: string
   error?: string | undefined
+  expired?: boolean
   onChange?: (val: boolean) => void
+  primary?: boolean
 }
 export type ForgotForm = {
   email: string
   recaptcha: boolean
 }
-type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
+type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'defaultValues' | 'rules'> &
   Omit<RecaptchaProps, 'value'>
 
 const CSSMod = {
-  primary: 'primary',
   error: 'error',
   expired: 'expired',
+  primary: 'primary',
 }
 
 export const Recaptcha = <T extends FieldValues>({
@@ -64,12 +64,12 @@ export const Recaptcha = <T extends FieldValues>({
   }
 
   const classNames = {
-    main: clsx(s.recaptcha, className),
-    expired: clsx(s.expiredMessage, !expired && s.hidden),
-    customCheckbox: clsx(s.customCheckbox, isLoading && s.hidden),
-    preloader: clsx(s.ldsRing, (!isLoading || isChecked) && s.hidden),
     checked: clsx(s.checked, !isChecked && s.hidden),
+    customCheckbox: clsx(s.customCheckbox, isLoading && s.hidden),
     errorText: clsx(s.errorText, !error && s.hidden),
+    expired: clsx(s.expiredMessage, !expired && s.hidden),
+    main: clsx(s.recaptcha, className),
+    preloader: clsx(s.ldsRing, (!isLoading || isChecked) && s.hidden),
   }
 
   return (
@@ -84,15 +84,15 @@ export const Recaptcha = <T extends FieldValues>({
             <div />
             <div />
           </div>
-          <RecaptchaChecked className={classNames.checked} alt="checked" />
+          <RecaptchaChecked alt={'checked'} className={classNames.checked} />
           <label>{t.auth.authErrors.recaptcha.notARobot}</label>
         </div>
         <div className={s.privacy}>
           <Privacy
-            width="46"
-            height="57"
-            alt="privacy"
+            alt={'privacy'}
+            height={'57'}
             onClick={() => router.push(RouteNames.TERMS_OF_USE)}
+            width={'46'}
           />
         </div>
       </Card>

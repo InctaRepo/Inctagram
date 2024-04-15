@@ -5,11 +5,11 @@ import { Checkbox } from '@/ui/checkbox'
 import { TabsComponent } from '@/ui/tabsComponent'
 
 const meta: Meta<typeof TabsComponent> = {
-  title: 'Components/Tabs',
   component: TabsComponent,
   parameters: {
     layout: 'centered',
   },
+  title: 'Components/Tabs',
 }
 
 export default meta
@@ -17,16 +17,16 @@ type Story = StoryObj<typeof TabsComponent>
 
 export const Default: Story = {
   args: {
-    tabs: [
-      { label: 'Button', children: <Button>he</Button>, value: 'Button' },
-      { label: 'Checkbox', children: <Checkbox checked={true} />, value: 'Checkbox' },
-    ],
     disabled: false,
+    tabs: [
+      { children: <Button>he</Button>, label: 'Button', value: 'Button' },
+      { children: <Checkbox checked />, label: 'Checkbox', value: 'Checkbox' },
+    ],
   },
 }
 export const Disabled: Story = {
   args: {
-    disabled: true,
     defaultValue: 'Account',
+    disabled: true,
   },
 }

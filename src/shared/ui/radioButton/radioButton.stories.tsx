@@ -3,9 +3,9 @@ import type { StoryObj } from '@storybook/react'
 import { RadioButton } from '@/ui/radioButton'
 
 const meta = {
-  title: 'Components/RadioButton',
   component: RadioButton,
   tags: ['autodocs'],
+  title: 'Components/RadioButton',
 }
 
 export default meta

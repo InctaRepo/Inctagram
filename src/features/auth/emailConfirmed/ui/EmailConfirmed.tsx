@@ -1,54 +1,33 @@
-import React, { useEffect } from 'react'
-
-import { useRouter } from 'next/router'
+import React from 'react'
 
 import { AuthPage } from '@/entities/auth/authPage'
-import { useEmailConfirmedMutation } from '@/features/auth/emailConfirmed/service/emailConfirmed'
+import { useEmailConfirmed } from '@/features/auth/emailConfirmed/hooks'
 import ConfirmedImage from '@/public/icon/emailComfirmedIcon.svg'
 import TimeManagementImage from '@/public/icon/timeMenegmentIcon.svg'
-import { resultCode, RouteNames } from '@/shared/const'
-import { useTranslate } from '@/shared/hooks'
+import { RouteNames, resultCode } from '@/shared/const'
 
 export const EmailConfirmed = () => {
-  const { query } = useRouter()
-  const { t } = useTranslate()
-  const { code } = query
-
-  const [regConfirm, { data, isSuccess }] = useEmailConfirmedMutation()
-
-  useEffect(() => {
-    if (code) {
-      regConfirm({ code: code as string })
-    }
-  }, [code])
-  useEffect(() => {
-    if (isSuccess && data?.resultCode == resultCode.BAD_REQUEST) {
-      return
-    }
-  }, [data])
-  const message = data?.extensions[0].message as string
-  const messageConfirmed = 'email is already confirmed'
-  const messageIncorrectCode = 'Code is incorrect'
-  const messageExpire = 'email confirmation code is expired'
+  const { data, isSuccess, message, messageConfirmed, messageExpire, messageIncorrectCode, t } =
+    useEmailConfirmed()
 
   return (
     <>
       {isSuccess && data?.resultCode == resultCode.OK && (
         <AuthPage
-          title={t.auth.congratulations}
-          text={t.auth.confirmedEmail}
-          nameButton={t.auth.signIn}
           linkPath={RouteNames.SIGN_IN}
+          nameButton={t.auth.signIn}
+          text={t.auth.confirmedEmail}
+          title={t.auth.congratulations}
         >
           <ConfirmedImage />
         </AuthPage>
       )}
       {isSuccess && data?.resultCode == resultCode.BAD_REQUEST && message === messageConfirmed && (
         <AuthPage
-          title={t.auth.congratulations}
-          text={t.auth.alreadyConfirmedEmail}
-          nameButton={t.auth.signIn}
           linkPath={RouteNames.SIGN_IN}
+          nameButton={t.auth.signIn}
+          text={t.auth.alreadyConfirmedEmail}
+          title={t.auth.congratulations}
         >
           <ConfirmedImage />
         </AuthPage>
@@ -57,18 +36,18 @@ export const EmailConfirmed = () => {
         data?.resultCode == resultCode.BAD_REQUEST &&
         message === messageIncorrectCode && (
           <AuthPage
-            title={t.auth.wereSorry}
-            text={t.auth.codeIncorrect}
-            nameButton={t.auth.signIn}
             linkPath={RouteNames.SIGN_IN}
+            nameButton={t.auth.signIn}
+            text={t.auth.codeIncorrect}
+            title={t.auth.wereSorry}
           ></AuthPage>
         )}
       {isSuccess && data?.resultCode == resultCode.BAD_REQUEST && message === messageExpire && (
         <AuthPage
-          title={t.auth.emailVerificationLink}
-          text={t.auth.verificationLinkExpired}
-          nameButton={t.auth.resendVerificationLinkTitle}
           linkPath={RouteNames.EMAIL_VERIFICATION}
+          nameButton={t.auth.resendVerificationLinkTitle}
+          text={t.auth.verificationLinkExpired}
+          title={t.auth.emailVerificationLink}
         >
           <TimeManagementImage />
         </AuthPage>

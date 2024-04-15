@@ -1,12 +1,12 @@
 import { PropsWithChildren } from 'react'
 
-import { NextPage } from 'next'
-import { useRouter } from 'next/router'
-
 import { RouteNames } from '@/shared/const'
 import { Header } from '@/shared/header'
 import { getIsAuth } from '@/shared/hoc'
 import { useAppSelector } from '@/shared/hooks'
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
+
 import s from '@/widgets/layout/authLayout/ui/authLayout.module.scss'
 
 export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
@@ -20,7 +20,7 @@ export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
   return (
     <div className={s.container}>
       <Header variant={!isPublicPath && isAuth ? undefined : 'public'} />
-      <div className={s.main}>{children}</div>
+      <main className={s.main}>{children}</main>
     </div>
   )
 }

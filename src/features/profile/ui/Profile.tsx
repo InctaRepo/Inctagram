@@ -1,15 +1,15 @@
-import { useRouter } from 'next/router'
-
 import { ProfileInfo } from '@/entities/profile/profileInfo'
 import { useGetProfileQuery } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Posts } from '@/features/posts'
-import s from '@/features/profile/ui/profile.module.scss'
-import { resultCode, RouteNames } from '@/shared/const'
+import { RouteNames, resultCode } from '@/shared/const'
 import { getIsAuth } from '@/shared/hoc'
 import { useAppDispatch, useAppSelector } from '@/shared/hooks'
-import { setProfileFound, Sidebar } from '@/shared/sidebar'
+import { Sidebar, setProfileFound } from '@/shared/sidebar'
 import { Loader } from '@/ui/loader'
+import { useRouter } from 'next/router'
+
+import s from '@/features/profile/ui/profile.module.scss'
 
 type Props = {
   id: string
@@ -20,7 +20,7 @@ export const Profile = ({ id, postId }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const dispatch = useAppDispatch()
   const router = useRouter()
-  const { data, isSuccess, isLoading } = useGetProfileQuery(id)
+  const { data, isLoading, isSuccess } = useGetProfileQuery(id)
 
   if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     dispatch(setProfileFound(false))
@@ -34,7 +34,9 @@ export const Profile = ({ id, postId }: Props) => {
   //     router.push(RouteNames.HOME)
   //   }
   // }, [])
-  if (isLoading) return <Loader />
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <div className={s.container}>

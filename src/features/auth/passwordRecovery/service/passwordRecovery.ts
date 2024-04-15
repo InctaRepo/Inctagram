@@ -1,5 +1,5 @@
 import { RecoveryParams } from '@/features/auth/recovery/service/types/recoveryParams'
-import { baseApi, BaseResponse } from '@/shared/api'
+import { BaseResponse, baseApi } from '@/shared/api'
 
 const passwordRecovery = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -10,9 +10,9 @@ const passwordRecovery = baseApi.injectEndpoints({
       RecoveryParams
     >({
       query: data => ({
+        body: data,
         method: 'POST',
         url: 'auth/password-recovery',
-        body: data,
       }),
     }),
   }),

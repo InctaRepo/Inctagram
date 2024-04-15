@@ -14,7 +14,7 @@ describe('Button', () => {
 
   it('should render a button element with custom variant and fullWidth', () => {
     const { getByText } = render(
-      <Button variant="secondary" fullWidth>
+      <Button fullWidth variant={'secondary'}>
         Submit
       </Button>
     )
@@ -28,14 +28,14 @@ describe('Button', () => {
   it('should render a custom component with custom props', () => {
     const CustomComponent = ({ children, customProp }: any) => {
       return (
-        <div className="customComponent" data-customprop={customProp}>
+        <div className={'customComponent'} data-customprop={customProp}>
           {children}
         </div>
       )
     }
 
     const { getByText } = render(
-      <Button as={CustomComponent} customProp="custom">
+      <Button as={CustomComponent} customProp={'custom'}>
         Custom Button
       </Button>
     )

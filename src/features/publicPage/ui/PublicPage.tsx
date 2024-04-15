@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { Alerts } from '@/features/publicPage/ui/alerts'
-import s from '@/features/publicPage/ui/publicPage.module.scss'
 import { PublicPost } from '@/features/publicPage/ui/publicPost'
+
+import s from '@/features/publicPage/ui/publicPage.module.scss'
 
 export const PublicPage = () => {
   return (

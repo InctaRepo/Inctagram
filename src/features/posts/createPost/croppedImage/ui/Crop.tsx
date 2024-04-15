@@ -1,6 +1,6 @@
 import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
 
-export const createImage = (url: string | null): Promise<HTMLImageElement> =>
+export const createImage = (url: null | string): Promise<HTMLImageElement> =>
   new Promise((resolve, reject) => {
     const image = new Image()
 
@@ -23,8 +23,8 @@ export function rotateSize(width: number, height: number, rotation: number) {
   const rotRad = getRadianAngle(rotation)
 
   return {
-    width: Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
     height: Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height),
+    width: Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
   }
 }
 
@@ -45,7 +45,7 @@ export async function GetCroppedImg(
   const rotRad = getRadianAngle(rotation)
 
   // calculate bounding box of the rotated image
-  const { width: bBoxWidth, height: bBoxHeight } = rotateSize(image.width, image.height, rotation)
+  const { height: bBoxHeight, width: bBoxWidth } = rotateSize(image.width, image.height, rotation)
 
   // set canvas size to match the bounding box
   canvas.width = bBoxWidth

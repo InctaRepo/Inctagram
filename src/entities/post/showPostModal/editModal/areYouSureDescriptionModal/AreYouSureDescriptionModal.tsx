@@ -1,23 +1,19 @@
 import React from 'react'
 
-import s from '@/entities/post/showPostModal/editModal/areYouSureDescriptionModal/areYouSureDescriptionModal.module.scss'
-import CloseIcon from '@/public/icon/closeIcon.svg'
 import { useTranslate } from '@/shared/hooks'
-import { Modal } from '@/ui/modal'
-import { Typography } from '@/ui/typography'
 
 type Props = {
   openSureDescriptionModal: boolean
-  setIsEditModalOpen?: (isEditModalOpen: boolean) => void
   setIsEditDescriptionModalOpen?: (isEditDescriptionModalOpen: boolean) => void
+  setIsEditModalOpen?: (isEditModalOpen: boolean) => void
   setOpenSureDescriptionModal?: (openSureDescriptionModal: boolean) => void
 }
 
 export const AreYouSureDescriptionModal = ({
-  setIsEditModalOpen,
   openSureDescriptionModal,
-  setOpenSureDescriptionModal,
   setIsEditDescriptionModalOpen,
+  setIsEditModalOpen,
+  setOpenSureDescriptionModal,
 }: Props) => {
   const { t } = useTranslate()
   const onModalClose = () => {

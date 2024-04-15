@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { EditDescriptionModal } from '@/features/posts/editDeletePost/postDescription/editDescription/ui/EditDescriptionModal'
 
 const meta = {
-  title: 'pages/edit-post-description',
   component: EditDescriptionModal,
+  title: 'pages/edit-post-description',
 } satisfies Meta<typeof EditDescriptionModal>
 
 export default meta

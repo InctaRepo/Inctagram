@@ -1,15 +1,15 @@
 import ReactCrop from 'react-easy-crop'
 
 type Props = {
-  image?: string
-  crop: { x: number; y: number }
-  zoom: number
   aspectRatio: number
+  crop: { x: number; y: number }
+  croppedAreaPixels: CropArg | null
+  image?: string
   objectFit?: string
   setCrop: (crop: { x: number; y: number }) => void
-  setZoom: (zoom: number) => void
-  croppedAreaPixels: CropArg | null
   setCroppedAreaPixels: (croppedAreaPixels: CropArg | null) => void
+  setZoom: (zoom: number) => void
+  zoom: number
 }
 
 export type CropArg = {
@@ -20,13 +20,13 @@ export type CropArg = {
 }
 
 export const EasyCrop = ({
-  zoom,
   aspectRatio,
   crop,
   image,
-  setZoom,
-  setCroppedAreaPixels,
   setCrop,
+  setCroppedAreaPixels,
+  setZoom,
+  zoom,
 }: Props) => {
   const onCropComplete = (croppedArea: CropArg, croppedAreaPixels: CropArg) => {
     setCroppedAreaPixels(croppedAreaPixels)
@@ -34,16 +34,16 @@ export const EasyCrop = ({
 
   return (
     <ReactCrop
+      aspect={aspectRatio}
+      crop={crop}
       image={image}
       objectFit={'cover'} //zoom and crop doesn't work correctly without it
-      crop={crop}
-      zoom={zoom}
-      zoomWithScroll={true}
-      showGrid={false}
-      aspect={aspectRatio}
       onCropChange={setCrop}
       onCropComplete={onCropComplete}
       onZoomChange={setZoom}
+      showGrid={false}
+      zoom={zoom}
+      zoomWithScroll
     />
   )
 }

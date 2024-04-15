@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
 import { RecoveryParams } from '@/features/auth/recovery/service/types/recoveryParams'
-import s from '@/features/auth/recovery/ui/recovery.module.scss'
 import { RecoveryForm } from '@/features/auth/recovery/ui/recoveryForm'
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button/Button'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
+
+import s from '@/features/auth/recovery/ui/recovery.module.scss'
 
 type Props = {
   recoveryMutation: (data: RecoveryParams) => void
@@ -27,19 +28,19 @@ export const Recovery = ({ recoveryMutation, type }: Props) => {
 
   return (
     <>
-      <RecoveryForm onSubmitHandler={submit} modalHandler={modalHandler} type={type} />
+      <RecoveryForm modalHandler={modalHandler} onSubmitHandler={submit} type={type} />
       <Modal
         className={s.modal}
         modalWidth={'sm'}
-        open={openModal}
-        title={t.auth.emailSent}
         onAction={modalHandler}
         onCancel={modalHandler}
         onClose={modalHandler}
+        open={openModal}
+        title={t.auth.emailSent}
       >
-        <Typography variant="regular16">{t.auth.emailConfirm(email)}</Typography>
+        <Typography variant={'regular16'}>{t.auth.emailConfirm(email)}</Typography>
         <div className={s.buttonOkWrapper}>
-          <Button className={s.buttonOk} onClick={modalHandler} type="button">
+          <Button className={s.buttonOk} onClick={modalHandler} type={'button'}>
             {t.auth.ok}
           </Button>
         </div>

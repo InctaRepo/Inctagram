@@ -1,8 +1,9 @@
 import React from 'react'
 
-import s from '@/features/statistics/statistics.module.scss'
 import { Sidebar } from '@/shared/sidebar'
 import { Typography } from '@/ui/typography'
+
+import s from '@/features/statistics/statistics.module.scss'
 
 export const Statistics = () => {
   return (

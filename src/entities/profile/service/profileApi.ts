@@ -1,55 +1,55 @@
 import { UserInfo } from '@/entities/profile/service/profileTypes'
-import { baseApi, BaseResponse } from '@/shared/api'
+import { BaseResponse, baseApi } from '@/shared/api'
 
 export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
+    createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
+      invalidatesTags: ['Profile'],
+      query: ({ userId, ...patch }) => ({
+        body: patch,
+        method: 'POST',
+        url: `users/profile/${userId}`,
+      }),
+    }),
+    deleteAvatar: builder.mutation<BaseResponse, void>({
+      invalidatesTags: ['Profile'],
+      query: () => ({
+        method: 'DELETE',
+        url: `users/profile/avatar`,
+      }),
+    }),
     getProfile: builder.query<BaseResponse<UserInfo>, string>({
+      providesTags: ['Profile'],
       query: id => ({
         method: 'GET',
         url: `users/profile/${id}`,
       }),
-      providesTags: ['Profile'],
-    }),
-    createProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
-      query: ({ userId, ...patch }) => ({
-        method: 'POST',
-        url: `users/profile/${userId}`,
-        body: patch,
-      }),
-      invalidatesTags: ['Profile'],
     }),
     updateProfile: builder.mutation<BaseResponse, UserInfo & Pick<UserInfo, 'userId'>>({
+      invalidatesTags: ['Profile'],
       query: ({ userId, ...patch }) => ({
+        body: patch,
         method: 'PUT',
         url: `users/profile/${userId}`,
-        body: patch,
       }),
-      invalidatesTags: ['Profile'],
     }),
     uploadAvatar: builder.mutation<BaseResponse, FormData>({
+      invalidatesTags: ['Profile'],
       query: FormData => ({
-        url: `users/profile/avatar/upload`,
-        method: 'POST',
         body: FormData,
+        method: 'POST',
+        url: `users/profile/avatar/upload`,
       }),
-      invalidatesTags: ['Profile'],
-    }),
-    deleteAvatar: builder.mutation<BaseResponse, void>({
-      query: () => ({
-        url: `users/profile/avatar`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: ['Profile'],
     }),
   }),
 })
 
 export const {
+  useCreateProfileMutation,
+  useDeleteAvatarMutation,
   useGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
-  useCreateProfileMutation,
-  useDeleteAvatarMutation,
   util: { getRunningQueriesThunk },
 } = profileApi
 

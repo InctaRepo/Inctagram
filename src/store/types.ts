@@ -1,5 +1,3 @@
-import { rootReducer } from '@reduxjs/toolkit/src/tests/injectableCombineReducers.example'
-
 import { autocompleteApi } from '@/entities/profile/service/autocompleteApi'
 import { SignInSchema } from '@/features/auth/signIn'
 import { baseApi } from '@/shared/api'
@@ -12,10 +10,10 @@ export type AppDispatch = typeof store.dispatch
 export type AppStore = ReturnType<typeof makeStore>
 export type AppRootState = ReturnType<AppStore['getState']>
 export type StateSchema = {
-  [baseApi.reducerPath]: ReturnType<typeof baseApi.reducer>
   [autocompleteApi.reducerPath]: ReturnType<typeof autocompleteApi.reducer>
+  [baseApi.reducerPath]: ReturnType<typeof baseApi.reducer>
   authMe: AuthMeSchema
-  signIn: SignInSchema
   menu: MenuSchema
   progressBar: ProgressBarSchema
+  signIn: SignInSchema
 }

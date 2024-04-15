@@ -1,38 +1,38 @@
 export const filtersVariant = [
   {
-    name: 'No filter',
     filter: 'none',
+    name: 'No filter',
   },
   {
-    name: 'Kyoto',
     filter: 'saturate(2)',
+    name: 'Kyoto',
   },
   {
-    name: 'Lark',
     filter: 'grayscale(100%)',
+    name: 'Lark',
   },
   {
-    name: 'Gingham',
     filter: 'contrast(160%)',
+    name: 'Gingham',
   },
   {
-    name: 'Happy',
     filter: 'contrast(110%) brightness(110%) saturate(130%)',
+    name: 'Happy',
   },
   {
-    name: 'Clarendon',
     filter: 'invert(80%)',
+    name: 'Clarendon',
   },
   {
-    name: 'Shabby',
     filter: 'sepia(80%)',
+    name: 'Shabby',
   },
   {
-    name: 'Old school',
     filter: 'opacity(70%)',
+    name: 'Old school',
   },
   {
-    name: 'Silent Hill',
     filter: 'hue-rotate(150deg)',
+    name: 'Silent Hill',
   },
 ]

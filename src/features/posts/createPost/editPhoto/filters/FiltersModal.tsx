@@ -1,5 +1,18 @@
 import React, { ComponentProps, ReactNode, useState } from 'react'
 
+import { FilteredImages } from '@/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
+import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
+import { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'
+import { GetCroppedImg } from '@/features/posts/createPost/croppedImage/ui/Crop'
+import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
+import { useAddPostMutation } from '@/features/posts/service'
+import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
+import { filteredImg } from '@/shared/helpers/filteredImg'
+import { useTranslate } from '@/shared/hooks'
+import { Image } from '@/shared/types'
+import { ImageFilter } from '@/shared/types/posts/postsTypes'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 import {
   Dialog,
   DialogContent,
@@ -10,71 +23,58 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import { FilteredImages } from '@/features/posts/createPost/addDescription/filteredImages/ui/FilteredImages'
-import { PostDescription } from '@/features/posts/createPost/addDescription/postDescription/ui/PostDescription'
-import { AddDescriptionModal } from '@/features/posts/createPost/addDescription/ui/AddDescriptionModal'
-import { GetCroppedImg } from '@/features/posts/createPost/croppedImage/ui/Crop'
-import { CropArg } from '@/features/posts/createPost/croppedImage/ui/EasyCrop'
 import s from '@/features/posts/createPost/editPhoto/filters/FiltersModal.module.scss'
-import { useAddPostMutation } from '@/features/posts/service'
-import ArrowBackIcon from '@/public/icon/arrowBackIcon.svg'
-import { filteredImg } from '@/shared/helpers/filteredImg'
-import { useTranslate } from '@/shared/hooks'
-import { Image } from '@/shared/types'
-import { ImageFilter } from '@/shared/types/posts/postsTypes'
-import { Button } from '@/ui/button'
-import { Typography } from '@/ui/typography'
 
 export type ModalProps = {
-  image?: string
-  isModalOpen: boolean
-  onClose?: () => void
-  onCancel?: () => void
-  cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string // if no props , visibility = hidden
-  showSeparator?: boolean // if no props with false , visibility = visible
-  title?: string
+  activeFilter: ImageFilter
+  addedImages: Image[]
+  cancelButtonName?: string // if no props , visibility = hidden
   children?: ReactNode
   className?: string
-  addedImages: Image[]
-  setAddedImages: (addedImages: Image[]) => void
-  activeFilter: ImageFilter
-  setActiveFilter: (activeFilter: ImageFilter) => void
-  setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
-  setImage: (image: string | undefined) => void
-  openSureModal: boolean
-  setOpenSureModal: (openSureModal: boolean) => void
-  setIsModalOpen: (open: boolean) => void
   croppedAreaPixels: CropArg | null
+  image?: string
+  isModalOpen: boolean
+  onCancel?: () => void
+  onClose?: () => void
+  openSureModal: boolean
+  setActiveFilter: (activeFilter: ImageFilter) => void
+  setAddedImages: (addedImages: Image[]) => void
+  setImage: (image: string | undefined) => void
+  setIsBaseModalOpen: (isBaseModalOpen: boolean) => void
+  setIsModalOpen: (open: boolean) => void
+  setOpenSureModal: (openSureModal: boolean) => void
+  showSeparator?: boolean // if no props with false , visibility = visible
+  title?: string
 } & ComponentProps<'div'>
 
 export const FiltersModal = ({
-  image,
-  showSeparator = true,
-  onCancel,
-  isModalOpen,
-  cancelButtonName,
   actionButtonName,
-  title,
-  className,
-  children,
   addedImages,
-  setAddedImages,
+  cancelButtonName,
+  children,
+  className,
+  croppedAreaPixels,
+  image,
+  isModalOpen,
+  onCancel,
   setActiveFilter,
-  setOpenSureModal,
+  setAddedImages,
   setIsBaseModalOpen,
   setIsModalOpen,
-  croppedAreaPixels,
+  setOpenSureModal,
+  showSeparator = true,
+  title,
 }: ModalProps) => {
   const classNames = {
-    content: getContentClassName(className),
-    separator: clsx(s.separator, !showSeparator && s.separatorHide),
     actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
     cancelButton: clsx(
       s.widePaddingButton,
       !cancelButtonName && s.cancelButtonHide,
       s.actionButton
     ),
+    content: getContentClassName(className),
+    separator: clsx(s.separator, !showSeparator && s.separatorHide),
   }
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
   const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false)
@@ -96,7 +96,9 @@ export const FiltersModal = ({
     setIsBaseModalOpen(false)
     const images = await applyCropping(croppedAreaPixels, addedImages)
 
-    if (!images) return
+    if (!images) {
+      return
+    }
     setAddedImages(images)
   }
 
@@ -136,10 +138,10 @@ export const FiltersModal = ({
 
   return (
     <div>
-      <Button variant="text" className={s.nextButton} onClick={handleNext}>
+      <Button className={s.nextButton} onClick={handleNext} variant={'text'}>
         {t.profile.next}
       </Button>
-      <Dialog open={isFiltersModalOpen} onOpenChange={open => !open && setOpenSureModal(true)}>
+      <Dialog onOpenChange={open => !open && setOpenSureModal(true)} open={isFiltersModalOpen}>
         <DialogPortal>
           <DialogOverlay className={s.DialogOverlay} />
           <DialogContent className={classNames.content}>
@@ -149,22 +151,22 @@ export const FiltersModal = ({
               </button>
               <div className={s.next}>
                 <AddDescriptionModal
-                  image={image}
                   addedImages={addedImages}
-                  setAddedImages={setAddedImages}
-                  isModalOpen={isModalOpen}
-                  setIsModalOpen={setIsModalOpen}
-                  onCancel={cancelButtonHandler}
-                  title={t.posts.createPost.publication}
-                  isFiltersModalOpen={isFiltersModalOpen}
-                  setIsFiltersModalOpen={setIsFiltersModalOpen}
-                  setOpenSureModal={setOpenSureModal}
+                  image={image}
                   isDescriptionModalOpen={isDescriptionModalOpen}
-                  setIsDescriptionModalOpen={setIsDescriptionModalOpen}
+                  isFiltersModalOpen={isFiltersModalOpen}
+                  isModalOpen={isModalOpen}
+                  onCancel={cancelButtonHandler}
                   sendFilteredImg={sendFilteredImg}
+                  setAddedImages={setAddedImages}
+                  setIsDescriptionModalOpen={setIsDescriptionModalOpen}
+                  setIsFiltersModalOpen={setIsFiltersModalOpen}
+                  setIsModalOpen={setIsModalOpen}
+                  setOpenSureModal={setOpenSureModal}
+                  title={t.posts.createPost.publication}
                 >
                   <FilteredImages addedImages={addedImages} />
-                  <PostDescription value={postDescription} setValue={setPostDescription} />
+                  <PostDescription setValue={setPostDescription} value={postDescription} />
                 </AddDescriptionModal>
               </div>
 
@@ -188,14 +190,16 @@ function getContentClassName(className?: string) {
 export const applyCropping = async (croppedAreaPixels: CropArg | null, addedImages: Image[]) => {
   if (croppedAreaPixels && addedImages.length) {
     try {
-      let newImagesPromises = addedImages.map(async (img: Image) => {
-        if (!img.image) return
+      const newImagesPromises = addedImages.map(async (img: Image) => {
+        if (!img.image) {
+          return
+        }
         const croppedImage = await GetCroppedImg(img.image, croppedAreaPixels)
 
         return { ...img, image: croppedImage }
       })
 
-      let newImages = await Promise.all(newImagesPromises)
+      const newImages = await Promise.all(newImagesPromises)
 
       return newImages as Image[]
     } catch (e) {

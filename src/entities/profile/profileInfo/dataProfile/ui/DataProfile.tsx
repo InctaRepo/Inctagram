@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { useRouter } from 'next/router'
-
-import s from '@/entities/profile/profileInfo/dataProfile/ui/dataProfile.module.scss'
 import { UserInfo } from '@/entities/profile/service'
 import { RouteNames } from '@/shared/const'
 import { getIsAuth } from '@/shared/hoc'
 import { useAppSelector, useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
 import { Typography } from '@/ui/typography'
+import { useRouter } from 'next/router'
+
+import s from '@/entities/profile/profileInfo/dataProfile/ui/dataProfile.module.scss'
 
 type Props = {
   userData?: UserInfo
@@ -21,12 +21,12 @@ export const DataProfile = ({ userData }: Props) => {
   return (
     <>
       <div className={s.header}>
-        <Typography variant="h1">{userData?.username}</Typography>
+        <Typography variant={'h1'}>{userData?.username}</Typography>
         {isAuth && (
           <Button
-            variant={'secondary'}
             className={s.button}
             onClick={() => push(RouteNames.PROFILE_SETTINGS)}
+            variant={'secondary'}
           >
             <Typography variant={'h3'}>{t.profile.profileSettings}</Typography>
           </Button>
@@ -34,20 +34,20 @@ export const DataProfile = ({ userData }: Props) => {
       </div>
       <div className={s.progressProfile}>
         <div className={s.info}>
-          <Typography variant="bold14">1231</Typography>
-          <Typography variant="regular14">{t.profile.subscriptions}</Typography>
+          <Typography variant={'bold14'}>1231</Typography>
+          <Typography variant={'regular14'}>{t.profile.subscriptions}</Typography>
         </div>
         <div className={s.info}>
-          <Typography variant="bold14">2 358</Typography>
-          <Typography variant="regular14">{t.profile.subscribers}</Typography>
+          <Typography variant={'bold14'}>2 358</Typography>
+          <Typography variant={'regular14'}>{t.profile.subscribers}</Typography>
         </div>
         <div className={s.info}>
-          <Typography variant="bold14">2 764</Typography>
-          <Typography variant="regular14">{t.profile.publications}</Typography>
+          <Typography variant={'bold14'}>2 764</Typography>
+          <Typography variant={'regular14'}>{t.profile.publications}</Typography>
         </div>
       </div>
       <div className={s.text}>
-        <Typography variant="regular16">{userData?.aboutMe}</Typography>
+        <Typography variant={'regular16'}>{userData?.aboutMe}</Typography>
       </div>
     </>
   )

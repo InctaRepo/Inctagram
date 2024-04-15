@@ -1,19 +1,19 @@
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
 
 interface HValidation {
+  back(): void
+
   history: string[]
 
   setHistory(data: string[]): void
-
-  back(): void
 }
 
 const HistoryContext = createContext<HValidation>({} as HValidation)
 
 export const HistoryProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const { asPath, push, pathname } = useRouter()
+  const { asPath, pathname, push } = useRouter()
   const [history, setHistory] = useState<string[]>([])
 
   function back() {

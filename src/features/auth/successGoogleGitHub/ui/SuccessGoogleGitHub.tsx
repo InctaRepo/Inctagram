@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-
-import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 
 import { setToken } from '@/features/auth/signIn'
 import { GetMeAuthGoogleGithub } from '@/features/auth/successGoogleGitHub/ui/getMeAuthGoogleGithub'
 import { Loader } from '@/ui/loader'
+import { useRouter } from 'next/router'
 
 export const SuccessGoogleGitHub = () => {
   const dispatch = useDispatch()
@@ -18,6 +17,7 @@ export const SuccessGoogleGitHub = () => {
       dispatch(setToken({ accessToken: token as string }))
       setTokenStatus(true)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token])
 
   return tokenStatus ? <GetMeAuthGoogleGithub /> : <Loader />

@@ -1,10 +1,11 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import s from '@/features/posts/createPost/editPhoto/add/Add.module.scss'
 import { AddedImages } from '@/features/posts/createPost/editPhoto/add/addedImages/AddedImages'
 import AddImage from '@/public/icon/image.svg'
 import PlusCircleOutline from '@/public/icon/plusCircleOutlineIcon.svg'
 import { Image } from '@/shared/types'
+
+import s from '@/features/posts/createPost/editPhoto/add/Add.module.scss'
 
 type Props = {
   addedImages: Image[]
@@ -36,22 +37,22 @@ export const Add = ({ addedImages, setAddedImages }: Props) => {
     setAddedImages([
       ...addedImages,
       {
-        image: URL.createObjectURL(e.target.files[0]),
-        fileName: e.target.files[0].name,
         activeFilter: 'none',
+        fileName: e.target.files[0].name,
+        image: URL.createObjectURL(e.target.files[0]),
       },
     ])
   }
 
   return (
-    <div ref={addRef} className={s.wrapper}>
+    <div className={s.wrapper} ref={addRef}>
       <div className={s.addBtn}>
         <AddImage
           alt={'add image'}
+          className={isAddOpen ? s.blueActive : s.blue}
+          height={24}
           onClick={() => setIsAddOpen(current => !current)}
           width={24}
-          height={24}
-          className={isAddOpen ? s.blueActive : s.blue}
         />
       </div>
       {isAddOpen && (
@@ -66,12 +67,12 @@ export const Add = ({ addedImages, setAddedImages }: Props) => {
             >
               <PlusCircleOutline />
               <input
-                type="file"
-                ref={inputRef}
-                name="cover"
+                accept={'image/png, image/jpeg, image/jpg'}
+                name={'cover'}
                 onChange={handleImageUpload}
-                accept="image/png, image/jpeg, image/jpg"
+                ref={inputRef}
                 style={{ display: 'none' }}
+                type={'file'}
               />
             </div>
           ) : (

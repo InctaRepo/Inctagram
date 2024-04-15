@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
-
-import ImageWithFilter from 'next/image'
 import Slider from 'react-slick'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 import { SliderSettings } from '@/entities/post/sliderSettings'
 import { filtersVariant } from '@/features/posts/createPost/editPhoto/filters/selectedImages/filtersVariant'
-import s from '@/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 import airBalloon from '@/public/images/airBalloonImage.jpg'
 import { getFilterType } from '@/shared/helpers'
 import { Image } from '@/shared/types'
 import { ImageFilter } from '@/shared/types/posts/postsTypes'
 import { Typography } from '@/ui/typography'
+import ImageWithFilter from 'next/image'
+
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
+import s from '@/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 
 type Props = {
   addedImages: Image[]
@@ -48,17 +49,17 @@ export const SelectedImages = ({ addedImages, setActiveFilter, setAddedImages }:
         <Slider {...SliderSettings} afterChange={getCurrentImage}>
           {addedImages.map((el, idx) => {
             return (
-              <div key={idx} className={s.carousel}>
+              <div className={s.carousel} key={idx}>
                 <ImageWithFilter
                   alt={'img'}
+                  height={503}
+                  src={el.image ? el.image : ''}
                   style={{
                     filter: el.activeFilter,
-                    width: '100%',
                     height: 'auto',
+                    width: '100%',
                   }}
-                  src={el.image ? el.image : ''}
                   width={490}
-                  height={503}
                 />
               </div>
             )
@@ -68,21 +69,21 @@ export const SelectedImages = ({ addedImages, setActiveFilter, setAddedImages }:
       <div className={s.filterContainer}>
         {filtersVariant.map((el, idx) => {
           return (
-            <div key={idx} className={s.imgWithFilter} onClick={() => onActiveFilter(el.name)}>
+            <div className={s.imgWithFilter} key={idx} onClick={() => onActiveFilter(el.name)}>
               <div
                 className={`${s.imageWrapper} ${
                   el.filter == activeFilter ? s.activeFilterWrapper : ''
                 }`}
               >
                 <ImageWithFilter
-                  src={airBalloon}
                   alt={'image-with-filter'}
-                  width={108}
+                  className={s.image}
                   height={108}
+                  src={airBalloon}
                   style={{
                     filter: el.filter,
                   }}
-                  className={s.image}
+                  width={108}
                 />
               </div>
               <div className={s.filterName}>

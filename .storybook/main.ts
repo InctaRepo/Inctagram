@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
     '@storybook/addon-designs',
+    '@chromatic-com/storybook',
   ],
   //    previewHead: head => `
   //    ${head}
