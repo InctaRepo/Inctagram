@@ -1,16 +1,15 @@
+import { baseQueryWithReAuth } from '@/shared/api/baseQueryWithReAuth'
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { HYDRATE } from 'next-redux-wrapper'
 
-import { baseQueryWithReAuth } from '@/shared/api/baseQueryWithReAuth'
-
 export const baseApi = createApi({
-  reducerPath: 'baseApi',
   baseQuery: baseQueryWithReAuth,
+  endpoints: () => ({}),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
       return action.payload[reducerPath]
     }
   },
-  endpoints: () => ({}),
+  reducerPath: 'baseApi',
   tagTypes: ['Me', 'User', 'Users', 'Posts', 'Post', 'Payments', 'Profile', 'AllPosts', 'Device'],
 })

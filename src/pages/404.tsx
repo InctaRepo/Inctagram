@@ -1,10 +1,9 @@
 import React from 'react'
 
 import { Page404Dynamic } from '@/features/page404'
-import { NextPageWithLayout } from '@/shared/service/nextPageWithLayout'
 import { GetAuthLayout } from '@/widgets/layout/authLayout'
 
-const Custom404: NextPageWithLayout = () => <Page404Dynamic />
+const Custom404 = () => <Page404Dynamic />
 
 Custom404.getLayout = GetAuthLayout
 export default Custom404

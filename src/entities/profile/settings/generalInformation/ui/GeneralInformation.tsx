@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import { useRouter } from 'next/router'
-
 import { AvaModalDynamic } from '@/entities/profile/avaModal'
 import {
   useCreateProfileMutation,
@@ -9,7 +7,6 @@ import {
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } from '@/entities/profile/service'
-import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
 import { GeneralInformationForm } from '@/entities/profile/settings/generalInformation/ui/generalInformationForm'
 import { RouteNames } from '@/shared/const'
 import { getUserId } from '@/shared/hoc'
@@ -17,19 +14,22 @@ import { useAppDispatch, useAppSelector, useErrorToast } from '@/shared/hooks'
 import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
 import { setProfileFound } from '@/shared/sidebar'
 import { Loader } from '@/ui/loader'
+import { useRouter } from 'next/router'
+
+import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
 
 export const GeneralInformation = () => {
   const dispatch = useAppDispatch()
   const [avatar, setAvatar] = useState<FormData | null>(null)
   const { push } = useRouter()
-  const [updateProfile, { isSuccess: isSuccessUpdate, isLoading: isLoadingUpdate }] =
+  const [updateProfile, { isLoading: isLoadingUpdate, isSuccess: isSuccessUpdate }] =
     useUpdateProfileMutation()
-  const [createProfile, { isSuccess: isSuccessCreate, isLoading: isLoadingCreate }] =
+  const [createProfile, { isLoading: isLoadingCreate, isSuccess: isSuccessCreate }] =
     useCreateProfileMutation()
   const userId = useAppSelector(getUserId) as string
   const { data: profile, isLoading, isSuccess } = useGetProfileQuery(userId)
   const userData = profile?.data
-  const [uploadAvatar, { isSuccess: isSuccessAvatar, isLoading: isLoadingAva }] =
+  const [uploadAvatar, { isLoading: isLoadingAva, isSuccess: isSuccessAvatar }] =
     useUploadAvatarMutation()
 
   const successRes =
@@ -37,30 +37,30 @@ export const GeneralInformation = () => {
   const onFormSubmit = (data: ProfileSettingSchema) => {
     profile?.data
       ? updateProfile({
-          userId: userId,
-          username: data.username,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          country: data.city.split(',')[1] || '',
-          city: data.city.split(',')[0] || '',
-          dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
           avatar: data.avatar,
+          city: data.city.split(',')[0] || '',
+          country: data.city.split(',')[1] || '',
+          dateOfBirth: data.dateOfBirthday,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          userId: userId,
+          username: data.username,
         }).then(() => {
           if (avatar !== null) {
             uploadAvatar(avatar!)
           }
         })
       : createProfile({
-          userId: userId,
-          username: data.username,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          country: data.city.split(',')[1] || '',
-          city: data.city.split(',')[0] || '',
-          dateOfBirth: data.dateOfBirthday,
           aboutMe: data.aboutMe,
           avatar: data.avatar,
+          city: data.city.split(',')[0] || '',
+          country: data.city.split(',')[1] || '',
+          dateOfBirth: data.dateOfBirthday,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          userId: userId,
+          username: data.username,
         }).then(() => {
           if (avatar !== null) {
             uploadAvatar(avatar!)
@@ -69,8 +69,10 @@ export const GeneralInformation = () => {
         })
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setToastHandler = () => {
     if (successRes) {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useErrorToast(true, false, true)
     }
   }
@@ -80,9 +82,11 @@ export const GeneralInformation = () => {
       setToastHandler()
       push(RouteNames.PROFILE + '/' + userId)
     }
-  }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar, avatar])
+  }, [isSuccessCreate, isSuccessUpdate, isSuccessAvatar, avatar, setToastHandler, push, userId])
 
-  if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) return <Loader />
+  if (isLoadingAva || isLoading || isLoadingCreate || isLoadingUpdate) {
+    return <Loader />
+  }
 
   return (
     <div className={s.profile}>

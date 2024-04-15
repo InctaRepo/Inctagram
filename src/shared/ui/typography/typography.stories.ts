@@ -3,9 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Typography } from '@/ui/typography/Typography'
 
 const meta = {
-  title: 'Components/Typography',
-  component: Typography,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       options: [
@@ -25,6 +22,9 @@ const meta = {
       ],
     },
   },
+  component: Typography,
+  tags: ['autodocs'],
+  title: 'Components/Typography',
 } satisfies Meta<typeof Typography>
 
 export default meta
@@ -32,92 +32,92 @@ type Story = StoryObj<typeof Typography>
 
 export const Large: Story = {
   args: {
-    variant: 'large',
     children: 'large text example',
+    variant: 'large',
   },
 }
 
 export const H1: Story = {
   args: {
-    variant: 'h1',
     children: 'h1 text example',
+    variant: 'h1',
   },
 }
 export const H2: Story = {
   args: {
-    variant: 'h2',
     children: 'h2 text example',
+    variant: 'h2',
   },
 }
 export const H3: Story = {
   args: {
-    variant: 'h3',
     children: 'h3 text example',
+    variant: 'h3',
   },
 }
 
 export const Regular16: Story = {
   args: {
-    variant: 'regular16',
     children: 'regular16 text example',
+    variant: 'regular16',
   },
 }
 export const Bold16: Story = {
   args: {
-    variant: 'bold16',
     children: 'bold16 text example',
+    variant: 'bold16',
   },
 }
 export const Regular14: Story = {
   args: {
-    variant: 'regular14',
     children: 'regular14 text example',
+    variant: 'regular14',
   },
 }
 export const Bold14: Story = {
   args: {
-    variant: 'bold14',
     children: 'bold14 text example',
+    variant: 'bold14',
   },
 }
 export const Medium14: Story = {
   args: {
-    variant: 'medium14',
     children: 'medium14 text example',
+    variant: 'medium14',
   },
 }
 export const Small: Story = {
   args: {
-    variant: 'small',
     children: 'small text example',
+    variant: 'small',
   },
 }
 export const Sb_small: Story = {
   args: {
-    variant: 'sb_small',
     children: 'sb_small text example',
+    variant: 'sb_small',
   },
 }
 export const Link: Story = {
   args: {
-    variant: 'link',
     children: 'link text example',
     color: 'link',
+    variant: 'link',
   },
 }
 
 export const Sm_link: Story = {
   args: {
-    variant: 'sm_link',
     children: 'sm_link text example',
     color: 'link',
+    variant: 'sm_link',
   },
 }
 
 export const Error_text: Story = {
   args: {
-    variant: 'regular14',
     children: 'error text example',
     color: 'error',
+    variant: 'regular14',
   },
 }

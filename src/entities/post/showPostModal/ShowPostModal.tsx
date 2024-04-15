@@ -1,33 +1,33 @@
-import React, { ComponentProps, useEffect, useState } from 'react'
-
-import Image from 'next/image'
+import React, { ComponentProps, useCallback, useEffect, useState } from 'react'
 
 import { PostImages } from '@/entities/post/postImages/ui/PostImages'
 import { EditModal } from '@/entities/post/showPostModal/editModal'
 import { RightDescription } from '@/entities/post/showPostModal/editModal/rightDescription'
-import s from '@/entities/post/showPostModal/showPostModal.module.scss'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Images } from '@/features/posts/service'
 import { RouteNames } from '@/shared/const'
+import Image from 'next/image'
+
+import s from '@/entities/post/showPostModal/showPostModal.module.scss'
 
 type Props = {
-  openSureDescriptionModal?: boolean
-  description?: string
   createdAt?: Date
-  images: Images[]
+  description?: string
   id: string
+  images: Images[]
+  openSureDescriptionModal?: boolean
   postId?: string
   userId: string
 } & ComponentProps<'div'>
 
 export const ShowPostModal = ({
-  openSureDescriptionModal,
-  description,
   createdAt,
-  images,
+  description,
   id,
+  images,
+  openSureDescriptionModal,
   postId,
   userId,
 }: Props) => {
@@ -41,58 +41,58 @@ export const ShowPostModal = ({
     window.history.pushState(null, 'post', `${RouteNames.PROFILE}/${userId}`)
   }
 
-  const openClickHandler = () => {
+  const openClickHandler = useCallback(() => {
     setIsEditModalOpen(true)
     window.history.pushState(
       null,
       'post',
       `${RouteNames.PROFILE}/${userId}${RouteNames.POST}/${currentId}`
     )
-  }
+  }, [currentId, userId])
 
   useEffect(() => {
     if (id === postId) {
       openClickHandler()
     }
-  }, [id, postId])
+  }, [id, openClickHandler, postId])
 
   return (
     <div className={s.container}>
       <div className={s.postImage}>
         <Image
-          src={images[0].url}
-          width={640}
-          height={640}
           alt={'post'}
+          height={640}
           onClick={openClickHandler}
-          priority={true}
+          priority
+          src={images[0].url}
           style={{
-            width: '100%',
             height: 'auto',
+            width: '100%',
           }}
+          width={640}
         />
       </div>
 
       <EditModal
-        openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
-        open={isEditModalOpen}
-        setIsEditModalOpen={setIsEditModalOpen}
-        onClose={buttonClickHandler}
         isDescription={!isEditDescriptionModalOpen}
+        onClose={buttonClickHandler}
+        open={isEditModalOpen}
+        openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
+        setIsEditModalOpen={setIsEditModalOpen}
       >
         <div className={s.wrapper}>
           <PostImages images={images} />
           <RightDescription
+            createdAt={createdAt}
+            description={description}
+            id={id}
+            images={images}
+            isEditDescriptionModalOpen={isEditDescriptionModalOpen}
+            isEditModalOpen={isEditModalOpen}
             openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
             setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
-            isEditDescriptionModalOpen={isEditDescriptionModalOpen}
-            images={images}
-            id={id}
-            description={description}
-            createdAt={createdAt}
-            userData={userData?.data}
-            isEditModalOpen={isEditModalOpen}
             setIsEditModalOpen={setIsEditModalOpen}
+            userData={userData?.data}
           />
         </div>
       </EditModal>

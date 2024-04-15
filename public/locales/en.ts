@@ -1,62 +1,65 @@
-import { ru } from '@/public/locales/ru'
-
-export const en: LocaleType = {
-  locale: {
-    english: 'Английский',
-    russian: 'Русский',
-  },
-
+export const en = {
   auth: {
-    backToSignUp: 'Back to Sign Up',
-    congratulations: 'Congratulations',
-    confirmedEmail: 'Your email has been confirmed',
+    Return: 'Return',
+    agree: 'I agree to the',
     alreadyConfirmedEmail: 'Your email is already confirmed',
-    confirmationCodeExpired: 'Email confirmation code is expired',
-    codeIncorrect: 'Code is incorrect',
-    wereSorry: 'We\'re sorry',
-    signIn: 'Sign In',
-    signUp: 'Sign Up',
-    logInHeader: 'Log in',
-    signUpHeader: 'Sign up',
+    and: 'and',
+    // error fields block start =======================================================
+    authErrors: {
+      emailField: {
+        email: 'Invalid email address',
+        nonEmpty: 'Enter email',
+      },
+      password: {
+        max: 'Max number of characters 20',
+        min: 'Min number of characters 6',
+        nonEmpty: 'Enter password',
+        regex: 'Password must contain A-z, 0-9, !#$%*+-?^_',
+      },
+      passwordConfirm: 'Confirm your password',
+      recaptcha: {
+        expired: 'Verification expired. Check the checkbox\n' + 'again.',
+        notARobot: 'I’m not a robot',
+        verifyPlease: 'Please verify that you are not a robot',
+      },
+      refine: 'The passwords must match',
+      terms: 'Please, review and agree to the Terms of service and Privacy policy to proceed',
+      usernameField: {
+        max: 'Max number of characters 30',
+        min: 'Min number of characters 6',
+        nonEmpty: 'Enter username',
+        regex: 'Username can contain only A-Z, a-z, - or _',
+      },
+    },
     backToSignIn: 'Back to Sign In',
-    signUpTitle: 'Registration',
-    password: 'Password',
-    forgotPassword: 'Forgot password?',
-    forgotPasswordTitle: 'Forgot password',
-    resendVerificationLinkTitle: 'Resend verification link',
-    emailVerificationLink: 'Email verification link expired',
-    verificationLinkExpired: 'Looks like the verification link has expired. Not to worry, we can send the link again',
-    passwordConfirmation: 'Password confirmation',
+    backToSignUp: 'Back to Sign Up',
+    codeIncorrect: 'Code is incorrect',
+    confirmationCodeExpired: 'Email confirmation code is expired',
+    confirmedEmail: 'Your email has been confirmed',
+    congratulations: 'Congratulations',
     createNewPassword: 'Create new password',
-    wasCreateNewPassword: 'New password was created',
-    passwordChanged: 'Your password was successfully changed',
-    newPassword: 'New password',
-    passwordCharacters: 'Your password must be between 6 and 20 characters',
     dontHaveAccount: 'Don’t have an account?',
-    haveAccount: 'Do you have an account?',
-    instructions: 'Enter your email address and we will send you further instructions',
     email: 'Email',
-    userName: 'Username',
-    emailSent: 'Email sent',
-    ok: 'OK',
     emailConfirm(email: string) {
       return `We have sent a link to confirm your email to ${email}`
     },
-    sendLink: 'Send Link',
-    sendLinkAgain: 'Send Link Again',
-    Return: 'Return',
+    emailSent: 'Email sent',
+    emailVerificationLink: 'Email verification link expired',
+    forgotPassword: 'Forgot password?',
+    forgotPasswordTitle: 'Forgot password',
+    haveAccount: 'Do you have an account?',
+    instructions: 'Enter your email address and we will send you further instructions',
     linkHasBeenSent:
       'The link has been sent by email. If you dont receive an email send link again',
-    signUpTerms: {
-      description: 'I agree to the <1>Terms of service</1> and <2>Privacy policy</2>',
-    },
-    agree: 'I agree to the',
-    termsOfService: 'Terms of service',
-    and: 'and',
+    logInHeader: 'Log in',
+    newPassword: 'New password',
+    ok: 'OK',
+    password: 'Password',
+    passwordChanged: 'Your password was successfully changed',
+    passwordCharacters: 'Your password must be between 6 and 20 characters',
+    passwordConfirmation: 'Password confirmation',
     policy: 'Privacy policy',
-
     privacyAndTermsPages: {
-      titleOfPrivacyPolicy: 'Privacy policy',
       textOfPrivacy: `We have adopted this Privacy policy, which defines how we handle the information collected by https://inctagram.space, as well as the reasons why we should collect certain personal data about you. Therefore, before using the https://inctagram.space, please read this Privacy policy. We take care of your personal data and are committed to ensuring their confidentiality and security.
       Personal data that we collect.
       When you visit https://inctagram.space, we automatically collect certain information about your device, including information about your web browser, IP address, time zone and some cookies installed on your device. In addition, when you browse the Site, we collect information about individual web pages or products that you view, which websites or search terms brought you to the Site and how you interact with the Site. We call this automatically collected information "Device Information". In addition, we may collect personal data that you provide to us (including, but not limited to, first name, last name, address, payment information, etc.) during registration in order to be able to fulfill the agreement.
@@ -86,8 +89,6 @@ export const en: LocaleType = {
       If you would like to contact us to learn more about this Policy, or would like to contact us with any question regarding individual rights and your personal information, you can send an email to inctagram.pg@gmail.com.
       
       `,
-
-      titleOfTermsOfService: 'Terms of service',
       textOfTerms: ` We agree to provide you with the Instagram Service. The service will help you stay in touch with the people important to you and be aware of what you are interested in. The service includes the following components:
       •	Offering personalized opportunities to create and search for content, communicate and share experiences and impressions with other people.
       •	Ensuring security, integrity and security when using Inctagram.
@@ -116,204 +117,199 @@ export const en: LocaleType = {
       •	You agree that we may download and install Service updates on your device.
       
       `,
+
+      titleOfPrivacyPolicy: 'Privacy policy',
+      titleOfTermsOfService: 'Terms of service',
     },
+    resendVerificationLinkTitle: 'Resend verification link',
+    sendLink: 'Send Link',
+    sendLinkAgain: 'Send Link Again',
+    signIn: 'Sign In',
+    signUp: 'Sign Up',
+    signUpHeader: 'Sign up',
+    signUpTerms: {
+      description: 'I agree to the <1>Terms of service</1> and <2>Privacy policy</2>',
+    },
+    signUpTitle: 'Registration',
+    termsOfService: 'Terms of service',
+    userName: 'Username',
+    verificationLinkExpired: 'Looks like the verification link has expired. Not to worry, we can send the link again',
+
+    wasCreateNewPassword: 'New password was created',
 //
-    // error fields block start =======================================================
-    authErrors: {
-      usernameField: {
-        nonEmpty: 'Enter username',
-        regex: 'Username can contain only A-Z, a-z, - or _',
-        min: 'Min number of characters 6',
-        max: 'Max number of characters 30',
-      },
-      emailField: {
-        nonEmpty: 'Enter email',
-        email: 'Invalid email address',
-      },
-      terms: 'Please, review and agree to the Terms of service and Privacy policy to proceed',
-      password: {
-        nonEmpty: 'Enter password',
-        regex: 'Password must contain A-z, 0-9, !#$%*+-?^_',
-        min: 'Min number of characters 6',
-        max: 'Max number of characters 20',
-      },
-      recaptcha: {
-        notARobot: 'I’m not a robot',
-        verifyPlease: 'Please verify that you are not a robot',
-        expired: 'Verification expired. Check the checkbox\n' + 'again.',
-      },
-      passwordConfirm: 'Confirm your password',
-      refine: 'The passwords must match',
-    },
+    wereSorry: 'We\'re sorry',
 
     // error fields block end =======================================================
   },
 
-  sidebar: {
-    home: 'Home',
-    createPost: 'Create',
-    myProfile: 'My profile',
-    messenger: 'Messenger',
-    search: 'Search',
-    favorites: 'Favorites',
-    statistics: 'Statistics',
-    logout: 'Log Out',
+  locale: {
+    english: 'Английский',
+    russian: 'Русский',
+  },
+
+  posts: {
+    createPost: {
+      addDescription: 'Add publication description',
+      addPostPhoto: 'Add photo',
+      areYouSure:
+        'Do you really want to close the creation of a publication? If you close everything will be deleted',
+      close: 'Close',
+      cropping: 'Cropping',
+      discard: 'Discard',
+      filters: 'Filters',
+      next: 'Next',
+      openDraft: 'Open draft',
+      publication: 'Publication',
+      publish: 'Publish',
+      saveDraft: 'Safe draft',
+      selectFromComputer: 'Select from computer',
+      showResult: 'Show result',
+    },
+    deletePost: {
+      areYouSure: 'Are you sure you want to delete this post?',
+      delete: 'Delete post',
+      no: 'No',
+      yes: 'Yes',
+    },
+    editPost: {
+      closePost: 'Close post',
+      comment: 'Add a comment ...',
+      delete: 'Delete post',
+      edit: 'Edit post',
+      no: 'No',
+      publish: 'Publish',
+      question:
+        'Do you really want to close the edition of the publication? If you close changes won`t be saved',
+      save: 'Save changes',
+      yes: 'Yes',
+    },
   },
 
   profile: {
 
+    aboutYourself: 'tell about yourself',
     confirmLogout(email: string) {
       return `Are you really want to log out of your account ${email}?`
     },
-    yes: 'Yes',
-    no: 'No',
-    subscriptions: 'Subscriptions',
-    subscribers: 'Subscribers',
-    publications: 'Publications',
-    aboutYourself: 'tell about yourself',
-    profileSettings: 'Profile settings',
-    passwordChanged: 'Your password was successfully changed',
-    save: 'Save',
-    next: 'Next',
     descriptionError: {
       error: 'Max number of characters 500',
     },
+    next: 'Next',
+    no: 'No',
+    passwordChanged: 'Your password was successfully changed',
+    profileSettings: 'Profile settings',
+    publications: 'Publications',
+    save: 'Save',
+    subscribers: 'Subscribers',
+    subscriptions: 'Subscriptions',
+    yes: 'Yes',
   },
 
   profileSetting: {
 
-    setting: {
-      generalInformation: 'General information',
-      devices: 'Devices',
-      accountManagement: 'Account management',
-      myPayment: 'My payments',
-    },
-
-    generalInformation: {
-      yes: 'Yes',
-      no: 'No',
-      addAProfilePhoto: 'Add a profile photo',
-      save: 'Save',
-      userName: 'Username',
-      firstName: 'First name',
-      lastName: 'Last name',
-      dateOfBirthday: 'Date of birthday',
-      country: 'Country',
-      selectYourCountry: 'Select your country',
-      city: 'City',
-      selectYourCity: 'Select your city',
-      aboutMe: 'About me',
-      saveChanges: 'Save changes',
-      original: 'Original',
-      edit: 'Edit',
-      delete: 'Delete',
-      deletePhoto: 'Delete photo',
-      areYouSure: 'Do you really want to delete your profile photo?',
-      changesSaved: 'Your settings are saved',
-      selectFromComputer: 'Select from computer',
-      placeholderTextArea: 'Please enter at least 1 character or space',
-
-      generalInformationErrors: {
-
-        usernameField: {
-          nonEmpty: 'Enter username',
-          regex: 'Username can contain only A-Z, a-z, - or _',
-          min: 'Min number of characters 6',
-          max: 'Max number of characters 30',
-        },
-
-        firstNameField: {
-          nonEmpty: 'Enter first name',
-          regex: 'First name can contain only A-z; -;',
-          min: 'Min number of characters 1',
-          max: 'Max number of characters 50',
-        },
-
-        lastNameField: {
-          nonEmpty: 'Enter last name',
-          regex: 'Last name can contain only A-z; -;',
-          min: 'Min number of characters 1',
-          max: 'Max number of characters 50',
-        },
-
-        avatarError: {
-          size: 'Error! Photo size must be less than 10 MB',
-          format: 'Error! The format of the uploaded photo must be PNG or JPEG',
-        },
-
-        refine: 'A user under 13 cannot create a profile.',
-        incorrectInput: 'Incorrect input type.',
-        minLength:'Minimum input length 3',
-        aboutMeError: 'Max number of characters 200',
-      },
-    },
-    devices: {
-      currentDevice: 'Current device',
-      activeSessions: 'Active sessions',
-      terminateAllOtherSession: 'Terminate all other session',
-      lastVisit: 'Last visit',
-      otherDevices: 'You have not yet logged in from other devices',
-    },
     accountManagement: {
-      currentSubscription: 'Current Subscription',
       accountType: 'Account type:',
-      personal: 'Personal',
+      autoRenewal: 'Auto-Renewal',
+      backToPayment: 'Back to payment',
       business: 'Business',
-      yourSubscriptionCost: 'Your subscription cost:',
+      currentSubscription: 'Current Subscription',
+      error: 'Error',
+      expireAt: 'Expire at',
+      nextPayment: 'Next payment',
+      ok: 'OK',
       oneDay: 'per 1 Day',
-      sevenDay: 'per 7 Day',
       oneMonth: 'per month',
       or: 'or',
       paymentWasSuccessful: 'Payment was successful!',
+      personal: 'Personal',
+      sevenDay: 'per 7 Day',
       success: 'Success',
-      ok: 'OK',
-      error: 'Error',
       transactionFailed: 'Transaction failed. Please, write to support',
-      backToPayment: 'Back to payment',
-      expireAt: 'Expire at',
-      nextPayment: 'Next payment',
-      autoRenewal: 'Auto-Renewal',
+      yourSubscriptionCost: 'Your subscription cost:',
+    },
+
+    devices: {
+      activeSessions: 'Active sessions',
+      currentDevice: 'Current device',
+      lastVisit: 'Last visit',
+      otherDevices: 'You have not yet logged in from other devices',
+      terminateAllOtherSession: 'Terminate all other session',
+    },
+    generalInformation: {
+      aboutMe: 'About me',
+      addAProfilePhoto: 'Add a profile photo',
+      areYouSure: 'Do you really want to delete your profile photo?',
+      changesSaved: 'Your settings are saved',
+      city: 'City',
+      country: 'Country',
+      dateOfBirthday: 'Date of birthday',
+      delete: 'Delete',
+      deletePhoto: 'Delete photo',
+      edit: 'Edit',
+      firstName: 'First name',
+      generalInformationErrors: {
+
+        aboutMeError: 'Max number of characters 200',
+
+        avatarError: {
+          format: 'Error! The format of the uploaded photo must be PNG or JPEG',
+          size: 'Error! Photo size must be less than 10 MB',
+        },
+
+        firstNameField: {
+          max: 'Max number of characters 50',
+          min: 'Min number of characters 1',
+          nonEmpty: 'Enter first name',
+          regex: 'First name can contain only A-z; А-я',
+        },
+
+        incorrectInput: 'Incorrect input type.',
+
+        lastNameField: {
+          max: 'Max number of characters 50',
+          min: 'Min number of characters 1',
+          nonEmpty: 'Enter last name',
+          regex: 'Last name can contain only A-z; А-я',
+        },
+        minLength: 'Minimum input length 3',
+        refine: 'A user under 13 cannot create a profile.',
+        usernameField: {
+          max: 'Max number of characters 30',
+          min: 'Min number of characters 6',
+          nonEmpty: 'Enter username',
+          regex: 'Username can contain only A-Z, a-z, - or _',
+        },
+      },
+      lastName: 'Last name',
+      no: 'No',
+      original: 'Original',
+      placeholderTextArea: 'Please enter at least 1 character or space',
+      save: 'Save',
+      saveChanges: 'Save changes',
+      selectFromComputer: 'Select from computer',
+      selectYourCity: 'Select your city',
+      selectYourCountry: 'Select your country',
+      userName: 'Username',
+
+      yes: 'Yes',
     },
     myPayment: {},
+    setting: {
+      accountManagement: 'Account management',
+      devices: 'Devices',
+      generalInformation: 'General information', // eslint-disable-next-line max-lines
+      myPayment: 'My payments',
+    },
 
   },
-  posts: {
-    createPost: {
-      addPostPhoto: 'Add photo',
-      selectFromComputer: 'Select from computer',
-      cropping: 'Cropping',
-      showResult: 'Show result',
-      next: 'Next',
-      filters: 'Filters',
-      publication: 'Publication',
-      addDescription: 'Add publication description',
-      publish: 'Publish',
-      areYouSure:
-        'Do you really want to close the creation of a publication? If you close everything will be deleted',
-      discard: 'Discard',
-      saveDraft: 'Safe draft',
-      openDraft: 'Open draft',
-      close: 'Close',
-    },
-    editPost: {
-      comment: 'Add a comment ...',
-      edit: 'Edit post',
-      delete: 'Delete post',
-      closePost: 'Close post',
-      question:
-        'Do you really want to close the edition of the publication? If you close changes won`t be saved',
-      yes: 'Yes',
-      no: 'No',
-      save: 'Save changes',
-      publish: 'Publish',
-    },
-    deletePost: {
-      delete: 'Delete post',
-      areYouSure: 'Are you sure you want to delete this post?',
-      yes: 'Yes',
-      no: 'No',
-    },
+  sidebar: {
+    createPost: 'Create',
+    favorites: 'Favorites',
+    home: 'Home',
+    logout: 'Log Out',
+    messenger: 'Messenger',
+    myProfile: 'My profile',
+    search: 'Search',
+    statistics: 'Statistics',
   },
 }
-
-export type LocaleType = typeof ru

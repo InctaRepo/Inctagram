@@ -1,15 +1,15 @@
 import React from 'react'
-
-import Image from 'next/image'
 import Slider from 'react-slick'
+
+import { SliderSettings } from '@/entities/post/sliderSettings'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Images } from '@/features/posts/service'
+import Image from 'next/image'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import s from '@/entities/post/postImages/ui/postImages.module.scss'
-import { SliderSettings } from '@/entities/post/sliderSettings'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/features/posts/service'
 
 type Props = { images?: Images[]; isDescription?: boolean }
 
@@ -19,17 +19,17 @@ export const PostImages = ({ images, isDescription }: Props) => {
       <div className={s.imgContainer}>
         <Slider {...SliderSettings}>
           {images?.map((el, idx) => (
-            <div key={idx} className={isDescription ? s.carouselDescription : s.carousel}>
+            <div className={isDescription ? s.carouselDescription : s.carousel} key={idx}>
               <Image
                 alt={'img'}
-                src={el.url}
-                width={490}
                 height={490}
-                priority={true}
+                priority
+                src={el.url}
                 style={{
-                  width: '100%',
                   height: '100%',
+                  width: '100%',
                 }}
+                width={490}
               />
             </div>
           ))}

@@ -1,20 +1,20 @@
 import { useState } from 'react'
 
-import ImageAva from 'next/image'
-
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/entities/profile/service'
-import s from '@/features/publicPage/ui/publicPost/profileHeader/profileHeader.module.scss'
 import AvatarImage from '@/public/icon/avatarIcon.svg'
 import DefaultAva from '@/public/images/avatarIcon.jpg'
 import { Loader } from '@/ui/loader'
 import { Typography } from '@/ui/typography'
+import ImageAva from 'next/image'
+
+import s from '@/features/publicPage/ui/publicPost/profileHeader/profileHeader.module.scss'
 
 type Props = {
   userId: string
 }
 export const ProfileHeader = ({ userId }: Props) => {
-  const { data: profileData, isLoading, isError } = useGetProfileQuery(userId)
+  const { data: profileData, isError, isLoading } = useGetProfileQuery(userId)
   const [isAvaBroken, setIsAvaBroken] = useState(false)
 
   if (isLoading) {
@@ -34,19 +34,19 @@ export const ProfileHeader = ({ userId }: Props) => {
       <div>
         {profileData.data?.avatar !== null ? (
           <ImageAva
-            src={profileData.data?.avatar! ? profileData.data?.avatar! : avaWithError}
-            width={36}
-            height={36}
             alt={'ava'}
             className={s.ava}
-            priority={true}
+            height={36}
             onError={errorHandler}
+            priority
+            src={profileData.data?.avatar! ? profileData.data?.avatar! : avaWithError}
+            width={36}
           />
         ) : (
           <AvatarImage className={s.ava} />
         )}
       </div>
-      <Typography color="primary" variant="regular16">
+      <Typography color={'primary'} variant={'regular16'}>
         {profileData.data.username}
       </Typography>
     </div>

@@ -1,76 +1,50 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-import { DevTool } from '@hookform/devtools'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-
-import s from '@/features/auth/createNewPassword/ui/createNewPasswordForm/createNewPasswordForm.module.scss'
-import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
-import { useTranslate } from '@/shared/hooks'
-import { PasswordsMatchForm, passwordsMatchSchema } from '@/shared/schemas/passwordsMatchSchema'
+import { useCreateNewPasswordForm } from '@/features/auth/createNewPassword/hooks'
+import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
 import { Button } from '@/ui/button'
 import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
+import { DevTool } from '@hookform/devtools'
+
+import s from '@/features/auth/createNewPassword/ui/createNewPasswordForm/createNewPasswordForm.module.scss'
 
 type Props = {
   onSubmitHandler: (data: PasswordsMatchForm) => void
 }
 
-export const CreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
-  const { t } = useTranslate()
-
-  const {
-    control,
-    handleSubmit,
-    trigger,
-    formState: { touchedFields, errors },
-  } = useForm<PasswordsMatchForm>({
-    resolver: zodResolver(passwordsMatchSchema(t)),
-    mode: 'onTouched',
-    defaultValues: {
-      password: '',
-      passwordConfirm: '',
-    },
-  })
-
-  useEffect(() => {
-    const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
-
-    triggerZodFieldError(touchedFieldNames, trigger)
-  }, [t])
-  const submitData = (data: PasswordsMatchForm) => {
-    onSubmitHandler?.(data)
-  }
+export const CreateNewPasswordForm = (props: Props) => {
+  const { control, errors, handleSubmit, submit, t } = useCreateNewPasswordForm(props)
 
   return (
-    <form className={s.wrapper} onSubmit={handleSubmit(submitData)}>
+    <form className={s.wrapper} onSubmit={handleSubmit(submit)}>
       <Typography variant={'h1'}>{t.auth.createNewPassword}</Typography>
       <DevTool control={control} />
 
       <ControlledTextField
+        autoComplete={'new-password'}
+        className={s.password}
         control={control}
+        label={t.auth.newPassword}
         name={'password'}
         type={'password'}
-        label={t.auth.newPassword}
-        className={s.password}
-        autoComplete="new-password"
       />
 
       <ControlledTextField
+        autoComplete={'new-password'}
+        className={`${s.password} ${errors.passwordConfirm && s.fieldWithError}`}
         control={control}
+        label={t.auth.passwordConfirmation}
         name={'passwordConfirm'}
         type={'password'}
-        label={t.auth.passwordConfirmation}
-        className={`${s.password} ${errors.passwordConfirm && s.fieldWithError}`}
-        autoComplete="new-password"
       />
       <div className={s.text}>
-        <Typography variant="medium14" className={s.passwordRequirement}>
+        <Typography className={s.passwordRequirement} variant={'medium14'}>
           {t.auth.passwordCharacters}
         </Typography>
       </div>
-      <Button type={'submit'} variant="primary" fullWidth={true} className={s.btn}>
-        <Typography variant="bold16">{t.auth.createNewPassword}</Typography>
+      <Button className={s.btn} fullWidth type={'submit'} variant={'primary'}>
+        <Typography variant={'bold16'}>{t.auth.createNewPassword}</Typography>
       </Button>
     </form>
   )

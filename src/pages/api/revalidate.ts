@@ -1,7 +1,6 @@
+import { REVALIDATE_SECRET } from '@/shared/const'
 import Cors from 'cors'
 import { NextApiRequest, NextApiResponse } from 'next'
-
-import { REVALIDATE_SECRET } from '@/shared/const'
 
 const cors = Cors({
   methods: ['POST', 'GET', 'HEAD'],

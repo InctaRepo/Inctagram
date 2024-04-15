@@ -1,13 +1,13 @@
 export interface UserInfo {
-  userId?: string
-  username: string
-  firstName: string
-  lastName: string
-  country?: string
-  city: string
-  dateOfBirth: Date
   aboutMe: string
   avatar: string
+  city: string
+  country?: string
+  dateOfBirth: Date
+  firstName: string
+  lastName: string
+  userId?: string
+  username: string
 }
 
 export type Avatar = {

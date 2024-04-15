@@ -9,7 +9,7 @@ type Props = {
   label?: ReactNode
 } & ComponentPropsWithoutRef<'label'>
 
-export const Label = ({ label, children, className, ...rest }: Props) => {
+export const Label = ({ children, className, label, ...rest }: Props) => {
   const classNames = {
     label: clsx(s.label, className),
   }

@@ -1,23 +1,23 @@
 import React, { ComponentProps, ElementType } from 'react'
-
-import clsx from 'clsx'
 import { FieldError } from 'react-hook-form'
 
-import s from '@/ui/textAreaField/textAreaField.module.scss'
 import { Typography } from '@/ui/typography'
+import clsx from 'clsx'
+
+import s from '@/ui/textAreaField/textAreaField.module.scss'
 
 export type TTextAreaProps<T extends ElementType = 'textarea'> = {
   as?: T
-  label?: string
-  fullWidth?: boolean
   className?: string
-  errorMessage?: string | undefined
-  validationError?: FieldError | undefined
-  placeholder?: string
   disabled?: boolean
+  errorMessage?: string | undefined
+  fullWidth?: boolean
+  label?: string
   maxLength?: number
   onChange?: (s: string) => void
+  placeholder?: string
   setValue?: (value: string) => void
+  validationError?: FieldError | undefined
   variant?: string
 } & ComponentProps<T>
 
@@ -26,22 +26,21 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
 ) => {
   const {
     as: Component = 'textarea',
-    variant,
-    label,
-    fullWidth,
     className,
-    errorMessage,
-    validationError,
-    placeholder,
     disabled,
+    errorMessage,
+    fullWidth,
+    label,
     maxLength,
     onChange,
+    placeholder,
     setValue,
+    validationError,
+    variant,
     ...rest
   } = props
 
   const classNames = {
-    textAreaContainer: clsx(className, s.container),
     label: clsx(s.label, disabled && s.disabled),
     textArea: clsx(
       s.textarea,
@@ -49,6 +48,7 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
       fullWidth && s.fullWidth
     ),
     textAreaComment: clsx(className, s.textAreaComment),
+    textAreaContainer: clsx(className, s.container),
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -58,18 +58,18 @@ export const TextAreaField = <T extends ElementType = 'textarea'>(
 
   return (
     <div className={classNames.textAreaContainer}>
-      <Typography variant="regular14" color="secondary" className={classNames.label}>
+      <Typography className={classNames.label} color={'secondary'} variant={'regular14'}>
         {label}
       </Typography>
       <textarea
-        placeholder={placeholder}
         className={variant === 'comment' ? classNames.textAreaComment : classNames.textArea}
         disabled={disabled}
-        onChange={handleChange}
         maxLength={maxLength}
+        onChange={handleChange}
+        placeholder={placeholder}
         {...rest}
       />
-      <Typography variant="regular14" color="error" className={s.errorMessage}>
+      <Typography className={s.errorMessage} color={'error'} variant={'regular14'}>
         {errorMessage || validationError?.message}
       </Typography>
     </div>

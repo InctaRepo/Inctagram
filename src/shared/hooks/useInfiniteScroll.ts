@@ -4,11 +4,11 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { GetUserPostResponse, useGetUserPostsQuery } from '@/features/posts'
 
 export type UseInfiniteScrollSchema = {
+  dynamicPosts?: GetUserPostResponse[]
+  hasDynamicPosts?: boolean
+  isLastPage?: boolean
   isLoading?: boolean
   loadMoreCallback?: (el: HTMLDivElement) => void
-  hasDynamicPosts?: boolean
-  dynamicPosts?: GetUserPostResponse[]
-  isLastPage?: boolean
 }
 
 export const useInfiniteScroll = (
@@ -22,27 +22,32 @@ export const useInfiniteScroll = (
   const [isLastPage, setIsLastPage] = useState(false)
 
   const { data, isSuccess, refetch } = useGetUserPostsQuery({
-    userId: userId!,
     pageNumber: page,
+    userId: userId!,
   })
 
   const observerRef = useRef<IntersectionObserver>()
+  // eslint-disable-next-line no-undef
   const loadMoreTimeout: NodeJS.Timeout = setTimeout(() => null, 500)
+  // eslint-disable-next-line no-undef
   const loadMoreTimeoutRef = useRef<NodeJS.Timeout>(loadMoreTimeout)
   let newPosts = null
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     newPosts = data?.data?.items
     if (dynamicPosts?.length === data?.data?.totalCount) {
       setIsLastPage(true)
     }
-  }, [data, isSuccess, page, dynamicPosts])
+  }, [data?.data, isSuccess, page, dynamicPosts])
+
   useEffect(() => {
-    if (dynamicPosts?.length > data?.data.totalCount!) {
+    if (dynamicPosts?.length > data?.data?.totalCount!) {
       setIsLastPage(false)
       setPage(1)
     }
-  }, [data?.data?.totalCount!])
+  }, [data?.data?.totalCount, dynamicPosts?.length])
+  // }, [data?.data?.totalCount])
   useEffect(() => {
     if (page === 1 && dynamicPosts?.length != data?.data.totalCount!) {
       refetch()
@@ -53,7 +58,8 @@ export const useInfiniteScroll = (
           }
         })
     }
-  }, [page])
+  }, [data?.data.totalCount, dynamicPosts?.length, page, refetch])
+  // }, [ page])
 
   const handleObserver = useCallback(
     (entries: any[]) => {
@@ -82,22 +88,28 @@ export const useInfiniteScroll = (
       }
       setIsLoading(false)
     },
-    [
-      loadMoreTimeoutRef,
-      setIsLoading,
-      page,
-      dynamicPosts,
-      isSuccess,
-      newPosts,
-      data?.data?.totalCount!,
-    ]
+    [page, data?.data?.pagesCount, data?.data.totalCount, dynamicPosts, newPosts]
+    //[
+    //       loadMoreTimeoutRef,
+    //       setIsLoading,
+    //       page,
+    //       dynamicPosts,
+    //       isSuccess,
+    //       newPosts,
+    //       data?.data?.totalCount!,
+    //     ]
   )
 
   const loadMoreCallback = useCallback(
     (el: HTMLDivElement) => {
-      if (isLoading) return
-      if (observerRef.current) observerRef.current.disconnect()
+      if (isLoading) {
+        return
+      }
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+      }
 
+      // eslint-disable-next-line no-undef
       const option: IntersectionObserverInit = {
         root: null,
         rootMargin: '0px',
@@ -106,16 +118,18 @@ export const useInfiniteScroll = (
 
       observerRef.current = new IntersectionObserver(handleObserver, option)
 
-      if (el) observerRef.current.observe(el)
+      if (el) {
+        observerRef.current.observe(el)
+      }
     },
     [handleObserver, isLoading]
   )
 
   return {
+    dynamicPosts,
+    hasDynamicPosts,
+    isLastPage,
     isLoading,
     loadMoreCallback,
-    hasDynamicPosts,
-    dynamicPosts,
-    isLastPage,
   }
 }

@@ -1,6 +1,5 @@
-import { createWrapper } from 'next-redux-wrapper'
-
 import { AppStore, store } from '@/store'
+import { createWrapper } from 'next-redux-wrapper'
 
 export const makeStore = () => store
 

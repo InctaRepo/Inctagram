@@ -1,10 +1,6 @@
 import React, { useRef, useState } from 'react'
-
-import * as Slider from '@radix-ui/react-slider'
-import Image from 'next/image'
 import AvatarEditor from 'react-avatar-editor'
 
-import s from '@/entities/profile/avaModal/ui/avaModal.module.scss'
 import { useDeleteAvatarMutation } from '@/entities/profile/service'
 import DeleteIcon from '@/public/icon/deleteAvaIcon.svg'
 import ImgOutline from '@/public/icon/imgOutlineIcon.svg'
@@ -15,6 +11,10 @@ import { Button } from '@/ui/button'
 import { InputTypeFile } from '@/ui/inputTypeFile'
 import { Modal } from '@/ui/modal'
 import { Typography } from '@/ui/typography'
+import * as Slider from '@radix-ui/react-slider'
+import Image from 'next/image'
+
+import s from '@/entities/profile/avaModal/ui/avaModal.module.scss'
 
 type Props = {
   avatar: string
@@ -31,7 +31,7 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
   const showError = !!errorMessage && errorMessage.length > 0
   const [deleteAvatar] = useDeleteAvatarMutation()
   const [isAvaBroken, setIsAvaBroken] = useState(false)
-  const [croppedAvatar, setCroppedAvatar] = useState<string | null>(null)
+  const [croppedAvatar, setCroppedAvatar] = useState<null | string>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const handlePositionChange = (position: { x: number; y: number }) => {
@@ -98,25 +98,25 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
       {croppedAvatar && avatar !== null && (
         <>
           <Image
-            width={196}
-            height={196}
-            src={croppedAvatar ? croppedAvatar : avaWithError}
-            alt="ava"
+            alt={'ava'}
             className={s.ava}
+            height={196}
             onError={errorHandler}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
+            width={196}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
-            modalWidth={'sm'}
-            open={openDeleteModal}
-            onClose={onModalClose}
-            title={t.profileSetting.generalInformation.deletePhoto}
-            cancelButtonName={t.profileSetting.generalInformation.no}
             actionButtonName={t.profileSetting.generalInformation.yes}
-            onCancel={onModalClose}
+            cancelButtonName={t.profileSetting.generalInformation.no}
+            modalWidth={'sm'}
             onAction={discardHandler}
+            onCancel={onModalClose}
+            onClose={onModalClose}
+            open={openDeleteModal}
+            title={t.profileSetting.generalInformation.deletePhoto}
           >
             <Typography variant={'h3'}>{t.profileSetting.generalInformation.areYouSure}</Typography>
           </Modal>
@@ -125,25 +125,25 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
       {croppedAvatar && !avatar && (
         <>
           <Image
-            width={196}
-            height={196}
-            src={croppedAvatar ? croppedAvatar : avaWithError}
-            alt="ava"
+            alt={'ava'}
             className={s.ava}
+            height={196}
             onError={errorHandler}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
+            width={196}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
-            modalWidth={'sm'}
-            open={openDeleteModal}
-            onClose={onModalClose}
-            title={t.profileSetting.generalInformation.deletePhoto}
-            cancelButtonName={t.profileSetting.generalInformation.no}
             actionButtonName={t.profileSetting.generalInformation.yes}
-            onCancel={onModalClose}
+            cancelButtonName={t.profileSetting.generalInformation.no}
+            modalWidth={'sm'}
             onAction={discardHandler}
+            onCancel={onModalClose}
+            onClose={onModalClose}
+            open={openDeleteModal}
+            title={t.profileSetting.generalInformation.deletePhoto}
           >
             <Typography variant={'h3'}>{t.profileSetting.generalInformation.areYouSure}</Typography>
           </Modal>
@@ -152,25 +152,25 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
       {!croppedAvatar && avatar! && (
         <>
           <Image
-            width={196}
-            height={196}
-            src={croppedAvatar ? croppedAvatar : avaWithError}
-            alt="ava"
+            alt={'ava'}
             className={s.ava}
+            height={196}
             onError={errorHandler}
+            src={croppedAvatar ? croppedAvatar : avaWithError}
+            width={196}
           />
           <div onClick={() => setOpenDeleteModal(true)}>
             <DeleteIcon className={s.deleteAvatarIcon} />
           </div>
           <Modal
-            modalWidth={'sm'}
-            open={openDeleteModal}
-            onClose={onModalClose}
-            title={t.profileSetting.generalInformation.deletePhoto}
-            cancelButtonName={t.profileSetting.generalInformation.no}
             actionButtonName={t.profileSetting.generalInformation.yes}
-            onCancel={onModalClose}
+            cancelButtonName={t.profileSetting.generalInformation.no}
+            modalWidth={'sm'}
             onAction={discardHandler}
+            onCancel={onModalClose}
+            onClose={onModalClose}
+            open={openDeleteModal}
+            title={t.profileSetting.generalInformation.deletePhoto}
           >
             <Typography variant={'h3'}>{t.profileSetting.generalInformation.areYouSure}</Typography>
           </Modal>
@@ -184,22 +184,22 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
           </div>
         </div>
       )}
-      <Button variant="outlined" className={s.photoBtn} onClick={() => setIsModalOpen(true)}>
-        <Typography variant={'h3'} className={s.addBtn}>
+      <Button className={s.photoBtn} onClick={() => setIsModalOpen(true)} variant={'outlined'}>
+        <Typography className={s.addBtn} variant={'h3'}>
           {t.profileSetting.generalInformation.addAProfilePhoto}
         </Typography>
       </Button>
       <Modal
         className={s.baseModal}
         modalWidth={'md'}
-        open={isModalOpen}
         onClose={handleButtonClick}
+        open={isModalOpen}
         title={t.profileSetting.generalInformation.addAProfilePhoto}
       >
         <div className={s.errorContainer}>
           {showError && (
             <div className={s.error}>
-              <Typography color="primary" variant="small">
+              <Typography color={'primary'} variant={'small'}>
                 {errorMessage}
               </Typography>
             </div>
@@ -213,33 +213,33 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
           {selectedImage ? (
             <>
               <AvatarEditor
-                ref={editorRef}
-                image={selectedImage}
-                width={282}
-                height={290}
-                color={[23, 23, 23, 0.6]}
                 backgroundColor={'black'}
-                scale={slideValue / 10}
                 borderRadius={155}
-                position={position}
-                onPositionChange={handlePositionChange}
-                crossOrigin="anonymous"
+                color={[23, 23, 23, 0.6]}
+                crossOrigin={'anonymous'}
                 disableBoundaryChecks={false}
+                height={290}
+                image={selectedImage}
+                onPositionChange={handlePositionChange}
+                position={position}
+                ref={editorRef}
+                scale={slideValue / 10}
+                width={282}
               />
               <form>
                 <Slider.Root
                   className={s.SliderRoot}
                   defaultValue={[slideValue]}
-                  min={10}
                   max={50}
-                  step={2}
+                  min={10}
                   onValueChange={handleSliderChange}
+                  step={2}
                   value={[slideValue]}
                 >
                   <Slider.Track className={s.SliderTrack}>
                     <Slider.Range className={s.SliderRange} />
                   </Slider.Track>
-                  <Slider.Thumb className={s.SliderThumb} aria-label="Volume" />
+                  <Slider.Thumb aria-label={'Volume'} className={s.SliderThumb} />
                 </Slider.Root>
               </form>
             </>
@@ -254,7 +254,7 @@ export const AvaModal = ({ avatar, setAvatar }: Props) => {
               {t.profileSetting.generalInformation.save}
             </Button>
           ) : (
-            <InputTypeFile setSelectedImage={setSelectedImage} setErrorMessage={setErrorMessage} />
+            <InputTypeFile setErrorMessage={setErrorMessage} setSelectedImage={setSelectedImage} />
           )}
         </div>
       </Modal>

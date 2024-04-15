@@ -1,5 +1,8 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react'
 
+import CloseIcon from '@/public/icon/closeIcon.svg'
+import { Button } from '@/ui/button'
+import { Typography } from '@/ui/typography'
 import {
   Dialog,
   DialogContent,
@@ -10,52 +13,49 @@ import {
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
 
-import CloseIcon from '@/public/icon/closeIcon.svg'
-import { Button } from '@/ui/button'
 import s from '@/ui/modal/baseModal.module.scss'
-import { Typography } from '@/ui/typography'
 
-export type ModalSize = 'sm' | 'md' | 'lg'
+export type ModalSize = 'lg' | 'md' | 'sm'
 
 type Props = {
-  open: boolean
-  onClose?: () => void
-  onAction?: () => void
-  onCancel?: () => void
-  cancelButtonName?: string // if no props , visibility = hidden
   actionButtonName?: string // if no props , visibility = hidden
-  showSeparator?: boolean // if no props with false , visibility = visible
-  title?: string
-  modalWidth?: ModalSize //sm - 378px,md - 492px,lg - 644px.
+  cancelButtonName?: string // if no props , visibility = hidden
   children?: ReactNode
   className?: string
   fullWidthButton?: boolean
+  modalWidth?: ModalSize //sm - 378px,md - 492px,lg - 644px.
+  onAction?: () => void
+  onCancel?: () => void
+  onClose?: () => void
+  open: boolean
+  showSeparator?: boolean // if no props with false , visibility = visible
+  title?: string
 } & ComponentPropsWithoutRef<'div'>
 
 export const BaseModal = ({
-  showSeparator = true,
-  onClose,
+  actionButtonName,
+  cancelButtonName,
+  children,
+  className,
+  fullWidthButton = false,
+  modalWidth = 'sm',
   onAction,
   onCancel,
+  onClose,
   open,
-  cancelButtonName,
-  actionButtonName,
-  modalWidth = 'sm',
+  showSeparator = true,
   title,
-  className,
-  children,
-  fullWidthButton = false,
   ...rest
 }: Props) => {
   const classNames = {
-    content: getContentClassName(modalWidth, className),
-    separator: clsx(s.separator, !showSeparator && s.separatorHide),
     actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
     cancelButton: clsx(
       s.widePaddingButton,
       !cancelButtonName && s.cancelButtonHide,
       s.actionButton
     ),
+    content: getContentClassName(modalWidth, className),
+    separator: clsx(s.separator, !showSeparator && s.separatorHide),
   }
 
   const actionButtonHandler = () => {
@@ -96,8 +96,8 @@ export const BaseModal = ({
               {cancelButtonName}
             </Button>
             <Button
-              fullWidth={fullWidthButton}
               className={classNames.actionButton}
+              fullWidth={fullWidthButton}
               onClick={actionButtonHandler}
             >
               {actionButtonName}
@@ -116,7 +116,13 @@ function getContentClassName(size: ModalSize, className?: string) {
 }
 
 function getSizeClassName(size: ModalSize) {
-  if (size === 'sm') return s.sm
-  if (size === 'md') return s.md
-  if (size === 'lg') return s.lg
+  if (size === 'sm') {
+    return s.sm
+  }
+  if (size === 'md') {
+    return s.md
+  }
+  if (size === 'lg') {
+    return s.lg
+  }
 }

@@ -1,20 +1,20 @@
 import React, { ReactNode } from 'react'
 
+import { variantIconLink } from '@/shared/const'
+import { Typography } from '@/ui/typography'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 
-import { variantIconLink } from '@/shared/const'
 import s from '@/ui/linkMenu/linkMenu.module.scss'
-import { Typography } from '@/ui/typography'
 
 type Props = {
-  nameLink: string
-  link?: string
   children: ReactNode
-  variantIcon: variantIconLink
   handleClick: (variant: variantIconLink) => void
+  link?: string
+  nameLink: string
+  variantIcon: variantIconLink
 }
-export const LinkMenu = ({ children, variantIcon, handleClick, nameLink, link }: Props) => {
+export const LinkMenu = ({ children, handleClick, link, nameLink, variantIcon }: Props) => {
   const handleItemClick = () => {
     handleClick(variantIcon)
   }
@@ -24,9 +24,9 @@ export const LinkMenu = ({ children, variantIcon, handleClick, nameLink, link }:
 
   return (
     <div className={styles.check} onClick={handleItemClick}>
-      <Link href={`${link}`} className={s.link}>
+      <Link className={s.link} href={`${link}`}>
         {children}
-        <Typography variant="medium14" className={styles.check}>
+        <Typography className={styles.check} variant={'medium14'}>
           {nameLink}
         </Typography>
       </Link>

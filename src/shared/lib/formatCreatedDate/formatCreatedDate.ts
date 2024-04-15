@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 export const formatPostCreatedAt = (createdAt: string): string => {
   TimeAgo.addLocale(en)
   TimeAgo.addLocale(ru)
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { locale } = useRouter()
   const timeAgo = new TimeAgo(locale!)
   const postDate = new Date(createdAt)

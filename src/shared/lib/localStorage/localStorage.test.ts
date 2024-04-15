@@ -7,15 +7,15 @@ const localStorageMock = (() => {
   let store: Record<string, string> = {}
 
   return {
-    getItem: (key: string) => store[key],
-    setItem: (key: string, value: SignInSchema) => {
-      store[key] = value.toString()
+    clear: () => {
+      store = {}
     },
+    getItem: (key: string) => store[key],
     removeItem: (key: string) => {
       delete store[key]
     },
-    clear: () => {
-      store = {}
+    setItem: (key: string, value: SignInSchema) => {
+      store[key] = value.toString()
     },
   }
 })()
@@ -29,7 +29,7 @@ beforeEach(() => {
 
 describe('localStorage functions', () => {
   it('should load state correctly', () => {
-    const mockState = { signIn: { id: 'mockId1', accessToken: 'mockToken1' } }
+    const mockState = { signIn: { accessToken: 'mockToken1', id: 'mockId1' } }
 
     localStorage.setItem('signIn', JSON.stringify(mockState))
 
@@ -39,7 +39,7 @@ describe('localStorage functions', () => {
   })
 
   it('should save state correctly', () => {
-    const mockState = { signIn: { id: 'mockId1', accessToken: 'mockToken' } } as StateSchema
+    const mockState = { signIn: { accessToken: 'mockToken', id: 'mockId1' } } as StateSchema
 
     saveState(mockState)
 

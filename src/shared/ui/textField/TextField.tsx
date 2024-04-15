@@ -1,24 +1,25 @@
 import React, { ComponentProps } from 'react'
 
 import { InputMain } from '@/ui/textField/inputMain'
+
 import s from '@/ui/textField/textField.module.scss'
 
 export type TextFieldProps = {
-  errorMessage?: string
-  label?: string
-  fullWidth?: boolean
   className?: string
-  value?: string
-  onChangeText?: (value: string) => void
+  errorMessage?: string
+  fullWidth?: boolean
   isRequired?: boolean
+  label?: string
+  onChangeText?: (value: string) => void
+  value?: string
 } & ComponentProps<'input'>
 
 export const TextField = ({
-  value,
-  errorMessage,
   className,
+  errorMessage,
   fullWidth,
   isRequired,
+  value,
   ...restProps
 }: TextFieldProps) => {
   return (
@@ -26,8 +27,8 @@ export const TextField = ({
       <InputMain
         errorMessage={errorMessage}
         {...restProps}
-        value={value ?? ''}
         isRequired={isRequired}
+        value={value ?? ''}
       />
     </div>
   )

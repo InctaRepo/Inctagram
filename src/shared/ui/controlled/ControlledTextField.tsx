@@ -1,10 +1,9 @@
 import { ChangeEvent, useEffect } from 'react'
-
-import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
+import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import { TextField, TextFieldProps } from '@/ui/textField'
 
-type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defaultValues'> &
+type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'defaultValues' | 'rules'> &
   Omit<TextFieldProps, 'onChange' | 'value'> & {
     handleAutocompleteOptions?: (value: string) => void
     selectedValue?: string
@@ -12,24 +11,25 @@ type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'rules' | 'defau
 
 export const ControlledTextField = <T extends FieldValues>({
   control,
-  name,
-  isRequired,
   handleAutocompleteOptions,
+  isRequired,
+  name,
   selectedValue,
   ...rest
 }: Props<T>) => {
   const {
+    field: { onChange, ref, ...fieldProps },
     fieldState: { error },
-    field: { ref, onChange, ...fieldProps },
   } = useController({
-    name,
     control,
+    name,
   })
 
   useEffect(() => {
     if (selectedValue) {
       onChange(selectedValue)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedValue])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -42,8 +42,8 @@ export const ControlledTextField = <T extends FieldValues>({
   return (
     <TextField
       {...fieldProps}
-      onChange={handleChange}
       errorMessage={error?.message}
+      onChange={handleChange}
       {...rest}
       isRequired={isRequired}
     />

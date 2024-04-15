@@ -1,11 +1,8 @@
 import React from 'react'
 
-import { screen } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
+import { render, screen, userEvent, waitFor } from '@/__mocks__/customRender'
 
 import { CreateNewPasswordForm } from './CreateNewPasswordForm'
-
-import { render } from '__mocks__/customRender'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ locale: 'en' }),
@@ -17,25 +14,27 @@ function setup(jsx: React.JSX.Element) {
     ...render(jsx),
   }
 }
-// Mocked onSubmitHandler function for testing
+
 const onSubmitHandler = jest.fn()
 
 describe('CreateNewPasswordForm', () => {
-  test('renders form fields and submits data', async () => {
+  it('renders form fields and submits data', async () => {
     const onSubmitHandler = jest.fn()
-    const { user, debug } = setup(<CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />)
+    const { container, user } = setup(<CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />)
 
-    // Fill in form fields
+    expect(container.querySelector('form')).toBeInTheDocument()
     await user.type(screen.getByRole('password', { name: /password/i }), '1qaz@WSX')
     await user.type(screen.getByRole('passwordConfirm', { name: /password/i }), '1qaz@WSX')
-    // Submit the form
     await user.click(screen.getByRole('button', { name: /Create new password/i }))
-
-    // Assert that onSubmitHandler is called with the correct data
     expect(onSubmitHandler).toHaveBeenCalledTimes(1)
     expect(onSubmitHandler).toHaveBeenCalledWith({
       password: '1qaz@WSX',
       passwordConfirm: '1qaz@WSX',
     })
+  })
+  it('snapshot CreateNewPasswordForm', () => {
+    const snapshot = setup(<CreateNewPasswordForm onSubmitHandler={onSubmitHandler} />)
+
+    waitFor(() => expect(snapshot).toMatchSnapshot())
   })
 })

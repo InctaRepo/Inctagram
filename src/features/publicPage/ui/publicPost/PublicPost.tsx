@@ -2,9 +2,10 @@ import { ShowPostModal } from '@/entities/post/showPostModal'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetAllPostsQuery } from '@/features/posts'
 import { ProfileHeader } from '@/features/publicPage/ui/publicPost/profileHeader'
-import s from '@/features/publicPage/ui/publicPost/publicPost.module.scss'
 import { formatPostCreatedAt } from '@/shared/lib'
 import { Typography } from '@/ui/typography'
+
+import s from '@/features/publicPage/ui/publicPost/publicPost.module.scss'
 
 export const PublicPost = () => {
   const { data: postData } = useGetAllPostsQuery({})
@@ -12,13 +13,13 @@ export const PublicPost = () => {
   return (
     <div className={s.container}>
       {postData?.data.items.map(post => (
-        <div key={post.id} className={s.box}>
+        <div className={s.box} key={post.id}>
           {Array.isArray(post.images) && post.images.length > 0 && (
             <ShowPostModal
-              userId={post.userId}
               description={post.description}
-              images={post.images}
               id={post.id}
+              images={post.images}
+              userId={post.userId}
             />
           )}
           <div className={s.profile_header}>
@@ -26,11 +27,11 @@ export const PublicPost = () => {
           </div>
           <div className={s.time_online}>{formatPostCreatedAt(post.createdAt)}</div>
           <div className={s.disrciption}>
-            <Typography color="primary" variant="regular14" className={s.text}>
+            <Typography className={s.text} color={'primary'} variant={'regular14'}>
               {post.description}
             </Typography>
             {post.description ? (
-              <Typography variant="sm_link" color="link">
+              <Typography color={'link'} variant={'sm_link'}>
                 Show more
               </Typography>
             ) : (
