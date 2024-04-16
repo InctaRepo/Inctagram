@@ -13,10 +13,14 @@ import { useRouter } from 'next/router'
 
 export const getStaticProps = wrapper.getStaticProps(store => {
   return async context => {
-    store.dispatch(getAllPosts.initiate({}, { forceRefetch: 60 }))
+    store.dispatch(getAllPosts.initiate({}, { subscriptionOptions: { pollingInterval: 600 } }))
     store.dispatch(getAllPosts.initiate({}, { forceRefetch: true }))
-    store.dispatch(getUsersCount.initiate(void { forceRefetch: 60 }))
-    store.dispatch(getUsersCount.initiate(void { forceRefetch: true }))
+    store.dispatch(
+      getUsersCount.initiate({} as unknown as void, {
+        subscriptionOptions: { pollingInterval: 600 },
+      })
+    )
+    store.dispatch(getUsersCount.initiate({} as unknown as void, { forceRefetch: true }))
     await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
     return {
