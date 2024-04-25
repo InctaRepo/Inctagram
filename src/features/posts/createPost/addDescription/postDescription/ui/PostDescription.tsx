@@ -120,7 +120,12 @@ export const PostDescription = ({
         </div>
 
         {isDescription && (
-          <Button className={s.btn} onClick={saveHandler} variant={'primary'}>
+          <Button
+            className={s.btn}
+            disabled={value ? value.length > 500 : false}
+            onClick={saveHandler}
+            variant={'primary'}
+          >
             <Typography variant={'h3'}>{t.posts.editPost.save}</Typography>
           </Button>
         )}
