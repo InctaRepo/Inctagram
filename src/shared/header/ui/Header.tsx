@@ -17,7 +17,7 @@ type Props = {
   variant?: 'public'
 }
 
-export const Header = memo(({ variant }: Props) => {
+export const Header = memo(function Header({ variant }: Props) {
   const { asPath, locale, pathname, push, query } = useRouter()
   const { t } = useTranslate()
 

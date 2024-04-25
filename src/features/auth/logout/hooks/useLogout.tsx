@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { useLogoutMutation } from '@/features/auth/logout/service/logout'
 import { clearId, clearToken } from '@/features/auth/signIn'
@@ -20,7 +20,7 @@ export const useLogout = () => {
   const [logoutUser] = useLogoutMutation()
 
   const { t } = useTranslate()
-  const logoutHandler = async () => {
+  const logoutHandler = useCallback(() => {
     logoutUser()
     dispatch(setAuthMeData({ authMeData: { email: '', userId: '', username: '' } }))
     dispatch(clearToken())
@@ -28,11 +28,11 @@ export const useLogout = () => {
     dispatch(setVariantIcon(null))
     router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
-  }
-  const onModalClose = () => {
+  }, [])
+  const onModalClose = useCallback(() => {
     setOpenModal(false)
     dispatch(setVariantIcon(null))
-  }
+  }, [])
   const onClickOpenModal = () => {
     setOpenModal(true)
     dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1) as variantIconLink))

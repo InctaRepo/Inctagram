@@ -107,6 +107,7 @@
     "@types/nprogress": "^0.2.3",
     "@types/react": "18.2.77",
     "@types/react-datepicker": "^4.19.6",
+    "@welldone-software/why-did-you-render": "^8.0.1",
     "cross-env": "^7.0.3",
     "cross-fetch": "^4.0.0",
     "eslint": "^8.57.0",

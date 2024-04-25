@@ -228,6 +228,9 @@ importers:
       '@types/react-datepicker':
         specifier: ^4.19.6
         version: 4.19.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@welldone-software/why-did-you-render':
+        specifier: ^8.0.1
+        version: 8.0.1(react@18.2.0)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -2806,6 +2809,11 @@ packages:
 
   '@webassemblyjs/wast-printer@1.12.1':
     resolution: { integrity: sha512-+X4WAlOisVWQMikjbcvY2e0rwPsKQ9F688lksZhBcPycBBuii3O7m8FACbDMWDojpAqvjIncrG8J0XHKyQfVeA== }
+
+  '@welldone-software/why-did-you-render@8.0.1':
+    resolution: { integrity: sha512-PtLBjiHNX04gDPheMeAQP16S24JV3SOW6wGDUrm4bFPZmofmmflgvd4Kacf/jhB8zlX6equ8m3t6CS+OxA3Q4g== }
+    peerDependencies:
+      react: ^18
 
   '@xtuc/ieee754@1.2.0':
     resolution: { integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA== }
@@ -10753,6 +10761,11 @@ snapshots:
     dependencies:
       '@webassemblyjs/ast': 1.12.1
       '@xtuc/long': 4.2.2
+
+  '@welldone-software/why-did-you-render@8.0.1(react@18.2.0)':
+    dependencies:
+      lodash: 4.17.21
+      react: 18.2.0
 
   '@xtuc/ieee754@1.2.0': { }
 

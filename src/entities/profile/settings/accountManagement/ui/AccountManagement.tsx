@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 
 import PayPal from '@/public/icon/payPalIcon.svg'
 import Stripe from '@/public/icon/stripeIcon.svg'
@@ -11,8 +11,7 @@ import { Typography } from '@/ui/typography'
 
 import s from '@/entities/profile/settings/accountManagement/ui/accountManagement.module.scss'
 
-type Props = {}
-export const AccountManagement = ({}: Props) => {
+export const AccountManagement = memo(function AccountManagement() {
   const { t } = useTranslate()
   const account = [
     { id: '1', label: t.profileSetting.accountManagement.personal },
@@ -185,4 +184,4 @@ export const AccountManagement = ({}: Props) => {
       <Button onClick={onClickPaymentActive}>Payment Active</Button>
     </>
   )
-}
+})

@@ -23,6 +23,9 @@ export const Logout = () => {
   const logoutIconFill = useMemo(() => {
     return variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'
   }, [variantIcon])
+  const confirmLogoutMemo = useMemo(() => {
+    return <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
+  }, [email])
 
   return (
     <>
@@ -44,7 +47,7 @@ export const Logout = () => {
         open={openModal}
         title={t.sidebar.logout}
       >
-        <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
+        {confirmLogoutMemo}
       </Modal>
     </>
   )
