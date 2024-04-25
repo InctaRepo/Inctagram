@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { UserInfo } from '@/entities/profile/service'
@@ -22,7 +22,10 @@ type Props = {
   onSubmitHandler?: (data: ProfileSettingSchema) => void
   userData: UserInfo
 }
-export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => {
+export const GeneralInformationForm = memo(function GeneralInformationForm({
+  onSubmitHandler,
+  userData,
+}: Props) {
   const { t } = useTranslate()
   const userName = useAppSelector(getUsername)
   const {
@@ -113,4 +116,4 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
       <div className={`${s.grayLine} ${errors.dateOfBirthday && s.grayLineError}`} />
     </>
   )
-}
+})

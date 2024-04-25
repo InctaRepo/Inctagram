@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { AvaModalDynamic } from '@/entities/profile/avaModal'
 import {
@@ -18,7 +18,7 @@ import { useRouter } from 'next/router'
 
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
 
-export const GeneralInformation = () => {
+export const GeneralInformation = memo(function GeneralInformation() {
   const dispatch = useAppDispatch()
   const [avatar, setAvatar] = useState<FormData | null>(null)
   const { push } = useRouter()
@@ -28,46 +28,51 @@ export const GeneralInformation = () => {
     useCreateProfileMutation()
   const userId = useAppSelector(getUserId) as string
   const { data: profile, isLoading, isSuccess } = useGetProfileQuery(userId)
-  const userData = profile?.data
+  const userData = useMemo(() => {
+    return profile?.data
+  }, [profile?.data])
   const [uploadAvatar, { isLoading: isLoadingAva, isSuccess: isSuccessAvatar }] =
     useUploadAvatarMutation()
 
   const successRes =
     (isSuccessCreate && profile?.resultCode === 0) || (isSuccessUpdate && profile?.resultCode === 0)
-  const onFormSubmit = (data: ProfileSettingSchema) => {
-    profile?.data
-      ? updateProfile({
-          aboutMe: data.aboutMe,
-          avatar: data.avatar,
-          city: data.city.split(',')[0] || '',
-          country: data.city.split(',')[1] || '',
-          dateOfBirth: data.dateOfBirthday,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          userId: userId,
-          username: data.username,
-        }).then(() => {
-          if (avatar !== null) {
-            uploadAvatar(avatar!)
-          }
-        })
-      : createProfile({
-          aboutMe: data.aboutMe,
-          avatar: data.avatar,
-          city: data.city.split(',')[0] || '',
-          country: data.city.split(',')[1] || '',
-          dateOfBirth: data.dateOfBirthday,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          userId: userId,
-          username: data.username,
-        }).then(() => {
-          if (avatar !== null) {
-            uploadAvatar(avatar!)
-          }
-          dispatch(setProfileFound(true))
-        })
-  }
+  const onFormSubmit = useCallback(
+    (data: ProfileSettingSchema) => {
+      userData
+        ? updateProfile({
+            aboutMe: data.aboutMe,
+            avatar: data.avatar,
+            city: data.city.split(',')[0] || '',
+            country: data.city.split(',')[1] || '',
+            dateOfBirth: data.dateOfBirthday,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            userId: userId,
+            username: data.username,
+          }).then(() => {
+            if (avatar !== null) {
+              uploadAvatar(avatar!)
+            }
+          })
+        : createProfile({
+            aboutMe: data.aboutMe,
+            avatar: data.avatar,
+            city: data.city.split(',')[0] || '',
+            country: data.city.split(',')[1] || '',
+            dateOfBirth: data.dateOfBirthday,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            userId: userId,
+            username: data.username,
+          }).then(() => {
+            if (avatar !== null) {
+              uploadAvatar(avatar!)
+            }
+            dispatch(setProfileFound(true))
+          })
+    },
+    [userData]
+  )
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const setToastHandler = () => {
@@ -100,4 +105,4 @@ export const GeneralInformation = () => {
       </div>
     </div>
   )
-}
+})

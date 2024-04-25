@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { Sidebar } from '@/shared/sidebar'
 import { Typography } from '@/ui/typography'
 
 import s from '@/features/favorites/favorites.module.scss'
 
-export const Favorites = () => {
+export const Favorites = memo(() => {
   return (
     <div className={s.container}>
       <Sidebar />
@@ -14,4 +14,4 @@ export const Favorites = () => {
       </div>
     </div>
   )
-}
+})

@@ -1,3 +1,5 @@
+import { memo, useMemo } from 'react'
+
 import { ProfileInfo } from '@/entities/profile/profileInfo'
 import { useGetProfileQuery } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
@@ -16,11 +18,14 @@ type Props = {
   postId?: string
 }
 
-export const Profile = ({ id, postId }: Props) => {
+export const Profile = memo(({ id, postId }: Props) => {
   const isAuth = useAppSelector(getIsAuth)
   const dispatch = useAppDispatch()
   const router = useRouter()
   const { data, isLoading, isSuccess } = useGetProfileQuery(id)
+  const userData = useMemo(() => {
+    return data?.data
+  }, [data?.data])
 
   if (isSuccess && data?.resultCode === resultCode.NOT_FOUND && isAuth) {
     dispatch(setProfileFound(false))
@@ -42,9 +47,9 @@ export const Profile = ({ id, postId }: Props) => {
     <div className={s.container}>
       {isAuth && <Sidebar />}
       <div className={isAuth ? s.containerInfo : s.containerInfoPublic}>
-        <ProfileInfo userData={data?.data} />
+        <ProfileInfo userData={userData} />
         <Posts postId={postId} userId={id} />
       </div>
     </div>
   )
-}
+})

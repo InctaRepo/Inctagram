@@ -24,7 +24,7 @@ export type GetUserPostsResponse = {
   totalCount: number
 }
 export type GetUserPostResponse = {
-  createdAt: Date
+  createdAt: string
   description: string
   id: string
   images: Images[]

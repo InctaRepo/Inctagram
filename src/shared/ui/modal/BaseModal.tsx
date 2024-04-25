@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, ReactNode, memo } from 'react'
 
 import CloseIcon from '@/public/icon/closeIcon.svg'
 import { Button } from '@/ui/button'
@@ -32,82 +32,84 @@ type Props = {
   title?: string
 } & ComponentPropsWithoutRef<'div'>
 
-export const BaseModal = ({
-  actionButtonName,
-  cancelButtonName,
-  children,
-  className,
-  fullWidthButton = false,
-  modalWidth = 'sm',
-  onAction,
-  onCancel,
-  onClose,
-  open,
-  showSeparator = true,
-  title,
-  ...rest
-}: Props) => {
-  const classNames = {
-    actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
-    cancelButton: clsx(
-      s.widePaddingButton,
-      !cancelButtonName && s.cancelButtonHide,
-      s.actionButton
-    ),
-    content: getContentClassName(modalWidth, className),
-    separator: clsx(s.separator, !showSeparator && s.separatorHide),
+export const BaseModal = memo(
+  ({
+    actionButtonName,
+    cancelButtonName,
+    children,
+    className,
+    fullWidthButton = false,
+    modalWidth = 'sm',
+    onAction,
+    onCancel,
+    onClose,
+    open,
+    showSeparator = true,
+    title,
+    ...rest
+  }: Props) => {
+    const classNames = {
+      actionButton: clsx(s.widePaddingButton, !actionButtonName && s.actionButtonHide),
+      cancelButton: clsx(
+        s.widePaddingButton,
+        !cancelButtonName && s.cancelButtonHide,
+        s.actionButton
+      ),
+      content: getContentClassName(modalWidth, className),
+      separator: clsx(s.separator, !showSeparator && s.separatorHide),
+    }
+
+    const actionButtonHandler = () => {
+      onAction?.()
+    }
+
+    const cancelButtonHandler = () => {
+      onCancel?.()
+    }
+
+    function onCloseHandler() {
+      onClose?.()
+    }
+
+    return (
+      <Dialog open={open}>
+        <DialogPortal>
+          <DialogOverlay className={s.DialogOverlay} />
+          <DialogContent className={classNames.content} {...rest}>
+            <div className={s.titleWrapper}>
+              <button className={s.IconButton} onClick={onCloseHandler}>
+                <CloseIcon />
+              </button>
+              <DialogTitle className={s.DialogTitle}>
+                <Typography variant={'h1'}>{title}</Typography>
+                <Separator className={classNames.separator} />
+              </DialogTitle>
+            </div>
+
+            <div className={s.contentBox}>{children}</div>
+
+            <div className={s.footerBlock}>
+              <Button
+                className={classNames.cancelButton}
+                onClick={cancelButtonHandler}
+                variant={'outlined'}
+              >
+                {cancelButtonName}
+              </Button>
+              <Button
+                className={classNames.actionButton}
+                fullWidth={fullWidthButton}
+                onClick={actionButtonHandler}
+              >
+                {actionButtonName}
+              </Button>
+            </div>
+          </DialogContent>
+        </DialogPortal>
+      </Dialog>
+    )
   }
-
-  const actionButtonHandler = () => {
-    onAction?.()
-  }
-
-  const cancelButtonHandler = () => {
-    onCancel?.()
-  }
-
-  function onCloseHandler() {
-    onClose?.()
-  }
-
-  return (
-    <Dialog open={open}>
-      <DialogPortal>
-        <DialogOverlay className={s.DialogOverlay} />
-        <DialogContent className={classNames.content} {...rest}>
-          <div className={s.titleWrapper}>
-            <button className={s.IconButton} onClick={onCloseHandler}>
-              <CloseIcon />
-            </button>
-            <DialogTitle className={s.DialogTitle}>
-              <Typography variant={'h1'}>{title}</Typography>
-              <Separator className={classNames.separator} />
-            </DialogTitle>
-          </div>
-
-          <div className={s.contentBox}>{children}</div>
-
-          <div className={s.footerBlock}>
-            <Button
-              className={classNames.cancelButton}
-              onClick={cancelButtonHandler}
-              variant={'outlined'}
-            >
-              {cancelButtonName}
-            </Button>
-            <Button
-              className={classNames.actionButton}
-              fullWidth={fullWidthButton}
-              onClick={actionButtonHandler}
-            >
-              {actionButtonName}
-            </Button>
-          </div>
-        </DialogContent>
-      </DialogPortal>
-    </Dialog>
-  )
-}
+)
 
 function getContentClassName(size: ModalSize, className?: string) {
   const sizeClassName = getSizeClassName(size)

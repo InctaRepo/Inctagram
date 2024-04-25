@@ -14,14 +14,7 @@ export const PublicPost = () => {
     <div className={s.container}>
       {postData?.data.items.map(post => (
         <div className={s.box} key={post.id}>
-          {Array.isArray(post.images) && post.images.length > 0 && (
-            <ShowPostModal
-              description={post.description}
-              id={post.id}
-              images={post.images}
-              userId={post.userId}
-            />
-          )}
+          {Array.isArray(post.images) && post.images.length > 0 && <ShowPostModal data={post} />}
           <div className={s.profile_header}>
             <ProfileHeader userId={post.userId} />
           </div>

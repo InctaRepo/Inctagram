@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 
 import { DataProfile } from '@/entities/profile/profileInfo/dataProfile'
 import { UserInfo } from '@/entities/profile/service'
@@ -11,7 +11,7 @@ import s from '@/entities/profile/profileInfo/ui/profileInfo.module.scss'
 type Props = {
   userData?: UserInfo
 }
-export const ProfileInfo = ({ userData }: Props) => {
+export const ProfileInfo = memo(({ userData }: Props) => {
   const [isAvaBroken, setIsAvaBroken] = useState(false)
   const errorHandler = () => {
     setIsAvaBroken(true)
@@ -35,4 +35,4 @@ export const ProfileInfo = ({ userData }: Props) => {
       </div>
     </div>
   )
-}
+})
