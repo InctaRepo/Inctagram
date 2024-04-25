@@ -1,3 +1,5 @@
+import { memo, useCallback, useMemo } from 'react'
+
 import FlagRussiaIcon from '@/public/icon/flagRussiaIcon.svg'
 import FlagUKIcon from '@/public/icon/flagUKIcon.svg'
 import OutlineBellIcon from '@/public/icon/outlineBellIcon.svg'
@@ -11,23 +13,33 @@ import { useRouter } from 'next/router'
 
 import s from '@/shared/header/ui/header.module.scss'
 
-type HeaderType = {
+type Props = {
   variant?: 'public'
 }
-export const Header = ({ variant }: HeaderType) => {
+
+export const Header = memo(function Header({ variant }: Props) {
   const { asPath, locale, pathname, push, query } = useRouter()
   const { t } = useTranslate()
-  const languages: Option[] = [
-    { id: 'eng01', image: <FlagUKIcon />, value: 'English' },
-    { id: 'rus01', image: <FlagRussiaIcon />, value: 'Russian' },
-  ]
-  const changeLangHandler = (value: number | string) => {
-    if (typeof value == 'string') {
-      const locale = value.slice(0, 2).toLowerCase()
 
-      push({ pathname, query }, asPath, { locale })
-    }
-  }
+  const languages: Option[] = useMemo(() => {
+    return [
+      { id: 'eng01', image: <FlagUKIcon />, value: 'English' },
+      { id: 'rus01', image: <FlagRussiaIcon />, value: 'Russian' },
+    ]
+  }, [])
+  const changeLangHandler = useCallback(
+    (value: number | string) => {
+      if (typeof value == 'string') {
+        const locale = value.slice(0, 2).toLowerCase()
+
+        push({ pathname, query }, asPath, { locale })
+      }
+    },
+    [asPath, pathname, push, query]
+  )
+  const defaultValue = useMemo(() => {
+    return locale === 'en' ? languages[0].value : languages[1].value
+  }, [languages, locale])
 
   return (
     <header className={s.header}>
@@ -41,7 +53,7 @@ export const Header = ({ variant }: HeaderType) => {
           <OutlineBellIcon />
           <div className={s.select}>
             <SelectBox
-              defaultValue={locale === 'en' ? languages[0].value : languages[1].value}
+              defaultValue={defaultValue}
               onValueChange={changeLangHandler}
               options={languages}
             />
@@ -60,4 +72,4 @@ export const Header = ({ variant }: HeaderType) => {
       </div>
     </header>
   )
-}
+})

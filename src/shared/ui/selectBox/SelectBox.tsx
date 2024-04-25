@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useState } from 'react'
+import React, { ReactElement, ReactNode, memo, useState } from 'react'
 
 import ChevronDown from '@/public/icon/chevronDownIcon.svg'
 import { Typography } from '@/ui/typography'
@@ -29,7 +29,7 @@ export type Option = {
   value?: string
 }
 
-export const SelectBox = ({
+export const SelectBox = memo(function SelectBox({
   defaultValue,
   disabled,
   label,
@@ -37,7 +37,7 @@ export const SelectBox = ({
   onValueChange,
   options,
   required,
-}: SelectProps) => {
+}: SelectProps) {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
   const onChangeHandler = (newValue: string) => {
@@ -97,4 +97,4 @@ export const SelectBox = ({
       </Select.Portal>
     </Select.Root>
   )
-}
+})

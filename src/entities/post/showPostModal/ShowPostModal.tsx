@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, useEffect, useState } from 'react'
+import React, { ComponentProps, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { PostImages } from '@/entities/post/postImages/ui/PostImages'
 import { EditModal } from '@/entities/post/showPostModal/editModal'
@@ -6,40 +6,35 @@ import { RightDescription } from '@/entities/post/showPostModal/editModal/rightD
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetProfileQuery } from '@/entities/profile/service'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Images } from '@/features/posts/service'
+import { GetUserPostResponse, Items } from '@/features/posts'
 import { RouteNames } from '@/shared/const'
 import Image from 'next/image'
 
 import s from '@/entities/post/showPostModal/showPostModal.module.scss'
 
 type Props = {
-  createdAt?: Date
+  currentPostId?: string
+  data: GetUserPostResponse | Items
   description?: string
-  id: string
-  images: Images[]
   openSureDescriptionModal?: boolean
-  postId?: string
-  userId: string
 } & ComponentProps<'div'>
 
 export const ShowPostModal = ({
-  createdAt,
-  description,
-  id,
-  images,
+  currentPostId,
+  data: { createdAt, description, id, images, userId },
   openSureDescriptionModal,
-  postId,
-  userId,
 }: Props) => {
   const [isEditDescriptionModalOpen, setIsEditDescriptionModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const { data: userData } = useGetProfileQuery(userId)
-  const currentId = id === undefined ? postId : id
-
-  const buttonClickHandler = () => {
+  const currentId = id === undefined ? currentPostId : id
+  const memoUserData = useMemo(() => {
+    return userData?.data
+  }, [userData?.data])
+  const buttonClickHandler = useCallback(() => {
     setIsEditModalOpen(false)
     window.history.pushState(null, 'post', `${RouteNames.PROFILE}/${userId}`)
-  }
+  }, [userId])
 
   const openClickHandler = useCallback(() => {
     setIsEditModalOpen(true)
@@ -51,10 +46,10 @@ export const ShowPostModal = ({
   }, [currentId, userId])
 
   useEffect(() => {
-    if (id === postId) {
+    if (id === currentPostId) {
       openClickHandler()
     }
-  }, [id, openClickHandler, postId])
+  }, [id, openClickHandler, currentPostId])
 
   return (
     <div className={s.container}>
@@ -72,7 +67,6 @@ export const ShowPostModal = ({
           width={640}
         />
       </div>
-
       <EditModal
         isDescription={!isEditDescriptionModalOpen}
         onClose={buttonClickHandler}
@@ -92,7 +86,7 @@ export const ShowPostModal = ({
             openSureDescriptionModal={openSureDescriptionModal ? openSureDescriptionModal : false}
             setIsEditDescriptionModalOpen={setIsEditDescriptionModalOpen}
             setIsEditModalOpen={setIsEditModalOpen}
-            userData={userData?.data}
+            userData={memoUserData}
           />
         </div>
       </EditModal>

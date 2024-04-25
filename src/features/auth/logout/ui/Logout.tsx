@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import { useLogout } from '@/features/auth/logout/hooks'
 import { LogoutIcon } from '@/shared/assets/icons/LogoutIcon'
 import { RouteNames } from '@/shared/const'
@@ -18,15 +20,18 @@ export const Logout = () => {
     t,
     variantIcon,
   } = useLogout()
+  const logoutIconFill = useMemo(() => {
+    return variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'
+  }, [variantIcon])
+  const confirmLogoutMemo = useMemo(() => {
+    return <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
+  }, [email, t.profile])
 
   return (
     <>
       <div className={styles.check}>
         <Button className={s.btn} onClick={onClickOpenModal} variant={'link'}>
-          <LogoutIcon
-            className={s.logo}
-            fill={variantIcon === `${RouteNames.LOGOUT}`.slice(1) ? '#397df6' : 'current'}
-          />
+          <LogoutIcon className={s.logo} fill={logoutIconFill} />
           <Typography className={s.text + styles.check} variant={'medium14'}>
             {t.sidebar.logout}
           </Typography>
@@ -42,7 +47,7 @@ export const Logout = () => {
         open={openModal}
         title={t.sidebar.logout}
       >
-        <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
+        {confirmLogoutMemo}
       </Modal>
     </>
   )

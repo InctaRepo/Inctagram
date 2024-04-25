@@ -12,7 +12,7 @@ type Props = {
   userId: string
 }
 
-export const Posts = memo(({ postId, userId }: Props) => {
+export const Posts = memo(function Posts({ postId, userId }: Props) {
   const { data: posts, isLoading: isLoadingPosts } = useGetUserPostsQuery({ userId: userId })
   const { dynamicPosts, hasDynamicPosts, isLastPage, isLoading, loadMoreCallback } =
     useInfiniteScroll(posts?.data?.items!, userId)
@@ -24,28 +24,12 @@ export const Posts = memo(({ postId, userId }: Props) => {
   return (
     <div className={s.container}>
       {hasDynamicPosts &&
-        dynamicPosts?.map((el: GetUserPostResponse, index: number) => (
-          <ShowPostModal
-            createdAt={el.createdAt}
-            description={el.description}
-            id={el.id}
-            images={el.images}
-            key={index}
-            postId={postId}
-            userId={userId}
-          />
+        dynamicPosts?.map((el: GetUserPostResponse) => (
+          <ShowPostModal currentPostId={postId} data={el} key={el.id} />
         ))}
       {!hasDynamicPosts &&
-        posts?.data?.items.map((el, index) => (
-          <ShowPostModal
-            createdAt={el.createdAt}
-            description={el.description}
-            id={el.id}
-            images={el.images}
-            key={index}
-            postId={postId}
-            userId={userId}
-          />
+        posts?.data?.items.map(el => (
+          <ShowPostModal currentPostId={postId} data={el} key={el.id} />
         ))}
       <Loader isLastPage={isLastPage} isLoading={isLoading} loadMoreCallback={loadMoreCallback} />
     </div>

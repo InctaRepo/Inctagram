@@ -19,7 +19,7 @@ import Edit from 'public/icon/edit.svg'
 import s from '@/entities/post/postMenu/postMenu.module.scss'
 
 type Props = {
-  createdAt?: Date
+  createdAt?: string
   description?: string
   id: string
   images?: Images[]
