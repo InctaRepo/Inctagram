@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { ShowPostModal } from '@/entities/post/showPostModal'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetAllPostsQuery } from '@/features/posts'
@@ -9,7 +7,7 @@ import { Typography } from '@/ui/typography'
 
 import s from '@/features/publicPage/ui/publicPost/publicPost.module.scss'
 
-export const PublicPost = memo(() => {
+export const PublicPost = () => {
   const { data: postData } = useGetAllPostsQuery({})
 
   return (
@@ -37,4 +35,4 @@ export const PublicPost = memo(() => {
       ))}
     </div>
   )
-})
+}

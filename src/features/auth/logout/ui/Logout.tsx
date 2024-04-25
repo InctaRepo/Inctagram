@@ -25,7 +25,7 @@ export const Logout = () => {
   }, [variantIcon])
   const confirmLogoutMemo = useMemo(() => {
     return <Typography variant={'regular16'}>{t.profile.confirmLogout(email)}</Typography>
-  }, [email])
+  }, [email, t.profile])
 
   return (
     <>
