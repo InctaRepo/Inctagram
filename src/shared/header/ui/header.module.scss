@@ -8,9 +8,6 @@
   height: 60px;
   border-bottom: 1px solid $color-dark-300;
 
-  //.container {
-  //  width: 100%;
-
   .content {
     @include flex-block($flex-direction: row, $justify-content: space-between);
 
@@ -33,7 +30,7 @@
 
     .text {
       display: block;
-      padding: 12px 0 12px 53px;
+      padding: 0 0 0 53px;
     }
 
     .options_container {

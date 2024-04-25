@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 
 import { AvaModalDynamic } from '@/entities/profile/avaModal'
 import {
@@ -18,7 +18,7 @@ import { useRouter } from 'next/router'
 
 import s from '@/entities/profile/settings/generalInformation/ui/generalInformation.module.scss'
 
-export const GeneralInformation = () => {
+export const GeneralInformation = memo(function GeneralInformation() {
   const dispatch = useAppDispatch()
   const [avatar, setAvatar] = useState<FormData | null>(null)
   const { push } = useRouter()
@@ -100,4 +100,4 @@ export const GeneralInformation = () => {
       </div>
     </div>
   )
-}
+})

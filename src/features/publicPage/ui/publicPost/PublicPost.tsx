@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { ShowPostModal } from '@/entities/post/showPostModal'
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { useGetAllPostsQuery } from '@/features/posts'
@@ -7,21 +9,14 @@ import { Typography } from '@/ui/typography'
 
 import s from '@/features/publicPage/ui/publicPost/publicPost.module.scss'
 
-export const PublicPost = () => {
+export const PublicPost = memo(() => {
   const { data: postData } = useGetAllPostsQuery({})
 
   return (
     <div className={s.container}>
       {postData?.data.items.map(post => (
         <div className={s.box} key={post.id}>
-          {Array.isArray(post.images) && post.images.length > 0 && (
-            <ShowPostModal
-              description={post.description}
-              id={post.id}
-              images={post.images}
-              userId={post.userId}
-            />
-          )}
+          {Array.isArray(post.images) && post.images.length > 0 && <ShowPostModal data={post} />}
           <div className={s.profile_header}>
             <ProfileHeader userId={post.userId} />
           </div>
@@ -42,4 +37,4 @@ export const PublicPost = () => {
       ))}
     </div>
   )
-}
+})
