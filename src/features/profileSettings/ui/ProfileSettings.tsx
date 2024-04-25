@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { AccountManagementDynamic } from '@/entities/profile/settings/accountManagement'
 import { DevicesDynamic } from '@/entities/profile/settings/devices'
@@ -10,7 +10,7 @@ import { TabsComponent } from '@/ui/tabsComponent'
 
 import s from '@/features/profileSettings/ui/profileSettings.module.scss'
 
-export const ProfileSettings = () => {
+export const ProfileSettings = memo(function ProfileSettings() {
   const { t } = useTranslate()
 
   return (
@@ -46,4 +46,4 @@ export const ProfileSettings = () => {
       </div>
     </div>
   )
-}
+})

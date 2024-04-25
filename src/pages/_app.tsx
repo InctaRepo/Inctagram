@@ -11,6 +11,7 @@ import { NextPage } from 'next'
 import '@/styles/_globals.scss'
 import '@/styles/nprogress.scss'
 import 'react-toastify/dist/ReactToastify.css'
+import '../scripts/wdyr'
 
 type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -34,3 +35,4 @@ export default function App({ Component, ...rest }: AppPropsWithLayout) {
     </HistoryProvider>
   )
 }
+// App.whyDidYouRender = true

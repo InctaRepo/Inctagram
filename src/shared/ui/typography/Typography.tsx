@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType } from 'react'
+import { ComponentPropsWithoutRef, ElementType, memo } from 'react'
 
 import s from '@/ui/typography/typography.module.scss'
 
@@ -22,10 +22,12 @@ export type TypographyProps<T extends ElementType = 'p'> = {
     | 'small'
 } & ComponentPropsWithoutRef<T>
 
-export const Typography = <T extends ElementType = 'p'>(
-  props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>
-) => {
-  const { as: Component = 'p', className, color = 'primary', variant = 'bold14', ...rest } = props
+export const Typography = memo(
+  <T extends ElementType = 'p'>(
+    props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>
+  ) => {
+    const { as: Component = 'p', className, color = 'primary', variant = 'bold14', ...rest } = props
 
-  return <Component className={`${variant && s[variant]} ${s[color]}  ${className}`} {...rest} />
-}
+    return <Component className={`${variant && s[variant]} ${s[color]}  ${className}`} {...rest} />
+  }
+)

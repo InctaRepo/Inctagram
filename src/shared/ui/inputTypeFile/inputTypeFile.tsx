@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef } from 'react'
+import React, { ChangeEvent, useCallback, useRef } from 'react'
 
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
@@ -6,16 +6,16 @@ import { Typography } from '@/ui/typography'
 
 import s from '@/ui/inputTypeFile/inputTypeFile.module.scss'
 
-type InputTypeFileProps = {
+type Props = {
   setErrorMessage?: (errorMessage: string) => void
   setSelectedImage: (image: File) => void
 }
-export const InputTypeFile = ({ setErrorMessage, setSelectedImage }: InputTypeFileProps) => {
+export const InputTypeFile = ({ setErrorMessage, setSelectedImage }: Props) => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
-  const selectFileHandler = () => {
+  const selectFileHandler = useCallback(() => {
     inputRef && inputRef.current?.click()
-  }
+  }, [])
   const uploadHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length) {
       const file = e.target.files[0]
