@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --profile",
+    "build": "next build",
     "build:production": "pnpm build",
+    "build --profile": "next build --profile",
     "ANALYZE": "cross-env ANALYZE=true pnpm build",
     "start": "next start",
     "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
