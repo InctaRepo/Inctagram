@@ -45,7 +45,7 @@ export const Header = memo(function Header({ variant }: Props) {
     <header className={s.header}>
       <div className={s.content}>
         <Typography className={s.text} variant={'large'}>
-          <Link className={s.incta} href={'/'} tabIndex={1}>
+          <Link className={s.incta} href={'/'} tabIndex={0}>
             Inсtagram
           </Link>
         </Typography>
