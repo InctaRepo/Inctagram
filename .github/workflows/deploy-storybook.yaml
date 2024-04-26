@@ -10,14 +10,6 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4.1.1
 
-      - name: Merge dev -> staging 🚀
-        uses: devmasx/merge-branch@1.4.0
-        with:
-          type: now
-          from_branch: dev
-          target_branch: staging
-          github_token: ${{ github.token }}
-
       - name: Merge dev -> storybook-deploy 🚀 https://storybook-inctagram.vercel.app/
         uses: devmasx/merge-branch@1.4.0
         with:
