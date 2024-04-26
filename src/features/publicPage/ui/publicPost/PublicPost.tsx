@@ -18,7 +18,9 @@ export const PublicPost = () => {
           <div className={s.profile_header}>
             <ProfileHeader userId={post.userId} />
           </div>
-          <div className={s.time_online}>{formatPostCreatedAt(post.createdAt)}</div>
+          <time className={s.time_online} suppressHydrationWarning>
+            {formatPostCreatedAt(post.createdAt)}
+          </time>
           <div className={s.disrciption}>
             <Typography className={s.text} color={'primary'} variant={'regular14'}>
               {post.description}
