@@ -1,3 +1,7 @@
 import { StateSchema } from '@/store'
+import { createSelector } from '@reduxjs/toolkit'
 
-export const sidebarVariantIconSelector = (state: StateSchema) => state.menu.variantIcon
+export const sidebarVariantIconSelector = createSelector(
+  [(state: StateSchema) => state.menu.variantIcon],
+  variantIcon => variantIcon
+)

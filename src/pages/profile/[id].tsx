@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import { getProfile, getRunningQueriesThunk } from '@/entities/profile/service'
 import { getUserPosts } from '@/features/posts'
 import { Profile } from '@/features/profile'
@@ -19,7 +21,9 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
 
 const MyProfilePage = () => {
   const router = useRouter()
-  const id = router.query.id as string
+  const id = useMemo(() => {
+    return router.query.id as string
+  }, [router.query.id])
 
   return <Profile id={id} />
 }

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, memo, useCallback, useMemo, useRef, useState } from 'react'
 
 import { CropModal } from '@/features/posts/createPost/cropModal'
 import CroppedImage from '@/features/posts/createPost/croppedImage/ui/CroppedImage'
@@ -16,7 +16,7 @@ import { clsx } from 'clsx'
 
 import s from '@/features/posts/createPost/createNewPost.module.scss'
 
-export const CreateNewPost = () => {
+export const CreateNewPost = memo(() => {
   const { t } = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
   const [isBaseModalOpen, setIsBaseModalOpen] = useState(false)
@@ -58,11 +58,13 @@ export const CreateNewPost = () => {
       setIsModalOpen(true)
     }
   }
-
-  const handleClick = () => {
+  const createIconFill = useMemo(() => {
+    return variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'
+  }, [variantIcon])
+  const handleClick = useCallback(() => {
     setIsBaseModalOpen(true)
     dispatch(setVariantIcon(`${RouteNames.CREATE_POST}`.slice(1) as variantIconLink))
-  }
+  }, [dispatch])
 
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
@@ -143,10 +145,7 @@ export const CreateNewPost = () => {
       )}
       <div className={s.linkMenu}>
         <Button className={styles.check} onClick={handleClick} variant={'link'}>
-          <CreateIcon
-            className={s.logo}
-            fill={variantIcon === `${RouteNames.CREATE_POST}`.slice(1) ? '#397df6' : 'current'}
-          />
+          <CreateIcon className={s.logo} fill={createIconFill} />
           <Typography className={s.text + styles.check} variant={'medium14'}>
             {t.sidebar.createPost}
           </Typography>
@@ -154,4 +153,4 @@ export const CreateNewPost = () => {
       </div>
     </div>
   )
-}
+})
