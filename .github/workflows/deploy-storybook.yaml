@@ -1,0 +1,19 @@
+name: Build and Deploy Storybook
+on:
+  push:
+    branches:
+      - 'dev'
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4.1.1
+
+      - name: Merge dev -> staging 🚀
+        uses: devmasx/merge-branch@1.4.0
+        with:
+          type: now
+          from_branch: dev
+          target_branch: staging
+          github_token: ${{ github.token }}
