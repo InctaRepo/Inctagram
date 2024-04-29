@@ -48,6 +48,7 @@ export const LoginForm = ({ errorServer, onSubmitHandler }: Props) => {
             fullWidth
             label={t.auth.email}
             name={'email'}
+            type={'email'}
           />
 
           <ControlledTextField

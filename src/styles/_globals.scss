@@ -16,6 +16,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button,
+a {
+  cursor: pointer;
+}
+
 input,
 button,
 select,
