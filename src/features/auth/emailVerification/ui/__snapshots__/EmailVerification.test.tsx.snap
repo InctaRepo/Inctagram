@@ -40,7 +40,7 @@ exports[`EmailVerification snapshot EmailVerification 1`] = `
                   name="email"
                   placeholder="Epam@epam.com"
                   role="email"
-                  type="text"
+                  type="email"
                   value=""
                 />
               </div>
@@ -125,7 +125,7 @@ exports[`EmailVerification snapshot EmailVerification 1`] = `
                 name="email"
                 placeholder="Epam@epam.com"
                 role="email"
-                type="text"
+                type="email"
                 value=""
               />
             </div>

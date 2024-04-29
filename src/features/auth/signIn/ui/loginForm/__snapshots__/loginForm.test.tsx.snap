@@ -48,7 +48,7 @@ exports[`LoginForm snapshot LoginForm 1`] = `
                   id="email"
                   name="email"
                   role="email"
-                  type="text"
+                  type="email"
                   value=""
                 />
               </div>
@@ -164,7 +164,7 @@ exports[`LoginForm snapshot LoginForm 1`] = `
                 id="email"
                 name="email"
                 role="email"
-                type="text"
+                type="email"
                 value=""
               />
             </div>

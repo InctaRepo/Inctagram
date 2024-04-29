@@ -22,6 +22,7 @@ export const getStaticProps = wrapper.getStaticProps(store => {
     )
     store.dispatch(getUsersCount.initiate({} as unknown as void, { forceRefetch: true }))
     await Promise.all(store.dispatch(getRunningQueriesThunk()))
+    console.log(store, 'store')
 
     return {
       props: {},
