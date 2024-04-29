@@ -83,6 +83,7 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
             control={control}
             label={t.auth.email}
             name={'email'}
+            type={'email'}
           />
           <ControlledTextField
             className={`${s.field} ${errors.password && s.fieldWithError}`}
