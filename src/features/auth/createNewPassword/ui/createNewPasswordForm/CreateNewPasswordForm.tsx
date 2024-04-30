@@ -27,7 +27,7 @@ export const CreateNewPasswordForm = (props: Props) => {
         control={control}
         label={t.auth.newPassword}
         name={'password'}
-        type={'password'}
+        type={'new-password'}
       />
 
       <ControlledTextField
@@ -36,7 +36,7 @@ export const CreateNewPasswordForm = (props: Props) => {
         control={control}
         label={t.auth.passwordConfirmation}
         name={'passwordConfirm'}
-        type={'password'}
+        type={'new-password'}
       />
       <div className={s.text}>
         <Typography className={s.passwordRequirement} variant={'medium14'}>

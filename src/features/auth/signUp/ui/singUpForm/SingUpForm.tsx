@@ -77,6 +77,7 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
             control={control}
             label={t.auth.userName}
             name={'username'}
+            type={'username'}
           />
           <ControlledTextField
             className={`${s.field} ${errors.email && s.fieldWithError}`}
@@ -90,14 +91,14 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
             control={control}
             label={t.auth.password}
             name={'password'}
-            type={'password'}
+            type={'new-password'}
           />
           <ControlledTextField
             className={`${s.field} ${s.lastField}`}
             control={control}
             label={t.auth.passwordConfirmation}
             name={'passwordConfirm'}
-            type={'password'}
+            type={'new-password'}
           />
           <div className={s.terms}>
             <ControlledCheckbox
