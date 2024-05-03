@@ -10,3 +10,4 @@ export function descriptionSchema(t: LocaleType) {
 export type DescriptionForm = {
   description: string
 }
+export type DescriptionSchema = z.infer<ReturnType<typeof descriptionSchema>>

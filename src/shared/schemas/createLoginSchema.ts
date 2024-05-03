@@ -17,7 +17,4 @@ export const createLoginSchema = (t: LocaleType) => {
   })
 }
 
-export type LoginFormType = {
-  email: string
-  password: string
-}
+export type LoginFormType = z.infer<ReturnType<typeof createLoginSchema>>

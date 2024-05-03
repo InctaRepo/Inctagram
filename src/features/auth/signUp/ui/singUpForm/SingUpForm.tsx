@@ -12,6 +12,7 @@ import { Button } from '@/ui/button'
 import { Card } from '@/ui/card'
 import { ControlledCheckbox, ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
+import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -71,6 +72,7 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
             <GithubIcon />
           </div>
         </div>
+        <DevTool control={control} />
         <form className={s.form} onSubmit={onSubmit}>
           <ControlledTextField
             className={`${s.field} ${errors.username && s.fieldWithError}`}

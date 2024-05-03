@@ -71,13 +71,6 @@ export function createProfileSettingSchema(t: LocaleType) {
   })
 }
 
-export type ProfileSettingSchema = {
-  aboutMe: string
+export type ProfileSettingSchema = z.infer<ReturnType<typeof createProfileSettingSchema>> & {
   avatar: string
-  city: string
-  country: string
-  dateOfBirthday: Date
-  firstName: string
-  lastName: string
-  username: string
 }

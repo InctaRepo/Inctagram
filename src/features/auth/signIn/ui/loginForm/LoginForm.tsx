@@ -39,8 +39,8 @@ export const LoginForm = ({ errorServer, onSubmitHandler }: Props) => {
             <GithubIcon />
           </div>
         </div>
+        <DevTool control={control} />
         <form className={s.form} onSubmit={handleSubmit(submitData)}>
-          <DevTool control={control} />
           <ControlledTextField
             autoComplete={'email'}
             className={`${s.field} ${errors.email && s.fieldWithError && errorServer}`}
