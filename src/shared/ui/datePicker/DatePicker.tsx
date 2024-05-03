@@ -187,7 +187,7 @@ const CustomHeaderWrapper = (locale: Locale) => {
       header: s.header,
     }
 
-    const headerText = capitalizeFirstLetter(format(date, 'LLLL Y', { locale: locale }))
+    const headerText = capitalizeFirstLetter(format(date, 'LLLL y', { locale: locale }))
 
     return (
       <div className={classNames.header}>

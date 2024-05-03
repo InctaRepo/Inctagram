@@ -73,9 +73,9 @@
 
 .selectContent {
   width: var(--radix-select-trigger-width);
+  height: 5rem;
   background-color: $color-dark-500;
   border: 1px solid $color-dark-100;
-  height: 5rem;
 }
 
 .value {

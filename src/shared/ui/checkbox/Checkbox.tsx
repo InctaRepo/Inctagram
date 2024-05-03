@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ElementRef, ReactNode, forwardRef, memo } from 'react'
 
 import { CheckIcon } from '@/shared/assets/icons/CheckIcon'
 import { Typography } from '@/ui/typography'
@@ -9,46 +9,58 @@ import clsx from 'clsx'
 import s from '@/shared/ui/checkbox/checkbox.module.scss'
 
 export type CheckboxProps = {
-  checked: boolean
+  checked?: boolean
+  className?: string
   disabled?: boolean
   error?: string
+  id?: string
   label?: ReactNode | string
   onChange?: (checked: boolean) => void
+  required?: boolean
 }
 
-export const Checkbox = ({ checked, disabled, error, label, onChange }: CheckboxProps) => {
-  const classNames = {
-    buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
-    checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
-    container: s.container,
-    indicator: clsx(s.indicator, disabled && s.disabled),
-    label: clsx(s.label, disabled && s.disabled),
-  }
+export const Checkbox = memo(
+  forwardRef<ElementRef<typeof CheckboxRadix.Root>, CheckboxProps>(
+    ({ checked, className, disabled, error, id, label, onChange, required }, ref) => {
+      const classNames = {
+        buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
+        checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
+        container: clsx(s.container, className),
+        indicator: clsx(s.indicator, disabled && s.disabled),
+        label: clsx(s.label, disabled && s.disabled),
+      }
 
-  return (
-    <div className={s.wrapper}>
-      <LabelRadix.Root className={classNames.label}>
-        <div className={classNames.buttonWrapper}>
-          <CheckboxRadix.Root
-            checked={checked!}
-            className={classNames.checkbox}
-            disabled={disabled}
-            onCheckedChange={onChange!}
-          >
-            {checked && (
-              <CheckboxRadix.Indicator className={classNames.indicator}>
-                <CheckIcon color={disabled ? '#D5DAE0' : 'black'} />
-              </CheckboxRadix.Indicator>
-            )}
-          </CheckboxRadix.Root>
+      return (
+        <div className={s.wrapper}>
+          <LabelRadix.Root asChild>
+            <Typography as={'label'} className={classNames.label} variant={'bold14'}>
+              <div className={classNames.buttonWrapper}>
+                <CheckboxRadix.Root
+                  checked={checked}
+                  className={classNames.checkbox}
+                  disabled={disabled}
+                  id={id}
+                  onCheckedChange={onChange}
+                  ref={ref}
+                  required={required}
+                >
+                  {checked && (
+                    <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
+                      <CheckIcon color={disabled ? '#D5DAE0' : 'black'} />
+                    </CheckboxRadix.Indicator>
+                  )}
+                </CheckboxRadix.Root>
+              </div>
+              {label}
+            </Typography>
+          </LabelRadix.Root>
+          {error && (
+            <Typography className={s.error} color={'error'} variant={'regular14'}>
+              {error}
+            </Typography>
+          )}
         </div>
-        {label}
-      </LabelRadix.Root>
-      {error && (
-        <Typography className={s.error} color={'error'} variant={'regular14'}>
-          {error}
-        </Typography>
-      )}
-    </div>
+      )
+    }
   )
-}
+)

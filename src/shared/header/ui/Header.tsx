@@ -6,10 +6,10 @@ import OutlineBellIcon from '@/public/icon/outlineBellIcon.svg'
 import { RouteNames } from '@/shared/const'
 import { useTranslate } from '@/shared/hooks'
 import { Button } from '@/ui/button'
-import { Option, SelectBox } from '@/ui/selectBox'
 import { Typography } from '@/ui/typography'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Option, Select } from 'src/shared/ui/select'
 
 import s from '@/shared/header/ui/header.module.scss'
 
@@ -52,7 +52,7 @@ export const Header = memo(function Header({ variant }: Props) {
         <div className={s.options_container}>
           <OutlineBellIcon />
           <div className={s.select}>
-            <SelectBox
+            <Select
               defaultValue={defaultValue}
               onValueChange={changeLangHandler}
               options={languages}

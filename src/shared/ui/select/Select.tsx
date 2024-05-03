@@ -3,9 +3,9 @@ import React, { ReactElement, ReactNode, memo, useState } from 'react'
 import ChevronDown from '@/public/icon/chevronDownIcon.svg'
 import { Typography } from '@/ui/typography'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import * as Select from '@radix-ui/react-select'
+import * as SelectRadix from '@radix-ui/react-select'
 
-import s from '@/ui/selectBox/selectBox.module.scss'
+import s from '@/ui/select/select.module.scss'
 
 export type SelectProps = {
   children?: ReactNode
@@ -17,10 +17,10 @@ export type SelectProps = {
   onChange?: (e: any) => void
   onValueChange?: (value: number | string) => void
   options: Option[]
-  placeholder?: ReactElement | string
+  placeholder?: string
   required?: boolean
   value?: string
-}
+} & SelectRadix.SelectProps
 
 export type Option = {
   id?: number | string
@@ -29,14 +29,16 @@ export type Option = {
   value?: string
 }
 
-export const SelectBox = memo(function SelectBox({
+export const Select = memo(function Select({
   defaultValue,
   disabled,
   label,
   onChange,
   onValueChange,
   options,
+  placeholder = options[0].value,
   required,
+  ...rest
 }: SelectProps) {
   const [value, setValue] = useState(defaultValue ? defaultValue.toString() : '')
 
@@ -47,54 +49,54 @@ export const SelectBox = memo(function SelectBox({
   }
 
   return (
-    <Select.Root
-      defaultValue={value}
+    <SelectRadix.Root
+      // defaultValue={value}
       disabled={disabled}
       onValueChange={onChangeHandler}
+      // value={defaultValue}
       required={required}
-      value={defaultValue}
     >
       {label && (
         <Typography className={s.label} color={'secondary'} variant={'regular14'}>
           {label}
         </Typography>
       )}
-      <Select.Trigger asChild className={s.selectBox} tabIndex={0}>
+      <SelectRadix.Trigger asChild className={s.selectBox} tabIndex={0}>
         <div>
           <Typography className={s.value} color={'primary'} variant={'regular16'}>
             {value ? value : defaultValue}
           </Typography>
 
-          <Select.Icon asChild className={s.selectIcon}>
+          <SelectRadix.Icon asChild className={s.selectIcon}>
             <ChevronDown />
-          </Select.Icon>
+          </SelectRadix.Icon>
         </div>
-      </Select.Trigger>
+      </SelectRadix.Trigger>
 
-      <Select.Portal>
-        <Select.Content className={s.selectContent} position={'popper'}>
+      <SelectRadix.Portal>
+        <SelectRadix.Content className={s.selectContent} position={'popper'}>
           <ScrollArea.Root className={s.scrollAreaRoot} type={'auto'}>
-            <Select.Viewport asChild>
+            <SelectRadix.Viewport asChild>
               <ScrollArea.Viewport
                 className={s.scrollAreaViewport}
                 style={{ overflowY: undefined }}
               >
                 {options?.map(el => {
                   return (
-                    <Select.Item className={s.line} key={el.id} value={el?.value || ''}>
+                    <SelectRadix.Item className={s.line} key={el.id} value={el?.value || ''}>
                       {el.image}
-                      <Select.ItemText>{el.value}</Select.ItemText>
-                    </Select.Item>
+                      <SelectRadix.ItemText>{el.value}</SelectRadix.ItemText>
+                    </SelectRadix.Item>
                   )
                 })}
               </ScrollArea.Viewport>
-            </Select.Viewport>
+            </SelectRadix.Viewport>
             <ScrollArea.Scrollbar className={s.scrollAreaScrollbar} orientation={'vertical'}>
               <ScrollArea.Thumb className={s.scrollAreaThumb} />
             </ScrollArea.Scrollbar>
           </ScrollArea.Root>
-        </Select.Content>
-      </Select.Portal>
-    </Select.Root>
+        </SelectRadix.Content>
+      </SelectRadix.Portal>
+    </SelectRadix.Root>
   )
 })
