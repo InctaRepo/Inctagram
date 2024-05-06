@@ -26,5 +26,5 @@ export const ControlledSelect = <TFieldValues extends FieldValues>({
     shouldUnregister,
   })
 
-  return <Select defaultValue={value ? value : defaultValue} {...restField} {...rest} />
+  return <Select {...restField} {...rest} />
 }

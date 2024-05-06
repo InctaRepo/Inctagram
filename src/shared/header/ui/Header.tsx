@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 
 import FlagRussiaIcon from '@/public/icon/flagRussiaIcon.svg'
 import FlagUKIcon from '@/public/icon/flagUKIcon.svg'
@@ -27,16 +27,12 @@ export const Header = memo(function Header({ variant }: Props) {
       { id: 'rus01', image: <FlagRussiaIcon />, value: 'Russian' },
     ]
   }, [])
-  const changeLangHandler = useCallback(
-    (value: number | string) => {
-      if (typeof value == 'string') {
-        const locale = value.slice(0, 2).toLowerCase()
+  const changeLangHandler = (value: string) => {
+    console.log(value)
+    const locale = value.slice(0, 2).toLowerCase()
 
-        push({ pathname, query }, asPath, { locale })
-      }
-    },
-    [asPath, pathname, push, query]
-  )
+    push({ pathname, query }, asPath, { locale })
+  }
   const defaultValue = useMemo(() => {
     return locale === 'en' ? languages[0].value : languages[1].value
   }, [languages, locale])
@@ -53,9 +49,10 @@ export const Header = memo(function Header({ variant }: Props) {
           <OutlineBellIcon />
           <div className={s.select}>
             <Select
-              defaultValue={defaultValue}
               onValueChange={changeLangHandler}
               options={languages}
+              placeholder={t.locale.language}
+              // value={defaultValue}
             />
           </div>
           {variant === 'public' && (
