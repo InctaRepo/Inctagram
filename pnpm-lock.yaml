@@ -96,11 +96,11 @@ importers:
         specifier: ^2.5.9
         version: 2.5.9
       next:
-        specifier: 14.2.0
-        version: 14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
+        specifier: 14.2.3
+        version: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
       next-redux-wrapper:
         specifier: ^8.1.0
-        version: 8.1.0(next@14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-redux@9.1.0(@types/react@18.2.77)(react@18.2.0)(redux@4.2.1))(react@18.2.0)
+        version: 8.1.0(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-redux@9.1.0(@types/react@18.2.77)(react@18.2.0)(redux@4.2.1))(react@18.2.0)
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
@@ -131,9 +131,6 @@ importers:
       react-toastify:
         specifier: ^10.0.5
         version: 10.0.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      slick-carousel:
-        specifier: ^1.8.1
-        version: 1.8.1(jquery@3.7.1)
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -191,7 +188,7 @@ importers:
         version: 8.0.8(@types/react@18.2.77)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/nextjs':
         specifier: ^8.0.8
-        version: 8.0.8(@swc/core@1.4.13(@swc/helpers@0.5.5))(babel-plugin-macros@3.1.0)(esbuild@0.20.2)(next@14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(@swc/core@1.4.13(@swc/helpers@0.5.5))(esbuild@0.20.2))
+        version: 8.0.8(@swc/core@1.4.13(@swc/helpers@0.5.5))(babel-plugin-macros@3.1.0)(esbuild@0.20.2)(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(@swc/core@1.4.13(@swc/helpers@0.5.5))(esbuild@0.20.2))
       '@storybook/react':
         specifier: ^8.0.8
         version: 8.0.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.4.5)
@@ -275,7 +272,7 @@ importers:
         version: 0.3.2
       next-router-mock:
         specifier: ^0.9.13
-        version: 0.9.13(next@14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react@18.2.0)
+        version: 0.9.13(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react@18.2.0)
       react-test-renderer:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -1448,62 +1445,62 @@ packages:
   '@next/bundle-analyzer@14.2.0':
     resolution: {integrity: sha512-fFzOvgHJgqILHCoZnfBbjvvODbZNqVIVQOaMgzOrOfKnrz0RVZvaNYSXynCIpJK4J7TIhFW0bQ8vFjDhTDKSmQ==}
 
-  '@next/env@14.2.0':
-    resolution: {integrity: sha512-4+70ELtSbRtYUuyRpAJmKC8NHBW2x1HMje9KO2Xd7IkoyucmV9SjgO+qeWMC0JWkRQXgydv1O7yKOK8nu/rITQ==}
+  '@next/env@14.2.3':
+    resolution: { integrity: sha512-W7fd7IbkfmeeY2gXrzJYDx8D2lWKbVoTIj1o1ScPHNzvp30s1AuoEFSdr39bC5sjxJaxTtq3OTCZboNp0lNWHA== }
 
   '@next/eslint-plugin-next@14.2.0':
     resolution: {integrity: sha512-QkM01VPhwcupezVevy9Uyl1rmpg2PimhMjkb+ySmnPgSKUUM/PGGRQxdFgMpHv/JzQoC8kRySgKeM441GiizcA==}
 
-  '@next/swc-darwin-arm64@14.2.0':
-    resolution: {integrity: sha512-kHktLlw0AceuDnkVljJ/4lTJagLzDiO3klR1Fzl2APDFZ8r+aTxNaNcPmpp0xLMkgRwwk6sggYeqq0Rz9K4zzA==}
+  '@next/swc-darwin-arm64@14.2.3':
+    resolution: { integrity: sha512-3pEYo/RaGqPP0YzwnlmPN2puaF2WMLM3apt5jLW2fFdXD9+pqcoTzRk+iZsf8ta7+quAe4Q6Ms0nR0SFGFdS1A== }
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@14.2.0':
-    resolution: {integrity: sha512-HFSDu7lb1U3RDxXNeKH3NGRR5KyTPBSUTuIOr9jXoAso7i76gNYvnTjbuzGVWt2X5izpH908gmOYWtI7un+JrA==}
+  '@next/swc-darwin-x64@14.2.3':
+    resolution: { integrity: sha512-6adp7waE6P1TYFSXpY366xwsOnEXM+y1kgRpjSRVI2CBDOcbRjsJ67Z6EgKIqWIue52d2q/Mx8g9MszARj8IEA== }
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@14.2.0':
-    resolution: {integrity: sha512-iQsoWziO5ZMxDWZ4ZTCAc7hbJ1C9UDj/gATSqTaMjW2bJFwAsvf9UM79AKnljBl73uPZ+V0kH4rvnHTco4Ps2w==}
+  '@next/swc-linux-arm64-gnu@14.2.3':
+    resolution: { integrity: sha512-cuzCE/1G0ZSnTAHJPUT1rPgQx1w5tzSX7POXSLaS7w2nIUJUD+e25QoXD/hMfxbsT9rslEXugWypJMILBj/QsA== }
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@14.2.0':
-    resolution: {integrity: sha512-0JOk2uzLUt8fJK5LpsKKZa74zAch7bJjjgJzR9aOMs231AlE4gPYzsSm430ckZitjPGKeH5bgDZjqwqJQKIS2w==}
+  '@next/swc-linux-arm64-musl@14.2.3':
+    resolution: { integrity: sha512-0D4/oMM2Y9Ta3nGuCcQN8jjJjmDPYpHX9OJzqk42NZGJocU2MqhBq5tWkJrUQOQY9N+In9xOdymzapM09GeiZw== }
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@14.2.0':
-    resolution: {integrity: sha512-uYHkuTzX0NM6biKNp7hdKTf+BF0iMV254SxO0B8PgrQkxUBKGmk5ysHKB+FYBfdf9xei/t8OIKlXJs9ckD943A==}
+  '@next/swc-linux-x64-gnu@14.2.3':
+    resolution: { integrity: sha512-ENPiNnBNDInBLyUU5ii8PMQh+4XLr4pG51tOp6aJ9xqFQ2iRI6IH0Ds2yJkAzNV1CfyagcyzPfROMViS2wOZ9w== }
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@14.2.0':
-    resolution: {integrity: sha512-paN89nLs2dTBDtfXWty1/NVPit+q6ldwdktixYSVwiiAz647QDCd+EIYqoiS+/rPG3oXs/A7rWcJK9HVqfnMVg==}
+  '@next/swc-linux-x64-musl@14.2.3':
+    resolution: { integrity: sha512-BTAbq0LnCbF5MtoM7I/9UeUu/8ZBY0i8SFjUMCbPDOLv+un67e2JgyN4pmgfXBwy/I+RHu8q+k+MCkDN6P9ViQ== }
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@14.2.0':
-    resolution: {integrity: sha512-j1oiidZisnymYjawFqEfeGNcE22ZQ7lGUaa4pGOCVWrWeIDkPSj8zYgS9TzMNlg17Q3wSWCQC/F5uJAhSh7qcA==}
+  '@next/swc-win32-arm64-msvc@14.2.3':
+    resolution: { integrity: sha512-AEHIw/dhAMLNFJFJIJIyOFDzrzI5bAjI9J26gbO5xhAKHYTZ9Or04BesFPXiAYXDNdrwTP2dQceYA4dL1geu8A== }
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-ia32-msvc@14.2.0':
-    resolution: {integrity: sha512-6ff6F4xb+QGD1jhx/dOT9Ot7PQ/GAYekV9ykwEh2EFS/cLTyU4Y3cXkX5cNtNIhpctS5NvyjW9gIksRNErYE0A==}
+  '@next/swc-win32-ia32-msvc@14.2.3':
+    resolution: { integrity: sha512-vga40n1q6aYb0CLrM+eEmisfKCR45ixQYXuBXxOOmmoV8sYST9k7E3US32FsY+CkkF7NtzdcebiFT4CHuMSyZw== }
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@14.2.0':
-    resolution: {integrity: sha512-09DbG5vXAxz0eTFSf1uebWD36GF3D5toynRkgo2AlSrxwGZkWtJ1RhmrczRYQ17eD5bdo4FZ0ibiffdq5kc4vg==}
+  '@next/swc-win32-x64-msvc@14.2.3':
+    resolution: { integrity: sha512-Q1/zm43RWynxrO7lW4ehciQVj+5ePBhOK+/K2P7pLFX3JaJ/IZVC69SHidrmZSOkqz7ECIOhhy7XhAFG4JYyHA== }
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -5108,9 +5105,6 @@ packages:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
 
-  jquery@3.7.1:
-    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
-
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -5522,8 +5516,8 @@ packages:
       next: '>=10.0.0'
       react: '>=17.0.0'
 
-  next@14.2.0:
-    resolution: {integrity: sha512-2T41HqJdKPqheR27ll7MFZ3gtTYvGew7cUc0PwPSyK9Ao5vvwpf9bYfP4V5YBGLckHF2kEGvrLte5BqLSv0s8g==}
+  next@14.2.3:
+    resolution: { integrity: sha512-dowFkFTR8v79NPJO4QsBUtxv0g9BrS/phluVpMAt2ku7H+cbcBJlopXjkWlwxrk/xGqMemr7JkGPGemPrLLX7A== }
     engines: {node: '>=18.17.0'}
     hasBin: true
     peerDependencies:
@@ -6547,11 +6541,6 @@ packages:
   slice-ansi@4.0.0:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
     engines: {node: '>=10'}
-
-  slick-carousel@1.8.1:
-    resolution: {integrity: sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==}
-    peerDependencies:
-      jquery: '>=1.8.0'
 
   snake-case@3.0.4:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
@@ -8809,37 +8798,37 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@next/env@14.2.0': {}
+  '@next/env@14.2.3': { }
 
   '@next/eslint-plugin-next@14.2.0':
     dependencies:
       glob: 10.3.10
 
-  '@next/swc-darwin-arm64@14.2.0':
+  '@next/swc-darwin-arm64@14.2.3':
     optional: true
 
-  '@next/swc-darwin-x64@14.2.0':
+  '@next/swc-darwin-x64@14.2.3':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@14.2.0':
+  '@next/swc-linux-arm64-gnu@14.2.3':
     optional: true
 
-  '@next/swc-linux-arm64-musl@14.2.0':
+  '@next/swc-linux-arm64-musl@14.2.3':
     optional: true
 
-  '@next/swc-linux-x64-gnu@14.2.0':
+  '@next/swc-linux-x64-gnu@14.2.3':
     optional: true
 
-  '@next/swc-linux-x64-musl@14.2.0':
+  '@next/swc-linux-x64-musl@14.2.3':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@14.2.0':
+  '@next/swc-win32-arm64-msvc@14.2.3':
     optional: true
 
-  '@next/swc-win32-ia32-msvc@14.2.0':
+  '@next/swc-win32-ia32-msvc@14.2.3':
     optional: true
 
-  '@next/swc-win32-x64-msvc@14.2.0':
+  '@next/swc-win32-x64-msvc@14.2.3':
     optional: true
 
   '@nodelib/fs.scandir@2.1.5':
@@ -9856,7 +9845,7 @@ snapshots:
 
   '@storybook/manager@8.0.8': {}
 
-  '@storybook/nextjs@8.0.8(@swc/core@1.4.13(@swc/helpers@0.5.5))(babel-plugin-macros@3.1.0)(esbuild@0.20.2)(next@14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(@swc/core@1.4.13(@swc/helpers@0.5.5))(esbuild@0.20.2))':
+  '@storybook/nextjs@8.0.8(@swc/core@1.4.13(@swc/helpers@0.5.5))(babel-plugin-macros@3.1.0)(esbuild@0.20.2)(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(@swc/core@1.4.13(@swc/helpers@0.5.5))(esbuild@0.20.2))':
     dependencies:
       '@babel/core': 7.24.4
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.24.4)
@@ -9889,7 +9878,7 @@ snapshots:
       fs-extra: 11.2.0
       image-size: 1.1.1
       loader-utils: 3.2.1
-      next: 14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
+      next: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
       node-polyfill-webpack-plugin: 2.0.1(webpack@5.91.0(@swc/core@1.4.13(@swc/helpers@0.5.5))(esbuild@0.20.2))
       pnp-webpack-plugin: 1.7.0(typescript@5.4.5)
       postcss: 8.4.38
@@ -13600,8 +13589,6 @@ snapshots:
 
   jiti@1.21.0: {}
 
-  jquery@3.7.1: {}
-
   js-tokens@4.0.0: {}
 
   js-yaml@3.14.1:
@@ -13981,20 +13968,20 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-redux-wrapper@8.1.0(next@14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-redux@9.1.0(@types/react@18.2.77)(react@18.2.0)(redux@4.2.1))(react@18.2.0):
+  next-redux-wrapper@8.1.0(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react-redux@9.1.0(@types/react@18.2.77)(react@18.2.0)(redux@4.2.1))(react@18.2.0):
     dependencies:
-      next: 14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
+      next: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
       react: 18.2.0
       react-redux: 9.1.0(@types/react@18.2.77)(react@18.2.0)(redux@4.2.1)
 
-  next-router-mock@0.9.13(next@14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react@18.2.0):
+  next-router-mock@0.9.13(next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0))(react@18.2.0):
     dependencies:
-      next: 14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
+      next: 14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0)
       react: 18.2.0
 
-  next@14.2.0(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0):
+  next@14.2.3(@babel/core@7.24.4)(@playwright/test@1.43.0)(babel-plugin-macros@3.1.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.75.0):
     dependencies:
-      '@next/env': 14.2.0
+      '@next/env': 14.2.3
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
       caniuse-lite: 1.0.30001609
@@ -14004,15 +13991,15 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       styled-jsx: 5.1.1(@babel/core@7.24.4)(babel-plugin-macros@3.1.0)(react@18.2.0)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 14.2.0
-      '@next/swc-darwin-x64': 14.2.0
-      '@next/swc-linux-arm64-gnu': 14.2.0
-      '@next/swc-linux-arm64-musl': 14.2.0
-      '@next/swc-linux-x64-gnu': 14.2.0
-      '@next/swc-linux-x64-musl': 14.2.0
-      '@next/swc-win32-arm64-msvc': 14.2.0
-      '@next/swc-win32-ia32-msvc': 14.2.0
-      '@next/swc-win32-x64-msvc': 14.2.0
+      '@next/swc-darwin-arm64': 14.2.3
+      '@next/swc-darwin-x64': 14.2.3
+      '@next/swc-linux-arm64-gnu': 14.2.3
+      '@next/swc-linux-arm64-musl': 14.2.3
+      '@next/swc-linux-x64-gnu': 14.2.3
+      '@next/swc-linux-x64-musl': 14.2.3
+      '@next/swc-win32-arm64-msvc': 14.2.3
+      '@next/swc-win32-ia32-msvc': 14.2.3
+      '@next/swc-win32-x64-msvc': 14.2.3
       '@playwright/test': 1.43.0
       sass: 1.75.0
     transitivePeerDependencies:
@@ -15145,10 +15132,6 @@ snapshots:
       ansi-styles: 4.3.0
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
-
-  slick-carousel@1.8.1(jquery@3.7.1):
-    dependencies:
-      jquery: 3.7.1
 
   snake-case@3.0.4:
     dependencies:
