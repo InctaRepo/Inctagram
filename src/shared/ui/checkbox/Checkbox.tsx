@@ -1,4 +1,4 @@
-import React, { ElementRef, ReactNode, forwardRef, memo } from 'react'
+import React, { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef, memo } from 'react'
 
 import { CheckIcon } from '@/shared/assets/icons/CheckIcon'
 import { Typography } from '@/ui/typography'
@@ -9,19 +9,16 @@ import clsx from 'clsx'
 import s from '@/shared/ui/checkbox/checkbox.module.scss'
 
 export type CheckboxProps = {
-  checked?: boolean
   className?: string
   disabled?: boolean
   error?: string
   id?: string
   label?: ReactNode | string
-  onChange?: (checked: boolean) => void
-  required?: boolean
-}
+} & ComponentPropsWithoutRef<typeof CheckboxRadix.Root>
 
 export const Checkbox = memo(
   forwardRef<ElementRef<typeof CheckboxRadix.Root>, CheckboxProps>(
-    ({ checked, className, disabled, error, id, label, onChange, required }, ref) => {
+    ({ checked, className, disabled, error, id, label, onChange, required, ...rest }, ref) => {
       const classNames = {
         buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
         checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
@@ -36,13 +33,10 @@ export const Checkbox = memo(
             <Typography as={'label'} className={classNames.label} variant={'bold14'}>
               <div className={classNames.buttonWrapper}>
                 <CheckboxRadix.Root
-                  checked={checked}
                   className={classNames.checkbox}
-                  disabled={disabled}
-                  id={id}
-                  onCheckedChange={onChange}
+                  // onCheckedChange={onChange}
                   ref={ref}
-                  required={required}
+                  {...rest}
                 >
                   {checked && (
                     <CheckboxRadix.Indicator className={classNames.indicator} forceMount>

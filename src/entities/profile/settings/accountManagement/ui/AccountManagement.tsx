@@ -91,7 +91,8 @@ export const AccountManagement = memo(function AccountManagement() {
             <Checkbox
               checked={autoRenewal}
               label={t.profileSetting.accountManagement.autoRenewal}
-              onChange={autoRenewalChecked}
+              // onChange={autoRenewalChecked}
+              onCheckedChange={autoRenewalChecked}
             />
           </div>
         )}

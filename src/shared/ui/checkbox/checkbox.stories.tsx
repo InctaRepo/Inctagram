@@ -1,7 +1,5 @@
 import type { StoryObj } from '@storybook/react'
 
-import { useState } from 'react'
-
 import { Checkbox } from '@/ui/checkbox'
 
 const meta = {
@@ -12,6 +10,7 @@ const meta = {
     },
   },
   component: Checkbox,
+  tags: ['autodocs'],
   title: 'Components/Checkbox',
 }
 
@@ -19,21 +18,7 @@ export default meta
 type Story = StoryObj<typeof Checkbox>
 
 export const Default: Story = {
-  render: args => {
-    const [checked, setChecked] = useState(false)
-
-    return (
-      <>
-        <Checkbox
-          {...args}
-          checked={checked}
-          disabled={false}
-          label={'Check-box'}
-          onChange={() => setChecked(!checked)}
-        />
-      </>
-    )
-  },
+  args: { label: 'Check-box' },
 }
 export const Checked: Story = {
   args: { checked: true, disabled: false, label: 'Check-box' },
