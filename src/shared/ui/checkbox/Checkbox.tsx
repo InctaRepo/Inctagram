@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef, memo } from 'react'
 
-import { CheckIcon } from '@/shared/assets/icons/CheckIcon'
+import CheckIcon from '@/public/icon/checkIcon.svg'
 import { Typography } from '@/ui/typography'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
@@ -10,7 +10,6 @@ import s from '@/shared/ui/checkbox/checkbox.module.scss'
 
 export type CheckboxProps = {
   className?: string
-  disabled?: boolean
   error?: string
   id?: string
   label?: ReactNode | string
@@ -18,38 +17,43 @@ export type CheckboxProps = {
 
 export const Checkbox = memo(
   forwardRef<ElementRef<typeof CheckboxRadix.Root>, CheckboxProps>(
-    ({ checked, className, disabled, error, id, label, onChange, required, ...rest }, ref) => {
+    (
+      { checked, className, disabled, error, id, label, onCheckedChange, required, ...rest },
+      ref
+    ) => {
       const classNames = {
         buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
-        checkbox: clsx(s.checkbox, checked && s.checked, disabled && s.disabled),
+        checkIcon: clsx(s.checkIcon),
+        checkbox: clsx(s.checkbox, disabled && s.disabled),
         container: clsx(s.container, className),
+        error: clsx(error && s.error),
         indicator: clsx(s.indicator, disabled && s.disabled),
         label: clsx(s.label, disabled && s.disabled),
       }
 
       return (
         <div className={s.wrapper}>
-          <LabelRadix.Root asChild>
+          <LabelRadix.Root className={s.root}>
             <Typography as={'label'} className={classNames.label} variant={'bold14'}>
               <div className={classNames.buttonWrapper}>
                 <CheckboxRadix.Root
+                  checked={checked}
                   className={classNames.checkbox}
-                  // onCheckedChange={onChange}
+                  disabled={disabled}
+                  onCheckedChange={onCheckedChange}
                   ref={ref}
                   {...rest}
                 >
-                  {checked && (
-                    <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
-                      <CheckIcon color={disabled ? '#D5DAE0' : 'black'} />
-                    </CheckboxRadix.Indicator>
-                  )}
+                  <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
+                    <CheckIcon className={classNames.checkIcon} />
+                  </CheckboxRadix.Indicator>
                 </CheckboxRadix.Root>
               </div>
               {label}
             </Typography>
           </LabelRadix.Root>
           {error && (
-            <Typography className={s.error} color={'error'} variant={'regular14'}>
+            <Typography className={classNames.error} variant={'regular14'}>
               {error}
             </Typography>
           )}

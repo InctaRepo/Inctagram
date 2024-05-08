@@ -52,14 +52,10 @@ export const InputMain = ({
         {isRequired && <span className={s.star}>*</span>}
       </label>
       <input
-        disabled={disabled}
         id={name}
-        name={name}
         onChange={onchangeHandler}
-        placeholder={placeholder && placeholder}
         role={name}
         type={showPassword ? 'text' : type}
-        value={value}
         {...rest}
         className={`${s.textField} ${errorMessage && s.errorInput} ${disabled && s.disabledInput}`}
       />
