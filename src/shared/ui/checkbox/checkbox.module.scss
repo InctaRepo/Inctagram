@@ -72,7 +72,7 @@
 
         transition: 0.2s ease-in-out;
 
-        &.disabled {
+        &[data-disabled] {
           cursor: initial;
           border: 2px solid $color-dark-100;
         }
@@ -80,7 +80,7 @@
         .checkIcon {
           fill: $color-dark-700;
 
-          &.disabled {
+          &[data-disabled] {
             fill: $color-dark-700;
           }
         }
@@ -96,7 +96,7 @@
             }
           }
 
-          &[data-state='checked'].disabled {
+          &[data-state='checked'][data-disabled] {
             .checkIcon {
               fill: $color-dark-100;
             }
