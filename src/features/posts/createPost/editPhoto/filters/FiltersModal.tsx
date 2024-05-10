@@ -152,6 +152,7 @@ export const FiltersModal = ({
               <div className={s.next}>
                 <AddDescriptionModal
                   addedImages={addedImages}
+                  disabledDescription={postDescription?.length > 500 ?? false}
                   image={image}
                   isDescriptionModalOpen={isDescriptionModalOpen}
                   isFiltersModalOpen={isFiltersModalOpen}
@@ -166,7 +167,10 @@ export const FiltersModal = ({
                   title={t.posts.createPost.publication}
                 >
                   <FilteredImages addedImages={addedImages} />
-                  <PostDescription setValue={setPostDescription} value={postDescription} />
+                  <PostDescription
+                    disabledDescription={postDescription?.length > 500 ?? false}
+                    setValue={setPostDescription}
+                  />
                 </AddDescriptionModal>
               </div>
 

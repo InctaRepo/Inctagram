@@ -1,31 +1,43 @@
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
-import { TTextAreaProps, TextAreaField } from '@/ui/textAreaField'
+import { TextAreaField, TextAreaFieldProps } from '@/ui/textAreaField'
 
-type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'defaultValues' | 'rules'> &
-  Omit<TTextAreaProps, 'onChange' | 'value'>
+export type ControlledTextAreaProps<TFieldValues extends FieldValues> = Omit<
+  TextAreaFieldProps,
+  'id' | 'onChange' | 'value'
+> &
+  UseControllerProps<TFieldValues>
 
-export const ControlledTextArea = <T extends FieldValues>({
+export const ControlledTextArea = <TFieldValues extends FieldValues>({
   control,
+  defaultValue,
+  disabled,
   name,
+  rules,
+  shouldUnregister,
   variant,
   ...rest
-}: Props<T>) => {
+}: ControlledTextAreaProps<TFieldValues>) => {
   const {
-    field: { onChange, ref, ...fieldProps },
+    field: { onChange, ...fieldProps },
     fieldState: { error },
   } = useController({
     control,
+    defaultValue,
+    disabled,
     name,
+    rules,
+    shouldUnregister,
   })
 
   return (
     <TextAreaField
-      onChange={onChange}
-      validationError={error}
-      variant={variant}
       {...fieldProps}
       {...rest}
+      error={error?.message}
+      id={name}
+      setValue={onChange}
+      variant={variant}
     />
   )
 }

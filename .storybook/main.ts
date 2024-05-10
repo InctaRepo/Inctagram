@@ -1,6 +1,5 @@
 import type { StorybookConfig } from '@storybook/nextjs'
-
-const path = require('path')
+import * as path from 'path'
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -25,11 +24,29 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async config => {
     config.resolve!.alias = {
       ...config.resolve?.alias,
       '@/src': path.resolve(__dirname, '../src'),
+      // '@/public': path.resolve(__dirname, '../public'),
+      // '@/ui': path.resolve(__dirname, '../src/shared/ui'),
     }
+    const imageRule = config.module?.rules?.find(rule => {
+      const test = (rule as { test: RegExp }).test
+
+      if (!test) {
+        return false
+      }
+
+      return test.test('.svg')
+    }) as { [key: string]: any }
+
+    imageRule.exclude = /\.svg$/
+
+    config.module?.rules?.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
     return config
   },
   docs: {

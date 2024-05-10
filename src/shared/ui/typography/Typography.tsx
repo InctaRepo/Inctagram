@@ -1,9 +1,18 @@
-import { ComponentPropsWithoutRef, ElementType, memo } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  ElementType,
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+  memo,
+} from 'react'
 
 import s from '@/ui/typography/typography.module.scss'
 
 export type TypographyProps<T extends ElementType = 'p'> = {
   as?: T // h1 h2 h3 for semantic
+  children: ReactNode
   className?: string
   color?: 'error' | 'link' | 'primary' | 'secondary'
   variant?:
@@ -23,11 +32,32 @@ export type TypographyProps<T extends ElementType = 'p'> = {
 } & ComponentPropsWithoutRef<T>
 
 export const Typography = memo(
-  <T extends ElementType = 'p'>(
-    props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>
-  ) => {
-    const { as: Component = 'p', className, color = 'primary', variant = 'bold14', ...rest } = props
+  forwardRef(
+    <T extends ElementType = 'p'>(
+      props: {
+        ref?: ForwardedRef<ElementRef<T>>
+      } & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>> &
+        TypographyProps<T>,
+      ref?: ForwardedRef<ElementRef<T>>
+    ) => {
+      const {
+        as: Component = 'p',
+        children,
+        className,
+        color = 'primary',
+        variant = 'bold14',
+        ...rest
+      } = props
 
-    return <Component className={`${variant && s[variant]} ${s[color]}  ${className}`} {...rest} />
-  }
+      return (
+        <Component
+          className={`${variant && s[variant]} ${s[color]}  ${className}`}
+          {...rest}
+          ref={ref}
+        >
+          {children}
+        </Component>
+      )
+    }
+  )
 )

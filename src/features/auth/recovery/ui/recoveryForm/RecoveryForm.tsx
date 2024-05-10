@@ -80,6 +80,7 @@ export const RecoveryForm = ({ modalHandler, onSubmitHandler, type }: Props) => 
             label={t.auth.email}
             name={'email'}
             placeholder={'Epam@epam.com'}
+            type={'email'}
           />
           <Typography className={classNames.hint} variant={'regular14'}>
             {t.auth.instructions}

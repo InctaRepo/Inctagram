@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useCreateNewPasswordForm } from '@/features/auth/createNewPassword/hooks'
-import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
+import { PasswordsMatchSchema } from '@/shared/schemas/passwordsMatchSchema'
 import { Button } from '@/ui/button'
 import { ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
@@ -10,7 +10,7 @@ import { DevTool } from '@hookform/devtools'
 import s from '@/features/auth/createNewPassword/ui/createNewPasswordForm/createNewPasswordForm.module.scss'
 
 type Props = {
-  onSubmitHandler: (data: PasswordsMatchForm) => void
+  onSubmitHandler: (data: PasswordsMatchSchema) => void
 }
 
 export const CreateNewPasswordForm = (props: Props) => {
@@ -27,7 +27,7 @@ export const CreateNewPasswordForm = (props: Props) => {
         control={control}
         label={t.auth.newPassword}
         name={'password'}
-        type={'password'}
+        type={'new-password'}
       />
 
       <ControlledTextField
@@ -36,7 +36,7 @@ export const CreateNewPasswordForm = (props: Props) => {
         control={control}
         label={t.auth.passwordConfirmation}
         name={'passwordConfirm'}
-        type={'password'}
+        type={'new-password'}
       />
       <div className={s.text}>
         <Typography className={s.passwordRequirement} variant={'medium14'}>

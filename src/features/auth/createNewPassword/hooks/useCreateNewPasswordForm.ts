@@ -3,11 +3,11 @@ import { useForm } from 'react-hook-form'
 
 import { FormFields, triggerZodFieldError } from '@/shared/helpers/updateZodError'
 import { useTranslate } from '@/shared/hooks'
-import { PasswordsMatchForm, passwordsMatchSchema } from '@/shared/schemas/passwordsMatchSchema'
+import { PasswordsMatchSchema, passwordsMatchSchema } from '@/shared/schemas/passwordsMatchSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 type Props = {
-  onSubmitHandler: (data: PasswordsMatchForm) => void
+  onSubmitHandler: (data: PasswordsMatchSchema) => void
 }
 
 export const useCreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
@@ -18,7 +18,7 @@ export const useCreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
     formState: { errors, touchedFields },
     handleSubmit,
     trigger,
-  } = useForm<PasswordsMatchForm>({
+  } = useForm<PasswordsMatchSchema>({
     defaultValues: {
       password: '',
       passwordConfirm: '',
@@ -32,7 +32,7 @@ export const useCreateNewPasswordForm = ({ onSubmitHandler }: Props) => {
 
     triggerZodFieldError(touchedFieldNames, trigger)
   }, [t, touchedFields, trigger])
-  const submit = (data: PasswordsMatchForm) => {
+  const submit = (data: PasswordsMatchSchema) => {
     onSubmitHandler?.(data)
   }
 

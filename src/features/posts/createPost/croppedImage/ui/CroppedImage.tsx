@@ -8,9 +8,6 @@ import { Cropping } from '@/features/posts/createPost/editPhoto/crop/Cropping'
 import { Zoom } from '@/features/posts/createPost/editPhoto/zoom/Zoom'
 import { Image } from '@/shared/types'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import s from '@/features/posts/createPost/croppedImage/ui/CropedImage.module.scss'
 
 type Props = {
