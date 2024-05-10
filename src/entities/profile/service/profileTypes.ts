@@ -1,5 +1,5 @@
 export interface UserInfo {
-  aboutMe: string
+  aboutMe?: string
   avatar: string
   city: string
   country?: string

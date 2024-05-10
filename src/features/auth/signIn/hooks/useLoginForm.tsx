@@ -17,7 +17,7 @@ export const useLoginForm = ({ errorServer, onSubmitHandler }: Props) => {
 
   const {
     control,
-    formState: { errors, touchedFields },
+    formState: { errors, isSubmitted, touchedFields },
     handleSubmit,
     setError,
     trigger,
@@ -46,5 +46,5 @@ export const useLoginForm = ({ errorServer, onSubmitHandler }: Props) => {
     onSubmitHandler?.(data)
   }
 
-  return { control, errors, handleSubmit, router, submitData, t }
+  return { control, errors, handleSubmit, isSubmitted, router, submitData, t }
 }

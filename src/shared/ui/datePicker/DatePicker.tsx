@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 import * as RDP from 'react-datepicker'
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
@@ -25,14 +25,14 @@ import textFieldStyles from '@/ui/textField/textField.module.scss'
 export type DatePickerProps = {
   disabled?: boolean
   endDate?: Date | null
-  errorMessage?: string
+  error?: string
   label?: string
   onChange?: (value: Date | Date[] | null) => void
   placeholder?: string
   setEndDate?: (date: Date | null) => void
   setStartDate: (date: Date | null) => void
   startDate: Date | null
-} & ComponentProps<'div'>
+} & ComponentPropsWithoutRef<'div'>
 
 const RDPC = (((RDP.default as any).default as any) ||
   (RDP.default as any) ||
@@ -44,7 +44,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
       className,
       disabled,
       endDate,
-      errorMessage,
+      error,
       label,
       placeholder,
       setEndDate,
@@ -56,7 +56,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
   ) => {
     const isRange = endDate !== undefined
 
-    const showError = !!errorMessage && errorMessage.length > 0
+    const showError = !!error && error.length > 0
     const { t } = useTranslate()
     const router = useRouter()
 
@@ -81,8 +81,8 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
       }
     }
     const isError =
-      errorMessage?.includes('A user under 13 cannot create a profile.') ||
-      errorMessage?.includes('Пользователь младше 13 лет не может создать профиль.')
+      error?.includes('A user under 13 cannot create a profile.') ||
+      error?.includes('Пользователь младше 13 лет не может создать профиль.')
 
     return (
       <div className={classNames.root} {...rest}>
@@ -90,7 +90,7 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
           calendarClassName={classNames.calendar}
           calendarStartDay={1}
           className={classNames.input}
-          customInput={<CustomInput disabled={disabled} error={errorMessage} label={label} />}
+          customInput={<CustomInput disabled={disabled} error={error} label={label} />}
           dateFormat={'dd/MM/yyyy'}
           dayClassName={classNames.day}
           disabled={disabled}
@@ -187,7 +187,7 @@ const CustomHeaderWrapper = (locale: Locale) => {
       header: s.header,
     }
 
-    const headerText = capitalizeFirstLetter(format(date, 'LLLL Y', { locale: locale }))
+    const headerText = capitalizeFirstLetter(format(date, 'LLLL y', { locale: locale }))
 
     return (
       <div className={classNames.header}>

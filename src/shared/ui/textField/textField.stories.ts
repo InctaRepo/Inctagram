@@ -23,7 +23,7 @@ export const Default: Story = {
 
 export const Error: Story = {
   args: {
-    errorMessage: 'Error message',
+    error: 'Error message',
     label: 'User name',
     type: 'text',
   },
@@ -46,7 +46,7 @@ export const Password: Story = {
 
 export const PasswordError: Story = {
   args: {
-    errorMessage: 'Error text',
+    error: 'Error text',
     label: 'Password',
     type: 'password',
   },
@@ -69,7 +69,7 @@ export const Search: Story = {
 
 export const SearchError: Story = {
   args: {
-    errorMessage: 'Text error',
+    error: 'Text error',
     placeholder: 'Search...',
     type: 'search',
   },

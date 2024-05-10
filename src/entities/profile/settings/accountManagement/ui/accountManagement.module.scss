@@ -84,12 +84,10 @@
         gap: 12px;
         width: 100%;
 
-
         .accountProperty {
           display: flex;
           flex-direction: column;
           gap: 13px;
-
         }
       }
     }
@@ -167,7 +165,7 @@
         border-radius: 5px;
 
         &::after {
-          content: "";
+          content: '';
 
           position: absolute;
           top: -50px;
@@ -177,7 +175,7 @@
           width: 50px;
           height: 155px;
 
-          opacity: .2;
+          opacity: 0.2;
           background: #fff;
 
           transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);

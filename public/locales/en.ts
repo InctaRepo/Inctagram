@@ -144,6 +144,7 @@ export const en = {
 
   locale: {
     english: 'Английский',
+    language: 'Language',
     russian: 'Русский',
   },
 

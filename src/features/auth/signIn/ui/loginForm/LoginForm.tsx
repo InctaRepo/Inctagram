@@ -20,7 +20,7 @@ type Props = {
   onSubmitHandler?: (data: LoginFormType) => void
 }
 export const LoginForm = ({ errorServer, onSubmitHandler }: Props) => {
-  const { control, errors, handleSubmit, router, submitData, t } = useLoginForm({
+  const { control, errors, handleSubmit, isSubmitted, router, submitData, t } = useLoginForm({
     errorServer,
     onSubmitHandler,
   })
@@ -39,15 +39,16 @@ export const LoginForm = ({ errorServer, onSubmitHandler }: Props) => {
             <GithubIcon />
           </div>
         </div>
+        <DevTool control={control} />
         <form className={s.form} onSubmit={handleSubmit(submitData)}>
-          <DevTool control={control} />
           <ControlledTextField
-            autoComplete={'username'}
+            autoComplete={'email'}
             className={`${s.field} ${errors.email && s.fieldWithError && errorServer}`}
             control={control}
             fullWidth
             label={t.auth.email}
             name={'email'}
+            type={'email'}
           />
 
           <ControlledTextField
@@ -66,7 +67,13 @@ export const LoginForm = ({ errorServer, onSubmitHandler }: Props) => {
               </Typography>
             </Link>
           </div>
-          <Button className={s.singIn} fullWidth type={'submit'} variant={'primary'}>
+          <Button
+            className={s.singIn}
+            disabled={isSubmitted}
+            fullWidth
+            type={'submit'}
+            variant={'primary'}
+          >
             <Typography variant={'bold16'}>{t.auth.signIn}</Typography>
           </Button>
         </form>
