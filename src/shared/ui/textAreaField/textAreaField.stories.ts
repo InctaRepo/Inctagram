@@ -21,7 +21,7 @@ export const Default: Story = {
 
 export const Error: Story = {
   args: {
-    errorMessage: 'Error text',
+    error: 'Error text',
     fullWidth: true,
     label: 'Text-area with error',
     placeholder: 'Text-area',

@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 import * as RDP from 'react-datepicker'
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
@@ -32,7 +32,7 @@ export type DatePickerProps = {
   setEndDate?: (date: Date | null) => void
   setStartDate: (date: Date | null) => void
   startDate: Date | null
-} & ComponentProps<'div'>
+} & ComponentPropsWithoutRef<'div'>
 
 const RDPC = (((RDP.default as any).default as any) ||
   (RDP.default as any) ||

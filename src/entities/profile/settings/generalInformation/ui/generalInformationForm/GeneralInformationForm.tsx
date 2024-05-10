@@ -89,7 +89,7 @@ export const GeneralInformationForm = memo(function GeneralInformationForm({
         <ControlledDatePicker
           className={s.date}
           control={control}
-          errorMessage={errors.dateOfBirthday?.message}
+          error={errors.dateOfBirthday?.message}
           label={t.profileSetting.generalInformation.dateOfBirthday}
           name={'dateOfBirthday'}
         />
