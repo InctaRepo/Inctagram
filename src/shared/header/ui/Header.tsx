@@ -28,7 +28,6 @@ export const Header = memo(function Header({ variant }: Props) {
     ]
   }, [])
   const changeLangHandler = (value: string) => {
-    console.log(value)
     const locale = value.slice(0, 2).toLowerCase()
 
     push({ pathname, query }, asPath, { locale })

@@ -28,11 +28,11 @@ export const useLogout = () => {
     dispatch(setVariantIcon(null))
     router.push(RouteNames.SIGN_IN)
     setOpenModal(false)
-  }, [])
+  }, [dispatch, logoutUser, router])
   const onModalClose = useCallback(() => {
     setOpenModal(false)
     dispatch(setVariantIcon(null))
-  }, [])
+  }, [dispatch])
   const onClickOpenModal = () => {
     setOpenModal(true)
     dispatch(setVariantIcon(`${RouteNames.LOGOUT}`.slice(1) as variantIconLink))
