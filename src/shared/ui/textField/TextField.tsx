@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react'
+import React, { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import { InputMain } from '@/ui/textField/inputMain'
 
@@ -6,30 +6,17 @@ import s from '@/ui/textField/textField.module.scss'
 
 export type TextFieldProps = {
   className?: string
-  errorMessage?: string
   fullWidth?: boolean
-  isRequired?: boolean
-  label?: string
-  onChangeText?: (value: string) => void
-  value?: string
-} & ComponentProps<'input'>
+  id?: string
+} & ComponentPropsWithoutRef<typeof InputMain>
+// ComponentProps<'input'>
 
-export const TextField = ({
-  className,
-  errorMessage,
-  fullWidth,
-  isRequired,
-  value,
-  ...restProps
-}: TextFieldProps) => {
-  return (
-    <div className={`${className} ${fullWidth ? s.fullWidth : ''}`}>
-      <InputMain
-        errorMessage={errorMessage}
-        {...restProps}
-        isRequired={isRequired}
-        value={value ?? ''}
-      />
-    </div>
-  )
-}
+export const TextField = forwardRef<ElementRef<typeof InputMain>, TextFieldProps>(
+  ({ className, fullWidth, value, ...restProps }, ref) => {
+    return (
+      <div className={`${className} ${fullWidth ? s.fullWidth : ''}`}>
+        <InputMain {...restProps} ref={ref} value={value ?? ''} />
+      </div>
+    )
+  }
+)

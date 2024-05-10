@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SelectBox } from '@/ui/selectBox'
+import { Select } from 'src/shared/ui/select'
 
-const meta: Meta<typeof SelectBox> = {
-  component: SelectBox,
+const meta: Meta<typeof Select> = {
+  component: Select,
   parameters: {
     layout: 'centered',
   },
@@ -12,7 +12,7 @@ const meta: Meta<typeof SelectBox> = {
 }
 
 export default meta
-type Story = StoryObj<typeof SelectBox>
+type Story = StoryObj<typeof Select>
 
 export const Default: Story = {
   args: {

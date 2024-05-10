@@ -68,6 +68,7 @@ export const GeneralInformationForm = memo(function GeneralInformationForm({
           isRequired
           label={t.profileSetting.generalInformation.userName}
           name={'username'}
+          type={'username'}
         />
         <ControlledTextField
           className={s.field}
@@ -75,6 +76,7 @@ export const GeneralInformationForm = memo(function GeneralInformationForm({
           isRequired
           label={t.profileSetting.generalInformation.firstName}
           name={'firstName'}
+          type={'given-name'}
         />
         <ControlledTextField
           className={s.field}
@@ -82,11 +84,12 @@ export const GeneralInformationForm = memo(function GeneralInformationForm({
           isRequired
           label={t.profileSetting.generalInformation.lastName}
           name={'lastName'}
+          type={'family-name'}
         />
         <ControlledDatePicker
           className={s.date}
           control={control}
-          errorMessage={errors.dateOfBirthday?.message}
+          error={errors.dateOfBirthday?.message}
           label={t.profileSetting.generalInformation.dateOfBirthday}
           name={'dateOfBirthday'}
         />
