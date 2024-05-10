@@ -14,8 +14,6 @@ const RadioGroupRoot = forwardRef<
   return <RadioGroup.Root className={clsx(s.root, className)} {...props} ref={ref} />
 })
 
-// RadioGroupRoot.displayName = RadioGroup.Root.displayName
-
 const RadioGroupItem = forwardRef<
   ElementRef<typeof RadioGroup.Item>,
   ComponentPropsWithoutRef<typeof RadioGroup.Item>
@@ -26,8 +24,6 @@ const RadioGroupItem = forwardRef<
     </RadioGroup.Item>
   )
 })
-
-// RadioGroupItem.displayName = RadioGroup.Item.displayName
 
 type Option = {
   label: string

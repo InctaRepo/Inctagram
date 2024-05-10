@@ -11,7 +11,7 @@ import { NextPage } from 'next'
 import '@/styles/_globals.scss'
 import '@/styles/nprogress.scss'
 import 'react-toastify/dist/ReactToastify.css'
-import '../scripts/wdyr'
+// import '../scripts/wdyr' необходимо для просмотра что именно рендериться повторно
 
 type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode

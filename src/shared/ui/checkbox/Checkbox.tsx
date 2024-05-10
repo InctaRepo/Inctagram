@@ -9,6 +9,7 @@ import clsx from 'clsx'
 import s from '@/shared/ui/checkbox/checkbox.module.scss'
 
 export type CheckboxProps = {
+  children?: ReactNode
   className?: string
   error?: string
   id?: string

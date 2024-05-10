@@ -1,4 +1,11 @@
-import React, { ElementRef, ReactElement, ReactNode, forwardRef, memo } from 'react'
+import React, {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  ReactElement,
+  ReactNode,
+  forwardRef,
+  memo,
+} from 'react'
 
 import ChevronDown from '@/public/icon/chevronDownIcon.svg'
 import { Typography } from '@/ui/typography'
@@ -9,26 +16,21 @@ import { clsx } from 'clsx'
 import s from '@/ui/select/select.module.scss'
 
 export type SelectProps = {
-  children?: ReactNode
+  className?: string
   defaultImage?: ReactElement
-  defaultValue?: string
-  disabled?: boolean
-  label?: string
-  onBlur?: () => void
-  onValueChange?: (value: string) => void
+  error?: string
+  id?: string
+  label?: ReactNode | string
   options: Option[]
   placeholder?: string
-  required?: boolean
-  value?: string
-} & SelectRadix.SelectProps
+} & ComponentPropsWithoutRef<typeof SelectRadix.Root>
 
 export type Option = {
   children?: ReactNode
   id?: number | string
   image?: ReactElement
   name?: string
-  value?: string
-} & SelectRadix.SelectItemProps
+} & ComponentPropsWithoutRef<typeof SelectRadix.Item>
 
 export const Select = memo(
   forwardRef<ElementRef<typeof SelectRadix.Root>, SelectProps>(function Select(

@@ -43,10 +43,9 @@ exports[`LoginForm snapshot LoginForm 1`] = `
                   Email
                 </label>
                 <input
-                  autocomplete="username"
+                  autocomplete="email"
                   class="textField undefined undefined"
                   id="email"
-                  name="email"
                   role="email"
                   type="email"
                   value=""
@@ -70,7 +69,6 @@ exports[`LoginForm snapshot LoginForm 1`] = `
                   autocomplete="current-password"
                   class="textField undefined undefined"
                   id="password"
-                  name="password"
                   role="password"
                   type="password"
                   value=""
@@ -159,10 +157,9 @@ exports[`LoginForm snapshot LoginForm 1`] = `
                 Email
               </label>
               <input
-                autocomplete="username"
+                autocomplete="email"
                 class="textField undefined undefined"
                 id="email"
-                name="email"
                 role="email"
                 type="email"
                 value=""
@@ -186,7 +183,6 @@ exports[`LoginForm snapshot LoginForm 1`] = `
                 autocomplete="current-password"
                 class="textField undefined undefined"
                 id="password"
-                name="password"
                 role="password"
                 type="password"
                 value=""

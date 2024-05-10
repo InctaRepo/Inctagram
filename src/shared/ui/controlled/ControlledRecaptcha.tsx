@@ -1,21 +1,30 @@
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
-import { ForgotForm, Recaptcha, RecaptchaProps } from '@/ui/recaptcha'
+import { Recaptcha, RecaptchaProps } from '@/ui/recaptcha'
 
-type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'defaultValues' | 'rules'> &
-  Omit<RecaptchaProps, 'onChange' | 'value'>
+export type ControlledRecaptchaProps<TFieldValues extends FieldValues> =
+  UseControllerProps<TFieldValues> & Omit<RecaptchaProps, 'id' | 'onChange' | 'value'>
 
-export const ControlledRecaptcha = <T extends FieldValues>({
+export const ControlledRecaptcha = <TFieldValues extends FieldValues>({
   control,
+  defaultValue,
+  disabled,
   name,
-  ...props
-}: Props<ForgotForm>) => {
+  rules,
+  shouldUnregister,
+  ...rest
+}: ControlledRecaptchaProps<TFieldValues>) => {
   const {
-    field: { ref, ...fieldProps },
+    field: { ...fieldProps },
+    fieldState: { error },
   } = useController({
     control,
+    defaultValue,
+    disabled,
     name,
+    rules,
+    shouldUnregister,
   })
 
-  return <Recaptcha {...fieldProps} {...props} />
+  return <Recaptcha {...fieldProps} {...rest} error={error?.message} id={name} />
 }

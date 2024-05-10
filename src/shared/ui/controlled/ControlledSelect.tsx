@@ -1,9 +1,9 @@
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
-import { Select, SelectProps } from 'src/shared/ui/select'
+import { Select, SelectProps } from '@/ui/select'
 
 export type ControlledSelectProps<TFieldValues extends FieldValues> =
-  UseControllerProps<TFieldValues> & Omit<SelectProps, 'onChange' | 'value'>
+  UseControllerProps<TFieldValues> & Omit<SelectProps, 'id' | 'onChange' | 'value'>
 
 export const ControlledSelect = <TFieldValues extends FieldValues>({
   control,
@@ -26,5 +26,5 @@ export const ControlledSelect = <TFieldValues extends FieldValues>({
     shouldUnregister,
   })
 
-  return <Select {...restField} {...rest} />
+  return <Select {...restField} {...rest} error={error?.message} id={name} />
 }
