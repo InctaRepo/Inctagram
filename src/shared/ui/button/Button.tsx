@@ -21,9 +21,10 @@ export type ButtonProps<T extends ElementType = 'button'> = {
 export const Button = memo(
   forwardRef(
     <T extends ElementType = 'button'>(
-      props: ButtonProps<T> & {
+      props: {
         ref?: ForwardedRef<ElementRef<T>>
-      } & Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>,
+      } & ButtonProps<T> &
+        Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>,
       ref?: ForwardedRef<ElementRef<T>>
     ) => {
       const {
