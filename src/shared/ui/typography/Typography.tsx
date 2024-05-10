@@ -34,10 +34,10 @@ export type TypographyProps<T extends ElementType = 'p'> = {
 export const Typography = memo(
   forwardRef(
     <T extends ElementType = 'p'>(
-      props: TypographyProps<T> &
-        Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>> & {
-          ref?: ForwardedRef<ElementRef<T>>
-        },
+      props: {
+        ref?: ForwardedRef<ElementRef<T>>
+      } & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>> &
+        TypographyProps<T>,
       ref?: ForwardedRef<ElementRef<T>>
     ) => {
       const {

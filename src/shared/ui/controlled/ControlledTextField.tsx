@@ -3,12 +3,11 @@ import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import { TextField, TextFieldProps } from '@/ui/textField'
 
-export type ControlledTextFieldProps<TFieldValues extends FieldValues> =
-  UseControllerProps<TFieldValues> &
-    Omit<TextFieldProps, 'id' | 'onChange' | 'value'> & {
-      handleAutocompleteOptions?: (value: string) => void
-      selectedValue?: string
-    }
+export type ControlledTextFieldProps<TFieldValues extends FieldValues> = {
+  handleAutocompleteOptions?: (value: string) => void
+  selectedValue?: string
+} & Omit<TextFieldProps, 'id' | 'onChange' | 'value'> &
+  UseControllerProps<TFieldValues>
 
 export const ControlledTextField = <TFieldValues extends FieldValues>({
   control,

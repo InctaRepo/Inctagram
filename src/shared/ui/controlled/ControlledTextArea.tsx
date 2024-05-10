@@ -2,8 +2,11 @@ import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import { TextAreaField, TextAreaFieldProps } from '@/ui/textAreaField'
 
-export type ControlledTextAreaProps<TFieldValues extends FieldValues> =
-  UseControllerProps<TFieldValues> & Omit<TextAreaFieldProps, 'id' | 'onChange' | 'value'>
+export type ControlledTextAreaProps<TFieldValues extends FieldValues> = Omit<
+  TextAreaFieldProps,
+  'id' | 'onChange' | 'value'
+> &
+  UseControllerProps<TFieldValues>
 
 export const ControlledTextArea = <TFieldValues extends FieldValues>({
   control,

@@ -2,8 +2,11 @@ import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import { Recaptcha, RecaptchaProps } from '@/ui/recaptcha'
 
-export type ControlledRecaptchaProps<TFieldValues extends FieldValues> =
-  UseControllerProps<TFieldValues> & Omit<RecaptchaProps, 'id' | 'onChange' | 'value'>
+export type ControlledRecaptchaProps<TFieldValues extends FieldValues> = Omit<
+  RecaptchaProps,
+  'id' | 'onChange' | 'value'
+> &
+  UseControllerProps<TFieldValues>
 
 export const ControlledRecaptcha = <TFieldValues extends FieldValues>({
   control,

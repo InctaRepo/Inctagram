@@ -70,7 +70,7 @@ const postApi = baseApi.injectEndpoints({
       }),
     }),
 
-    updatePost: builder.mutation<UpdateResponse, UpdatePost & Pick<UpdatePost, 'postId'>>({
+    updatePost: builder.mutation<UpdateResponse, Pick<UpdatePost, 'postId'> & UpdatePost>({
       invalidatesTags: ['Post', 'Posts', 'Profile'],
       query: ({ postId, ...patch }) => ({
         body: patch,

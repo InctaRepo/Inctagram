@@ -71,6 +71,6 @@ export function createProfileSettingSchema(t: LocaleType) {
   })
 }
 
-export type ProfileSettingSchema = z.infer<ReturnType<typeof createProfileSettingSchema>> & {
+export type ProfileSettingSchema = {
   avatar: string
-}
+} & z.infer<ReturnType<typeof createProfileSettingSchema>>
