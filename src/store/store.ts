@@ -18,7 +18,6 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   signIn: signInReducer,
 }
 
-// @ts-ignore
 export const store = configureStore({
   // @ts-ignore
   middleware(getDefaultMiddleware) {
