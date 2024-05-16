@@ -5,6 +5,7 @@ const preview: Preview = {
   globalTypes: {
     locale: {
       description: 'Internationalization locale',
+
       defaultValue: 'en',
       toolbar: {
         icon: 'globe',
@@ -19,7 +20,6 @@ const preview: Preview = {
     docs: {
       inlineStories: false,
     },
-    // actions: { argTypesRegex: '^on.*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

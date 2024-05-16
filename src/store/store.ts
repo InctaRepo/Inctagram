@@ -19,9 +19,12 @@ const rootReducer: ReducersMapObject<StateSchema> = {
 }
 
 export const store = configureStore({
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat([baseApi.middleware]).concat([autocompleteApi.middleware]),
+  // @ts-ignore
+  middleware(getDefaultMiddleware) {
+    return getDefaultMiddleware().concat([baseApi.middleware]).concat([autocompleteApi.middleware])
+  },
   preloadedState: loadState(),
+  // @ts-ignore
   reducer: rootReducer,
 })
 setupListeners(store.dispatch)

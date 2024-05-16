@@ -35,7 +35,4 @@ export function passwordsMatchSchema(t: LocaleType) {
     )
 }
 
-export type PasswordsMatchForm = {
-  password: string
-  passwordConfirm: string
-}
+export type PasswordsMatchSchema = z.infer<ReturnType<typeof passwordsMatchSchema>>

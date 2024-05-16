@@ -50,10 +50,4 @@ export function createSignUpSchema(t: LocaleType) {
     )
 }
 
-export type SignUpFormSchema = {
-  email: string
-  password: string
-  passwordConfirm: string
-  terms: boolean
-  username: string
-}
+export type SignUpFormSchema = z.infer<ReturnType<typeof createSignUpSchema>>

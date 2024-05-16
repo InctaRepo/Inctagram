@@ -11,3 +11,4 @@ export const passwordRecoverySchema = (t: LocaleType) => {
     recaptcha: z.literal(true),
   })
 }
+export type PasswordRecoverySchema = z.infer<ReturnType<typeof passwordRecoverySchema>>

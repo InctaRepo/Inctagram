@@ -71,9 +71,9 @@ export const GeneralInformation = memo(function GeneralInformation() {
             dispatch(setProfileFound(true))
           })
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [userData]
   )
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const setToastHandler = () => {
     if (successRes) {

@@ -10,9 +10,6 @@ import { ImageFilter } from '@/shared/types/posts/postsTypes'
 import { Typography } from '@/ui/typography'
 import ImageWithFilter from 'next/image'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import s from '@/features/posts/createPost/editPhoto/filters/selectedImages/selectedImages.module.scss'
 
 type Props = {

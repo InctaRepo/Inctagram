@@ -37,10 +37,9 @@ exports[`EmailVerification snapshot EmailVerification 1`] = `
                 <input
                   class="textField undefined undefined"
                   id="email"
-                  name="email"
                   placeholder="Epam@epam.com"
                   role="email"
-                  type="text"
+                  type="email"
                   value=""
                 />
               </div>
@@ -122,10 +121,9 @@ exports[`EmailVerification snapshot EmailVerification 1`] = `
               <input
                 class="textField undefined undefined"
                 id="email"
-                name="email"
                 placeholder="Epam@epam.com"
                 role="email"
-                type="text"
+                type="email"
                 value=""
               />
             </div>

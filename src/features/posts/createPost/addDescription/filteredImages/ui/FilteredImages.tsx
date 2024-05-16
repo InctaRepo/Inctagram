@@ -5,9 +5,6 @@ import { SliderSettings } from '@/entities/post/sliderSettings'
 import { Image } from '@/shared/types'
 import ImageWithFilter from 'next/image'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import s from '@/features/posts/createPost/addDescription/filteredImages/ui/filteredImages.module.scss'
 
 type Props = {

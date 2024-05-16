@@ -1,8 +1,16 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode, memo } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  ElementType,
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+  memo,
+} from 'react'
 
 import s from '@/ui/button/button.module.scss'
 
-type Props<T extends ElementType = 'button'> = {
+export type ButtonProps<T extends ElementType = 'button'> = {
   as?: T
   children: ReactNode
   className?: string
@@ -11,22 +19,32 @@ type Props<T extends ElementType = 'button'> = {
 } & ComponentPropsWithoutRef<T>
 
 export const Button = memo(
-  <T extends ElementType = 'button'>(
-    props: Props<T> & Omit<ComponentPropsWithoutRef<T>, keyof Props<T>>
-  ) => {
-    const {
-      as: Component = 'button',
-      children,
-      className,
-      fullWidth,
-      variant = 'primary',
-      ...rest
-    } = props
+  forwardRef(
+    <T extends ElementType = 'button'>(
+      props: {
+        ref?: ForwardedRef<ElementRef<T>>
+      } & ButtonProps<T> &
+        Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>,
+      ref?: ForwardedRef<ElementRef<T>>
+    ) => {
+      const {
+        as: Component = 'button',
+        children,
+        className,
+        fullWidth,
+        variant = 'primary',
+        ...rest
+      } = props
 
-    return (
-      <Component className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`} {...rest}>
-        {children}
-      </Component>
-    )
-  }
+      return (
+        <Component
+          className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`}
+          {...rest}
+          ref={ref}
+        >
+          {children}
+        </Component>
+      )
+    }
+  )
 )
