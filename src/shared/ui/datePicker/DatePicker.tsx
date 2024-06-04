@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, SyntheticEvent, forwardRef } from 'react'
 import * as RDP from 'react-datepicker'
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { FieldValues } from 'react-hook-form'
@@ -10,9 +10,10 @@ import { RouteNames } from '@/shared/const'
 import { useTranslate } from '@/shared/hooks'
 import { Label } from '@/ui/label'
 import { Typography } from '@/ui/typography'
+import { offset } from '@floating-ui/dom'
 import { clsx } from 'clsx'
 // eslint-disable-next-line import/no-duplicates
-import { format } from 'date-fns'
+import { Locale, format } from 'date-fns'
 // eslint-disable-next-line import/no-duplicates
 import { enGB, ru } from 'date-fns/locale'
 import { useRouter } from 'next/router'
@@ -70,7 +71,10 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
       root: clsx(s.root, className),
     }
 
-    const DatePickerHandler = (dates: [Date | null, Date | null] | Date) => {
+    const DatePickerHandler = (
+      dates: Date | null,
+      event: SyntheticEvent<any, Event> | undefined
+    ) => {
       if (Array.isArray(dates)) {
         const [start, end] = dates
 
@@ -101,12 +105,10 @@ export const DatePicker = forwardRef<FieldValues, DatePickerProps>(
           placeholderText={placeholder}
           popperClassName={classNames.popper}
           popperModifiers={[
-            {
-              name: 'offset',
-              options: {
-                offset: [0, -11],
-              },
-            },
+            offset({
+              crossAxis: 74,
+              mainAxis: -10,
+            }),
           ]}
           renderCustomHeader={CustomHeaderWrapper(router.locale === 'en' ? enGB : ru)}
           selected={startDate}
