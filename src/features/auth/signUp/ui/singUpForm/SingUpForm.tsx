@@ -12,6 +12,7 @@ import { Button } from '@/ui/button'
 import { Card } from '@/ui/card'
 import { ControlledCheckbox, ControlledTextField } from '@/ui/controlled'
 import { Typography } from '@/ui/typography'
+import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -71,32 +72,35 @@ export const SingUpForm = ({ onSubmitHandler }: Props) => {
             <GithubIcon />
           </div>
         </div>
+        <DevTool control={control} />
         <form className={s.form} onSubmit={onSubmit}>
           <ControlledTextField
             className={`${s.field} ${errors.username && s.fieldWithError}`}
             control={control}
             label={t.auth.userName}
             name={'username'}
+            type={'username'}
           />
           <ControlledTextField
             className={`${s.field} ${errors.email && s.fieldWithError}`}
             control={control}
             label={t.auth.email}
             name={'email'}
+            type={'email'}
           />
           <ControlledTextField
             className={`${s.field} ${errors.password && s.fieldWithError}`}
             control={control}
             label={t.auth.password}
             name={'password'}
-            type={'password'}
+            type={'new-password'}
           />
           <ControlledTextField
             className={`${s.field} ${s.lastField}`}
             control={control}
             label={t.auth.passwordConfirmation}
             name={'passwordConfirm'}
-            type={'password'}
+            type={'new-password'}
           />
           <div className={s.terms}>
             <ControlledCheckbox

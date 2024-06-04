@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { UserInfo } from '@/entities/profile/service'
@@ -22,7 +22,10 @@ type Props = {
   onSubmitHandler?: (data: ProfileSettingSchema) => void
   userData: UserInfo
 }
-export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => {
+export const GeneralInformationForm = memo(function GeneralInformationForm({
+  onSubmitHandler,
+  userData,
+}: Props) {
   const { t } = useTranslate()
   const userName = useAppSelector(getUsername)
   const {
@@ -65,6 +68,7 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
           isRequired
           label={t.profileSetting.generalInformation.userName}
           name={'username'}
+          type={'username'}
         />
         <ControlledTextField
           className={s.field}
@@ -72,6 +76,7 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
           isRequired
           label={t.profileSetting.generalInformation.firstName}
           name={'firstName'}
+          type={'given-name'}
         />
         <ControlledTextField
           className={s.field}
@@ -79,11 +84,12 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
           isRequired
           label={t.profileSetting.generalInformation.lastName}
           name={'lastName'}
+          type={'family-name'}
         />
         <ControlledDatePicker
           className={s.date}
           control={control}
-          errorMessage={errors.dateOfBirthday?.message}
+          error={errors.dateOfBirthday?.message}
           label={t.profileSetting.generalInformation.dateOfBirthday}
           name={'dateOfBirthday'}
         />
@@ -113,4 +119,4 @@ export const GeneralInformationForm = ({ onSubmitHandler, userData }: Props) => 
       <div className={`${s.grayLine} ${errors.dateOfBirthday && s.grayLineError}`} />
     </>
   )
-}
+})

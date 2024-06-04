@@ -14,18 +14,13 @@ export const PublicPost = () => {
     <div className={s.container}>
       {postData?.data.items.map(post => (
         <div className={s.box} key={post.id}>
-          {Array.isArray(post.images) && post.images.length > 0 && (
-            <ShowPostModal
-              description={post.description}
-              id={post.id}
-              images={post.images}
-              userId={post.userId}
-            />
-          )}
+          {Array.isArray(post.images) && post.images.length > 0 && <ShowPostModal data={post} />}
           <div className={s.profile_header}>
             <ProfileHeader userId={post.userId} />
           </div>
-          <div className={s.time_online}>{formatPostCreatedAt(post.createdAt)}</div>
+          <time className={s.time_online} suppressHydrationWarning>
+            {formatPostCreatedAt(post.createdAt)}
+          </time>
           <div className={s.disrciption}>
             <Typography className={s.text} color={'primary'} variant={'regular14'}>
               {post.description}

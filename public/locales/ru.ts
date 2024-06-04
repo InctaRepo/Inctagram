@@ -145,6 +145,7 @@ export const ru: LocaleType = {
 
   locale: {
     english: 'English',
+    language: 'Язык',
     russian: 'Russian',
   },
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useCreateNewPasswordMutation } from '@/features/auth/createNewPassword/service'
 import { useErrorToast, useTranslate } from '@/shared/hooks'
-import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
+import { PasswordsMatchSchema } from '@/shared/schemas/passwordsMatchSchema'
 import { useRouter } from 'next/router'
 
 export const useCreateNewPassword = () => {
@@ -31,7 +31,7 @@ export const useCreateNewPassword = () => {
     }
   }, [data, isSuccess])
 
-  const submit = (data: PasswordsMatchForm) => {
+  const submit = (data: PasswordsMatchSchema) => {
     createNewPassword({ newPassword: data.password, recoveryCode })
   }
 

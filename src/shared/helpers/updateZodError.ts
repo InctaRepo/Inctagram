@@ -1,9 +1,9 @@
 import { LoginFormType } from '@/shared/schemas/createLoginSchema'
-import { PasswordsMatchForm } from '@/shared/schemas/passwordsMatchSchema'
+import { PasswordsMatchSchema } from '@/shared/schemas/passwordsMatchSchema'
 import { ProfileSettingSchema } from '@/shared/schemas/profileSettingSchema'
 import { SignUpFormSchema } from '@/shared/schemas/signUpSchema'
 
-type FormType = LoginFormType | PasswordsMatchForm | ProfileSettingSchema | SignUpFormSchema
+type FormType = LoginFormType | PasswordsMatchSchema | ProfileSettingSchema | SignUpFormSchema
 
 export type FormFields = keyof FormType
 

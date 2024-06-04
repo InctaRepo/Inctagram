@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useMemo } from 'react'
 
 import { RouteNames } from '@/shared/const'
 import { Header } from '@/shared/header'
@@ -16,10 +16,13 @@ export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
     asPath.startsWith(RouteNames.AUTH) ||
     asPath.endsWith('404') ||
     pathname === RouteNames.PUBLIC_PAGE
+  const variant = useMemo(() => {
+    return !isPublicPath && isAuth ? undefined : 'public'
+  }, [isPublicPath, isAuth])
 
   return (
     <div className={s.container}>
-      <Header variant={!isPublicPath && isAuth ? undefined : 'public'} />
+      <Header variant={variant} />
       <main className={s.main}>{children}</main>
     </div>
   )

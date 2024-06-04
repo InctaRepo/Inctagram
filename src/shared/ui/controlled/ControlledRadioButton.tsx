@@ -2,20 +2,28 @@ import { FieldValues, UseControllerProps, useController } from 'react-hook-form'
 
 import { RadioButton, RadioButtonProps } from '@/ui/radioButton'
 
-type Props<T extends FieldValues> = Omit<UseControllerProps<T>, 'defaultValues' | 'rules'> &
-  Omit<RadioButtonProps, 'id' | 'onChange' | 'value'>
+type Props<TFieldValues extends FieldValues> = Omit<RadioButtonProps, 'id' | 'onChange' | 'value'> &
+  UseControllerProps<TFieldValues>
 
-export const ControlledRadioButton = <T extends FieldValues>({
+export const ControlledRadioButton = <TFieldValues extends FieldValues>({
   control,
+  defaultValue,
+  disabled,
   name,
+  rules,
+  shouldUnregister,
   ...rest
-}: Props<T>) => {
+}: Props<TFieldValues>) => {
   const {
     field: { onChange, ...field },
     fieldState: { error },
   } = useController({
     control,
+    defaultValue,
+    disabled,
     name,
+    rules,
+    shouldUnregister,
   })
 
   return (

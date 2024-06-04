@@ -6,9 +6,6 @@ import { SliderSettings } from '@/entities/post/sliderSettings'
 import { Images } from '@/features/posts/service'
 import Image from 'next/image'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import s from '@/entities/post/postImages/ui/postImages.module.scss'
 
 type Props = { images?: Images[]; isDescription?: boolean }
@@ -19,7 +16,7 @@ export const PostImages = ({ images, isDescription }: Props) => {
       <div className={s.imgContainer}>
         <Slider {...SliderSettings}>
           {images?.map((el, idx) => (
-            <div className={isDescription ? s.carouselDescription : s.carousel} key={idx}>
+            <div className={isDescription ? s.carouselDescription : s.carousel} key={el.url}>
               <Image
                 alt={'img'}
                 height={490}

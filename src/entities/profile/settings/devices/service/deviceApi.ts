@@ -14,7 +14,7 @@ export const deviceApi = baseApi.injectEndpoints({
       invalidatesTags: ['Device'],
       query: (deviceId: string) => ({
         method: 'DELETE',
-        url: `auth/sessions/${deviceId}`,
+        url: `auth/session/${deviceId}`,
       }),
     }),
     getSessions: builder.query<BaseResponse<Device[]>, void>({

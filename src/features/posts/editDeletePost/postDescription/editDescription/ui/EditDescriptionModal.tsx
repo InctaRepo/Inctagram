@@ -14,7 +14,7 @@ import { Separator } from '@radix-ui/react-separator'
 import s from '@/features/posts/editDeletePost/postDescription/editDescription/ui/editDescriptionModal.module.scss'
 
 type Props = {
-  createdAt?: Date
+  createdAt?: string
   description?: string
   id: string | string[] | undefined
   images?: Images[]

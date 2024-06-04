@@ -23,6 +23,7 @@ export type ModalProps = {
   cancelButtonName?: string // if no props , visibility = hidden
   children?: ReactNode
   className?: string
+  disabledDescription?: boolean
   image?: string
   isDescriptionModalOpen: boolean
   isFiltersModalOpen: boolean
@@ -45,6 +46,7 @@ export const AddDescriptionModal = ({
   cancelButtonName,
   children,
   className,
+  disabledDescription,
   isDescriptionModalOpen,
   sendFilteredImg,
   setIsDescriptionModalOpen,
@@ -60,7 +62,7 @@ export const AddDescriptionModal = ({
       !cancelButtonName && s.cancelButtonHide,
       s.actionButton
     ),
-    content: getContentClassName(className),
+    content: clsx(className, s.DialogContent),
     separator: clsx(s.separator, !showSeparator && s.separatorHide),
   }
   const { t } = useTranslate()
@@ -96,7 +98,12 @@ export const AddDescriptionModal = ({
                 <Typography variant={'h1'}>{title}</Typography>
               </DialogTitle>
               <div className={s.next}>
-                <Button className={s.nextButton} onClick={handlePublish} variant={'text'}>
+                <Button
+                  className={s.nextButton}
+                  disabled={disabledDescription}
+                  onClick={handlePublish}
+                  variant={'text'}
+                >
                   {t.posts.createPost.publish}
                 </Button>
               </div>
@@ -108,8 +115,4 @@ export const AddDescriptionModal = ({
       </Dialog>
     </div>
   )
-}
-
-function getContentClassName(className?: string) {
-  return clsx(className, s.DialogContent)
 }

@@ -19,6 +19,7 @@ import s from '@/features/posts/createPost/addDescription/postDescription/ui/pos
 
 type Props = {
   description?: string
+  disabledDescription?: boolean
   isDescription?: boolean
   postId?: string
   setIsEditDescriptionModalOpen?: (isEditDescriptionModalOpen: boolean) => void
@@ -29,12 +30,12 @@ type Props = {
 
 export const PostDescription = ({
   description,
+  disabledDescription,
   isDescription,
   postId,
   setIsEditDescriptionModalOpen,
   setIsEditModalOpen,
   setValue,
-  value,
 }: Props) => {
   const { t } = useTranslate()
   const [updatePost] = useUpdatePostMutation()
@@ -44,15 +45,23 @@ export const PostDescription = ({
   const {
     control,
     formState: { touchedFields },
+    getValues,
     trigger,
+    watch,
   } = useForm<DescriptionForm>({
     defaultValues: {
       description: description,
     },
-    mode: 'onTouched',
+    mode: 'onChange',
     resolver: zodResolver(descriptionSchema(t)),
   })
 
+  const watchDescription = watch('description')
+
+  useEffect(() => {
+    setValue?.(getValues('description'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watchDescription])
   useEffect(() => {
     const touchedFieldNames: FormFields[] = Object.keys(touchedFields) as FormFields[]
 
@@ -61,18 +70,21 @@ export const PostDescription = ({
   }, [t])
 
   const saveHandler = () => {
-    updatePost({
-      description: value,
-      postId: postId,
-    }).then(() => {
-      if (setIsEditDescriptionModalOpen) {
-        setIsEditDescriptionModalOpen(false)
-        if (setIsEditModalOpen) {
-          setIsEditModalOpen(true)
+    if (!disabledDescription) {
+      updatePost({
+        description: getValues('description'),
+        postId: postId,
+      }).then(() => {
+        if (setIsEditDescriptionModalOpen) {
+          setIsEditDescriptionModalOpen(false)
+          if (setIsEditModalOpen) {
+            setIsEditModalOpen(true)
+          }
         }
-      }
-    })
+      })
+    }
   }
+
   const errorHandler = () => {
     setIsAvaBroken(true)
   }
@@ -103,24 +115,28 @@ export const PostDescription = ({
               </Typography>
             </div>
           </div>
-
           <ControlledTextArea
             className={s.textArea}
             control={control}
             fullWidth
             label={t.posts.createPost.addDescription}
             name={'description'}
-            setValue={setValue}
           />
+
           <div className={s.counter}>
             <Typography color={'secondary'} variant={'small'}>
-              {value?.length}/500
+              {getValues('description')?.length ?? 0}/500
             </Typography>
           </div>
         </div>
 
         {isDescription && (
-          <Button className={s.btn} onClick={saveHandler} variant={'primary'}>
+          <Button
+            className={s.btn}
+            disabled={disabledDescription}
+            onClick={saveHandler}
+            variant={'primary'}
+          >
             <Typography variant={'h3'}>{t.posts.editPost.save}</Typography>
           </Button>
         )}
