@@ -7,7 +7,7 @@ export interface UserInfo {
   firstName: string
   lastName: string
   userId?: string
-  username: string
+  userName: string
 }
 
 export type Avatar = {

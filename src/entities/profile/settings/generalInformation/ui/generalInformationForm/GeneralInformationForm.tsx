@@ -43,7 +43,7 @@ export const GeneralInformationForm = memo(function GeneralInformationForm({
       dateOfBirthday: userData?.dateOfBirth ? parseISO(`${userData?.dateOfBirth}`) : new Date(),
       firstName: userData?.firstName,
       lastName: userData?.lastName,
-      username: userData ? userData?.username : userName,
+      username: userData ? userData?.userName : userName,
     },
     mode: 'onChange',
     resolver: zodResolver(createProfileSettingSchema(t)),
