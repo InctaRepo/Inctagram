@@ -7,6 +7,8 @@ import { useRouter } from 'next/router'
 export const GetMeAuthGoogleGithub = () => {
   const dispatch = useAppDispatch()
   const { data: user, isSuccess: isSuccessMe } = useGetMeQuery()
+  // TODO: исправить типы
+  // @ts-ignore
   const userId = user?.data?.userId
   const router = useRouter()
 

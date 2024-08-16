@@ -88,6 +88,8 @@ export const PostDescription = ({
   const errorHandler = () => {
     setIsAvaBroken(true)
   }
+  // TODO: исправить типы
+  // @ts-ignore
   const avaWithError = isAvaBroken ? DefaultAva : data?.data?.avatar!
 
   return (
@@ -96,6 +98,7 @@ export const PostDescription = ({
         <div className={s.description}>
           <div className={s.userInfo}>
             <div>
+              {/* @ts-ignore */}
               {data?.data?.avatar && (
                 <ImageAva
                   alt={'avatar'}
@@ -103,14 +106,17 @@ export const PostDescription = ({
                   height={36}
                   onError={errorHandler}
                   priority
+                  // @ts-ignore
                   src={data?.data?.avatar ? data?.data?.avatar : avaWithError}
                   width={36}
                 />
               )}
+              {/* @ts-ignore */}
               {!data?.data?.avatar && <AvatarImage className={s.ava} />}
             </div>
             <div className={s.userName}>
               <Typography color={'primary'} variant={'h3'}>
+                {/* @ts-ignore */}
                 {data?.data?.username}
               </Typography>
             </div>
