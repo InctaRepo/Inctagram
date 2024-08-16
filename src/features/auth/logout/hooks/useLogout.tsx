@@ -22,7 +22,7 @@ export const useLogout = () => {
   const { t } = useTranslate()
   const logoutHandler = useCallback(() => {
     logoutUser()
-    dispatch(setAuthMeData({ authMeData: { email: '', userId: '', username: '' } }))
+    dispatch(setAuthMeData({ authMeData: { email: '', userId: '', userName: '' } }))
     dispatch(clearToken())
     dispatch(clearId())
     dispatch(setVariantIcon(null))

@@ -6,13 +6,13 @@ import { AuthMeResponse } from '@/shared/hoc/service/AuthMeResponse'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    getMe: build.query<BaseResponse<AuthMeResponse>, void>({
+    getMe: build.query<AuthMeResponse, void>({
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
 
-          if (data?.resultCode === resultCode.OK) {
-            dispatch(setAuthMeData({ authMeData: data.data }))
+          if (data?.userId) {
+            dispatch(setAuthMeData({ authMeData: data }))
           }
         } catch (e) {
           console.error(e)

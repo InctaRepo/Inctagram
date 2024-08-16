@@ -18,11 +18,11 @@ export const profileApi = baseApi.injectEndpoints({
         url: `users/profile/avatar`,
       }),
     }),
-    getProfile: builder.query<BaseResponse<UserInfo>, string>({
+    getProfile: builder.query<UserInfo, string>({
       providesTags: ['Profile'],
       query: id => ({
         method: 'GET',
-        url: `users/profile/${id}`,
+        url: `users/profile`,
       }),
     }),
     updateProfile: builder.mutation<BaseResponse, Pick<UserInfo, 'userId'> & UserInfo>({

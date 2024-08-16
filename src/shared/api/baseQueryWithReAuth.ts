@@ -43,7 +43,7 @@ export const baseQueryWithReAuth: BaseQueryFn<
 
       try {
         const refreshResult = await baseQuery(
-          { method: 'POST', url: 'auth/refresh-token' },
+          { method: 'POST', url: 'auth/update-tokens' },
           api,
           extraOptions
         )

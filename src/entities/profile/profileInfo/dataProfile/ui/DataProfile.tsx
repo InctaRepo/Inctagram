@@ -21,7 +21,7 @@ export const DataProfile = ({ userData }: Props) => {
   return (
     <>
       <div className={s.header}>
-        <Typography variant={'h1'}>{userData?.username}</Typography>
+        <Typography variant={'h1'}>{userData?.userName}</Typography>
         {isAuth && (
           <Button
             className={s.button}

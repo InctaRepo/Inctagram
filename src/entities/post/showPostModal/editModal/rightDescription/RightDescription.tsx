@@ -90,7 +90,7 @@ export const RightDescription = memo(
               </div>
               <div className={s.userNameHead}>
                 <Typography color={'primary'} variant={'h3'}>
-                  {userData?.username}
+                  {userData?.userName}
                 </Typography>
               </div>
             </div>
@@ -133,7 +133,7 @@ export const RightDescription = memo(
                     <div style={{ display: 'inline-block' }}>
                       <div className={s.userName} style={{ display: 'inline', marginRight: 5 }}>
                         <Typography color={'primary'} style={{ display: 'inline' }} variant={'h3'}>
-                          {userData?.username}
+                          {userData?.userName}
                         </Typography>
                       </div>
                       <Typography style={{ display: 'inline' }} variant={'regular14'}>

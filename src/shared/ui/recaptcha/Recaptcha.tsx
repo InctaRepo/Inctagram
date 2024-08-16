@@ -28,6 +28,7 @@ const CSSMod = {
   primary: 'primary',
 }
 
+// TODO: ! заменить рекапчей от гугла. Это грустно
 export const Recaptcha = forwardRef<ElementRef<'label'>, RecaptchaProps>(
   ({ className, error, expired, onChange }, ref) => {
     const [mode, setMode] = useState(CSSMod.primary)

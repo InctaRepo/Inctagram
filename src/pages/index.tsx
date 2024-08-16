@@ -36,9 +36,11 @@ const Public = () => {
 
   if (isAuth && userId !== null) {
     router.push(RouteNames.PROFILE + '/' + userId)
-  } else {
-    return <PublicPage />
+
+    return null
   }
+
+  return <PublicPage />
 }
 
 Public.getLayout = GetAuthLayout

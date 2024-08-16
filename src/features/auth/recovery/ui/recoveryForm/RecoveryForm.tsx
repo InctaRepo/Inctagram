@@ -54,10 +54,8 @@ export const RecoveryForm = ({ modalHandler, onSubmitHandler, type }: Props) => 
 
   const submitData = (data: ForgotForm) => {
     setMode(CSSMod.secondary)
-    if (data && data.recaptcha) {
-      // @ts-ignore
-      delete data.recaptcha // our server doesnt receive it yet
-    }
+    // TODO: ! подключить каптчу
+    // @ts-ignore
     onSubmitHandler(data)
     modalHandler()
   }

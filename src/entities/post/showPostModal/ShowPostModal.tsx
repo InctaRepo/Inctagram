@@ -29,7 +29,10 @@ export const ShowPostModal = ({
   const { data: userData } = useGetProfileQuery(userId)
   const currentId = id === undefined ? currentPostId : id
   const memoUserData = useMemo(() => {
+    // TODO: исправить типы
+    // @ts-ignore
     return userData?.data
+    // @ts-ignore
   }, [userData?.data])
   const buttonClickHandler = useCallback(() => {
     setIsEditModalOpen(false)

@@ -29,12 +29,14 @@ export const GeneralInformation = memo(function GeneralInformation() {
   const userId = useAppSelector(getUserId) as string
   const { data: profile, isLoading, isSuccess } = useGetProfileQuery(userId)
   const userData = useMemo(() => {
-    return profile?.data
-  }, [profile?.data])
+    return profile
+  }, [profile])
   const [uploadAvatar, { isLoading: isLoadingAva, isSuccess: isSuccessAvatar }] =
     useUploadAvatarMutation()
 
   const successRes =
+    // TODO: пройтись по типам
+    // @ts-ignore
     (isSuccessCreate && profile?.resultCode === 0) || (isSuccessUpdate && profile?.resultCode === 0)
   const onFormSubmit = useCallback(
     (data: ProfileSettingSchema) => {
@@ -48,6 +50,7 @@ export const GeneralInformation = memo(function GeneralInformation() {
             firstName: data.firstName,
             lastName: data.lastName,
             userId: userId,
+            // @ts-ignore
             username: data.username,
           }).then(() => {
             if (avatar !== null) {
@@ -63,6 +66,7 @@ export const GeneralInformation = memo(function GeneralInformation() {
             firstName: data.firstName,
             lastName: data.lastName,
             userId: userId,
+            // @ts-ignore
             username: data.username,
           }).then(() => {
             if (avatar !== null) {
