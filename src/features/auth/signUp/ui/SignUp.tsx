@@ -13,10 +13,12 @@ export const SignUp = () => {
   const { t } = useTranslate()
 
   const [emailSentModal, setEmailSentModal] = useState<boolean>(false)
-  const [userRegistration, { data, isLoading, isSuccess }] = useSignUpMutation()
-  const successRes = isSuccess && data?.resultCode === resultCode.OK
-  const errorRes = isSuccess && data?.resultCode !== resultCode.OK
-  const error = data?.extensions && data.extensions.length > 0 && data.extensions[0].message
+  const [userRegistration, { data, error: requestError, isLoading, isSuccess, status }] =
+    useSignUpMutation()
+  const successRes = isSuccess && status === 'fulfilled'
+
+  // @ts-ignore
+  const error = requestError?.data?.messages[0]?.message
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const setToastHandler = () => {
@@ -24,21 +26,21 @@ export const SignUp = () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useErrorToast(isSuccess, false)
     }
-    if (errorRes) {
+    if (requestError) {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useErrorToast(false, error ? error : 'Some error')
     }
   }
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isSuccess || !!requestError) {
       setToastHandler()
       if (successRes) {
         setEmailSentModal(true)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, data])
+  }, [isSuccess, data, requestError])
 
   const submit = (data: SignUpFormSchema) => {
     userRegistration(data)

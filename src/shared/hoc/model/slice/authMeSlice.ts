@@ -6,7 +6,11 @@ const authMeSlice = createSlice({
   name: 'authMe',
   reducers: {
     setAuthMeData: (state, action: PayloadAction<AuthMeSchema>) => {
-      state.authMeData = action.payload.authMeData
+      state.authMeData = {
+        email: action.payload.authMeData.email,
+        userId: action.payload.authMeData.userId,
+        username: action.payload.authMeData.userName,
+      }
     },
   },
 })

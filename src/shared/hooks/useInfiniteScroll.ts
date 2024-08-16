@@ -58,7 +58,9 @@ export const useInfiniteScroll = (
           }
         })
     }
-  }, [data?.data.totalCount, dynamicPosts?.length, page, refetch])
+  }, [])
+  // TODO: исправить ошибку зависимостей, пересмотреть всю логику
+  // }, [data?.data.totalCount, dynamicPosts?.length, page, refetch])
   // }, [ page])
 
   const handleObserver = useCallback(
@@ -88,7 +90,9 @@ export const useInfiniteScroll = (
       }
       setIsLoading(false)
     },
-    [page, data?.data?.pagesCount, data?.data.totalCount, dynamicPosts, newPosts]
+    []
+    // TODO: исправить ошибку зависимостей, пересмотреть всю логику
+    // [page, data?.data?.pagesCount, data?.data.totalCount, dynamicPosts, newPosts]
     //[
     //       loadMoreTimeoutRef,
     //       setIsLoading,

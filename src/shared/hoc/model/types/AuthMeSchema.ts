@@ -1,5 +1,5 @@
 export type AuthMeSchema = {
-  authMeData: UserType
+  authMeData: { userName?: string } & UserType
 }
 type UserType = {
   email?: string | undefined

@@ -18,7 +18,7 @@ export const Recovery = ({ recoveryMutation, type }: Props) => {
   const [email, setEmail] = useState('')
   const [openModal, setOpenModal] = useState(false)
   const modalHandler = () => {
-    setOpenModal(!openModal)
+    setOpenModal(prev => !prev)
   }
 
   const submit = (data: RecoveryParams) => {

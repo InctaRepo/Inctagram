@@ -43,6 +43,8 @@ export const LoginForm = ({ errorServer, onSubmitHandler }: Props) => {
         <form className={s.form} onSubmit={handleSubmit(submitData)}>
           <ControlledTextField
             autoComplete={'email'}
+            // TODO: чего здесь происходит?
+            // ${errors.email && s.fieldWithError && errorServer} вернёт либо false либо текст ошибки от сервера errorServer
             className={`${s.field} ${errors.email && s.fieldWithError && errorServer}`}
             control={control}
             fullWidth
